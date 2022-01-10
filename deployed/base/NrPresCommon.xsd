@@ -314,6 +314,12 @@
          <xsd:enumeration value="West"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="CavityInsulationOther">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal"/>
+   </xsd:simpleType>
    <xsd:simpleType name="City">
       <xsd:annotation>
          <xsd:documentation>Part of an address</xsd:documentation>
@@ -613,6 +619,12 @@
          <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="xsd:string"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="ContinuousInsulationOther">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal"/>
    </xsd:simpleType>
    <xsd:simpleType name="CoolingDegreeDays">
       <xsd:annotation>
@@ -2307,6 +2319,13 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
             <dtyp:displayterm>Status</dtyp:displayterm>
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="AddGT700sf">New or Add 
+               <d:gt/>700ft<d:sup>2</d:sup>
+            </dtyp:displayterm>
+            <dtyp:displayterm value="AddLTE700sf">Add 
+               <d:lte/>700ft<d:sup>2</d:sup>
+            </dtyp:displayterm>
+            <dtyp:displayterm value="AnyStatus">Any Status</dtyp:displayterm>
             <dtyp:displayterm value="ExistingAlteration">Altered</dtyp:displayterm>
             <dtyp:displayterm value="ExistingUnchanged">Existing</dtyp:displayterm>
             <dtyp:displayterm value="Modified">Modified</dtyp:displayterm>
@@ -2314,6 +2333,9 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="AddGT700sf"/>
+         <xsd:enumeration value="AddLTE700sf"/>
+         <xsd:enumeration value="AnyStatus"/>
          <xsd:enumeration value="ExistingAlteration"/>
          <xsd:enumeration value="ExistingUnchanged"/>
          <xsd:enumeration value="Modified"/>
@@ -2436,10 +2458,13 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
             <dtyp:displayterm value="Healthcare">Healthcare</dtyp:displayterm>
             <dtyp:displayterm value="HighRiseResidential">High-Rise Residential</dtyp:displayterm>
             <dtyp:displayterm value="HotelMotel">Hotel/Motel</dtyp:displayterm>
+            <dtyp:displayterm value="LowRiseResidential">Multifamily 
+               <d:lte/>3 stories</dtyp:displayterm>
             <dtyp:displayterm value="MixedOccupancy">Mixed Occupancy</dtyp:displayterm>
             <dtyp:displayterm value="Nonresidential">Nonresidential</dtyp:displayterm>
             <dtyp:displayterm value="OtherOccupancy">Other</dtyp:displayterm>
             <dtyp:displayterm value="RelocableSchoolBuildingAllZones">Relocable Public School Building for use in all climate zones Occupancy: E</dtyp:displayterm>
+            <dtyp:displayterm value="ResidentialMF">Multifamily</dtyp:displayterm>
             <dtyp:displayterm value="ResidentialNR">High-rise Res/ Hotel/ Motel</dtyp:displayterm>
             <dtyp:displayterm value="StateBuilding">State Building</dtyp:displayterm>
          </xsd:appinfo>
@@ -2449,10 +2474,12 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
          <xsd:enumeration value="Healthcare"/>
          <xsd:enumeration value="HighRiseResidential"/>
          <xsd:enumeration value="HotelMotel"/>
+         <xsd:enumeration value="LowRiseResidential"/>
          <xsd:enumeration value="MixedOccupancy"/>
          <xsd:enumeration value="Nonresidential"/>
          <xsd:enumeration value="OtherOccupancy"/>
          <xsd:enumeration value="RelocableSchoolBuildingAllZones"/>
+         <xsd:enumeration value="ResidentialMF"/>
          <xsd:enumeration value="ResidentialNR"/>
          <xsd:enumeration value="StateBuilding"/>
       </xsd:restriction>
@@ -2811,19 +2838,24 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
             <dtyp:displayterm value="DataCenterBuilding">Data Center</dtyp:displayterm>
             <dtyp:displayterm value="FinancialInstitutionBuilding">Financial Institution</dtyp:displayterm>
             <dtyp:displayterm value="GeneralCommercialIndustrialWorkBuilding">General Commercial Industrial Work</dtyp:displayterm>
-            <dtyp:displayterm value="GroceryStoreBuilding">Grocery Store</dtyp:displayterm>
+            <dtyp:displayterm value="GroceryStoreBuilding">Grocery</dtyp:displayterm>
             <dtyp:displayterm value="GymnasiumBuilding">Gymnasium</dtyp:displayterm>
             <dtyp:displayterm value="HighRiseResidential">High-Rise Residential</dtyp:displayterm>
             <dtyp:displayterm value="HospitalBuilding">Healthcare Facility</dtyp:displayterm>
             <dtyp:displayterm value="HotelMotel">Hotel/Motel</dtyp:displayterm>
             <dtyp:displayterm value="LibraryBuilding">Library</dtyp:displayterm>
+            <dtyp:displayterm value="LowRiseResidential">Low-Rise Residential</dtyp:displayterm>
             <dtyp:displayterm value="ManufacturingFacilityBuilding">Industrial/Manufacturing Facility</dtyp:displayterm>
             <dtyp:displayterm value="MedicalClinicBuilding">Medical Clinic</dtyp:displayterm>
             <dtyp:displayterm value="MotionPictureBuilding">Motion Picture Theater</dtyp:displayterm>
             <dtyp:displayterm value="MultiFamilyMixedUseGTE4">Multi-family/ MF Mixed-use 
                <d:gte/>4 stories</dtyp:displayterm>
+            <dtyp:displayterm value="MultiFamilyMixedUseGTE4AddAlt">Multi-family/ MF Mixed-use 
+               <d:gte/>4 stories (Addition or Alteration)</dtyp:displayterm>
             <dtyp:displayterm value="MultiFamilyMixedUseLT4">Multi-family/ MF Mixed-use 
                <d:lt/>4 stories</dtyp:displayterm>
+            <dtyp:displayterm value="MultiFamilyMixedUseLT4AddAlt">Multi-family/ MF Mixed-use 
+               <d:lt/>4 stories (Addition or Alteration)</dtyp:displayterm>
             <dtyp:displayterm value="MuseumBuilding">Museum</dtyp:displayterm>
             <dtyp:displayterm value="OfficeBuilding">Office</dtyp:displayterm>
             <dtyp:displayterm value="ParkingGarageBuilding">Parking Garage</dtyp:displayterm>
@@ -2831,11 +2863,12 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
             <dtyp:displayterm value="ReligiousFacilityBuilding">Religious Facility</dtyp:displayterm>
             <dtyp:displayterm value="RelocatablePublicSchoolBuilding">Relocatable Public School</dtyp:displayterm>
             <dtyp:displayterm value="RestaurantBuilding">Restaurant</dtyp:displayterm>
-            <dtyp:displayterm value="RetailBuilding">Retail Store</dtyp:displayterm>
+            <dtyp:displayterm value="RetailBuilding">Retail</dtyp:displayterm>
             <dtyp:displayterm value="SchoolBuilding">School</dtyp:displayterm>
             <dtyp:displayterm value="SportsArenaBuilding">Sports Arena</dtyp:displayterm>
             <dtyp:displayterm value="SupportArea">Support Areas</dtyp:displayterm>
             <dtyp:displayterm value="TheaterBuilding">Theater</dtyp:displayterm>
+            <dtyp:displayterm value="UnleasedTenantSpace">Unleased Tenant Space</dtyp:displayterm>
             <dtyp:displayterm value="Warehouse">Warehouse</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
@@ -2856,11 +2889,14 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
          <xsd:enumeration value="HospitalBuilding"/>
          <xsd:enumeration value="HotelMotel"/>
          <xsd:enumeration value="LibraryBuilding"/>
+         <xsd:enumeration value="LowRiseResidential"/>
          <xsd:enumeration value="ManufacturingFacilityBuilding"/>
          <xsd:enumeration value="MedicalClinicBuilding"/>
          <xsd:enumeration value="MotionPictureBuilding"/>
          <xsd:enumeration value="MultiFamilyMixedUseGTE4"/>
+         <xsd:enumeration value="MultiFamilyMixedUseGTE4AddAlt"/>
          <xsd:enumeration value="MultiFamilyMixedUseLT4"/>
+         <xsd:enumeration value="MultiFamilyMixedUseLT4AddAlt"/>
          <xsd:enumeration value="MuseumBuilding"/>
          <xsd:enumeration value="OfficeBuilding"/>
          <xsd:enumeration value="ParkingGarageBuilding"/>
@@ -2873,6 +2909,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
          <xsd:enumeration value="SportsArenaBuilding"/>
          <xsd:enumeration value="SupportArea"/>
          <xsd:enumeration value="TheaterBuilding"/>
+         <xsd:enumeration value="UnleasedTenantSpace"/>
          <xsd:enumeration value="Warehouse"/>
       </xsd:restriction>
    </xsd:simpleType>

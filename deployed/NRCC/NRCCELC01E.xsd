@@ -70,10 +70,21 @@
                         <xsd:documentation source="FieldText">Project Location (city)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="A01a_ClimateZone" type="com:ClimateZone">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Climate Zone</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from climate zones 1 -16 the climate zone where the project is located</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="A02_WholeBuildingOccupancy" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Occupancy Types Within Project:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This field accumulates all the occupany types the use selected as in the project scope and is evaluated to trigger  different sections</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects as many types as apply from the 26 occupancy type checkboxes in the UI.  Only the  types checked by the user are stored in A04_WholeBuildingOccupancy and displayed in the report pdf.</xsd:documentation>
+                        <xsd:appinfo source="displayterm">
+                           <dtyp:displayterm value="MultiFamilyMixedUseGTE4">Multi-family/ MF Mixed-use 
+                              <d:gte/>4 stories (new construction)</dtyp:displayterm>
+                           <dtyp:displayterm value="RestaurantBuilding">Restaurant/ Commercial Kitchen</dtyp:displayterm>
+                        </xsd:appinfo>
                      </xsd:annotation>
                      <xsd:simpleType>
                         <xsd:restriction base="com:WholeBuildingOccupancy">
@@ -86,12 +97,12 @@
                            <xsd:enumeration value="FinancialInstitutionBuilding"/>
                            <xsd:enumeration value="GroceryStoreBuilding"/>
                            <xsd:enumeration value="GymnasiumBuilding"/>
-                           <xsd:enumeration value="HighRiseResidential"/>
                            <xsd:enumeration value="HospitalBuilding"/>
                            <xsd:enumeration value="HotelMotel"/>
                            <xsd:enumeration value="LibraryBuilding"/>
                            <xsd:enumeration value="MedicalClinicBuilding"/>
                            <xsd:enumeration value="MultiFamilyMixedUseGTE4"/>
+                           <xsd:enumeration value="MultiFamilyMixedUseGTE4AddAlt"/>
                            <xsd:enumeration value="OfficeBuilding"/>
                            <xsd:enumeration value="ParkingGarageBuilding"/>
                            <xsd:enumeration value="ReligiousFacilityBuilding"/>
@@ -105,40 +116,6 @@
                            <xsd:enumeration value="Warehouse"/>
                         </xsd:restriction>
                      </xsd:simpleType>
-                  </xsd:element>
-                  <xsd:element name="A02Other1_TypeOtherDescription" type="com:TypeOtherDescription" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Other (write in)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This field is required If A02All_WholeBuildingOccupancy includes AllOthersBuildings;  User input should describe the type of  occupancy.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A02MFMixedGTE4New_OccupancyApplies" type="comp:OccupancyApplies">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Multifamily/ MF Mixed-use 
-                           <d:gte/> 4 stories (new construction)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input; If checked result = true; Else result = false.  
-If result == true A02All_WholeBuildingOccupancy += MultiFamilyMixedUseGTE4
-End If
- 
-Mandatory Measure Triggers:
-If result == true And I04_ThermostatType  == SetbackThermostat Or EnergyManagementSystem Or SetbackPlusDR  
-DUMM120_2c2_MeasureApplies = true and is displayed 
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A02MFMixedGTE4EAA_OccupancyApplies" type="comp:OccupancyApplies">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Multifamily/ MF Mixed-use 
-                           <d:gte/> 4 stories (Addition or Alteration)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input; If checked result = true; Else result = false.  
-If result == true A02All_WholeBuildingOccupancy += MultiFamilyMixedUseGTE4
-End If
- 
-Mandatory Measure Triggers:
-If result == true And I04_ThermostatType  == SetbackThermostat Or EnergyManagementSystem Or SetbackPlusDR  
-DUMM120_2c2_MeasureApplies = true and is displayed 
-End If</xsd:documentation>
-                     </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A03_RequestedMMB" type="comp:RequestedMMB" minOccurs="0">
                      <xsd:annotation>
@@ -277,7 +254,7 @@ End If</xsd:documentation>
                                              <d:t24refnolink/>120.2/
                                              <d:t24refnolink/>160.3, 
                                              <d:t24refnolink/>130.1/
-                                             <d:t24refnolink/>160.5,  and 
+                                             <d:t24refnolink/>160.5, and 
                                              <d:t24refnolink/>130.3/
                                              <d:t24refnolink/>160.5, and mechanical, indoor lighting, and sign lighting Certificate of Compliance documents will indicate when demand response controls are required.</xsd:documentation>
                                        </xsd:annotation>
@@ -339,7 +316,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
-                           <d:i>Results in this table are automatically calculated from data input and calculations in Tables F through J.  Note: If any cell on this table says "COMPLIES with Exceptional Conditions"  refer to Table D. Exceptional Conditions for guidance or see applicable Table referenced below.</d:i>
+                           <d:i>Results in this table are automatically calculated from data input and calculations in Tables F through J.  Note: If any cell on this table says "COMPLIES with Exceptional Conditions" refer to Table D. Exceptional Conditions for guidance or see applicable Table referenced below.</d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -501,23 +478,11 @@ If A02_WholeBuildingOccupancy includes HospitalBuilding
 result = true display term Yes, 
  
 Else If  B02_ElectricalServiceProjectScope == AddAltFeedersBranchCircuitsOnly Or NewReplacementServiceMeterOnly 
-result = BlankGrayedOut stored in NotApplicableMessage and field is blank and grayed out; 
+result = BlankGrayedOut stored in NotApplicableMessage and field is blank and grayed out;  
  
-Else If in any row  I02_ControlledReceptacleComplianceType IsNull  
+Else If in any rows  I02_ControlledReceptacleComplianceType Or  
+I03_ControlledReceptacleShutOffControl Or I04a_ControlledReceptacleDemandResponse  Or I04_AreControlledReceptaclesPermanentlyMarked Or I05_BuildingPlanName IsNull  
 result = false display term No;  
-Else If in all rows  I02_ControlledReceptacleComplianceType == ControlledReceptacleNotApplicable  
-result = true display term Yes;  
- 
-Else If in all rows  where I02_ControlledReceptacleComplianceType != ControlledReceptacleNotApplicable  
-If I03_ControlledReceptacleShutOffControl Or I04_AreControlledReceptaclesPermanentlyMarked Or I05_BuildingPlanName IsNull  
-result = false display term No;  
-Else 
-If any I03_ControlledReceptacleShutOffControl == OtherShutOffControl then 
-If I_Exception02_ExceptionalConditionNote IsNull 
-result = false display term No;  
-Else 
-result = true display term Yes; 
-End If
 Else 
 result = true display term Yes; 
 End If</xsd:documentation>
@@ -552,6 +517,19 @@ End If</xsd:documentation>
                            <xsd:documentation source="FieldText">Electric Ready 
                               <d:t24refnolink/>160.9 
                               <d:line1/> (See Table J)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If J01e_NotApplicableMessage == NotApplicableRequirement
+result = true
+Else
+J01a_SingleUnitFurnace == true And J02_Ready240V  And J03_Future240V ==false
+Or
+J01b_SingleUnitCooktop == true  And J04_Ready240V  And J05_Future240V == false
+Or
+J01c_SingleUnitDryer == true And J04_Ready240V  And J05_Future240V == false
+Or
+J01d_CommonAreaDryer == true And J03_Future240V == false
+result = false
+Else result = true
+End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="C05_NotApplicableMessage" type="comp:NotApplicableMessage">
@@ -559,6 +537,9 @@ End If</xsd:documentation>
                            <xsd:documentation source="FieldText">Electric Ready 
                               <d:t24refnolink/>160.9 
                               <d:line1/> (See Table J)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A02MFMixedLT4New_OccupancyApplies == false this section is not required
+result = BlankGrayedOut
+End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -576,7 +557,8 @@ Else  for all fields that are present
  If C01_DoesElectricalServiceMeteringComply == false 
 Or C02_DoesLoadSeparationMonitoringComply == false 
 Or C03_DoesVoltageDropComply == false 
-Or C04_DoControlledReceptaclesComply == false, then 
+Or C04_DoControlledReceptaclesComply == false
+Or C05_DoesElectricReadyMFComply == false, then 
 result = DoesNotComply display term DOES NOT COMPLY 
  
 Else  If D03_ExceptionalConditionMessageCCELCE NotPresent 
@@ -637,7 +619,7 @@ End If</xsd:documentation>
                   <xsd:element name="D03_ExceptionalConditionMessageCCELCE" type="comp:ExceptionalConditionMessageCCELCE" minOccurs="0" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Exceptional Messages</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Auto-filled with any system generated messages that explain exceptional conditions encountered in the the completed compliance document</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Auto-filled with any system generated messages that explain exceptional conditions encountered in the completed compliance document</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -657,7 +639,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
-                           <d:i>This table is includes remarks made by the permit applicant to the Authority Having Jurisdiction.</d:i>
+                           <d:i>This table includes remarks made by the permit applicant to the Authority Having Jurisdiction.</d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -823,7 +805,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:i>This table includes entirely new or complete replacement electrical power distribution systems to demonstrate compliance with 
                               <d:t24refnolink/>130.5(b)/
-                              <d:t24refnolink/>160.6(b).  Any load types that are not included in the service do not need to be shown. For multifmily occupancies, submetered systems that provide power to dwelling units do not need to meet these separation requirements and therefore load types on those submetered systems also do not need to be shown.</d:i>
+                              <d:t24refnolink/>160.6(b).  Any load types that are not included in the service do not need to be shown. For multifamily occupancies, submetered systems that provide power to dwelling units do not need to meet these separation requirements and therefore load types on those submetered systems also do not need to be shown.</d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -852,8 +834,7 @@ End If</xsd:documentation>
                                           <xsd:sequence>
                                              <xsd:element name="G01_ElectricalLoadType" type="com:ElectricalLoadType">
                                                 <xsd:annotation>
-                                                   <xsd:documentation source="FieldText">Load Type per  
-                                                      <d:t24table/>Table 130.5-B<d:sup>1</d:sup>
+                                                   <xsd:documentation source="FieldText">Load Type per Table 130.5-B<d:sup>1</d:sup>
                                                    </xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User selects from dropdown list: LightingLoad display term Lighting including exit, egress and exterior, HVAC_Load display term HVAC systems and components, WaterSystemsLoad display term Domestic and service water systems, PlugLoadsLT25kVA display term Plug Loads and appliances less than 25kVA, ElevatorEscalatorMovingWalkwayLoad display term Elevators, escalators, moving walkways, PlugLoadsGTE25kVA display term Other non-HVAC loads and appliances greater than or equal to 25kVA, IndustrialCommercialLoadCentersGTE25kVA display term Industrial/Commercial Load Centers greater than or equal to 25kVA, RenewablePowerSources display term Renewable power sources (net or total), RenewablePowerSourcesAssociatedLoad display term Loads associated with renewable power sources, ElectricalVehicleChargingStationLoad display term Charging stations for electrical vehicle, DwellingUnitsOnlyOnService display term Only MF dwelling units on this service</xsd:documentation>
                                                 </xsd:annotation>
@@ -861,8 +842,7 @@ End If</xsd:documentation>
                                              <xsd:choice maxOccurs="1">
                                                 <xsd:element name="G02_ElectricalLoadSeparationRequirement" type="comp:ElectricalLoadSeparationRequirement">
                                                    <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Minimum Required Separation of Load per  
-                                                         <d:t24table/>Table 130.5-B</xsd:documentation>
+                                                      <xsd:documentation source="FieldText">Minimum Required Separation of Load per Table 130.5-B</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">Calculated value: 
 If G01_ElectricalLoadType != DwellingUnitsOnlyOnService
  If  B03_ElectricalServiceRating LTE 50 And G01_ElectricalLoadType != ElectricalVehicleChargingStationLoad Or RenewablePowerSources
@@ -889,8 +869,7 @@ End If</xsd:documentation>
                                                 </xsd:element>
                                                 <xsd:element name="G02_NotApplicableMessage">
                                                    <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Minimum Required Separation of Load per  
-                                                         <d:t24table/>Table 130.5-B</xsd:documentation>
+                                                      <xsd:documentation source="FieldText">Minimum Required Separation of Load per Table 130.5-B</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">Calculated value: 
 If G01_ElectricalLoadType == DwellingUnitsOnlyOnService
 result = BlankGrayedOut
@@ -1194,7 +1173,7 @@ EndIf</xsd:documentation>
          <xsd:element name="Section_I" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">
-                  <d:b>I.CIRCUIT CONTROLS FOR 120-VOLT RECEPTACLES AND CONTROLLED RECEPTACLES</d:b>
+                  <d:b>I. CIRCUIT CONTROLS FOR 120-VOLT RECEPTACLES AND CONTROLLED RECEPTACLES</d:b>
                </xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">Section I is required if  A02_WholeBuildingOccupancy != HospitalBuilding  And B02_ElectricalServiceProjectScope == NewElectricalService Or ReplacementElectricalService Or ReplacementElectricalServiceNotMeter
  
@@ -1333,7 +1312,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_J" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">
-                  <d:b>J.ELECTRIC READY BUILDINGS</d:b>
+                  <d:b>J. ELECTRIC READY BUILDINGS</d:b>
                </xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is required If  A02MFMixedGTE4New_OccupancyApplies == true</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
@@ -1506,16 +1485,16 @@ If J01d_CommonAreaDryer == true</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_K" minOccurs="1">
+         <xsd:element name="Section_Nrci" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">
-                  <d:b>J. DECLARATION OF REQUIRED CERTIFICATES OF INSTALLATION</d:b>
+                  <d:b>K. DECLARATION OF REQUIRED CERTIFICATES OF INSTALLATION</d:b>
                </xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="K_BeginNote1" minOccurs="0">
+                  <xsd:element name="Nrci_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
@@ -1523,14 +1502,14 @@ If J01d_CommonAreaDryer == true</xsd:documentation>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="K01a_RequireNRCIElc01E" type="comp:RequireNRCIElc01E">
+                  <xsd:element name="Nrci01a_RequireNRCIElc01E" type="comp:RequireNRCIElc01E">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCI-ELC-E - Must be submitted for all buildings</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Result = true and can not be changed by user</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="K01b_VerifedByInspector" type="comp:VerifedByInspector" minOccurs="0">
+                  <xsd:element name="Nrci01b_VerifedByInspector" type="comp:VerifedByInspector" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
                      </xsd:annotation>
@@ -1538,16 +1517,16 @@ If J01d_CommonAreaDryer == true</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_L" minOccurs="0">
+         <xsd:element name="Section_Nrca" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">
-                  <d:b>K. DECLARATION OF REQUIRED CERTIFICATES OF ACCEPTANCE</d:b>
+                  <d:b>L. DECLARATION OF REQUIRED CERTIFICATES OF ACCEPTANCE</d:b>
                </xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="L_BeginNote1" minOccurs="0">
+                  <xsd:element name="Nrca_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
