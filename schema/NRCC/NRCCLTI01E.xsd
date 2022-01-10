@@ -64,6 +64,7 @@
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i]This document is used to demonstrate compliance with requirements in [d:t24refnolink/]110.9, [d:t24refnolink/]110.12(c), [d:t24refnolink/]130.0, [d:t24refnolink/]130.1, [d:t24refnolink/]140.6 and [d:t24refnolink/]141.0(b)2 for indoor lighting scopes using the prescriptive path for nonresidential and hotel/motel occupancies.  It is also used to document compliance with requirements in [d:t24refnolink/]160.5, [d:t24refnolink/]170.2(e) and [d:t24refnolink/]180.2(b)4 for indoor lighting scopes using the prescriptive path for multifamily occupancies.  Multifamily includes dormitory and senior living facilities.[/d:i]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This note should be placed before section A in the header on the first page of the report only</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A01_ProjectCity" type="comp:ProjectCity" >
@@ -81,7 +82,7 @@
                   <xsd:element name="A03_WholeBuildingOccupancy"  minOccurs="1" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Occupancy Types Within Project (select all that apply):</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects all occupancy types that apply
+                        <xsd:documentation source="CalculationsAndRules">User selects as many types as apply from the 25 occupancy type checkboxes in the UI.  Only the  types checked by the user are stored in A04_WholeBuildingOccupancy and displayed in the report pdf. 
  
 Mandatory Measures Triggers:
 If result includes HighRiseResidential Or HotelMotel   
@@ -98,6 +99,11 @@ DUMM150_0k1H_MeasureApplies == true and is displayed And
 DUMM150_0k1I_MeasureApplies == true and is displayed And
 DUMM150_0k2_MeasureApplies == true and is displayed And
 End If</xsd:documentation>
+                        <xsd:appinfo source="displayterm">
+                           <dtyp:displayterm value="RestaurantBuilding">Restaurant/ Commercial Kitchen</dtyp:displayterm>
+                           <dtyp:displayterm value="MultiFamilyMixedUseGTE4">Multi-family/ MF Mixed-use [d:gte/]4 stories (includes dormitory, senior living)</dtyp:displayterm>
+                        </xsd:appinfo>
+                        
                      </xsd:annotation>
                      <xsd:simpleType>
                         <xsd:restriction base="com:WholeBuildingOccupancy">
@@ -129,12 +135,6 @@ End If</xsd:documentation>
                            <xsd:enumeration value="Warehouse"/>
                         </xsd:restriction>
                      </xsd:simpleType>
-                  </xsd:element>
-                  <xsd:element name="A03a_TypeOtherDescription" type="com:TypeOtherDescription"  minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Other (write in)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This field is required If A03_WholeBuildingOccupancy  includes AllOthersBuildings.  User input should describe the type of  occupancy.</xsd:documentation>
-                     </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A04_TotalConditionedFloorArea" type="com:TotalConditionedFloorArea" >
                      <xsd:annotation>
@@ -433,16 +433,22 @@ End If</xsd:documentation>
                   <xsd:element name="BTotals03_LightingProjectTotalConditionedFloorArea" type="comp:LightingProjectTotalConditionedFloorArea"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated value: If Bnew03_NewLightingConditionedFloorArea IsNull And Bpark03_NewLightingConditionedFloorArea IsNull And  All Baltered03_AlteredLightingConditionedFloorArea IsNull result = field blank and not required;  Else for Bnew03, Bpark03 and all Baltered03  values NotNull result =  SUM  ( Bnew03_NewLightingConditionedFloorArea, Bpark03_NewLightingConditionedFloorArea, Baltered03_AlteredLightingConditionedFloorArea)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated value: If Bnew03_NewLightingConditionedFloorArea IsNull And Bpark03_NewLightingConditionedFloorArea IsNull And  All Baltered03_AlteredLightingConditionedFloorArea IsNull result = field blank and not required;  Else for Bnew03, Bpark03 and all Baltered03  values NotNull result =  SUM  ( Bnew03_NewLightingConditionedFloorArea, Bpark03_NewLightingConditionedFloorArea, Baltered03_AlteredLightingConditionedFloorArea)
+ 
+If result !=  A04_TotalConditionedFloorArea Then
+D03  ExceptionalConditionMessageCCLTIE += FloorAreasInconsistentValues</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="BTotals05_LightingProjectTotalUnconditionedFloorArea" type="comp:LightingProjectTotalUnconditionedFloorArea"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated value: If Bnew05_NewLightingUnconditionedFloorArea IsNull And Bpark05_NewLightingUnconditionedFloorArea IsNull And  Baltered05_AlteredLightingUnconditionedFloorArea IsNull result = field blank and not required;  Else for Bnew05, Bpark05 and all Baltered05  values NotNull result = SUM ( Bnew05_NewLightingUnconditionedFloorArea, Bpark05_NewLightingUnconditionedFloorArea, Baltered05_AlteredLightingUnconditionedFloorArea)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated value: If Bnew05_NewLightingUnconditionedFloorArea IsNull And Bpark05_NewLightingUnconditionedFloorArea IsNull And  Baltered05_AlteredLightingUnconditionedFloorArea IsNull result = field blank and not required;  Else for Bnew05, Bpark05 and all Baltered05  values NotNull result = SUM ( Bnew05_NewLightingUnconditionedFloorArea, Bpark05_NewLightingUnconditionedFloorArea, Baltered05_AlteredLightingUnconditionedFloorArea)
+ 
+If result !=  A05_TotalUnconditionedFloorArea Then
+D03  ExceptionalConditionMessageCCLTIE += FloorAreasInconsistentValues</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="BalteredMessage03_05" minOccurs="0">
+                  <xsd:element name="BalteredMessage02_04" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:b][d:i]ALERT! The Rated Power Reduction Method for alterations may only be used for one-for-one luminaire alterations within a building or tenant space of 5,000 ft[d:sup]2[/d:sup] or less per [d:t24refnolink/]141.0(b)2liii /[d:t24refnolink/]180.2(b)4.[/d:i][/d:b]</xsd:documentation>
@@ -509,7 +515,7 @@ End If</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="C01_ColumnLabel1" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Complete Building [d:t24ref/]140.6(c)1</xsd:documentation>
+                        <xsd:documentation source="FieldText">Complete Building [d:t24refnolink/]140.6(c)1</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="C01_ColumnLabel2" minOccurs="0">
@@ -867,13 +873,13 @@ End If</xsd:documentation>
                      <xsd:element name="C08Row01_LightingPowerInstalledTotalConditionedAdjusted" type="comp:LightingPowerInstalledTotalConditionedAdjusted" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"></xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If C06Row01_LightingPowerInstalledTotalConditioned NotNull Then If C08Row01_ControlsTotalLightingPowerAllowedConditioned NotNull result = C06Row01_LightingPowerInstalledTotalConditioned - C08Row01_ControlsTotalLightingPowerAllowedConditioned); Else result = C06Row01_LightingPowerInstalledTotalConditioned;  Else result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If C06Row01_LightingPowerInstalledTotalConditioned NotNull Then If C07Row01_ControlsTotalLightingPowerAllowedConditioned NotNull result = C06Row01_LightingPowerInstalledTotalConditioned - C07Row01_ControlsTotalLightingPowerAllowedConditioned); Else result = C06Row01_LightingPowerInstalledTotalConditioned;  Else result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="C08Row01_NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"></xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If C06Row01_LightingPowerInstalledTotalConditioned NotNull Then If C08Row01_ControlsTotalLightingPowerAllowedConditioned NotNull result = C06Row01_LightingPowerInstalledTotalConditioned - C08Row01_ControlsTotalLightingPowerAllowedConditioned); Else result = C06Row01_LightingPowerInstalledTotalConditioned;  Else result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If C06Row01_LightingPowerInstalledTotalConditioned NotNull Then If C07Row01_ControlsTotalLightingPowerAllowedConditioned NotNull result = C06Row01_LightingPowerInstalledTotalConditioned - C07Row01_ControlsTotalLightingPowerAllowedConditioned); Else result = C06Row01_LightingPowerInstalledTotalConditioned;  Else result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank</xsd:documentation>
                         </xsd:annotation>
                         <xsd:simpleType>
                            <xsd:restriction base="comp:NotApplicableMessage">
@@ -886,13 +892,13 @@ End If</xsd:documentation>
                      <xsd:element name="C08Row02_LightingPowerInstalledTotalUnconditionedAdjusted" type="comp:LightingPowerInstalledTotalUnconditionedAdjusted" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"></xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If C06Row02_LightingPowerInstalledTotalUnconditioned NotNull Then If C08Row02_ControlsTotalLightingPowerAllowedUnconditioned NotNull result = C06Row02_LightingPowerInstalledTotalUnconditioned - C08Row02_ControlsTotalLightingPowerAllowedUnconditioned); Else result = C06Row02_LightingPowerInstalledTotalUnconditioned;  Else result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If C06Row02_LightingPowerInstalledTotalUnconditioned NotNull Then If C07Row02_ControlsTotalLightingPowerAllowedUnconditioned NotNull result = C06Row02_LightingPowerInstalledTotalUnconditioned - C07Row02_ControlsTotalLightingPowerAllowedUnconditioned); Else result = C06Row02_LightingPowerInstalledTotalUnconditioned;  Else result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="C08Row02_NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText"></xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If C06Row02_LightingPowerInstalledTotalUnconditioned NotNull Then If C08Row02_ControlsTotalLightingPowerAllowedUnconditioned NotNull result = C06Row02_LightingPowerInstalledTotalUnconditioned - C08Row02_ControlsTotalLightingPowerAllowedUnconditioned); Else result = C06Row02_LightingPowerInstalledTotalUnconditioned;  Else result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If C06Row02_LightingPowerInstalledTotalUnconditioned NotNull Then If C07Row02_ControlsTotalLightingPowerAllowedUnconditioned NotNull result = C06Row02_LightingPowerInstalledTotalUnconditioned - C07Row02_ControlsTotalLightingPowerAllowedUnconditioned); Else result = C06Row02_LightingPowerInstalledTotalUnconditioned;  Else result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank</xsd:documentation>
                         </xsd:annotation>
                         <xsd:simpleType>
                            <xsd:restriction base="comp:NotApplicableMessage">
@@ -950,7 +956,7 @@ End If</xsd:documentation>
                            <xsd:documentation source="FieldText">[d:b]Controls Compliance (See Table H for Details)[/d:b]</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">If all values for Baltered02_LightingPrescriptiveMethodNR == Or Baltered04_LightingPrescriptiveMethodNR == RatedPowerReduction result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank; 
 Else
-If D03_ExceptionalConditionMessageNRCCLTIE contains  LP80PercentAlterationExceededInR Or LP80PercentAlterationMissingDataInR Or LP80PercentAlterationOnlyIssueInH 
+If D03_ExceptionalConditionMessageCCLTIE contains  LP80PercentAlterationExceededInR Or LP80PercentAlterationMissingDataInR Or LP80PercentAlterationOnlyIssueInH 
 result = DoesNotComply display term DOES NOT COMPLY;
  
 Else 
@@ -989,7 +995,7 @@ Else If  Q01_RatedPowerReductionScopeApplies == true AND Q02b_RatedPowerReductio
 result = true display term COMPLIES; 
  
 Else If Q01, And Q03-Q19 have been completed or are not required AND 
-QPercentReduction_LightingPowerReductionPercent GTE .40 
+QPercentReduction_LightingPowerReductionPercent GTE 0.40 
 result = true display term COMPLIES 
  
 Else result = false display term DOES NOT COMPLY
@@ -1432,7 +1438,7 @@ End If</xsd:documentation>
                                     <xsd:element name="G03ColumnHeading" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"></xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">Calculation Method per [d:t24ref/]130.0(c)6</xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">Calculation Method per [d:t24refnolink/]130.0(c)6</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="G03i_IsTrackLightingMethodInstalledLuminaires" type="comp:IsTrackLightingMethodInstalledLuminaires" >
@@ -1880,7 +1886,7 @@ End If</xsd:documentation>
                                           <xsd:documentation source="FieldText">Multi-Level Controls [d:t24refnolink/]130.1(b) /[d:t24refnolink/]160.5(b)4B</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from dropdown list. 
  
-If result == NA_LT80PctAllowedLP then If Bnew01 and Bpark01 LightingProjectScopeNR == NotApplicableLightingScope And Baltered01 LightingProjectScopeNR == AlteredLightingSystem And C08 GT ((C01+ C02) x 0.8)  D03  ExceptionalConditionMessageNRCCLTIE = LP80PercentAlterationIssueInH
+If result == NA_LT80PctAllowedLP then If Bnew01 and Bpark01 LightingProjectScopeNR == NotApplicableLightingScope And Baltered01 LightingProjectScopeNR == AlteredLightingSystem And C08 GT ((C01+ C02) x 0.8)  D03_ExceptionalConditionMessageCCLTIE += LP80PercentAlterationIssueInH
  
 Mandatory Measure Triggers:
 If result == BilevelSwitchControl Or DimmerControl
@@ -1933,7 +1939,7 @@ V02_RequireNRCALti03A = false
 End If 
  
  
-If result == NA_LT80PctAllowedLP then If Bnew01 and Bpark01 LightingProjectScopeNR == NotApplicableLightingScope And Baltered01 LightingProjectScopeNR == AlteredLightingSystem And C08 GT PRODUCT (SUM (C01, C02), 0.8)  D03  ExceptionalConditionMessageNRCCLTIE = LP80PercentAlterationIssueInH
+If result == NA_LT80PctAllowedLP then If Bnew01 and Bpark01 LightingProjectScopeNR == NotApplicableLightingScope And Baltered01 LightingProjectScopeNR == AlteredLightingSystem And C08 GT PRODUCT (SUM (C01, C02), 0.8)  D03_ExceptionalConditionMessageCCLTIE += LP80PercentAlterationIssueInH
 End If
  
 Mandatory Measure Block Triggers:
@@ -1952,7 +1958,7 @@ Note: MM130_1d includes text for 130.1d,  130.1d3, 130.1d4, and 130.1d5,</xsd:do
 V02_RequireNRCALti03A = false
 End If 
  
-If result == NA_LT80PctAllowedLP then If Bnew01 and Bpark01 LightingProjectScopeNR == NotApplicableLightingScope And Baltered01 LightingProjectScopeNR == AlteredLightingSystem And C08 GT PRODUCT (SUM (C01, C02), 0.8)  D03  ExceptionalConditionMessageNRCCLTIE = LP80PercentAlterationIssueInH</xsd:documentation>
+If result == NA_LT80PctAllowedLP then If Bnew01 and Bpark01 LightingProjectScopeNR == NotApplicableLightingScope And Baltered01 LightingProjectScopeNR == AlteredLightingSystem And C08 GT PRODUCT (SUM (C01, C02), 0.8)  D03_ExceptionalConditionMessageCCLTIE += LP80PercentAlterationIssueInH</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="H11_InterlockedLightingSystems" type="lit:InterlockedLightingSystems" >
@@ -2000,7 +2006,7 @@ End If</xsd:documentation>
                   <xsd:element name="I_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i]Each area complying using the Complete Building or Area Category Methods per [d:t24ref/]140.6(b) are included in this table.  Column 06 indicates if additional lighting power allowances per [d:t24ref/]140.6(c) or adjustments per [d:t24ref/]140.6(a) are being used .[/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]Each area complying using the Complete Building or Area Category Methods per [d:t24refnolink/]140.6(b) are included in this table.  Column 06 indicates if additional lighting power allowances per [d:t24refnolink/]140.6(c) or adjustments per [d:t24refnolink/]140.6(a) are being used .[/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="I_ColumnHeading06" minOccurs="0">
@@ -3261,7 +3267,7 @@ End If</xsd:documentation>
                                              <xsd:element name="Kc05d_RoomCavityRatio" type="com:RoomCavityRatio" >
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Room Cavity Ratio (RCR)</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">Calculated value using equations in TABLE 140.6-F:  If kc05_IsSpaceRectanfular == true then result = (5 x Kc05c_Height x (Kc05a_SpaceLength + Kc05b_SpaceWidth)) / (Kc05a_SpaceLength x Kc05b_SpaceWidth); Else result = 2.5 x Kc05c_Height x Kc05b_SpaceWidth / Kc07_SpaceFloorArea.</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">Calculated value using equations in TABLE 140.6-F:  If kc05_IsSpaceRectanfular == true then result = (5 x Kc05c_Height x (Kc05a_SpaceLength + Kc05b_SpaceWidth)) / (Kc05a_SpaceLength x Kc05b_SpaceWidth); Else result = 2.5 x Kc05c_Height x Kc05b_SpacePerimeter / Kc07_SpaceFloorArea.</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
                                              <xsd:element name="Kc06_TailoredGeneralLPD" type="comp:TailoredGeneralLPD" >
@@ -3483,7 +3489,7 @@ End If</xsd:documentation>
                                              <xsd:element name="Ku05d_RoomCavityRatio" type="com:RoomCavityRatio" >
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Room Cavity Ratio (RCR)</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">Calculated value using equations in TABLE 140.6-F:  If Ku05_IsSpaceRectanfular == true then result = (5 x Ku05c_Height x (Ku05a_SpaceLength + Ku05b_SpaceWidth)) / (Ku05a_SpaceLength x Ku05b_SpaceWidth); Else result = 2.5 x Ku05c_Height x Ku05b_SpaceWidth / Ku07_SpaceFloorArea.</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">Calculated value using equations in TABLE 140.6-F:  If Ku05_IsSpaceRectanfular == true then result = (5 x Ku05c_Height x (Ku05a_SpaceLength + Ku05b_SpaceWidth)) / (Ku05a_SpaceLength x Ku05b_SpaceWidth); Else result = 2.5 x Ku05c_Height x Ku05b_SpacePerimeter / Ku07_SpaceFloorArea.</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
                                              <xsd:element name="Ku06_TailoredGeneralLPD" type="comp:TailoredGeneralLPD" >
@@ -5189,7 +5195,7 @@ End If</xsd:documentation>
                   <xsd:element name="PEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]1[/d:sup] FOOTNOTES:  PAFs outlined in Table 140.6-A /170.2-L include 1) Daylight continuous dimming plus OFF; 2A) Occupant sensors in offices with one sensor per [dlte/] 125 ft[d:sup]2[/d:sup];  2B) Occupant sensors in offices with one sensor per 126 - 250 ft[d:sup]2[/d:sup]; 3A) Institutional tuning, non-daylit areas and 3B) Institutional tuning, daylit areas; 4) Demand response; 5) Clerestory fenestration; 6) Horizontal slats; 7) Light shelves. [/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]1[/d:sup] FOOTNOTES:  PAFs outlined in Table 140.6-A /170.2-L include 1) Daylight continuous dimming plus OFF; 2A) Occupant sensors in offices with one sensor per [d:lte/] 125 ft[d:sup]2[/d:sup];  2B) Occupant sensors in offices with one sensor per 126 - 250 ft[d:sup]2[/d:sup]; 3A) Institutional tuning, non-daylit areas and 3B) Institutional tuning, daylit areas; 4) Demand response; 5) Clerestory fenestration; 6) Horizontal slats; 7) Light shelves. [/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="PEndNote2" minOccurs="0">
@@ -5242,8 +5248,10 @@ End If</xsd:documentation>
                   <xsd:element name="Q01_RatedPowerReductionScopeApplies" type="comp:RatedPowerReductionScopeApplies" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Alteration scope includes a one-for-one luminaire alteration within a building or tenant space of 5,000 ft[d:sup]2[/d:sup] or less per [d:t24refnolink/]141.0(b)2I(iii) /[d:t24refnolink/]180.2(b)4biv.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If checked result = true, Else result = false
-If result == true, fields Q03 - 18  are displayed and enabled</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Boolean Checked result = true, unchecked result = false.
+If result == true,all fields Q03 - 18 fields are displayed and enabled; 
+Else If result == false Q03 through Q14Total fields are not required and are blank and grayed out  And Mandatory Controls table with fields Q15 - 18 fields are required and are enabled;
+End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Q02_RatedPowerReductionException6AppliesSome" type="comp:RatedPowerReductionException6AppliesSome" >
@@ -5265,7 +5273,7 @@ Else no data is required in this field.</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Exception 6 applies to all spaces within the permit application</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input: If checked result = true And, all fields Q03 - Q19 are grayed out</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: If checked result = true And, all fields Q03-Q14Total fields are not required and are blank and grayed out</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="ChoiceQTables" >
@@ -5277,8 +5285,7 @@ Else no data is required in this field.</xsd:documentation>
                            <xsd:element name="QTablesNA_NotApplicableMessage" >
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If Q01_RatedPowerReductionScopeApplies == false Or Q02b_RatedPowerReductionException6AppliesToAll == true 
-result = BlankGrayedOut stored in NotApplicableMessage and data is not required fields Q03-Q19 and they are blank and grayed out; 
+                                 <xsd:documentation source="CalculationsAndRules">If Q01_RatedPowerReductionScopeApplies == false Or If Q02b_RatedPowerReductionException6AppliesToAll == true result = BlankGrayedOut stored in NotApplicableMessage applied to Fixture Table and following totals fields Q08Total_TotalPowerPreAlteration and  Q14Total_TotalPowerPostAlteration 
 End If</xsd:documentation>
                               </xsd:annotation>
                               <xsd:simpleType>
@@ -5291,7 +5298,7 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">If Q01_RatedPowerReductionScopeApplies  == true And Q02b_RatedPowerReductionException6AppliesToAll ==  false
-this subsection with Q03-Q19 fields are required.</xsd:documentation>
+Fixture Table and following totals fields Q08Total_TotalPowerPreAlteration and  Q14Total_TotalPowerPostAlteration are required.</xsd:documentation>
                               </xsd:annotation>
                               <xsd:complexType>
                                  <xsd:sequence>
@@ -5431,124 +5438,132 @@ this subsection with Q03-Q19 fields are required.</xsd:documentation>
                                     <xsd:element name="QEndNote2" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"></xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]2[/d:sup] Must be at least 40% to comply with [d:t24refnolink/]141.0(b)2I(iii) /[d:t24refnolink/]1180.2(b)4biv[/d:i]</xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]2[/d:sup] Must be at least 40% to comply with [d:t24refnolink/]141.0(b)2I(iii) /[d:t24refnolink/]180.2(b)4biv[/d:i]</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="TableControlsBySpace" >
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:choice>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="TableControlsBySpace" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Section_Q is triggered because in section B there is at least one value in  Baltered02_LightingPrescriptiveMethodNR Or Baltered04_LightingPrescriptiveMethodNR  == RatedPowerReduction
+this table is always required</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="Q15_SpaceDescription" type="com:SpaceDescription" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="FieldText">Area Description</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                        </xsd:annotation>
-                                       <xsd:complexType>
-                                          <xsd:sequence>
-                                             <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
-                                                <xsd:complexType>
-                                                   <xsd:sequence>
-                                                      <xsd:element name="Q15_SpaceDescription" type="com:SpaceDescription" >
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Area Description</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
-                                                      <xsd:element name="Q16_SpaceFunction" >
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Primary Function Area</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">User input: Select from dropdown list:</xsd:documentation>
-                                                         </xsd:annotation>
-                                                         <xsd:simpleType>
-                                                            <xsd:restriction base="com:SpaceFunction">
-                                                               <xsd:enumeration value="AllOthersSpace"/>
-                                                               <xsd:enumeration value="AudienceSeatingArea"/>
-                                                               <xsd:enumeration value="AuditoriumArea"/>
-                                                               <xsd:enumeration value="AutoRepairArea"/>
-                                                               <xsd:enumeration value="BarLoungeFineDiningArea"/>
-                                                               <xsd:enumeration value="BeautySalonArea"/>
-                                                               <xsd:enumeration value="CivicMeetingPlaceArea"/>
-                                                               <xsd:enumeration value="ClassroomLectureTrainingVocationalArea"/>
-                                                               <xsd:enumeration value="CommercialIndustrialStorageArea"/>
-                                                               <xsd:enumeration value="CommercialIndustrialStorageShipping"/>
-                                                               <xsd:enumeration value="CommercialIndustrialWarehouse"/>
-                                                               <xsd:enumeration value="ConferenceMultipurposeMeetingMF"/>
-                                                               <xsd:enumeration value="ConventionConferenceMultipurposeMeetingCenterArea"/>
-                                                               <xsd:enumeration value="CopyRoom"/>
-                                                               <xsd:enumeration value="CorridorArea"/>
-                                                               <xsd:enumeration value="ElectricalMechancialTelephoneRoom"/>
-                                                               <xsd:enumeration value="ExerciseCenterGymnasiumArea"/>
-                                                               <xsd:enumeration value="ExhibitMuseumArea"/>
-                                                               <xsd:enumeration value="FamilyDiningArea"/>
-                                                               <xsd:enumeration value="FastfoodDining"/>
-                                                               <xsd:enumeration value="FinancialTransactionsArea"/>
-                                                               <xsd:enumeration value="GeneralCommercialIndustrialWorkAreaHighBay"/>
-                                                               <xsd:enumeration value="GeneralCommercialIndustrialWorkAreaLowBay"/>
-                                                               <xsd:enumeration value="GeneralCommercialIndustrialWorkAreaPrecision"/>
-                                                               <xsd:enumeration value="GrocerySalesArea"/>
-                                                               <xsd:enumeration value="HospitalExamTreatment"/>
-                                                               <xsd:enumeration value="HospitalImaging"/>
-                                                               <xsd:enumeration value="HospitalMedicalSupply"/>
-                                                               <xsd:enumeration value="HospitalNursery"/>
-                                                               <xsd:enumeration value="HospitalNurseStation"/>
-                                                               <xsd:enumeration value="HospitalOperatingRoom"/>
-                                                               <xsd:enumeration value="HospitalPatientRoom"/>
-                                                               <xsd:enumeration value="HospitalPhysicalTherapy"/>
-                                                               <xsd:enumeration value="HospitalRecovery"/>
-                                                               <xsd:enumeration value="HotelFunctionArea"/>
-                                                               <xsd:enumeration value="KitchenCommercialFoodPreparation"/>
-                                                               <xsd:enumeration value="LaboratoryScientific"/>
-                                                               <xsd:enumeration value="Laundry"/>
-                                                               <xsd:enumeration value="LibraryReadingArea"/>
-                                                               <xsd:enumeration value="LibraryStacks"/>
-                                                               <xsd:enumeration value="LobbyMainEntry"/>
-                                                               <xsd:enumeration value="LockerDressingRoom"/>
-                                                               <xsd:enumeration value="LoungeBreakRoom"/>
-                                                               <xsd:enumeration value="LowVisionCorridorArea"/>
-                                                               <xsd:enumeration value="LowVisionDiningArea"/>
-                                                               <xsd:enumeration value="LowVisionLobbyMainEntry"/>
-                                                               <xsd:enumeration value="LowVisionMultipurposeRoom"/>
-                                                               <xsd:enumeration value="LowVisionReligiousWorshipArea"/>
-                                                               <xsd:enumeration value="LowVisionRestroom"/>
-                                                               <xsd:enumeration value="LowVisionStairwell"/>
-                                                               <xsd:enumeration value="LowVisionWaitingArea"/>
-                                                               <xsd:enumeration value="MuseumRestoration"/>
-                                                               <xsd:enumeration value="NurseStationMF"/>
-                                                               <xsd:enumeration value="Office250FtOrLess"/>
-                                                               <xsd:enumeration value="OfficeGreaterThan250Ft"/>
-                                                               <xsd:enumeration value="ParkingGarageAreaDaylightAdaptationZone"/>
-                                                               <xsd:enumeration value="ParkingGarageBuildingParkingArea"/>
-                                                               <xsd:enumeration value="PharmacyArea"/>
-                                                               <xsd:enumeration value="PhysicalTherapyMF"/>
-                                                               <xsd:enumeration value="ReligiousWorshipArea"/>
-                                                               <xsd:enumeration value="Restroom"/>
-                                                               <xsd:enumeration value="RetailFittingRoom"/>
-                                                               <xsd:enumeration value="RetailMallConcourse"/>
-                                                               <xsd:enumeration value="RetailSalesArea"/>
-                                                               <xsd:enumeration value="SportsArenaSeatsGTE5000ClassI"/>
-                                                               <xsd:enumeration value="SportsArenaSeatsLimitedClassIV"/>
-                                                               <xsd:enumeration value="SportsArenaSeatsLT2000ClassIII"/>
-                                                               <xsd:enumeration value="SportsArenaSeatsLT5000ClassII"/>
-                                                               <xsd:enumeration value="Stairwell"/>
-                                                               <xsd:enumeration value="StorageMF"/>
-                                                               <xsd:enumeration value="TheaterMotionPicture"/>
-                                                               <xsd:enumeration value="TheaterPerformance"/>
-                                                               <xsd:enumeration value="TransportationFunctionConcourseBaggage"/>
-                                                               <xsd:enumeration value="TransportationFunctionTicketing"/>
-                                                               <xsd:enumeration value="VideoConferencingStudio"/>
-                                                            </xsd:restriction>
-                                                         </xsd:simpleType>
-                                                      </xsd:element>
-                                                      <xsd:element name="Q17_AreaControlsCompliance" type="comp:AreaControlsCompliance" >
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Area Controls [d:t24refnolink/]130.1(a) /[d:t24refnolink/]160.5(b)4A</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">User input: Select from dropdown list</xsd:documentation>
-                                                            <xsd:appinfo source="displayterm">
-                                                               <dtyp:displayterm value="AnnunciatedAreaControl"> Annunciated*</dtyp:displayterm>
-                                                            </xsd:appinfo>
-                                                            
-                                                         </xsd:annotation>
-                                                      </xsd:element>
-                                                      <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="Q18_ShutOffControlsBuilding" >
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Shut-Off Controls [d:t24refnolink/]130.1(c) /[d:t24refnolink/]160.5(b)4C</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">User selects from list that combines ShutOffControlsBuilding and ShutOffControlsArea selections.  
+                                    </xsd:element>
+                                    <xsd:element name="Q16_SpaceFunction" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Primary Function Area</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input: Select from dropdown list:</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="com:SpaceFunction">
+                                             <xsd:enumeration value="AllOthersSpace"/>
+                                             <xsd:enumeration value="AudienceSeatingArea"/>
+                                             <xsd:enumeration value="AuditoriumArea"/>
+                                             <xsd:enumeration value="AutoRepairArea"/>
+                                             <xsd:enumeration value="BarLoungeFineDiningArea"/>
+                                             <xsd:enumeration value="BeautySalonArea"/>
+                                             <xsd:enumeration value="CivicMeetingPlaceArea"/>
+                                             <xsd:enumeration value="ClassroomLectureTrainingVocationalArea"/>
+                                             <xsd:enumeration value="CommercialIndustrialStorageArea"/>
+                                             <xsd:enumeration value="CommercialIndustrialStorageShipping"/>
+                                             <xsd:enumeration value="CommercialIndustrialWarehouse"/>
+                                             <xsd:enumeration value="ConferenceMultipurposeMeetingMF"/>
+                                             <xsd:enumeration value="ConventionConferenceMultipurposeMeetingCenterArea"/>
+                                             <xsd:enumeration value="CopyRoom"/>
+                                             <xsd:enumeration value="CorridorArea"/>
+                                             <xsd:enumeration value="ElectricalMechancialTelephoneRoom"/>
+                                             <xsd:enumeration value="ExerciseCenterGymnasiumArea"/>
+                                             <xsd:enumeration value="ExhibitMuseumArea"/>
+                                             <xsd:enumeration value="FamilyDiningArea"/>
+                                             <xsd:enumeration value="FastfoodDining"/>
+                                             <xsd:enumeration value="FinancialTransactionsArea"/>
+                                             <xsd:enumeration value="GeneralCommercialIndustrialWorkAreaHighBay"/>
+                                             <xsd:enumeration value="GeneralCommercialIndustrialWorkAreaLowBay"/>
+                                             <xsd:enumeration value="GeneralCommercialIndustrialWorkAreaPrecision"/>
+                                             <xsd:enumeration value="GrocerySalesArea"/>
+                                             <xsd:enumeration value="HospitalExamTreatment"/>
+                                             <xsd:enumeration value="HospitalImaging"/>
+                                             <xsd:enumeration value="HospitalMedicalSupply"/>
+                                             <xsd:enumeration value="HospitalNursery"/>
+                                             <xsd:enumeration value="HospitalNurseStation"/>
+                                             <xsd:enumeration value="HospitalOperatingRoom"/>
+                                             <xsd:enumeration value="HospitalPatientRoom"/>
+                                             <xsd:enumeration value="HospitalPhysicalTherapy"/>
+                                             <xsd:enumeration value="HospitalRecovery"/>
+                                             <xsd:enumeration value="HotelFunctionArea"/>
+                                             <xsd:enumeration value="KitchenCommercialFoodPreparation"/>
+                                             <xsd:enumeration value="LaboratoryScientific"/>
+                                             <xsd:enumeration value="Laundry"/>
+                                             <xsd:enumeration value="LibraryReadingArea"/>
+                                             <xsd:enumeration value="LibraryStacks"/>
+                                             <xsd:enumeration value="LobbyMainEntry"/>
+                                             <xsd:enumeration value="LockerDressingRoom"/>
+                                             <xsd:enumeration value="LoungeBreakRoom"/>
+                                             <xsd:enumeration value="LowVisionCorridorArea"/>
+                                             <xsd:enumeration value="LowVisionDiningArea"/>
+                                             <xsd:enumeration value="LowVisionLobbyMainEntry"/>
+                                             <xsd:enumeration value="LowVisionMultipurposeRoom"/>
+                                             <xsd:enumeration value="LowVisionReligiousWorshipArea"/>
+                                             <xsd:enumeration value="LowVisionRestroom"/>
+                                             <xsd:enumeration value="LowVisionStairwell"/>
+                                             <xsd:enumeration value="LowVisionWaitingArea"/>
+                                             <xsd:enumeration value="MuseumRestoration"/>
+                                             <xsd:enumeration value="NurseStationMF"/>
+                                             <xsd:enumeration value="Office250FtOrLess"/>
+                                             <xsd:enumeration value="OfficeGreaterThan250Ft"/>
+                                             <xsd:enumeration value="ParkingGarageAreaDaylightAdaptationZone"/>
+                                             <xsd:enumeration value="ParkingGarageBuildingParkingArea"/>
+                                             <xsd:enumeration value="PharmacyArea"/>
+                                             <xsd:enumeration value="PhysicalTherapyMF"/>
+                                             <xsd:enumeration value="ReligiousWorshipArea"/>
+                                             <xsd:enumeration value="Restroom"/>
+                                             <xsd:enumeration value="RetailFittingRoom"/>
+                                             <xsd:enumeration value="RetailMallConcourse"/>
+                                             <xsd:enumeration value="RetailSalesArea"/>
+                                             <xsd:enumeration value="SportsArenaSeatsGTE5000ClassI"/>
+                                             <xsd:enumeration value="SportsArenaSeatsLimitedClassIV"/>
+                                             <xsd:enumeration value="SportsArenaSeatsLT2000ClassIII"/>
+                                             <xsd:enumeration value="SportsArenaSeatsLT5000ClassII"/>
+                                             <xsd:enumeration value="Stairwell"/>
+                                             <xsd:enumeration value="StorageMF"/>
+                                             <xsd:enumeration value="TheaterMotionPicture"/>
+                                             <xsd:enumeration value="TheaterPerformance"/>
+                                             <xsd:enumeration value="TransportationFunctionConcourseBaggage"/>
+                                             <xsd:enumeration value="TransportationFunctionTicketing"/>
+                                             <xsd:enumeration value="VideoConferencingStudio"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="Q17_AreaControlsCompliance" type="comp:AreaControlsCompliance" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Area Controls [d:t24refnolink/]130.1(a) /[d:t24refnolink/]160.5(b)4A</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input: Select from dropdown list</xsd:documentation>
+                                          <xsd:appinfo source="displayterm">
+                                             <dtyp:displayterm value="AnnunciatedAreaControl"> Annunciated*</dtyp:displayterm>
+                                          </xsd:appinfo>
+                                          
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="Q18_ShutOffControlsBuilding" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Shut-Off Controls [d:t24refnolink/]130.1(c) /[d:t24refnolink/]160.5(b)4C</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User selects from list that combines ShutOffControlsBuilding and ShutOffControlsArea selections.  
 If result == WholeBuildingAutoTimeSwitch, WholeBuildingEMCS Or WholeBuildingOccupancySensors store result in Q18_ShutOffControlsBuilding; 
 Else store result in Q18_ShutOffControlsArea
 End If
@@ -5556,25 +5571,25 @@ End If
 If Q18_ShutOffControlsBuilding result == WholeBuildingAutoTimeSwitch, WholeBuildingEMCS Or WholeBuildingOccupancySensors
 V01_RequireNRCALti02A = true
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="displayterm">
-                                                                  <dtyp:displayterm value="WholeBuildingOccupancySensors"> Whole Building: Occ Sensor</dtyp:displayterm>
-                                                                  <dtyp:displayterm value="WholeBuildingAutoTimeSwitch">Whole Building: Auto Time Switch</dtyp:displayterm>
-                                                                  <dtyp:displayterm value="WholeBuildingEMCS">Whole Building: EMCS</dtyp:displayterm>
-                                                               </xsd:appinfo>
-                                                               
-                                                            </xsd:annotation>
-                                                            <xsd:simpleType>
-                                                               <xsd:restriction base="comp:ShutOffControlsBuilding">
-                                                                  <xsd:enumeration value="WholeBuildingAutoTimeSwitch"/>
-                                                                  <xsd:enumeration value="WholeBuildingEMCS"/>
-                                                                  <xsd:enumeration value="WholeBuildingOccupancySensors"/>
-                                                               </xsd:restriction>
-                                                            </xsd:simpleType>
-                                                         </xsd:element>
-                                                         <xsd:element name="Q18_ShutOffControlsArea" >
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Shut-Off Controls [d:t24ref/]130.1(c) /[d:t24refnolink/]160.5(b)4C</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">User selects from list that combines ShutOffControlsBuilding and ShutOffControlsArea selections.  
+                                             <xsd:appinfo source="displayterm">
+                                                <dtyp:displayterm value="WholeBuildingOccupancySensors"> Whole Building: Occ Sensor</dtyp:displayterm>
+                                                <dtyp:displayterm value="WholeBuildingAutoTimeSwitch">Whole Building: Auto Time Switch</dtyp:displayterm>
+                                                <dtyp:displayterm value="WholeBuildingEMCS">Whole Building: EMCS</dtyp:displayterm>
+                                             </xsd:appinfo>
+                                             
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:ShutOffControlsBuilding">
+                                                <xsd:enumeration value="WholeBuildingAutoTimeSwitch"/>
+                                                <xsd:enumeration value="WholeBuildingEMCS"/>
+                                                <xsd:enumeration value="WholeBuildingOccupancySensors"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                       <xsd:element name="Q18_ShutOffControlsArea" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Shut-Off Controls [d:t24refnolink/]130.1(c) /[d:t24refnolink/]160.5(b)4C</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User selects from list that combines ShutOffControlsBuilding and ShutOffControlsArea selections.  
 If result == WholeBuildingAutoTimeSwitch, WholeBuildingEMCS Or WholeBuildingOccupancySensors store result in Q18_ShutOffControlsBuilding; 
 Else store result in Q18_ShutOffControlsArea
 End If
@@ -5582,45 +5597,39 @@ End If
 If Q18_ShutOffControlsArea result == OccupancySensor Or EMCS Or AutomaticTimerSwitch
 V01_RequireNRCALti02A = true
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="displayterm">
-                                                                  <dtyp:displayterm value="PartialOffShutOffControl">Partial Off 130.1(c)/ 160.5(b)4C</dtyp:displayterm>
-                                                                  <dtyp:displayterm value="PartialOnShutOffControl">Partial On 130.1(c)/ 160.5(b)4C</dtyp:displayterm>
-                                                               </xsd:appinfo>
-                                                               
-                                                            </xsd:annotation>
-                                                            <xsd:simpleType>
-                                                               <xsd:restriction base="comp:ShutOffControlsArea">
-                                                                  <xsd:enumeration value="AutomaticTimerSwitch"/>
-                                                                  <xsd:enumeration value="CountdownTimerSwitch"/>
-                                                                  <xsd:enumeration value="ElecEquipRoomNA"/>
-                                                                  <xsd:enumeration value="EMCS"/>
-                                                                  <xsd:enumeration value="HealthcareNA"/>
-                                                                  <xsd:enumeration value="NA24x7Operation"/>
-                                                                  <xsd:enumeration value="OccupancySensor"/>
-                                                                  <xsd:enumeration value="PartialOffShutOffControl"/>
-                                                                  <xsd:enumeration value="PartialOnShutOffControl"/>
-                                                               </xsd:restriction>
-                                                            </xsd:simpleType>
-                                                         </xsd:element>
-                                                      </xsd:choice>
-                                                      <xsd:element name="Q19_ExceptionalConditionNote" type="comp:ExceptionalConditionNote"  minOccurs="0" maxOccurs="unbounded">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Notes</xsd:documentation>
-                                                            <xsd:documentation source="AdditionalRequirements">*Notes: Controls with a * require a note in the space below explaining how compliance is achieved.</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If Q17_AreaControlsCompliance == AnnunciatedAreaControl 
+                                             <xsd:appinfo source="displayterm">
+                                                <dtyp:displayterm value="PartialOffShutOffControl">Partial Off 130.1(c)/ 160.5(b)4C</dtyp:displayterm>
+                                                <dtyp:displayterm value="PartialOnShutOffControl">Partial On 130.1(c)/ 160.5(b)4C</dtyp:displayterm>
+                                             </xsd:appinfo>
+                                             
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:ShutOffControlsArea">
+                                                <xsd:enumeration value="AutomaticTimerSwitch"/>
+                                                <xsd:enumeration value="CountdownTimerSwitch"/>
+                                                <xsd:enumeration value="ElecEquipRoomNA"/>
+                                                <xsd:enumeration value="EMCS"/>
+                                                <xsd:enumeration value="HealthcareNA"/>
+                                                <xsd:enumeration value="NA24x7Operation"/>
+                                                <xsd:enumeration value="OccupancySensor"/>
+                                                <xsd:enumeration value="PartialOffShutOffControl"/>
+                                                <xsd:enumeration value="PartialOnShutOffControl"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="Q19_ExceptionalConditionNote" type="comp:ExceptionalConditionNote"  minOccurs="0" maxOccurs="unbounded">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Notes</xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">*Notes: Controls with a * require a note in the space below explaining how compliance is achieved.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Q17_AreaControlsCompliance == AnnunciatedAreaControl 
 User is required to provide a note; Else field is grayed out</xsd:documentation>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
-                                                   </xsd:sequence>
-                                                </xsd:complexType>
-                                             </xsd:element>
-                                          </xsd:sequence>
-                                       </xsd:complexType>
+                                       </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
-                        </xsd:choice>
+                        </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
                </xsd:sequence>
@@ -5931,7 +5940,7 @@ End If</xsd:documentation>
                   <xsd:element name="R09bPercentAllowance_LightingPowerInstalledPowerAllowedRatio" type="comp:LightingPowerInstalledPowerAllowedRatio" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Percent of Indoor Lighting Power Allowance:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated value:   result = RTotals09_LightingPowerInstalledTotal / RTotals05_LightingPowerAllowedTotal. Display of percent = result x 100.  If result GT .80  add LP80PercentAlterationExceededInR to  D03_  ExceptionalConditionMessageNRCCLTIE</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated value:   result = RTotals09_LightingPowerInstalledTotal / RTotals05_LightingPowerAllowedTotal. Display of percent = result x 100.  If result GT .80  add LP80PercentAlterationExceededInR to  D03_ ExceptionalConditionMessageCCLTIE</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -6033,7 +6042,7 @@ End If</xsd:documentation>
                            <xsd:element name="S09_HorizontalSlatsDistanceFactor" type="comp:HorizontalSlatsDistanceFactor" >
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">Slats have a minimum Distance Factor of 0.3 calculated per [t24refnolink/]140.3(d) /[t24refnolink/]170.2(e)2Bxii</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Slats have a minimum Distance Factor of 0.3 calculated per [d:t24refnolink/]140.3(d) /[d:t24refnolink/]170.2(e)2Bxii</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input: If Yes is checked result = true Else If Not Applicable is checked result = false display term Not Applicable</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -6084,7 +6093,7 @@ End If</xsd:documentation>
                            <xsd:element name="S15_LightShelvesProjection" type="comp:LightShelvesProjection" >
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">Shelves have a Projection Factor per [d:t24table/]Table 140.3-D Daylighting Devices and extend beyond each side of the window jamb by a distance [d:gte/] their horizontal projection.</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Shelves have a Projection Factor per Table 140.3-D Daylighting Devices and extend beyond each side of the window jamb by a distance [d:gte/] their horizontal projection.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input: If Yes checked result = true Else if Yes is unchecked result = false</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -6221,7 +6230,7 @@ this subsection is required</xsd:documentation>
                            <xsd:element name="T10_SupportAreasSensorReq" type="comp:SupportAreasSensorReq" >
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Requirement</xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">In bathrooms, garages, laundry rooms, utility rooms, and walk-in closets, at least one installed luminaire shall be controlled by an occupantcy or vacancy sensor providing automatic-off functionality.</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">In bathrooms, garages, laundry rooms, utility rooms, and walk-in closets, at least one installed luminaire shall be controlled by an occupancy or vacancy sensor providing automatic-off functionality.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input: If Yes checked result = true Else if Yes is unchecked result = false</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -6275,27 +6284,31 @@ Lighting internal to drawers and cabinetry with opaque fronts or doors or with a
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_U" minOccurs="1">
+         <xsd:element name="Section_Nrci" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]U.  DECLARATION OF REQUIRED CERTIFICATES OF INSTALLATION[/d:b]</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If any selection is changed by the user, 
+Then
+D03  ExceptionalConditionMessageCCLTIE += UserChangedSelectionInCI
+End If</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="U_BeginNote1" minOccurs="0">
+                  <xsd:element name="Nrci_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i] Selections have been made based on information provided in this document. If any selection have been changed by permit applicant, an explanation should be included in Table E. Additional Remarks.  These documents must be provided to the building inspector during construction and can be found online  [/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i] Selections have been made based on information provided in this document. If any selections have been changed by permit applicant, an explanation should be included in Table E. Additional Remarks.  These documents must be provided to the building inspector during construction and can be found online  [/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="U01_RequireNRCILti01E" type="comp:RequireNRCILti01E" >
+                  <xsd:element name="Nrci01_RequireNRCILti01E" type="comp:RequireNRCILti01E" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCI-LTI-E - Must be submitted for all buildings</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Result = true and can not be changed by user</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="U01a_VerifedByInspector" type="comp:VerifedByInspector"  minOccurs="0">
+                  <xsd:element name="Nrci01a_VerifedByInspector" type="comp:VerifedByInspector"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
                      </xsd:annotation>
@@ -6303,20 +6316,24 @@ Lighting internal to drawers and cabinetry with opaque fronts or doors or with a
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_V" minOccurs="1">
+         <xsd:element name="Section_Nrca" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]V.  DECLARATION OF REQUIRED CERTIFICATES OF ACCEPTANCE[/d:b]</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If any selection is changed by the user, 
+Then
+D03  ExceptionalConditionMessageCCLTIE += UserChangedSelectionInCA
+End If</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="V_BeginNote1" minOccurs="0">
+                  <xsd:element name="Nrca_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i]Selections have been made based on information provided in this document.  If any selection have been changed by the permit applicant, an explanation should be included in Table E. Additional Remarks. These documents must be provided to the building inspector during construction and any with "-A" in the form name must be completed through an Acceptance Test Technician Certification Provider (ATTCP). For more information visit: http://www.energy.ca.gov/title24/attcp/providers.html[/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]Selections have been made based on information provided in this document.  If any selections have been changed by the permit applicant, an explanation should be included in Table E. Additional Remarks. These documents must be provided to the building inspector during construction and any with "-A" in the form name must be completed through an Acceptance Test Technician Certification Provider (ATTCP). For more information visit: http://www.energy.ca.gov/title24/attcp/providers.html[/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V01_RequireNRCALti02A" type="comp:RequireNRCALti02A" >
+                  <xsd:element name="Nrca01_RequireNRCALti02A" type="comp:RequireNRCALti02A" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-LTI-02-A - Must be submitted for occupancy sensors and automatic time switch controls.</xsd:documentation>
@@ -6332,10 +6349,10 @@ End If
  If user changes this value to false, an explanation is required in Section E Additional Remarks.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V01_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
+                  <xsd:element name="Nrca01_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If V01_RequireNRCALti02A == true; this field is loaded with systems/spaces that satisfy any of these conditions:
+                        <xsd:documentation source="CalculationsAndRules">If Nrca01_RequireNRCALti02A == true; this field is loaded with systems/spaces that satisfy any of these conditions:
  
 If H02_ShutOffControlsBuilding ==WholeBuildingAutoTimeSwitch 
 Or H08_ShutOffControlsArea == AutomaticTimerSwitch Or OccupancySensor
@@ -6348,18 +6365,18 @@ Or Q18_ShutOffControlsArea == AutomaticTimerSwitch Or OccupancySensor
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V01_SystemsToFieldVerify" type="comp:SystemsToFieldVerify"  minOccurs="0">
+                  <xsd:element name="Nrca01_SystemsToFieldVerify" type="comp:SystemsToFieldVerify"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If V01_RequireNRCALti02A == true this field is displayed and loaded with a string that concatenates systems/spaces from V01_SystemFieldVerified</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca01_RequireNRCALti02A == true this field is displayed and loaded with a string that concatenates systems/spaces from Nrca01_SystemFieldVerified</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V01a_VerifedByInspector" type="comp:VerifedByInspector"  minOccurs="0">
+                  <xsd:element name="Nrca01a_VerifedByInspector" type="comp:VerifedByInspector"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V02_RequireNRCALti03A" type="comp:RequireNRCALti03A" >
+                  <xsd:element name="Nrca02_RequireNRCALti03A" type="comp:RequireNRCALti03A" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-LTI-03-A - Must be submitted for automatic daylight controls.</xsd:documentation>
@@ -6368,28 +6385,28 @@ End If</xsd:documentation>
 If all values for H09_PrimarySkylitDaylightControlsIncluded Or H10_SecondaryDaylightControlsIncluded == Included result = true represented as a selected Yes radio button; Else result = false   If user changes this value an explanation is required in Section E Additional Remarks.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V02_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
+                  <xsd:element name="Nrca02_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If V02_RequireNRCALti03A == true; this field is loaded with systems/spaces that satisfy this condition:
+                        <xsd:documentation source="CalculationsAndRules">If Nrca02_RequireNRCALti03A == true; this field is loaded with systems/spaces that satisfy this condition:
  
 If  value for H09_PrimarySkylitDaylightControlsIncluded Or H10_SecondaryDaylightControlsIncluded == Included
  load value in H04_SpaceDescription
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V02_SystemsToFieldVerify" type="comp:SystemsToFieldVerify"  minOccurs="0">
+                  <xsd:element name="Nrca02_SystemsToFieldVerify" type="comp:SystemsToFieldVerify"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If V02_RequireNRCALti03A == true this field is displayed and loaded with a string that concatenates systems/spaces from V02_SystemFieldVerified</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca02_RequireNRCALti03A == true this field is displayed and loaded with a string that concatenates systems/spaces from Nrca02_SystemFieldVerified</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V02a_VerifedByInspector" type="comp:VerifedByInspector"  minOccurs="0">
+                  <xsd:element name="Nrca02a_VerifedByInspector" type="comp:VerifedByInspector"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V03_RequireNRCALti04A" type="comp:RequireNRCALti04A" >
+                  <xsd:element name="Nrca03_RequireNRCALti04A" type="comp:RequireNRCALti04A" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-LTI-04-A - Must be submitted for demand responsive lighting controls.</xsd:documentation>
@@ -6399,28 +6416,28 @@ If H01_MandatoryLightingDemandResponseNR  == RequiredGT10000SF  Or H11_Interlock
 result = true represented as a selected Yes radio button.  If user changes the value an explanation is required in Section E Additional Remarks.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V03_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
+                  <xsd:element name="Nrca03_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If V03_RequireNRCALti04A == true; this field is loaded with systems/spaces that satisfy this condition:
+                        <xsd:documentation source="CalculationsAndRules">If Nrca03_RequireNRCALti04A == true; this field is loaded with systems/spaces that satisfy this condition:
  
 If H01_MandatoryLightingDemandResponseNR  == RequiredGT10000SF  Or H11_InterlockedLightingSystems == true
  load value in H04_SpaceDescription
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V03_SystemsToFieldVerify" type="comp:SystemsToFieldVerify"  minOccurs="0">
+                  <xsd:element name="Nrca03_SystemsToFieldVerify" type="comp:SystemsToFieldVerify"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If V03_RequireNRCALti04A == true this field is displayed and loaded with a string that concatenates systems/spaces from V03_SystemFieldVerified</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca03_RequireNRCALti04A == true this field is displayed and loaded with a string that concatenates systems/spaces from Nrca03_SystemFieldVerified</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V03a_VerifedByInspector" type="comp:VerifedByInspector"  minOccurs="0">
+                  <xsd:element name="Nrca03a_VerifedByInspector" type="comp:VerifedByInspector"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V04_RequireNRCALti05A" type="comp:RequireNRCALti05A" >
+                  <xsd:element name="Nrca04_RequireNRCALti05A" type="comp:RequireNRCALti05A" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-LTI-05-A. - Must be submitted for institutional tuning power adjustment factor (PAF)</xsd:documentation>
@@ -6430,10 +6447,10 @@ If Pc02e_ApplyInstitutionalTuningNonDaylit Or Pc02f_ApplyInstitutionalTuningDayl
 result = true represented as a selected Yes radio button. If user changes the value an explanation is required in Section E Additional Remarks.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V04_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
+                  <xsd:element name="Nrca04_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If V04_RequireNRCALti05A == true; this field is loaded with systems/spaces that satisfy any of these conditions:
+                        <xsd:documentation source="CalculationsAndRules">If Nrca04_RequireNRCALti05A == true; this field is loaded with systems/spaces that satisfy any of these conditions:
  
 If Pc02e_ApplyInstitutionalTuningNonDaylit Or Pc02f_ApplyInstitutionalTuningDaylit == true   
 load value in Pc01_SpaceDescription
@@ -6444,18 +6461,18 @@ If Pu02e_ApplyInstitutionalTuningNonDaylit Or Pu02f_ApplyInstitutionalTuningDayl
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V04_SystemsToFieldVerify" type="comp:SystemsToFieldVerify"  minOccurs="0">
+                  <xsd:element name="Nrca04_SystemsToFieldVerify" type="comp:SystemsToFieldVerify"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If V04_RequireNRCALti05A == true this field is displayed and loaded with a string that concatenates systems/spaces from V04_SystemFieldVerified</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca04_RequireNRCALti05A == true this field is displayed and loaded with a string that concatenates systems/spaces from Nrca04_SystemFieldVerified</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V04a_VerifedByInspector" type="comp:VerifedByInspector"  minOccurs="0">
+                  <xsd:element name="Nrca04a_VerifedByInspector" type="comp:VerifedByInspector"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V05_RequireNRCAEnv03F" type="comp:RequireNRCAEnv03F" >
+                  <xsd:element name="Nrca05_RequireNRCAEnv03F" type="comp:RequireNRCAEnv03F" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-ENV-03-F. - Must be submitted for daylighting design power adjustment factors (PAF)</xsd:documentation>
@@ -6465,10 +6482,10 @@ If Pc02h_ApplyClerestoryFenestrationPAF, Pc02i_ApplyHorizontalSlatsPAF Or Pc02j_
 result = true represented as a selected Yes radio button.   If user changes the value an explanation is required in Section E Additional Remarks.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V05_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
+                  <xsd:element name="Nrca05_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If V05_RequireNRCAEnv03F == true; this field is loaded with systems/spaces that satisfy any of these conditions:
+                        <xsd:documentation source="CalculationsAndRules">If Nrca05_RequireNRCAEnv03F == true; this field is loaded with systems/spaces that satisfy any of these conditions:
  
 If Pc02h_ApplyClerestoryFenestrationPAF, Pc02i_ApplyHorizontalSlatsPAF Or Pc02j_ApplyLightShelvesPAF == true
 load value in Pc01_SpaceDescription
@@ -6479,13 +6496,13 @@ load value in Pu01_SpaceDescription
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V05_SystemsToFieldVerify" type="comp:SystemsToFieldVerify"  minOccurs="0">
+                  <xsd:element name="Nrca05_SystemsToFieldVerify" type="comp:SystemsToFieldVerify"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If V05_RequireNRCAEnv03F == true this field is displayed and loaded with a string that concatenates systems/spaces from V05_SystemFieldVerified</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca05_RequireNRCAEnv03F == true this field is displayed and loaded with a string that concatenates systems/spaces from Nrca05_SystemFieldVerified</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="V05a_VerifedByInspector" type="comp:VerifedByInspector"  minOccurs="0">
+                  <xsd:element name="Nrca05a_VerifedByInspector" type="comp:VerifedByInspector"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
                      </xsd:annotation>

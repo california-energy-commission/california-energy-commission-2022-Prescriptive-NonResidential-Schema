@@ -82,41 +82,6 @@
                         <xsd:documentation source="FieldText">Occupancy Types within Project</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A03All_WholeBuildingOccupancy"  maxOccurs="unbounded">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="com:WholeBuildingOccupancy">
-                           <xsd:enumeration value="AllOthersBuildings"/>
-                           <xsd:enumeration value="AuditoriumBuilding"/>
-                           <xsd:enumeration value="ClassroomBuilding"/>
-                           <xsd:enumeration value="CommercialIndustrialBuilding"/>
-                           <xsd:enumeration value="ConventionCenterBuilding"/>
-                           <xsd:enumeration value="DataCenterBuilding"/>
-                           <xsd:enumeration value="FinancialInstitutionBuilding"/>
-                           <xsd:enumeration value="GroceryStoreBuilding"/>
-                           <xsd:enumeration value="GymnasiumBuilding"/>
-                           <xsd:enumeration value="HighRiseResidential"/>
-                           <xsd:enumeration value="HospitalBuilding"/>
-                           <xsd:enumeration value="HotelMotel"/>
-                           <xsd:enumeration value="LibraryBuilding"/>
-                           <xsd:enumeration value="MedicalClinicBuilding"/>
-                           <xsd:enumeration value="MultiFamilyMixedUseGTE4"/>
-                           <xsd:enumeration value="OfficeBuilding"/>
-                           <xsd:enumeration value="ParkingGarageBuilding"/>
-                           <xsd:enumeration value="ReligiousFacilityBuilding"/>
-                           <xsd:enumeration value="RelocatablePublicSchoolBuilding"/>
-                           <xsd:enumeration value="RestaurantBuilding"/>
-                           <xsd:enumeration value="RetailBuilding"/>
-                           <xsd:enumeration value="SchoolBuilding"/>
-                           <xsd:enumeration value="SportsArenaBuilding"/>
-                           <xsd:enumeration value="SupportArea"/>
-                           <xsd:enumeration value="TheaterBuilding"/>
-                           <xsd:enumeration value="Warehouse"/>
-                        </xsd:restriction>
-                     </xsd:simpleType>
-                  </xsd:element>
                   <xsd:element name="A03a_OccupancyApplies" type="comp:OccupancyApplies" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Healthcare Facility</xsd:documentation>
@@ -157,6 +122,43 @@ End If</xsd:documentation>
                            <xsd:enumeration value="ExistingAdditionAndAlteration"/>
                            <xsd:enumeration value="ExistingAlteration"/>
                            <xsd:enumeration value="NewComplete"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="A06_WholeBuildingOccupancy"  maxOccurs="unbounded">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This field records all applicable 2 occupancies types captured in the report plus additional  types useful in data analysis,</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="com:WholeBuildingOccupancy">
+                           <xsd:enumeration value="AllOthersBuildings"/>
+                           <xsd:enumeration value="AuditoriumBuilding"/>
+                           <xsd:enumeration value="ClassroomBuilding"/>
+                           <xsd:enumeration value="CommercialIndustrialBuilding"/>
+                           <xsd:enumeration value="ConventionCenterBuilding"/>
+                           <xsd:enumeration value="DataCenterBuilding"/>
+                           <xsd:enumeration value="FinancialInstitutionBuilding"/>
+                           <xsd:enumeration value="GroceryStoreBuilding"/>
+                           <xsd:enumeration value="GymnasiumBuilding"/>
+                           <xsd:enumeration value="HighRiseResidential"/>
+                           <xsd:enumeration value="HospitalBuilding"/>
+                           <xsd:enumeration value="HotelMotel"/>
+                           <xsd:enumeration value="LibraryBuilding"/>
+                           <xsd:enumeration value="MedicalClinicBuilding"/>
+                           <xsd:enumeration value="MultiFamilyMixedUseGTE4"/>
+                           <xsd:enumeration value="MultiFamilyMixedUseLT4"/>
+                           <xsd:enumeration value="OfficeBuilding"/>
+                           <xsd:enumeration value="ParkingGarageBuilding"/>
+                           <xsd:enumeration value="ReligiousFacilityBuilding"/>
+                           <xsd:enumeration value="RelocatablePublicSchoolBuilding"/>
+                           <xsd:enumeration value="RestaurantBuilding"/>
+                           <xsd:enumeration value="RetailBuilding"/>
+                           <xsd:enumeration value="SchoolBuilding"/>
+                           <xsd:enumeration value="SportsArenaBuilding"/>
+                           <xsd:enumeration value="SupportArea"/>
+                           <xsd:enumeration value="TheaterBuilding"/>
+                           <xsd:enumeration value="Warehouse"/>
                         </xsd:restriction>
                      </xsd:simpleType>
                   </xsd:element>
@@ -561,7 +563,7 @@ Display terms: If result == Compliant display term is COMPLIES; Else If result =
                   <xsd:element name="E_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i]This table is includes remarks made by the permit applicant to the Authority Having Jurisdiction.[/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]This table includes remarks made by the permit applicant to the Authority Having Jurisdiction.[/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="E01_CommentsToPermitAuthority" type="comp:CommentsToPermitAuthority"  minOccurs="0">
@@ -766,17 +768,25 @@ End If</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">User Input</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
-                                                      <xsd:element name="F13_LuminaireSpecSource" type="comp:LuminaireSpecSource" >
+                                                      <xsd:element name="F13_LuminaireSpecSource" >
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">How is Wattage determined</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">User selects from list: CEC_Default display term NA8 Default, ManufacturerSpec display term Mfr. Spec, Other display term Other, SeeOtherSection display term Alt. source per [d:t24refnolink/]140.8(b) / [d:t24refnolink/]170.2(e)</xsd:documentation>
                                                             <xsd:appinfo source="displayterm">
                                                                <dtyp:displayterm value="CEC_Default">NA8 Default</dtyp:displayterm>
-                                                               <dtyp:displayterm value="SeeOtherSection">Alt. source per [d:t24ref/]140.8(b)// [d:t24refnolink/]170.2(e)
+                                                               <dtyp:displayterm value="SeeOtherSection">Alt. source per [d:t24refnolink/]140.8(b)// [d:t24refnolink/]170.2(e)
 </dtyp:displayterm>
                                                             </xsd:appinfo>
                                                             
                                                          </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:LuminaireSpecSource">
+                                                               <xsd:enumeration value="CEC_Default"/>
+                                                               <xsd:enumeration value="ManufacturerSpec"/>
+                                                               <xsd:enumeration value="Other"/>
+                                                               <xsd:enumeration value="SeeOtherSection"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:element name="F14_LuminaireCountByType" type="lit:LuminaireCountByType" >
                                                          <xsd:annotation>
@@ -1258,27 +1268,27 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_I" minOccurs="1">
+         <xsd:element name="Section_Nrci" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]I. DECLARATION OF REQUIRED CERTIFICATES OF INSTALLATION[/d:b]</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="I_BeginNote1" minOccurs="0">
+                  <xsd:element name="Nrci_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i] Selections have been made based on information provided in this document. If any selection have been changed by permit applicant, an explanation should be included in Table E. Additional Remarks.  These documents must be provided to the building inspector during construction and can be found online at https://www.energy.ca.gov/title24/2019standards/2019_compliance_documents/Nonresidential_Documents/NRCI/ [/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i] Selections have been made based on information provided in this document. If any selection have been changed by permit applicant, an explanation should be included in Table E. Additional Remarks.  These documents must be provided to the building inspector during construction and can be found online  [/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="I01_RequireNRCILts01E" type="comp:RequireNRCILts01E"  fixed="true">
+                  <xsd:element name="Nrci01_RequireNRCILts01E" type="comp:RequireNRCILts01E"  fixed="true">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCI-LTS-E - Must be submitted for all buildings</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Result = true and can not be changed by user</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="I01a_VerifedByInspector" type="comp:VerifedByInspector"  minOccurs="0">
+                  <xsd:element name="Nrci01a_VerifedByInspector" type="comp:VerifedByInspector"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
                      </xsd:annotation>
@@ -1286,14 +1296,14 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_J" minOccurs="0">
+         <xsd:element name="Section_Nrca" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]J. DECLARATION OF REQUIRED CERTIFICATES OF ACCEPTANCE [/d:b]</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="J_BeginNote1" minOccurs="0">
+                  <xsd:element name="Nrca_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i]There are no Certificates of Acceptance applicable to sign lighting requirements.[/d:i]</xsd:documentation>

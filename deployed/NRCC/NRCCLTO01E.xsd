@@ -62,7 +62,7 @@
                               <d:t24refnolink/>160.5, 
                               <d:t24refnolink/>170.2(e)6, 
                               <d:t24refnolink/>180.1(a) and 
-                              <d:t24refnolink/>180.2(b)4Bv for outdoor lighting scopes using prescriptive path for multifamily and mixed-use occupancies.  Multifamily includes dormitory and senior living facilities.</d:i>
+                              <d:t24refnolink/>180.2(b)4Bv for outdoor lighting scopes using the prescriptive path for multifamily and mixed-use occupancies.  Multifamily includes dormitory and senior living facilities.</d:i>
                         </xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This note should be placed before section A in the header on the first page of the report only</xsd:documentation>
                      </xsd:annotation>
@@ -82,7 +82,7 @@
                   <xsd:element name="A03_OutdoorLightingZoneType" type="comp:OutdoorLightingZoneType">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Outdoor Lighting Zone per Title 24 Part 1 
-                           <d:t24ref h="10.114"/> or as designated by Authority Having Jurisdiction (AHJ):</xsd:documentation>
+                           <d:t24refnolink/>10.114 or as designated by Authority Having Jurisdiction (AHJ):</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input - check the outdoor lighting zone for the project</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -92,15 +92,32 @@
                         <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A05Label" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Occupancy Types within Project</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
                   <xsd:element name="A05_WholeBuildingOccupancy" maxOccurs="unbounded">
                      <xsd:annotation>
+                        <xsd:documentation source="FieldText">Occupancy Types within Project</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This field accumulates all the occupancy types selected by the user in the UI: Office, MultiFamilyMixedUseGTE4, SchoolBuilding, Warehouse, ParkingGarageBuilding, RetailBuilding, HotelMotel, HospitalBuilding,</xsd:documentation>
+                        <xsd:appinfo source="displayterm">
+                           <dtyp:displayterm value="MultiFamilyMixedUseGTE4">Multi-family/ MF Mixed-use 
+                              <d:gte/>4 stories (includes dormitory, senior living)</dtyp:displayterm>
+                        </xsd:appinfo>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="com:WholeBuildingOccupancy">
+                           <xsd:enumeration value="HospitalBuilding"/>
+                           <xsd:enumeration value="HotelMotel"/>
+                           <xsd:enumeration value="MultiFamilyMixedUseGTE4"/>
+                           <xsd:enumeration value="OfficeBuilding"/>
+                           <xsd:enumeration value="ParkingGarageBuilding"/>
+                           <xsd:enumeration value="RetailBuilding"/>
+                           <xsd:enumeration value="SchoolBuilding"/>
+                           <xsd:enumeration value="Warehouse"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="A05a_WholeBuildingOccupancy" minOccurs="0" maxOccurs="unbounded">
+                     <xsd:annotation>
                         <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This field accumulates all the occupany types in the project</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This field records all applicable 8 occupancies types captured in the report plus additional  types useful in data analysis,</xsd:documentation>
                      </xsd:annotation>
                      <xsd:simpleType>
                         <xsd:restriction base="com:WholeBuildingOccupancy">
@@ -113,12 +130,12 @@
                            <xsd:enumeration value="FinancialInstitutionBuilding"/>
                            <xsd:enumeration value="GroceryStoreBuilding"/>
                            <xsd:enumeration value="GymnasiumBuilding"/>
-                           <xsd:enumeration value="HighRiseResidential"/>
                            <xsd:enumeration value="HospitalBuilding"/>
                            <xsd:enumeration value="HotelMotel"/>
                            <xsd:enumeration value="LibraryBuilding"/>
                            <xsd:enumeration value="MedicalClinicBuilding"/>
                            <xsd:enumeration value="MultiFamilyMixedUseGTE4"/>
+                           <xsd:enumeration value="MultiFamilyMixedUseLT4"/>
                            <xsd:enumeration value="OfficeBuilding"/>
                            <xsd:enumeration value="ParkingGarageBuilding"/>
                            <xsd:enumeration value="ReligiousFacilityBuilding"/>
@@ -132,99 +149,6 @@
                            <xsd:enumeration value="Warehouse"/>
                         </xsd:restriction>
                      </xsd:simpleType>
-                  </xsd:element>
-                  <xsd:element name="A05Office_OccupancyApplies" type="comp:OccupancyApplies">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Office</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input; If checked result = true; Else result = false.  
-If result == true A06_WholeBuildingOccupancy +=   OfficeBuilding;
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A05MFMixedGTE4_OccupancyApplies" type="comp:OccupancyApplies">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Multifamily/ MF Mixed-use 
-                           <d:gte/> 4 stories (includes dormitory, senior living)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input; If checked result = true; Else result = false.  
-If result == true A06_WholeBuildingOccupancy += MultiFamilyMixedUseGTE4
-End If
- 
-Mandatory Measure Triggers:
-If result == true And I04_ThermostatType  == SetbackThermostat Or EnergyManagementSystem Or SetbackPlusDR  
-DUMM120_2c2_MeasureApplies = true and is displayed 
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A05School_OccupancyApplies" type="comp:OccupancyApplies">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">School</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input; If checked result = true; Else result = false. 
- If result == true A06_WholeBuildingOccupancy += SchoolBuilding;
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A05Warehouse_OccupancyApplies" type="comp:OccupancyApplies">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Warehouse</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input; If checked result = true; Else result = false.  
-If result == true A06_WholeBuildingOccupancy +=  Warehouse;
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A05Park_OccupancyApplies" type="comp:OccupancyApplies">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Parking Garage</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input; If checked result = true; Else result = false. 
- If result == true A06_WholeBuildingOccupancy += ParkingGarageBuilding 
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A05Retail_OccupancyApplies" type="comp:OccupancyApplies">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Retail</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input; If checked result = true; Else result = false.
-If result == true A06_WholeBuildingOccupancy += RetailBuilding;
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A05Guest_OccupancyApplies" type="comp:OccupancyApplies">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Hotel/ Motel</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input; If checked result = true; Else result = false.  
-If result == true A06_WholeBuildingOccupancy +=  HotelMotel
-End If
- 
-Mandatory Measure Triggers:
-If result == true And I04_ThermostatType  == SetbackThermostat Or EnergyManagementSystem Or SetbackPlusDR  
-DUMM120_2c1_MeasureApplies = true and is displayed 
-End If
- 
-If result == true And I05_ControlSystemShutOff == CardKeyShutOff Or EMCS Or OccupancySensor
-DUMM120_2e4_MeasureApplies = true and is displayed
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A05Health_OccupancyApplies" type="comp:OccupancyApplies">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Healthcare</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input; If checked result = true; Else result = false.  
-If result == true A06_WholeBuildingOccupancy += HospitalBuilding;
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A05Other_OccupancyApplies" type="comp:OccupancyApplies">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Other (write in)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input; If checked result = true; Else result = false. 
- If result == true A06_WholeBuildingOccupancy += AllOthersBuildings;
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A05Other1_TypeOtherDescription" type="com:TypeOtherDescription" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="CalculationsAndRules">This field is required If A05Other_OccupanyApplies == true.  User input should describe the type of  occupancy.</xsd:documentation>
-                     </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A06_RequestedMMB" type="comp:RequestedMMB" minOccurs="0">
                      <xsd:annotation>
@@ -363,13 +287,13 @@ Else list = ExistingPowerMaintained</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="BEndNote1" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:b>
                               <d:i>Please proceed to Table F. Outdoor Lighting Fixture Schedule to define the project's luminaires. </d:i>
                            </d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This message is displayed if B01a_LightingProjectScopeNR == NewLightingSystem Or If B02_DoesAlterationIncreaseLightingLoad == true</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This message is displayed in the UI if B01a_LightingProjectScopeNR == NewLightingSystem Or If B02_DoesAlterationIncreaseLightingLoad == true</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="BEndNote2" minOccurs="0">
@@ -431,11 +355,10 @@ Else list = ExistingPowerMaintained</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">If section I is not required, 
 result = BlankGrayedOut stored in NotApplicableMessage and field is blank and grayed out. 
  
-Else If A03_OutdoorLightingZoneType == OutdoorLZ0 Or OutdoorLZ1 Or OutdoorLZ4
+Else If A05MFMixedLT4_OccupancyApplies == false
 result = ITotals09_HardscapeGeneralAllowance, 
 Else 
-result = ITotals11_HardscapeGeneralAllowance
-End If</xsd:documentation>
+result = I08mf_HardscapeGeneralAllowanceEnd If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="C01_NotApplicableMessage">
@@ -530,7 +453,7 @@ End If</xsd:documentation>
                      </xsd:element>
                      <xsd:element name="C04_NotApplicableMessage">
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">Ornamenta 
+                           <xsd:documentation source="FieldText">Ornamental 
                               <d:t24refnolink/>140.7(d)2 / 
                               <d:t24refnolink/>170.2(e)6 
                               <d:line1/> (See Table L)</xsd:documentation>
@@ -647,17 +570,18 @@ End If</xsd:documentation>
                            <xsd:documentation source="FieldText">
                               <d:b> Shielding Compliance (See Table G for Details)</d:b>
                            </xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If no luminaire has F07_LightingPowerExcluded == false 
-And no luminaire has F09_LightingPowerCutoffCompliance == CutoffGT150W then 
+                           <xsd:documentation source="CalculationsAndRules">If no luminaire has F07_LightingPowerExcluded == false Then
+If no luminaire has F09_LightingPowerCutoffCompliance == CutoffGT150W then 
 result = NotApplicable stored in C10_NotApplicableMessage with display term Not Applicable and field is grayed out; 
  
-Else in section G in each row  
-If G05_BackLightRatingBUG LTE G04_BackLightRatingLimitBUG Or  G04_BackLightRatingLimitBUG == NoLimit 
+Else If in each row  
+G05_BackLightRatingBUG LTE G04_BackLightRatingLimitBUG Or  G04_BackLightRatingLimitBUG == NoLimit 
 And  G08_UpLightRatingBUG LTE G07_UpLightRatingLimitBUG 
 And G11_GlareRatingBUG  LTE G10_GlareRatingLimitBUG  
 result = true  display term COMPLIES, 
  
 Else result =  false display term DOES NOT COMPLY.
+End If
 End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
@@ -666,8 +590,8 @@ End If</xsd:documentation>
                            <xsd:documentation source="FieldText">
                               <d:b> Shielding Compliance (See Table G for Details)</d:b>
                            </xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If no luminaire has F07_LightingPowerExcluded == false 
-And no luminaire has F09_LightingPowerCutoffCompliance == CutoffGT150W then 
+                           <xsd:documentation source="CalculationsAndRules">If any luminaire has F07_LightingPowerExcluded == false 
+Or  no luminaire has F09_LightingPowerCutoffCompliance == CutoffGT150W then 
 result = NotApplicable stored in C10_NotApplicableMessage with display term Not Applicable and field is grayed out; 
 End If</xsd:documentation>
                            <xsd:appinfo source="displayterm">
@@ -693,12 +617,11 @@ result = NotApplicable stored in C11_NotApplicableMessage;
 Else If  H02_ShutOffControlsOutdoors Or H03_AutoScheduleControlsOutdoors Or H04_MotionSensorCompliance  IsNull 
 result = DoesNotComply display term DOES NOT COMPLY; 
  
-Else If  H02_ShutOffControlsOutdoors Or H03_AutoScheduleControlsOutdoors Or H04_MotionSensorCompliance  !=  Exempt Or If H02_ShutOffControlsOutdoors != Other 
-result = Complies display term COMPLIES; 
- 
-Else If all H_Exception02_SectionExceptionalConditionNote NotNull result = CompliesExceptionalConditions display term COMPLIES with Exceptional Conditions; 
- 
-Else result = DoesNotComply display term DOES NOT COMPLY
+Else If  TableControlsMF IsPresent And 
+H01mf_SpaceDescription Or   H02mf_OutdoorCompliantLightSource  Or H03mf_OutdoorLightingMF IsNull
+result = DoesNotComply display term DOES NOT COMPLY
+Else
+result = Complies display term COMPLIES
 End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
@@ -813,7 +736,7 @@ End If</xsd:documentation>
                            <d:i>For new or altered lighting systems demonstrating compliance with 
                               <d:t24refnolink/>140.7 / 
                               <d:t24refnolink/>170.2(e)6  all new luminaires being installed and any existing luminaires remaining or being moved within the spaces covered by the permit application are included in the Table below.  For altered lighting systems using the Existing Power method per  
-                              <d:t24ref h="141.0(b)2L"/> only new luminaires being installed and replacement luminaires being installed as part of the project scope are included  (ie, existing luminaires remaining or existing luminaires being moved are not included). 
+                              <d:t24refnolink/>141.0(b)2L only new luminaires being installed and replacement luminaires being installed as part of the project scope are included  (ie, existing luminaires remaining or existing luminaires being moved are not included). 
                               <d:line1/>Outdoor lighting attached to multifamily buildings and controlled from the inside of a dwelling unit are included in Table H. and are not included here. All other multifamily outdoor lighting is included here.</d:i>
                         </xsd:documentation>
                      </xsd:annotation>
@@ -850,7 +773,7 @@ End If</xsd:documentation>
                                     <xsd:element name="F02a_IsLuminaireLinear" type="comp:IsLuminaireLinear">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Linear</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input; If checked result = true Else result = false;  If result == true, D02_ExceptionalConditionMessageCCLTOE = LinearLightingInF</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input; If checked result = true Else result = false;  If result == true, D02_ExceptionalConditionMessageCCLTOE += LinearLightingInF</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -891,14 +814,14 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="F05_LuminaireCountByType" type="lit:LuminaireCountByType">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Total number  luminaires<d:sup> 2</d:sup>
+                                             <xsd:documentation source="FieldText">Total Number Luminaires<d:sup> 2</d:sup>
                                              </xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input  If F02a_IsLuminaireLinear == false result  is stored in F05_LuminaireCountByType; Else result is stored in F05_LuminairesTotalLF</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F05_LuminairesTotalLF" type="lit:LuminairesTotalLF">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Total number  luminaires<d:sup> 2</d:sup>
+                                             <xsd:documentation source="FieldText">Total Number Luminaires<d:sup> 2</d:sup>
                                              </xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input  If F02a_IsLuminaireLinear == false result  is stored in F05_LuminaireCountByType; Else result is stored in F05_LuminairesTotalLF</xsd:documentation>
                                           </xsd:annotation>
@@ -947,8 +870,8 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="F09_LuminairePowerCutoffCompliance" type="comp:LuminairePowerCutoffCompliance">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Cutoff Req.  
-                                                <d:gt/> 6,200 initial lumen output     
+                                             <xsd:documentation source="FieldText">Cutoff Req. 
+                                                <d:gt/> 6,200 initial lumen output 
                                                 <d:t24refnolink/>130.2(b) /
                                                 <d:t24refnolink/>160.5(c)1<d:sup>4</d:sup>
                                              </xsd:documentation>
@@ -964,9 +887,10 @@ End If</xsd:documentation>
                                        </xsd:element>
                                        <xsd:element name="F09_NotApplicableMessage">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Cutoff Req.  
-                                                <d:gt/> 6,200 initial lumen output     
-                                                <d:t24ref h="130.2(b)"/><d:sup>4</d:sup>
+                                             <xsd:documentation source="FieldText">Cutoff Req. 
+                                                <d:gt/> 6,200 initial lumen output 
+                                                <d:t24refnolink/>130.2(b) /
+                                                <d:t24refnolink/>160.5(c)1<d:sup>4</d:sup>
                                              </xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If F06_LuminaireStatus == ExistingReinstalled Or ExistingUnchanged result = BlankGrayedOut stored in NotApplicableMessage and field is blank and grayed out;
  Else user selects from list.</xsd:documentation>
@@ -1003,8 +927,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">* NOTES: Selections with a * require a note in the space below explaining how compliance is achieved. 
                            <d:line1/>
                            <d:i> EX: Luminaire is lighting a statue; EXCEPTION 2 to 
-                              <d:t24ref h="130.2(b)"/>
-                           </d:i>
+                              <d:t24refnolink/>130.2(b) </d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -1242,8 +1165,8 @@ the user must enter an explanation on how wattage is determined for each luminai
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:i><d:sup>2</d:sup>  Authority Having Jurisdiction may ask for Luminaire cut sheets or other documentation to confirm luminaire type, uplight ratings and glare ratings used for compliance per 
-                              <d:t24ref h="130.2(b)"/>
-                           </d:i>
+                              <d:t24refnolink/>130.2(b)/ 
+                              <d:t24refnolink/>160.5(c)</d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -1478,7 +1401,7 @@ v.  Lamps and other separable light sources that are not compliant with the JA8 
                            <d:i>This table includes areas using allowance calculations per 
                               <d:t24refnolink/>140.7 /
                               <d:t24refnolink/>170.2(e). General Hardscape Allowance is per Table 140.7-A/Table 170.2-R while "Use it or lose it" Allowances are per Table 140.7-B /Table 170.2-S.  Indicate which allowances are being used to expand sections for user input.  Luminaires  that qualify for one of the "Use it or lose it" allowances shall not qualify for another "Use it or lose it" allowance.  
-                              <d:line1/> Outdoor lighting attached to multifamily buildings and controlled from the inside of a dwelling unit are included in Table O. and are not included here. All other multifamily outdoor lighting is included here.  </d:i>
+                              <d:line1/> Outdoor lighting attached to multifamily buildings and controlled from the inside of a dwelling unit are included in Table H. and are not included here. All other multifamily outdoor lighting is included here.  </d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -1751,7 +1674,7 @@ End If</xsd:documentation>
                                           <xsd:documentation source="FieldText">
                                              <d:b>Total General Hardscape Allowance  (Watts):</d:b>
                                           </xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated Value:  result = SUM All ( I09_HardscapeAreaTotalAllowance) +  I10_HardscapeInitialAllowance x 11_InitialAllowanceCount)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated Value:  result = SUM All ( I09_HardscapeAreaTotalAllowance) + ( I10_HardscapeInitialAllowance x 11_InitialAllowanceCount)</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -1959,8 +1882,7 @@ End If</xsd:documentation>
                                     </xsd:element>
                                     <xsd:element name="J02_UseOrLoseApplicationType" type="comp:UseOrLoseApplicationType">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Application per 
-                                             <d:t24table/> Table 140.7-B<d:sup>1</d:sup>
+                                          <xsd:documentation source="FieldText">Application per Table 140.7-B<d:sup>1</d:sup>
                                           </xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from dropdown list of application types: ATM display term ATM Machine, DriveupWindow display term Drive up Window, EntranceExit display term Building Entrance/Exit, FuelDispenser display term Uncovered Fuel Dispenser, PrimaryEntrance display term Primary Entrance (Special)</xsd:documentation>
                                        </xsd:annotation>
@@ -2501,8 +2423,7 @@ End If</xsd:documentation>
                                     </xsd:element>
                                     <xsd:element name="M02_UseOrLoseSpecificAreaType" type="comp:UseOrLoseSpecificAreaType">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Specific Area Type per 
-                                             <d:t24table/> Table 140.7-B</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Specific Area Type per  Table 140.7-B</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from dropdown list options based on A03_OutdoorLightingZoneType values:  
 If A03_OutdoorLightingZoneType == OutdoorLZ1, display GuardStation, NonSalesCanopy, SalesLot, ServiceStationCanopy, ServiceStationHardscape, OutdoorDining, ParkingPedestrianSecurity; 
  
@@ -2689,7 +2610,7 @@ End If</xsd:documentation>
                               <d:t24refnolink/>141.0(b)2Liii, 
                               <d:t24refnolink/>180.2(b)4Bvb and 
                               <d:t24refnolink/>180.2(b)4Bvc.  Existing luminaires that are remaining or being moved should NOT be included.
-                              <d:line1/>Outdoor lighting attached to multifamily buildings and controlled from the inside of a dwelling unit are included in Table O. and are not included here. All other multifamily outdoor lighting is included here.</d:i>
+                              <d:line1/>Outdoor lighting attached to multifamily buildings and controlled from the inside of a dwelling unit are included in Table H. and are not included here. All other multifamily outdoor lighting is included here.</d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -2814,8 +2735,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:i>* NOTES: Selections with a * require a note in the space below explaining how compliance is achieved. 
                               <d:line1/>  EX: Luminaire is lighting a statue; EXCEPTION 2 to 
-                              <d:t24ref h="130.2(b)"/>
-                           </d:i>
+                              <d:t24refnolink/>130.2(b) </d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -2873,31 +2793,35 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_O" minOccurs="1">
+         <xsd:element name="Section_Nrci" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">
                   <d:b>O.  DECLARATION OF REQUIRED CERTIFICATES OF INSTALLATION</d:b>
                </xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If any selection is changed by the user, 
+Then
+D03  ExceptionalConditionMessageCCLTOE += UserChangedSelectionInCI
+End If</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="O_BeginNote1" minOccurs="0">
+                  <xsd:element name="Nrci_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
-                           <d:i> Selections have been made based on information provided in this document. If any selection have been changed by permit applicant, an explanation should be included in Table E. Additional Remarks.  These documents must be provided to the building inspector during construction and can be found online </d:i>
+                           <d:i> Selections have been made based on information provided in this document. If any selection has been changed by permit applicant, an explanation should be included in Table E. Additional Remarks.  These documents must be provided to the building inspector during construction and can be found online </d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="O01_RequireNRCILto01E" type="comp:RequireNRCILto01E">
+                  <xsd:element name="Nrci01_RequireNRCILto01E" type="comp:RequireNRCILto01E">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCI-LTO-E - Must be submitted for all buildings</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Result = true and can not be changed by user</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="O01a_VerifedByInspector" type="comp:VerifedByInspector" minOccurs="0">
+                  <xsd:element name="Nrci01a_VerifedByInspector" type="comp:VerifedByInspector" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
                      </xsd:annotation>
@@ -2905,24 +2829,28 @@ End If</xsd:documentation>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_P" minOccurs="1">
+         <xsd:element name="Section_Nrca" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">
                   <d:b>P.  DECLARATION OF REQUIRED CERTIFICATES OF ACCEPTANCE</d:b>
                </xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If any selection is changed by the user, 
+Then
+D03  ExceptionalConditionMessageCCLTOE += UserChangedSelectionInCA
+End If</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="P_BeginNote1" minOccurs="0">
+                  <xsd:element name="Nrca_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
-                           <d:i> Selections have been made based on information provided in this document. If any selection have been changed by permit applicant, an explanation should be included in Table E. Additional Remarks.  These documents must be provided to the building inspector during construction and must be completed through an Acceptance Test Technician Certification Provider (ATTCP). For more information visit: http://www.energy.ca.gov/title24/attcp/providers.html </d:i>
+                           <d:i> Selections have been made based on information provided in this document. If any selection has been changed by permit applicant, an explanation should be included in Table E. Additional Remarks.  These documents must be provided to the building inspector during construction and must be completed through an Acceptance Test Technician Certification Provider (ATTCP). For more information visit: http://www.energy.ca.gov/title24/attcp/providers.html </d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="P01_RequireNRCALto02A" type="comp:RequireNRCALto02A">
+                  <xsd:element name="Nrca01_RequireNRCALto02A" type="comp:RequireNRCALto02A">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-LTO-02-A - Must be submitted for all outdoor lighting controls except for alterations where controls are added to 
@@ -2930,23 +2858,23 @@ End If</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated Boolean value based on user input in previous sections of this form. By default result = true display term Yes represented as a radio button.  If user changes this value to false display term No represented as a radio button, an explanation is required in Section E Additional Remarks.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="P01_SystemFieldVerified" type="comp:SystemFieldVerified" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:element name="Nrca01_SystemFieldVerified" type="comp:SystemFieldVerified" minOccurs="0" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If P01_RequireNRCALto02A == true; this field is loaded with systems/spaces that satisfy this condition:
+                        <xsd:documentation source="CalculationsAndRules">If Nrca01_RequireNRCALto02A == true; this field is loaded with systems/spaces that satisfy this condition:
  
 If Section H is required,  
 load value in H01_SpaceDescription
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="P01_SystemsToFieldVerify" type="comp:SystemsToFieldVerify" minOccurs="0">
+                  <xsd:element name="Nrca01_SystemsToFieldVerify" type="comp:SystemsToFieldVerify" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If P01_RequireNRCALto02A == true; this field is displayed and loaded with a string that concatenates systems/spaces from P01_SystemFieldVerified</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca01_RequireNRCALto02A == true; this field is displayed and loaded with a string that concatenates systems/spaces from Nrca01_SystemFieldVerified</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="P01a_VerifedByInspector" type="comp:VerifedByInspector" minOccurs="0">
+                  <xsd:element name="Nrca01a_VerifedByInspector" type="comp:VerifedByInspector" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
                      </xsd:annotation>
