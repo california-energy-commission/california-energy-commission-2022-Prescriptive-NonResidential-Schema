@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2022.0.001">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2022.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/NrPresCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/NrPresBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/NrPresEnvelope.xsd"/>
@@ -91,6 +91,12 @@
                         <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="A05_RequestedMMB" type="comp:RequestedMMB"  minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This is a flag set by the agent that generates the report XML data to indicate that the user requested a Mandatory Measures Note Block which is placed after the DeclarationBlock in the XML output.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="A05_WholeBuildingOccupancy"  maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Occupancy Types within Project</xsd:documentation>
@@ -113,7 +119,7 @@
                         </xsd:restriction>
                      </xsd:simpleType>
                   </xsd:element>
-                  <xsd:element name="A05a_WholeBuildingOccupancy"  minOccurs="0" maxOccurs="unbounded">
+                  <xsd:element name="A06_WholeBuildingOccupancy"  minOccurs="0" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This field records all applicable 8 occupancies types captured in the report plus additional  types useful in data analysis,</xsd:documentation>
@@ -148,12 +154,6 @@
                            <xsd:enumeration value="Warehouse"/>
                         </xsd:restriction>
                      </xsd:simpleType>
-                  </xsd:element>
-                  <xsd:element name="A06_RequestedMMB" type="comp:RequestedMMB"  minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This is a flag set by the agent that generates the report XML data to indicate that the user requested a Mandatory Measures Note Block which is placed after the DeclarationBlock in the XML output.</xsd:documentation>
-                     </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A07_ProjectScopeNR" >
                      <xsd:annotation>
@@ -323,10 +323,11 @@ Else list = ExistingPowerMaintained</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">If section I is not required, 
 result = BlankGrayedOut stored in NotApplicableMessage and field is blank and grayed out. 
  
-Else If A05MFMixedLT4_OccupancyApplies == false
+Else If A05_WholeBuildingOccupancy == MultiFamilyMixedUseGTE4 Or MultiFamilyMixedUseLT4 
 result = ITotals09_HardscapeGeneralAllowance, 
 Else 
-result = I08mf_HardscapeGeneralAllowanceEnd If</xsd:documentation>
+result = I08mf_HardscapeGeneralAllowance
+End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="C01_NotApplicableMessage" >
@@ -501,7 +502,7 @@ End If</xsd:documentation>
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">[d:b] Shielding Compliance (See Table G for Details)[/d:b]</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">If no luminaire has F07_LightingPowerExcluded == false Then
-If no luminaire has F09_LightingPowerCutoffCompliance == CutoffGT150W then 
+If no luminaire has F09_LuminairePowerCutoffCompliance == CutoffGT150W then 
 result = NotApplicable stored in C10_NotApplicableMessage with display term Not Applicable and field is grayed out; 
  
 Else If in each row  
@@ -519,7 +520,7 @@ End If</xsd:documentation>
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">[d:b] Shielding Compliance (See Table G for Details)[/d:b]</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">If any luminaire has F07_LightingPowerExcluded == false 
-Or  no luminaire has F09_LightingPowerCutoffCompliance == CutoffGT150W then 
+Or  no luminaire has F09_LuminairePowerCutoffCompliance == CutoffGT150W then 
 result = NotApplicable stored in C10_NotApplicableMessage with display term Not Applicable and field is grayed out; 
 End If</xsd:documentation>
                            <xsd:appinfo source="displayterm">
@@ -883,7 +884,7 @@ the user must enter an explanation on how wattage is determined for each luminai
          <xsd:element name="Section_G" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]G. SHIELDING REQUIREMENTS (BUG)[/d:b]</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if any luminaire in section F has F09_LumenairePowerCutoffCompliance == CutoffGTE6200Lumens</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if any luminaire in section F has F09_LuminairePowerCutoffCompliance == CutoffGTE6200Lumens</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -924,7 +925,7 @@ the user must enter an explanation on how wattage is determined for each luminai
                                     <xsd:element name="G01_LuminaireName" type="lit:LuminaireName" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Name or Item Tag</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto-filled result = F01_LuminaireName for luminaire where  F09_LightingPowerCutoffCompliance == CutoffGTE6200Lumens</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled result = F01_LuminaireName for luminaire where  F09_LuminairePowerCutoffCompliance == CutoffGTE6200Lumens</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="G02_LuminaireDescription" type="lit:LuminaireDescription" >
@@ -1250,7 +1251,8 @@ v.  Lamps and other separable light sources that are not compliant with the JA8 
                      <xsd:element name="I01c_UsingSalesFrontageAllowance" type="comp:UsingSalesFrontageAllowance" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Sales Frontage   [d:line1/]  Table K</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A03_OutdoorLightingZoneType == OutdoorLZ0 Or OutdoorLZ1 Or If A05MFMixedGTE4_OccupancyApplies == true 
+                           <xsd:documentation source="CalculationsAndRules">If A03_OutdoorLightingZoneType == OutdoorLZ0 Or OutdoorLZ1 Or 
+ If A05_WholeBuildingOccupancy == MultiFamilyMixedUseGTE4 
 result = BlankGrayedOut stored in I01c_NotApplicableMessage and field is grayed out; 
 Else user input.  If user checks field, result = true and Section K is required, Else result = false.</xsd:documentation>
                         </xsd:annotation>
@@ -1258,7 +1260,8 @@ Else user input.  If user checks field, result = true and Section K is required,
                      <xsd:element name="I01c_NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Sales Frontage   [d:line1/]  Table K</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A03_OutdoorLightingZoneType == OutdoorLZ0 Or OutdoorLZ1 Or If A05MFMixedGTE4_OccupancyApplies == true 
+                           <xsd:documentation source="CalculationsAndRules">If A03_OutdoorLightingZoneType == OutdoorLZ0 Or OutdoorLZ1 Or 
+ If A05_WholeBuildingOccupancy == MultiFamilyMixedUseGTE4 
 then result = BlankGrayedOut  stored in I01c_NotApplicableMessage and field is grayed out; Else user input.  If user checks field, result = true and Section K is required, Else result = false.</xsd:documentation>
                         </xsd:annotation>
                         <xsd:simpleType>
@@ -1316,7 +1319,7 @@ then result = BlankGrayedOut  stored in I01c_NotApplicableMessage and field is g
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">This subsection choice is required if I01a_UsingGeneralHardscapeAllowance == true And
-A05MFMixedGTE4_OccupancyApplies == false</xsd:documentation>
+ A05_WholeBuildingOccupancy != MultiFamilyMixedUseGTE4</xsd:documentation>
                               </xsd:annotation>
                               <xsd:complexType>
                                  <xsd:sequence>
@@ -1411,7 +1414,7 @@ End If</xsd:documentation>
                                        <xsd:element name="I10_HardscapeInitialAllowance" type="comp:HardscapeInitialAllowance" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">[d:b]Initial Wattage Allowance for Entire Site (Watts):[/d:b]</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B01b_LightingProjectScopeNR == AlteredLightingSystem result = BlankGrayedOut stored in NotApplicableMessage and cell is blank and grayed out; 
+                                             <xsd:documentation source="CalculationsAndRules">If B02_DoesAlterationIncreaseLightingLoad == true result = BlankGrayedOut stored in NotApplicableMessage and cell is blank and grayed out; 
 Else calculated Value in W  from 2022 Table 140.7-A 
  If A03_OutdoorLightingZoneType == OutdoorLZ0 result = 15;
  Else If A03_OutdoorLightingZoneType ==   OutdoorLZ1 result = 150; 
@@ -1426,7 +1429,7 @@ End If</xsd:documentation>
                                        <xsd:element name="I10_NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">[d:b]Initial Wattage Allowance for Entire Site (Watts):[/d:b]</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B01b_LightingProjectScopeNR == AlteredLightingSystem result = BlankGrayedOut stored in NotApplicableMessage and cell is blank and grayed out;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B02_DoesAlterationIncreaseLightingLoad == true result = BlankGrayedOut stored in NotApplicableMessage and cell is blank and grayed out;</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="comp:NotApplicableMessage">
@@ -1463,7 +1466,14 @@ End If</xsd:documentation>
                                     <xsd:element name="ITotals09_HardscapeGeneralAllowance" type="comp:HardscapeGeneralAllowance" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">[d:b]Total General Hardscape Allowance  (Watts):[/d:b]</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated Value:  result = SUM All ( I09_HardscapeAreaTotalAllowance) + ( I10_HardscapeInitialAllowance x 11_InitialAllowanceCount)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated Value:  
+If B02_DoesAlterationIncreaseLightingLoad == true
+result = SUM All ( I09_HardscapeAreaTotalAllowance)
+Else If I11_NotApplicableMessage IsPresent
+result = SUM All ( I09_HardscapeAreaTotalAllowance) +  I10_HardscapeInitialAllowance
+Else
+result = SUM All ( I09_HardscapeAreaTotalAllowance) + ( I10_HardscapeInitialAllowance x I11_InitialAllowanceCount)
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -1473,7 +1483,7 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">This subsection choice is required if I01a_UsingGeneralHardscapeAllowance == true And
-A05MFMixedGTE4_OccupancyApplies == true</xsd:documentation>
+ A05_WholeBuildingOccupancy == MultiFamilyMixedUseGTE4</xsd:documentation>
                               </xsd:annotation>
                               <xsd:complexType>
                                  <xsd:sequence>
@@ -1519,7 +1529,7 @@ End If</xsd:documentation>
                                                       <xsd:element name="I05mf_HardscapeAreaAllowance" type="comp:HardscapeAreaAllowance" >
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Area Allowance (Watts)</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">Calculated Value: result = I04_LightedHardscapeArea x  I05_HardscapeAllowedLPD</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">Calculated Value: result = I03mf_LightedHardscapeArea x  I04mf_HardscapeAllowedLPD</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                    </xsd:sequence>
@@ -1532,7 +1542,8 @@ End If</xsd:documentation>
                                        <xsd:element name="I06mf_HardscapeInitialAllowance" type="comp:HardscapeInitialAllowance" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">[d:b]Initial Wattage Allowance for Entire Site (Watts):[/d:b]</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B01b_LightingProjectScopeNR == AlteredLightingSystem result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out; 
+                                             <xsd:documentation source="CalculationsAndRules">If B02_DoesAlterationIncreaseLightingLoad == true 
+result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out; 
 Else calculated Value in W  from 2022 Table 170.2-R   
 If A03_OutdoorLightingZoneType == OutdoorLZ0 result = 15 
 Else If A03_OutdoorLightingZoneType == OutdoorLZ1 result = 300
@@ -1545,7 +1556,7 @@ End If</xsd:documentation>
                                        <xsd:element name="I06mf_NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">[d:b]Initial Wattage Allowance for Entire Site (Watts):[/d:b]</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B01b_LightingProjectScopeNR == AlteredLightingSystem result =  BlankGrayedOut stored in NotApplicableMessage and cell is grayed out;   
+                                             <xsd:documentation source="CalculationsAndRules">If B02_DoesAlterationIncreaseLightingLoad == true result =  BlankGrayedOut stored in NotApplicableMessage and cell is grayed out;   
 End If</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -1583,7 +1594,14 @@ End If</xsd:documentation>
                                     <xsd:element name="I08mf_HardscapeGeneralAllowance" type="comp:HardscapeGeneralAllowance" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">[d:b]Total General Hardscape Allowance  (Watts):[/d:b]</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated Value:  result = SUM All ( II05mf_HardscapeAreaAllowance) +  (I06mf_HardscapeInitialAllowance x I07mf_InitialAllowanceCount))</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated Value:  
+If B02_DoesAlterationIncreaseLightingLoad == true
+result = SUM All ( I05mf_HardscapeAreaTotalAllowance)
+Else If I07mf_NotApplicableMessage IsPresent
+result = SUM All ( I05mf_HardscapeAreaTotalAllowance) +   I06mf_HardscapeInitialAllowance
+Else
+result = SUM All (I05mf_HardscapeAreaTotalAllowance) +  (I06mf_HardscapeInitialAllowance x I07mf_InitialAllowanceCount)
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>

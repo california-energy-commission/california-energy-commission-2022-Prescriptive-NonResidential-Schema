@@ -559,6 +559,14 @@
          <xsd:enumeration value="9"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="ConditionedFloorArea">
+      <xsd:annotation>
+         <xsd:documentation>  Units: ft2</xsd:documentation>
+         <xsd:documentation source="propertyrules">NR Presc exclude;  CBECC NR include</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="ConditioningType">
       <xsd:annotation>
          <xsd:documentation>One of a list of categories which characterize the type of conditioning for a space.</xsd:documentation>
@@ -1693,6 +1701,13 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
       <xsd:annotation>
          <xsd:documentation>The primary daylighted area is the portion that is closest to the daylighting source and
 receives the most illumination.  Units: ft2</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ProjectionFactor">
+      <xsd:annotation>
+         <xsd:documentation>Ratio of the horizontal depth of the external shading projection divided by the sum of the height of the fenestration and the distance from the top of the fenestration to the bottom of the farthest point of the external shading projection, in consistent units.  Units: none</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>

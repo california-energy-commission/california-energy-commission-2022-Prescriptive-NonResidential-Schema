@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2022.0.001">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2022.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/NrPresCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/NrPresBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/NrPresEnvelope.xsd"/>
@@ -82,7 +82,7 @@
                         <xsd:documentation source="FieldText">Occupancy Types within Project</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A03a_OccupancyApplies" type="comp:OccupancyApplies" >
+                  <xsd:element name="A03_IsBuildingHeathcare" type="com:IsBuildingHeathcare" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Healthcare Facility</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input;  If checked result = true; Else result = false. If result == true
