@@ -1789,7 +1789,11 @@ If result == RequiredGTE4000W Or  RequiredUsingPAF
 V03_RequireNRCALti04A = true
 End If 
  
-If result == NA_LT80PctAllowedLP then If Bnew01 and Bpark01 LightingProjectScopeNR == NotApplicableLightingScope And Baltered01 LightingProjectScopeNR == AlteredLightingSystem And C08 GT (C01 + C02) x 0.8 then   D03  ExceptionalConditionMessageCCLTIE += LP80PercentAlterationIssueInH
+If result == NA_LT80PctAllowedLP then If Bnew01 and Bpark01 LightingProjectScopeNR == NotApplicableLightingScope And Baltered01 LightingProjectScopeNR == AlteredLightingSystem And 
+C08Row01_LightingPowerInstalledTotalConditionedAdjusted IsPresent And  LTE  (C05Row01_LightingPowerAllowanceTotalConditioned   x 0.8)  
+Or C08Row02_LightingPowerInstalledTotalUnconditionedAdjusted IsPresent And  LTE  (C05Row02_LightingPowerAllowanceTotalUnconditioned   x 0.8)  
+ 
+then   D03  ExceptionalConditionMessageCCLTIE += LP80PercentAlterationIssueInH
  
 Mandatory Measure Block Triggers:</xsd:documentation>
                      </xsd:annotation>
@@ -2019,6 +2023,16 @@ End If</xsd:documentation>
  
 If result == NA_LT80PctAllowedLP then If Bnew01 and Bpark01 LightingProjectScopeNR == NotApplicableLightingScope And Baltered01 LightingProjectScopeNR == AlteredLightingSystem And C08 GT ((C01+ C02) x 0.8)  D03_ExceptionalConditionMessageCCLTIE += LP80PercentAlterationIssueInH
  
+If result == NA_LT80PctAllowedLP then 
+If Bnew01 And Bpark01 LightingProjectScopeNR == NotApplicableLightingScope And Baltered01 LightingProjectScopeNR == AlteredLightingSystem And 
+C08Row01_LightingPowerInstalledTotalConditionedAdjusted IsPresent And  LTE  (C05Row01_LightingPowerAllowanceTotalConditioned   x 0.8)  
+Or C08Row02_LightingPowerInstalledTotalUnconditionedAdjusted IsPresent And  LTE  (C05Row02_LightingPowerAllowanceTotalUnconditioned   x 0.8)  
+ 
+D03  ExceptionalConditionMessageCCLTIE += LP80PercentAlterationIssueInH
+End If
+End If
+ 
+ 
 Mandatory Measure Triggers:
 If result == BilevelSwitchControl Or DimmerControl
 MM130_1b_MeasureApplies  = true and is displayed
@@ -2072,8 +2086,13 @@ For all rows If result != Included
 V02_RequireNRCALti03A = false
 End If 
  
+If result == NA_LT80PctAllowedLP then 
+If Bnew01 And Bpark01 LightingProjectScopeNR == NotApplicableLightingScope And Baltered01 LightingProjectScopeNR == AlteredLightingSystem And 
+C08Row01_LightingPowerInstalledTotalConditionedAdjusted IsPresent And  LTE  (C05Row01_LightingPowerAllowanceTotalConditioned   x 0.8)  
+Or C08Row02_LightingPowerInstalledTotalUnconditionedAdjusted IsPresent And  LTE  (C05Row02_LightingPowerAllowanceTotalUnconditioned   x 0.8)  
  
-If result == NA_LT80PctAllowedLP then If Bnew01 and Bpark01 LightingProjectScopeNR == NotApplicableLightingScope And Baltered01 LightingProjectScopeNR == AlteredLightingSystem And C08 GT PRODUCT (SUM (C01, C02), 0.8)  D03_ExceptionalConditionMessageCCLTIE += LP80PercentAlterationIssueInH
+D03  ExceptionalConditionMessageCCLTIE += LP80PercentAlterationIssueInH
+End If
 End If
  
 Mandatory Measure Block Triggers:
@@ -2094,7 +2113,14 @@ Note: MM130_1d includes text for 130.1d,  130.1d3, 130.1d4, and 130.1d5,</xsd:do
 V02_RequireNRCALti03A = false
 End If 
  
-If result == NA_LT80PctAllowedLP then If Bnew01 and Bpark01 LightingProjectScopeNR == NotApplicableLightingScope And Baltered01 LightingProjectScopeNR == AlteredLightingSystem And C08 GT PRODUCT (SUM (C01, C02), 0.8)  D03_ExceptionalConditionMessageCCLTIE += LP80PercentAlterationIssueInH</xsd:documentation>
+If result == NA_LT80PctAllowedLP then 
+If Bnew01 And Bpark01 LightingProjectScopeNR == NotApplicableLightingScope And Baltered01 LightingProjectScopeNR == AlteredLightingSystem And 
+C08Row01_LightingPowerInstalledTotalConditionedAdjusted IsPresent And  LTE  (C05Row01_LightingPowerAllowanceTotalConditioned   x 0.8)  
+Or C08Row02_LightingPowerInstalledTotalUnconditionedAdjusted IsPresent And  LTE  (C05Row02_LightingPowerAllowanceTotalUnconditioned   x 0.8)  
+ 
+D03  ExceptionalConditionMessageCCLTIE += LP80PercentAlterationIssueInH
+End If
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="H11_InterlockedLightingSystems" type="lit:InterlockedLightingSystems">
@@ -5870,7 +5896,7 @@ Else store result in Q18_ShutOffControlsArea
 End If
  
 If Q18_ShutOffControlsBuilding result == WholeBuildingAutoTimeSwitch, WholeBuildingEMCS Or WholeBuildingOccupancySensors
-V01_RequireNRCALti02A = true
+Nrca01_RequireNRCALti02A = true
 End If</xsd:documentation>
                                              <xsd:appinfo source="displayterm">
                                                 <dtyp:displayterm value="WholeBuildingOccupancySensors">Whole Building: Occ Sensor</dtyp:displayterm>
@@ -5897,7 +5923,7 @@ Else store result in Q18_ShutOffControlsArea
 End If
  
 If Q18_ShutOffControlsArea result == OccupancySensor Or EMCS Or AutomaticTimerSwitch
-V01_RequireNRCALti02A = true
+Nrca1_RequireNRCALti02A = true
 End If</xsd:documentation>
                                              <xsd:appinfo source="displayterm">
                                                 <dtyp:displayterm value="PartialOffShutOffControl">Partial Off 130.1(c)/ 160.5(b)4C</dtyp:displayterm>
