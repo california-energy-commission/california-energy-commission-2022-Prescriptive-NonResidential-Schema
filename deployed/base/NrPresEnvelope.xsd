@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/env" version="2022.0.001" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/env" version="2022.0.000" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="NrPresCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
    <xsd:simpleType name="AboveGradeStoryCount">
@@ -2731,7 +2731,7 @@
             <dtyp:displayterm value="2x4">2x4</dtyp:displayterm>
             <dtyp:displayterm value="2x6">2x6</dtyp:displayterm>
             <dtyp:displayterm value="2x8">2x8</dtyp:displayterm>
-            <dtyp:displayterm value="AnySize"/>
+            <dtyp:displayterm value="AnySize">Any Size</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -3672,6 +3672,28 @@ Used by the compliance software user interface to narrow list of material select
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="RoofConstRangeSolar">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="AddAltRoofLTE2000ft2">Alteration/ Addition increases roof area 
+               <d:lte/>2,000 ft<d:sup>2</d:sup>
+            </dtyp:displayterm>
+            <dtyp:displayterm value="AddRoofGT2000ft2">Addition increases roof area 
+               <d:gt/>2,000 ft<d:sup>2</d:sup>
+            </dtyp:displayterm>
+            <dtyp:displayterm value="NewRoofGT533ft2">New construction</dtyp:displayterm>
+            <dtyp:displayterm value="NewRoofLTE533ft2">New construction w/ roof 
+               <d:lte/>533 ft<d:sup>2</d:sup>
+            </dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="AddAltRoofLTE2000ft2"/>
+         <xsd:enumeration value="AddRoofGT2000ft2"/>
+         <xsd:enumeration value="NewRoofGT533ft2"/>
+         <xsd:enumeration value="NewRoofLTE533ft2"/>
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="RoofDescription">
       <xsd:restriction base="xsd:string"/>

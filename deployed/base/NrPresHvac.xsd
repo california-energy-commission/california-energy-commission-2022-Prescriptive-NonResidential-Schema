@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/hvac" version="2022.0.001" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/hvac" version="2022.0.000" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="NrPresCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
    <xsd:simpleType name="AirFlowMinimum">
@@ -206,6 +206,42 @@
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Average Pipe Heat Loss</dtyp:displayterm>
          </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="BatteryCapacity">
+      <xsd:annotation>
+         <xsd:documentation>Units: kW per h</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="BatteryCapacityMinPerArea">
+      <xsd:annotation>
+         <xsd:documentation>Units: kW per h</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="BatteryCapacityMinTotal">
+      <xsd:annotation>
+         <xsd:documentation>Units: kW per h</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="BatteryPower">
+      <xsd:annotation>
+         <xsd:documentation>Units: kW</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="BatteryPowerMinPerArea">
+      <xsd:annotation>
+         <xsd:documentation>Units: kW</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="BatteryPowerMinTotal">
+      <xsd:annotation>
+         <xsd:documentation>Units: kW</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
@@ -904,6 +940,12 @@
          <xsd:enumeration value="BackwardInclined"/>
          <xsd:enumeration value="ForwardCurved"/>
       </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ChargeDischargeEfficiency">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="ChillerCOP">
       <xsd:annotation>
@@ -7421,6 +7463,7 @@
             <dtyp:displayterm value="InstantaneousResDutyCommercial">Residential-Duty Commercial Instantaneous</dtyp:displayterm>
             <dtyp:displayterm value="InstantaneousSmall">Small Instantaneous</dtyp:displayterm>
             <dtyp:displayterm value="NEEA_Tier3HP">NEEA Tier 3 heat pump water heater</dtyp:displayterm>
+            <dtyp:displayterm value="SolarElectBackup">Solar water heating system with backup electric</dtyp:displayterm>
             <dtyp:displayterm value="StorageCommercial">Commercial Storage</dtyp:displayterm>
             <dtyp:displayterm value="StorageConsumer">Consumer Storage</dtyp:displayterm>
             <dtyp:displayterm value="StorageLarge">Large Storage</dtyp:displayterm>
@@ -7438,6 +7481,7 @@
          <xsd:enumeration value="InstantaneousResDutyCommercial"/>
          <xsd:enumeration value="InstantaneousSmall"/>
          <xsd:enumeration value="NEEA_Tier3HP"/>
+         <xsd:enumeration value="SolarElectBackup"/>
          <xsd:enumeration value="StorageCommercial"/>
          <xsd:enumeration value="StorageConsumer"/>
          <xsd:enumeration value="StorageLarge"/>

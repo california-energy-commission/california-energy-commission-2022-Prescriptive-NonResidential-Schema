@@ -85,6 +85,23 @@
       <xsd:restriction base="dtyp:ObjectNamePermissive">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="BuildingStoryRange">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Building Story Location</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Stories4to10">Bldg 4-10 stories</dtyp:displayterm>
+            <dtyp:displayterm value="StoriesGT10">Bldg [d:gt/] 10 stories</dtyp:displayterm>
+            <dtyp:displayterm value="StoriesLTE3">Bldg [d:lte/] 3 stories</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Stories4to10"/>
+         <xsd:enumeration value="StoriesGT10"/>
+         <xsd:enumeration value="StoriesLTE3"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="BuildingTerrain">
       <xsd:annotation>
          <xsd:documentation>This describes the terrain in which the building is located and has an affect on design day and annual simulations.</xsd:documentation>
@@ -1087,7 +1104,7 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
             <dtyp:displayterm value="Restaurant">Restaurant</dtyp:displayterm>
             <dtyp:displayterm value="Retail">Retail</dtyp:displayterm>
             <dtyp:displayterm value="School">School</dtyp:displayterm>
-            <dtyp:displayterm value="Warehouse">Warehouse</dtyp:displayterm>
+            <dtyp:displayterm value="WarehouseFunc">Warehouse</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -1105,7 +1122,7 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
          <xsd:enumeration value="Restaurant"/>
          <xsd:enumeration value="Retail"/>
          <xsd:enumeration value="School"/>
-         <xsd:enumeration value="Warehouse"/>
+         <xsd:enumeration value="WarehouseFunc"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="GasType">

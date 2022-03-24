@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/com" version="2022.0.001" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/com" version="2022.0.000" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="NrPresHvac.xsd"/>
    <xsd:simpleType name="AdditionTotalConditionedFloorArea">
@@ -70,6 +70,25 @@
          <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:ObjectNamePermissive"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="BuildingStoryRange">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Building Story Location</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Stories4to10">Bldg 4-10 stories</dtyp:displayterm>
+            <dtyp:displayterm value="StoriesGT10">Bldg 
+               <d:gt/> 10 stories</dtyp:displayterm>
+            <dtyp:displayterm value="StoriesLTE3">Bldg 
+               <d:lte/> 3 stories</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Stories4to10"/>
+         <xsd:enumeration value="StoriesGT10"/>
+         <xsd:enumeration value="StoriesLTE3"/>
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="BuildingTerrain">
       <xsd:annotation>
@@ -1034,7 +1053,7 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
             <dtyp:displayterm value="Restaurant">Restaurant</dtyp:displayterm>
             <dtyp:displayterm value="Retail">Retail</dtyp:displayterm>
             <dtyp:displayterm value="School">School</dtyp:displayterm>
-            <dtyp:displayterm value="Warehouse">Warehouse</dtyp:displayterm>
+            <dtyp:displayterm value="WarehouseFunc">Warehouse</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -1052,7 +1071,7 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
          <xsd:enumeration value="Restaurant"/>
          <xsd:enumeration value="Retail"/>
          <xsd:enumeration value="School"/>
-         <xsd:enumeration value="Warehouse"/>
+         <xsd:enumeration value="WarehouseFunc"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="GasType">
