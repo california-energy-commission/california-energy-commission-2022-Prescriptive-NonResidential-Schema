@@ -1216,7 +1216,16 @@ Multi-field triggers: See A02_WholeBuildingOccupancy for trigger values from thi
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup>
                                           </xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects all that apply from dropdown list: ControlledWithin6ftOfUncontrolledReceptacle display term Within 6ft of uncontrolled receptacle, SplitWiredReceptacle display term Split-wired receptacle, ControlledWithin6ftOfUncontrolledAndSplitWiredReceptacle display term Within 6ft of uncontrolled AND Split-wired receptacle, ControlledReceptacle50PercentHotelMotel display term 50 % are controlled receptacle (hotel/motel room), ControlledReceptacleAtEachWorkstation display term At each workstation (modular furniture only),</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects all that apply from dropdown list: which includes ControlledReceptacleComplianceType  values :  ControlledWithin6ftOfUncontrolledReceptacle display term Within 6ft of uncontrolled receptacle, SplitWiredReceptacle display term Split-wired receptacle, ControlledWithin6ftOfUncontrolledAndSplitWiredReceptacle display term Within 6ft of uncontrolled AND Split-wired receptacle, ControlledReceptacle50PercentHotelMotel display term 50 % are controlled receptacle (hotel/motel room), 
+And includes ControlledReceptacleNA values</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="I02_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup>
+                                          </xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects all that apply from dropdown list: which includes ControlledReceptacleComplianceType  values :  
+And ControlledReceptacleNA values</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="I03_ControlledReceptacleShutOffControl" type="comp:ControlledReceptacleShutOffControl" maxOccurs="unbounded">

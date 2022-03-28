@@ -2501,7 +2501,6 @@
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="ControlledReceptacle50PercentHotelMotel">50 % are controlled receptacle (hotel/motel room)</dtyp:displayterm>
-            <dtyp:displayterm value="ControlledReceptacleAtEachWorkstation">At each workstation (modular furniture only)</dtyp:displayterm>
             <dtyp:displayterm value="SplitWiredReceptacle">Split-wired receptacle</dtyp:displayterm>
             <dtyp:displayterm value="ControlledWithin6ftOfUncontrolledAndSplitWiredReceptacle">Within 6ft of uncontrolled AND Split-wired receptacle</dtyp:displayterm>
             <dtyp:displayterm value="ControlledWithin6ftOfUncontrolledReceptacle">Within 6ft of uncontrolled receptacle</dtyp:displayterm>
@@ -2509,7 +2508,6 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="ControlledReceptacle50PercentHotelMotel"/>
-         <xsd:enumeration value="ControlledReceptacleAtEachWorkstation"/>
          <xsd:enumeration value="SplitWiredReceptacle"/>
          <xsd:enumeration value="ControlledWithin6ftOfUncontrolledAndSplitWiredReceptacle"/>
          <xsd:enumeration value="ControlledWithin6ftOfUncontrolledReceptacle"/>

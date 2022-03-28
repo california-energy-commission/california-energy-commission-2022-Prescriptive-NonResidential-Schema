@@ -355,10 +355,10 @@ Else list = ExistingPowerMaintained</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">If section I is not required, 
 result = BlankGrayedOut stored in NotApplicableMessage and field is blank and grayed out. 
  
-Else If A05_WholeBuildingOccupancy == MultiFamilyMixedUseGTE4 Or MultiFamilyMixedUseLT4 
-result = ITotals09_HardscapeGeneralAllowance, 
+Else If A05_WholeBuildingOccupancy == MultiFamilyMixedUseGTE4 
+result =  I08mf_HardscapeGeneralAllowance  
 Else 
-result = I08mf_HardscapeGeneralAllowance
+result = ITotals09_HardscapeGeneralAllowance 
 End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
@@ -1296,7 +1296,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">
                            <d:b> Outdoor Lighting Controlled from Inside Multifamily Dwelling Units </d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This table is required If A05MFMixedGT4_OccupancyApplies == true</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This table is required If A05_WholeBuildingOccupancy == MultiFamilyMixedUseGTE4</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -1823,7 +1823,7 @@ result = SUM All ( I05mf_HardscapeAreaTotalAllowance)
 Else If I07mf_NotApplicableMessage IsPresent
 result = SUM All ( I05mf_HardscapeAreaTotalAllowance) +   I06mf_HardscapeInitialAllowance
 Else
-result = SUM All (I05mf_HardscapeAreaTotalAllowance) +  (I06mf_HardscapeInitialAllowance x I07mf_InitialAllowanceCount)
+result = SUM All ( I05mf_HardscapeAreaTotalAllowance) +  (I06mf_HardscapeInitialAllowance x I07mf_InitialAllowanceCount)
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>

@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2022.0.001">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2022.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/NrPresCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/NrPresBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/NrPresEnvelope.xsd"/>
@@ -149,7 +149,7 @@ this Stop Message is displayed to the user
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A07a_RequestedMMB" type="comp:RequestedMMB"  minOccurs="0">
+                  <xsd:element name="A07_RequestedMMB" type="comp:RequestedMMB"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This is a flag set by the agent that generates the report XML data to indicate that the user requested a Mandatory Measures Note Block which is placed after the DeclarationBlock in the XML output.</xsd:documentation>
@@ -202,7 +202,6 @@ End If</xsd:documentation>
                            <xsd:enumeration value="HospitalBuilding"/>
                            <xsd:enumeration value="HotelMotel"/>
                            <xsd:enumeration value="LibraryBuilding"/>
-                           <xsd:enumeration value="LowRiseResidential"/>
                            <xsd:enumeration value="MedicalClinicBuilding"/>
                            <xsd:enumeration value="OfficeBuilding"/>
                            <xsd:enumeration value="ParkingGarageBuilding"/>
