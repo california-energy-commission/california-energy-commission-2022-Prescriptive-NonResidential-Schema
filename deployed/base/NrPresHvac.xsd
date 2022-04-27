@@ -4402,7 +4402,7 @@
       <xsd:annotation>
          <xsd:documentation>Units: kBtu per h</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:Decimal"/>
    </xsd:simpleType>
    <xsd:simpleType name="HorsePowerUnit">
       <xsd:annotation>
@@ -6955,22 +6955,18 @@
    <xsd:simpleType name="ProcessBoilerInputRange">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="GTE10MMBtuh">
-               <d:gte/>10 MMBtuh per boiler</dtyp:displayterm>
             <dtyp:displayterm value="GTE2_5ToLT5MMBtuh">
                <d:gte/>2.5 to 
                <d:lt/> 5 MMBtuh per boiler</dtyp:displayterm>
-            <dtyp:displayterm value="GTE5ToLT10MMBtuh">
-               <d:gte/>5 to 
-               <d:lt/> 10 MMBtuh per boiler</dtyp:displayterm>
+            <dtyp:displayterm value="GTE5MMBtuh">
+               <d:gte/>5 MMBtuh per boiler</dtyp:displayterm>
             <dtyp:displayterm value="LT2_5MMBtuh">
                <d:lt/>2.5 MMBtuh per boiler</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="GTE10MMBtuh"/>
          <xsd:enumeration value="GTE2_5ToLT5MMBtuh"/>
-         <xsd:enumeration value="GTE5ToLT10MMBtuh"/>
+         <xsd:enumeration value="GTE5MMBtuh"/>
          <xsd:enumeration value="LT2_5MMBtuh"/>
       </xsd:restriction>
    </xsd:simpleType>
@@ -8451,7 +8447,7 @@
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="TowerLSI">
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:Decimal"/>
    </xsd:simpleType>
    <xsd:simpleType name="TowerSaturation_pH">
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
