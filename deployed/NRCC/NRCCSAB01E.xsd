@@ -167,6 +167,12 @@ When PV/battery/solar thermal requirements don't apply or are traded using the p
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="A06_RequestedMMB" type="comp:RequestedMMB" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This is a flag set by the agent that generates the report XML data to indicate that the user requested a Mandatory Measures Note Block which is placed after the DeclarationBlock in the XML output.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="AErrorMessage_SectionErrorMessage" type="comp:SectionErrorMessage" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
@@ -1638,7 +1644,7 @@ If result == false
 D03_ExceptionalConditionMessageCCSABE += CalculatorOutputAttachedForH</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H05_VerifedByInspector" type="comp:VerifedByInspector" minOccurs="0">
+                  <xsd:element name="H06_VerifedByInspector" type="comp:VerifedByInspector" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This field is displayed as  Pass checkbox and a Fail checkbox in printed form that is given to the Field Inspector.  It is currently not part of the stored XML data</xsd:documentation>

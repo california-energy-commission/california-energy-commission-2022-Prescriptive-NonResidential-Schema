@@ -1651,7 +1651,7 @@ End If</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Fframed04_Status == New result = BlankGrayedOut stored in NotApplicableMessage; 
  
 Else default result = NoExceptionApplies but user can select from list: 
-RecoverAboveDeckRvalue display term  Roof recovers with new R-10 insulation added abov deck
+RecoverAboveDeckRvalue display term  Roof recovers with new R-10 insulation added above deck
  
 MechanicalEquipmentOnRoof display term  Existing mechanical equipment located on the roof will not be disconnected and lifted, insulation added is the greater of R-10 or the maximum installed thickness that will allow the distance between the height of the roof membrane surface to the top of the base flashing to remain in accordance with the manufacturer's instructions.
  
@@ -3256,7 +3256,7 @@ Else If A03_ClimateZoneNumber == 3, 5 Or 6 result = 0.034;
 Else If A03_ClimateZoneNumber == 7 result = 0.039;
 End If 
  
-case ResidentialNR: 
+case ResidentialMF: 
 If A03_ClimateZoneNumber == 1, 2, 4 Or  InRange (8, 16) result = 0.028; 
 Else If A03_ClimateZoneNumber == 3, 5 Or 6 result = 0.034; 
 Else If A03_ClimateZoneNumber == 7 result = 0.039;
@@ -3266,15 +3266,14 @@ case RelocableSchoolBuildingAllZones:  result = 0.034;
 End Switch
  
 Else If FSIPS04_Status == ExistingAlteration And FSIPS13_ConstructionSpecificationMethod == UFactor  
-If FSIPS06_TopLevelOccupancy != ResidentialNR
+If FSIPS06_TopLevelOccupancy != ResidentialMF
 If A03_ClimateZoneNumber == InRange(1,5) Or InRange(9,16)  
 result = 0.037
 Else If A03_ClimateZoneNumber == 6, 7 Or 8
 result = 0.047
 End If;
  
-Else If FSIPS06_TopLevelOccupancy == ResidentialNR
- 
+Else If FSIPS06_TopLevelOccupancy == ResidentialMF 
 Else If A03_ClimateZoneNumber == 1, 2, 4 Or InRange(8,16)  result =  0.039;
 End If
 End if</xsd:documentation>
@@ -3285,14 +3284,14 @@ End if</xsd:documentation>
                                                       <xsd:documentation source="FieldText">Required Thermal Performance<d:sup>3</d:sup>
                                                       </xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If FSIPS04_Status == ExistingAlteration And FSIPS13_ConstructionSpecificationMethod == RValue 
-If FSIPS06_TopLevelOccupancy != ResidentialNR
+If FSIPS06_TopLevelOccupancy != ResidentialMF
 If A03_ClimateZoneNumber == InRange(1,5) Or InRange(9,16)  
 result = R23
 Else If A03_ClimateZoneNumber == 6, 7 Or 8
 result = R17
 End If;
  
-Else If FSIPS06_TopLevelOccupancy == ResidentialNR
+Else If FSIPS06_TopLevelOccupancy == ResidentialMF
 If A03_ClimateZoneNumber == 1, 2, 4 Or InRange(8,16)  
 result =  R14;
 End If
@@ -3304,9 +3303,11 @@ End If</xsd:documentation>
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Required Thermal Performance<d:sup>3</d:sup>
                                                       </xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If FSIPS04_Status == ExistingAlteration And  FSIPS05_RoofInsulationException  != NoExceptionApplies 
-Or FSIPS06_TopLevelOccupancy == ResidentialNR And A03_ClimateZoneNumber == 3, 5, 6 Or 7 
+                                                      <xsd:documentation source="CalculationsAndRules">If FSIPS04_Status == ExistingAlteration 
+If FSIPS05_RoofInsulationException  != NoExceptionApplies 
+Or FSIPS06_TopLevelOccupancy == ResidentialMF And A03_ClimateZoneNumber == 3, 5, 6 Or 7 
 result = BlankGrayedOut stored in NotApplicableMessage
+End If
 End If</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
@@ -4606,7 +4607,7 @@ Else If A03_ClimateZoneNumber == 3, 5 Or 6 result = 0.034;
 Else If A03_ClimateZoneNumber == 7 result = 0.039;
 End If 
  
-case ResidentialNR: 
+case ResidentialMF: 
 If A03_ClimateZoneNumber == 1, 2, 4 Or  InRange (8, 16) result = 0.028; 
 Else If A03_ClimateZoneNumber == 3, 5 Or 6 result = 0.034; 
 Else If A03_ClimateZoneNumber == 7 result = 0.039;
@@ -4616,11 +4617,11 @@ case RelocableSchoolBuildingAllZones:  result = 0.034;
 End Switch
  
 Else If Fmetalp04_Status == ExistingAlteration  
-If Fmetalp06_TopLevelOccupancy != ResidentialNR
+If Fmetalp06_TopLevelOccupancy != ResidentialMF
  If A03_ClimateZoneNumber == InRange(1,5) Or InRange(9,16)  result =  0.037;
 Else If A03_ClimateZoneNumber == InRange(6,8) result = 0.047; 
 End If
-Else If Fmetalp06_TopLevelOccupancy == ResidentialNR
+Else If Fmetalp06_TopLevelOccupancy == ResidentialMF
 If A03_ClimateZoneNumber == 1, 2, 4 Or InRange(8,16)  result = 0.039
 End If
  
@@ -4633,7 +4634,7 @@ End if</xsd:documentation>
                                                       <xsd:documentation source="FieldText">Required Thermal Performance</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Fmetalp04_Status == ExistingAlteration 
 If Fmetalp05_RoofInsulationException  != NoExceptionApplies  Or 
-If Fmetalp06_TopLevelOccupancy == ResidentialNR And A03_ClimateZoneNumber == 3, 5, 6 Or 7
+If Fmetalp06_TopLevelOccupancy == ResidentialMF And A03_ClimateZoneNumber == 3, 5, 6 Or 7
  result = BlankGrayedOut
 End If</xsd:documentation>
                                                    </xsd:annotation>
@@ -5087,11 +5088,11 @@ Else result = UFactor and cannot be changed by user</xsd:documentation>
  
 Else If Fmetalb04_Status == ExistingAlteration And Fmetalb12_ConstructionSpecificationMethod == UFactor 
  
-If Fmetalb06_TopLevelOccupancy != ResidentialNR 
+If Fmetalb06_TopLevelOccupancy != ResidentialMF 
 If A03_ClimateZoneNumber == InRange(1,5) Or InRange(9,16)  result =  0.037;
 Else If A03_ClimateZoneNumber == InRange(6,8) result = 0.047; 
 End If
-Else If Fmetalb06_TopLevelOccupancy == ResidentialNR
+Else If Fmetalb06_TopLevelOccupancy == ResidentialMF
 If A03_ClimateZoneNumber == 1, 2, 4 Or InRange (8, 16) result = 0.039
 End If;
  
@@ -5103,11 +5104,11 @@ End if</xsd:documentation>
                                                       <xsd:documentation source="FieldText">Required Thermal Performance<d:sup>3</d:sup>
                                                       </xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Fmetalb04_Status == ExistingAlteration And Fmetalb12_ConstructionSpecificationMethod == RValue 
-If Fmetalb06_TopLevelOccupancy != ResidentialNR
+If Fmetalb06_TopLevelOccupancy != ResidentialMF
 If A03_ClimateZoneNumber == InRange(1,5) Or InRange(9,16)  result = R23;
 Else If A03_ClimateZoneNumber == InRange(6,8) result = R17; 
 End If
-Else If Fmetalb06_TopLevelOccupancy == ResidentialNR
+Else If Fmetalb06_TopLevelOccupancy == ResidentialMF
 If A03_ClimateZoneNumber == 1, 2, 4 Or InRange(8, 16)  result = R14
 End If;
  
@@ -5120,7 +5121,7 @@ End If</xsd:documentation>
                                                       </xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Fmetalb04_Status == ExistingAlteration 
 If Fmetalb05_RoofInsulationException  != NoExceptionApplies Or 
-If Fmetalb06_TopLevelOccupancy == ResidentialNR And A03_ClimateZoneNumber == 3, 5, 6 Or 7
+If Fmetalb06_TopLevelOccupancy == ResidentialMF And A03_ClimateZoneNumber == 3, 5, 6 Or 7
 result = BlankGrayedOut
 End If
 End If</xsd:documentation>
@@ -12437,7 +12438,7 @@ End If</xsd:documentation>
                                                    </xsd:restriction>
                                                 </xsd:simpleType>
                                              </xsd:element>
-                                             <xsd:element name="Hmetalp03c_StructureFireRating" type="env:StructureFireRating">
+                                             <xsd:element name="Hmetalp04c_StructureFireRating" type="env:StructureFireRating">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">If Hmetalp03a_TopLevelOccupancy == ResidentialMF
@@ -12497,12 +12498,12 @@ End If
 case RelocableSchoolBuildingAllZones: result = 0.059.
  
 case ResidentialMF: case OtherOccupancy:
-If Hmetalp03c_StructureFireRating == GT1hr
+If Hmetalp04c_StructureFireRating == GT1hr
 If A03_ClimateZoneNumber == InRange(1,5) Or 8 Or 9 Or 10 Or 12 Or 13   result = 0.059
 Else If A03_ClimateZoneNumber == 11 Or 14 Or 15 Or 16   result = 0.051
 Else If A03_ClimateZoneNumber == 6 Or 7   result = 0.065
 End If
-Else If Hmetalp03c_StructureFireRating == LTE1hr
+Else If Hmetalp04c_StructureFireRating == LTE1hr
 If A03_ClimateZoneNumber == InRange(1,5) Or InRange(8,16)  result = 0.051
 Else If A03_ClimateZoneNumber == 6 Or 7   result = 0.065
 End If
@@ -13420,7 +13421,7 @@ End If</xsd:documentation>
                                                    </xsd:restriction>
                                                 </xsd:simpleType>
                                              </xsd:element>
-                                             <xsd:element name="Hmetalp03b_StructureFireRating" type="env:StructureFireRating">
+                                             <xsd:element name="HICF03b_StructureFireRating" type="env:StructureFireRating">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">If HICF03_TopLevelOccupancy == ResidentialMF

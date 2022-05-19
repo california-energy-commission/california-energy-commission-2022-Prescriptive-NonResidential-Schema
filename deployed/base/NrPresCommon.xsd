@@ -5,7 +5,6 @@
    <xsd:simpleType name="AdditionTotalConditionedFloorArea">
       <xsd:annotation>
          <xsd:documentation>All conditioned floor area in an addition project.  It can be derived from all conditioned area in the Zones  Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Addition Total Conditioned Floor Area</dtyp:displayterm>
          </xsd:appinfo>
@@ -13,15 +12,11 @@
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="AddressFull">
-      <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
-      </xsd:annotation>
       <xsd:restriction base="xsd:string"/>
    </xsd:simpleType>
    <xsd:simpleType name="AdjacentSpaceName">
       <xsd:annotation>
          <xsd:documentation>This references the space on the other side of an interior partition.</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR name AdjacentSpaceReference</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Adjacent Space Name</dtyp:displayterm>
          </xsd:appinfo>
@@ -31,7 +26,6 @@
    <xsd:simpleType name="AnnualWeatherFile">
       <xsd:annotation>
          <xsd:documentation>Filename of the annual weather file with hourly weather data</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc exclude;  CBECC NR include</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Annual Weather File</dtyp:displayterm>
          </xsd:appinfo>
@@ -66,9 +60,6 @@
       <xsd:restriction base="dtyp:ObjectNamePermissive"/>
    </xsd:simpleType>
    <xsd:simpleType name="BuildingStoryName">
-      <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
-      </xsd:annotation>
       <xsd:restriction base="dtyp:ObjectNamePermissive"/>
    </xsd:simpleType>
    <xsd:simpleType name="BuildingStoryRange">
@@ -121,7 +112,6 @@
    <xsd:simpleType name="CBC_OccupancyGroup">
       <xsd:annotation>
          <xsd:documentation>One of the occupancy categories defined by the California Building Code (CBC).</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>CBC Occupancy Group</dtyp:displayterm>
          </xsd:appinfo>
@@ -156,7 +146,6 @@
    <xsd:simpleType name="CFactor">
       <xsd:annotation>
          <xsd:documentation>A measurement of thermal conductivity of a material and is used in the JA 4 tables for masonry and concrete walls  Units: Btu per h ft2 F</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>CFactor</dtyp:displayterm>
          </xsd:appinfo>
@@ -311,7 +300,6 @@
    </xsd:simpleType>
    <xsd:simpleType name="CardinalOrientation">
       <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Cardinal Orientation</dtyp:displayterm>
          </xsd:appinfo>
@@ -342,7 +330,6 @@
    <xsd:simpleType name="City">
       <xsd:annotation>
          <xsd:documentation>Part of an address</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:City"/>
    </xsd:simpleType>
@@ -521,7 +508,6 @@
    <xsd:simpleType name="ClimateZoneNumber">
       <xsd:annotation>
          <xsd:documentation>Numeric representation of the climate zone used in table lookups</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc exclude;  CBECC NR include</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="1">1</dtyp:displayterm>
             <dtyp:displayterm value="10">10</dtyp:displayterm>
@@ -563,7 +549,6 @@
    <xsd:simpleType name="ConditionedFloorArea">
       <xsd:annotation>
          <xsd:documentation>Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc exclude;  CBECC NR include</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
@@ -585,7 +570,6 @@
    </xsd:simpleType>
    <xsd:simpleType name="ConstructionScope">
       <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Building Construction Scope</dtyp:displayterm>
          </xsd:appinfo>
@@ -604,26 +588,16 @@
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ContactCompany">
-      <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
-      </xsd:annotation>
       <xsd:restriction base="xsd:string"/>
    </xsd:simpleType>
    <xsd:simpleType name="ContactEmailAddress">
-      <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
-      </xsd:annotation>
       <xsd:restriction base="xsd:string"/>
    </xsd:simpleType>
    <xsd:simpleType name="ContactName">
-      <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
-      </xsd:annotation>
       <xsd:restriction base="xsd:string"/>
    </xsd:simpleType>
    <xsd:simpleType name="ContactRole">
       <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="BuildingContractor">Building Contractor</dtyp:displayterm>
             <dtyp:displayterm value="BuildingOperator">Building Operator</dtyp:displayterm>
@@ -641,9 +615,6 @@
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ContactTelephoneNumber">
-      <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
-      </xsd:annotation>
       <xsd:restriction base="xsd:string"/>
    </xsd:simpleType>
    <xsd:simpleType name="ContinuousInsulationOther">
@@ -655,14 +626,10 @@
    <xsd:simpleType name="CoolingDegreeDays">
       <xsd:annotation>
          <xsd:documentation>Units: F</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="DaylightingControlName">
-      <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
-      </xsd:annotation>
       <xsd:restriction base="dtyp:ObjectNamePermissive"/>
    </xsd:simpleType>
    <xsd:simpleType name="DaylightingControlType">
@@ -706,7 +673,6 @@
    <xsd:simpleType name="Density">
       <xsd:annotation>
          <xsd:documentation>An attribute of a material and is the measure of how much mass is contained in a given unit volume.  This is the classical definition of density: mass/volume.  Units: lb per ft3</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Density</dtyp:displayterm>
          </xsd:appinfo>
@@ -715,7 +681,6 @@
    </xsd:simpleType>
    <xsd:simpleType name="Diffusing">
       <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc exclude;  CBECC NR include</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="true">Yes</dtyp:displayterm>
             <dtyp:displayterm value="false">No</dtyp:displayterm>
@@ -778,7 +743,6 @@
    </xsd:simpleType>
    <xsd:simpleType name="ElectricalLoadType">
       <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="DwellingUnitsOnlyOnService">Only MF dwelling units on this service</dtyp:displayterm>
             <dtyp:displayterm value="ElectricalVehicleChargingStationLoad">Charging stations for electrical vehicle</dtyp:displayterm>
@@ -818,7 +782,6 @@
    </xsd:simpleType>
    <xsd:simpleType name="EnclosedSpace">
       <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc exclude;  CBECC NR include</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="true">Yes</dtyp:displayterm>
             <dtyp:displayterm value="false">No</dtyp:displayterm>
@@ -841,7 +804,6 @@
    <xsd:simpleType name="ExhaustPerSpace">
       <xsd:annotation>
          <xsd:documentation>Units: ft3 per min</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc exclude;  CBECC NR include</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
@@ -920,7 +882,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    <xsd:simpleType name="FFactor">
       <xsd:annotation>
          <xsd:documentation>The quantity of heat that will flow through a unit area of the material when the temperature difference through the material is 1 degree F.  Units: Btu per h ft F</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>FFactor</dtyp:displayterm>
          </xsd:appinfo>
@@ -930,7 +891,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    <xsd:simpleType name="FFactorLimit">
       <xsd:annotation>
          <xsd:documentation>Prescribed value for the F-Factor of a construction assembly.  Units: Btu per h ft F</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
@@ -953,7 +913,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    </xsd:simpleType>
    <xsd:simpleType name="FenestrationOrientation">
       <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="East">East</dtyp:displayterm>
             <dtyp:displayterm value="North">North</dtyp:displayterm>
@@ -1007,7 +966,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    <xsd:simpleType name="FloorArea">
       <xsd:annotation>
          <xsd:documentation>Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Floor Area</dtyp:displayterm>
          </xsd:appinfo>
@@ -1076,7 +1034,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    </xsd:simpleType>
    <xsd:simpleType name="GasType">
       <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc exclude;  CBECC NR include</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="NaturalGas">Natural gas</dtyp:displayterm>
             <dtyp:displayterm value="None">None</dtyp:displayterm>
@@ -1119,7 +1076,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    <xsd:simpleType name="HeatingDegreeDays">
       <xsd:annotation>
          <xsd:documentation>Units: F</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
@@ -1132,7 +1088,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    <xsd:simpleType name="HotWaterHeatingRate">
       <xsd:annotation>
          <xsd:documentation>The gallons of hot water for each person in a space during occupied hours  Units: gal per h person</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Hot Water Heating Rate</dtyp:displayterm>
          </xsd:appinfo>
@@ -1154,7 +1109,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    <xsd:simpleType name="ImprovementStatus">
       <xsd:annotation>
          <xsd:documentation>Defines if a construction or equipment is new, existing,  modified, removed.  Standards such as efficiency standards may not apply if a construction or equipment in a project is existing.  equipment may be moved and reinstalled in the project.</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Status</dtyp:displayterm>
          </xsd:appinfo>
@@ -1206,7 +1160,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    </xsd:simpleType>
    <xsd:simpleType name="IsSpaceRectangular">
       <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="true">Rectangular</dtyp:displayterm>
             <dtyp:displayterm value="false">Non-Rectangular</dtyp:displayterm>
@@ -1216,7 +1169,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    </xsd:simpleType>
    <xsd:simpleType name="KitchenExhaustHoodDuty">
       <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR include</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="ExtraHeavyDuty">Extra Heavy Duty</dtyp:displayterm>
             <dtyp:displayterm value="HeavyDuty">Heavy Duty</dtyp:displayterm>
@@ -1234,20 +1186,17 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    <xsd:simpleType name="KitchenExhaustHoodFlow">
       <xsd:annotation>
          <xsd:documentation>Units: ft3 per min</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR include</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="KitchenExhaustHoodLength">
       <xsd:annotation>
          <xsd:documentation>Units: ft</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR include</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="KitchenExhaustHoodStyle">
       <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR include</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="BackshelfPassover">Backshelf / Passover</dtyp:displayterm>
             <dtyp:displayterm value="DoubleIsland">Double Island</dtyp:displayterm>
@@ -1389,7 +1338,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    <xsd:simpleType name="LatentHeatRatePerOccupant">
       <xsd:annotation>
          <xsd:documentation>The rate of latent heat released per person which is a function of activity  Units: Btu per h person</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Latent Heat Rate Per Occupant</dtyp:displayterm>
          </xsd:appinfo>
@@ -1408,21 +1356,18 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    <xsd:simpleType name="LightedHardscapeArea">
       <xsd:annotation>
          <xsd:documentation>Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="LightedHardscapeAreaTotal">
       <xsd:annotation>
          <xsd:documentation>Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="Location">
       <xsd:annotation>
          <xsd:documentation>Defines whether a building story is  below ground, at ground level, above ground and/ or the top story with a roof.  There can be multiple values as in the case of a one story building that has one story that is both at ground level and the top story with a roof</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Building Story Location</dtyp:displayterm>
          </xsd:appinfo>
@@ -1492,7 +1437,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    </xsd:simpleType>
    <xsd:simpleType name="NaturalGasOnSite">
       <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc exclude;  CBECC NR include</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="true">Yes</dtyp:displayterm>
             <dtyp:displayterm value="false">No</dtyp:displayterm>
@@ -1502,7 +1446,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    </xsd:simpleType>
    <xsd:simpleType name="NaturalVentilationMethod">
       <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AirChangesPerHour">Air changes per hour</dtyp:displayterm>
             <dtyp:displayterm value="FlowPerArea">Flow per area</dtyp:displayterm>
@@ -1532,7 +1475,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    <xsd:simpleType name="OccupancyCount">
       <xsd:annotation>
          <xsd:documentation>This is the percentage of  BuildingTotalGrossFloorArea that is occupied and operational  Units: none</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc exclude;  CBECC NR include</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
@@ -1557,7 +1499,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    <xsd:simpleType name="OccupantDensity">
       <xsd:annotation>
          <xsd:documentation>The areal density of people associated with a space expressed in people per 1000 square feet.  Units: person per area or fixed seating</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Occupant Density</dtyp:displayterm>
          </xsd:appinfo>
@@ -1567,7 +1508,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    <xsd:simpleType name="OverhangDepth">
       <xsd:annotation>
          <xsd:documentation>Units: ft</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc exclude;  CBECC NR include</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
@@ -1616,14 +1556,10 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="PostOfficeBoxNumber">
-      <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
-      </xsd:annotation>
       <xsd:restriction base="xsd:string"/>
    </xsd:simpleType>
    <xsd:simpleType name="PrimarySideDaylightingControls">
       <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="true">Yes</dtyp:displayterm>
             <dtyp:displayterm value="false">No</dtyp:displayterm>
@@ -1648,9 +1584,6 @@ receives the most illumination.  Units: ft2</xsd:documentation>
       <xsd:restriction base="xsd:token"/>
    </xsd:simpleType>
    <xsd:simpleType name="ProjectNarrative">
-      <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
-      </xsd:annotation>
       <xsd:restriction base="xsd:string"/>
    </xsd:simpleType>
    <xsd:simpleType name="ProjectionFactor">
@@ -1662,7 +1595,6 @@ receives the most illumination.  Units: ft2</xsd:documentation>
    <xsd:simpleType name="RSHGC">
       <xsd:annotation>
          <xsd:documentation>The ratio of the solar heat gain entering a space, through the subject fenestration product, (corrected for external shading) to the incident solar radiation.  Solar heat gain includes directly transmitted solar heat and absorbed solar radiation which is then re-radiated, conducted or convected into the space. referred to as RSGH.  Units: none</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Relative Solar Heat Gain</dtyp:displayterm>
          </xsd:appinfo>
@@ -1672,7 +1604,6 @@ receives the most illumination.  Units: ft2</xsd:documentation>
    <xsd:simpleType name="RSHGC_Limit">
       <xsd:annotation>
          <xsd:documentation>This is the regulatory limit for the RelativeSolarHeatGain of a building element  Units: none</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:Decimal4PlacesNonnegative"/>
    </xsd:simpleType>
@@ -1705,7 +1636,6 @@ receives the most illumination.  Units: ft2</xsd:documentation>
    <xsd:simpleType name="RoomCavityRatio">
       <xsd:annotation>
          <xsd:documentation>Required if using the Tailored method, which defines the configuration of space using task lighting. Calculated using the length and width of the indoor lighting area and the vertical distance from the work plane to the centerline of the lighting fixture.  Units: none</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Room Cavity Ratio</dtyp:displayterm>
          </xsd:appinfo>
@@ -1715,7 +1645,6 @@ receives the most illumination.  Units: ft2</xsd:documentation>
    <xsd:simpleType name="Roughness">
       <xsd:annotation>
          <xsd:documentation>The relative roughness of a material layer, specifically an exterior facing layer.</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Roughness</dtyp:displayterm>
          </xsd:appinfo>
@@ -1740,7 +1669,6 @@ receives the most illumination.  Units: ft2</xsd:documentation>
    <xsd:simpleType name="RuleAuthority">
       <xsd:annotation>
          <xsd:documentation>The industry association which is the authority for the value assigned to a rule target.</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Method Used to Calculate HVAC Load</dtyp:displayterm>
          </xsd:appinfo>
@@ -1810,7 +1738,6 @@ receives the most illumination.  Units: ft2</xsd:documentation>
    <xsd:simpleType name="SHGC_Limit">
       <xsd:annotation>
          <xsd:documentation>This is the regulatory limit for the SolarHeatGain of a building element  Units: none</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:Decimal4PlacesNonnegative"/>
    </xsd:simpleType>
@@ -1838,7 +1765,6 @@ receives the most illumination.  Units: ft2</xsd:documentation>
    <xsd:simpleType name="SensibleHeatRatePerOccupant">
       <xsd:annotation>
          <xsd:documentation>The rate of sensible heat released per person which is a function of activity  Units: Btu per h person</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Sensible Heat Rate Per Occupant</dtyp:displayterm>
          </xsd:appinfo>
@@ -1848,7 +1774,6 @@ receives the most illumination.  Units: ft2</xsd:documentation>
    <xsd:simpleType name="SiteCounty">
       <xsd:annotation>
          <xsd:documentation>The California county where the building Site is located</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Site County</dtyp:displayterm>
          </xsd:appinfo>
@@ -1982,7 +1907,6 @@ receives the most illumination.  Units: ft2</xsd:documentation>
    </xsd:simpleType>
    <xsd:simpleType name="SkylitDaylightingControls">
       <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="true">Yes</dtyp:displayterm>
             <dtyp:displayterm value="false">No</dtyp:displayterm>
@@ -1999,7 +1923,6 @@ receives the most illumination.  Units: ft2</xsd:documentation>
    <xsd:simpleType name="SolarAbsorptance">
       <xsd:annotation>
          <xsd:documentation>The fraction of incident solar radiation that is absorbed by the material. Solar radiation includes the visible spectrum as well as infrared and ultraviolet wavelengths.  Units: none</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Solar Absorptance</dtyp:displayterm>
          </xsd:appinfo>
@@ -2009,14 +1932,12 @@ receives the most illumination.  Units: ft2</xsd:documentation>
    <xsd:simpleType name="SolarHeatGainCoefficientNFRC">
       <xsd:annotation>
          <xsd:documentation>The solar heat gain coefficient given by the NFRC and displayed on a label on the fenestration product  Units: none</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="SolarReflectanceAged">
       <xsd:annotation>
          <xsd:documentation>The three year aged value for Solar Reflectance established by the Cool Roof Rating Council (CRRC).  Assigned a prescriptive value in Table 143A.  Units: none</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Solar Reflectance Aged</dtyp:displayterm>
          </xsd:appinfo>
@@ -2028,7 +1949,6 @@ receives the most illumination.  Units: ft2</xsd:documentation>
          <xsd:documentation>The fraction of incident solar radiation that is reflected by the material when it is first installed. Solar radiation includes the visible spectrum as well as infrared and ultraviolet wavelengths. 
 
 NOTE: For roofs, differentiate between the initial Solar Reflectance value and the three year aged value established by the Cool Roof Rating Council (CRRC).  The aged value is use in Table 143A  Units: none</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Solar Reflectance</dtyp:displayterm>
          </xsd:appinfo>
@@ -2036,9 +1956,6 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="SpaceDescription">
-      <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
-      </xsd:annotation>
       <xsd:restriction base="xsd:token"/>
    </xsd:simpleType>
    <xsd:simpleType name="SpaceFloorArea">
@@ -2273,21 +2190,18 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
    <xsd:simpleType name="SpaceHeight">
       <xsd:annotation>
          <xsd:documentation>Units: ft</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:Height"/>
    </xsd:simpleType>
    <xsd:simpleType name="SpaceLength">
       <xsd:annotation>
          <xsd:documentation>Units: ft</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:Length"/>
    </xsd:simpleType>
    <xsd:simpleType name="SpaceModifiedLuminaireCount">
       <xsd:annotation>
          <xsd:documentation>Units: none</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:IntegerNonnegative"/>
    </xsd:simpleType>
@@ -2303,21 +2217,18 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
    <xsd:simpleType name="SpacePerimeter">
       <xsd:annotation>
          <xsd:documentation>Units: ft</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="SpaceWidth">
       <xsd:annotation>
          <xsd:documentation>Units: ft</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:Width"/>
    </xsd:simpleType>
    <xsd:simpleType name="SpacesConditionedArea">
       <xsd:annotation>
          <xsd:documentation>Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Spaces Conditioned Area</dtyp:displayterm>
          </xsd:appinfo>
@@ -2327,7 +2238,6 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
    <xsd:simpleType name="SpacesUnconditionedArea">
       <xsd:annotation>
          <xsd:documentation>Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Spaces Unconditioned Area</dtyp:displayterm>
          </xsd:appinfo>
@@ -2337,7 +2247,6 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
    <xsd:simpleType name="SpecificHeat">
       <xsd:annotation>
          <xsd:documentation>The quantity of heat that must be supplied to a unit mass of a material to increase its temperature by 1 degree F.  Units: Btu per lb F</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Specific Heat</dtyp:displayterm>
          </xsd:appinfo>
@@ -2375,26 +2284,16 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="StreetAddress">
-      <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
-      </xsd:annotation>
       <xsd:restriction base="dtyp:StreetAddress"/>
    </xsd:simpleType>
    <xsd:simpleType name="StreetBuildingNumber">
-      <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
-      </xsd:annotation>
       <xsd:restriction base="xsd:string"/>
    </xsd:simpleType>
    <xsd:simpleType name="StreetName">
-      <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
-      </xsd:annotation>
       <xsd:restriction base="xsd:string"/>
    </xsd:simpleType>
    <xsd:simpleType name="StreetOrientation">
       <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="East">East</dtyp:displayterm>
             <dtyp:displayterm value="North">North</dtyp:displayterm>
@@ -2418,15 +2317,11 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="SuiteNumber">
-      <xsd:annotation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
-      </xsd:annotation>
       <xsd:restriction base="xsd:string"/>
    </xsd:simpleType>
    <xsd:simpleType name="T24Part6Section">
       <xsd:annotation>
          <xsd:documentation>The reference in the Title 24 Part 6 for the applied rule.  The form follows the pattern in Title 24 Part 6 as shown in this example Section 143(a)1Ai</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Title24 Part6 Section</dtyp:displayterm>
          </xsd:appinfo>
@@ -2436,7 +2331,6 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
    <xsd:simpleType name="ThermalAbsorptance">
       <xsd:annotation>
          <xsd:documentation>The fraction of incident long wavelength radiation that is absorbed by the material. This parameter is used when calculating the long wavelength radiant exchange between various surfaces and affects the surface heat balances (both inside and outside as appropriate). Units: none  Units: none</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Thermal Absorptance</dtyp:displayterm>
          </xsd:appinfo>
@@ -2446,7 +2340,6 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
    <xsd:simpleType name="ThermalConductivity">
       <xsd:annotation>
          <xsd:documentation>The thermal conductivity of a material of unit thickness is the quantity of heat that will flow through a unit area of the material when the temperature difference through the material is 1 degree F.  Units: Btu per h ft F</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Thermal Conductivity</dtyp:displayterm>
          </xsd:appinfo>
@@ -2462,7 +2355,6 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
    <xsd:simpleType name="ThermalEmittanceLimit">
       <xsd:annotation>
          <xsd:documentation>This is the required Thermal Emittance for a roof which is the prescribed ratio of the electromagnetic radiation emitted by a surface to that of a perfect black body at the same temperature.  Units: none</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Emissivity</dtyp:displayterm>
          </xsd:appinfo>
@@ -2472,7 +2364,6 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
    <xsd:simpleType name="Thickness">
       <xsd:annotation>
          <xsd:documentation>Measures between two surfaces of an object, which is the dimension through an object as opposed to its length or width  Units: in</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Thickness</dtyp:displayterm>
          </xsd:appinfo>
@@ -2519,7 +2410,6 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
    <xsd:simpleType name="TotalConditionedFloorArea">
       <xsd:annotation>
          <xsd:documentation>All conditioned floor area in the Building project.  It can be derived from all conditioned area in the Zones  Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Total Conditioned Floor Area</dtyp:displayterm>
          </xsd:appinfo>
@@ -2556,7 +2446,6 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
    <xsd:simpleType name="TypeOtherDescription">
       <xsd:annotation>
          <xsd:documentation>Text describing type not in list</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="xsd:token"/>
    </xsd:simpleType>
@@ -2578,14 +2467,12 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
    <xsd:simpleType name="UFactorLimit">
       <xsd:annotation>
          <xsd:documentation>This is the regulatory limit for the UFactor of a building element  Units: Btu per h ft2 F</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:Decimal4PlacesNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="UFactorLimitSkylight">
       <xsd:annotation>
          <xsd:documentation>This is the regulatory limit for the UFactor of a Skylight fenestration  Units: Btu per h ft2 F</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:Decimal3PlacesNonnegative"/>
    </xsd:simpleType>
@@ -2610,14 +2497,12 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
    <xsd:simpleType name="VentilationPerSpace">
       <xsd:annotation>
          <xsd:documentation>Units: ft3 per min</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc exclude;  CBECC NR include</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="VentilationRate">
       <xsd:annotation>
          <xsd:documentation>The amount of outside air provided to a space during occupied hours divided by the floor area of that space.  Units: ft3 per min ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Ventilation Rate</dtyp:displayterm>
          </xsd:appinfo>
@@ -2812,7 +2697,6 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
    <xsd:simpleType name="VisibleAbsorptance">
       <xsd:annotation>
          <xsd:documentation>The fraction of incident visible radiation that is absorbed by the material. Visible radiation includes only a sub-range of solar radiation and excludes infrared and ultraviolet wavelengths.  Units: none.  Units: none</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Visible Absorptance</dtyp:displayterm>
          </xsd:appinfo>
@@ -2855,7 +2739,6 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
    <xsd:simpleType name="WholeBuildingOccupancy">
       <xsd:annotation>
          <xsd:documentation>One of the occupancy types applied to the whole building.</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Whole Building Occupancy</dtyp:displayterm>
          </xsd:appinfo>
@@ -2898,6 +2781,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
             <dtyp:displayterm value="RetailBuilding">Retail</dtyp:displayterm>
             <dtyp:displayterm value="SchoolBuilding">School or Classroom</dtyp:displayterm>
             <dtyp:displayterm value="SportsArenaBuilding">Sports Arena</dtyp:displayterm>
+            <dtyp:displayterm value="StateBuilding">State Building</dtyp:displayterm>
             <dtyp:displayterm value="SupportArea">Support Areas</dtyp:displayterm>
             <dtyp:displayterm value="TheaterBuilding">Theater</dtyp:displayterm>
             <dtyp:displayterm value="UnleasedTenantSpace">Unleased Tenant Space</dtyp:displayterm>
@@ -2939,6 +2823,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
          <xsd:enumeration value="RetailBuilding"/>
          <xsd:enumeration value="SchoolBuilding"/>
          <xsd:enumeration value="SportsArenaBuilding"/>
+         <xsd:enumeration value="StateBuilding"/>
          <xsd:enumeration value="SupportArea"/>
          <xsd:enumeration value="TheaterBuilding"/>
          <xsd:enumeration value="UnleasedTenantSpace"/>
@@ -2948,14 +2833,12 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
    <xsd:simpleType name="YearBuilt">
       <xsd:annotation>
          <xsd:documentation>Units: none</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="xsd:gYear"/>
    </xsd:simpleType>
    <xsd:simpleType name="YearLastMajorRemodel">
       <xsd:annotation>
          <xsd:documentation>Units: none</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Year of Last Major Remodel</dtyp:displayterm>
          </xsd:appinfo>

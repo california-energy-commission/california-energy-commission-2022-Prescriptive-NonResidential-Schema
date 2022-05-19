@@ -1088,7 +1088,6 @@
    </xsd:simpleType>
    <xsd:simpleType name="ChillerType">
       <xsd:annotation>
-         <xsd:documentation>ChillerType</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Chiller Type</dtyp:displayterm>
          </xsd:appinfo>
@@ -1190,7 +1189,6 @@
    </xsd:simpleType>
    <xsd:simpleType name="CoilCoolingType">
       <xsd:annotation>
-         <xsd:documentation>CoilCoolingType</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Coil Cooling Type</dtyp:displayterm>
          </xsd:appinfo>
@@ -1262,7 +1260,6 @@
    </xsd:simpleType>
    <xsd:simpleType name="CoilHeatingType">
       <xsd:annotation>
-         <xsd:documentation>CoilHeatingType</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Coil Heating Type</dtyp:displayterm>
          </xsd:appinfo>
@@ -2325,25 +2322,21 @@
    <xsd:simpleType name="DwellingUnitWaterHeater">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="HeatPumpConditioned">A single heat pump water heater with storage tank located in the garage or conditioned space.</dtyp:displayterm>
-            <dtyp:displayterm value="HeatPumpConditionedInsulated">A single heat pump water heater with storage tank located in the garage or conditioned space and be placed on an incompressible, rigid insulated surface with minimum R-10.</dtyp:displayterm>
-            <dtyp:displayterm value="HeatPumpConditionedInsulatedNEEA">A single heat pump water heater with storage tank located in the garage or conditioned space and be placed on an incompressible, rigid insulated surface with minimum R-10. Water heater meets the requirements of NEEA Advanced Water Heater Specification Tier 3 or higher.</dtyp:displayterm>
-            <dtyp:displayterm value="HeatPumpConditionedNEEA">A single heat pump water heater with storage tank located in the garage or conditioned space. Water heater meets the requirements of NEEA Advanced Water Heater Specification Tier 3 or higher.</dtyp:displayterm>
-            <dtyp:displayterm value="InstantaneousConsumerNoTank">Gas/propane instantaneous water heater with input rating [d:lte/] 200,000 BTUH and no storage tank</dtyp:displayterm>
-            <dtyp:displayterm value="StorageConsumerGT55Gal">Gas/propane storage type water heater with input rating [d:lte/] 75,000 BTUH;  Rated volume [d:gt/] 55 gal</dtyp:displayterm>
-            <dtyp:displayterm value="StorageConsumerLTE55Gal">Gas/propane storage type water heater with input rating [d:lte/] 75,000 BTUH;  Rated volume [d:lte/] 55 gal</dtyp:displayterm>
-            <dtyp:displayterm value="WaterHeaterElectricNoGasAvailable">No gas connection to existing water heater location for replacement water heater.  Consumer electric water heater must meet Title 20 Appliance Efficiency requirements (see Equipment Schedule above) per [d:t24ref/]150.2(b)1H.</dtyp:displayterm>
+            <dtyp:displayterm value="HeatPumpWaterHeater240V">A single 240 volt heat pump water heater serving the dwelling unit.  (New Construction and Additions Only)</dtyp:displayterm>
+            <dtyp:displayterm value="HeatPumpConditionedInsulated">A single heat pump water heater with storage tank located in the garage or conditioned space and be placed on an incompressible, rigid insulated surface with minimum R-10. The water heater shall be installed with a communication interface that meets either the requirements of 110.12(a) or has a ANSI/CTA-2045-B communication port (Alterations Only)</dtyp:displayterm>
+            <dtyp:displayterm value="HeatPumpNEEA">A single heat pump water heater that meets the requirements of NEEA Advanced Water Heater Specification Tier 3 or higher.</dtyp:displayterm>
+            <dtyp:displayterm value="InstantaneousConsumerNoTank">Gas/propane instantaneous water heater with input rating [d:lte/] 200,000 BTUH and no storage tank. Note: Can not comply using the prescriptive path with a storage tank per [d:t24refnolink/]170.2(d)1C (New Construction and Additions Only)</dtyp:displayterm>
+            <dtyp:displayterm value="StorageConsumerReplacement">Replacement or altered gas or propane water heater  (Alterations Only)</dtyp:displayterm>
+            <dtyp:displayterm value="WaterHeaterConsumerElectric">If the existing water heater is an electric resistance water heater, a consumer electric water heater (Alterations Only)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="HeatPumpConditioned"/>
+         <xsd:enumeration value="HeatPumpWaterHeater240V"/>
          <xsd:enumeration value="HeatPumpConditionedInsulated"/>
-         <xsd:enumeration value="HeatPumpConditionedInsulatedNEEA"/>
-         <xsd:enumeration value="HeatPumpConditionedNEEA"/>
+         <xsd:enumeration value="HeatPumpNEEA"/>
          <xsd:enumeration value="InstantaneousConsumerNoTank"/>
-         <xsd:enumeration value="StorageConsumerGT55Gal"/>
-         <xsd:enumeration value="StorageConsumerLTE55Gal"/>
-         <xsd:enumeration value="WaterHeaterElectricNoGasAvailable"/>
+         <xsd:enumeration value="StorageConsumerReplacement"/>
+         <xsd:enumeration value="WaterHeaterConsumerElectric"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="DX_AirflowVerified">
@@ -2452,6 +2445,13 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="EfficiencyCapWeightedAvg">
+      <xsd:annotation>
+         <xsd:documentation>  Units: percent</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="EfficiencyCEER">
@@ -2659,6 +2659,7 @@
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AFUE">AFUE</dtyp:displayterm>
             <dtyp:displayterm value="BtuHrHp">Btu/Hr/Hp</dtyp:displayterm>
+            <dtyp:displayterm value="CapWeightedAvg">Capacity Weighted Average Efficiency</dtyp:displayterm>
             <dtyp:displayterm value="CEER">CEER</dtyp:displayterm>
             <dtyp:displayterm value="CombustionEfficiency">Combustion Efficiency</dtyp:displayterm>
             <dtyp:displayterm value="COP">COP</dtyp:displayterm>
@@ -2682,6 +2683,7 @@
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="AFUE"/>
          <xsd:enumeration value="BtuHrHp"/>
+         <xsd:enumeration value="CapWeightedAvg"/>
          <xsd:enumeration value="CEER"/>
          <xsd:enumeration value="CombustionEfficiency"/>
          <xsd:enumeration value="COP"/>
@@ -3313,7 +3315,6 @@
    </xsd:simpleType>
    <xsd:simpleType name="FluidSegmentType">
       <xsd:annotation>
-         <xsd:documentation>FluidSegmentType</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Fluid Segment Type</dtyp:displayterm>
          </xsd:appinfo>
@@ -3641,7 +3642,6 @@
    </xsd:simpleType>
    <xsd:simpleType name="HeatExchangerType">
       <xsd:annotation>
-         <xsd:documentation>HeatExchangerType</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="CounterFlow">Counter Flow</dtyp:displayterm>
          </xsd:appinfo>
@@ -4868,6 +4868,16 @@
          <xsd:documentation>The integrated part load efficiency of the chiller  Units: none</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="IsEfficiencyCapWeightedAvg">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="IsMotorECM">
@@ -6854,12 +6864,14 @@
             <dtyp:displayterm value="1_0InRvalue7_7">1.0 in or R-7.7</dtyp:displayterm>
             <dtyp:displayterm value="1_5InRvalue11_0">1.5 in or R-11</dtyp:displayterm>
             <dtyp:displayterm value="1_5InRvalue12_5">1.5 in or R-12.5</dtyp:displayterm>
+            <dtyp:displayterm value="2_0InRvalue16_0">2.0 in or R-16</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="1_0InRvalue7_7"/>
          <xsd:enumeration value="1_5InRvalue11_0"/>
          <xsd:enumeration value="1_5InRvalue12_5"/>
+         <xsd:enumeration value="2_0InRvalue16_0"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="PipeInsMeanRatingTemp">
@@ -6946,6 +6958,7 @@
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="1_0ToLT1_5">1 to [d:lt/]1.5</dtyp:displayterm>
             <dtyp:displayterm value="1_5ToLT4_0">1.5 to [d:lt/]4</dtyp:displayterm>
+            <dtyp:displayterm value="1_5ToLT4_0mf">1.5 to [d:lt/]4 Multifamily &amp; Hotel/Motel</dtyp:displayterm>
             <dtyp:displayterm value="4_0ToLT8_0">4 to [d:lt/]8</dtyp:displayterm>
             <dtyp:displayterm value="GTE8_0">8+</dtyp:displayterm>
             <dtyp:displayterm value="LT1_0">[d:lt/]1</dtyp:displayterm>
@@ -6954,6 +6967,7 @@
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="1_0ToLT1_5"/>
          <xsd:enumeration value="1_5ToLT4_0"/>
+         <xsd:enumeration value="1_5ToLT4_0mf"/>
          <xsd:enumeration value="4_0ToLT8_0"/>
          <xsd:enumeration value="GTE8_0"/>
          <xsd:enumeration value="LT1_0"/>
@@ -8452,7 +8466,6 @@
    </xsd:simpleType>
    <xsd:simpleType name="TerminalUnitType">
       <xsd:annotation>
-         <xsd:documentation>TerminalUnitType</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="ActiveBeam">Active Beam</dtyp:displayterm>
             <dtyp:displayterm value="ParallelFanBox">Parallel Fan Box</dtyp:displayterm>
@@ -9188,27 +9201,29 @@
    <xsd:simpleType name="WaterHeaterType">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="BoilerCommercialGT300kBtu">Commercial Package Gas Hot Water Supply Boilers (300k-2.5k Btu/h)</dtyp:displayterm>
+            <dtyp:displayterm value="BoilerCommercialGTE1MMBtu">Commercial Package Gas Hot Water Supply Boilers ([d:gte/] 1MM Btu/h)</dtyp:displayterm>
             <dtyp:displayterm value="BoilerResDutyCommercial">Residential-duty Gas Hot Water Supply Boilers ([d:lt/]300k Btu/h)</dtyp:displayterm>
-            <dtyp:displayterm value="BoilerWaterHeater">Gas Hot Water Supply Boilers</dtyp:displayterm>
-            <dtyp:displayterm value="HeatPumpWaterHeater">Replacement with Heat Pump Water Heater</dtyp:displayterm>
-            <dtyp:displayterm value="InstantaneousCommercial">Gas Instantaneous Water Heater</dtyp:displayterm>
-            <dtyp:displayterm value="InstantaneousConsumer">Gas-Fired Instantaneous (50,000-200,000 BTUH)</dtyp:displayterm>
-            <dtyp:displayterm value="InstantaneousConsumerElectric">Electric Instantaneous ([d:lte/]12kW)</dtyp:displayterm>
+            <dtyp:displayterm value="BoilerWaterHeater">Commercial Gas Hot Water Supply Boilers</dtyp:displayterm>
+            <dtyp:displayterm value="CentralHeatPumpWH">Central Heat Pump Water Heater</dtyp:displayterm>
+            <dtyp:displayterm value="BoilerCommercialLT1MMBtu">Commercial Package Gas Hot Water Supply Boilers (300k - [d:lt/]1MMBtu/h)</dtyp:displayterm>
+            <dtyp:displayterm value="InstantaneousCommercial">Commercial Gas Instantaneous Water Heater</dtyp:displayterm>
+            <dtyp:displayterm value="InstantaneousConsumer">Consumer Rated Gas-Fired Instantaneous (50,000-200,000 BTUH)</dtyp:displayterm>
+            <dtyp:displayterm value="InstantaneousConsumerElectric">Consumer Rated Electric Instantaneous ([d:lte/]12kW)</dtyp:displayterm>
             <dtyp:displayterm value="InstantaneousResDutyCommercial">Residential-Duty Commercial Electric Instantaneous (12-58.6kW)</dtyp:displayterm>
-            <dtyp:displayterm value="StorageCommercial">Gas Storage Water Heater</dtyp:displayterm>
-            <dtyp:displayterm value="StorageCommercialElectric">Electric Storage Water Heater</dtyp:displayterm>
-            <dtyp:displayterm value="StorageConsumer">Gas-Fired Storage ([d:lte/] 75,000 BTUH)</dtyp:displayterm>
-            <dtyp:displayterm value="StorageConsumerElectric">Electric Storage</dtyp:displayterm>
+            <dtyp:displayterm value="StorageCommercial">Commercial Gas Storage Water Heater</dtyp:displayterm>
+            <dtyp:displayterm value="StorageCommercialElectric">Commercial Electric Storage Water Heater</dtyp:displayterm>
+            <dtyp:displayterm value="StorageConsumer">Consumer Rated Gas-Fired Storage ([d:lte/] 75,000 BTUH)</dtyp:displayterm>
+            <dtyp:displayterm value="StorageConsumerElectric">Consumer Rated Electric Storage</dtyp:displayterm>
             <dtyp:displayterm value="StorageResDutyCommercial">Residential-Duty Commercial Gas-Fired Storage (75,000-105,000 BTUH)</dtyp:displayterm>
-            <dtyp:displayterm value="TableTopElectric">Electric Tabletop Water Heater</dtyp:displayterm>
+            <dtyp:displayterm value="TableTopElectric">Consumer Rated Electric Tabletop Water Heater</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="BoilerCommercialGT300kBtu"/>
+         <xsd:enumeration value="BoilerCommercialGTE1MMBtu"/>
          <xsd:enumeration value="BoilerResDutyCommercial"/>
          <xsd:enumeration value="BoilerWaterHeater"/>
-         <xsd:enumeration value="HeatPumpWaterHeater"/>
+         <xsd:enumeration value="CentralHeatPumpWH"/>
+         <xsd:enumeration value="BoilerCommercialLT1MMBtu"/>
          <xsd:enumeration value="InstantaneousCommercial"/>
          <xsd:enumeration value="InstantaneousConsumer"/>
          <xsd:enumeration value="InstantaneousConsumerElectric"/>
@@ -9314,12 +9329,12 @@
    <xsd:simpleType name="WaterHeatingSystem">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="CentralDwellingUnits">Central System (serving dwelling units)</dtyp:displayterm>
+            <dtyp:displayterm value="CentralDwellingUnits">Central System (serving 2 or more dwelling units)</dtyp:displayterm>
             <dtyp:displayterm value="CentralNonresSpaces">Central System (serving nonresidential spaces)</dtyp:displayterm>
             <dtyp:displayterm value="CombinedHydronic">Combined Hydronic System</dtyp:displayterm>
             <dtyp:displayterm value="IndividualDwellingUnits">Individual Dwelling Units System(s)</dtyp:displayterm>
             <dtyp:displayterm value="IndividualNonresSpaces">Individual System (serving nonresidential spaces)</dtyp:displayterm>
-            <dtyp:displayterm value="SolarThermalSystem">Solar Thermal System</dtyp:displayterm>
+            <dtyp:displayterm value="SolarThermalSystem">Dwelling Unit Solar Thermal System</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -9360,7 +9375,6 @@
    </xsd:simpleType>
    <xsd:simpleType name="ZoneSubType">
       <xsd:annotation>
-         <xsd:documentation>Air System equipment subtype</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="Embedded">Embedded</dtyp:displayterm>
             <dtyp:displayterm value="Floor">Zone System Floor Equipment</dtyp:displayterm>
@@ -9408,7 +9422,6 @@
    </xsd:simpleType>
    <xsd:simpleType name="ZoneSystemType">
       <xsd:annotation>
-         <xsd:documentation>ZoneSystemType</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Zone System Type</dtyp:displayterm>
          </xsd:appinfo>
