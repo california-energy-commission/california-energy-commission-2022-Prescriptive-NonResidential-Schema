@@ -132,6 +132,7 @@ When PV/battery/solar thermal requirements don't apply or are traded using the p
                   <xsd:element name="A05_RoofConstRangeSolar" type="env:RoofConstRangeSolar">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Construction Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A06_BuildingStoryRange" type="com:BuildingStoryRange">
@@ -210,22 +211,26 @@ When PV/battery/solar thermal requirements don't apply or are traded using the p
 This subsection is required  If one of the following conditions is true:
 Condition 1 
 A04_WholeBuildngOccupancy == ParkingGarageBuilding, ReligiousFacilityBuilding, CommercialIndustrialBuilding, DataCenterBuilding, GymnasiumBuilding, RelocatablePublicSchoolBuilding, SupportArea Or AllOthersBuildings 
-And A05_RoofConstRangeSolar == AddRoofGT2000ft2 Or NewRoofGT533ft2
+And A05_RoofConstRangeSolar == AddRoofGT2000ft2 Or NewRoofGT533ft2 Or NewRoofLTE533ft2
+ 
 And A06_BuildingStoryRange == StoriesLTE3
  
 Condition 2:  
-A04_WholeBuildngOccupancy == HotelMotel, HighriseResidential, GroceryStoreBuilding, OfficeBuilding, FinancialInstitutionBuilding, UnleasedTenantSpace, RetailBuilding, SchoolBuilding, Warehouse, AuditoriumBuilding, ConventionCenterBuilding, LibraryBuilding, MedicalClinicBuilding, RestaurantBuilding, Or TheaterBuilding
-And A05_RoofConstRangeSolar == AddRoofGT2000ft2 
+A04_WholeBuildngOccupancy == HotelMotel, GroceryStoreBuilding, OfficeBuilding, FinancialInstitutionBuilding, UnleasedTenantSpace, RetailBuilding, SchoolBuilding, Warehouse, AuditoriumBuilding, ConventionCenterBuilding, LibraryBuilding, MedicalClinicBuilding, RestaurantBuilding, Or TheaterBuilding
+And A05_RoofConstRangeSolar ==  Or NewRoofGT533ft2 Or NewRoofLTE533ft2 Or AddRoofGT2000ft2 
  
-Condition 3:
-Bpv01b_AccessAreaTooSmall == true
+Condition 3:  
+A04_WholeBuildngOccupancy == HighriseResidential, And A05_RoofConstRangeSolar ==  Or NewRoofGT533ft2 Or NewRoofLTE533ft2 Or AddRoofGT2000ft2 Or EmergencyRebuild
+ 
 Condition 4:
+Bpv01b_AccessAreaTooSmall == true
+Condition 5
 Bpv01c_RequiredLT4kW == true
-Condition 5:
-Bpv01d_NoContiguousAccess == true
 Condition 6:
+Bpv01d_NoContiguousAccess == true
+Condition 7:
 Bpv01e_SnowloadException == true
-Condition 7
+Condition 8:
 Bpv01f_MultitenantException == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
@@ -510,6 +515,18 @@ BSolarReady subsection is triggered
 Else If result == false 
 Section_J is triggered And 
 field NOT REPORTED IN PDF 
+End If</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Bpv0g_PerfTradeOffException" type="comp:PerfTradeOffException">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">The prescriptive PV/battery requirement has been traded off using the performance compliance approach as documented on the PRF Certificate of Compliance form.</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">The project is a multi-tenant building in an area where a load serving entity does not provide either a Virtual Net Metering (VNEM) or community solar program.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input
+If result == true 
+BSolarReady subsection is triggered
+Else If result == false And Bpv0e_SnowLoadException And Bpv0f_MultiTenantException == false 
+Section_J is triggered  
 End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -1010,15 +1027,17 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Battery storage system design meets the minimum requirements in Joint Appendix JA12 and the minimum energy (kWh)/  power (kW) capacity per Table J.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: 
-If Section_J IsPresent And TableBat IsPresent
+If Section_J IsPresent 
+If  TableBat IsPresent
 If Bat07a_BatteryCapacity  GTE Bat06a_BatteryCapacityMinTotal And 
 Bat07b_BatteryPower  GTE Bat06b_BatteryPowerMinTotal 
 result = CompliantBat display term COMPLIES
 Else
 result = NotCompiantBat display term DOES NOT COMPLY
 End If
-Else
+Else TableBat NotPresent
 result = NotApplicableBat display term Not Applicable
+End If
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -1817,7 +1836,7 @@ D03_ExceptionalConditionMessageCCSABE += CalculatorOutputAttachedForH</xsd:docum
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_PvBat" minOccurs="0">
+         <xsd:element name="Section_J" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">
                   <d:b>J. PHOTOVOLTAIC (PV) AND BATTERY SYSTEMS</d:b>
@@ -1852,12 +1871,14 @@ D03_ExceptionalConditionMessageCCSABE += CalculatorOutputAttachedForH</xsd:docum
                                  <xsd:sequence>
                                     <xsd:element name="Pv01_WholeBuildingOccupancy" maxOccurs="1">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Occupancy Covered by Roof</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Occupancy</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects one from list of occupancies</xsd:documentation>
                                           <xsd:appinfo source="displayterm">
                                              <dtyp:displayterm value="HighRiseResidential">High-rise multifamily</dtyp:displayterm>
-                                             <dtyp:displayterm value="SchoolBuilding">School or Classroom</dtyp:displayterm>
+                                             <dtyp:displayterm value="SchoolBuilding">School (NA CZ 1)</dtyp:displayterm>
                                              <dtyp:displayterm value="MedicalClinicBuilding">Medical Office Bldg/ Clinic</dtyp:displayterm>
+                                             <dtyp:displayterm value=";OfficeBuilding">Office (NA CZ 1)</dtyp:displayterm>
+                                             <dtyp:displayterm value="Wareouse">Warehouse (NA CZ 1)</dtyp:displayterm>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                        <xsd:simpleType>
@@ -2041,7 +2062,9 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">
                            <d:b>Battery Storage System</d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This table is required If Pv09_PV_MinimumSize GT 0</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This table is required If Pv09_PV_MinimumSize GT 0 And
+Pv10_PV_DesignSize GTE (0.15 x SUM ALL (Pv08_PV_MinSizeSARA)  And
+SUM ALL (Pv02_ConditionedFloorArea) GTE 5000</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -2050,12 +2073,14 @@ End If</xsd:documentation>
                                  <xsd:sequence>
                                     <xsd:element name="Bat01_WholeBuildingOccupancy" maxOccurs="1">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Space Type Covered By Roof</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Space Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Auto-filled from Pv01</xsd:documentation>
                                           <xsd:appinfo source="displayterm">
                                              <dtyp:displayterm value="HighRiseResidential">High-rise multifamily</dtyp:displayterm>
-                                             <dtyp:displayterm value="SchoolBuilding">School or Classroom</dtyp:displayterm>
+                                             <dtyp:displayterm value="SchoolBuilding">School (NA CZ 1)</dtyp:displayterm>
                                              <dtyp:displayterm value="MedicalClinicBuilding">Medical Office Bldg/ Clinic</dtyp:displayterm>
+                                             <dtyp:displayterm value=";OfficeBuilding">Office (NA CZ 1)</dtyp:displayterm>
+                                             <dtyp:displayterm value="Wareouse">Warehouse (NA CZ 1)</dtyp:displayterm>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                        <xsd:simpleType>
@@ -2152,6 +2177,9 @@ End Switch</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Pv09_PV_MinimumSize GT 0 this field is required
  
 Calculated field: 
+If SUM ALL (Bat04_BatteryCapacityMinPerArea) LT 10
+result = 0
+Else
 result = SUM ALL (Bat04_BatteryCapacityMinPerArea)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -2159,7 +2187,11 @@ result = SUM ALL (Bat04_BatteryCapacityMinPerArea)</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Total Min Energy (kWh) and Power (kW) Capacity Required</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Pv09_PV_MinimumSize GT 0 this field is required
+ 
 Calculated field: 
+If SUM ALL (Bat04_BatteryCapacityMinPerArea) LT 10
+result = 0
+Else
 result = SUM ALL (Bat05_BatteryPowerMinPerArea)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>

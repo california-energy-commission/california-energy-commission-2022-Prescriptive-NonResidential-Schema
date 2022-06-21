@@ -1180,19 +1180,10 @@ End If
 If Iheated06b_ InsulationInteriorRValue IsPresent If Iheated06b_ InsulationInteriorRValue GTE Iheated05b_ SlabInsulationRValueRequired result = true; Else result = false;
 End If
 End If
-If result == true continue evaluation: 
- 
-If I01SlabMF_FloorTypeApplies == true
-If fields beginning with Islab01, Islab02, Islab03, Islab04,  Islab05, Islab06, Islab08 == BlankGrayedOut or have another value result = true, Else result = false
-End If.
-If result == true continue evaluation: 
-If Islab04_ConstructionSpecificationMethod == UFactor 
-If Islab06_InsulationUFactor  LTE Islab05_InsulationUFactorLimit  result = true Else result = false
-End If
-Else If Islab04_ConstructionSpecificationMethod == RValue
-If Islab06_InsulationRValue GTE  Islab05_InsulationRValueLimit  result = true Else result = false
-End If
-End If 
+If result == true 
+final result = true
+Else 
+result = False
 End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
@@ -4094,7 +4085,7 @@ Else If A03_ClimateZoneNumber == 3, 5 Or 6 result = 0.034;
 Else If A03_ClimateZoneNumber == 7 result = 0.039;
 End If 
  
-case ResidentialNR: 
+case ResidentialMF: 
 If A03_ClimateZoneNumber == 1, 2, 4 Or  InRange (8, 16) result = 0.028; 
 Else If A03_ClimateZoneNumber == 3, 5 Or 6 result = 0.034; 
 Else If A03_ClimateZoneNumber == 7 result = 0.039;
@@ -4104,14 +4095,14 @@ case RelocableSchoolBuildingAllZones:  result = 0.034;
 End Switch 
  
 Else If Fspan04_Status == ExistingAlteration And Fspan12_ConstructionSpecificationMethod == UFactor 
-If Fspan06_TopLevelOccupancy != ResidentialNR
+If Fspan06_TopLevelOccupancy != ResidentialMF
 If A03_ClimateZoneNumber == InRange(1,5) Or InRange(9,16)  
 result = 0.037
 Else If A03_ClimateZoneNumber == 6, 7 Or 8
 result = 0.047
 End If;
  
-Else If Fspan06_TopLevelOccupancy == ResidentialNR
+Else If Fspan06_TopLevelOccupancy == ResidentialMF
  
 Else If A03_ClimateZoneNumber == 1, 2, 4 Or InRange(8,16)  result =  0.039;
 End If
@@ -4124,11 +4115,11 @@ End if</xsd:documentation>
                                                       <xsd:documentation source="FieldText">Required Thermal Performance<d:sup>3</d:sup>
                                                       </xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Fspan04_Status == ExistingAlteration And Fspan12_ConstructionSpecificationMethod == RValue 
-If Fspan06_TopLevelOccupancy != ResidentialNR
+If Fspan06_TopLevelOccupancy != ResidentialMF
 If A03_ClimateZoneNumber == InRange(1,5) Or InRange(9,16)  result = R23;
 Else If A03_ClimateZoneNumber == InRange(6,8) result = R17; 
 End If
-Else If Fspan06_TopLevelOccupancy == ResidentialNR
+Else If Fspan06_TopLevelOccupancy == ResidentialMF
 If A03_ClimateZoneNumber == 1, 2, 4 Or InRange(8,16)  result =  R14
 End If
 End If</xsd:documentation>
@@ -4139,7 +4130,7 @@ End If</xsd:documentation>
                                                       <xsd:documentation source="FieldText"/>
                                                       <xsd:documentation source="CalculationsAndRules">If Fspan04_Status == ExistingAlteration 
 If Fspan05_RoofInsulationException  != NoExceptionApplies Or 
-Fspan06_TopLevelOccupancy == ResidentialNR And A03_ClimateZoneNumber == 3, 5, 6 Or 7
+Fspan06_TopLevelOccupancy == ResidentialMF And A03_ClimateZoneNumber == 3, 5, 6 Or 7
  result = BlankGrayedOut
 End If
 End If</xsd:documentation>

@@ -1212,7 +1212,7 @@ Multi-field triggers: See A02_WholeBuildingOccupancy for trigger values from thi
                                           <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="I02_ControlledReceptacleComplianceType" type="comp:ControlledReceptacleComplianceType" maxOccurs="unbounded">
+                                    <xsd:element name="I02_ControlledReceptacleComplianceType" type="comp:ControlledReceptacleComplianceType" minOccurs="0" maxOccurs="unbounded">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup>
                                           </xsd:documentation>
@@ -1228,14 +1228,23 @@ And includes ControlledReceptacleNA values</xsd:documentation>
 And ControlledReceptacleNA values</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="I03_ControlledReceptacleShutOffControl" type="comp:ControlledReceptacleShutOffControl" maxOccurs="unbounded">
+                                    <xsd:element name="I03_ControlledReceptacleShutOffControl" type="comp:ControlledReceptacleShutOffControl" minOccurs="0" maxOccurs="unbounded">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects all that apply from dropdown list:  AutomaticTimerSwitch display term Auto Time-Switch with applicable overrides, OccupancySensor display term Occupancy Sensor, HardwiredOccupancySensorPowerStrip display term Occ-sensing Hardwired Power Strip,   CardKeyHotelControlledReceptacles display term Captive Card Key (hotel/motel room only only),  OtherShutOffControl display term Other*
-End If
+                                          <xsd:documentation source="CalculationsAndRules">User selects all that apply from dropdown list: which includes  AutomaticTimerSwitch display term Auto Time-Switch with applicable overrides, OccupancySensor display term Occupancy Sensor, HardwiredOccupancySensorPowerStrip display term Occ-sensing Hardwired Power Strip,   CardKeyHotelControlledReceptacles display term Captive Card Key (hotel/motel room only only),  OtherShutOffControl display term Other*   stored in this choice ControlledReceptacleShutOffControl
+ 
+And all ControlledReceptacleNA values  
+ 
 If result == OtherShutOffControl 
 User must enter comment in I_Exception02_ExceptionalConditionNote
 End If</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="I03_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects all that apply from dropdown list which incudes ControlledReceptacleShutOffControl values
+And ControlledReceptacleNA values  which if selected are stored in this choice</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="I04a_ControlledReceptacleDemandResponse" type="comp:ControlledReceptacleDemandResponse">

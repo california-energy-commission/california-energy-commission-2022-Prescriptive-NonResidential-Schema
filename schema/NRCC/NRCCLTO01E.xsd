@@ -97,32 +97,14 @@
                         <xsd:documentation source="CalculationsAndRules">This is a flag set by the agent that generates the report XML data to indicate that the user requested a Mandatory Measures Note Block which is placed after the DeclarationBlock in the XML output.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A05_WholeBuildingOccupancy"  maxOccurs="unbounded">
+                  <xsd:element name="A06_WholeBuildingOccupancy"  minOccurs="1" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Occupancy Types within Project</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This field accumulates all the occupancy types selected by the user in the UI: Office, MultiFamilyMixedUseGTE4, SchoolBuilding, Warehouse, ParkingGarageBuilding, RetailBuilding, HotelMotel, HospitalBuilding,</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This field accumulates all the occupancy types selected by the user in the UI:  and captured in the report</xsd:documentation>
                         <xsd:appinfo source="displayterm">
-                           <dtyp:displayterm value="MultiFamilyMixedUseGTE4">Multi-family/ MF Mixed-use [d:gte/]4 stories (includes dormitory, senior living)</dtyp:displayterm>
+                           <dtyp:displayterm value="MultiFamilyMixedUseLT4">Multi-family/ MF Mixed-use [d:lt/]4 stories (includes dormitory, senior living)</dtyp:displayterm>
                         </xsd:appinfo>
                         
-                     </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="com:WholeBuildingOccupancy">
-                           <xsd:enumeration value="HospitalBuilding"/>
-                           <xsd:enumeration value="HotelMotel"/>
-                           <xsd:enumeration value="MultiFamilyMixedUseGTE4"/>
-                           <xsd:enumeration value="OfficeBuilding"/>
-                           <xsd:enumeration value="ParkingGarageBuilding"/>
-                           <xsd:enumeration value="RetailBuilding"/>
-                           <xsd:enumeration value="SchoolBuilding"/>
-                           <xsd:enumeration value="Warehouse"/>
-                        </xsd:restriction>
-                     </xsd:simpleType>
-                  </xsd:element>
-                  <xsd:element name="A06_WholeBuildingOccupancy"  minOccurs="0" maxOccurs="unbounded">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This field records all applicable 8 occupancies types captured in the report plus additional  types useful in data analysis,</xsd:documentation>
                      </xsd:annotation>
                      <xsd:simpleType>
                         <xsd:restriction base="com:WholeBuildingOccupancy">
