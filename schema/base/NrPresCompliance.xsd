@@ -2068,7 +2068,7 @@
             <dtyp:displayterm value="LED_PowerSupplyGTE80percentEfficient">LED + pwr supply 80%+ eff.</dtyp:displayterm>
             <dtyp:displayterm value="MetalHalideBallastGTE80PercentEfficient">Metal halide (pulse start that are 320 watts or smaller, are not 250 watt or 175 watt lamps) + ballast  80%+ eff.</dtyp:displayterm>
             <dtyp:displayterm value="MetalHalideBallastGTE88PercentEfficient">Metal halide lamps (pulse start or ceramic) + ballast  88%+ eff.</dtyp:displayterm>
-            <dtyp:displayterm value="NeonOrColdCathodeWithPowerGTE68PercentEfficient">Neon/cold cathode + trans./pwr (of supply output current [d:lt/]50mA) 68%+ eff.</dtyp:displayterm>
+            <dtyp:displayterm value="NeonOrColdCathodeWithPowerGTE68PercentEfficient">Neon/cold cathode + trans./pwr (of supply output current [d:gte/]50mA) 68%+ eff.</dtyp:displayterm>
             <dtyp:displayterm value="NeonOrColdCathodeWithPowerGTE75PercentEfficient">Neon/cold cathode + trans./pwr (of supply output current [d:lt/]50mA) 75%+ eff.</dtyp:displayterm>
             <dtyp:displayterm value="T20CompliantSingleVoltageExternalPower">NA: Title 20 compliant single voltage extrnl pwr supply</dtyp:displayterm>
          </xsd:appinfo>

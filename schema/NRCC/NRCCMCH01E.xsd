@@ -10766,7 +10766,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-MCH-04-A - Air Distribution Duct Leakage</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false;  
  
-If L10b_DuctLeakageTestRequired == true for any system in section L 
+If L10e_DuctLeakageTestRequired == true for any system in section L 
 result = true display term selected Yes radio button
 End If</xsd:documentation>
                      </xsd:annotation>
@@ -10776,7 +10776,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Nrca03_RequireNRCAMch04A == true; this field is loaded with systems/spaces that satisfy this condition:
  
- If L10b_DuctLeakageTestRequired == true load value in L10a_DuctSystems
+ If L10e_DuctLeakageTestRequired == true load value in L10b_DuctSystems
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>

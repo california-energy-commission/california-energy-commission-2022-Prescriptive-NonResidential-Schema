@@ -81,7 +81,7 @@
                   <xsd:element name="A02_WholeBuildingOccupancy"  maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Occupancy Types Within Project:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects as many types as apply from the 26 occupancy type checkboxes in the UI.  Only the  types checked by the user are stored in A04_WholeBuildingOccupancy and displayed in the report pdf.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects as many types as apply from the 26 occupancy type checkboxes in the UI.  Only the  types checked by the user are stored in A02_WholeBuildingOccupancy and displayed in the report pdf.</xsd:documentation>
                         <xsd:appinfo source="displayterm">
                            <dtyp:displayterm value="MultiFamilyMixedUseGTE4">Multi-family/ MF Mixed-use [d:gte/]4 stories (new construction)</dtyp:displayterm>
                            <dtyp:displayterm value="RestaurantBuilding">Restaurant/ Commercial Kitchen</dtyp:displayterm>
@@ -484,13 +484,18 @@ Else result = true
 End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
-                     <xsd:element name="C05_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                     <xsd:element name="C05_NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Electric Ready [d:t24refnolink/]160.9 [d:line1/] (See Table J)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A02MFMixedLT4New_OccupancyApplies == false this section is not required
+                           <xsd:documentation source="CalculationsAndRules">If A02_WoleBuildingOccupancy does not include MultFamilyMixedUseGTE4 this section is not required
 result = BlankGrayedOut
 End If</xsd:documentation>
                         </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="comp:NotApplicableMessage">
+                              <xsd:enumeration value="BlankGrayedOut"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
                      </xsd:element>
                   </xsd:choice>
                   <xsd:element name="C06_DoesFormComplyNRCC" type="comp:DoesFormComplyNRCC" >
@@ -1215,7 +1220,7 @@ And ControlledReceptacleNA values  which if selected are stored in this choice</
          <xsd:element name="Section_J" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]J. ELECTRIC READY BUILDINGS[/d:b]</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If  A02MFMixedGTE4New_OccupancyApplies == true</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required If  A02_WholeBuildingOccupancy includes MultiFamilyMixedUseGTE4</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1258,16 +1263,15 @@ And ControlledReceptacleNA values  which if selected are stored in this choice</
                   <xsd:element name="J01e_NotApplicableMessage" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">None of these</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If checked 
-result = NotApplicableRequirement 
+                        <xsd:documentation source="CalculationsAndRules">If J01a_SingleUnitFurnace == false  And J01b_SingleUnitCooktop == false And J01c_SingleUnitDryer == false And J01d_CommonAreaDryer == false
+result = NotApplicableRequirement and box is checked
+Else
+result = NoData and box is not checked
 End If</xsd:documentation>
-                        <xsd:appinfo source="displayterm">
-                           <dtyp:displayterm value="NotApplicableRequirement">None of these</dtyp:displayterm>
-                        </xsd:appinfo>
-                        
                      </xsd:annotation>
                      <xsd:simpleType>
                         <xsd:restriction base="comp:NotApplicableMessage">
+                           <xsd:enumeration value="NoData"/>
                            <xsd:enumeration value="NotApplicableRequirement"/>
                         </xsd:restriction>
                      </xsd:simpleType>
