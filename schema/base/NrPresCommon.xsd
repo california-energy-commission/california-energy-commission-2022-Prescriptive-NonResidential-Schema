@@ -1531,6 +1531,13 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
          <xsd:enumeration value="FlowPerZone"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="NonResBuildingTotalConditionedFloorArea">
+      <xsd:annotation>
+         <xsd:documentation>  Units: ft2</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:IntegerNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="OA_SpaceRequiredMin">
       <xsd:annotation>
          <xsd:documentation>  Units: ft3 per min</xsd:documentation>
@@ -1677,6 +1684,13 @@ receives the most illumination.  Units: ft2</xsd:documentation>
    </xsd:simpleType>
    <xsd:simpleType name="ProjectNarrative">
       <xsd:restriction base="xsd:string">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ResidentialBuildingTotalConditionedFloorArea">
+      <xsd:annotation>
+         <xsd:documentation>All conditioned floor area in the Building project.  It can be derived from all conditioned area in the Zones  Units: ft2</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:IntegerNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ResidentialBuildingTypeMechExhaust">

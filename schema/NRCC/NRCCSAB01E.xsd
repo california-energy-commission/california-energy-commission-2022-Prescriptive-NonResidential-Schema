@@ -955,11 +955,12 @@ End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
-                  <xsd:element name="C09b_DoesProjectComplyBattery" type="comp:DoesProjectComplyBattery" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Battery storage system design meets the minimum requirements in Joint Appendix JA12 and the minimum energy (kWh)/  power (kW) capacity per Table J.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: 
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="C09b_DoesProjectComplyBattery" type="comp:DoesProjectComplyBattery" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="AdditionalRequirements">Battery storage system design meets the minimum requirements in Joint Appendix JA12 and the minimum energy (kWh)/  power (kW) capacity per Table J.</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: 
 If Section_J IsPresent 
 If  TableBat IsPresent
 If Bat07a_BatteryCapacity  GTE Bat06a_BatteryCapacityMinTotal And 
@@ -968,12 +969,27 @@ result = CompliantBat display term COMPLIES
 Else
 result = NotCompiantBat display term DOES NOT COMPLY
 End If
-Else TableBat NotPresent
+Else If TableBat NotPresent
 result = NotApplicableBat display term Not Applicable
 End If
 End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="C09b_NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText"></xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: 
+If Section_J NotPresent  
+result = BlankGrayedOut
+End If</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="comp:NotApplicableMessage">
+                              <xsd:enumeration value="BlankGrayedOut"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                  </xsd:choice>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>

@@ -22,7 +22,7 @@
                <xsd:complexType>
                   <xsd:sequence>
                      <xsd:element name="Header" type="comp:HeaderNRCC"/>
-                     <xsd:element ref="nRCCPLBE"/>
+                     <xsd:element ref="nRCCPLB01E"/>
                      <xsd:element name="DeclarationsBlock" type="comp:DeclarationsNRCC" maxOccurs="unbounded"/>
                      <xsd:element name="Footer" type="comp:FooterNRCC"/>
                   </xsd:sequence>
@@ -35,7 +35,7 @@
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTagNR" fixed="NRCCPLBE"/>
       </xsd:complexType>
    </xsd:element>
-   <xsd:complexType name="NRCCPLBE">
+   <xsd:complexType name="NRCCPLB01E">
       <xsd:annotation>
          <xsd:documentation>Domestic Water Heating System</xsd:documentation>
       </xsd:annotation>
@@ -1058,75 +1058,75 @@ Else If F08_WaterHeaterType == BoilerCommercialGTE1MMBtu result = .90  display t
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Minimum Efficiency Required</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">Calculated value:  
-If F02_WaterHeaterType == InstantaneousConsumer 
-If F04_WaterHeaterFlow == GTE0LT1_7 
+If F08_WaterHeaterType == InstantaneousConsumer 
+If F10b_WaterHeaterFlow == GTE0LT1_7 
 result = 0.80 Else result = 0.81
 End If 
  
-Else If F02_WaterHeaterType == InstantaneousConsumerElectric 
-If F04_WaterHeaterFlow == GTE4 result = 0.92 Else result = 0.91;   
+Else If F08_WaterHeaterType == InstantaneousConsumerElectric 
+If F10b_WaterHeaterFlow == GTE4 result = 0.92 Else result = 0.91;   
 End If 
-Else If F02_WaterHeaterType == InstantaneousResDutyCommercial result = 0.80; 
+Else If F08_WaterHeaterType == InstantaneousResDutyCommercial result = 0.80; 
  
-Else If F02_WaterHeaterType == TableTopElectric 
-Switch ( F04_WaterHeaterFlow) 
+Else If F08_WaterHeaterType == TableTopElectric 
+Switch ( F10b_WaterHeaterFlow) 
 case GTE0LT1_7: 
-If F03_WaterHeaterVolume ==  30Gal: result = 0.46
-Else If  F03_WaterHeaterVolume == 40Gal: result = 0.40; 
+If F09_WaterHeaterVolume ==  30Gal: result = 0.46
+Else If  F09_WaterHeaterVolume == 40Gal: result = 0.40; 
 End If
 case GTE1_7LT2_8: 
-If F03_WaterHeaterVolume ==30Gal: result = 0.83; Else result = 0.79; 
+If F09_WaterHeaterVolume ==30Gal: result = 0.83; Else result = 0.79; 
 End If
 case GTE2_8LT4: 
-If F03_WaterHeaterVolume == 30Gal: result = 0.89; Else result = 0.87; 
+If F09_WaterHeaterVolume == 30Gal: result = 0.89; Else result = 0.87; 
 End If
 case GTE4:
-If F03_WaterHeaterVolume == 30Gal: result = 0.94; Else result = 0.92; 
+If F09_WaterHeaterVolume == 30Gal: result = 0.94; Else result = 0.92; 
 End If
 End Switch
  
-Else If F02_WaterHeaterType == StorageConsumer 
-If F04_ WaterHeaterFirstHourRating == GTE0LT18  
-Switch (F03_WaterHeaterVolume) case 30Gal: result = 0.29; case 40Gal: result = 0.27; case 50Gal: result = 0.25; case 55Gal: result = 0.24; case 60Gal: result = 0.61;  case 75Gal: case 80Gal: result = 0.60; 
+Else If F08_WaterHeaterType == StorageConsumer 
+If F10b_FirstHourRatingRange == GTE0LT18  
+Switch (F09_WaterHeaterVolume) case 30Gal: result = 0.29; case 40Gal: result = 0.27; case 50Gal: result = 0.25; case 55Gal: result = 0.24; case 60Gal: result = 0.61;  case 75Gal: case 80Gal: result = 0.60; 
 End Switch
-Else If F04_ WaterHeaterFirstHourRating ==  GTE18LT51 
-Switch (F03_WaterHeaterVolume) case 30Gal: result = 0.54; case 40Gal: result = 0.52; case 50Gal: result = 0.50; case 55Gal: result = 0.49; case 60Gal: result = 0.74;  case 75Gal: case 80Gal: result = 0.73;
+Else If F10b_FirstHourRatingRange ==  GTE18LT51 
+Switch (F09_WaterHeaterVolume) case 30Gal: result = 0.54; case 40Gal: result = 0.52; case 50Gal: result = 0.50; case 55Gal: result = 0.49; case 60Gal: result = 0.74;  case 75Gal: case 80Gal: result = 0.73;
 End Switch
-Else If F04_ WaterHeaterFirstHourRating == GTE51LT75  
-Switch (F03_WaterHeaterVolume) case 30Gal: result = 0.60; case 40Gal: result = 0.58; case 50Gal: result = 0.56; case 55Gal: result = 0.55; case 60Gal: result = 0.77;  case 75Gal: case 80Gal: result = 0.76; 
+Else If F10b_FirstHourRatingRange == GTE51LT75  
+Switch (F09_WaterHeaterVolume) case 30Gal: result = 0.60; case 40Gal: result = 0.58; case 50Gal: result = 0.56; case 55Gal: result = 0.55; case 60Gal: result = 0.77;  case 75Gal: case 80Gal: result = 0.76; 
 End Switch
-Else If F04_ WaterHeaterFirstHourRating == GTE75 
-Switch (F03_WaterHeaterVolume) case 30Gal: result = 0.65; case 40Gal: result = 0.64; case 50Gal: result = 0.63; case 55Gal: result = 0.62; case 60Gal: result = 0.79;  case 75Gal: case 80Gal: result = 0.78; 
+Else If F10b_FirstHourRatingRange == GTE75 
+Switch (F09_WaterHeaterVolume) case 30Gal: result = 0.65; case 40Gal: result = 0.64; case 50Gal: result = 0.63; case 55Gal: result = 0.62; case 60Gal: result = 0.79;  case 75Gal: case 80Gal: result = 0.78; 
 End Switch 
 End If
  
- If F02_WaterHeaterType ==  StorageResDutyCommercial 
-If F04_ WaterHeaterFirstHourRating == GTE0LT18  
-Switch (F03_WaterHeaterVolume) case 50Gal: result = 0.22; case 60Gal: result = 0.21;  case 75Gal: case 80Gal: result = 0.2; 
+ If F08_WaterHeaterType ==  StorageResDutyCommercial 
+If F10b_FirstHourRatingRange == GTE0LT18  
+Switch (F09_WaterHeaterVolume) case 50Gal: result = 0.22; case 60Gal: result = 0.21;  case 75Gal: case 80Gal: result = 0.2; 
 End Switch
-Else If F04_ WaterHeaterFirstHourRating == GTE18LT51  
-Switch (F03_WaterHeaterVolume) case 50Gal: result = 0.48; case 60Gal: result = 0.46;  case 75Gal: result = 0.45; case 80Gal: result = 0.44; 
+Else If F10b_FirstHourRatingRange == GTE18LT51  
+Switch (F09_WaterHeaterVolume) case 50Gal: result = 0.48; case 60Gal: result = 0.46;  case 75Gal: result = 0.45; case 80Gal: result = 0.44; 
 End Switch
-Else If F04_ WaterHeaterFirstHourRating == GTE51LT75 
-Switch (F03_WaterHeaterVolume) case 50Gal: result = 0.55; case 60Gal: result = 0.53;  case 75Gal: result = 0.52; case 80Gal: result = 0.51;  
+Else If F10b_FirstHourRatingRange == GTE51LT75 
+Switch (F09_WaterHeaterVolume) case 50Gal: result = 0.55; case 60Gal: result = 0.53;  case 75Gal: result = 0.52; case 80Gal: result = 0.51;  
 End Switch
-Else If F04_ WaterHeaterFirstHourRating == GTE75 
-Switch (F03_WaterHeaterVolume) case 50Gal: case 60Gal:  result = 0.61; case 75Gal: case 80Gal: result = 0.59; 
+Else If F10b_FirstHourRatingRange == GTE75 
+Switch (F09_WaterHeaterVolume) case 50Gal: case 60Gal:  result = 0.61; case 75Gal: case 80Gal: result = 0.59; 
 End Switch
 End If
  
-If F02_WaterHeaterType == StorageConsumerElectric 
-If F04_ WaterHeaterFirstHourRating == GTE0LT18  
-Switch (F03_WaterHeaterVolume) case 30Gal: result = 0.86; case 40Gal: result = 0.85; case 50Gal: case 55Gal: result = 0.84; case 60Gal: result = 1.86;  case 75Gal: case 80Gal: result = 1.84; 
+If F08_WaterHeaterType == StorageConsumerElectric 
+If F10b_FirstHourRatingRange == GTE0LT18  
+Switch (F09_WaterHeaterVolume) case 30Gal: result = 0.86; case 40Gal: result = 0.85; case 50Gal: case 55Gal: result = 0.84; case 60Gal: result = 1.86;  case 75Gal: case 80Gal: result = 1.84; 
 End Switch
-Else If F04_ WaterHeaterFirstHourRating ==  GTE18LT51 
-Switch (F03_WaterHeaterVolume) case 30Gal: result = 0.92; case 40Gal: case 50Gal: case 55Gal: result = 0.91; case 60Gal: result = 1.98;  case 75Gal: case 80Gal: result = 1.96;  
+Else If F10b_FirstHourRatingRange ==  GTE18LT51 
+Switch (F09_WaterHeaterVolume) case 30Gal: result = 0.92; case 40Gal: case 50Gal: case 55Gal: result = 0.91; case 60Gal: result = 1.98;  case 75Gal: case 80Gal: result = 1.96;  
 End Switch
-Else If F04_ WaterHeaterFirstHourRating == GTE51LT75 
-Switch (F03_WaterHeaterVolume) case 30Gal: case 40Gal: case 50Gal: case 55Gal: result = 0.92;  case 60Gal: result = 2.05;  case 75Gal: case 80Gal: result = 2.02;  
+Else If F10b_FirstHourRatingRange == GTE51LT75 
+Switch (F09_WaterHeaterVolume) case 30Gal: case 40Gal: case 50Gal: case 55Gal: result = 0.92;  case 60Gal: result = 2.05;  case 75Gal: case 80Gal: result = 2.02;  
 End Switch
-Else If F04_ WaterHeaterFirstHourRating == GTE75 
-Switch (F03_WaterHeaterVolume)  case 30Gal: case 40Gal: case 50Gal: case 55Gal: result = 0.93; case 60Gal: result = 2.18;  case 75Gal: result = 2.16;  case 80Gal: result = 2.15;  
+Else If F10b_FirstHourRatingRange == GTE75 
+Switch (F09_WaterHeaterVolume)  case 30Gal: case 40Gal: case 50Gal: case 55Gal: result = 0.93; case 60Gal: result = 2.18;  case 75Gal: result = 2.16;  case 80Gal: result = 2.15;  
 End Switch
 End If
 End If</xsd:documentation>
@@ -2262,9 +2262,9 @@ End If</xsd:documentation>
          </xsd:element>
       </xsd:sequence>
    </xsd:complexType>
-   <xsd:element name="nRCCPLBE" type="NRCCPLBE">
+   <xsd:element name="nRCCPLB01E" type="NRCCPLB01E">
       <xsd:annotation>
-         <xsd:documentation>This element contains all of the data and text required to generate the NRCCPLBE compliance report.</xsd:documentation>
+         <xsd:documentation>This element contains all of the data and text required to generate the NRCCPLB01E compliance report.</xsd:documentation>
       </xsd:annotation>
    </xsd:element>
 </xsd:schema>

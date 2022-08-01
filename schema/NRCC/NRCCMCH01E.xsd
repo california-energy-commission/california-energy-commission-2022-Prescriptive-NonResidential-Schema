@@ -450,12 +450,13 @@ Condition 9
 any field in range Fdfhp01- Fdfhp11 != BlankGrayedOut has data. And
 If Fdfhp07a (min effic) And Fdfhp08a (design effic)  != BlankGrayedOut Then Fdfhp07a GT Fdfhp08a And 
 If Fdfhp07b (min effic) And Fdfhp08b (design effic)  != BlankGrayedOut Then Fdfhp07b GT Fdfhp08b And 
-If Fdfhp10a (min effic) And Fdfhp11a (design effic)  != BlankGrayedOut Then Fdfhp10a GT Fdfhp11a And 
-If Fdfhp10b (min effic) And Fdfhp11b (design effic)  != BlankGrayedOut Then Fdfhp10b GT Fdfhp11b And 
+If Fdfhp10a (min effic) And Fdfhp11a (design effic)  != BlankGrayedOut Then Fdfhp10a GT Fdfhp11a
  
  
+If all conditions are true
 Then result = true display term Yes;
-Else  result = false display term No.</xsd:documentation>
+Else If any of the conditions are not true
+ result = false display term No.</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="C01_NotApplicableMessage" >
@@ -3969,10 +3970,11 @@ End If</xsd:documentation>
                                                             </xsd:restriction>
                                                          </xsd:simpleType>
                                                       </xsd:element>
-                                                      <xsd:element name="Fdfhp10a_CoolEfficiencyMinUnitHP" type="hvac:CoolEfficiencyMinUnitHP" >
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">The value is stored in result1, the top displayed cell and the bottom cell is blank. 
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="Fdfhp10a_CoolEfficiencyMinUnitHP" type="hvac:CoolEfficiencyMinUnitHP" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">The value is stored in result1, the top displayed cell and the bottom cell is blank. 
  
  If Fdfhp03a_UnitaryHeatPumps == AirCooledGasEngineHP 
 result1 = 0.60 (COP); 
@@ -4031,7 +4033,6 @@ result1= 12.1 (EER);
 Else If Fdfhp02a_HvacSystemType == UnitaryHeatPumpsNoElectR
 result1= 11.9 (EER);
 End If 
- 
 End Switch
  
 Else If Fdfhp03a_UnitaryHeatPumps == WaterSourceHP:
@@ -4048,8 +4049,23 @@ Else If Fdfhp02a_HvacSystemType == UnitaryHeatPumpsNoElectR
 result1= 12.8 (EER);
 End If 
 End If</xsd:documentation>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Fdfhp10a_NotApplicableMessage" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Fdfhp03a_UnitaryHeatPumps == WaterSourceHP:
+If Fdfhp04a_SizeRangeUnitaryHeatPumps == GTE135000AndLT1240000
+result = BlankGrayedOut
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
                                                       <xsd:element name="Fdfhp10b_NotApplicableMessage" >
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
@@ -4390,6 +4406,19 @@ result = .84 display term 84% Ec
 End If
 End Switch</xsd:documentation>
                                                             </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Fc06_NotApplicableMessage" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Minimum Efficiency Required per  [d:t24refnolink/]110.2</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If combination of boiler type and boiler size has no assigned minimum efficiency, 
+result  BlankGrayedOut
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
                                                          </xsd:element>
                                                       </xsd:choice>
                                                       <xsd:element name="Fc07_EfficiencyType" >
@@ -7276,12 +7305,27 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from dropdown list</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Hdwell10_SensibleRecoveryEfficiency" type="hvac:SensibleRecoveryEfficiency" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Design Sensible Recovery/Effectiveness</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input integer percent value</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="Hdwell10_SensibleRecoveryEfficiency" type="hvac:SensibleRecoveryEfficiency" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Design Sensible Recovery/Effectiveness</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input integer percent value</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="Hdwell10_NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Design Sensible Recovery/Effectiveness</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Calcualted field:  If Hdwell09_EnergyHeatRecoveryVent != ProvidesERV And  != ProvidesHRV
+result = BlankGrayedOut stored in NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="Hdwell11_SensibleRecoveryEfficiency" type="hvac:SensibleRecoveryEfficiency" >
                                           <xsd:annotation>
@@ -10424,6 +10468,31 @@ End If</xsd:documentation>
                                           </xsd:simpleType>
                                        </xsd:element>
                                     </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="L21_DuctRValue" type="hvac:DuctRValue" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Dust Insulation R-value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If L11_IsBuildingHealthcare != true  
+User selects R-value from list
+End If
+ 
+ If Yes result = true; Else result = false.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="L21_NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Dust Insulation R-value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If L11_IsBuildingHealthcare == true  
+ result = BlankGrayedOut  
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -10857,7 +10926,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-MCH-07-A Supply Fan Variable Flow Controls</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false;
   
-If H00d_FanFlowType == VariableFlow And H02_FanFunction == Supply result = true display term selected Yes radio button
+If H00d_SystemZoning == MultiZoneVAV And H02_FanFunction == Supply result = true display term selected Yes radio button
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -10866,7 +10935,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Nrca06_RequireNRCAMch07A == true; this field is loaded with systems/spaces that satisfy this condition:
  
-If H00d_FanFlowType == VariableFlow And H02_FanFunction == Supply  load value in H01_FanName
+If H00d_SystemZoning == MultiZoneVAV And H02_FanFunction == Supply  load value in H01_FanName
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -11306,7 +11375,7 @@ End If</xsd:documentation>
                   <xsd:element name="Nrca21_RequireNRCAMch22A" type="comp:RequireNRCAMch22A" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">NRCA-MCH-21  Multi-Family Envelope Leakage</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">NRCA-MCH-22  MF Duct Leakage</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false;
  
 If L10d_DuctLeakageMeetsRA3Req == true
@@ -11339,7 +11408,7 @@ End If</xsd:documentation>
                   <xsd:element name="Nrca22_RequireNRCAMch23A" type="comp:RequireNRCAMch23A" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">NRCA-MCH-21  Multi-Family Envelope Leakage</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">NRCA-MCH-23  MF HRV/ERV Verification</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false;
  
 If Hdwell09_EnergyHeatRecoveryVent == ProvidesERV Or ProvidesHRV

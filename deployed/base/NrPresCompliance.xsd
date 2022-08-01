@@ -1633,20 +1633,9 @@
             <dtyp:displayterm value="NRCIPLB01E">NRCI-PLB-01-E</dtyp:displayterm>
             <dtyp:displayterm value="NRCIPRC01E">NRCI-PRC-01-E</dtyp:displayterm>
             <dtyp:displayterm value="NRCISRA01E">NRCI-SRA-01-E</dtyp:displayterm>
-            <dtyp:displayterm value="NRCVMCH04aH">NRCVMCH04aH</dtyp:displayterm>
-            <dtyp:displayterm value="NRCVMCH04cH">NRCVMCH04cH</dtyp:displayterm>
-            <dtyp:displayterm value="NRCVMCH04dH">NRCVMCH04dH</dtyp:displayterm>
-            <dtyp:displayterm value="NRCVMCH04eH">NRCVMCH04eH</dtyp:displayterm>
             <dtyp:displayterm value="NRCVMCH04H">NRCV-MCH-04-H</dtyp:displayterm>
-            <dtyp:displayterm value="NRCVMCH24aH">NRCVMCH24aH</dtyp:displayterm>
-            <dtyp:displayterm value="NRCVMCH24bH">NRCVMCH24bH</dtyp:displayterm>
             <dtyp:displayterm value="NRCVMCH24H">NRCV-MCH-24-H</dtyp:displayterm>
-            <dtyp:displayterm value="NRCVMCH27bH">NRCVMCH27bH</dtyp:displayterm>
-            <dtyp:displayterm value="NRCVMCH27cH">NRCVMCH27cH</dtyp:displayterm>
             <dtyp:displayterm value="NRCVMCH27H">NRCV-MCH-27-H</dtyp:displayterm>
-            <dtyp:displayterm value="NRCVMCH32H">NRCVMCH32H</dtyp:displayterm>
-            <dtyp:displayterm value="NRCVPLB21H">NRCVPLB21H</dtyp:displayterm>
-            <dtyp:displayterm value="NRCVPLB22H">NRCVPLB22H</dtyp:displayterm>
             <dtyp:displayterm value="NRGPDE">NRG-PD-E</dtyp:displayterm>
             <dtyp:displayterm value="NRPSRE">NR-PSR-E</dtyp:displayterm>
          </xsd:appinfo>
@@ -1712,20 +1701,9 @@
          <xsd:enumeration value="NRCIPLB01E"/>
          <xsd:enumeration value="NRCIPRC01E"/>
          <xsd:enumeration value="NRCISRA01E"/>
-         <xsd:enumeration value="NRCVMCH04aH"/>
-         <xsd:enumeration value="NRCVMCH04cH"/>
-         <xsd:enumeration value="NRCVMCH04dH"/>
-         <xsd:enumeration value="NRCVMCH04eH"/>
          <xsd:enumeration value="NRCVMCH04H"/>
-         <xsd:enumeration value="NRCVMCH24aH"/>
-         <xsd:enumeration value="NRCVMCH24bH"/>
          <xsd:enumeration value="NRCVMCH24H"/>
-         <xsd:enumeration value="NRCVMCH27bH"/>
-         <xsd:enumeration value="NRCVMCH27cH"/>
          <xsd:enumeration value="NRCVMCH27H"/>
-         <xsd:enumeration value="NRCVMCH32H"/>
-         <xsd:enumeration value="NRCVPLB21H"/>
-         <xsd:enumeration value="NRCVPLB22H"/>
          <xsd:enumeration value="NRGPDE"/>
          <xsd:enumeration value="NRPSRE"/>
       </xsd:restriction>
@@ -1733,9 +1711,7 @@
    <xsd:simpleType name="ComplianceDocumentTitleNR">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="Building Air Leakage Diagnostic Test Worksheet - Building Enclosures and Dwelling Unit Enclosures">Building Air Leakage Diagnostic Test Worksheet - Building Enclosures and Dwelling Unit Enclosures</dtyp:displayterm>
             <dtyp:displayterm value="Domestic Water Heating System">Domestic Water Heating System</dtyp:displayterm>
-            <dtyp:displayterm value="Duct Leakage Diagnostic Test">Duct Leakage Diagnostic Test</dtyp:displayterm>
             <dtyp:displayterm value="Electrical Power Distribution">Electrical Power Distribution</dtyp:displayterm>
             <dtyp:displayterm value="Envelope Component Approach">Envelope Component Approach</dtyp:displayterm>
             <dtyp:displayterm value="Global Project Data">Global Project Data</dtyp:displayterm>
@@ -1756,9 +1732,7 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstantPermissive">
-         <xsd:enumeration value="Building Air Leakage Diagnostic Test Worksheet - Building Enclosures and Dwelling Unit Enclosures"/>
          <xsd:enumeration value="Domestic Water Heating System"/>
-         <xsd:enumeration value="Duct Leakage Diagnostic Test"/>
          <xsd:enumeration value="Electrical Power Distribution"/>
          <xsd:enumeration value="Envelope Component Approach"/>
          <xsd:enumeration value="Global Project Data"/>
@@ -1842,7 +1816,7 @@
             <dtyp:displayterm value="MCH24a Single Point Air Tightness Test With Manual Meter">MCH24a Single Point Air Tightness Test With Manual Meter</dtyp:displayterm>
             <dtyp:displayterm value="MCH24b Single Point Air Tightness Test With Automatic Meter">MCH24b Single Point Air Tightness Test With Automatic Meter</dtyp:displayterm>
             <dtyp:displayterm value="MCH27b High-rise Residential Multifamily Ventilation">MCH27b High-rise Residential Multifamily Ventilation</dtyp:displayterm>
-            <dtyp:displayterm value="MCH27c Scheduled or Real-Time Control Ventilation system">MCH27c Scheduled or Real-Time Control Ventilation system</dtyp:displayterm>
+            <dtyp:displayterm value="MCH27c Highrise Residential Multifamily Scheduled or Real-Time Control Ventilation system">MCH27c Highrise Residential Multifamily Scheduled or Real-Time Control Ventilation system</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstantPermissive">
@@ -1853,7 +1827,7 @@
          <xsd:enumeration value="MCH24a Single Point Air Tightness Test With Manual Meter"/>
          <xsd:enumeration value="MCH24b Single Point Air Tightness Test With Automatic Meter"/>
          <xsd:enumeration value="MCH27b High-rise Residential Multifamily Ventilation"/>
-         <xsd:enumeration value="MCH27c Scheduled or Real-Time Control Ventilation system"/>
+         <xsd:enumeration value="MCH27c Highrise Residential Multifamily Scheduled or Real-Time Control Ventilation system"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:complexType name="ComplianceDocumentsRequiredNonResidential">
@@ -3893,7 +3867,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="CompliantBat">COMPLIES</dtyp:displayterm>
             <dtyp:displayterm value="NotApplicableBat">Not Applicable</dtyp:displayterm>
-            <dtyp:displayterm value="NotCompliantBat">COMPLIES</dtyp:displayterm>
+            <dtyp:displayterm value="NotCompliantBat">DOES NOT COMPLY</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -4201,7 +4175,19 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:Decimal1Place"/>
    </xsd:simpleType>
+   <xsd:simpleType name="EDR_MarginSourceEnergy">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal1Place"/>
+   </xsd:simpleType>
    <xsd:simpleType name="EDR_ProposedEfficiency">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal1Place"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="EDR_ProposedSourceEnergy">
       <xsd:annotation>
          <xsd:documentation>Units: none</xsd:documentation>
       </xsd:annotation>
@@ -4214,6 +4200,12 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       <xsd:restriction base="dtyp:Decimal1Place"/>
    </xsd:simpleType>
    <xsd:simpleType name="EDR_StandardEfficiency">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal1Place"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="EDR_StandardSourceEnergy">
       <xsd:annotation>
          <xsd:documentation>Units: none</xsd:documentation>
       </xsd:annotation>
@@ -5179,7 +5171,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
    </xsd:simpleType>
    <xsd:simpleType name="EnergyUseProposedSource">
       <xsd:annotation>
-         <xsd:documentation>Units: kTDV per ft2 per yr</xsd:documentation>
+         <xsd:documentation>Units: kBtu per ft2 per yr</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:Decimal"/>
    </xsd:simpleType>
@@ -5269,7 +5261,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
    </xsd:simpleType>
    <xsd:simpleType name="EnergyUseStandardSource">
       <xsd:annotation>
-         <xsd:documentation>Units: kTDV per ft2 per yr</xsd:documentation>
+         <xsd:documentation>Units: kBtu per ft2 per yr</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:Decimal"/>
    </xsd:simpleType>
@@ -6713,13 +6705,6 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:enumeration value="Concrete"/>
       </xsd:restriction>
    </xsd:simpleType>
-   <xsd:complexType name="HeaderLMCC">
-      <xsd:sequence>
-         <xsd:element name="header01_ProjectName" type="comp:ProjectName"/>
-         <xsd:element name="header04_ProjectAddress" type="comp:StreetAddress"/>
-         <xsd:element name="header07_DatePrepared" type="comp:ComplianceApplicationDate"/>
-      </xsd:sequence>
-   </xsd:complexType>
    <xsd:complexType name="HeaderNRCA">
       <xsd:sequence>
          <xsd:element name="header01_ProjectName" type="comp:ProjectName"/>
@@ -11005,7 +10990,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
    </xsd:simpleType>
    <xsd:simpleType name="ProposedDesignSource">
       <xsd:annotation>
-         <xsd:documentation>Units: kTDV per ft2 per yr</xsd:documentation>
+         <xsd:documentation>Units: kBtu per ft2 per yr</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:Decimal"/>
    </xsd:simpleType>
@@ -13129,6 +13114,18 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
+   <xsd:simpleType name="SoundRatingException">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="ExceptionSoundRating">Remote mounted fan with min. 4ft of duct between fan and intake grille</dtyp:displayterm>
+            <dtyp:displayterm value="NoSoundException">No Exception</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="ExceptionSoundRating"/>
+         <xsd:enumeration value="NoSoundException"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="SpaceFunctionTailored">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
@@ -13256,7 +13253,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
    </xsd:simpleType>
    <xsd:simpleType name="StandardDesignSource">
       <xsd:annotation>
-         <xsd:documentation>Units: kTDV per ft2 per yr</xsd:documentation>
+         <xsd:documentation>Units: kBtu per ft2 per yr</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:Decimal"/>
    </xsd:simpleType>
