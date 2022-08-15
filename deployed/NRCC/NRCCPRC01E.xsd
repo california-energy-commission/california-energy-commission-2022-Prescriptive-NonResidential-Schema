@@ -250,7 +250,7 @@ End If</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="B01_ProjectHasFoodStores" type="comp:ProjectHasFoodStores">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Food /BeverageStores 
+                        <xsd:documentation source="FieldText">Food /Beverage Stores 
                            <d:gt/>8,000 ft<d:sup>2</d:sup> cfa (mandatory 
                            <d:t24refnolink/>120.6(b))</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input
@@ -1107,7 +1107,7 @@ End If</xsd:documentation>
                            <d:i> This table includes all refrigerated warehouses 
                               <d:gt/> 3,000 ft2 and refrigerated spaces with a sum total of 
                               <d:gt/> 3,000 ft2 served by the same refrigeration system.  The inputs within Table F are used to demonstrate compliance with the requirements of 
-                              <d:t24ref h="120.6(a)"/>.</d:i>
+                              <d:t24refnolink/>120.6(a).</d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -1288,7 +1288,8 @@ End If</xsd:documentation>
                            </xsd:element>
                            <xsd:element name="Ffan05To06Label" minOccurs="0">
                               <xsd:annotation>
-                                 <xsd:documentation source="FieldText">Fan Controls [t24refnolink/]120.6(a)3B &amp;amp; 
+                                 <xsd:documentation source="FieldText">Fan Controls 
+                                    <d:t24refnolink/>120.6(a)3B &amp;amp; 
                                     <d:t24refnolink/>120.6(a)3C</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -2464,8 +2465,7 @@ End If</xsd:documentation>
                                                       <xsd:element name="Gcon05_VariableSpeedControl" type="comp:VariableSpeedControl">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Variable Speed Control 
-                                                               <d:t24ref h="120.6(b)1A"/>
-                                                            </xsd:documentation>
+                                                               <d:t24refnolink/>120.6(b)1A</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">User input: If user selects only choice, result = true; else result = false</xsd:documentation>
                                                             <xsd:appinfo source="displayterm">
                                                                <dtyp:displayterm value="true">Variable speed fan(s) provided control per 
@@ -2477,7 +2477,7 @@ End If</xsd:documentation>
                                                       <xsd:element name="Gcon06_CondenserTempControls" type="comp:CondenserTempControls">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Temp Setpoint Controls 
-                                                               <d:t24ref h="120.6(b)1B"/>, C, D, F</xsd:documentation>
+                                                               <d:t24refnolink/>120.6(b)1B, C, D, F</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">User selects from list; SetpointLTE70db display term Air cooled: designed to 
                                                                <d:lte/> 70 @ ambient db temp, SetpointLTE70wb display term Evap cooled: designed to 
                                                                <d:lte/> 70 @ ambient wb temp, AdiabaticLTE70db display term Adiabatic: designed to 
@@ -2499,8 +2499,7 @@ End If</xsd:documentation>
                                                       <xsd:element name="Gcon07to07Label" minOccurs="0">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Condenser Specific Efficiency  
-                                                               <d:t24ref h="120.6(b)1G"/>
-                                                            </xsd:documentation>
+                                                               <d:t24refnolink/>120.6(b)1G</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                       <xsd:element name="Gcon07_CondenserEfficiencyMethod" type="comp:CondenserEfficiencyMethod">
@@ -2557,8 +2556,7 @@ End If</xsd:documentation>
                                                          <xsd:element name="Gcon10_CondenserFins" type="comp:CondenserFins">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Fin Density 
-                                                                  <d:t24ref h="120.6(b)1H"/>
-                                                               </xsd:documentation>
+                                                                  <d:t24refnolink/>120.6(b)1H</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Gcon04_CondenserType == Evaporative Or Adiabatic result = BlankGrayedOut Stored in NotApplicableMessage; Else user selects from list: FinsLTE10PerIn display term  
                                                                   <d:lte/> 10 fins/in, FinsNA display term NA: Using microchannel condenser, ExistCondenserNA display term NA: existing condenser being reused</xsd:documentation>
                                                             </xsd:annotation>
@@ -2566,8 +2564,7 @@ End If</xsd:documentation>
                                                          <xsd:element name="Gcon10_NotApplicableMessage">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Fin Density 
-                                                                  <d:t24ref h="120.6(b)1H"/>
-                                                               </xsd:documentation>
+                                                                  <d:t24refnolink/>120.6(b)1H</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Gcon04_CondenserType == Evaporative Or Adiabatic result = BlankGrayedOut Stored in NotApplicableMessage</xsd:documentation>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -2654,8 +2651,7 @@ End If</xsd:documentation>
                                                       <xsd:element name="Gcom03_CompressorTempControls" type="comp:CompressorTempControls">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Saturation suction temperature control (SST) 
-                                                               <d:t24ref h="120.6(b)2A"/>
-                                                            </xsd:documentation>
+                                                               <d:t24refnolink/>120.6(b)2A</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">User selects from list: SST_Control display term Floating suction pressure logic used to reset target SST, NoVariableCapNA display term NA: Single compressor system with no variable capacity capability, TempGTE30degNA display term NA: Suction group with design SST 
                                                                <d:gte/>30
                                                                <d:deg/>F, CascadeSystemNA display term NA: Suction group comprises of the high stage of a two-stage or a cascade system, SecondaryCoolingNA display term NA: Suction group serves the secondary cooling fluid chiller
@@ -2669,8 +2665,7 @@ End If</xsd:documentation>
                                                       <xsd:element name="Gcom04_CompressorCoolingMethod" type="comp:CompressorCoolingMethod">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Liquid Subcooling Compliance Method 
-                                                               <d:t24ref h="120.6(b)2B"/>
-                                                            </xsd:documentation>
+                                                               <d:t24refnolink/>120.6(b)2B</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">User selects from list: CoolingNoExceptions display term No exceptions apply, CoolingLT100kBtuhNA display term NA: Design cooling 
                                                                <d:lt/>100kBtuh per 
                                                                <d:t24ref h="120.6(b)2B"/>, CoolingCascadeNA display term NA: Cascade system per Exception 
@@ -2713,7 +2708,7 @@ End If</xsd:documentation>
                            <xsd:element name="Gcase01" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Design includes lighting controls for refrigerated display cases including illuminated glass doors of walk-in coolers/ freezers per 
-                                    <d:t24ref h="120.6(b)3"/>.  Select method(s) being utilized below:</xsd:documentation>
+                                    <d:t24refnolink/>120.6(b)3.  Select method(s) being utilized below:</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="Gcase02_RefrigCaseTimer" type="comp:RefrigCaseTimer">
@@ -2760,8 +2755,7 @@ End If</xsd:documentation>
                               <xsd:element name="Gheat02_HeatRecoveryMethod" type="comp:HeatRecoveryMethod">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">Compliance Method<d:sup>1</d:sup>
-                                       <d:t24ref h="120.6(b)4"/>
-                                    </xsd:documentation>
+                                       <d:t24refnolink/>120.6(b)4</xsd:documentation>
                                     <xsd:documentation source="CalculationsAndRules">If Gheat01_ReusedEquipment == true result = BlankGrayedOut stored in NotApplicableMessage; Else user selects from list: HeatRecoveryProvided display term Heat recovery provided using 25% or more of Total Heat of Rejection and will not increase HFC refrigerant charge more than 0.35lb/kBtuh of heat recovery capacity per 
                                        <d:t24ref h="120.6(b)4"/>,  NoSysGT150kBtuhNA display term NA: No individual refrigeration systems 
                                        <d:gt/> 150kBtuh, CZ15NA display term NA: Located in CZ 15,  TotalLTE500kBtuhNA display term NA: Stores where the design Total Heat of Rejection of all refrigeration systems is less than or equal to 500,000 Btu/h
@@ -2776,8 +2770,7 @@ End If</xsd:documentation>
                               <xsd:element name="Gheat02_NotApplicableMessage">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">Compliance Method<d:sup>1</d:sup>
-                                       <d:t24ref h="120.6(b)4"/>
-                                    </xsd:documentation>
+                                       <d:t24refnolink/>120.6(b)4</xsd:documentation>
                                     <xsd:documentation source="CalculationsAndRules">If Gheat01_ReusedEquipment == true result = BlankGrayedOut stored in NotApplicableMessage</xsd:documentation>
                                  </xsd:annotation>
                                  <xsd:simpleType>
@@ -2970,8 +2963,7 @@ Else result = false display term is No</xsd:documentation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:i>This table includes all newly installed mechanical ventilation systems which serve parking garages and have a design exhaust rate greater than or equal to 10,000 cfm.  The inputs of Table H are used to demonstrate compliance with the requirements of 
-                              <d:t24ref h="120.6(c)"/>
-                           </d:i>
+                              <d:t24refnolink/>120.6(c) </d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -2984,8 +2976,7 @@ Else result = false display term is No</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Garage is expected to have vehicles with non-gasoline combustion engines for 
                            <d:gt/> 20% of the parked vehicles per Exception 1 to 
-                           <d:t24ref h="120.6(c)"/>
-                        </xsd:documentation>
+                           <d:t24refnolink/>120.6(c)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; else result = false</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -2993,8 +2984,7 @@ Else result = false display term is No</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Project scope includes an addition or alteration to an existing garage where  
                            <d:lt/> 10,000 cfm of new exhaust capacity is being added per Exception 2 to 
-                           <d:t24ref h="120.6(c)"/>
-                        </xsd:documentation>
+                           <d:t24refnolink/>120.6(c)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; else result = false</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -3031,8 +3021,7 @@ Else result = false display term is No</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Exhaust fan control modulates airflow rates 
                                              <d:lte/> 50% design capacity when contaminant levels are maintained per 
-                                             <d:t24ref h="120.6(c)1"/>
-                                          </xsd:documentation>
+                                             <d:t24refnolink/>120.6(c)1</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; else result = false
  
 Mandatory Measure Triggers:
@@ -3045,8 +3034,7 @@ End If</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Fan control or device allows fan motor demand 
                                              <d:lte/> 30% design wattages at  50% of design airflow per 
-                                             <d:t24ref h="120.6(c)2"/>
-                                          </xsd:documentation>
+                                             <d:t24refnolink/>120.6(c)2</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; else result = false
  
 Mandatory Measure Triggers:
@@ -3059,8 +3047,7 @@ End If</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Design includes monitoring CO with a sensor density 
                                              <d:gte/> 1 per 5,000 ft<d:sup>2</d:sup>per 
-                                             <d:t24ref h="120.6(c)3"/>
-                                          </xsd:documentation>
+                                             <d:t24refnolink/>120.6(c)3</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; else result = false
  
 Mandatory Measure Triggers:
@@ -3073,8 +3060,7 @@ End If</xsd:documentation>
                                     <xsd:element name="H06_SensorLocationCO" type="comp:SensorLocationCO">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">CO sensors are located in the highest expected concentration locations, with at least two per proximity zone per 
-                                             <d:t24ref h="120.6(c)3"/>
-                                          </xsd:documentation>
+                                             <d:t24refnolink/>120.6(c)3</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; else result = false
  
 Mandatory Measure Triggers:  
@@ -3085,8 +3071,7 @@ Multi-field triggers: See H05_MonitoringCO  CalculationsAndRules for trigger val
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Design CO sensor setpoint 
                                              <d:lte/> 25 ppm per 
-                                             <d:t24ref h="120.6(c)4"/>
-                                          </xsd:documentation>
+                                             <d:t24refnolink/>120.6(c)4</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; else result = false
  
 Mandatory Measure Triggers:
@@ -3098,8 +3083,7 @@ End If</xsd:documentation>
                                     <xsd:element name="H08_GarageNegativePressurization" type="comp:GarageNegativePressurization">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Occupied garage design maintains negative pressurization per 
-                                             <d:t24ref h="120.6(c)6"/>
-                                          </xsd:documentation>
+                                             <d:t24refnolink/>120.6(c)6</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; else result = false
  
 Mandatory Measure Triggers:
@@ -3112,8 +3096,7 @@ End If</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Design occupied total ventilation rate  
                                              <d:gte/> 0.15 CFM/ ft<d:sup>2</d:sup>per 
-                                             <d:t24ref h="120.6(c)5"/>
-                                          </xsd:documentation>
+                                             <d:t24refnolink/>120.6(c)5</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; else result = false
  
 Mandatory Measure Triggers:
@@ -3196,7 +3179,8 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
-                           <d:i>This table includes all process boilers within the scope of the permit application to demonstrate compliance with the requirements of [d;t24refnolink/]120.6(d).</d:i>
+                           <d:i>This table includes all process boilers within the scope of the permit application to demonstrate compliance with the requirements of 
+                              <d:t24refnolink/>120.6(d).</d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -3228,8 +3212,7 @@ End If</xsd:documentation>
                                     <xsd:element name="I03_CombustionAirShutOff" type="comp:CombustionAirShutOff">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Combustion Air Shutoff 
-                                             <d:t24ref h="120.6(d)1"/>
-                                          </xsd:documentation>
+                                             <d:t24refnolink/>120.6(d)1</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: ShutOffProvided display term Combustion air positive shut-off provided, InputLT2_5MMBtuhNA display term NA: combined rated input of all boilers per stack 
                                              <d:lt/>2.5  MMBtuh
  
@@ -3243,8 +3226,7 @@ End If</xsd:documentation>
                                        <xsd:element name="I04_BoilerFanControl" type="comp:BoilerFanControl">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Fan Controls 
-                                                <d:t24ref h="120.6(d)2"/>
-                                             </xsd:documentation>
+                                                <d:t24refnolink/>120.6(d)2</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If I03_CombustionAirShutOff == InputLT2_5MMBtuhNA  result = BlankGrayedOut stored in the NotApplicableMessage; Else user selects from list: FanVarSpeedDrive display term Variable speed drive provided, ControlFanMotorDemand display term Controls limit fan motor demand to 
                                                 <d:lte/> 30% of the total design wattage at 50% of design air volume provided, FanLT10HP_NA display term NA: Combustion air fan 
                                                 <d:lt/>10 HP
@@ -3276,9 +3258,8 @@ End If</xsd:documentation>
                                        <xsd:element name="I05_BoilerStackControl" type="comp:BoilerStackControl">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Stack Design And Controls 
-                                                <d:t24ref h="120.6(d)3"/> &amp;amp; 
-                                                <d:t24ref h="120.6(d)4"/>
-                                             </xsd:documentation>
+                                                <d:t24refnolink/>120.6(d)3 &amp;amp; 
+                                                <d:t24refnolink/>120.6(d)4</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If I03_CombustionAirShutOff == InputLT2_5MMBtuhNA Or I02_ProcessBoilerInputRange == LT2_5MMBtuh Or GTE2_5ToLT5MMBtuh  result = BlankGrayedOut; NotApplicableMessage Else If user selects only item, Designed and controlled per 
                                                 <d:t24ref h="120.6(d)"/> result = true; else result = false
  
@@ -3292,9 +3273,8 @@ End If</xsd:documentation>
                                        <xsd:element name="I05_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Stack Design And Controls 
-                                                <d:t24ref h="120.6(d)3"/> &amp;amp; 
-                                                <d:t24ref h="120.6(d)4"/>
-                                             </xsd:documentation>
+                                                <d:t24refnolink/>120.6(d)3 &amp;amp; 
+                                                <d:t24refnolink/>120.6(d)4</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If I03_CombustionAirShutOff == InputLT2_5MMBtuhNA Or I02_ProcessBoilerInputRange == LT2_5MMBtuh Or GTE2_5ToLT5MMBtuh  result = BlankGrayedOut</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -3334,7 +3314,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:i>This table includes all new and altered compressed air systems with a combined HP of 25 or greater.  the inputs within Table J are used to demonstrate compliance with the requirements of 
-                              <d:t24ref h="120.6(e)"/>.</d:i>
+                              <d:t24refnolink/>120.6(e).</d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -3374,8 +3354,8 @@ End If</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Controls 
                                              <d:t24refnolink/>120.6(e)2</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list; SensorControllerProvided display term Design includes sensor/ controller capable of using most efficient combination of compressors to meet load, Only1CompressorNA display term NA: Do not have 
-                                             <d:gt/> 1 compressor online, LT100HP_NA display term NA: 
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list; SensorControllerProvided display term Design includes sensor/ controller capable of using most efficient combination of compressors to meet load, Only3CompressorNA display term NA: Do not have 
+                                             <d:gt/> 3 compressor online, LT100HP_NA display term NA: 
                                              <d:lt/> 100 combined HP rating
  
 Mandatory Measure Triggers:
@@ -3464,7 +3444,8 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Lighting 
                            <d:t24refnolink/>120.6(f)1 &amp;amp; 
-                           <d:t24refnolink/>120.6(f)3 /[ d:t24refnolink/]160.7</xsd:documentation>
+                           <d:t24refnolink/>120.6(f)3 /
+                           <d:t24refnolink/>160.7</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableElevator">
@@ -3587,8 +3568,9 @@ End If</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"/>
                                           <xsd:documentation source="AdditionalRequirements">Ventilation 
-                                             <d:t24ref h="120.6(f)2"/> &amp;amp; 
-                                             <d:t24ref h="120.6(f)3"/> /[ d:t24refnolink/]160.7</xsd:documentation>
+                                             <d:t24refnolink/>120.6(f)2 &amp;amp; 
+                                             <d:t24refnolink/>120.6(f)3 / 
+                                             <d:t24refnolink/>160.7</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -3729,15 +3711,14 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:i>This table includes all escalators and moving walkway controls necessary to demonstrate compliance with the requirements of 
-                              <d:t24ref h="120.6(g)"/>. </d:i>
+                              <d:t24refnolink/>120.6(g). </d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="L01_EscalatorControl" type="comp:EscalatorControl">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Compliance Method 
-                           <d:t24ref h="120.6(g)"/>
-                        </xsd:documentation>
+                           <d:t24refnolink/>120.6(g)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User selects from list: SpeedControlled display term Escalators and moving walkways are designed to automatically slow when not conveying passengers per 
                            <d:t24ref h="120.6(g)"/>, SpeedControlledNA display term NA: Project does not include an airport, hotel, or transportation function area.</xsd:documentation>
                      </xsd:annotation>
@@ -3918,7 +3899,7 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="Ups05_UpsMinEfficiency" type="comp:UpsMinEfficiency">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Minimum Efficiency Required Table140.9-B</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Minimum Efficiency Required Table 140.9-B</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Calculated field: 
 If Ups04_UpsRatedPower LTE 350
 If Ups03_UpsType == VoltageFreqDependent
@@ -3962,7 +3943,7 @@ End If</xsd:documentation>
                                        </xsd:element>
                                        <xsd:element name="Ups05_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Minimum Efficiency Required Table140.9-B</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Minimum Efficiency Required Table 140.9-B</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Ups02_UpsComplianceMethod  == NEMAInputPlugNA  Or PowerDensityNA
 result = BlankGrayedOut
 End If</xsd:documentation>
@@ -4372,8 +4353,7 @@ End If</xsd:documentation>
                                     <xsd:element name="O02_LabAirflowReductMethod" type="comp:LabAirflowReductMethod">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Airflow Reduction Compliance Method 
-                                             <d:t24ref h="140.9(c)1"/>
-                                          </xsd:documentation>
+                                             <d:t24refnolink/>140.9(c)1</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: ReducedExhaustMakeupAir display term Exhaust airflow capable of reducing exhaust and make-up air to min circulation/ pressurization rate, ConstantVolSysRequiredNA display term NA: Constant volume system required by AHJ or Environmental, Health &amp;amp; Safety, NewZoneExistingSysNA display term NA: New zones on an existing constant volume system, SysGT10achNA display term NA: Systems designed for 
                                              <d:gt/> 10 ACH</xsd:documentation>
                                        </xsd:annotation>
@@ -4381,8 +4361,7 @@ End If</xsd:documentation>
                                     <xsd:element name="O03_LabTransferAirMethod" type="comp:LabTransferAirMethod">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Transfer Air Compliance Method 
-                                             <d:t24ref h="140.9(c)2"/>
-                                          </xsd:documentation>
+                                             <d:t24refnolink/>140.9(c)2</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: SysMeetsTransferAirReq display term Conditioned supply air delivered to any space with mechanical exhaust is designed  per 
                                              <d:t24ref h="140.4(o)"/>, BioSafetyLevelGTE3NA display term NA: Laboratory is classified as biosafety level 
                                              <d:gte/>3, ServingVivariumNA display term NA: Serving vivarium space, PositivePressureRequiredNA display term NA: Space required to be at positive pressure, NegativePressureRequiredNA display term NA: Space required to be at negative pressure and where highest amount of transfer air used for make-up air exceeds transfer airflow rate</xsd:documentation>
@@ -4391,8 +4370,7 @@ End If</xsd:documentation>
                                     <xsd:element name="O04a_LabFanPowerMethod">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Fan Power Compliance Method 
-                                             <d:t24ref h="140.9(c)3"/>
-                                          </xsd:documentation>
+                                             <d:t24refnolink/>140.9(c)3</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: SysMeetsDischargeReq display term System meets discharge requirements in ANSI Z9.5-2012, NewExhaustLTE10000cfmNA display term NA: Newly installed exhaust system 
                                              <d:lte/>10,000 cfm</xsd:documentation>
                                        </xsd:annotation>
@@ -4406,8 +4384,7 @@ End If</xsd:documentation>
                                     <xsd:element name="O04b_LabFanPowerMethod">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Fan Power Compliance Method 
-                                             <d:t24ref h="140.9(c)3"/>
-                                          </xsd:documentation>
+                                             <d:t24refnolink/>140.9(c)3</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: AirTreatmentSysRate display term Max 0.85 W/cfm for systems with air treatment (filters, etc.), NoAirTreatmentSysRate display term Max 0.65 W/cfm for systems without air treatment, StackControlAnemometer display term Volume flowrate @ stack controlled by anemometer per 
                                              <d:t24ref h="140.9(c)3C"/>, StackControlSensor display term Volume flowrate @ stack controlled by contaminant sensor per 
                                              <d:t24ref h="140.9(c)3D"/>, NewExhaustLTE10000cfmNA display term NA: Newly installed exhaust system 
@@ -4426,8 +4403,7 @@ End If</xsd:documentation>
                                     <xsd:element name="O05_LabHoodSashMethod" type="comp:LabHoodSashMethod">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Hood Sash Compliance Method 
-                                             <d:t24ref h="140.9(c)4"/>
-                                          </xsd:documentation>
+                                             <d:t24refnolink/>140.9(c)4</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: HoodSashMeetsReq display term Hood sash closure system design controlled   per 
                                              <d:t24ref h="140.9(c)4"/>, NotVAV_HoodNA display term NA: Not VAV hood with vertical sashes in hood intensive lab</xsd:documentation>
                                        </xsd:annotation>
@@ -4457,7 +4433,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
-                           <d:i> This table documents compliance with mandatory controlled environment horticulture requirments of 
+                           <d:i> This table documents compliance with mandatory controlled environment horticulture requirements of 
                               <d:t24refnolink/>120.6(h). </d:i>
                         </xsd:documentation>
                      </xsd:annotation>
@@ -4674,14 +4650,14 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="HortEnv03_GreenhouseNonOpaqueReq" type="env:GreenhouseNonOpaqueReq">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Non-Opaque Envelope Compliance Method  
+                                             <xsd:documentation source="FieldText">Non-Opaque Envelope Compliance Method 
                                                 <d:t24refnolink/>120.6(h)4B</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Use selects from list GlazingCompliance</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="HortEnv03_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Non-Opaque Envelope Compliance Method  
+                                             <xsd:documentation source="FieldText">Non-Opaque Envelope Compliance Method 
                                                 <d:t24refnolink/>120.6(h)4B</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If HortEnv02_GreenhouseAssembly == OpaqueRoof Or OpaqueWall
 result = BlankGrayedOut
@@ -4692,7 +4668,7 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="HortEnv04_HorticultureCompliance">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Opaque Envelope Compliance Method  
+                                             <xsd:documentation source="FieldText">Opaque Envelope Compliance Method 
                                                 <d:t24refnolink/>120.6(h)4A</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User selects from list PerformanceEnvelope, PrescriotiveEnvelope</xsd:documentation>
                                           </xsd:annotation>
@@ -4705,7 +4681,7 @@ End If</xsd:documentation>
                                        </xsd:element>
                                        <xsd:element name="HortEnv04_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Opaque Envelope Compliance Method  
+                                             <xsd:documentation source="FieldText">Opaque Envelope Compliance Method 
                                                 <d:t24refnolink/>120.6(h)4A</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If HortEnv02_GreenhouseAssembly == NonOpaqueEnvelope
 result = BlankGrayedOut
@@ -4804,7 +4780,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
-                           <d:i> This table documents compliance with mandatory pool/spa requirments in 
+                           <d:i> This table documents compliance with mandatory pool/spa requirements in 
                               <d:t24refnolink/>110.4 / 
                               <d:t24refnolink/>160.7 </d:i>
                         </xsd:documentation>
@@ -5004,7 +4980,7 @@ End If</xsd:documentation>
                            <xsd:element name="Pool13_PoolSpaOneTenantReqs">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
-                                 <xsd:documentation source="AdditionalRequirements">System Piping must meet the following requireents: 
+                                 <xsd:documentation source="AdditionalRequirements">System Piping must meet the following requirements: 
 - A length of straight pipe that is greater than or equal to at least 4 pipe diameters shall be installed before the pump; and
 - Pool piping shall be sized so that the velocity of the water at maximum flow for auxiliary pool loads does not exceed 8 feet per second in the return line and 6 feet per second in the suction line; and 
 - All elbows shall be sweep elbows or of an elbow-type that has a pressure drop of less than the pressure drop of straight pipe with a length of 30 pipe diameters.</xsd:documentation>
@@ -5024,7 +5000,7 @@ End If</xsd:documentation>
                            <xsd:element name="Pool14_PoolSpaOneTenantReqs">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
-                                 <xsd:documentation source="AdditionalRequirements">Filters shall be at least the sixe specified in NSF/ANSI 50 for public pool intended applications.</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Filters shall be at least the size specified in NSF/ANSI 50 for public pool intended applications.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
 result = FilterSize
 Else If box is unchecked
@@ -5041,7 +5017,7 @@ End If</xsd:documentation>
                            <xsd:element name="Pool15_PoolSpaOneTenantReqs">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
-                                 <xsd:documentation source="AdditionalRequirements">Minimum diameter of backwash valves shall be 2 inches or the diameter of the return pipe, which ever is greater.</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Minimum diameter of backwash valves shall be 2 inches or the diameter of the return pipe, whichever is greater.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
 result = BackwashValves
 Else If box is unchecked
@@ -5064,7 +5040,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_Nrci" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">
-                  <d:b>P.  DECLARATION OF REQUIRED CERTIFICATES OF INSTALLATION</d:b>
+                  <d:b>S.  DECLARATION OF REQUIRED CERTIFICATES OF INSTALLATION</d:b>
                </xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">Values in this section are affected by data in other sections of the document which may change the result to true and select Yes radio button.  
  
@@ -5518,14 +5494,14 @@ End If</xsd:documentation>
                   <xsd:element name="Nrca14_RequireNRCAPrc17F" type="comp:RequireNRCAPrc17F">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">NRCA-PRC-15-F Fume Hood Automatic Sash Closure Systems</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Default result = false; If   If  B01_ProjectHasSteamTraps== true  result = true</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">NRCA-PRC-17-F Steam Traps</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Default result = false; If B01_ProjectHasSteamTraps== true  result = true</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Nrca14_SystemFieldVerified" type="comp:SystemFieldVerified" minOccurs="0" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If Nrca14_RequireNRCAPrc17F == true; this field is loaded with systems/spaces that satisfy this condition:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca14_RequireNRCAPrc17F == true; this field is loaded with systems/spaces that satisfy this condition:B01_ProjectHasSteamTraps== true</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Nrca14_SystemsToFieldVerify" type="comp:SystemsToFieldVerify" minOccurs="0">

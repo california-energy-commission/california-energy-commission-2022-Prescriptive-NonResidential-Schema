@@ -2,12 +2,24 @@
 <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/hvac" version="2022.0.000" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="NrPresCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
+   <xsd:simpleType name="AdjustedSensibleRecoveryEfficiency">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:IntegerNonnegative"/>
+   </xsd:simpleType>
    <xsd:simpleType name="AirFlowMinimum">
       <xsd:annotation>
          <xsd:documentation>The lowest flow rate rated for a fan  Units: ft3 per min</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Air Flow Minimum</dtyp:displayterm>
          </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="AirFlowPerSquareFoot">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft3 per min ft2</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
@@ -179,6 +191,15 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
+   <xsd:simpleType name="AnnualSolarAccess">
+      <xsd:annotation>
+         <xsd:documentation>Units: percent</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:IntegerNonnegative">
+         <xsd:minInclusive value="0"/>
+         <xsd:maxInclusive value="100"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="AnnualSolarFraction">
       <xsd:annotation>
          <xsd:documentation>Units: none</xsd:documentation>
@@ -187,6 +208,38 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="ArrayModuleType">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Custom">Custom</dtyp:displayterm>
+            <dtyp:displayterm value="Premium">Premium (~18-20%)</dtyp:displayterm>
+            <dtyp:displayterm value="Standard">Standard (14-17%)</dtyp:displayterm>
+            <dtyp:displayterm value="ThinFilm">ThinFilm</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Custom"/>
+         <xsd:enumeration value="Premium"/>
+         <xsd:enumeration value="Standard"/>
+         <xsd:enumeration value="ThinFilm"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ArrayType">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="FixedArray">Fixed</dtyp:displayterm>
+            <dtyp:displayterm value="FixedArrayOpen">Fixed (open rack)</dtyp:displayterm>
+            <dtyp:displayterm value="Tracking1Axis">Tracking (one axis)</dtyp:displayterm>
+            <dtyp:displayterm value="Tracking2Axis">Tracking (two axis)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="FixedArray"/>
+         <xsd:enumeration value="FixedArrayOpen"/>
+         <xsd:enumeration value="Tracking1Axis"/>
+         <xsd:enumeration value="Tracking2Axis"/>
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="AuxiliaryPowerOff">
       <xsd:annotation>
@@ -226,6 +279,22 @@
          <xsd:documentation>Units: kW per h</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="BatteryControl">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="AdvancedDR">Advanced DR</dtyp:displayterm>
+            <dtyp:displayterm value="Basic">Basic</dtyp:displayterm>
+            <dtyp:displayterm value="RankedDayDR">Ranked Day DR Control</dtyp:displayterm>
+            <dtyp:displayterm value="TOU">TOU</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="AdvancedDR"/>
+         <xsd:enumeration value="Basic"/>
+         <xsd:enumeration value="RankedDayDR"/>
+         <xsd:enumeration value="TOU"/>
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="BatteryPower">
       <xsd:annotation>
@@ -1017,6 +1086,18 @@
    <xsd:simpleType name="ChargeDischargeEfficiency">
       <xsd:annotation>
          <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="ChargingEfficiency">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="ChargingRate">
+      <xsd:annotation>
+         <xsd:documentation>Units: kW</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
@@ -1986,6 +2067,12 @@
    <xsd:simpleType name="CoolingTowerName">
       <xsd:restriction base="xsd:token"/>
    </xsd:simpleType>
+   <xsd:simpleType name="CoolingVentilationPower">
+      <xsd:annotation>
+         <xsd:documentation>Units: W</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
    <xsd:simpleType name="Count">
       <xsd:annotation>
          <xsd:documentation>The number of identical Chillers.  Because all the features are the same in each unit, the Count can be used as a multiplier for calculating values like capacity of all the units  Units: none</xsd:documentation>
@@ -2146,6 +2233,18 @@
          <xsd:enumeration value="Chiller"/>
          <xsd:enumeration value="Storage"/>
       </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="DischargingEfficiency">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="DischargingRate">
+      <xsd:annotation>
+         <xsd:documentation>Units: kW</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="DraftType">
       <xsd:annotation>
@@ -2361,6 +2460,28 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
+   <xsd:simpleType name="DuctSpaceType">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Attic">Attic</dtyp:displayterm>
+            <dtyp:displayterm value="ConditionedZone">Conditioned Zone</dtyp:displayterm>
+            <dtyp:displayterm value="CrawlSpace">Crawl Space</dtyp:displayterm>
+            <dtyp:displayterm value="Garage">Garage</dtyp:displayterm>
+            <dtyp:displayterm value="Multiple">Multiple</dtyp:displayterm>
+            <dtyp:displayterm value="Outside">Outside</dtyp:displayterm>
+            <dtyp:displayterm value="UnconditionedZone">Unconditioned Zone</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Attic"/>
+         <xsd:enumeration value="ConditionedZone"/>
+         <xsd:enumeration value="CrawlSpace"/>
+         <xsd:enumeration value="Garage"/>
+         <xsd:enumeration value="Multiple"/>
+         <xsd:enumeration value="Outside"/>
+         <xsd:enumeration value="UnconditionedZone"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="DuctSurfaceArea">
       <xsd:annotation>
          <xsd:documentation>Units: ft2</xsd:documentation>
@@ -2503,6 +2624,15 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
+   <xsd:simpleType name="EfficiencyEER2">
+      <xsd:annotation>
+         <xsd:documentation>Units: Btu per W h</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Efficiency EER2</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
    <xsd:simpleType name="EfficiencyEER_IEER">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
@@ -2525,6 +2655,15 @@
          <xsd:documentation>Units: Btu per W h</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Efficiency HSPF</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="EfficiencyHSPF2">
+      <xsd:annotation>
+         <xsd:documentation>Units: Btu per W h</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Efficiency HSPF2</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
@@ -2672,6 +2811,15 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
+   <xsd:simpleType name="EfficiencySEER2">
+      <xsd:annotation>
+         <xsd:documentation>Units: Btu per W h</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Efficiency SEER2</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
    <xsd:simpleType name="EfficiencySEER_EER">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
@@ -2695,10 +2843,12 @@
             <dtyp:displayterm value="COP_IPLV">IPLV</dtyp:displayterm>
             <dtyp:displayterm value="EER">EER</dtyp:displayterm>
             <dtyp:displayterm value="EER_IPLV">IPLV</dtyp:displayterm>
+            <dtyp:displayterm value="EER2">EER2</dtyp:displayterm>
             <dtyp:displayterm value="EnergyFactor">EF</dtyp:displayterm>
             <dtyp:displayterm value="GalPerMinHp">GPM/Hp</dtyp:displayterm>
             <dtyp:displayterm value="HP">HP</dtyp:displayterm>
             <dtyp:displayterm value="HSPF">HSPF</dtyp:displayterm>
+            <dtyp:displayterm value="HSPF2">HSPF2</dtyp:displayterm>
             <dtyp:displayterm value="IEER">IEER</dtyp:displayterm>
             <dtyp:displayterm value="ISCOP">ISCOP</dtyp:displayterm>
             <dtyp:displayterm value="ISMRE">ISMRE</dtyp:displayterm>
@@ -2707,6 +2857,7 @@
             <dtyp:displayterm value="NEEA">NEEA Rated</dtyp:displayterm>
             <dtyp:displayterm value="SCOP">SCOP</dtyp:displayterm>
             <dtyp:displayterm value="SEER">SEER</dtyp:displayterm>
+            <dtyp:displayterm value="SEER2">SEER2</dtyp:displayterm>
             <dtyp:displayterm value="ThermalEfficiency">TE</dtyp:displayterm>
             <dtyp:displayterm value="UniformEnergyFactor">UEF</dtyp:displayterm>
          </xsd:appinfo>
@@ -2721,10 +2872,12 @@
          <xsd:enumeration value="COP_IPLV"/>
          <xsd:enumeration value="EER"/>
          <xsd:enumeration value="EER_IPLV"/>
+         <xsd:enumeration value="EER2"/>
          <xsd:enumeration value="EnergyFactor"/>
          <xsd:enumeration value="GalPerMinHp"/>
          <xsd:enumeration value="HP"/>
          <xsd:enumeration value="HSPF"/>
+         <xsd:enumeration value="HSPF2"/>
          <xsd:enumeration value="IEER"/>
          <xsd:enumeration value="ISCOP"/>
          <xsd:enumeration value="ISMRE"/>
@@ -2733,6 +2886,7 @@
          <xsd:enumeration value="NEEA"/>
          <xsd:enumeration value="SCOP"/>
          <xsd:enumeration value="SEER"/>
+         <xsd:enumeration value="SEER2"/>
          <xsd:enumeration value="ThermalEfficiency"/>
          <xsd:enumeration value="UniformEnergyFactor"/>
       </xsd:restriction>
@@ -2980,6 +3134,9 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
+   <xsd:simpleType name="ExhaustLocation">
+      <xsd:restriction base="xsd:token"/>
+   </xsd:simpleType>
    <xsd:simpleType name="ExhaustSource">
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="BothVentilationAndTransfer"/>
@@ -3032,11 +3189,13 @@
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="Continuous">Continuous</dtyp:displayterm>
             <dtyp:displayterm value="Cycling">Cycling</dtyp:displayterm>
+            <dtyp:displayterm value="NotContinuous">Continuous</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="Continuous"/>
          <xsd:enumeration value="Cycling"/>
+         <xsd:enumeration value="NotContinuous"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="FanControlDOAS">
@@ -5053,6 +5212,12 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="InverterEfficiencyPercent">
+      <xsd:annotation>
+         <xsd:documentation>Inverter efficiency as a percent  Units: percent</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal3Places"/>
    </xsd:simpleType>
    <xsd:simpleType name="IsEfficiencyCapWeightedAvg">
       <xsd:annotation>
@@ -7325,6 +7490,20 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:IntegerNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="PowerElectronics">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Microinverters">Microinverters</dtyp:displayterm>
+            <dtyp:displayterm value="NoPowerElectronics">none</dtyp:displayterm>
+            <dtyp:displayterm value="PowerOptimizer">DC Power Optimizers</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Microinverters"/>
+         <xsd:enumeration value="NoPowerElectronics"/>
+         <xsd:enumeration value="PowerOptimizer"/>
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="PowerIndex">
       <xsd:annotation>

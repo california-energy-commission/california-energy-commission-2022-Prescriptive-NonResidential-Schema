@@ -50,6 +50,21 @@
          <xsd:enumeration value="SiteBuilt"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="AzimuthRange">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="105To300">105-300</dtyp:displayterm>
+            <dtyp:displayterm value="150To270">150-270</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="105To300"/>
+         <xsd:enumeration value="150To270"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="AzimuthRangeString">
+      <xsd:restriction base="xsd:string"/>
+   </xsd:simpleType>
    <xsd:simpleType name="BedroomCount">
       <xsd:annotation>
          <xsd:documentation>Units: none</xsd:documentation>
@@ -1909,6 +1924,20 @@ receives the most illumination.  Units: ft2</xsd:documentation>
          <xsd:enumeration value="Ventura"/>
          <xsd:enumeration value="Yolo"/>
          <xsd:enumeration value="Yuba"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="SiteFuelType">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Electricity">Electricity</dtyp:displayterm>
+            <dtyp:displayterm value="NaturalGas">Natural gas</dtyp:displayterm>
+            <dtyp:displayterm value="Propane">Liquefied propane gas</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Electricity"/>
+         <xsd:enumeration value="NaturalGas"/>
+         <xsd:enumeration value="Propane"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="SkylightVT_SkylitDaylitRatio">

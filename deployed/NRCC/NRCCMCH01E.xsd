@@ -1366,7 +1366,7 @@ End If</xsd:documentation>
                                        <xsd:element name="F05_HeatingDesignCapacity" type="hvac:HeatingDesignCapacity">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Per Design (kBtu/h)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, FurnaceUnitHeater, HeatPumpAC,  UnitaryHeatPumps Or UnitaryHeatPumpsNoElectR
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, FurnaceUnitHeater, HeatPumpAC,  UnitaryHeatPumps, UnitaryHeatPumpsNoElectR Or HeatPumpDualFuel
  
 Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == NonweatherizedSPVHP or SPVHP 
  
@@ -1382,7 +1382,7 @@ End If</xsd:documentation>
                                        <xsd:element name="F05_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Per Design (kBtu/h)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, FurnaceUnitHeater, HeatPumpAC,  UnitaryHeatPumps Or Or UnitaryHeatPumpsNoElectR
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, FurnaceUnitHeater, HeatPumpAC,  UnitaryHeatPumps, UnitaryHeatPumpsNoElectR Or HeatPumpDualFuel
  
 Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == NonweatherizedSPVHP or SPVHP 
  
@@ -1406,7 +1406,7 @@ End If</xsd:documentation>
                                        <xsd:element name="F06_HeatingRatedCapacity" type="hvac:HeatingRatedCapacity">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Rated (kBtu/h)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, FurnaceUnitHeater, HeatPumpAC, UnitaryHeatPumps Or UnitaryHeatPumpsNoElectR  
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, FurnaceUnitHeater, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR  Or HeatPumpDualFuel
  
 Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == NonweatherizedSPVHP or SPVHP 
  
@@ -1426,7 +1426,7 @@ Multi-field triggers: See F02_HvacSystemType CalculationsAndRules for trigger va
                                        <xsd:element name="F06_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Rated (kBtu/h)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, FurnaceUnitHeater, HeatPumpAC,  UnitaryHeatPumps  Or UnitaryHeatPumpsNoElectR 
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, FurnaceUnitHeater, HeatPumpAC,  UnitaryHeatPumps, UnitaryHeatPumpsNoElectR Or HeatPumpDualFuel
  
 Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == NonweatherizedSPVHP or SPVHP 
  
@@ -1450,7 +1450,7 @@ End If</xsd:documentation>
                                        <xsd:element name="F07_HeatingSupplementalCapacity" type="hvac:HeatingSupplementalCapacity">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Supp. Heating Output (kBtu/h)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, FurnaceUnitHeater, HeatPumpAC, UnitaryHeatPumps Or UnitaryHeatPumpsNoElectR   
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, FurnaceUnitHeater, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR Or HeatPumpDualFuel 
  
 Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == NonweatherizedSPVHP or SPVHP 
  
@@ -1464,7 +1464,7 @@ End If</xsd:documentation>
                                        <xsd:element name="F07_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Supp. Heating Output k(Btu/h)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, FurnaceUnitHeater, HeatPumpAC,  UnitaryHeatPumps Or UnitaryHeatPumpsNoElectR  
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, FurnaceUnitHeater, HeatPumpAC,  UnitaryHeatPumps, UnitaryHeatPumpsNoElectR  Or HeatPumpDualFuel
  
 Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == NonweatherizedSPVHP or SPVHP 
  
@@ -1493,7 +1493,7 @@ End If</xsd:documentation>
                                        <xsd:element name="F08_CoolingSensibleDesignCapacity" type="hvac:CoolingSensibleDesignCapacity">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Sensible Per Design (kBtu/h)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR,  UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP Or VariableRefrigerantFlow 
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR,  UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, HeatPumpDualFuel, PTAC_PTHP, SPV_ACHP Or VariableRefrigerantFlow 
  
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
  
@@ -1506,7 +1506,7 @@ End If</xsd:documentation>
                                        <xsd:element name="F08_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Sensible Per Design (kBtu/h)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR,  UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP Or VariableRefrigerantFlow 
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, HeatPumpDualFuel, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP Or VariableRefrigerantFlow 
  
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
 user input in this field is required; 
@@ -1525,7 +1525,7 @@ End If</xsd:documentation>
                                        <xsd:element name="F09_CoolingRatedCapacity" type="hvac:CoolingRatedCapacity">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Rated (kBtu/h)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR,  UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP Or VariableRefrigerantFlow 
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, HeatPumpDualFuel, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP Or VariableRefrigerantFlow 
  
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
  
@@ -1538,7 +1538,7 @@ End If</xsd:documentation>
                                        <xsd:element name="F09_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Rated (kBtu/h)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR,  UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP Or VariableRefrigerantFlow 
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, HeatPumpDualFuel, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP Or VariableRefrigerantFlow 
  
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
  
@@ -1593,7 +1593,7 @@ End if</xsd:documentation>
                                        <xsd:element name="F11_CoolingSensibleTotalLoad" type="hvac:CoolingSensibleTotalLoad">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Total Sensible Cooling Load (kBtu/h)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps,  UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP Or VariableRefrigerantFlow 
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps,  UnitaryHeatPumpsNoElectR, HeatPumpDualFuel, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP Or VariableRefrigerantFlow 
  
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
  
@@ -1605,7 +1605,7 @@ End If</xsd:documentation>
                                        <xsd:element name="F11_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Total Sensible Cooling Load (kBtu/h)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps,  UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP Or VariableRefrigerantFlow 
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps,  UnitaryHeatPumpsNoElectR, HeatPumpDualFuel, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP Or VariableRefrigerantFlow 
  
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
  
@@ -6637,8 +6637,6 @@ End Switch</xsd:documentation>
                                                                                                 <xsd:annotation>
                                                                                                    <xsd:documentation source="FieldText">Component Allowance</xsd:documentation>
                                                                                                    <xsd:documentation source="CalculationsAndRules">If H02_FanFunction != Supply use this choice
- If H02_FanFunction == Exhaust
- 
  
  Switch (H04_FanPowerAllowanceDevice)
 case FilterAnyMERV:
