@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/bld" version="2022.0.001" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/bld" version="2022.0.000" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="NrPresCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="NrPresEnvelope.xsd"/>
@@ -8,14 +8,12 @@
    <xsd:simpleType name="BuildingAdditionalConditionedFloorArea">
       <xsd:annotation>
          <xsd:documentation>Conditioned floor area for an addition to the Building.  Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="BuildingAdditionalSlabArea">
       <xsd:annotation>
          <xsd:documentation>Floor area for a slab addition to the Building.  Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
@@ -40,7 +38,6 @@
    <xsd:simpleType name="ExistingConditionedFloorArea">
       <xsd:annotation>
          <xsd:documentation>Conditioned floor area for an addition to the Building.  Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Existing Conditioned Floor Area</dtyp:displayterm>
          </xsd:appinfo>
@@ -56,7 +53,6 @@
    <xsd:simpleType name="NewAdditionConditionedFloorArea">
       <xsd:annotation>
          <xsd:documentation>All conditioned floor area in an addition project.  It can be derived from all conditioned area in the Zones  Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Total Conditioned Floor Area New Construction/Addition</dtyp:displayterm>
          </xsd:appinfo>
@@ -72,7 +68,6 @@
    <xsd:simpleType name="SiteTotalGrossFloorArea">
       <xsd:annotation>
          <xsd:documentation>This is the sum of all BuildlingGrossTotalFloorArea on the Site and may consists of more than one building.  Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Site Total Gross Floor Area</dtyp:displayterm>
          </xsd:appinfo>
@@ -82,7 +77,6 @@
    <xsd:simpleType name="SiteTotalParkingArea">
       <xsd:annotation>
          <xsd:documentation>This is the total square feet of parking areas on the site.  Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Site Total Parking Area</dtyp:displayterm>
          </xsd:appinfo>

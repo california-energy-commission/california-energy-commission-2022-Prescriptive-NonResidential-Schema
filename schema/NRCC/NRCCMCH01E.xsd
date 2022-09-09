@@ -8617,7 +8617,6 @@ AutomaticTimerSwitch display term Auto Timer Switch,
 OccupancySensor display term Occ. Sensor, 
 4HrTimer display term 4 Hour Timer, 
 EMCS display term EMCS, 
-OtherControl display term Other*, 
 ContinuousHeatCoolNA display term NA: Continuous Heat/Cool, 
 AlteredNA display term NA: Altered per 141.0(b)2E, 
 SingleZoneNA display term NA: Single Zone, 
@@ -8636,7 +8635,7 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: 
 EMCS display term EMCS, 
 ThermostatDR display term DR Tstat per 110.12,
-OtherControl display term Other*, 
+ 
 EquipmentNA display term NA: PTAC, PTHP, Rm AC, HP 
 HealthcareNA display term NA: Healthcare only
  
@@ -9680,7 +9679,7 @@ HealthcareNA display term NA: Healthcare Facility</xsd:documentation>
                                              <xsd:element name="K03toK11NA_NotApplicableMessage" >
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Not Applicable</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">If K02_ZonalControlStrategy != VAVwithDDC 
+                                                   <xsd:documentation source="CalculationsAndRules">If K02_ZonalControlStrategy != VAVwithDDC Or VAVnoDDC
 result for K03 - K11 in VAV subsection = BlankGrayedOut.
 End If</xsd:documentation>
                                                 </xsd:annotation>

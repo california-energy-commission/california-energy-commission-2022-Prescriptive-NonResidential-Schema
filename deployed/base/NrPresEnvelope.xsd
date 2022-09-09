@@ -64,6 +64,9 @@
          <xsd:enumeration value="WoodFramed"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="AtticName">
+      <xsd:restriction base="dtyp:ObjectNamePermissive"/>
+   </xsd:simpleType>
    <xsd:simpleType name="CRRCProductID">
       <xsd:annotation>
          <xsd:documentation>The CRRC product identification number for the roofing product</xsd:documentation>
@@ -329,6 +332,7 @@
             <dtyp:displayterm value="AsphaltBitumenInertFill100LbPerFt3Thickness0_75In">Asphalt - bitumen with inert fill - 100 lb/ft3 - 3/4 in.</dtyp:displayterm>
             <dtyp:displayterm value="AsphaltBitumenInertFill144LbPerFt3Thickness0_75In">Asphalt - bitumen with inert fill - 144 lb/ft3 - 3/4 in.</dtyp:displayterm>
             <dtyp:displayterm value="AsphaltShingles">Asphalt shingles</dtyp:displayterm>
+            <dtyp:displayterm value="BambooLaminate1_25In">Bamboo laminate - 1 1/4 in.</dtyp:displayterm>
             <dtyp:displayterm value="Birch1In">Birch1In</dtyp:displayterm>
             <dtyp:displayterm value="Brick48LbPerFt3Thickness3_625In">Brick - 48 lb/ft3 - 3 5/8 in.</dtyp:displayterm>
             <dtyp:displayterm value="BrickFiredClay140LbPerFt3Thickness3_625In">Brick - fired clay -  140 lb/ft3 - 3 5/8 in.</dtyp:displayterm>
@@ -910,6 +914,7 @@
          <xsd:enumeration value="AsphaltBitumenInertFill100LbPerFt3Thickness0_75In"/>
          <xsd:enumeration value="AsphaltBitumenInertFill144LbPerFt3Thickness0_75In"/>
          <xsd:enumeration value="AsphaltShingles"/>
+         <xsd:enumeration value="BambooLaminate1_25In"/>
          <xsd:enumeration value="Birch1In"/>
          <xsd:enumeration value="Brick48LbPerFt3Thickness3_625In"/>
          <xsd:enumeration value="BrickFiredClay140LbPerFt3Thickness3_625In"/>
@@ -2328,6 +2333,36 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:ObjectNamePermissive"/>
    </xsd:simpleType>
+   <xsd:simpleType name="ExternalShadingObjectType">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="DropArmAwnings">Drop arm/Marquisolette awnings</dtyp:displayterm>
+            <dtyp:displayterm value="LouveredSunScreen">Louvered sun screens with louvers as wide as openings</dtyp:displayterm>
+            <dtyp:displayterm value="LowSunAngleLouveredSunScreen">Low Sun Angle (LSA) louvered sun screens</dtyp:displayterm>
+            <dtyp:displayterm value="NoExternalShadingDevice">None</dtyp:displayterm>
+            <dtyp:displayterm value="OperableAwnings">Operable awnings</dtyp:displayterm>
+            <dtyp:displayterm value="Overhang">Overhang</dtyp:displayterm>
+            <dtyp:displayterm value="RetractableAwnings">Retractable awnings</dtyp:displayterm>
+            <dtyp:displayterm value="RollDownBlindsOrSlats">Roll down blinds or slats</dtyp:displayterm>
+            <dtyp:displayterm value="StandardBugScreen">Standard bug screens</dtyp:displayterm>
+            <dtyp:displayterm value="SunScreen">Exterior sunscreens with weave 53x16</dtyp:displayterm>
+            <dtyp:displayterm value="VerticalRollerOrShades">Vertical roller or shades</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="DropArmAwnings"/>
+         <xsd:enumeration value="LouveredSunScreen"/>
+         <xsd:enumeration value="LowSunAngleLouveredSunScreen"/>
+         <xsd:enumeration value="NoExternalShadingDevice"/>
+         <xsd:enumeration value="OperableAwnings"/>
+         <xsd:enumeration value="Overhang"/>
+         <xsd:enumeration value="RetractableAwnings"/>
+         <xsd:enumeration value="RollDownBlindsOrSlats"/>
+         <xsd:enumeration value="StandardBugScreen"/>
+         <xsd:enumeration value="SunScreen"/>
+         <xsd:enumeration value="VerticalRollerOrShades"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="FenestrationAssemblyArea">
       <xsd:annotation>
          <xsd:documentation>Units: ft2</xsd:documentation>
@@ -2391,6 +2426,12 @@
          <xsd:documentation>For residential buildings the limit is 5% for west facing fenestration.  Units: none</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="FenestrationIdenticalCount">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:IntegerNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="FenestrationModification">
       <xsd:annotation>
@@ -3022,6 +3063,7 @@
             <dtyp:displayterm value="R13">R-13</dtyp:displayterm>
             <dtyp:displayterm value="R14">R-14</dtyp:displayterm>
             <dtyp:displayterm value="R17">R-17</dtyp:displayterm>
+            <dtyp:displayterm value="R19">R-19</dtyp:displayterm>
             <dtyp:displayterm value="R23">R-23</dtyp:displayterm>
             <dtyp:displayterm value="R4">R-4</dtyp:displayterm>
             <dtyp:displayterm value="R6">R-6</dtyp:displayterm>
@@ -3033,6 +3075,7 @@
          <xsd:enumeration value="R13"/>
          <xsd:enumeration value="R14"/>
          <xsd:enumeration value="R17"/>
+         <xsd:enumeration value="R19"/>
          <xsd:enumeration value="R23"/>
          <xsd:enumeration value="R4"/>
          <xsd:enumeration value="R6"/>
@@ -3428,6 +3471,12 @@ Used by the compliance software user interface to narrow list of material select
          <xsd:enumeration value="Surface"/>
          <xsd:enumeration value="Zone"/>
       </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="OverhangFlapHeight">
+      <xsd:annotation>
+         <xsd:documentation>The height of the overhang front flap in feet  Units: ft</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="OverhangHeight">
       <xsd:annotation>
@@ -4131,6 +4180,18 @@ For selection of NA-6 properties</xsd:documentation>
          <xsd:enumeration value="GT1hr"/>
          <xsd:enumeration value="LTE1hr"/>
          <xsd:enumeration value="RatingNA"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="TiltMeasurementType">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="TiltDegrees">Degrees</dtyp:displayterm>
+            <dtyp:displayterm value="TiltPitch">Pitch</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="TiltDegrees"/>
+         <xsd:enumeration value="TiltPitch"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="TotalFenestrationVerticalArea">

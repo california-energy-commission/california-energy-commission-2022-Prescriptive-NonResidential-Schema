@@ -9,7 +9,7 @@
    xmlns:com="http://www.lmonte.com/besm/com"
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2022.0.001">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2022.0.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="NrPresCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="NrPresEnvelope.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="NrPresLighting.xsd"/>
@@ -18,7 +18,6 @@
    <xsd:simpleType name="BuildingAdditionalConditionedFloorArea">
       <xsd:annotation>
          <xsd:documentation>Conditioned floor area for an addition to the Building.  Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>
@@ -26,7 +25,6 @@
    <xsd:simpleType name="BuildingAdditionalSlabArea">
       <xsd:annotation>
          <xsd:documentation>Floor area for a slab addition to the Building.  Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>
@@ -52,7 +50,6 @@
    <xsd:simpleType name="ExistingConditionedFloorArea">
       <xsd:annotation>
          <xsd:documentation>Conditioned floor area for an addition to the Building.  Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Existing Conditioned Floor Area</dtyp:displayterm>
          </xsd:appinfo>
@@ -70,7 +67,6 @@
    <xsd:simpleType name="NewAdditionConditionedFloorArea">
       <xsd:annotation>
          <xsd:documentation>All conditioned floor area in an addition project.  It can be derived from all conditioned area in the Zones  Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Total Conditioned Floor Area New Construction/Addition</dtyp:displayterm>
          </xsd:appinfo>
@@ -88,7 +84,6 @@
    <xsd:simpleType name="SiteTotalGrossFloorArea">
       <xsd:annotation>
          <xsd:documentation>This is the sum of all BuildlingGrossTotalFloorArea on the Site and may consists of more than one building.  Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Site Total Gross Floor Area</dtyp:displayterm>
          </xsd:appinfo>
@@ -99,7 +94,6 @@
    <xsd:simpleType name="SiteTotalParkingArea">
       <xsd:annotation>
          <xsd:documentation>This is the total square feet of parking areas on the site.  Units: ft2</xsd:documentation>
-         <xsd:documentation source="propertyrules">NR Presc include;  CBECC NR exclude</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Site Total Parking Area</dtyp:displayterm>
          </xsd:appinfo>

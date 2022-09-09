@@ -1754,7 +1754,6 @@
                <d:lt/> 25k ft<d:sup>2</d:sup>
             </dtyp:displayterm>
             <dtyp:displayterm value="OccupancySensor">Occ. Sensor</dtyp:displayterm>
-            <dtyp:displayterm value="OtherControl">Other*</dtyp:displayterm>
             <dtyp:displayterm value="SingleZoneNA">NA: Single Zone</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
@@ -1767,7 +1766,6 @@
          <xsd:enumeration value="EMCS"/>
          <xsd:enumeration value="LT25000ft2NA"/>
          <xsd:enumeration value="OccupancySensor"/>
-         <xsd:enumeration value="OtherControl"/>
          <xsd:enumeration value="SingleZoneNA"/>
       </xsd:restriction>
    </xsd:simpleType>
@@ -3969,6 +3967,9 @@
          <xsd:enumeration value="Whirlpool"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="HeatPumpWaterHeaterBrandModel">
+      <xsd:restriction base="xsd:token"/>
+   </xsd:simpleType>
    <xsd:simpleType name="HeatPumpWaterHeaterModel">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
@@ -4097,7 +4098,7 @@
             <dtyp:displayterm value="Reliance1050DHPHTNE">10 50 DHPHTNE 120  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Reliance1060DHPTRes">10 60 DHPT  (60 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Reliance1066DHPHT">10 66 DHPHT 120  (66 gal)</dtyp:displayterm>
-            <dtyp:displayterm value="Reliance1050DHPHTDR">Reliance 10-66-DHPHTDR 130 (50 gal, JA13)</dtyp:displayterm>
+            <dtyp:displayterm value="Reliance1066DHPHTDR">Reliance 10-66-DHPHTDR 130 (50 gal, JA13)</dtyp:displayterm>
             <dtyp:displayterm value="Reliance1066DHPHTN">10 66 DHPHTN 120  (66 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Reliance1080DHPHT">10 80 DHPHT 120  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Reliance1080DHPHTDR">Reliance 10-80-DHPHTDR 130 (80 gal, JA13)</dtyp:displayterm>
@@ -4448,7 +4449,7 @@
          <xsd:enumeration value="Reliance1050DHPHTNE"/>
          <xsd:enumeration value="Reliance1060DHPTRes"/>
          <xsd:enumeration value="Reliance1066DHPHT"/>
-         <xsd:enumeration value="Reliance1050DHPHTDR"/>
+         <xsd:enumeration value="Reliance1066DHPHTDR"/>
          <xsd:enumeration value="Reliance1066DHPHTN"/>
          <xsd:enumeration value="Reliance1080DHPHT"/>
          <xsd:enumeration value="Reliance1080DHPHTDR"/>
@@ -7160,7 +7161,7 @@
    </xsd:simpleType>
    <xsd:simpleType name="PV_SystemTotalRatedPowerDC">
       <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
+         <xsd:documentation>Units: kW</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>PV System Total Rated Power DC</dtyp:displayterm>
          </xsd:appinfo>

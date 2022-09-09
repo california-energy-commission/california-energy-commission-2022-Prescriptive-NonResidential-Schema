@@ -186,27 +186,42 @@ When PV/battery/solar thermal requirements don't apply or are traded using the p
 This subsection is required  If one of the following conditions is true:
 Condition 1 
 A04_WholeBuildngOccupancy == ParkingGarageBuilding, ReligiousFacilityBuilding, CommercialIndustrialBuilding, DataCenterBuilding, GymnasiumBuilding, RelocatablePublicSchoolBuilding, SupportArea Or AllOthersBuildings 
-And A05_RoofConstRangeSolar == AddRoofGT2000ft2 Or NewRoofGT533ft2 Or NewRoofLTE533ft2
- 
+And A05_RoofConstRangeSolar == AddRoofGT2000ft2 Or NewRoofGT533ft2
 And A06_BuildingStoryRange == StoriesLTE3
  
 Condition 2:  
 A04_WholeBuildngOccupancy == HotelMotel, GroceryStoreBuilding, OfficeBuilding, FinancialInstitutionBuilding, UnleasedTenantSpace, RetailBuilding, SchoolBuilding, Warehouse, AuditoriumBuilding, ConventionCenterBuilding, LibraryBuilding, MedicalClinicBuilding, RestaurantBuilding, Or TheaterBuilding
-And A05_RoofConstRangeSolar ==  Or NewRoofGT533ft2 Or NewRoofLTE533ft2 Or AddRoofGT2000ft2 
+And A05_RoofConstRangeSolar ==  AddRoofGT2000ft2 
+And A06_BuildingStoryRange == StoriesLTE3
+ 
+Condition 2a:  
+A04_WholeBuildngOccupancy == HotelMotel, GroceryStoreBuilding, OfficeBuilding, FinancialInstitutionBuilding, UnleasedTenantSpace, RetailBuilding, SchoolBuilding, Warehouse, AuditoriumBuilding, ConventionCenterBuilding, LibraryBuilding, MedicalClinicBuilding, RestaurantBuilding, Or TheaterBuilding
+And Bpv01e_SnowloadException == true Or Bpv0f_MultitenantException == true Or Bpv0g_PerfTradeOffException == true
+And A05_RoofConstRangeSolar != NewRoofLTE533ft2
+And A06_BuildingStoryRange == StoriesLTE3
  
 Condition 3:  
-A04_WholeBuildngOccupancy == HighriseResidential, And A05_RoofConstRangeSolar ==  Or NewRoofGT533ft2 Or NewRoofLTE533ft2 Or AddRoofGT2000ft2 Or EmergencyRebuild
+A04_WholeBuildngOccupancy == HighriseResidential, And A05_RoofConstRangeSolar ==  AddRoofGT2000ft2 Or EmergencyRebuild
+And A06_BuildingStoryRange == StoriesLTE3 Or Stories4to10
+  
+Condition 3a:  
+A04_WholeBuildngOccupancy ==  HotelMotel, And A05_RoofConstRangeSolar ==  AddRoofGT2000ft2
+And A06_BuildingStoryRange == StoriesLTE3 Or Stories4to10
  
 Condition 4:
-Bpv01b_AccessAreaTooSmall == true
+Bpv01b_AccessAreaTooSmall == true And A05_RoofConstRangeSolar != NewRoofLTE533ft2
+ 
 Condition 5
-Bpv01c_RequiredLT4kW == true
+Bpv01c_RequiredLT4kW == true And A05_RoofConstRangeSolar != NewRoofLTE533ft2
+ 
 Condition 6:
-Bpv01d_NoContiguousAccess == true
+Bpv01d_NoContiguousAccess == true And A05_RoofConstRangeSolar != NewRoofLTE533ft2
+ 
 Condition 7:
-Bpv01e_SnowloadException == true
-Condition 8:
-Bpv01f_MultitenantException == true</xsd:documentation>
+Bpv01e_SnowloadException == true Or Bpv0f_MultitenantException == true Or Bpv0g_PerfTradeOffException == true 
+And A04_WholeBuildngOccupancy == HighriseResidential Or HotelMotel 
+And A05_RoofConstRangeSolar != NewRoofLTE533ft2 
+And A06_BuildingStoryRange == StoriesLTE3 Or Stories4to10</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -662,7 +677,7 @@ End If</xsd:documentation>
                            <xsd:documentation source="FieldText">Required Minimum DC Power Rating (Watts)</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated field:  
 If  B01b_IsProjectInstalledPhotovoltaicSystem IsPresent And == false
-Or Section_J NotPresent
+And Section_J NotPresent
 result =  BlankGrayedOut  stored in NotApplicableMessage and field is grayed out.
 End If</xsd:documentation>
                         </xsd:annotation>
@@ -697,7 +712,7 @@ End If</xsd:documentation>
                            <xsd:documentation source="FieldText">Designed DC Power Rating (Watts)</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated field:  
 If  B01b_IsProjectInstalledPhotovoltaicSystem IsPresent And == false,  
-Or Section_J NotPresent
+And Section_J NotPresent
 result =  BlankGrayedOut  stored in NotApplicableMessage and field is grayed out. 
 End If</xsd:documentation>
                         </xsd:annotation>
@@ -1727,7 +1742,7 @@ D03_ExceptionalConditionMessageCCSABE += CalculatorOutputAttachedForH</xsd:docum
          <xsd:element name="Section_J" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]J. PHOTOVOLTAIC (PV) AND BATTERY SYSTEMS[/d:b]</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if Bpv01e_SnowLoadException == false And  Bpv01f_MultiTenantException == false</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if Bpv01e_SnowLoadException == false And  Bpv01f_MultiTenantException == false And Bpv0g_PerfTradeOffException == false</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
