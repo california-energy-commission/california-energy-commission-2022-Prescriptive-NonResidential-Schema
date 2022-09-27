@@ -401,12 +401,14 @@
    <xsd:simpleType name="LuminaireUse">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="SmallApertureColorChanging">Small Aperture and Color Change</dtyp:displayterm>
+            <dtyp:displayterm value="SmallApertureColorChanging">Small Aperture and Color Change Nonres</dtyp:displayterm>
+            <dtyp:displayterm value="SmallApertureColorChangingMF">Small Aperture and Color Change Multifamily</dtyp:displayterm>
             <dtyp:displayterm value="TrackLighting">Modular (Track)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="SmallApertureColorChanging"/>
+         <xsd:enumeration value="SmallApertureColorChangingMF"/>
          <xsd:enumeration value="TrackLighting"/>
       </xsd:restriction>
    </xsd:simpleType>

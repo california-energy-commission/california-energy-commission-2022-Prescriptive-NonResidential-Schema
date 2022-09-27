@@ -3444,7 +3444,7 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Fdoas02_HvacEquipmentCount" type="hvac:HvacEquipmentCount">
+                                    <xsd:element name="Fdoas03_HvacEquipmentCount" type="hvac:HvacEquipmentCount">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Qty</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
@@ -3456,16 +3456,31 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input  If Yes result = true Else If No result = false</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Fdoas05_RatingConditionDOAS" type="hvac:RatingConditionDOAS">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Rating Conditions</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If Doas02_EquipmentDX == WaterCooledDX
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="Fdoas05_RatingConditionDOAS" type="hvac:RatingConditionDOAS">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Rating Conditions</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Doas02_EquipmentDX == WaterCooledDX
 list ChillerWaterDX, CondenserSourceDX
 Else If   Doas02_EquipmentDX == WaterHeatPumpDX
 list GroundSourceDX, GroundWaterSourceDX, WaterSourceDX
 End If</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="Fdoas05_NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Rating Conditions</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Doas02_EquipmentDX == AirCooledDX Or AirHeatPumpDX
+result = BlankGrayedOut
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:element name="Fdoas06a_EfficiencyISMRE" type="hvac:EfficiencyISMRE">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Rated Efficiencies</xsd:documentation>
