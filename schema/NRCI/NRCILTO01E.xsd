@@ -72,8 +72,8 @@
                         <xsd:documentation source="CalculationsAndRules">If CC-LTO parent, 
 result = A01_ProjectCity
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">A01_ProjectCity</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTO01E"  usage="copy">A01_ProjectCity</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -165,7 +165,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i]This table indicates whether the as-built conditions documented in this form are equal or better than what was documented on the permitted Certificate of Compliance.  If the installation is not equal or better, Section 10-103(a)2B requires the Certificate of Compliance form to be revised accordingly to demonstrate compliance.[/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C01_ComplianceResultNRCI" type="comp:ComplianceResultNRCI" >
+                  <xsd:element name="C01_ComplianceResultCI" type="comp:ComplianceResultCI" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated result:  
@@ -182,7 +182,7 @@ End If</xsd:documentation>
  End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C01Message_ComplianceResultMessageNRCI" type="comp:ComplianceResultMessageNRCI" >
+                  <xsd:element name="C01Message_ComplianceResultMessageCI" type="comp:ComplianceResultMessageCI" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated result:  
@@ -209,7 +209,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i]This table is auto-filled with uneditable comments because of field conditions noted by the installer that may impact requirements documented on the Certificate of Compliance.[/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D01_ExceptionalConditionMessageNRCILTOE" type="comp:ExceptionalConditionMessageNRCILTOE"  minOccurs="0" maxOccurs="unbounded">
+                  <xsd:element name="D01_ExceptionalConditionMessageCILTOE" type="comp:ExceptionalConditionMessageCILTOE"  minOccurs="0" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Exceptional Messages</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Auto-filled with any system generated messages that explain exceptional conditions encountered in the the completed compliance document
@@ -258,7 +258,7 @@ End If</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="F_RowLabelTopCell" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Per CC</xsd:documentation>
+                        <xsd:documentation source="FieldText">Per C of C</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This is the text displayed at the left end of a row in the top cell for all tables in Section F.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -284,8 +284,8 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 result = F01_LuminaireName
 End If</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">F01_LuminaireName</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTO01E"  usage="copy">F01_LuminaireName</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -310,8 +310,8 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 result = F02_LuminaireDescription
 End If</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">F02_LuminaireDescription</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTO01E"  usage="copy">F02_LuminaireDescription</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -353,8 +353,8 @@ End If</xsd:documentation>
                                              <dtyp:displayterm value="false">Non-linear</dtyp:displayterm>
                                           </xsd:appinfo>
                                           
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">F02a_IsLuminaireLinear</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTO01E"  usage="copy">F02a_IsLuminaireLinear</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -398,8 +398,8 @@ End If</xsd:documentation>
 If F03_LuminairePower IsPresent
 result = F03_LuminairePower
 End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">F03_LuminairePower</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTO01E"  usage="copy">F03_LuminairePower</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -410,8 +410,8 @@ End If</xsd:documentation>
 If F03_LuminaireWattsPerLF IsPresent
 result = F03_LuminaireWattsPerLF
 End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">F03_LuminaireWattsPerLF</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTO01E"  usage="copy">F03_LuminaireWattsPerLF</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -467,8 +467,8 @@ End If</xsd:documentation>
 If F05_LuminaireCountByType IsPresent
 result = F05_LuminaireCountByType 
 End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">F05_LuminaireCountByType</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTO01E"  usage="copy">F05_LuminaireCountByType</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -479,8 +479,8 @@ End If</xsd:documentation>
 If F05_LuminaireWattsPerLF IsPresent
 result = F05_LuminairesTotalLF
 End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">F05_LuminairesTotalLF</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTO01E"  usage="copy">F05_LuminairesTotalLF</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -536,8 +536,8 @@ End If</xsd:documentation>
 If F08_LuminairePowerByType IsPresent
 result = F08_LuminairePowerByType  
 End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">F08_LuminairePowerByType</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTO01E"  usage="copy">F08_LuminairePowerByType</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -548,8 +548,8 @@ End If</xsd:documentation>
 If F08_NotApplicableMessage IsPresent
 result = F08_NotApplicableMessage  
 End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">F08_NotApplicableMessage</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTO01E"  usage="copy">F08_NotApplicableMessage</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -595,8 +595,8 @@ End If</xsd:documentation>
 If F09_LuminairePowerCutoffCompliance IsPresent
 result = F09_LuminairePowerCutoffCompliance  
 End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">F09_LuminairePowerCutoffCompliance</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTO01E"  usage="copy">F09_LuminairePowerCutoffCompliance</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -607,8 +607,8 @@ End If</xsd:documentation>
 If F09_NotApplicableMessage IsPresent
 result = F09_NotApplicableMessage  
 End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">F09_NotApplicableMessage</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTO01E"  usage="copy">F09_NotApplicableMessage</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -647,7 +647,7 @@ End If</xsd:documentation>
                                           </xsd:simpleType>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="Lum09_ComplianceResultNRCI" type="comp:ComplianceResultNRCI" >
+                                    <xsd:element name="Lum09_ComplianceResultCI" type="comp:ComplianceResultCI" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Fixture Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any required field is blank
@@ -731,8 +731,8 @@ If G01_LuminaireName == Lum01_LuminaireName  where Lum02_ScopeIncludesFixture ==
 result = G01_LuminaireName
 Else skip this G01_LuminaireName -  not in installer's scope
 End If</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">G01_LuminaireName</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTO01E"  usage="copy">G01_LuminaireName</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -748,8 +748,8 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 result = G02_LuminaireDescription
 End If</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">G02_LuminaireDescription</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTO01E"  usage="copy">G02_LuminaireDescription</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -759,8 +759,8 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 result = G03_MountingHeightRangeBUG
 End If</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">G03_MountingHeightRangeBUG</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTO01E"  usage="copy">G03_MountingHeightRangeBUG</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                        <xsd:simpleType>
@@ -796,8 +796,8 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 result = G05_BackLightRatingBUG
 End If</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">G05_BackLightRatingBUG</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTO01E"  usage="copy">G05_BackLightRatingBUG</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -817,8 +817,8 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 result = G08_UpLightRatingBUG
 End If</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">G08_UpLightRatingBUG</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTO01E"  usage="copy">G08_UpLightRatingBUG</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -838,8 +838,8 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 result = G09_MountingHeightRangeBUG
 End If</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">G09_MountingHeightRangeBUG</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTO01E"  usage="copy">G09_MountingHeightRangeBUG</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                        <xsd:simpleType>
@@ -874,8 +874,8 @@ User input</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 result = G11_GlareRatingBUG
 End If</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">G11_GlareRatingBUG</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTO01E"  usage="copy">G11_GlareRatingBUG</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -889,7 +889,7 @@ User input
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Bug08_ComplianceResultNRCI" type="comp:ComplianceResultNRCI" >
+                                    <xsd:element name="Bug08_ComplianceResultCI" type="comp:ComplianceResultCI" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Fixture Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank
@@ -957,8 +957,8 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 result = H01_SpaceDescription
 End If</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">H01_SpaceDescription</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTO01E"  usage="copy">H01_SpaceDescription</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -1008,8 +1008,8 @@ End If</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 result = H02_ShutOffControlsOutdoors
 End If</xsd:documentation>
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">H02_ShutOffControlsOutdoors</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCLTO01E"  usage="copy">H02_ShutOffControlsOutdoors</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -1032,8 +1032,8 @@ End If</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 result = H03_AutoScheduleControlsOutdoors
 End If</xsd:documentation>
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">H03_AutoScheduleControlsOutdoors</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCLTO01E"  usage="copy">H03_AutoScheduleControlsOutdoors</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -1053,8 +1053,8 @@ End If</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 result = H04_MotionSensorCompliance
 End If</xsd:documentation>
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">H04_MotionSensorCompliance</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCLTO01E"  usage="copy">H04_MotionSensorCompliance</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -1074,7 +1074,7 @@ End If</xsd:documentation>
                                           </xsd:choice>
                                        </xsd:complexType>
                                     </xsd:element>
-                                    <xsd:element name="Ctrl05_ComplianceResultNRCI" type="comp:ComplianceResultNRCI" >
+                                    <xsd:element name="Ctrl05_ComplianceResultCI" type="comp:ComplianceResultCI" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Controls Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank
@@ -1118,7 +1118,6 @@ End If</xsd:documentation>
                            <xsd:element name="TableControlsMF" >
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">[d:b] Outdoor Lighting Controlled from Inside Multifamily Dwelling Units [/d:b]</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">This table is required If parent CC has data in  Section H TableControlsMF</xsd:documentation>
                               </xsd:annotation>
                               <xsd:complexType>
                                  <xsd:sequence>
@@ -1232,7 +1231,7 @@ v.  Lamps and other separable light sources that are not compliant with the JA8 
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
-                           <xsd:element name="Ctrl05mf_ComplianceResultNRCI" type="comp:ComplianceResultNRCI"  minOccurs="0">
+                           <xsd:element name="Ctrl05mf_ComplianceResultCI" type="comp:ComplianceResultCI"  minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Controls Compliance</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">If any user input field is blank
@@ -1322,8 +1321,8 @@ Else
 Nothing is displayed for this NRCA 
 End If
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">Nrca01_RequireNRCALto02A</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTO01E"  usage="copy">Nrca01_RequireNRCALto02A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -1336,8 +1335,8 @@ this field is not required and nothing is displayed
 Else If G01_RequireNRCALto02A == true 
 result = NRCC-LTO  P01_SystemFieldVerified and it is displayed
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">Nrca01_SystemFieldVerified</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTO01E"  usage="copy">Nrca01_SystemFieldVerified</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -1350,8 +1349,8 @@ this field is not required and nothing is displayed
 Else If G01_RequireNRCALto02A == true  
 result = NRCC-LTO  P01_SystemsToFieldVerify and it is displayed
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTO01E"  usage="copy">Nrca01_SystemsToFieldVerify</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTO01E"  usage="copy">Nrca01_SystemsToFieldVerify</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>

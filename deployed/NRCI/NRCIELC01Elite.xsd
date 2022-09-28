@@ -179,7 +179,7 @@
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C01_ComplianceResultNRCI" type="comp:ComplianceResultNRCI">
+                  <xsd:element name="C01_ComplianceResultCI" type="comp:ComplianceResultCI">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="CalculationsAndRules">Calculated result:  
@@ -190,7 +190,7 @@ result = MayComplyNoCCData
  End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C01Message_ComplianceResultMessageNRCI" type="comp:ComplianceResultMessageNRCI">
+                  <xsd:element name="C01Message_ComplianceResultMessageCI" type="comp:ComplianceResultMessageCI">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="CalculationsAndRules">Calculated result:  
@@ -473,7 +473,7 @@ ProvidedAtService, ProvidedAtPanel and ProvidedAtFeeder,  UtilityProvidedNA, Ins
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
-                                    <xsd:element name="Meter07_ComplianceResultNRCI" type="comp:ComplianceResultNRCI" minOccurs="0">
+                                    <xsd:element name="Meter07_ComplianceResultCI" type="comp:ComplianceResultCI" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Metering Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank
@@ -608,7 +608,7 @@ result = MayNotComply</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
                                              </xsd:choice>
-                                             <xsd:element name="Circuits04_ComplianceResultNRCI" type="comp:ComplianceResultNRCI" minOccurs="0">
+                                             <xsd:element name="Circuits04_ComplianceResultCI" type="comp:ComplianceResultCI" minOccurs="0">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Compliance</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">If any user input field is blank
@@ -769,7 +769,7 @@ result =  MaynotComply</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">result = Volt04_VoltageDropToFeeders  + Volt05_VoltageDropAfterFeeders</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Volt07_ComplianceResultNRCI" type="comp:ComplianceResultNRCI" minOccurs="0">
+                                    <xsd:element name="Volt07_ComplianceResultCI" type="comp:ComplianceResultCI" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Voltage Drop Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank
@@ -895,7 +895,7 @@ user must select at least one value from ControlledReceptacleNA</xsd:documentati
                                           <xsd:documentation source="CalculationsAndRules">User selects all that apply in this space from from  ControlledReceptacleNA</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Controls05_ComplianceResultNRCI" type="comp:ComplianceResultNRCI" minOccurs="0">
+                                    <xsd:element name="Controls05_ComplianceResultCI" type="comp:ComplianceResultCI" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank

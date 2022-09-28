@@ -2013,27 +2013,7 @@
          <xsd:enumeration value="Prescriptive"/>
       </xsd:restriction>
    </xsd:simpleType>
-   <xsd:simpleType name="ComplianceResultMessageNRCI">
-      <xsd:annotation>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="ExactEqualBetterText">
-               <d:b>Documented as-built conditions should be verified by inspector from Authority Having Jurisdiction to comply.</d:b>
-            </dtyp:displayterm>
-            <dtyp:displayterm value="MayComplyNoCCDataText">
-               <d:b>This Certificate of Installation was completed with no available Certificate of Compliance data and therefore compliance can only be  verified by inspector from Authority Having Jurisdiction.</d:b>
-            </dtyp:displayterm>
-            <dtyp:displayterm value="MayNotComplyText">
-               <d:b>The Certificate of Compliance should be revised to confirm as-built conditions comply and this Certificate of Installation updated accordingly.</d:b>
-            </dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="ExactEqualBetterText"/>
-         <xsd:enumeration value="MayComplyNoCCDataText"/>
-         <xsd:enumeration value="MayNotComplyText"/>
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="ComplianceResultNRCI">
+   <xsd:simpleType name="ComplianceResultCI">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="EqualBetter">INSTALLED FEATURES EQUAL OR BETTER THAN PERMITTED CERTIFICATE OF COMPLIANCE</dtyp:displayterm>
@@ -2053,6 +2033,26 @@
          <xsd:enumeration value="MayNotComply"/>
          <xsd:enumeration value="NotInScope"/>
          <xsd:enumeration value="TableIncomplete"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ComplianceResultMessageCI">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="ExactEqualBetterText">
+               <d:b>Documented as-built conditions should be verified by inspector from Authority Having Jurisdiction to comply.</d:b>
+            </dtyp:displayterm>
+            <dtyp:displayterm value="MayComplyNoCCDataText">
+               <d:b>This Certificate of Installation was completed with no available Certificate of Compliance data and therefore compliance can only be  verified by inspector from Authority Having Jurisdiction.</d:b>
+            </dtyp:displayterm>
+            <dtyp:displayterm value="MayNotComplyText">
+               <d:b>The Certificate of Compliance should be revised to confirm as-built conditions comply and this Certificate of Installation updated accordingly.</d:b>
+            </dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="ExactEqualBetterText"/>
+         <xsd:enumeration value="MayComplyNoCCDataText"/>
+         <xsd:enumeration value="MayNotComplyText"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ComplianceSoftwareVersion">
@@ -5784,6 +5784,251 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:enumeration value="UserChangedSelectionInCI"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="ExceptionalConditionMessageCIELCE">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>NRCI-ELC-E Exceptional Condition Message</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="CircuitsNotInScope">A circuit for a Load Type  was selected as Not in Scope in the Separation of Electrical Circuits for Energy Monitoring Table.  Please ensure that this circuit was claimed as in scope in this table on another another Certificate of Installation  CI-ELC Electrical Power Distribution form</dtyp:displayterm>
+            <dtyp:displayterm value="CtrlNotInScope">A space was selected as Not in Scope in the Circuit Controls and Controlled Receptacles subtable.  Please ensure that this space was claimed as in scope in this table on another another Certificate of Installation  CI-ELC Electrical Power Distribution form</dtyp:displayterm>
+            <dtyp:displayterm value="MeteringNoMatch">Metering capabilities on the Electrical Metering subtable do no match what was permitted on the Certificate of Compliance.  Please verify installation meets metering capability requirements.</dtyp:displayterm>
+            <dtyp:displayterm value="MeterNotInScope">A Electrical Service  was selected as Not in Scope in the Service Electrical Metering Table.  Please ensure that this Electrical Service  was claimed as in scope in this table on another another Certificate of Installation  CI-ELC Electrical Power Distribution form</dtyp:displayterm>
+            <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
+            <dtyp:displayterm value="ReceptControlNoMatch">Receptacle controls on the Controlled Receptacles subtable do no match what was permitted on the Certificate of Compliance.  Please verify installation meets control requirements.</dtyp:displayterm>
+            <dtyp:displayterm value="VoltageNotInScope">A Electrical Service was selected as Not in Scope in the Feeder and Branch Circuit Conductor Voltage Drop Table.  Please ensure that this Electrical Service was claimed as in scope on this table another another Certificate of Installation  CI-ELC Electrical Power Distribution form</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="CircuitsNotInScope"/>
+         <xsd:enumeration value="CtrlNotInScope"/>
+         <xsd:enumeration value="MeteringNoMatch"/>
+         <xsd:enumeration value="MeterNotInScope"/>
+         <xsd:enumeration value="NoExceptionNote"/>
+         <xsd:enumeration value="ReceptControlNoMatch"/>
+         <xsd:enumeration value="VoltageNotInScope"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ExceptionalConditionMessageCIENVE">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>NRCI-ENV-E Exceptional Condition Message</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="DoorNotInScope">A Door assembly was selected as Not in Scope in the Exterior Doors Table.  Please ensure that this Door assembly  was claimed as in scope in this table on another another Certificate of Installation  CI-ENV form</dtyp:displayterm>
+            <dtyp:displayterm value="FenNotInScope">A Fenestration assembly was selected as Not in Scope in the Vertical Fenestration, Skylights, and Glazed Doors Table.  Please ensure that this Fenestration assembly  was claimed as in scope in this table on another another Certificate of Installation  CI-ENV form</dtyp:displayterm>
+            <dtyp:displayterm value="FloorNotInScope">A Floor assembly was selected as Not in Scope in the Floors Table.  Please ensure that this Floor assembly  was claimed as in scope in this table on another another Certificate of Installation  CI-ENV form</dtyp:displayterm>
+            <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
+            <dtyp:displayterm value="RoofInsNotInScope">A Roof assembly was selected as Not in Scope in the Roof Insulation Table.  Please ensure that this Roof assembly  was claimed as in scope in this table on another another Certificate of Installation  CI-ENV form</dtyp:displayterm>
+            <dtyp:displayterm value="RoofMatNotInScope">A Roof assembly was selected as Not in Scope in the Roof Surface Material Table.  Please ensure that this Roof assembly  was claimed as in scope in this table on another another Certificate of Installation  CI-ENV form</dtyp:displayterm>
+            <dtyp:displayterm value="UserChangedCASelection">Selections made in CA Certificate Table  have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
+            <dtyp:displayterm value="WallNotInScope">A Wall assembly was selected as Not in Scope in the Walls Table.  Please ensure that this Wall assembly  was claimed as in scope in this table on another another Certificate of Installation  CI-ENV form</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="DoorNotInScope"/>
+         <xsd:enumeration value="FenNotInScope"/>
+         <xsd:enumeration value="FloorNotInScope"/>
+         <xsd:enumeration value="NoExceptionNote"/>
+         <xsd:enumeration value="RoofInsNotInScope"/>
+         <xsd:enumeration value="RoofMatNotInScope"/>
+         <xsd:enumeration value="UserChangedCASelection"/>
+         <xsd:enumeration value="WallNotInScope"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ExceptionalConditionMessageCILTIE">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>NRCI-LTI-E Exceptional Condition Message</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="CtrlNotInScope">A control was selected as Not in Scope in the Indoor Lighting Controls subtable.  Please ensure that this luminaire control was claimed as in scope on anoher another Certificate of Installation  CI-LTI Indoor Lighting form</dtyp:displayterm>
+            <dtyp:displayterm value="LightControlNoMatch">Control requirements on the Control By Space subtable do no match what was permitted on the Certificate of Compliance.  Please verify installation meets controls requirements.</dtyp:displayterm>
+            <dtyp:displayterm value="LumNotInScope">A luminaire was selected as Not in Scope in the Indoor Lighting Fixture Schedule Table.  Please ensure that this luminaire was claimed as in scope on anoher another Certificate of Installation  CI-LTI Indoor Lighting form</dtyp:displayterm>
+            <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
+            <dtyp:displayterm value="PafNotInScope">A PAF was selected as Not in Scope in the Controls for Additional Wattage Credit (Power Adjustment Factor) Table.  Please ensure that this PAF was claimed as in scope on another another Certificate of Installation  CI-LTI Indoor Lighting form</dtyp:displayterm>
+            <dtyp:displayterm value="UserChangedCASelection">Selections made in CA Certificate Table  have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="CtrlNotInScope"/>
+         <xsd:enumeration value="LightControlNoMatch"/>
+         <xsd:enumeration value="LumNotInScope"/>
+         <xsd:enumeration value="NoExceptionNote"/>
+         <xsd:enumeration value="PafNotInScope"/>
+         <xsd:enumeration value="UserChangedCASelection"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ExceptionalConditionMessageCILTOE">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>NRCI-LTO-E Exceptional Condition Message</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="CtrlNotInScope">An outdoor lighting control was selected as Not in Scope in the Outdoor Lighting Controls subtable.  Please ensure that this outdoor lighting control was claimed as in scope on another Certificate of Installation  Outdoor Lighting form, CC-LTO-E</dtyp:displayterm>
+            <dtyp:displayterm value="LumNotInScope">A luminaire was selected as Not in Scope in the Outdoor Lighting Fixture Schedule Table.  Please ensure that this luminaire was claimed as in scope on another Certificate of Installation Outdoor Lighting form, CC-LTO-E</dtyp:displayterm>
+            <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
+            <dtyp:displayterm value="OutdoorLightControlNoMatch">Control requirements on the Outdoor Lighting Controls subtable do no match what was permitted on the Certificate of Compliance.  Please verify installation meets controls requirements.</dtyp:displayterm>
+            <dtyp:displayterm value="UserChangedCASelection">Selections made in CA Certificate Table  have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="CtrlNotInScope"/>
+         <xsd:enumeration value="LumNotInScope"/>
+         <xsd:enumeration value="NoExceptionNote"/>
+         <xsd:enumeration value="OutdoorLightControlNoMatch"/>
+         <xsd:enumeration value="UserChangedCASelection"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ExceptionalConditionMessageCILTSE">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>NRCI-LTS-E Exceptional Condition Message</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="CtrlNotInScope">A lighted sign control was selected as Not in Scope in the Sign Lighting Controls subtable.  Please ensure that this sign control was claimed as in scope on anoher another Certificate of Installation  CI-LTS Sign Lighting form</dtyp:displayterm>
+            <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
+            <dtyp:displayterm value="SignLightControlNoMatch">Control requirements on the Sign Lighting Controls subtable do no match what was permitted on the Certificate of Compliance.  Please verify installation meets controls requirements.</dtyp:displayterm>
+            <dtyp:displayterm value="SignNotInScope">A lighted sign was selected as Not in Scope in the Sign Lighting Compliance Table.  Please ensure that this luminaire was claimed as in scope on anoher another Certificate of Installation  CI-LTS Sign Lighting form</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="CtrlNotInScope"/>
+         <xsd:enumeration value="NoExceptionNote"/>
+         <xsd:enumeration value="SignLightControlNoMatch"/>
+         <xsd:enumeration value="SignNotInScope"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ExceptionalConditionMessageCIMCHE">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>NRCI-MCH-E Exceptional Condition Message</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="BlrNotInScope">A Boiler was selected as Not in Scope in the Boiler Table.  Please ensure that this Boiler  was claimed as in scope in this table on another another Certificate of Installation  CI-MCH Mechanical Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="BoilerNoMatch">Control requirements on the Boiler Efficiency and Controls subtable do not match what was permitted on the Certificate of Compliance.  Please verify installation meets controls requirements.</dtyp:displayterm>
+            <dtyp:displayterm value="ChillerNoMatch">Control requirements on the Chililer Efficiency and Controls subtable do not match what was permitted on the Certificate of Compliance.  Please verify installation meets controls requirements.</dtyp:displayterm>
+            <dtyp:displayterm value="ChlrNotInScope">A Chiller was selected as Not in Scope in the Chiller Table.  Please ensure that this Chiller  was claimed as in scope in this table on another another Certificate of Installation  CI-MCH Mechanical Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="CtrlNotInScope">A Control was selected as Not in Scope in the System Controls Table.  Please ensure that this Control was claimed as in scope in this table on another another Certificate of Installation  CI-MCH Mechanical Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="DwellingNoKitchenBath">The permit applicant has indicated their multifamily dwelling units do not contain a kitchen or bathroom.  See Table J Multifamily Dwelling Unit Ventilation for details.</dtyp:displayterm>
+            <dtyp:displayterm value="EHeatNotInScope">An Electric Resistance Heating equipment was selected as Not in Scope in the Electric Resistance Heating Table.  Please ensure that this equipment  was claimed as in scope in this table on another another Certificate of Installation  CI-MCH Mechanical Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="FanEconNoMatch">Fan economizer requirements on the Fans and Air Economizer  subtable do not match what was permitted on the Certificate of Compliance.  Please verify installation meets economizer requirements.</dtyp:displayterm>
+            <dtyp:displayterm value="FanNotInScope">A Fan was selected as Not in Scope in the Fan Table.  Please ensure that this Fan  was claimed as in scope in this table on another another Certificate of Installation  CI-MCH Mechanical Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="HeatRejNoMatch">Control requirements on the Heat Rejection subtable do not match what was permitted on the Certificate of Compliance.  Please verify installation meets controls requirements.</dtyp:displayterm>
+            <dtyp:displayterm value="HrejNotInScope">A Heat Rejection equipment was selected as Not in Scope in the Heat Rejection Table.  Please ensure that this Heat Rejection equipment  was claimed as in scope in this table on another Certificate of Installation  CI-MCH Mechanical Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
+            <dtyp:displayterm value="PumpNotInScope">A Pump was selected as Not in Scope in the Pump Table.  Please ensure that this Pump  was claimed as in scope in this table on another Certificate of Installation CI-MCH Mechanical Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="PumpsNoMatch">Control requirements on the Pumps subtable do not match what was permitted on the Certificate of Compliance.  Please verify installation meets controls requirements.</dtyp:displayterm>
+            <dtyp:displayterm value="SysControlsNoMatch">Control requirements on the System Controls subtable do not match what was permitted on the Certificate of Compliance.  Please verify installation meets controls requirements.</dtyp:displayterm>
+            <dtyp:displayterm value="UserChangedCASelection">Selections made in CA Certificate Table  have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
+            <dtyp:displayterm value="VentNoMatch">Control requirements on the Ventilation subtable do not match what was permitted on the Certificate of Compliance.  Please verify installation meets controls requirements.</dtyp:displayterm>
+            <dtyp:displayterm value="VentnrNotInScope">A Ventilation System was selected as Not in Scope in the Nonresidential and Hotel/ Motel Ventilation SystemsTable.  Please ensure that this Ventilation System  was claimed as in scope in this table on another Certificate of Installation CI-MCH Mechanical Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="VentresNotInScope">A Ventilation System was selected as Not in Scope in the High-rise Residential Dwelling Unit Ventilation SystemsTable.  Please ensure that this Ventilation System  was claimed as in scope in this table on another Certificate of Installation CI-MCH Mechanical Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="ZoneNotInScope">A Zone/System/VAV Box was selected as Not in Scope in the Terminal Box Controls Table.  Please ensure that this Zone/System/VAV Box  was claimed as in scope in this table on another Certificate of Installation CI-MCH Mechanical Systems form</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="BlrNotInScope"/>
+         <xsd:enumeration value="BoilerNoMatch"/>
+         <xsd:enumeration value="ChillerNoMatch"/>
+         <xsd:enumeration value="ChlrNotInScope"/>
+         <xsd:enumeration value="CtrlNotInScope"/>
+         <xsd:enumeration value="DwellingNoKitchenBath"/>
+         <xsd:enumeration value="EHeatNotInScope"/>
+         <xsd:enumeration value="FanEconNoMatch"/>
+         <xsd:enumeration value="FanNotInScope"/>
+         <xsd:enumeration value="HeatRejNoMatch"/>
+         <xsd:enumeration value="HrejNotInScope"/>
+         <xsd:enumeration value="NoExceptionNote"/>
+         <xsd:enumeration value="PumpNotInScope"/>
+         <xsd:enumeration value="PumpsNoMatch"/>
+         <xsd:enumeration value="SysControlsNoMatch"/>
+         <xsd:enumeration value="UserChangedCASelection"/>
+         <xsd:enumeration value="VentNoMatch"/>
+         <xsd:enumeration value="VentnrNotInScope"/>
+         <xsd:enumeration value="VentresNotInScope"/>
+         <xsd:enumeration value="ZoneNotInScope"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ExceptionalConditionMessageCIPLBE">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>NRCI-PLB-E Exceptional Condition Message</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="DHWNotInScope">A DHW equipment was selected as Not in Scope in the Domestic Hot Water Equipment Efficiency Table.  Please ensure that this DHW equipment  was claimed as in scope in this table on another Certificate of Installation CI-PLB Domestic Water Heating System form</dtyp:displayterm>
+            <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
+            <dtyp:displayterm value="UserChangedCVSelection">Selections made in CV Certificate Table  have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="DHWNotInScope"/>
+         <xsd:enumeration value="NoExceptionNote"/>
+         <xsd:enumeration value="UserChangedCVSelection"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ExceptionalConditionMessageCIPRCE">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>NRCI-PLB-E Exceptional Condition Message</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="CairNotInScope">A Compressed Air System was selected as Not in Scope in the Compressed Air Systems Table.  Please ensure that this Compressed Air System was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="CompNotInScope">A Space was selected as Not in Scope in the Computer Room Systems Table.  Please ensure that this Space was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="CRcaseNotInScope">A Lighting Control was selected as Not in Scope in the Refrigerated Display Cases Table.  Please ensure that this Lighting Control was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="CRcomNotInScope">A Component was selected as Not in Scope in the Compressors and Condensing Units Serving Commercial Refrigeration System Table.  Please ensure that this Component was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="CRconNotInScope">A Condenser was selected as Not in Scope in the Condensers Serving Commercial Refrigeration System Table.  Please ensure that this Condenser was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="CRheatNotInScope">Heat Recovery was selected as Not in Scope in the Heat Recovery of Refrigeration System Table.  Please ensure that this Heat Recovery was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="ElevLtiNotInScope">A Lighting Fixture was selected as Not in Scope in the Elevator Lighting Table.  Please ensure that this Lighting Fixture was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="ElevLtiNotInScope">A Elevator Ventilation was selected as Not in Scope in the Elevator Ventilation Table.  Please ensure that this Elevator Ventilation was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="HoodsNotInScope">A Kitchen Hood was selected as Not in Scope in the Kitchen Hood Table.  Please ensure that this Kitchen Hood was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="LabNotInScope">A  Zone/System was selected as Not in Scope in the Laboratory And Factory Exhaust And Fume Hoods Table.  Please ensure that this Zone/System was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
+            <dtyp:displayterm value="ParkNotInScope">An Exhaust Fan was selected as Not in Scope in the Enclosed Parking Garage Exhaust Table.  Please ensure that this Exhaust Fan was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="RbarNotInScope">A Space was selected as Not in Scope in the Refrigerated Warehouse/Space Infiltration Barriers Table.  Please ensure that this Space  was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="RcomNotInScope">A Compressor was selected as Not in Scope in the Refrigerated Warehouse/Space Compressors Table.  Please ensure that this Compressor  was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="RconNotInScope">A Condenser was selected as Not in Scope in the Refrigerated Warehouse/Space Condensers Table.  Please ensure that this Condenser was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="RfanNotInScope">A Fan was selected as Not in Scope in the Refrigerated Warehouse/Space Fan Powered Evaporators Table.  Please ensure that this Fan  was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="RslabNotInScope">A Space was selected as Not in Scope in the Refrigerated Warehouse/Space Underslab Heating Table.  Please ensure that this Space was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
+            <dtyp:displayterm value="UserChangedCASelection">Selections made in CA Certificate Table  have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="CairNotInScope"/>
+         <xsd:enumeration value="CompNotInScope"/>
+         <xsd:enumeration value="CRcaseNotInScope"/>
+         <xsd:enumeration value="CRcomNotInScope"/>
+         <xsd:enumeration value="CRconNotInScope"/>
+         <xsd:enumeration value="CRheatNotInScope"/>
+         <xsd:enumeration value="ElevLtiNotInScope"/>
+         <xsd:enumeration value="ElevLtiNotInScope"/>
+         <xsd:enumeration value="HoodsNotInScope"/>
+         <xsd:enumeration value="LabNotInScope"/>
+         <xsd:enumeration value="NoExceptionNote"/>
+         <xsd:enumeration value="ParkNotInScope"/>
+         <xsd:enumeration value="RbarNotInScope"/>
+         <xsd:enumeration value="RcomNotInScope"/>
+         <xsd:enumeration value="RconNotInScope"/>
+         <xsd:enumeration value="RfanNotInScope"/>
+         <xsd:enumeration value="RslabNotInScope"/>
+         <xsd:enumeration value="UserChangedCASelection"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ExceptionalConditionMessageCISABE">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>NRCI-SRA-E Exceptional Condition Message</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
+            <dtyp:displayterm value="SolarZoneNotInScope">A SolarZone was selected as Not in Scope in the Allocated Solar Zone on Roof for Future Use  Table.  Please ensure that this SolarZone was claimed as in scope in this table on another Certificate of Installation CI-SAB Process Systems form</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="NoExceptionNote"/>
+         <xsd:enumeration value="SolarZoneNotInScope"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="ExceptionalConditionMessageNRCCPRFE">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
@@ -5841,251 +6086,6 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:enumeration value="UnknownHvacSystem"/>
          <xsd:enumeration value="UsingPropane"/>
          <xsd:enumeration value="ZoneOpeningsInterlock"/>
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="ExceptionalConditionMessageNRCIELCE">
-      <xsd:annotation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>NRCI-ELC-E Exceptional Condition Message</dtyp:displayterm>
-         </xsd:appinfo>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="CircuitsNotInScope">A circuit for a Load Type  was selected as Not in Scope in the Separation of Electrical Circuits for Energy Monitoring Table.  Please ensure that this circuit was claimed as in scope in this table on another another Certificate of Installation  CI-ELC Electrical Power Distribution form</dtyp:displayterm>
-            <dtyp:displayterm value="CtrlNotInScope">A space was selected as Not in Scope in the Circuit Controls and Controlled Receptacles subtable.  Please ensure that this space was claimed as in scope in this table on another another Certificate of Installation  CI-ELC Electrical Power Distribution form</dtyp:displayterm>
-            <dtyp:displayterm value="MeteringNoMatch">Metering capabilities on the Electrical Metering subtable do no match what was permitted on the Certificate of Compliance.  Please verify installation meets metering capability requirements.</dtyp:displayterm>
-            <dtyp:displayterm value="MeterNotInScope">A Electrical Service  was selected as Not in Scope in the Service Electrical Metering Table.  Please ensure that this Electrical Service  was claimed as in scope in this table on another another Certificate of Installation  CI-ELC Electrical Power Distribution form</dtyp:displayterm>
-            <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
-            <dtyp:displayterm value="ReceptControlNoMatch">Receptacle controls on the Controlled Receptacles subtable do no match what was permitted on the Certificate of Compliance.  Please verify installation meets control requirements.</dtyp:displayterm>
-            <dtyp:displayterm value="VoltageNotInScope">A Electrical Service was selected as Not in Scope in the Feeder and Branch Circuit Conductor Voltage Drop Table.  Please ensure that this Electrical Service was claimed as in scope on this table another another Certificate of Installation  CI-ELC Electrical Power Distribution form</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="CircuitsNotInScope"/>
-         <xsd:enumeration value="CtrlNotInScope"/>
-         <xsd:enumeration value="MeteringNoMatch"/>
-         <xsd:enumeration value="MeterNotInScope"/>
-         <xsd:enumeration value="NoExceptionNote"/>
-         <xsd:enumeration value="ReceptControlNoMatch"/>
-         <xsd:enumeration value="VoltageNotInScope"/>
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="ExceptionalConditionMessageNRCIENVE">
-      <xsd:annotation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>NRCI-ENV-E Exceptional Condition Message</dtyp:displayterm>
-         </xsd:appinfo>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="DoorNotInScope">A Door assembly was selected as Not in Scope in the Exterior Doors Table.  Please ensure that this Door assembly  was claimed as in scope in this table on another another Certificate of Installation  CI-ENV form</dtyp:displayterm>
-            <dtyp:displayterm value="FenNotInScope">A Fenestration assembly was selected as Not in Scope in the Vertical Fenestration, Skylights, and Glazed Doors Table.  Please ensure that this Fenestration assembly  was claimed as in scope in this table on another another Certificate of Installation  CI-ENV form</dtyp:displayterm>
-            <dtyp:displayterm value="FloorNotInScope">A Floor assembly was selected as Not in Scope in the Floors Table.  Please ensure that this Floor assembly  was claimed as in scope in this table on another another Certificate of Installation  CI-ENV form</dtyp:displayterm>
-            <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
-            <dtyp:displayterm value="RoofInsNotInScope">A Roof assembly was selected as Not in Scope in the Roof Insulation Table.  Please ensure that this Roof assembly  was claimed as in scope in this table on another another Certificate of Installation  CI-ENV form</dtyp:displayterm>
-            <dtyp:displayterm value="RoofMatNotInScope">A Roof assembly was selected as Not in Scope in the Roof Surface Material Table.  Please ensure that this Roof assembly  was claimed as in scope in this table on another another Certificate of Installation  CI-ENV form</dtyp:displayterm>
-            <dtyp:displayterm value="UserChangedCASelection">Selections made in CA Certificate Table  have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
-            <dtyp:displayterm value="WallNotInScope">A Wall assembly was selected as Not in Scope in the Walls Table.  Please ensure that this Wall assembly  was claimed as in scope in this table on another another Certificate of Installation  CI-ENV form</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="DoorNotInScope"/>
-         <xsd:enumeration value="FenNotInScope"/>
-         <xsd:enumeration value="FloorNotInScope"/>
-         <xsd:enumeration value="NoExceptionNote"/>
-         <xsd:enumeration value="RoofInsNotInScope"/>
-         <xsd:enumeration value="RoofMatNotInScope"/>
-         <xsd:enumeration value="UserChangedCASelection"/>
-         <xsd:enumeration value="WallNotInScope"/>
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="ExceptionalConditionMessageNRCILTIE">
-      <xsd:annotation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>NRCI-LTI-E Exceptional Condition Message</dtyp:displayterm>
-         </xsd:appinfo>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="CtrlNotInScope">A control was selected as Not in Scope in the Indoor Lighting Controls subtable.  Please ensure that this luminaire control was claimed as in scope on anoher another Certificate of Installation  CI-LTI Indoor Lighting form</dtyp:displayterm>
-            <dtyp:displayterm value="LightControlNoMatch">Control requirements on the Control By Space subtable do no match what was permitted on the Certificate of Compliance.  Please verify installation meets controls requirements.</dtyp:displayterm>
-            <dtyp:displayterm value="LumNotInScope">A luminaire was selected as Not in Scope in the Indoor Lighting Fixture Schedule Table.  Please ensure that this luminaire was claimed as in scope on anoher another Certificate of Installation  CI-LTI Indoor Lighting form</dtyp:displayterm>
-            <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
-            <dtyp:displayterm value="PafNotInScope">A PAF was selected as Not in Scope in the Controls for Additional Wattage Credit (Power Adjustment Factor) Table.  Please ensure that this PAF was claimed as in scope on another another Certificate of Installation  CI-LTI Indoor Lighting form</dtyp:displayterm>
-            <dtyp:displayterm value="UserChangedCASelection">Selections made in CA Certificate Table  have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="CtrlNotInScope"/>
-         <xsd:enumeration value="LightControlNoMatch"/>
-         <xsd:enumeration value="LumNotInScope"/>
-         <xsd:enumeration value="NoExceptionNote"/>
-         <xsd:enumeration value="PafNotInScope"/>
-         <xsd:enumeration value="UserChangedCASelection"/>
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="ExceptionalConditionMessageNRCILTOE">
-      <xsd:annotation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>NRCI-LTO-E Exceptional Condition Message</dtyp:displayterm>
-         </xsd:appinfo>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="CtrlNotInScope">An outdoor lighting control was selected as Not in Scope in the Outdoor Lighting Controls subtable.  Please ensure that this outdoor lighting control was claimed as in scope on another Certificate of Installation  Outdoor Lighting form, CC-LTO-E</dtyp:displayterm>
-            <dtyp:displayterm value="LumNotInScope">A luminaire was selected as Not in Scope in the Outdoor Lighting Fixture Schedule Table.  Please ensure that this luminaire was claimed as in scope on another Certificate of Installation Outdoor Lighting form, CC-LTO-E</dtyp:displayterm>
-            <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
-            <dtyp:displayterm value="OutdoorLightControlNoMatch">Control requirements on the Outdoor Lighting Controls subtable do no match what was permitted on the Certificate of Compliance.  Please verify installation meets controls requirements.</dtyp:displayterm>
-            <dtyp:displayterm value="UserChangedCASelection">Selections made in CA Certificate Table  have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="CtrlNotInScope"/>
-         <xsd:enumeration value="LumNotInScope"/>
-         <xsd:enumeration value="NoExceptionNote"/>
-         <xsd:enumeration value="OutdoorLightControlNoMatch"/>
-         <xsd:enumeration value="UserChangedCASelection"/>
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="ExceptionalConditionMessageNRCILTSE">
-      <xsd:annotation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>NRCI-LTS-E Exceptional Condition Message</dtyp:displayterm>
-         </xsd:appinfo>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="CtrlNotInScope">A lighted sign control was selected as Not in Scope in the Sign Lighting Controls subtable.  Please ensure that this sign control was claimed as in scope on anoher another Certificate of Installation  CI-LTS Sign Lighting form</dtyp:displayterm>
-            <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
-            <dtyp:displayterm value="SignLightControlNoMatch">Control requirements on the Sign Lighting Controls subtable do no match what was permitted on the Certificate of Compliance.  Please verify installation meets controls requirements.</dtyp:displayterm>
-            <dtyp:displayterm value="SignNotInScope">A lighted sign was selected as Not in Scope in the Sign Lighting Compliance Table.  Please ensure that this luminaire was claimed as in scope on anoher another Certificate of Installation  CI-LTS Sign Lighting form</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="CtrlNotInScope"/>
-         <xsd:enumeration value="NoExceptionNote"/>
-         <xsd:enumeration value="SignLightControlNoMatch"/>
-         <xsd:enumeration value="SignNotInScope"/>
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="ExceptionalConditionMessageNRCIMCHE">
-      <xsd:annotation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>NRCI-MCH-E Exceptional Condition Message</dtyp:displayterm>
-         </xsd:appinfo>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="BlrNotInScope">A Boiler was selected as Not in Scope in the Boiler Table.  Please ensure that this Boiler  was claimed as in scope in this table on another another Certificate of Installation  CI-MCH Mechanical Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="BoilerNoMatch">Control requirements on the Boiler Efficiency and Controls subtable do not match what was permitted on the Certificate of Compliance.  Please verify installation meets controls requirements.</dtyp:displayterm>
-            <dtyp:displayterm value="ChillerNoMatch">Control requirements on the Chililer Efficiency and Controls subtable do not match what was permitted on the Certificate of Compliance.  Please verify installation meets controls requirements.</dtyp:displayterm>
-            <dtyp:displayterm value="ChlrNotInScope">A Chiller was selected as Not in Scope in the Chiller Table.  Please ensure that this Chiller  was claimed as in scope in this table on another another Certificate of Installation  CI-MCH Mechanical Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="CtrlNotInScope">A Control was selected as Not in Scope in the System Controls Table.  Please ensure that this Control was claimed as in scope in this table on another another Certificate of Installation  CI-MCH Mechanical Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="DwellingNoKitchenBath">The permit applicant has indicated their multifamily dwelling units do not contain a kitchen or bathroom.  See Table J Multifamily Dwelling Unit Ventilation for details.</dtyp:displayterm>
-            <dtyp:displayterm value="EHeatNotInScope">An Electric Resistance Heating equipment was selected as Not in Scope in the Electric Resistance Heating Table.  Please ensure that this equipment  was claimed as in scope in this table on another another Certificate of Installation  CI-MCH Mechanical Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="FanEconNoMatch">Fan economizer requirements on the Fans and Air Economizer  subtable do not match what was permitted on the Certificate of Compliance.  Please verify installation meets economizer requirements.</dtyp:displayterm>
-            <dtyp:displayterm value="FanNotInScope">A Fan was selected as Not in Scope in the Fan Table.  Please ensure that this Fan  was claimed as in scope in this table on another another Certificate of Installation  CI-MCH Mechanical Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="HeatRejNoMatch">Control requirements on the Heat Rejection subtable do not match what was permitted on the Certificate of Compliance.  Please verify installation meets controls requirements.</dtyp:displayterm>
-            <dtyp:displayterm value="HrejNotInScope">A Heat Rejection equipment was selected as Not in Scope in the Heat Rejection Table.  Please ensure that this Heat Rejection equipment  was claimed as in scope in this table on another Certificate of Installation  CI-MCH Mechanical Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
-            <dtyp:displayterm value="PumpNotInScope">A Pump was selected as Not in Scope in the Pump Table.  Please ensure that this Pump  was claimed as in scope in this table on another Certificate of Installation CI-MCH Mechanical Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="PumpsNoMatch">Control requirements on the Pumps subtable do not match what was permitted on the Certificate of Compliance.  Please verify installation meets controls requirements.</dtyp:displayterm>
-            <dtyp:displayterm value="SysControlsNoMatch">Control requirements on the System Controls subtable do not match what was permitted on the Certificate of Compliance.  Please verify installation meets controls requirements.</dtyp:displayterm>
-            <dtyp:displayterm value="UserChangedCASelection">Selections made in CA Certificate Table  have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
-            <dtyp:displayterm value="VentNoMatch">Control requirements on the Ventilation subtable do not match what was permitted on the Certificate of Compliance.  Please verify installation meets controls requirements.</dtyp:displayterm>
-            <dtyp:displayterm value="VentnrNotInScope">A Ventilation System was selected as Not in Scope in the Nonresidential and Hotel/ Motel Ventilation SystemsTable.  Please ensure that this Ventilation System  was claimed as in scope in this table on another Certificate of Installation CI-MCH Mechanical Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="VentresNotInScope">A Ventilation System was selected as Not in Scope in the High-rise Residential Dwelling Unit Ventilation SystemsTable.  Please ensure that this Ventilation System  was claimed as in scope in this table on another Certificate of Installation CI-MCH Mechanical Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="ZoneNotInScope">A Zone/System/VAV Box was selected as Not in Scope in the Terminal Box Controls Table.  Please ensure that this Zone/System/VAV Box  was claimed as in scope in this table on another Certificate of Installation CI-MCH Mechanical Systems form</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="BlrNotInScope"/>
-         <xsd:enumeration value="BoilerNoMatch"/>
-         <xsd:enumeration value="ChillerNoMatch"/>
-         <xsd:enumeration value="ChlrNotInScope"/>
-         <xsd:enumeration value="CtrlNotInScope"/>
-         <xsd:enumeration value="DwellingNoKitchenBath"/>
-         <xsd:enumeration value="EHeatNotInScope"/>
-         <xsd:enumeration value="FanEconNoMatch"/>
-         <xsd:enumeration value="FanNotInScope"/>
-         <xsd:enumeration value="HeatRejNoMatch"/>
-         <xsd:enumeration value="HrejNotInScope"/>
-         <xsd:enumeration value="NoExceptionNote"/>
-         <xsd:enumeration value="PumpNotInScope"/>
-         <xsd:enumeration value="PumpsNoMatch"/>
-         <xsd:enumeration value="SysControlsNoMatch"/>
-         <xsd:enumeration value="UserChangedCASelection"/>
-         <xsd:enumeration value="VentNoMatch"/>
-         <xsd:enumeration value="VentnrNotInScope"/>
-         <xsd:enumeration value="VentresNotInScope"/>
-         <xsd:enumeration value="ZoneNotInScope"/>
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="ExceptionalConditionMessageNRCIPLBE">
-      <xsd:annotation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>NRCI-PLB-E Exceptional Condition Message</dtyp:displayterm>
-         </xsd:appinfo>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="DHWNotInScope">A DHW equipment was selected as Not in Scope in the Domestic Hot Water Equipment Efficiency Table.  Please ensure that this DHW equipment  was claimed as in scope in this table on another Certificate of Installation CI-PLB Domestic Water Heating System form</dtyp:displayterm>
-            <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
-            <dtyp:displayterm value="UserChangedCVSelection">Selections made in CV Certificate Table  have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="DHWNotInScope"/>
-         <xsd:enumeration value="NoExceptionNote"/>
-         <xsd:enumeration value="UserChangedCVSelection"/>
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="ExceptionalConditionMessageNRCIPRCE">
-      <xsd:annotation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>NRCI-PLB-E Exceptional Condition Message</dtyp:displayterm>
-         </xsd:appinfo>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="CairNotInScope">A Compressed Air System was selected as Not in Scope in the Compressed Air Systems Table.  Please ensure that this Compressed Air System was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="CompNotInScope">A Space was selected as Not in Scope in the Computer Room Systems Table.  Please ensure that this Space was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="CRcaseNotInScope">A Lighting Control was selected as Not in Scope in the Refrigerated Display Cases Table.  Please ensure that this Lighting Control was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="CRcomNotInScope">A Component was selected as Not in Scope in the Compressors and Condensing Units Serving Commercial Refrigeration System Table.  Please ensure that this Component was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="CRconNotInScope">A Condenser was selected as Not in Scope in the Condensers Serving Commercial Refrigeration System Table.  Please ensure that this Condenser was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="CRheatNotInScope">Heat Recovery was selected as Not in Scope in the Heat Recovery of Refrigeration System Table.  Please ensure that this Heat Recovery was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="ElevLtiNotInScope">A Lighting Fixture was selected as Not in Scope in the Elevator Lighting Table.  Please ensure that this Lighting Fixture was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="ElevLtiNotInScope">A Elevator Ventilation was selected as Not in Scope in the Elevator Ventilation Table.  Please ensure that this Elevator Ventilation was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="HoodsNotInScope">A Kitchen Hood was selected as Not in Scope in the Kitchen Hood Table.  Please ensure that this Kitchen Hood was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="LabNotInScope">A  Zone/System was selected as Not in Scope in the Laboratory And Factory Exhaust And Fume Hoods Table.  Please ensure that this Zone/System was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
-            <dtyp:displayterm value="ParkNotInScope">An Exhaust Fan was selected as Not in Scope in the Enclosed Parking Garage Exhaust Table.  Please ensure that this Exhaust Fan was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="RbarNotInScope">A Space was selected as Not in Scope in the Refrigerated Warehouse/Space Infiltration Barriers Table.  Please ensure that this Space  was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="RcomNotInScope">A Compressor was selected as Not in Scope in the Refrigerated Warehouse/Space Compressors Table.  Please ensure that this Compressor  was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="RconNotInScope">A Condenser was selected as Not in Scope in the Refrigerated Warehouse/Space Condensers Table.  Please ensure that this Condenser was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="RfanNotInScope">A Fan was selected as Not in Scope in the Refrigerated Warehouse/Space Fan Powered Evaporators Table.  Please ensure that this Fan  was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="RslabNotInScope">A Space was selected as Not in Scope in the Refrigerated Warehouse/Space Underslab Heating Table.  Please ensure that this Space was claimed as in scope in this table on another Certificate of Installation CI-PRC Process Systems form</dtyp:displayterm>
-            <dtyp:displayterm value="UserChangedCASelection">Selections made in CA Certificate Table  have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="CairNotInScope"/>
-         <xsd:enumeration value="CompNotInScope"/>
-         <xsd:enumeration value="CRcaseNotInScope"/>
-         <xsd:enumeration value="CRcomNotInScope"/>
-         <xsd:enumeration value="CRconNotInScope"/>
-         <xsd:enumeration value="CRheatNotInScope"/>
-         <xsd:enumeration value="ElevLtiNotInScope"/>
-         <xsd:enumeration value="ElevLtiNotInScope"/>
-         <xsd:enumeration value="HoodsNotInScope"/>
-         <xsd:enumeration value="LabNotInScope"/>
-         <xsd:enumeration value="NoExceptionNote"/>
-         <xsd:enumeration value="ParkNotInScope"/>
-         <xsd:enumeration value="RbarNotInScope"/>
-         <xsd:enumeration value="RcomNotInScope"/>
-         <xsd:enumeration value="RconNotInScope"/>
-         <xsd:enumeration value="RfanNotInScope"/>
-         <xsd:enumeration value="RslabNotInScope"/>
-         <xsd:enumeration value="UserChangedCASelection"/>
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="ExceptionalConditionMessageNRCISABE">
-      <xsd:annotation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>NRCI-SRA-E Exceptional Condition Message</dtyp:displayterm>
-         </xsd:appinfo>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="NoExceptionNote">No exceptional condition notes for this Certificate of Installation</dtyp:displayterm>
-            <dtyp:displayterm value="SolarZoneNotInScope">A SolarZone was selected as Not in Scope in the Allocated Solar Zone on Roof for Future Use  Table.  Please ensure that this SolarZone was claimed as in scope in this table on another Certificate of Installation CI-SAB Process Systems form</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="NoExceptionNote"/>
-         <xsd:enumeration value="SolarZoneNotInScope"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ExceptionalConditionNote">
@@ -11046,6 +11046,11 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       <xsd:restriction base="xsd:boolean"/>
    </xsd:simpleType>
    <xsd:simpleType name="ProjectID">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Compliance ID</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
       <xsd:restriction base="xsd:string"/>
    </xsd:simpleType>
    <xsd:simpleType name="ProjectManagerAttending">

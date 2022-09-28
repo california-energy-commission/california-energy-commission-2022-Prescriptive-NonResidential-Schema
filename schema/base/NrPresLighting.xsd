@@ -413,7 +413,7 @@
       <xsd:annotation>
          <xsd:documentation>Unique identification name for a Luminaire instance.</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="xsd:token">
+      <xsd:restriction base="dtyp:StringMin1Char">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LuminairePower">

@@ -64,8 +64,8 @@
                         <xsd:documentation source="CalculationsAndRules">If CC-LTS parent, 
 result = A01_ProjectCity
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTS01E" usage="copy">A01_ProjectCity</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTS01E" usage="copy">A01_ProjectCity</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -189,7 +189,7 @@ End If</xsd:documentation>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C01_ComplianceResultNRCI" type="comp:ComplianceResultNRCI">
+                  <xsd:element name="C01_ComplianceResultCI" type="comp:ComplianceResultCI">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="CalculationsAndRules">Calculated result:  
@@ -205,7 +205,7 @@ Else If All required tables or subsections in Section F  have  a combination of 
  End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C01Message_ComplianceResultMessageNRCI" type="comp:ComplianceResultMessageNRCI">
+                  <xsd:element name="C01Message_ComplianceResultMessageCI" type="comp:ComplianceResultMessageCI">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="CalculationsAndRules">Calculated result:  
@@ -236,7 +236,7 @@ Else If All required tables or subsections in Section F  have  a combination of 
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D01_ExceptionalConditionMessageNRCILTSE" type="comp:ExceptionalConditionMessageNRCILTSE" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:element name="D01_ExceptionalConditionMessageCILTSE" type="comp:ExceptionalConditionMessageCILTSE" minOccurs="0" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Exceptional Messages</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Auto-filled with any system generated messages that explain exceptional conditions encountered in the the completed compliance document
@@ -293,7 +293,7 @@ End If</xsd:documentation>
                   </xsd:element>
                   <xsd:element name="F_RowLabelTopCell" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Per CC</xsd:documentation>
+                        <xsd:documentation source="FieldText">Per C of C</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This is the text displayed at the left end of a row in the top cell for all tables in Section F.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -321,8 +321,8 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTSE parent
 result = C01_LightedSignName
 End If</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCLTS01E" usage="copy">C01_LightedSignName</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTS01E" usage="copy">C01_LightedSignName</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -372,8 +372,8 @@ End If</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTSE parent
 result = C02_LightedSignDescription 
 End If</xsd:documentation>
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCLTS01E" usage="copy">C02_LightedSignDescription</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCLTS01E" usage="copy">C02_LightedSignDescription</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -386,8 +386,8 @@ If CCLTSE F01_LightedSignName == Sign01cc_LightedSignName assigned from CCLTSE  
 result = F12_LuminairePower
 End If
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="copy">F12_LuminairePower</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">F12_LuminairePower</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -399,9 +399,9 @@ If CCLTSE F01_LightedSignName != Sign01cc_LightedSignName assigned from CCLTSE  
 Or If CCLTSE F03_IlluminationMethod == Internal
 result = BlankGrayedOut
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="reference">F01_LightedSignName</dtyp:srcSchema>
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="reference">F03_IlluminationMethod</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="reference">F01_LightedSignName</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="reference">F03_IlluminationMethod</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -451,8 +451,8 @@ If Sign03cc_LuminairePower IsPresent
 result = F14_LuminaireCountByType
 End If
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="copy">F14_LuminaireCountByType</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">F14_LuminaireCountByType</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -466,8 +466,8 @@ Or If CCLTSE F03_IlluminationMethod == Internal
 result = BlankGrayedOut
 End If
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="reference">F03_IlluminationMethod</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="reference">F03_IlluminationMethod</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -516,8 +516,8 @@ End If</xsd:documentation>
 result = F07_LightedSignDesignedPower
 End If
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="copy">F07_LightedSignDesignedPower</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">F07_LightedSignDesignedPower</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -527,8 +527,8 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTSE parent
 If B05_LightedSignPrescriptiveMethod != MaximumAllowedPower 
 result = BlankGrayedOut</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="reference">B05_LightedSignPrescriptiveMethod</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="reference">B05_LightedSignPrescriptiveMethod</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -581,8 +581,8 @@ If CCLTSE G01_LightedSignName == Sign01cc_LightedSignName assigned from CCLTSE  
 result = G03_CompliantLightSource
 End If
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="copy">G03_CompliantLightSource</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">G03_CompliantLightSource</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -593,8 +593,8 @@ End If</xsd:documentation>
 If CCLTSE G01_LightedSignName != Sign01cc_LightedSignName assigned from CCLTSE  C01_LightedSignName
 result = BlankGrayedOut
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="reference">G01_LightedSignName</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="reference">G01_LightedSignName</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -644,9 +644,9 @@ result = C06_IsMethodEnergyVerifiedLabel
 End If
 End If
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="reference">B05_LightedSignPrescriptiveMethod</dtyp:srcSchema>
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="copy">C06_IsMethodEnergyVerifiedLabel</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="reference">B05_LightedSignPrescriptiveMethod</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">C06_IsMethodEnergyVerifiedLabel</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -660,9 +660,9 @@ Else If C06_NotApplicableMessage IsPresent
 result = C06_NotApplicableMessage
 End If
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="reference">B05_LightedSignPrescriptiveMethod</dtyp:srcSchema>
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="copy">C06_NotApplicableMessage</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="reference">B05_LightedSignPrescriptiveMethod</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">C06_NotApplicableMessage</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -709,7 +709,7 @@ End If</xsd:documentation>
                                           </xsd:choice>
                                        </xsd:complexType>
                                     </xsd:element>
-                                    <xsd:element name="Sign08_ComplianceResultNRCI" type="comp:ComplianceResultNRCI">
+                                    <xsd:element name="Sign08_ComplianceResultCI" type="comp:ComplianceResultCI">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Sign Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank
@@ -773,8 +773,8 @@ B02b_ProjectHasDimmerControl == true Or B02c_ProjectHasDemandControl == true Or<
                                           <xsd:documentation source="CalculationsAndRules">If CCLTSE parent
 result = F01_LightedSignName
 End If</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCLTS01E" usage="copy">F01_LightedSignName</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTS01E" usage="copy">F01_LightedSignName</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -824,8 +824,8 @@ End If</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTSE parent
 result = F02_LightedSignDescription 
 End If</xsd:documentation>
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCLTS01E" usage="copy">F02_LightedSignDescription</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCLTS01E" usage="copy">F02_LightedSignDescription</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -842,8 +842,8 @@ End If</xsd:documentation>
 If F08a_SignShutOffControls IsPresent for F01_LightedSignName assigned to Ctrl01cc_LightedSignName
 result = F08a_SignShutOffControls
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="copy">F08a_SignShutOffControls</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">F08a_SignShutOffControls</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -854,8 +854,8 @@ End If</xsd:documentation>
 If F08a_NotApplicableMessage IsPresent for F01_LightedSignName assigned to Ctrl01cc_LightedSignName
 result = F08a_NotApplicableMessage
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="copy">F08a_NotApplicableMessage</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">F08a_NotApplicableMessage</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -900,8 +900,8 @@ End If</xsd:documentation>
 If F08b_SignDimmingControls IsPresent for F01_LightedSignName assigned to Ctrl01cc_LightedSignName
 result = F08b_SignDimmingControls
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="copy">F08b_SignDimmingControls</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">F08b_SignDimmingControls</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -912,8 +912,8 @@ End If</xsd:documentation>
 If F08b_NotApplicableMessage IsPresent for F01_LightedSignName assigned to Ctrl01cc_LightedSignName
 result = F08b_NotApplicableMessage
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="copy">F08b_NotApplicableMessage</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">F08b_NotApplicableMessage</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -961,8 +961,8 @@ End If</xsd:documentation>
 If F08c_SignDemandResponseControls IsPresent for F01_LightedSignName assigned to Ctrl01cc_LightedSignName
 result = F08c_SignDemandResponseControls
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="copy">F08c_SignDemandResponseControls</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">F08c_SignDemandResponseControls</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -973,8 +973,8 @@ End If</xsd:documentation>
 If F08c_NotApplicableMessage IsPresent for F01_LightedSignName assigned to Ctrl01cc_LightedSignName
 result = F08c_NotApplicableMessage
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTS01E" usage="copy">F08c_NotApplicableMessage</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">F08c_NotApplicableMessage</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -1019,7 +1019,7 @@ End If</xsd:documentation>
                                           </xsd:choice>
                                        </xsd:complexType>
                                     </xsd:element>
-                                    <xsd:element name="Ctrl06_ComplianceResultNRCI" type="comp:ComplianceResultNRCI">
+                                    <xsd:element name="Ctrl06_ComplianceResultCI" type="comp:ComplianceResultCI">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Controls Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank

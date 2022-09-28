@@ -1997,7 +1997,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="SpaceDescription">
-      <xsd:restriction base="xsd:token"/>
+      <xsd:restriction base="dtyp:StringMin1Char"/>
    </xsd:simpleType>
    <xsd:simpleType name="SpaceFloorArea">
       <xsd:annotation>

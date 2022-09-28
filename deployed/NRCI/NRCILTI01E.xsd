@@ -54,7 +54,7 @@
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:i>This Certificate of Installation documents the installation of indoor lighting features, materials, components, and manufactured devices required to demonstrate compliance with Title 24, Part 6 per  
-                              <d:t24refnolink/>10.103(a)3 for nonresidential, hotel/motel and high-rise residential occupancies, [ .</d:i>
+                              <d:t24refnolink/>10.103(a)3 for low-rise residential and low-rise mixed-use occupancies.</d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -66,9 +66,9 @@ result = A01_ProjectCity
 Else If  CC-PRF parent, 
 result = Info01_ProjectCity
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTI01E" usage="copy">A01_ProjectCity</dtyp:srcSchema>
-                           <dtyp:srcSchema form="NRCCPRF01E" usage="copy">Info01_ProjectCity</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTI01E" usage="copy">A01_ProjectCity</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E" usage="copy">Info01_ProjectCity</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -80,8 +80,8 @@ User input
 Else If  CC-PRF parent, 
 result = Info02_ProjectZipcode
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCPRF01E" usage="copy">Info02_ProjectZipcode</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCPRF01E" usage="copy">Info02_ProjectZipcode</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -277,7 +277,7 @@ End If</xsd:documentation>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C01_ComplianceResultNRCI" type="comp:ComplianceResultNRCI">
+                  <xsd:element name="C01_ComplianceResultCI" type="comp:ComplianceResultCI">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="CalculationsAndRules">Calculated result:  
@@ -294,7 +294,7 @@ Else If All required tables or subsections in Section F  have  a combination of 
  End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C01Message_ComplianceResultMessageNRCI" type="comp:ComplianceResultMessageNRCI">
+                  <xsd:element name="C01Message_ComplianceResultMessageCI" type="comp:ComplianceResultMessageCI">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="CalculationsAndRules">Calculated result:  
@@ -325,7 +325,7 @@ Else If All required tables or subsections in Section F  have  a combination of 
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D01_ExceptionalConditionMessageNRCILTIE" type="comp:ExceptionalConditionMessageNRCILTIE" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:element name="D01_ExceptionalConditionMessageCILTIE" type="comp:ExceptionalConditionMessageCILTIE" minOccurs="0" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Exceptional Messages</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Auto-filled with any system generated messages that explain exceptional conditions encountered in the the completed compliance document
@@ -412,11 +412,11 @@ End If</xsd:documentation>
  Else If CCPRFE parent
  result loaded from LtgSched01_LuminaireName
 End If</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Fc01_LuminaireName</dtyp:srcSchema>
-                                             <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Fu01_LuminaireName</dtyp:srcSchema>
-                                             <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Q09_LuminaireName</dtyp:srcSchema>
-                                             <dtyp:srcSchema form="NRCCPRF01E" usage="copy">LtgSched01_LuminaireName</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTI01E" usage="copy">Fc01_LuminaireName</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCLTI01E" usage="copy">Fu01_LuminaireName</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCLTI01E" usage="copy">Q09_LuminaireName</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E" usage="copy">LtgSched01_LuminaireName</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -454,11 +454,11 @@ End If</xsd:documentation>
  Else If CCPRFE parent
  result = LtgSched02_LuminaireDescription
  End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Fc02_LuminaireDescription</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Fu02_LuminaireDescription</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Q10_LuminaireDescription</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCPRF01E" usage="copy">LtgSched02_LuminaireDescription</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTI01E" usage="copy">Fc02_LuminaireDescription</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCLTI01E" usage="copy">Fu02_LuminaireDescription</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCLTI01E" usage="copy">Q10_LuminaireDescription</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCPRF01E" usage="copy">LtgSched02_LuminaireDescription</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -468,8 +468,8 @@ End If</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If CCPRFE parent And LtgSched02_LuminaireDescription NotPresent
  result = BlankGrayedOut
  End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -517,10 +517,10 @@ Else If  Fu01_LuminaireName was loaded into Lum01cc_LuminaireName
  Else If CCPRFE parent
  result = Conditioned
  End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Fc01_LuminaireName</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Fu01_LuminaireName</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCPRF01E" usage="value">Conditioned</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">Fc01_LuminaireName</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">Fu01_LuminaireName</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCPRF01E" usage="value">Conditioned</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -531,8 +531,8 @@ Else If  Fu01_LuminaireName was loaded into Lum01cc_LuminaireName
  If Lum01cc_LuminaireName is loaded from  Q09_LuminaireName
  result = BlankGrayedOut
  End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Q09_LuminaireName</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">Q09_LuminaireName</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -570,11 +570,11 @@ result = SmallApertureColorChanging
  End If
  End If
  End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Fc03_IsLuminaireTrackLighting</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Fc04_SmallApertureColorChange</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Fu03_IsLuminaireTrackLighting</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Fu04_SmallApertureColorChange</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">Fc03_IsLuminaireTrackLighting</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">Fc04_SmallApertureColorChange</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">Fu03_IsLuminaireTrackLighting</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">Fu04_SmallApertureColorChange</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -596,13 +596,13 @@ result = SmallApertureColorChanging
  End If
  End If
  End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Fc03_IsLuminaireTrackLighting</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Fc04_SmallApertureColorChange</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Fu03_IsLuminaireTrackLighting</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Fu04_SmallApertureColorChange</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Q09_LuminaireName</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">Fc03_IsLuminaireTrackLighting</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">Fc04_SmallApertureColorChange</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">Fu03_IsLuminaireTrackLighting</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">Fu04_SmallApertureColorChange</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">Q09_LuminaireName</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -652,8 +652,8 @@ Else If Lum05cc_NotApplicableMessage IsPresent
  result = G03i01_TrackLightingLength
  End If
 End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="copy">G03i01_TrackLightingLength</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTI01E" usage="copy">G03i01_TrackLightingLength</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -670,10 +670,10 @@ End If</xsd:documentation>
  result = BlankGrayedOut
  
  End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">G03i01_TrackLightingLength</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Q09_LuminaireName</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">G03i01_TrackLightingLength</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">Q09_LuminaireName</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -719,8 +719,8 @@ Else If Lum06cc_NotApplicableMessage IsPresent
  If G03ii01_TrackLightingCurrentLimiterPower IsPresent 
  result = G03ii01_TrackLightingCurrentLimiterPower 
  End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="copy">G03ii01_TrackLightingCurrentLimiterPower</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTI01E" usage="copy">G03ii01_TrackLightingCurrentLimiterPower</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -737,10 +737,10 @@ result = BlankGrayedOut
  result = BlankGrayedOut
  
  End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">G03ii01_TrackLightingCurrentLimiterPower</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Q09_LuminaireName</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">G03ii01_TrackLightingCurrentLimiterPower</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">Q09_LuminaireName</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -781,8 +781,8 @@ result = BlankGrayedOut
  If G03iii01_TrackLightingBranchCircuitPower IsPresent 
  result = G03iii01_TrackLightingBranchCircuitPower 
  End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="copy">G03iii01_TrackLightingBranchCircuitPower</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTI01E" usage="copy">G03iii01_TrackLightingBranchCircuitPower</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -800,10 +800,10 @@ Else If Lum01cc_LuminaireName is loaded from  Q09_LuminaireName
  result = BlankGrayedOut
  
  End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">G03iii01_TrackLightingBranchCircuitPower</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Q09_LuminaireName</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">G03iii01_TrackLightingBranchCircuitPower</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">Q09_LuminaireName</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -850,8 +850,8 @@ Else If Lum01cc_LuminaireName is loaded from  Q09_LuminaireName
  If G03iii02_TrackOvercurrentPanelsTotalPower IsPresent 
  result = G03iii02_TrackOvercurrentPanelsTotalPower
  End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="copy">G03iii02_TrackOvercurrentPanelsTotalPower</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTI01E" usage="copy">G03iii02_TrackOvercurrentPanelsTotalPower</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -869,10 +869,10 @@ Else If Lum01cc_LuminaireName is loaded from  Q09_LuminaireName
  result = BlankGrayedOut
  
  End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">G03iii02_TrackOvercurrentPanelsTotalPower</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Q09_LuminaireName</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">G03iii02_TrackOvercurrentPanelsTotalPower</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">Q09_LuminaireName</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -921,8 +921,8 @@ Else If Lum01cc_LuminaireName is loaded from  Q09_LuminaireName
  If G03iv01_TrackLightingPowerSourceRatedWattage IsPresent 
  result = G03iv01_TrackLightingPowerSourceRatedWattage
  End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="copy">G03iv01_TrackLightingPowerSourceRatedWattage</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTI01E" usage="copy">G03iv01_TrackLightingPowerSourceRatedWattage</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -940,10 +940,10 @@ Else If Lum01cc_LuminaireName is loaded from  Q09_LuminaireName
  result = BlankGrayedOut
  
  End If</xsd:documentation>
-                                             <xsd:appinfo source="NRCIsrc">
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">G03iv01_TrackLightingPowerSourceRatedWattage</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Q09_LuminaireName</dtyp:srcSchema>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">G03iv01_TrackLightingPowerSourceRatedWattage</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCLTI01E" usage="reference">Q09_LuminaireName</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -997,11 +997,11 @@ Else If Lum01cc_LuminaireName is loaded from  Q09_LuminaireName
  Else If CCPRFE parent
  result = LtgSched03_LuminairePower
  End If</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Fc05_LuminairePower</dtyp:srcSchema>
-                                             <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Fu05_LuminairePower</dtyp:srcSchema>
-                                             <dtyp:srcSchema form="NRCCPRF01E" usage="copy">LtgSched03_LuminairePower</dtyp:srcSchema>
-                                             <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Q11_LuminairePower</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTI01E" usage="copy">Fc05_LuminairePower</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCLTI01E" usage="copy">Fu05_LuminairePower</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E" usage="copy">LtgSched03_LuminairePower</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCLTI01E" usage="copy">Q11_LuminairePower</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -1045,11 +1045,11 @@ result = Q13_LuminaireCountByType
  Else If CCPRFE parent
  result = LtgSched05_LuminaireCountByType
  End If</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Fc07_LuminaireCountByType</dtyp:srcSchema>
-                                             <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Fu07_LuminaireCountByType</dtyp:srcSchema>
-                                             <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Q13_LuminaireCountByType</dtyp:srcSchema>
-                                             <dtyp:srcSchema form="NRCCPRF01E" usage="copy">LtgSched05_LuminaireCountByType</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTI01E" usage="copy">Fc07_LuminaireCountByType</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCLTI01E" usage="copy">Fu07_LuminaireCountByType</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCLTI01E" usage="copy">Q13_LuminaireCountByType</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E" usage="copy">LtgSched05_LuminaireCountByType</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -1079,7 +1079,7 @@ result = Q13_LuminaireCountByType
                                           </xsd:simpleType>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="Lum13_ComplianceResultNRCI" type="comp:ComplianceResultNRCI">
+                                    <xsd:element name="Lum13_ComplianceResultCI" type="comp:ComplianceResultCI">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Fixture Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank
@@ -1136,8 +1136,8 @@ If CCLTIE parent And its A03_WholeBuildingOccupancy includes HighRiseResidential
 Else If CCPRF parent And its Info10_TopLevelOccupancy == HighRiseResidential Or HotelMotel
 End If
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTI01E" usage="reference">A03_WholeBuildingOccupancy</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTI01E" usage="reference">A03_WholeBuildingOccupancy</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                      <xsd:complexType>
@@ -1200,9 +1200,9 @@ result = H04_SpaceDescription
 Else If CCPRFE parent
  result = LtgControls03__SpaceDescription
 End If</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCLTI01E" usage="copy">H04_SpaceDescription</dtyp:srcSchema>
-                                             <dtyp:srcSchema form="NRCCPRF01E" usage="copy">LtgControls03_SpaceDescription</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTI01E" usage="copy">H04_SpaceDescription</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E" usage="copy">LtgControls03_SpaceDescription</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -1255,9 +1255,9 @@ result = H05_SpaceFunction
 Else If CCPRFE parent
  result = LtgControls04_SpaceFunction
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTI01E" usage="copy">H05_SpaceFunction</dtyp:srcSchema>
-                                                                  <dtyp:srcSchema form="NRCCPRF01E" usage="copy">LtgControls04_SpaceFunction</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTI01E" usage="copy">H05_SpaceFunction</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">LtgControls04_SpaceFunction</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -1328,6 +1328,7 @@ End If</xsd:documentation>
                                                                   <xsd:enumeration value="SportsArenaSeatsLT2000ClassIII"/>
                                                                   <xsd:enumeration value="SportsArenaSeatsLT5000ClassII"/>
                                                                   <xsd:enumeration value="Stairwell"/>
+                                                                  <xsd:enumeration value="StorageMF"/>
                                                                   <xsd:enumeration value="TheaterMotionPicture"/>
                                                                   <xsd:enumeration value="TheaterPerformance"/>
                                                                   <xsd:enumeration value="TransportationFunctionConcourseBaggage"/>
@@ -1342,8 +1343,8 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTIE parent And  H05_WholeBuildingOccupancy IsPresent
 result = H05_WholeBuildingOccupancy
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTI01E" usage="copy">H05_WholeBuildingOccupancy</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTI01E" usage="copy">H05_WholeBuildingOccupancy</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -1374,8 +1375,8 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTIE parent And  H05_NotApplicableMessage IsPresent 
 result = BlankGrayedOut
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTI01E" usage="reference">H05_NotApplicableMessage</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTI01E" usage="reference">H05_NotApplicableMessage</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -1400,8 +1401,8 @@ End If</xsd:documentation>
                                                                      <d:lte/>0.5W/SF</dtyp:displayterm>
                                                                   <dtyp:displayterm value="NotRequiredInstallingAsPAF">Installing As PAF</dtyp:displayterm>
                                                                </xsd:appinfo>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTI01E" usage="copy">H01_MandatoryLightingDemandResponseNR</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTI01E" usage="copy">H01_MandatoryLightingDemandResponseNR</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -1414,8 +1415,8 @@ End If</xsd:documentation>
                                                                <xsd:appinfo source="displayterm">
                                                                   <dtyp:displayterm value="Required">Provided</dtyp:displayterm>
                                                                </xsd:appinfo>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCPRF01E" usage="copy">LtgControls01_MandatoryBuildingDemandResponseControlRequired</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">LtgControls01_MandatoryBuildingDemandResponseControlRequired</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -1441,8 +1442,8 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
 result = H06_AreaControlsCompliance
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTI01E" usage="copy">H06_AreaControlsCompliance</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTI01E" usage="copy">H06_AreaControlsCompliance</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -1455,8 +1456,8 @@ End If</xsd:documentation>
                                                                <xsd:appinfo source="displayterm">
                                                                   <dtyp:displayterm value="Required">Provided</dtyp:displayterm>
                                                                </xsd:appinfo>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCPRF01E" usage="copy">LtgControls05_MandatoryAreaControlsRequired</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">LtgControls05_MandatoryAreaControlsRequired</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -1482,8 +1483,8 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
 result = H07_MultilevelControls 
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTI01E" usage="copy">H07_MultilevelControls</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTI01E" usage="copy">H07_MultilevelControls</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -1496,8 +1497,8 @@ End If</xsd:documentation>
                                                                <xsd:appinfo source="displayterm">
                                                                   <dtyp:displayterm value="Required">Provided</dtyp:displayterm>
                                                                </xsd:appinfo>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCPRF01E" usage="copy">LtgControls06_MandatoryMultiLevelControlRequired</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">LtgControls06_MandatoryMultiLevelControlRequired</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -1523,8 +1524,8 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
 result = H08_ShutOffControlsArea
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTI01E" usage="copy">H08_ShutOffControlsArea</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTI01E" usage="copy">H08_ShutOffControlsArea</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -1537,8 +1538,8 @@ End If</xsd:documentation>
                                                                <xsd:appinfo source="displayterm">
                                                                   <dtyp:displayterm value="Required">Provided</dtyp:displayterm>
                                                                </xsd:appinfo>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCPRF01E" usage="copy">LtgControls02_MandatoryBuildingShutOffControlRequired</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">LtgControls02_MandatoryBuildingShutOffControlRequired</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -1564,8 +1565,8 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
 result = H09_PrimarySkylitDaylightControlsIncluded
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTI01E" usage="copy">H09_PrimarySkylitDaylightControlsIncluded</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTI01E" usage="copy">H09_PrimarySkylitDaylightControlsIncluded</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -1578,8 +1579,8 @@ End If</xsd:documentation>
                                                                <xsd:appinfo source="displayterm">
                                                                   <dtyp:displayterm value="Required">Provided</dtyp:displayterm>
                                                                </xsd:appinfo>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCPRF01E" usage="copy">LtgControls08_MandatoryPrimaryDaylightingControlRequired</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">LtgControls08_MandatoryPrimaryDaylightingControlRequired</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -1608,8 +1609,8 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
 result = H10_SecondaryDaylightControlsIncluded
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTI01E" usage="copy">H10_SecondaryDaylightControlsIncluded</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTI01E" usage="copy">H10_SecondaryDaylightControlsIncluded</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -1622,8 +1623,8 @@ End If</xsd:documentation>
                                                                <xsd:appinfo source="displayterm">
                                                                   <dtyp:displayterm value="Required">Provided</dtyp:displayterm>
                                                                </xsd:appinfo>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCPRF01E" usage="copy">LtgControls09_MandatorySecondaryDaylightingControlRequired</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">LtgControls09_MandatorySecondaryDaylightingControlRequired</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -1656,8 +1657,8 @@ End If</xsd:documentation>
                                                                <xsd:appinfo source="displayterm">
                                                                   <dtyp:displayterm value="true">Provided</dtyp:displayterm>
                                                                </xsd:appinfo>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCLTI01E" usage="copy">H11_InterlockedLightingSystems</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCLTI01E" usage="copy">H11_InterlockedLightingSystems</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -1667,8 +1668,8 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCPRFE parent
 result = BlankGrayedOut
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="NRCIsrc">
-                                                                  <dtyp:srcSchema form="NRCCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCPRF01E" usage="value">BlankGrayedOut</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -1714,7 +1715,7 @@ End If</xsd:documentation>
                                           </xsd:choice>
                                        </xsd:complexType>
                                     </xsd:element>
-                                    <xsd:element name="Ctrl10_ComplianceResultNRCI" type="comp:ComplianceResultNRCI">
+                                    <xsd:element name="Ctrl10_ComplianceResultCI" type="comp:ComplianceResultCI">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Controls compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank
@@ -1808,10 +1809,10 @@ End If
 Else If CCPRFE parent
 result = LtgCredits_SpaceName
 End If</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Pc01_SpaceDescription</dtyp:srcSchema>
-                                             <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Pu01_SpaceDescription</dtyp:srcSchema>
-                                             <dtyp:srcSchema form="NRCCPRF01E" usage="copy">LtgCredits_SpaceName</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTI01E" usage="copy">Pc01_SpaceDescription</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCLTI01E" usage="copy">Pu01_SpaceDescription</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E" usage="copy">LtgCredits_SpaceName</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -1911,26 +1912,26 @@ If LtgCredits03_PAFCreditType[1] not null
 result += LtgCredits03_PAFCreditType[1] //second value
 End If
 End If</xsd:documentation>
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Pc02a_ApplyDaylightDimmingPlusOff</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Pu02a_ApplyDaylightDimmingPlusOff</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Pc02b_ApplyOccupantSensingControlsUpTo125SF</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Pu02b_ApplyOccupantSensingControlsUpTo125SF</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Pc02c_ApplyOccupantSensingControlsFrom126To250SF</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Pu02c_ApplyOccupantSensingControlsFrom126To250SF</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Pc02e_ApplyInstitutionalTuningNonDaylit</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Pu02e_ApplyInstitutionalTuningNonDaylit</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Pc02f_ApplyInstitutionalTuningDaylit</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Pu02f_ApplyInstitutionalTuningDaylit</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Pc02g_ApplyDemandResponsiveControl</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Pu02g_ApplyDemandResponsiveControl</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Pc02h_ApplyClerestoryFenestrationPAF</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Pu02h_ApplyClerestoryFenestrationPAF</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Pc02i_ApplyHorizontalSlatsPAF</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Pu02i_ApplyHorizontalSlatsPAF</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Pc02j_ApplyLightShelvesPAF</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="reference">Pu02j_ApplyLightShelvesPAF</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCPRF01E" usage="copy">LtgCredits03_PAFCreditType</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="reference">Pc02a_ApplyDaylightDimmingPlusOff</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="reference">Pu02a_ApplyDaylightDimmingPlusOff</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="reference">Pc02b_ApplyOccupantSensingControlsUpTo125SF</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="reference">Pu02b_ApplyOccupantSensingControlsUpTo125SF</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="reference">Pc02c_ApplyOccupantSensingControlsFrom126To250SF</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="reference">Pu02c_ApplyOccupantSensingControlsFrom126To250SF</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="reference">Pc02e_ApplyInstitutionalTuningNonDaylit</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="reference">Pu02e_ApplyInstitutionalTuningNonDaylit</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="reference">Pc02f_ApplyInstitutionalTuningDaylit</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="reference">Pu02f_ApplyInstitutionalTuningDaylit</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="reference">Pc02g_ApplyDemandResponsiveControl</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="reference">Pu02g_ApplyDemandResponsiveControl</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="reference">Pc02h_ApplyClerestoryFenestrationPAF</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="reference">Pu02h_ApplyClerestoryFenestrationPAF</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="reference">Pc02i_ApplyHorizontalSlatsPAF</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="reference">Pu02i_ApplyHorizontalSlatsPAF</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="reference">Pc02j_ApplyLightShelvesPAF</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="reference">Pu02j_ApplyLightShelvesPAF</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCPRF01E" usage="copy">LtgCredits03_PAFCreditType</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -1957,10 +1958,10 @@ Else skip this LtgCredits05_LuminaireName -  not in installer's scope
 End If
  
 End If</xsd:documentation>
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Pc03_LuminaireName</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Pu03_LuminaireName</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCPRF01E" usage="copy">LtgCredits05_LuminaireName</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="copy">Pc03_LuminaireName</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="copy">Pu03_LuminaireName</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCPRF01E" usage="copy">LtgCredits05_LuminaireName</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -1986,10 +1987,10 @@ End If
 Else If CCPRFE parent
 result = LtgCredits06_LuminairePower 
 End If</xsd:documentation>
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Pc04_LuminairePower</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Pu04_LuminairePower</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCPRF01E" usage="copy">LtgCredits06_LuminairePower</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="copy">Pc04_LuminairePower</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="copy">Pu04_LuminairePower</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCPRF01E" usage="copy">LtgCredits06_LuminairePower</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -2011,10 +2012,10 @@ End If
 Else If CCPRFE parent
 result = LtgCredits07_LuminaireCountByType  
 End If</xsd:documentation>
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Pc05_LuminaireCountByType</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Pu05_LuminaireCountByType</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCPRF01E" usage="copy">LtgCredits07_LuminaireCountByType</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="copy">Pc05_LuminaireCountByType</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="copy">Pu05_LuminaireCountByType</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCPRF01E" usage="copy">LtgCredits07_LuminaireCountByType</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -2036,10 +2037,10 @@ End If
 Else If CCPRFE parent
 result = LtgCredits08_LuminairePowerInArea  
 End If</xsd:documentation>
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Pc06_LuminairePowerByType</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Pu06_LuminairePowerByType</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCPRF01E" usage="copy">LtgCredits08_LuminairePowerInArea</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="copy">Pc06_LuminairePowerByType</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTI01E" usage="copy">Pu06_LuminairePowerByType</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCPRF01E" usage="copy">LtgCredits08_LuminairePowerInArea</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -2055,7 +2056,7 @@ End If</xsd:documentation>
                                           </xsd:choice>
                                        </xsd:complexType>
                                     </xsd:element>
-                                    <xsd:element name="Paf07_ComplianceResultNRCI" type="comp:ComplianceResultNRCI">
+                                    <xsd:element name="Paf07_ComplianceResultCI" type="comp:ComplianceResultCI">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Controls for Credit Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank
@@ -2555,9 +2556,9 @@ Else
 Nothing is displayed for this NRCA 
 End If
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Nrca01_RequireNRCALti02A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="NRCCPRF01E" usage="copy">NrcaLti02_RequireNRCALti02A</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTI01E" usage="copy">Nrca01_RequireNRCALti02A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E" usage="copy">NrcaLti02_RequireNRCALti02A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -2570,8 +2571,8 @@ this field is not required and nothing is displayed
 Else If G01_RequireNRCALti02A == true And NRCC-LTI is parent
 result = NRCC-LTI  Nrca01_SystemFieldVerified and it is displayed
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Nrca01_SystemFieldVerified</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTI01E" usage="copy">Nrca01_SystemFieldVerified</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -2584,8 +2585,8 @@ this field is not required and nothing is displayed
 Else If G01_RequireNRCALti02A == true And NRCC-LTI is parent
 result = NRCC-LTI  Nrca01_SystemsToFieldVerify and it is displayed
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Nrca01_SystemsToFieldVerify</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTI01E" usage="copy">Nrca01_SystemsToFieldVerify</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -2608,9 +2609,9 @@ Else
 Nothing is displayed for this NRCA 
 End If
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Nrca02_RequireNRCALti03A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="NRCCPRF01E" usage="copy">NrcaLti02Row2_RequireNRCALti03A</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTI01E" usage="copy">Nrca02_RequireNRCALti03A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E" usage="copy">NrcaLti02Row2_RequireNRCALti03A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -2623,8 +2624,8 @@ this field is not required and nothing is displayed
 Else If G02_RequireNRCALti03A == true And NRCC-LTI is parent
 result = NRCC-LTI  Nrca02_SystemFieldVerified and it is displayed
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Nrca02_SystemFieldVerified</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTI01E" usage="copy">Nrca02_SystemFieldVerified</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -2637,8 +2638,8 @@ this field is not required and nothing is displayed
 Else If G02_RequireNRCALti03A == true And NRCC-LTI is parent
 result = NRCC-LTI  Nrca02_SystemsToFieldVerify and it is displayed
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Nrca02_SystemsToFieldVerify</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTI01E" usage="copy">Nrca02_SystemsToFieldVerify</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -2661,9 +2662,9 @@ Else
 Nothing is displayed for this NRCA 
 End If
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Nrca03_RequireNRCALti04A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="NRCCPRF01E" usage="copy">NrcaLti02Row3_RequireNRCALti04A</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTI01E" usage="copy">Nrca03_RequireNRCALti04A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E" usage="copy">NrcaLti02Row3_RequireNRCALti04A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -2676,8 +2677,8 @@ this field is not required and nothing is displayed
 Else If G03_RequireNRCALti04A == true And NRCC-LTI is parent
 result = NRCC-LTI  U03_SystemFieldVerified and it is displayed
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Nrca03_SystemFieldVerified</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTI01E" usage="copy">Nrca03_SystemFieldVerified</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -2690,8 +2691,8 @@ this field is not required and nothing is displayed
 Else If G03_RequireNRCALti04A == true And NRCC-LTI is parent
 result = NRCC-LTI  U03_SystemsToFieldVerify and it is displayed
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Nrca03_SystemsToFieldVerify</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTI01E" usage="copy">Nrca03_SystemsToFieldVerify</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -2714,9 +2715,9 @@ Else
 Nothing is displayed for this NRCA 
 End If
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Nrca04_RequireNRCALti05A</dtyp:srcSchema>
-                           <dtyp:srcSchema form="NRCCPRF01E" usage="copy">NrcaLti02Row4_RequireNRCALti05A</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTI01E" usage="copy">Nrca04_RequireNRCALti05A</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E" usage="copy">NrcaLti02Row4_RequireNRCALti05A</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -2729,8 +2730,8 @@ this field is not required and nothing is displayed
 Else If G04_RequireNRCALti05A == true And NRCC-LTI is parent
 result = NRCC-LTI  U04_SystemFieldVerified and it is displayed
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Nrca04_SystemFieldVerified</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTI01E" usage="copy">Nrca04_SystemFieldVerified</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -2743,8 +2744,8 @@ this field is not required and nothing is displayed
 Else If G04_RequireNRCALti05A == true And NRCC-LTI is parent
 result = NRCC-LTI  U04_SystemsToFieldVerify and it is displayed
 End If</xsd:documentation>
-                        <xsd:appinfo source="NRCIsrc">
-                           <dtyp:srcSchema form="NRCCLTI01E" usage="copy">Nrca04_SystemsToFieldVerify</dtyp:srcSchema>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTI01E" usage="copy">Nrca04_SystemsToFieldVerify</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>

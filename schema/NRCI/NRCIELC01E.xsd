@@ -181,7 +181,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i]This table indicates whether the as-built conditions documented in this form are equal or better than what was documented on the permitted Certificate of Compliance.  If the installation is not equal or better, Section 10-103(a)2B requires the Certificate of Compliance form to be revised accordingly to demonstrate compliance.[/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C01_ComplianceResultNRCI" type="comp:ComplianceResultNRCI" >
+                  <xsd:element name="C01_ComplianceResultCI" type="comp:ComplianceResultCI" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated result:  
@@ -196,7 +196,7 @@ Else If All required tables or subsections in Section F  have  a combination of 
  End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="C01Message_ComplianceResultMessageNRCI" type="comp:ComplianceResultMessageNRCI" >
+                  <xsd:element name="C01Message_ComplianceResultMessageCI" type="comp:ComplianceResultMessageCI" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated result:  
@@ -223,7 +223,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i]This table is auto-filled with uneditable comments because of selections made or data entered in tables throughout the form.[/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D01_ExceptionalConditionMessageNRCIELCE" type="comp:ExceptionalConditionMessageNRCIELCE"  minOccurs="0" maxOccurs="unbounded">
+                  <xsd:element name="D01_ExceptionalConditionMessageCIELCE" type="comp:ExceptionalConditionMessageCIELCE"  minOccurs="0" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Exceptional Messages</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Auto-filled with any system generated messages that explain exceptional conditions encountered in the completed compliance document</xsd:documentation>
@@ -298,8 +298,8 @@ result = F01_ElectricalServiceName
 End If
  
 The result is displayed in both the Per CC and As-built conditions</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCELC01E"  usage="copy">F01_ElectricalServiceName</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCELC01E"  usage="copy">F01_ElectricalServiceName</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -349,8 +349,8 @@ End If</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
 result = F02_ElectricalServiceRating
 End If</xsd:documentation>
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCELC01E"  usage="copy">F02_ElectricalServiceRating</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCELC01E"  usage="copy">F02_ElectricalServiceRating</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -381,8 +381,8 @@ End If</xsd:documentation>
                                                                <dtyp:displayterm value="false">NA</dtyp:displayterm>
                                                             </xsd:appinfo>
                                                             
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCELC01E"  usage="copy">F03a_MeteringDemandRequired</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCELC01E"  usage="copy">F03a_MeteringDemandRequired</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -429,8 +429,8 @@ End If</xsd:documentation>
                                                                <dtyp:displayterm value="false">NA</dtyp:displayterm>
                                                             </xsd:appinfo>
                                                             
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCELC01E"  usage="copy">F03b_MeteringPeakDemandRequired</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCELC01E"  usage="copy">F03b_MeteringPeakDemandRequired</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -479,8 +479,8 @@ End If</xsd:documentation>
                                                                <dtyp:displayterm value="false">NA</dtyp:displayterm>
                                                             </xsd:appinfo>
                                                             
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCELC01E"  usage="copy">F03c_MeteringkWhPerUserPeriodRequired</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCELC01E"  usage="copy">F03c_MeteringkWhPerUserPeriodRequired</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -527,8 +527,8 @@ End If</xsd:documentation>
                                                                <dtyp:displayterm value="false">NA</dtyp:displayterm>
                                                             </xsd:appinfo>
                                                             
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCELC01E"  usage="copy">F03d_MeteringkWhPerRatePeriodRequired</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCELC01E"  usage="copy">F03d_MeteringkWhPerRatePeriodRequired</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -572,7 +572,7 @@ End If</xsd:documentation>
                                           </xsd:choice>
                                        </xsd:complexType>
                                     </xsd:element>
-                                    <xsd:element name="Meter07_ComplianceResultNRCI" type="comp:ComplianceResultNRCI" >
+                                    <xsd:element name="Meter07_ComplianceResultCI" type="comp:ComplianceResultCI" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Metering Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank
@@ -666,8 +666,8 @@ result = G00_ElectricalServiceName
 End If
  
 This field is displayed after the CircuitsTitle and before TableCircuits</xsd:documentation>
-                                 <xsd:appinfo source="NRCIsrc">
-                                    <dtyp:srcSchema form="NRCCELC01E"  usage="copy">G00_ElectricalServiceName</dtyp:srcSchema>
+                                 <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCELC01E"  usage="copy">G00_ElectricalServiceName</dtyp:srcSchema>
                                  </xsd:appinfo>
                               </xsd:annotation>
                            </xsd:element>
@@ -697,8 +697,8 @@ result = G01_ElectricalLoadType
 End If
  
 The result is displayed in both the Per CC and As-built conditions</xsd:documentation>
-                                                   <xsd:appinfo source="NRCIsrc">
-                                                      <dtyp:srcSchema form="NRCCELC01E"  usage="copy">G01_ElectricalLoadType</dtyp:srcSchema>
+                                                   <xsd:appinfo source="CIsrc">
+                                                      <dtyp:srcSchema form="CCELC01E"  usage="copy">G01_ElectricalLoadType</dtyp:srcSchema>
                                                    </xsd:appinfo>
                                                 </xsd:annotation>
                                              </xsd:element>
@@ -716,8 +716,8 @@ result = G02_ElectricalLoadSeparationRequirement
 End If
  
 The result is displayed in both the Per CC and As-built conditions</xsd:documentation>
-                                                   <xsd:appinfo source="NRCIsrc">
-                                                      <dtyp:srcSchema form="NRCCELC01E"  usage="copy">G02_ElectricalLoadSeparationRequirement</dtyp:srcSchema>
+                                                   <xsd:appinfo source="CIsrc">
+                                                      <dtyp:srcSchema form="CCELC01E"  usage="copy">G02_ElectricalLoadSeparationRequirement</dtyp:srcSchema>
                                                    </xsd:appinfo>
                                                 </xsd:annotation>
                                              </xsd:element>
@@ -729,8 +729,8 @@ The result is displayed in both the Per CC and As-built conditions</xsd:document
 If G03_ElectricalLoadComplianceMethod IsPresent
 result = G03_ElectricalLoadComplianceMethod
 End If</xsd:documentation>
-                                                      <xsd:appinfo source="NRCIsrc">
-                                                         <dtyp:srcSchema form="NRCCELC01E"  usage="copy">G03_ElectricalLoadComplianceMethod</dtyp:srcSchema>
+                                                      <xsd:appinfo source="CIsrc">
+                                                         <dtyp:srcSchema form="CCELC01E"  usage="copy">G03_ElectricalLoadComplianceMethod</dtyp:srcSchema>
                                                       </xsd:appinfo>
                                                    </xsd:annotation>
                                                 </xsd:element>
@@ -741,8 +741,8 @@ End If</xsd:documentation>
 If G03_NotApplicableMessage IsPresent
 result = BlankGrayedOut
 End If</xsd:documentation>
-                                                      <xsd:appinfo source="NRCIsrc">
-                                                         <dtyp:srcSchema form="NRCCELC01E"  usage="reference">G03_NotApplicableMessage</dtyp:srcSchema>
+                                                      <xsd:appinfo source="CIsrc">
+                                                         <dtyp:srcSchema form="CCELC01E"  usage="reference">G03_NotApplicableMessage</dtyp:srcSchema>
                                                       </xsd:appinfo>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
@@ -782,7 +782,7 @@ End If</xsd:documentation>
                                                    </xsd:simpleType>
                                                 </xsd:element>
                                              </xsd:choice>
-                                             <xsd:element name="Circuits04_ComplianceResultNRCI" type="comp:ComplianceResultNRCI" >
+                                             <xsd:element name="Circuits04_ComplianceResultCI" type="comp:ComplianceResultCI" >
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Compliance</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">If any user input field is blank
@@ -839,8 +839,8 @@ result = H01_ElectricalServiceName
 End If
  
 The result is displayed in both the Per CC and As-built conditions</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCELC01E"  usage="copy">H01_ElectricalServiceName</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCELC01E"  usage="copy">H01_ElectricalServiceName</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -898,9 +898,9 @@ End If</xsd:documentation>
 </dtyp:displayterm>
                                                             </xsd:appinfo>
                                                             
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCELC01E"  usage="reference">H02a_CircuitVoltageDropCompliance</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="NRCCELC01E"  usage="reference">H02b_CircuitVoltageDropCompliance</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCELC01E"  usage="reference">H02a_CircuitVoltageDropCompliance</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCELC01E"  usage="reference">H02b_CircuitVoltageDropCompliance</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -933,8 +933,8 @@ End If</xsd:documentation>
                                                                <dtyp:displayterm value="CalculationsContractorResponsible">Contractor Provided</dtyp:displayterm>
                                                             </xsd:appinfo>
                                                             
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCELC01E"  usage="reference">H03_CircuitVoltageDropCalculations</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCELC01E"  usage="reference">H03_CircuitVoltageDropCalculations</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -1009,7 +1009,7 @@ End If</xsd:documentation>
                                           </xsd:choice>
                                        </xsd:complexType>
                                     </xsd:element>
-                                    <xsd:element name="Volt07_ComplianceResultNRCI" type="comp:ComplianceResultNRCI" >
+                                    <xsd:element name="Volt07_ComplianceResultCI" type="comp:ComplianceResultCI" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Voltage Drop Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank
@@ -1054,8 +1054,8 @@ result = I01_SpaceDescription
 End If
  
 The result is displayed in both the Per CC and As-built conditions</xsd:documentation>
-                                          <xsd:appinfo source="NRCIsrc">
-                                             <dtyp:srcSchema form="NRCCELC01E"  usage="copy">I01_SpaceDescription</dtyp:srcSchema>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCELC01E"  usage="copy">I01_SpaceDescription</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -1107,8 +1107,8 @@ If  I02_ControlledReceptacleComplianceType IsPresent
 result = I02_ControlledReceptacleComplianceType 
 End If
 End If</xsd:documentation>
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCELC01E"  usage="copy">I02_ControlledReceptacleComplianceType</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCELC01E"  usage="copy">I02_ControlledReceptacleComplianceType</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -1119,8 +1119,8 @@ End If</xsd:documentation>
 If I02_ControlledReceptacleNA IsPresent
 result = I02_ControlledReceptacleNA 
 End If</xsd:documentation>
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCELC01E"  usage="copy">I02_ControlledReceptacleNA</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCELC01E"  usage="copy">I02_ControlledReceptacleNA</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -1156,8 +1156,8 @@ If  I03_ControlledReceptacleShutOffControl IsPresent
 result = I03_ControlledReceptacleShutOffControl
 End If
 End If</xsd:documentation>
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCELC01E"  usage="copy">I03_ControlledReceptacleShutOffControl</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCELC01E"  usage="copy">I03_ControlledReceptacleShutOffControl</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -1169,8 +1169,8 @@ If I03_ControlledReceptacleNA IsPresent
 result = I03_ControlledReceptacleNA
 End If
 End If</xsd:documentation>
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCELC01E"  usage="copy">I03_ControlledReceptacleNA</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCELC01E"  usage="copy">I03_ControlledReceptacleNA</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -1233,8 +1233,8 @@ End If</xsd:documentation>
                                                                <dtyp:displayterm value="true">Included in Design</dtyp:displayterm>
                                                             </xsd:appinfo>
                                                             
-                                                            <xsd:appinfo source="NRCIsrc">
-                                                               <dtyp:srcSchema form="NRCCELC01E"  usage="copy">I04_AreControlledReceptaclesPermanentlyMarked</dtyp:srcSchema>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCELC01E"  usage="copy">I04_AreControlledReceptaclesPermanentlyMarked</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -1278,7 +1278,7 @@ End If</xsd:documentation>
                                           </xsd:choice>
                                        </xsd:complexType>
                                     </xsd:element>
-                                    <xsd:element name="Controls05_ComplianceResultNRCI" type="comp:ComplianceResultNRCI" >
+                                    <xsd:element name="Controls05_ComplianceResultCI" type="comp:ComplianceResultCI" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank
@@ -1334,8 +1334,8 @@ this subsection is required</xsd:documentation>
                                  <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
 result = J01a_SingleUnitFurnace</xsd:documentation>
-                                 <xsd:appinfo source="NRCIsrc">
-                                    <dtyp:srcSchema form="NRCCELC01E"  usage="copy">J01a_SingleUnitFurnace</dtyp:srcSchema>
+                                 <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCELC01E"  usage="copy">J01a_SingleUnitFurnace</dtyp:srcSchema>
                                  </xsd:appinfo>
                               </xsd:annotation>
                            </xsd:element>
@@ -1344,8 +1344,8 @@ result = J01a_SingleUnitFurnace</xsd:documentation>
                                  <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
 result = J01b_SingleUnitCooktop</xsd:documentation>
-                                 <xsd:appinfo source="NRCIsrc">
-                                    <dtyp:srcSchema form="NRCCELC01E"  usage="copy">J01b_SingleUnitCooktop</dtyp:srcSchema>
+                                 <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCELC01E"  usage="copy">J01b_SingleUnitCooktop</dtyp:srcSchema>
                                  </xsd:appinfo>
                               </xsd:annotation>
                            </xsd:element>
@@ -1354,8 +1354,8 @@ result = J01b_SingleUnitCooktop</xsd:documentation>
                                  <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
 result = J01c_SingleUnitDryer</xsd:documentation>
-                                 <xsd:appinfo source="NRCIsrc">
-                                    <dtyp:srcSchema form="NRCCELC01E"  usage="copy">J01c_SingleUnitDryer</dtyp:srcSchema>
+                                 <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCELC01E"  usage="copy">J01c_SingleUnitDryer</dtyp:srcSchema>
                                  </xsd:appinfo>
                               </xsd:annotation>
                            </xsd:element>
@@ -1364,8 +1364,8 @@ result = J01c_SingleUnitDryer</xsd:documentation>
                                  <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">If parent CC-ELC
 result = J01d_CommonAreaDryer</xsd:documentation>
-                                 <xsd:appinfo source="NRCIsrc">
-                                    <dtyp:srcSchema form="NRCCELC01E"  usage="copy">J01d_CommonAreaDryer</dtyp:srcSchema>
+                                 <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCELC01E"  usage="copy">J01d_CommonAreaDryer</dtyp:srcSchema>
                                  </xsd:appinfo>
                               </xsd:annotation>
                            </xsd:element>
