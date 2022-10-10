@@ -726,7 +726,8 @@ End If</xsd:documentation>
 result = BlankGrayedOut
 Else If B02Altered_ WaterHeatingSystem  IsPresent And  B02Altered_WaterHeatingSystem !=  CentralNonresSpaces And  != CentralDwellingUnits 
 result = BlankGrayedOut
- 
+ Else If F04_ExceptionsToPrescReqsDHW != ExceptionsNonApply
+result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -758,6 +759,8 @@ Else If B02Altered_ WaterHeatingSystem  IsPresent And  B02Altered_WaterHeatingSy
 result = BlankGrayedOut
 Else If F05_IsEfficiencyCapWeightedAvg == false
  result = BlankGrayedOut
+Else f F04_ExceptionsToPrescReqsDHW != ExceptionsNonApply
+result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -957,10 +960,17 @@ End If</xsd:documentation>
                                                          <xsd:element name="F12_ThermalEfficiencyMinimum" type="hvac:ThermalEfficiencyMinimum" >
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Minimum Efficiency Required</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Calculated value:If F08_WaterHeaterType == StorageCommercial  Or InstantaneousCommercial Or BoilerWaterHeater 
+                                                               <xsd:documentation source="CalculationsAndRules">Calculated value:
+If F08_WaterHeaterType == StorageCommercial  Or InstantaneousCommercial Or BoilerWaterHeater 
 result = 80  display term result x 100 % 
-Else If F08_WaterHeaterType == BoilerCommercialLT1MMBtu result = .84  display term result x 100 %;
-Else If F08_WaterHeaterType == BoilerCommercialGTE1MMBtu result = .90  display term result x 100 %;</xsd:documentation>
+Else If F08_WaterHeaterType == BoilerCommercialLT1MMBtu 
+result = .84  display term result x 100 %;
+Else If F08_WaterHeaterType == BoilerCommercialGTE1MMBtu 
+If If F04_ExceptionsToPrescReqsDHW == ExceptionsNoneApply
+result = .90  display term result x 100 %;
+Else If F04_ExceptionsToPrescReqsDHW != ExceptionsNoneApply
+result = .84  display term result x 100 %;
+End If</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
                                                          <xsd:element name="F12_MinimumRequiredUEF" type="hvac:MinimumRequiredUEF" >

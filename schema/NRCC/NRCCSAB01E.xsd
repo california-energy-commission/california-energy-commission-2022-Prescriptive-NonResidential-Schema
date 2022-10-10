@@ -180,48 +180,24 @@ When PV/battery/solar thermal requirements don't apply or are traded using the p
                   </xsd:element>
                   <xsd:element name="BSolarReady" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Compliance with Solar Requirements in [d:t24refnolink/]110.10(b)1B</xsd:documentation>
+                        <xsd:documentation source="FieldText">Compliance with Solar Readiness Requirements in [d:t24refnolink/]110.10(b)1B</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If this subsection is required,  one and only one item can be checked with a result == true and it is the only item that is displayed in the final report.
  
-This subsection is required  If one of the following conditions is true:
-Condition 1 
-A04_WholeBuildngOccupancy == ParkingGarageBuilding, ReligiousFacilityBuilding, CommercialIndustrialBuilding, DataCenterBuilding, GymnasiumBuilding, RelocatablePublicSchoolBuilding, SupportArea Or AllOthersBuildings 
-And A05_RoofConstRangeSolar == AddRoofGT2000ft2 Or NewRoofGT533ft2
-And A06_BuildingStoryRange == StoriesLTE3
+Conditions when this subsection is required or not required
  
-Condition 2:  
-A04_WholeBuildngOccupancy == HotelMotel, GroceryStoreBuilding, OfficeBuilding, FinancialInstitutionBuilding, UnleasedTenantSpace, RetailBuilding, SchoolBuilding, Warehouse, AuditoriumBuilding, ConventionCenterBuilding, LibraryBuilding, MedicalClinicBuilding, RestaurantBuilding, Or TheaterBuilding
-And A05_RoofConstRangeSolar ==  AddRoofGT2000ft2 
-And A06_BuildingStoryRange == StoriesLTE3
+If A04_WholeBuildngOccupancy == MedicalClinicBuilding
+BSolarReady is NOT REQUIRED
  
-Condition 2a:  
-A04_WholeBuildngOccupancy == HotelMotel, GroceryStoreBuilding, OfficeBuilding, FinancialInstitutionBuilding, UnleasedTenantSpace, RetailBuilding, SchoolBuilding, Warehouse, AuditoriumBuilding, ConventionCenterBuilding, LibraryBuilding, MedicalClinicBuilding, RestaurantBuilding, Or TheaterBuilding
-And Bpv01e_SnowloadException == true Or Bpv0f_MultitenantException == true Or Bpv0g_PerfTradeOffException == true
-And A05_RoofConstRangeSolar != NewRoofLTE533ft2
-And A06_BuildingStoryRange == StoriesLTE3
- 
-Condition 3:  
-A04_WholeBuildngOccupancy == HighriseResidential, And A05_RoofConstRangeSolar ==  AddRoofGT2000ft2 Or EmergencyRebuild
-And A06_BuildingStoryRange == StoriesLTE3 Or Stories4to10
-  
-Condition 3a:  
-A04_WholeBuildngOccupancy ==  HotelMotel, And A05_RoofConstRangeSolar ==  AddRoofGT2000ft2
-And A06_BuildingStoryRange == StoriesLTE3 Or Stories4to10
- 
-Condition 4:
-Bpv01b_AccessAreaTooSmall == true And A05_RoofConstRangeSolar != NewRoofLTE533ft2
- 
-Condition 5
-Bpv01c_RequiredLT4kW == true And A05_RoofConstRangeSolar != NewRoofLTE533ft2
- 
-Condition 6:
-Bpv01d_NoContiguousAccess == true And A05_RoofConstRangeSolar != NewRoofLTE533ft2
- 
-Condition 7:
-Bpv01e_SnowloadException == true Or Bpv0f_MultitenantException == true Or Bpv0g_PerfTradeOffException == true 
-And A04_WholeBuildngOccupancy == HighriseResidential Or HotelMotel 
-And A05_RoofConstRangeSolar != NewRoofLTE533ft2 
-And A06_BuildingStoryRange == StoriesLTE3 Or Stories4to10</xsd:documentation>
+Else If Bpv Is not required and NotPresent
+BSolarReady is REQUIRED
+Else If Bpv Is required and IsPresent And 
+Bpv01b_AccessAreaTooSmall == true OR 
+Bpv01c_RequiredLT4kW == true OR 
+Bpv01d_NoContiguousAccess OR
+Bpv01e_SnowloadException == true Or 
+Bpv0f_MultitenantException == true Or 
+Bpv0g_PerfTradeOffException == true
+BSolarReady is REQUIRED</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>

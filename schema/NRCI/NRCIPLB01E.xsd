@@ -1,0 +1,2187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+   targetNamespace="http://www.lmonte.com/besm/NRCIPLB01E"
+   xmlns="http://www.lmonte.com/besm/NRCIPLB01E"
+   xmlns:d="http://www.lmonte.com/besm/d"
+   xmlns:bld="http://www.lmonte.com/besm/bld"
+   xmlns:env="http://www.lmonte.com/besm/env"
+   xmlns:lit="http://www.lmonte.com/besm/lit"
+   xmlns:hvac="http://www.lmonte.com/besm/hvac"
+   xmlns:comp="http://www.lmonte.com/besm/comp"
+   xmlns:com="http://www.lmonte.com/besm/com"
+   xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:altova="http://www.altova.com/xml-schema-extensions"
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2022.0.000">
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/NrPresCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/NrPresBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/NrPresEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/NrPresLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/NrPresHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/NrPresCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTagNR" fixed="NRCIPLB01E"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentTypeNR" fixed="CertificateInstallationNR"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleNR" fixed="Domestic Water Heating System"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderNRCI" />
+                     <xsd:element ref="nRCIPLB01E" />
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor" maxOccurs="unbounded" />
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonNRCI" maxOccurs="unbounded" />
+                     <xsd:element name="Footer" type="comp:FooterNRCC" />
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary" minOccurs="0"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20220901"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTagNR" fixed="NRCIPLB01E"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="NRCIPLB01E">
+      <xsd:annotation>
+         <xsd:documentation>Domestic Water Heating System</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">[d:b]A. GENERAL INFORMATION[/d:b]</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A_BeforeNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]This  Certificate of Installation idocuments the installation of service water heating features, materials, components, and manufactured devices required to demonstrate compliance with Title 24, Part 6 per [d:t24refnolink/]110-103(a)3 for nonresidential, hotel/motel and high-rise residential occupancies.[/d:i]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A01_ProjectCity" type="comp:ProjectCity" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Project Location (city)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
+result = A01_ProjectCity
+Else If NRCC-PRF parent
+result = Info01_ProjectCity
+End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCPLB01E"  usage="copy">A01_ProjectCity</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Info01_ProjectCity</dtyp:srcSchema>
+                        </xsd:appinfo>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A02_ProjectZipcode" type="comp:ProjectZipcode" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Zip Code</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
+User input
+Else If NRCC-PRF parent
+result = Info02_ProjectZipcode
+End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Info02_ProjectZipcode</dtyp:srcSchema>
+                        </xsd:appinfo>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A03_PermitSetDate" type="comp:PermitSetDate" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Date of Permit Set used for construction</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_AuthorityHavingJurisdiction" type="comp:AuthorityHavingJurisdiction" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Authority Having Jurisdiction</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A05_PermitNumber" type="comp:PermitNumber" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Building Permit #</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A06_AsBuiltSetDate" type="comp:AsBuiltSetDate" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Date of As-built Set</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A07_PermitSetName" type="comp:PermitSetName"  minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Name of Permit Set used for construction</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This data is not currently required but may be needed in the future</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A08_AsBuiltSetName" type="comp:AsBuiltSetName"  minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Name of As-built Set</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This data is not currently required but may be needed in the future</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">[d:b] B. INSTALLER SCOPE[/d:b]</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="B_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]This table indicates construction systems and materials documented on this Certificate of Installation.[/d:i]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B01_ProjectHasEquipment" type="comp:ProjectHasEquipment" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Equipment</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input;  This includes new and altered equipment</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B02_ProjectHasDistribution" type="comp:ProjectHasDistribution" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Distribution (Piping, valves, insulation, etc)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input; This includes new and altered distribution</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B03_ProjectHasControls" type="comp:ProjectHasControls" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Controls</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input; This includes new and altered controls</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">[d:b]C. COMPLIANCE RESULTS[/d:b]</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="C_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]This table indicates whether the as-built conditions documented in this form are equal or better than what was documented on the permitted Certificate of Compliance.  If the installation is not equal or better, Section 10-103(a)2B requires the Certificate of Compliance form to be revised accordingly to demonstrate compliance.[/d:i]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C01_ComplianceResultCI" type="comp:ComplianceResultCI" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated result:  
+If in any required tables or subsections in Section F  ComplianceResultCI ==  TableIncomplete
+result = FormNotComplete
+Else If in any required tables or subsections in Section F ComplianceResultCI == MayNotComply
+result = MayNotComply
+Else If All required tables or subsections in Section F  have  ComplianceResultCI ==  ExactMatch
+result = ExactMatch
+Else If any required tables or subsections in Section F have ComplianceResultCI ==  EqualBetter
+result = EqualBetter
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C01Message_ComplianceResultMessageCI" type="comp:ComplianceResultMessageCI" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated result:  
+If C01_ComplianceResultCI == ExactMatch Or EqualBetter
+result = ExactEqualBetterText
+Else If C01_ComplianceResultCI == MayNotComply
+result =  MayNotComplyText
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">[d:b]D. EXCEPTIONAL CONDITIONS[/d:b]</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="D_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]This table is auto-filled with uneditable comments because of field conditions noted by the installer that may impact requirements documented on the Certificate of Compliance.[/d:i]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D01_ExceptionalConditionMessageCIPLBE" type="comp:ExceptionalConditionMessageCIPLBE"  minOccurs="0" maxOccurs="unbounded">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Exceptional Messages</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Auto-filled with any system generated messages that explain exceptional conditions encountered in the the completed compliance document
+If ExceptionalConditionMessageNRCIPLBE == ""
+result = NoExceptionNote
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_E" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">[d:b]E. INSTALLER NOTES[/d:b]</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if there are  comments from the permit applicant to the Authority Having Jurisdiction</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="E_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]This table includes remarks made by the installer to the Authority Having Jurisdiction.[/d:i]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E01_CommentsToPermitAuthority" type="comp:CommentsToPermitAuthority"  minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_F" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">[d:b]F. INSTALLATION DETAILS [/d:b]</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="F_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]The following tables indicate performance requirements as documented on the permitted Certificate of Compliance (NRCC) for all systems and components included in Table B. Installer Scope.  Also included are the as-built conditions documented by the installer/documentation author. [/d:i]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F_RowLabelTopCell" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Per C of C</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This is the text displayed at the left end of a row in the top cell for all tables/subsections in Section F except the last subsection Smart Thermostats and Additional Efficiency Measure</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F_RowLabelBottomCell" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">As-built Conditions</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This is the text displayed at the left end of a row in the bottom cell for all tables/subsections in Section F except the last subsection Smart Thermostats and Additional Efficiency Measure</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="DHW" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required If B01_ProjectHasEquipment == true</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="TableDHW" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">[d:b]Domestic Hot Water Equipment Efficiency[/d:b]</xsd:documentation>
+                              </xsd:annotation>
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                                       <xsd:complexType>
+                                          <xsd:sequence>
+                                             <xsd:element name="DHW01cc_WaterHeaterName" type="hvac:WaterHeaterName" >
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">Name or Item Tag</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
+result = F07_WaterHeaterName
+Else If NRCC-PRF parent
+result = Water01_WaterHeaterName 
+End If</xsd:documentation>
+                                                   <xsd:appinfo source="CIsrc">
+                                                      <dtyp:srcSchema form="CCPLB01E"  usage="copy">F07_WaterHeaterName</dtyp:srcSchema>
+                                                      <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water01_WaterHeaterName</dtyp:srcSchema>
+                                                   </xsd:appinfo>
+                                                </xsd:annotation>
+                                             </xsd:element>
+                                             <xsd:element name="DHW01_InMyScope" type="comp:InMyScope" >
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">Is this in your scope?</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">User selects from true value display term Yes and false value display term No, by others
+ If result == false DHW02cc-DHW10cc and DHW02-DHW10 As-built fields are blank and grayed out
+And D01_ExceptionalConditionMessageNRCIPLBE += DHWNotInScope  
+End If</xsd:documentation>
+                                                </xsd:annotation>
+                                             </xsd:element>
+                                             <xsd:element name="DHWScopeChoice" >
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText"></xsd:documentation>
+                                                </xsd:annotation>
+                                                <xsd:complexType>
+                                                   <xsd:choice >
+                                                      <xsd:element name="DHWScopeNA_NotApplicableMessage" >
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText"></xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If DHW01_InMyScope == false
+result = BlankGrayedOut for DHW02cc-DHW10 cc and DHW02-DHW10 As-built fields are blank and grayed out 
+End If</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:NotApplicableMessage">
+                                                               <xsd:enumeration value="BlankGrayedOut"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="DHWInScope" >
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText"></xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:complexType>
+                                                            <xsd:sequence>
+                                                               <xsd:element name="DHW01_InstalledSameAsCC" type="comp:InstalledSameAsCC"  minOccurs="0">
+                                                                  <xsd:annotation>
+                                                                     <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                                                                     <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
+                                                                  </xsd:annotation>
+                                                               </xsd:element>
+                                                               <xsd:element name="DHW02cc_NotApplicableMessage" >
+                                                                  <xsd:annotation>
+                                                                     <xsd:documentation source="FieldText">Model #</xsd:documentation>
+                                                                     <xsd:documentation source="CalculationsAndRules">The CC cell is always BlankGrayedOut</xsd:documentation>
+                                                                  </xsd:annotation>
+                                                                  <xsd:simpleType>
+                                                                     <xsd:restriction base="comp:NotApplicableMessage">
+                                                                        <xsd:enumeration value="BlankGrayedOut"/>
+                                                                     </xsd:restriction>
+                                                                  </xsd:simpleType>
+                                                               </xsd:element>
+                                                               <xsd:element name="DHW02a_ModelNumber" type="hvac:ModelNumber" >
+                                                                  <xsd:annotation>
+                                                                     <xsd:documentation source="FieldText">Model #</xsd:documentation>
+                                                                     <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                                                  </xsd:annotation>
+                                                               </xsd:element>
+                                                               <xsd:element name="DHW03cc_CentralSystem" type="hvac:CentralSystem" >
+                                                                  <xsd:annotation>
+                                                                     <xsd:documentation source="FieldText">Individual or Central System</xsd:documentation>
+                                                                     <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If DwellingUnitEquipment IsPresent 
+result = false
+Else If DwellingUnitEquipmentCentralWH IsPresent 
+result = true
+End If
+Else If CC-PRF parent
+If WaterMF03_CentralSystem IsPresent
+result = WaterMF03_CentralSystem
+End If
+End If
+End If</xsd:documentation>
+                                                                     <xsd:appinfo source="displayterm">
+                                                                        <dtyp:displayterm value="true">Central</dtyp:displayterm>
+                                                                        <dtyp:displayterm value="false">Individual</dtyp:displayterm>
+                                                                     </xsd:appinfo>
+                                                                     
+                                                                     <xsd:appinfo source="CIsrc">
+                                                                        <dtyp:srcSchema form="CCPLB01E"  usage="reference">Section_F DwellingUnitEquipment</dtyp:srcSchema>
+                                                                        <dtyp:srcSchema form="CCPLB01E"  usage="reference">Section_F DwellingUnitEquipmentCentralWH</dtyp:srcSchema>
+                                                                        <dtyp:srcSchema form="CCPRF01E"  usage="copy">WaterMF03_CentralSystem</dtyp:srcSchema>
+                                                                     </xsd:appinfo>
+                                                                  </xsd:annotation>
+                                                               </xsd:element>
+                                                               <xsd:element name="DHW03_CentralSystem" type="hvac:CentralSystem" >
+                                                                  <xsd:annotation>
+                                                                     <xsd:documentation source="FieldText">Individual or Central System</xsd:documentation>
+                                                                     <xsd:documentation source="CalculationsAndRules">If DHW01_InstalledSameAsCC == true
+result = DHW03cc_CentralSystem
+Else
+User input
+End If</xsd:documentation>
+                                                                     <xsd:appinfo source="displayterm">
+                                                                        <dtyp:displayterm value="true">Central</dtyp:displayterm>
+                                                                        <dtyp:displayterm value="false">Individual</dtyp:displayterm>
+                                                                     </xsd:appinfo>
+                                                                     
+                                                                  </xsd:annotation>
+                                                               </xsd:element>
+                                                               <xsd:choice maxOccurs="1">
+                                                                  <xsd:element name="DHW04cc_WaterHeaterType" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = F08_WaterHeaterType
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="displayterm">
+                                                                           <dtyp:displayterm value="StorageCommercial">Gas Storage Water Heater</dtyp:displayterm>
+                                                                           <dtyp:displayterm value="InstantaneousCommercial">Gas Instantaneous Water Heater</dtyp:displayterm>
+                                                                           <dtyp:displayterm value="StorageCommercialElectric">Electric Storage Water Heater</dtyp:displayterm>
+                                                                           <dtyp:displayterm value="BoilerCommercialGT300kBtu">Commercial Package Gas Hot Water Supply Boilers (300k-2.5MM Btu/h)
+</dtyp:displayterm>
+                                                                        </xsd:appinfo>
+                                                                        
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="copy">F08_WaterHeaterType</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                     <xsd:simpleType>
+                                                                        <xsd:restriction base="hvac:WaterHeaterType">
+                                                                           <xsd:enumeration value="BoilerCommercialGTE1MMBtu"/>
+                                                                           <xsd:enumeration value="BoilerResDutyCommercial"/>
+                                                                           <xsd:enumeration value="BoilerWaterHeater"/>
+                                                                           <xsd:enumeration value="CentralHeatPumpWH"/>
+                                                                           <xsd:enumeration value="IndirectDHW"/>
+                                                                           <xsd:enumeration value="InstantaneousCommercial"/>
+                                                                           <xsd:enumeration value="InstantaneousConsumer"/>
+                                                                           <xsd:enumeration value="InstantaneousConsumerElectric"/>
+                                                                           <xsd:enumeration value="InstantaneousResDutyCommercial"/>
+                                                                           <xsd:enumeration value="StorageCommercial"/>
+                                                                           <xsd:enumeration value="StorageCommercialElectric"/>
+                                                                           <xsd:enumeration value="StorageConsumer"/>
+                                                                           <xsd:enumeration value="StorageConsumerElectric"/>
+                                                                           <xsd:enumeration value="StorageResDutyCommercial"/>
+                                                                           <xsd:enumeration value="TableTopElectric"/>
+                                                                        </xsd:restriction>
+                                                                     </xsd:simpleType>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW04cc_DwellingUnitWaterHeater" type="hvac:DwellingUnitWaterHeater" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F16_DwellingUnitWaterHeater IsPresent
+result = F16_DwellingUnitWaterHeater
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="copy">F16_DwellingUnitWaterHeater</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW04cc_TankCategory" type="hvac:TankCategory" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
+If Water03_TankCategory IsPresent
+result = Water03_TankCategory
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water03_TankCategory</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW04cc_NotApplicableMessage" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PRF parent 
+If Water03_NotApplicableMessage IsPresent
+result = BlankGrayedOut
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water03_NotApplicableMessage</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                     <xsd:simpleType>
+                                                                        <xsd:restriction base="comp:NotApplicableMessage">
+                                                                           <xsd:enumeration value="BlankGrayedOut"/>
+                                                                        </xsd:restriction>
+                                                                     </xsd:simpleType>
+                                                                  </xsd:element>
+                                                               </xsd:choice>
+                                                               <xsd:choice maxOccurs="1">
+                                                                  <xsd:element name="DHW04_WaterHeaterType" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW01_InstalledSameAsCC == true
+If DHW04cc_WaterHeaterType IsPresent
+result = DHW04cc_WaterHeaterType
+Else If DHW01_InstalledSameAsCC == false
+User input
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="displayterm">
+                                                                           <dtyp:displayterm value="StorageCommercial">Gas Storage Water Heater</dtyp:displayterm>
+                                                                           <dtyp:displayterm value="InstantaneousCommercial">Gas Instantaneous Water Heater</dtyp:displayterm>
+                                                                           <dtyp:displayterm value="StorageCommercialElectric">Electric Storage Water Heater</dtyp:displayterm>
+                                                                           <dtyp:displayterm value="BoilerCommercialGT300kBtu">Commercial Package Gas Hot Water Supply Boilers (300k-2.5MM Btu/h)</dtyp:displayterm>
+                                                                        </xsd:appinfo>
+                                                                        
+                                                                     </xsd:annotation>
+                                                                     <xsd:simpleType>
+                                                                        <xsd:restriction base="hvac:WaterHeaterType">
+                                                                           <xsd:enumeration value="BoilerCommercialGTE1MMBtu"/>
+                                                                           <xsd:enumeration value="BoilerResDutyCommercial"/>
+                                                                           <xsd:enumeration value="BoilerWaterHeater"/>
+                                                                           <xsd:enumeration value="CentralHeatPumpWH"/>
+                                                                           <xsd:enumeration value="IndirectDHW"/>
+                                                                           <xsd:enumeration value="InstantaneousCommercial"/>
+                                                                           <xsd:enumeration value="InstantaneousConsumer"/>
+                                                                           <xsd:enumeration value="InstantaneousConsumerElectric"/>
+                                                                           <xsd:enumeration value="InstantaneousResDutyCommercial"/>
+                                                                           <xsd:enumeration value="StorageCommercial"/>
+                                                                           <xsd:enumeration value="StorageCommercialElectric"/>
+                                                                           <xsd:enumeration value="StorageConsumer"/>
+                                                                           <xsd:enumeration value="StorageConsumerElectric"/>
+                                                                           <xsd:enumeration value="StorageResDutyCommercial"/>
+                                                                           <xsd:enumeration value="TableTopElectric"/>
+                                                                        </xsd:restriction>
+                                                                     </xsd:simpleType>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW04_DwellingUnitWaterHeater" type="hvac:DwellingUnitWaterHeater" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW01_InstalledSameAsCC == true
+If DHW04cc_DwellingUnitWaterHeater  IsPresent
+result = DHW04cc_DwellingUnitWaterHeater
+Else If DHW01_InstalledSameAsCC == false
+User input
+End If
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW04_TankCategory" type="hvac:TankCategory" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW01_InstalledSameAsCC == true
+If DHW04cc_TankCategory IsPresent
+result = DHW04cc_TankCategory
+Else If DHW01_InstalledSameAsCC == false
+User input
+End If
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW04_NotApplicableMessage" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW04cc_NotApplicableMessage IsPresent
+If DHW01_InstalledSameAsCC == true
+result = DHW04cc_NotApplicableMessage 
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                     <xsd:simpleType>
+                                                                        <xsd:restriction base="comp:NotApplicableMessage">
+                                                                           <xsd:enumeration value="BlankGrayedOut"/>
+                                                                        </xsd:restriction>
+                                                                     </xsd:simpleType>
+                                                                  </xsd:element>
+                                                               </xsd:choice>
+                                                               <xsd:choice maxOccurs="1">
+                                                                  <xsd:element name="DHW05cc_WaterHeaterVolume" type="hvac:WaterHeaterVolume" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Volume (gal)</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F09_WaterHeaterVolume IsPresent 
+result = F09_WaterHeaterVolume
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="copy">F09_WaterHeaterVolume</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW05cc_WaterHeaterTankVolume" type="hvac:WaterHeaterTankVolume" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Volume (gal)</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F09_WaterHeaterTankVolume IsPresent 
+result = F09_WaterHeaterTankVolume
+End If 
+Else If CC-PRF parent
+If Water05_StorageCapacity IsPresent
+result = Water05_StorageCapacity
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="copy">F09_WaterHeaterTankVolume</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water05_StorageCapacity</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW05cc_NotApplicableMessage" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Volume (gal)</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F09_NotApplicableMessage IsPresent
+result = F00_NotApplicableMessage
+End If 
+Else If CC-PRF parent
+If Water05_NotApplicableMessage IsPresent
+result = BlankGrayedOut
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="copy">F09_NotApplicableMessage</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water05_NotApplicableMessage</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                     <xsd:simpleType>
+                                                                        <xsd:restriction base="comp:NotApplicableMessage">
+                                                                           <xsd:enumeration value="BlankGrayedOut"/>
+                                                                        </xsd:restriction>
+                                                                     </xsd:simpleType>
+                                                                  </xsd:element>
+                                                               </xsd:choice>
+                                                               <xsd:choice maxOccurs="1">
+                                                                  <xsd:element name="DHW05_WaterHeaterVolume" type="hvac:WaterHeaterVolume" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Volume (gal)</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW01_InstalledSameAsCC == true
+If DHW05cc_WaterHeaterVolume IsPresent 
+result = DHW05cc_WaterHeaterVolume
+Else If DHW01_InstalledSameAsCC == false
+User input
+End If 
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW05_WaterHeaterTankVolume" type="hvac:WaterHeaterTankVolume" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Volume (gal)</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW01_InstalledSameAsCC == true
+If DHW05cc_WaterHeaterTankVolume IsPresent 
+result = DHW05cc_WaterHeaterTankVolume
+Else If DHW01_InstalledSameAsCC == false
+User input
+End If 
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW05_NotApplicableMessage" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Volume (gal)</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW05cc_NotApplicableMessage IsPresent
+If DHW01_InstalledSameAsCC == true
+result = DHW05cc_NotApplicableMessage
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                     <xsd:simpleType>
+                                                                        <xsd:restriction base="comp:NotApplicableMessage">
+                                                                           <xsd:enumeration value="BlankGrayedOut"/>
+                                                                        </xsd:restriction>
+                                                                     </xsd:simpleType>
+                                                                  </xsd:element>
+                                                               </xsd:choice>
+                                                               <xsd:choice maxOccurs="1">
+                                                                  <xsd:element name="DHW06cc_WaterHeaterCapacityRated" type="hvac:WaterHeaterCapacityRated" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Rated Input Capacity (Btu/h)</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F10a_WaterHeaterCapacityRated IsPresent
+result = F10a_WaterHeaterCapacityRated
+End If
+End If
+Else If NRCC-PRF
+If Water06_WaterHeaterGasRatedInput IsPresent
+result = Water06_WaterHeaterGasRatedInput
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="copy">F10a_WaterHeaterCapacityRated</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water06_WaterHeaterGasRatedInput</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW06cc_WaterHeaterElectricFiredRatedInput" type="hvac:WaterHeaterElectricFiredRatedInput" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Rated Input Capacity (kW)</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PRF
+If Water06_WaterHeaterElectricFiredRatedInput IsPresent
+result = Water06_WaterHeaterElectricFiredRatedInput
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water06_WaterHeaterElectricFiredRatedInput</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW06cc_NotApplicableMessage" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Rated Input Capacity (Btu/h)</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F10a_NotApplicableMessage IsPresent
+result = F10a_NotApplicableMessage
+End If
+Else If CC-PRF
+If Water06_NotApplicableMessage IsPresent
+result = Water06_NotApplicableMessage
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="copy">F10_NotApplicableMessage</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water06_NotApplicableMessage</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                     <xsd:simpleType>
+                                                                        <xsd:restriction base="comp:NotApplicableMessage">
+                                                                           <xsd:enumeration value="BlankGrayedOut"/>
+                                                                        </xsd:restriction>
+                                                                     </xsd:simpleType>
+                                                                  </xsd:element>
+                                                               </xsd:choice>
+                                                               <xsd:choice maxOccurs="1">
+                                                                  <xsd:element name="DHW06_WaterHeaterCapacityRated" type="hvac:WaterHeaterCapacityRated" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Rated Input Capacity (Btu/h)</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW01_InstalledSameAsCC == true
+If DHW06cc_WaterHeaterCapacityRated IsPresent 
+result = DHW06cc_WaterHeaterCapacityRated
+Else If DHW01_InstalledSameAsCC == false
+User input
+End If 
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW06_WaterHeaterElectricFiredRatedInput" type="hvac:WaterHeaterElectricFiredRatedInput" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Rated Input Capacity (kW)</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW01_InstalledSameAsCC == true
+If DHW06cc_WaterHeaterElectricFiredRatedInput IsPresent
+result = DHW06cc_WaterHeaterElectricFiredRatedInput
+Else If DHW01_InstalledSameAsCC == false
+User input
+End If
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW06_NotApplicableMessage" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Rated Input Capacity (Btu/h)</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW06cc_NotApplicableMessage IsPresent
+If DHW01_InstalledSameAsCC == true
+result = DHW06cc_NotApplicableMessage
+End If
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                     <xsd:simpleType>
+                                                                        <xsd:restriction base="comp:NotApplicableMessage">
+                                                                           <xsd:enumeration value="BlankGrayedOut"/>
+                                                                        </xsd:restriction>
+                                                                     </xsd:simpleType>
+                                                                  </xsd:element>
+                                                               </xsd:choice>
+                                                               <xsd:choice maxOccurs="1">
+                                                                  <xsd:element name="DHW07cc_WaterHeaterRatedInputUnits" type="hvac:WaterHeaterRatedInputUnits" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Capacity Units</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = BtuHr
+Else If CC-PRF parent
+If Water07_WaterHeaterRatedInputUnits
+ IsPresent
+result = Water07_WaterHeaterRatedInputUnits
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="value">BtuHr</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water07_WaterHeaterRatedInputUnits</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW07cc_NotApplicableMessage" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Capacity Units</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
+If Water07_NotApplicableMessage
+ IsPresent
+result =Water07_NotApplicableMessage
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water07_NotApplicableMessage</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                     <xsd:simpleType>
+                                                                        <xsd:restriction base="comp:NotApplicableMessage">
+                                                                           <xsd:enumeration value="BlankGrayedOut"/>
+                                                                        </xsd:restriction>
+                                                                     </xsd:simpleType>
+                                                                  </xsd:element>
+                                                               </xsd:choice>
+                                                               <xsd:choice maxOccurs="1">
+                                                                  <xsd:element name="DHW07_WaterHeaterRatedInputUnits" type="hvac:WaterHeaterRatedInputUnits" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Capacity Units</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW01_InstalledSameAsCC == true
+If DHW07cc_WaterHeaterRatedInputUnits IsPresent
+result = DHW07cc_WaterHeaterRatedInputUnits
+Else If DHW01_InstalledSameAsCC == false
+User input
+End If 
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW07_NotApplicableMessage" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Capacity Units</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW07cc_NotApplicableMessage IsPresent
+If DHW01_InstalledSameAsCC == true
+result = DHW07cc_NotApplicableMessage
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                     <xsd:simpleType>
+                                                                        <xsd:restriction base="comp:NotApplicableMessage">
+                                                                           <xsd:enumeration value="BlankGrayedOut"/>
+                                                                        </xsd:restriction>
+                                                                     </xsd:simpleType>
+                                                                  </xsd:element>
+                                                               </xsd:choice>
+                                                               <xsd:choice maxOccurs="1">
+                                                                  <xsd:element name="DHW08cc_ThermalEfficiency" type="hvac:ThermalEfficiency" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Rated Efficiency</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F11_ThermalEfficiency IsPresent
+result = F11_ThermalEfficiency
+Else If CC-PRF parent
+If Water08_ThermalEfficiency IsPresent
+result = Water08_ThermalEfficiency
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="copy">F11_ThermalEfficiency</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water08_ThermalEfficiency</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW08cc_EfficiencyAFUE" type="hvac:EfficiencyAFUE" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Rated Efficiency</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F11_EfficiencyAFUE IsPresent
+result = F11_EfficiencyAFUE
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="copy">F11_EfficiencyAFUE</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW08cc_EfficiencyCOP" type="hvac:EfficiencyCOP" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Rated Efficiency</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
+If Water08_EfficiencyCOP IsPresent
+result = Water08_EfficiencyCOP
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water08_EfficiencyCOP</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW08cc_EnergyFactor" type="hvac:EnergyFactor" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Rated Efficiency</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
+If Water08_EnergyFactor IsPresent
+result = Water08_EnergyFactor
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water08_EnergyFactor</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW08cc_UniformEnergyFactor" type="hvac:UniformEnergyFactor" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Rated Efficiency</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F11_UniformEnergyFactor IsPresent
+result = F05_UniformEnergyFactor
+End If
+Else If CC-PRF parent
+If Water08_UniformEnergyFactor IsPresent
+result = Water08_UniformEnergyFactor
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="copy">F11_UniformEnergyFactor</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water08_UniformEnergyFactor</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW08cc_NotApplicableMessage" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Rated Efficiency</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F11_NotApplicableMessage IsPresent
+result = F11_NotApplicableMessage
+End If
+Else  If CC-PRF parent
+If Water08_NotApplicableMessage IsPresent
+result = BlankGrayedOut
+End If
+ 
+End If
+.</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="copy">F11_NotApplicableMessage</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water08_NotApplicableMessage</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                     <xsd:simpleType>
+                                                                        <xsd:restriction base="comp:NotApplicableMessage">
+                                                                           <xsd:enumeration value="BlankGrayedOut"/>
+                                                                        </xsd:restriction>
+                                                                     </xsd:simpleType>
+                                                                  </xsd:element>
+                                                               </xsd:choice>
+                                                               <xsd:choice maxOccurs="1">
+                                                                  <xsd:element name="DHW08_ThermalEfficiency" type="hvac:ThermalEfficiency" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Rated Efficiency</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW08cc_ThermalEfficiency IsPresent
+If DHW01_InstalledSameAsCC == true
+result = DHW08cc_ThermalEfficiency
+Else
+User input
+End If
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW08_EfficiencyAFUE" type="hvac:EfficiencyAFUE" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Rated Efficiency</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW08cc_EfficiencyAFUE IsPresent
+If DHW01_InstalledSameAsCC == true
+result = DHW08cc_EfficiencyAFUE
+Else
+User input
+End If
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW08_EfficiencyCOP" type="hvac:EfficiencyCOP" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Rated Efficiency</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW08cc_EfficiencyCOP IsPresent
+If DHW01_InstalledSameAsCC == true
+result = DHW08cc_EfficiencyCOP
+Else
+User input
+End If
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW08_EnergyFactor" type="hvac:EnergyFactor" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Rated Efficiency</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW08cc_EnergyFactor IsPresent
+If DHW01_InstalledSameAsCC == true
+result = DHW08cc_EnergyFactor
+Else
+User input
+End If
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW08_UniformEnergyFactor" type="hvac:UniformEnergyFactor" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Rated Efficiency</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW08cc_UniformEnergyFactor IsPresent
+If DHW01_InstalledSameAsCC == true
+result = DHW08cc_UniformEnergyFactor
+Else
+User input
+End If
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW08_NotApplicableMessage" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Rated Efficiency</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW08cc_NotApplicableMessage IsPresent
+If DHW01_InstalledSameAsCC == true
+result = DHW08cc_NotApplicableMessage
+Else If DHW01_InstalledSameAsCC == false
+User can input value for other choices in this field
+End If
+End If
+.</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                     <xsd:simpleType>
+                                                                        <xsd:restriction base="comp:NotApplicableMessage">
+                                                                           <xsd:enumeration value="BlankGrayedOut"/>
+                                                                        </xsd:restriction>
+                                                                     </xsd:simpleType>
+                                                                  </xsd:element>
+                                                               </xsd:choice>
+                                                               <xsd:choice maxOccurs="1">
+                                                                  <xsd:element name="DHW09cc_EfficiencyType" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F13_EfficiencyType IsPresent
+result = F13_EfficiencyType
+End If
+Else If CC-PRF parent
+If Water09_EfficiencyType IsPresent
+result = Water09_EfficiencyType
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="copy">F13_EfficiencyType</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water09_EfficiencyType</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                     <xsd:simpleType>
+                                                                        <xsd:restriction base="hvac:EfficiencyType">
+                                                                           <xsd:enumeration value="AFUE"/>
+                                                                           <xsd:enumeration value="COP"/>
+                                                                           <xsd:enumeration value="EnergyFactor"/>
+                                                                           <xsd:enumeration value="NEEA"/>
+                                                                           <xsd:enumeration value="ThermalEfficiency"/>
+                                                                           <xsd:enumeration value="UniformEnergyFactor"/>
+                                                                        </xsd:restriction>
+                                                                     </xsd:simpleType>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW09cc_NotApplicableMessage" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F13_NotApplicableMessage IsPresent
+result = F13_NotApplicableMessage End If
+Else If CC-PRF parent
+If Water08_NotApplicableMessage IsPresent
+result = BlankGrayedOut
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="copy">F13_NotApplicableMessage</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water08_NotApplicableMessage</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                     <xsd:simpleType>
+                                                                        <xsd:restriction base="comp:NotApplicableMessage">
+                                                                           <xsd:enumeration value="BlankGrayedOut"/>
+                                                                        </xsd:restriction>
+                                                                     </xsd:simpleType>
+                                                                  </xsd:element>
+                                                               </xsd:choice>
+                                                               <xsd:choice maxOccurs="1">
+                                                                  <xsd:element name="DHW10cc_StandbyLoss" type="hvac:StandbyLoss" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Standby Loss</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F14_StandbyLoss IsPresent
+result = F14_StandbyLoss
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="copy">F14_StandbyLoss</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW10cc_WaterHeaterStandbyLossFraction" type="hvac:WaterHeaterStandbyLossFraction" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Standby Loss</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F14_WaterHeaterStandbyLossFraction IsPresent
+result = F14_WaterHeaterStandbyLossFraction
+End If
+Else If CC-PRF parent
+If Water11_WaterHeaterStandbyLossFraction IsPresent
+result = Water11_WaterHeaterStandbyLossFraction
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="copy">F14_WaterHeaterStandbyLossFraction</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water11_WaterHeaterStandbyLossFraction</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW10cc_NotApplicableMessage" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Standby Loss</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F14_NotApplicableMessage IsPresent
+result = F14_NotApplicableMessage
+End If
+Else If CC-PRF parent
+If Water11_NotApplicableMessage IsPresent
+result = BlankGrayedOut
+End If
+End If</xsd:documentation>
+                                                                        <xsd:appinfo source="CIsrc">
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="copy">F14_NotApplicableMessage</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water11_NotApplicableMessage</dtyp:srcSchema>
+                                                                        </xsd:appinfo>
+                                                                     </xsd:annotation>
+                                                                     <xsd:simpleType>
+                                                                        <xsd:restriction base="comp:NotApplicableMessage">
+                                                                           <xsd:enumeration value="BlankGrayedOut"/>
+                                                                        </xsd:restriction>
+                                                                     </xsd:simpleType>
+                                                                  </xsd:element>
+                                                               </xsd:choice>
+                                                               <xsd:choice maxOccurs="1">
+                                                                  <xsd:element name="DHW10_StandbyLoss" type="hvac:StandbyLoss" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Standby Loss</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW10cc_StandbyLoss IsPresent And DHW06_WaterHeaterCapacityRated IsPresent 
+If DHW04_WaterHeaterType == BoilerWaterHeater, InstantaneousCommercial, InstantaneousConsumer, StorageCommercial, StorageConsumer, StorageResDutyCommercial
+Or  DHW04_TankCategory == BoilerCommercial, Boiler, StorageCommercial, Storage 
+ 
+result = ( DHW06_WaterHeaterCapacityRated / 800) + (110 * DHW05_WaterHeaterTankVolume x 0.5)
+End If 
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW10_WaterHeaterStandbyLossFraction" type="hvac:WaterHeaterStandbyLossFraction" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Standby Loss</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW10cc_WaterHeaterStandbyLossFraction IsPresent
+If DHW04_WaterHeaterType == StorageCommercialElectric, StorageConsumerElectric
+Or If DHW06_WaterHeaterElectricFiredRatedInput IsPresent And DHW04_TankCategory == StorageCommercial Or  Storage
+ 
+result = 0.30 + (27/ DHW05_WaterHeaterTankVolume)
+End If
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                  </xsd:element>
+                                                                  <xsd:element name="DHW10_NotApplicableMessage" >
+                                                                     <xsd:annotation>
+                                                                        <xsd:documentation source="FieldText">Standby Loss</xsd:documentation>
+                                                                        <xsd:documentation source="CalculationsAndRules">If DHW10cc_NotApplicableMessage IsPresent
+result = DHW10cc_NotApplicableMessage
+End If</xsd:documentation>
+                                                                     </xsd:annotation>
+                                                                     <xsd:simpleType>
+                                                                        <xsd:restriction base="comp:NotApplicableMessage">
+                                                                           <xsd:enumeration value="BlankGrayedOut"/>
+                                                                        </xsd:restriction>
+                                                                     </xsd:simpleType>
+                                                                  </xsd:element>
+                                                               </xsd:choice>
+                                                            </xsd:sequence>
+                                                         </xsd:complexType>
+                                                      </xsd:element>
+                                                   </xsd:choice>
+                                                </xsd:complexType>
+                                             </xsd:element>
+                                             <xsd:element name="DHW11_ComplianceResultCI" type="comp:ComplianceResultCI" >
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">DHW Equipment Compliance</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">If any user input field is blank
+result = TableIncomplete  
+ Else If DHW01_InMyScope == false 
+result = NotInScope
+ 
+Else If   
+DHW04_WaterHeaterType IsPresent And != DHW04cc_WaterHeaterType 
+Or DHW04_TankCategory IsPresent And  != DHW04cc_TankCategory
+ 
+Or
+(
+DHW08_EfficiencyAFUE IsPresent And DHW08_EfficiencyAFUE LT DHW08cc_EfficiencyAFUE Or 
+DHW08_EfficiencyCOP IsPresent And DHW08_EfficiencyCOP LT DHW08cc_EfficiencyCOP Or 
+DHW08_ThermalEfficiency IsPresent And DHW08_ThermalEfficiency LT DHW08cc_ThermalEfficiency Or
+DHW08_UniformEnergyFactor IsPresent And DHW08_UniformEnergyFactor LT DHW08cc_UniformEnergyFactor Or
+DHW08_EnergyFactor IsPresent And DHW08_EnergyFactor LT DHW08cc_EnergyFactor
+)
+Or
+(
+DHW10_StandbyLoss IsPresent And DHW10_StandbyLoss GT DHW10cc_StandbyLoss Or
+DHW10_WaterHeaterStandbyLossFraction IsPresent And DHW10_WaterHeaterStandbyLossFraction GT DHW10cc_WaterHeaterStandbyLossFraction
+)
+result = MayNotComply
+ 
+Else 
+If DHW04_WaterHeaterType IsPresent And == DHW04cc_WaterHeaterType 
+Or DHW04_TankCategory IsPresent And  == DHW04cc_TankCategory
+ 
+And 
+(
+DHW04_NotApplicableMessage IsPresent Or 
+DHW04_WaterHeaterType IsPresent and DHW04_WaterHeaterType == DHW04cc_WaterHeaterType Or 
+DHW04_TankCategory IsPresent And DHW04_TankCategory == DHW04cc_TankCategory
+)
+And
+(
+DHW05_NotApplicableMessage IsPresent Or
+DHW05_WaterHeaterVolume IsPresent And DHW05_WaterHeaterVolume == DHW05cc_WaterHeaterVolume Or
+DHW05_WaterHeaterTankVolume IsPresent And DHW05_WaterHeaterTankVolume == DHW05cc_WaterHeaterTankVolume
+)
+And 
+(
+DHW06_NotApplicableMessage IsPresent Or
+DHW06_WaterHeaterCapacityRated IsPresent And DHW06_WaterHeaterCapacityRated == DHW06cc_WaterHeaterCapacityRated Or
+DHW06_WaterHeaterElectricFiredRatedInput IsPresent And DHW06_WaterHeaterElectricFiredRatedInput == DHW06cc_WaterHeaterElectricFiredRatedInput
+)
+And 
+DHW07_NotApplicableMessage IsPresent Or DHW07_WaterHeaterRatedInputUnits == DHW07cc_WaterHeaterRatedInputUnits
+And 
+(
+DHW08_NotApplicableMessage IsPresent Or 
+DHW08_EfficiencyAFUE IsPresent And DHW08_EfficiencyAFUE == DHW08cc_EfficiencyAFUE Or 
+DHW08_EfficiencyCOP IsPresent And DHW08_EfficiencyCOP == DHW08cc_EfficiencyCOP Or 
+DHW08_ThermalEfficiency IsPresent And DHW08_ThermalEfficiency == DHW08cc_ThermalEfficiency Or
+DHW08_UniformEnergyFactor IsPresent And DHW08_UniformEnergyFactor == DHW08cc_UniformEnergyFactor Or
+DHW08_EnergyFactor IsPresent And DHW08_EnergyFactor == DHW08cc_EnergyFactor
+)
+And 
+(
+DHW10_NotApplicableMessage IsPresent Or
+DHW10_StandbyLoss IsPresent And DHW10_StandbyLoss == DHW10cc_StandbyLoss Or
+DHW10_WaterHeaterStandbyLossFraction IsPresent And DHW10_WaterHeaterStandbyLossFraction == DHW10cc_WaterHeaterStandbyLossFraction
+)
+result = ExactMatch
+ 
+Else If 
+DHW08_EfficiencyAFUE IsPresent And DHW08_EfficiencyAFUE GTE DHW08cc_EfficiencyAFUE Or 
+DHW08_EfficiencyCOP IsPresent And DHW08_EfficiencyCOP GTE DHW08cc_EfficiencyCOP Or 
+DHW08_ThermalEfficiency IsPresent And DHW08_ThermalEfficiency GTE DHW08cc_ThermalEfficiency Or
+DHW08_UniformEnergyFactor IsPresent And DHW08_UniformEnergyFactor GTE DHW08cc_UniformEnergyFactor Or
+DHW08_EnergyFactor IsPresent And DHW08_EnergyFactor GTE DHW08cc_EnergyFactor
+)
+Or
+(
+DHW10_StandbyLoss IsPresent And DHW10_StandbyLoss LTE DHW10cc_StandbyLoss Or
+DHW10_WaterHeaterStandbyLossFraction IsPresent And DHW10_WaterHeaterStandbyLossFraction LTE DHW10cc_WaterHeaterStandbyLossFraction
+)
+result = EqualBetter
+End If</xsd:documentation>
+                                                </xsd:annotation>
+                                             </xsd:element>
+                                          </xsd:sequence>
+                                       </xsd:complexType>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="DHWreq" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">[d:b]Domestic Hot Water Equipment Additional Requirements[/d:b]</xsd:documentation>
+                              </xsd:annotation>
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="DHWreqBeginNote" minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">[d:i]The following requirements have been included on the permitted Certificate of Compliance to comply with Title 24, Part 6.  Installed equipment shall meet these requirements or the Certificate of Compliance shall be modified to demonstrate compliance.  [/d:i]</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="DHWreq01cc_NewUnitGasWaterHeater" type="comp:NewUnitGasWaterHeater" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">[d:b](Applies to New Construction only)[/d:b][d:line1/] For gas or propane water heaters serving individual dwelling units, the follow components are included in the design per [d:t24refnolink/]150.0(n)1: [d:l t="*"][d:list] Dedicated 125V, 20 amp electrical receptacle that is connected to the panel with a 120/240V 3 conductor, 10 AWG copper branch circuit within 3ft from the water heater that's accessible and with both ends of the unused conductor labeled with the word "spare" and be electrically isolated.  A single pole circuit breaker space in the panel adjacent to the circuit breaker for the branch circuit is provided labeled with the word "future 240V use"; and [/d:list][d:list] Category III or IV vent, or Type B vent with straight pipe between the outside termination and where the water heater is installed; and [/d:list][d:list]Condensate drain that is no more than 2in higher than the base of the water heater and drains without pump assistance; and [[/d:list][d:list]Gas supply line with a capacity of at least 200,000 BTUH[/d:list][/d:l]</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F17_NewUnitGasWaterHeater IsPresent
+result = F17_NewUnitGasWaterHeater
+End If
+Else If CC-PRF parent
+result = ReqYes
+End If
+If result == ReqYes 
+Display static text in AdditionalRequirements
+Else
+Do not display static text 
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="copy">F17_NewUnitGasWaterHeater</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="DHWreq02cc_StorageTankInsulation" type="comp:StorageTankInsulation" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">Unfired storage tank insulation shall have Internal + External [d:gte/]R-16 OR External [d:gte/]R-12. Label required per [d:t24refnolink/]110.3(c)3</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F18_StorageTankInsulation IsPresent
+result = F18_StorageTankInsulation
+End If
+Else If CC-PRF parent
+result = ReqYes
+End If
+ 
+End If
+If result == ReqYes 
+Display static text in AdditionalRequirements
+Else
+Do not display static text 
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="copy">F18_StorageTankInsulation</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="DHWreq03cc_StateBuildingWaterHeatingEnergy" type="comp:StateBuildingWaterHeatingEnergy" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">[d:b](Applies to new state buildings only)[/d:b][d:line1/] 60% of energy for service water heating from site solar energy or recovered energy per Title 24, Part 6 [d:t24refnolink/]110.3(c)5</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F19_StateBuildingWaterHeatingEnergy IsPresent
+result = F19_StateBuildingWaterHeatingEnergy
+End If
+Else If CC-PRF parent
+result = ReqYes
+End If
+End If
+If result == ReqYes 
+Display static text in AdditionalRequirements
+Else
+Do not display static text 
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="copy">F19_StateBuildingWaterHeatingEnergy</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="DHWreq04cc_InstantaneousIsolationValves" type="comp:InstantaneousIsolationValves" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">Isolation valves for instantaneous water heater with input rating [d:gt/]6.8 kBTUH or 2 kW has been specified per [d:t24refnolink/]110.3(c)6</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If F20_InstantaneousIsolationValves
+IsPresent
+result = F20_InstantaneousIsolationValves
+End If
+Else If CC-PRF parent
+result = ReqYes
+ 
+End If
+If result == ReqYes 
+Display static text in AdditionalRequirements
+Else
+Do not display static text 
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="copy">F20_InstantaneousIsolationValves</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="Dist" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b]Domestic Hot Water Distribution Requirements[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required if  B02_ProjectHasDistribution == true</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Dist_BeginNote1" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">[d:i]The following requirements have been included on the permitted Certificate of Compliance to comply with Title 24, Part 6.  Installed equipment shall meet these requirements or the Certificate of Compliance shall be modified to demonstrate compliance. [/d:i]</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="DistRecircLoops" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">[d:b]Recirculation Loops in Central Systems Serving Dwelling Units or Nonresidential Spaces [/d:b]</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">This subsection is required and displayed If CC-PRF parent Or If CC-PLB parent And any row in this subsection has result == ReqYes</xsd:documentation>
+                              </xsd:annotation>
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="Dist01cc_AirReleaseValve" type="comp:AirReleaseValve" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">Automatic Air release valve no more that 4 feet from pump or vertical pump installation</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = G01_AirReleaseValve
+Else If CC-PRF parent
+result == ReqYes
+End If
+If  result == ReqYes, 
+Display static text in AdditionalRequirements 
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="copy">G01_AirReleaseValve</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqYes</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Dist02cc_BackflowCheckValve" type="comp:BackflowCheckValve" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">Check valve or similar located between recirculation pump and water heating equipment to prevent backflow</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = G02_BackflowCheckValve
+Else If CC-PRF parent
+result == ReqYes
+End If
+If  result == ReqYes, 
+Display static text in AdditionalRequirements 
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="copy">G02_BackflowCheckValve</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqYes</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Dist03cc_HoseBibb" type="comp:HoseBibb" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">Hose bibb installed between pump and equipment and isolation valve between hose bibb and equipment</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = G03_HoseBibb
+Else If CC-PRF parent
+result == ReqYes
+End If
+If  result == ReqYes, 
+Display static text in AdditionalRequirements 
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="copy">G03_HoseBibb</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqYes</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Dist04cc_IsolationValves" type="comp:IsolationValves" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">Isolation valves on both sides of the pump</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = G04_IsolationValves
+Else If CC-PRF parent
+result == ReqYes
+End If
+If  result == ReqYes, 
+Display static text in AdditionalRequirements 
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="copy">G04_IsolationValves</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqYes</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Dist05cc_TankDrainPort" type="comp:TankDrainPort" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">Cold water and recirculation loop piping is not connected to the hot water storage tank drain port</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = G05_TankDrainPort
+Else If CC-PRF parent
+result == ReqYes
+End If
+If  result == ReqYes, 
+Display static text in AdditionalRequirements 
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="copy">G05_TankDrainPort</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqYes</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Dist06cc_ColdWaterCheckValve" type="comp:ColdWaterCheckValve" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">Check valve installed on cold water supply between hot water system and next closest tee on cold water supply</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = G06_ColdWaterCheckValve
+Else If CC-PRF parent
+result == ReqYes
+End If
+If  result == ReqYes, 
+Display static text in AdditionalRequirements 
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="copy">G06_ColdWaterCheckValve</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqYes</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Dist07cc_RecircLoopCount" type="comp:RecircLoopCount" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:  For central systems serving multiple dwelling units, design includes recirculation system serving separate dwelling units per [d:t24refnolink/]170.2(d) unless building has [d:lte/]8 dwelling units.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = G07_RecircLoopCount
+Else If CC-PRF parent
+result == ReqYes
+End If
+If  result == ReqYes, 
+Display static text in AdditionalRequirements 
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="copy">G07_RecircLoopCount</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqYes</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Dist07acc_RecircLoopHP" type="comp:RecircLoopHP" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:  For heat pump water heating systems, the hot water return from the recirculation loop shall connect to a recirculation loop tank and shall not directly connect to the primary heat pump water heater inlet or the primary thermal storage tanks per [d:t24refnolink/]170.2(d)2A</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = G08_RecircLoopHP
+Else If CC-PRF parent
+result == ReqYes
+End If
+If  result == ReqYes, 
+Display static text in AdditionalRequirements 
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="copy">G08_RecircLoopHP</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqYes</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Dist07bcc_RecircFuelHP" type="comp:RecircFuelHP" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:  For heat pump water heating systems, the fuel source for the recirculation loop tank shall be electricity if auxiliary heating is needed. The recirculation loop heater shall be capable of multi-pass water heating operation per [d:t24refnolink/]170.2(d)2B.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = G09_RecircFuelHP
+Else If CC-PRF parent
+result == ReqYes
+End If
+If  result == ReqYes, 
+Display static text in AdditionalRequirements 
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="copy">G09_RecircFuelHP</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqYes</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="DistUnits" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">[d:b]Distribution of Individual System(s) Serving Dwelling Units[/d:b]</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">This subsection is required and displayed If CC-PRF parent Or 
+If CC-PLB parent And (Dist08a_UfactorDistRequirement == ReqUfactorCompact Or Dist08b_UfactorDistRequirement == ReqUfactorDWHR)
+Or  
+Dist09_HeatPumpDistRequirement == ReqHeatPumpCompactDWHR
+Or
+Dist10_NEEA_DistRequirement == ReqNEEA_Compact</xsd:documentation>
+                              </xsd:annotation>
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="Dist08Note" minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">Single 240 volt heat pump water heaters serving dwelling units must also include systems with:</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="Dist08acc_HeatPumpDistRequirement" type="comp:HeatPumpDistRequirement" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText"></xsd:documentation>
+                                             <xsd:documentation source="AdditionalRequirements">Compact hot water distribution system as specified in  Reference Appendix RA4.4.16 in climate zone 1 &amp; 16; AND</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result == G10_HeatPumpDistRequirement
+ 
+Else If CC-PRF parent
+result ==ReqHeatPumpCompact
+End If
+If  result == ReqHeatPumpCompact Or ReqHeatPumpCompactDWHR
+static text in AdditionalRequirements is displayed
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCPLB01E"  usage="copy">G10_HeatPumpDistRequirement</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqHeatPumpCompact</dtyp:srcSchema>
+                                             </xsd:appinfo>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="Dist08bcc_HeatPumpDistRequirement" type="comp:HeatPumpDistRequirement" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText"></xsd:documentation>
+                                             <xsd:documentation source="AdditionalRequirements">A drain water heat recovery system that is field verified by a HERS rater per Reference Appendix RA3.6.9.in climate zone 16</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
+result == G10_HeatPumpDistRequirement
+End I
+Else If NRCC-PRF parent
+result == ReqHeatPumpDWHR
+End If
+ 
+If  result == ReqHeatPumpDWHR Or  ReqHeatPumpCompactDWHR  static text in AdditionalRequirements is displayed
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                             <xsd:appinfo source="CIsrc">
+                                                <dtyp:srcSchema form="CCPLB01E"  usage="reference">G10_HeatPumpDistRequirement</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqHeatPumpDWHR</dtyp:srcSchema>
+                                             </xsd:appinfo>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="Dist09cc_IndividualSysDistRequirement" type="comp:IndividualSysDistRequirement" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">A drain water heat recovery system that is field verified by a HERS Rater per Reference Appendix RA3.6.9 in climate zone 16.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
+result = G11_IndividualSysDistRequirement
+Else If NRCC-PRF parent
+result == ReqDWHRCZ16
+End If
+ 
+If  result == ReqDWHRCZ16 
+static text in AdditionalRequirements is displayed
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="copy">G11_IndividualSysDistRequirement</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqDWHRCZ16</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Dist10cc_IndividualSysDistRequirement" type="comp:IndividualSysDistRequirement" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">For recirculation distribution systems serving individual dwelling units, only Demand Recirculation Systems with manual on/off control as specified in the Reference Appendix RA4.4.9 shall be used.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
+result =G12_IndividualSysDistRequirement
+Else If NRCC-PRF parent
+result == ReqDemandRecircEnd If
+ 
+If  result ==ReqDemandRecirc, static text in AdditionalRequirements is displayed
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="copy">G12_IndividualSysDistRequirement</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqDemandRecirc</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                           <xsd:element name="DistMandatory" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">[d:b]Mandatory Pipe Insulation Requirements[/d:b]</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Dist11_DwellingUnitsPipeInsulationComplies" type="comp:DwellingUnitsPipeInsulationComplies" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">For systems serving dwelling units and common areas, pipe insulation must meet the minimum insulation requirements in Table 160.4-A (see below) except: [d:l t="*"][d:list]  Piping that penetrates framing members shall not be required to have pipe insulation for the distance of the framing penetration. Piping that penetrates metal framing shall use grommets, plugs, wrapping or other insulating material to assure that no contact is made with the metal framing. Insulation shall abut securely against all framing members [/d:list][d:list]  Piping installed in interior or exterior walls shall not be required to have pipe insulation if all of the requirements are met for compliance with Quality Insulation Installation (QII) as specified in the Reference Residential Appendix RA3.5. [/d:list][d:list] Piping surrounded with a minimum of 1 inch of wall insulation, 2 inches of crawlspace insulation, or 4 inches of attic insulation, shall not be required to have pipe insulation.[/d:list][/d:l]</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If G13_DwellingUnitsPipeInsulationComplies IsPresent
+result = G13_DwellingUnitsPipeInsulationComplies
+Else If G13_NotApplicableMessage IsPresent
+result = false
+Else If CC-PRF parent
+result = true
+End If
+ 
+If result == true
+static text in AdditionalRequirements is displayed
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                 <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E"  usage="copy">G13_DwellingUnitsPipeInsulationComplies</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPLB01E"  usage="reference">G13_NotApplicableMessage</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E"  usage="value">true</dtyp:srcSchema>
+                                 </xsd:appinfo>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Dist12_NonresPipeInsulationComplies" type="comp:NonresPipeInsulationComplies" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">For systems serving nonresidential spaces, pipe insulation for the following applications must comply with the following: [d:l t="*"][d:list] Recirculating system piping, including supply and return piping of the water heater [/d:list][d:list] The first 8 ft of hot and cold outlet piping, including between storage tank and heat trap, for a nonrecirculating storage system [/d:list][d:list] Pipes that are externally heated [/d:list][/d:l]</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If G14_NonresPipeInsulationComplies IsPresent
+result = G14_NonresPipeInsulationComplies
+Else If G14_NotApplicableMessage IsPresent
+result = false
+Else If CC-PRF parent
+result = true
+End If
+ 
+If result == true
+static text in AdditionalRequirements is displayed
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                 <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E"  usage="copy">G14_NonresPipeInsulationComplies</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPLB01E"  usage="reference">G14_NotApplicableMessage</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E"  usage="value">true</dtyp:srcSchema>
+                                 </xsd:appinfo>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Dist13_PipeInsulationProtectionComplies" type="comp:PipeInsulationProtectionComplies" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Insulation shall be protected from damage, including that due to sunlight, moisture, equipment maintenance, and wind. Insulation exposed to weather shall be installed with a cover suitable for outdoor service per  [d:t24refnolink/]120.3(b)/  [d:t24refnolink/]160.4(f). Pipe insulation buried below grade must be installed in a water proof and non-crushable casing or sleeve.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+If G15_PipeInsulationProtectionComplies IsPresent
+result = G15_PipeInsulationProtectionComplies
+Else If G15_NotApplicableMessage IsPresent
+result = false
+Else If CC-PRF parent
+result = true
+End If
+ 
+If result == true
+static text in AdditionalRequirements is displayed
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                 <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E"  usage="copy">G15_PipeInsulationProtectionComplies</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPLB01E"  usage="reference">G15_NotApplicableMessage</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E"  usage="value">true</dtyp:srcSchema>
+                                 </xsd:appinfo>
+                              </xsd:annotation>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="Gpit" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b]TABLE 120.3-A / 160.4-A PIPE INSULATION THICKNESS[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is displayed but no data is required in the XML file as all fields have only one value allowed for display purposes</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Gpit01_PipeFluidTempRange" type="hvac:PipeFluidTempRange"  minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Fluid Temperature Range ([d:deg/]F)</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">This is a static field not required in the XML data but if displayed should always display the restricted value display term 105-140</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Gpit02_PipeThermalConductivity" type="hvac:PipeThermalConductivity"  minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Conductivity Range (Btu-in per hour per ft[d:sup]2[/d:sup] per [d:deg/]F)</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">This is a static field not required in the XML data but if displayed should always display the restricted value display term 0.22 - 0.28</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Gpit03_PipeInsMeanRatingTemp" type="hvac:PipeInsMeanRatingTemp"  minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Insulation Mean Rating Temp  ([d:deg/]F)</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">This is a static field not required in the XML data but if displayed should always display the fixed value of 100</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Gpit04aTo06aLabel" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Nominal Pipe Diameter (in)</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Gpit04bTo06bLabel" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Minimum Insulation Required</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Gpit04a_PipeNominalDiameter" type="hvac:PipeNominalDiameter"  minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Nominal Pipe Diameter (in)</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">This is a static field not required in the XML data but if displayed should always display the restricted value display term [d:lt/]1</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Gpit04b_PipeInsInchRvalueMin" type="hvac:PipeInsInchRvalueMin"  minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Minimum Insulation Required</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">This is a static field not required in the XML data but if displayed should always display the restricted value display term 1.0 in or R-7.7</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Gpit05a_PipeNominalDiameter" type="hvac:PipeNominalDiameter"  minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Nominal Pipe Diameter (in)</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">This is a static field not required in the XML data but if displayed should always display the restricted value display term 1 to [d:lt/]1.5</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Gpit05b_PipeInsInchRvalueMin" type="hvac:PipeInsInchRvalueMin"  minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Minimum Insulation Required</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">This is a static field not required in the XML data but if displayed should always display the restricted value display term 1.5 in or R-12.5</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Gpit06a_PipeNominalDiameter" type="hvac:PipeNominalDiameter"  minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Nominal Pipe Diameter (in)</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">This is a static field not required in the XML data but if displayed should always display the restricted value display term 1.5 to [d:lt/]4</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Gpit06b_PipeInsInchRvalueMin" type="hvac:PipeInsInchRvalueMin"  minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Minimum Insulation Required</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">This is a static field not required in the XML data but if displayed should always display the restricted value display term 1.5 in or R-11</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Gpit07a_PipeNominalDiameter" type="hvac:PipeNominalDiameter"  minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Nominal Pipe Diameter (in)</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">This is a static field not required in the XML data but if displayed should always display the restricted value display term 1.5 to [d:lt/]4 Multifamily &amp; Hotel/Motel</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Gpit07b_PipeInsInchRvalueMin" type="hvac:PipeInsInchRvalueMin"  minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText">Minimum Insulation Required</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">This is a static field not required in the XML data but if displayed should always display the restricted value display term 2 in or R-16</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="Ctrl" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b]Domestic Hot Water System Controls[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required if B03_ProjectHasControls == true</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Ctrl_BeginNote1" minOccurs="0">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">[d:i]The following requirements have been included on the permitted Certificate of Compliance to comply with Title 24, Part 6.  Installed equipment shall meet these requirements or the Certificate of Compliance shall be modified to demonstrate compliance. [/d:i]</xsd:documentation>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Ctrl01cc_TempControlsCertification" type="comp:TempControlsCertification" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Manufacturers must certify that service water-heating systems shall be equipped with automatic temperature controls capable of adjustment from the lowest to the highest acceptable temperature settings for the intended use as listed in Table 3, Chapter 50 of the ASHRAE Handbook, HVAC Applications Volume or Table 613.1 of the California Plumbing Code for healthcare facilities.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = H01_TempControlsCertification
+Else If CC-PRF parent
+result == ReqYes
+End If
+If  result == ReqYes, 
+Display static text in AdditionalRequirements 
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                 <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E"  usage="copy">H01_TempControlsCertification</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqYes</dtyp:srcSchema>
+                                 </xsd:appinfo>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Ctrl02cc_OutletTempControls" type="comp:OutletTempControls" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">On systems that have a total capacity greater than 167,000 Btu/hr, outlets that require higher than service water temperatures as listed- in the ASHRAE Handbook, Applications Volume, shall have separate remote heaters, heat exchangers, or boosters to supply the outlet with the higher temperature unless covered by California Plumbing Code Section 613.0.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result == H02_OutletTempControls
+Else If CC-PRF parent
+result == ReqYes
+End If
+If  result == ReqYes, 
+Display static text in AdditionalRequirements 
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                 <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E"  usage="copy">H02_OutletTempControls</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqYes</dtyp:srcSchema>
+                                 </xsd:appinfo>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Ctrl03cc_CirculatingPumpControls" type="comp:CirculatingPumpControls" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Controls for circulating pumps or electrical heat trace systems are capable of automatically turning off the system unless system serves healthcare facility.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = H03_CirculatingPumpControls
+Else If CC-PRF parent
+result == ReqYes
+End If
+If  result == ReqYes, 
+Display static text in AdditionalRequirements 
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                 <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E"  usage="copy">H03_CirculatingPumpControls</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqYes</dtyp:srcSchema>
+                                 </xsd:appinfo>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Ctrl04cc_MultipleUnitsPumpControls" type="comp:MultipleUnitsPumpControls" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">For recirculation systems serving multiple dwelling units, design includes automatic pump controls per [d:t24refnolink/]170.2(d) or [d:t24refnolink/]180.1(b)3 for additions.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = H04_MultipleUnitsPumpControls
+Else If CC-PRF parent
+result == ReqYes
+End If
+If  result == ReqYes, 
+Display static text in AdditionalRequirements 
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                 <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E"  usage="copy">H04_MultipleUnitsPumpControls</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqYes</dtyp:srcSchema>
+                                 </xsd:appinfo>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Ctrl05cc_SingleUnitOnOffControls" type="comp:SingleUnitOnOffControls" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">For recirculation systems serving individual dwelling units, design includes manual on/off controls as specified in Title 24, Part 6 Reference Appendix RA 4.4.9 per [d:t24refnolink/]170.2(d)</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = H05_SingleUnitOnOffControls
+Else If CC-PRF parent
+result == ReqYes
+End If
+If  result == ReqYes, 
+Display static text in AdditionalRequirements 
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                 <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E"  usage="copy">H05_SingleUnitOnOffControls</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqYes</dtyp:srcSchema>
+                                 </xsd:appinfo>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Ctrl06cc_BoilerAirShutOffReq" type="comp:BoilerAirShutOffReq" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Combustion air positive shut-off shall be provided per  [d:t24refnolink/]160.4(3).on all newly installed commercial boilers as follows: [d:l t="*"][d:list] Boilers with input capacity [d:gte/] 2.5 MMBtu/h, in which the boiler is designed to operate with a nonpositive vent static pressure [/d:list][d:list]Boilers where one stack serves two or more boilers with a total combined input capacity per stack of 2.5 MMBtu/h.[/d:list][/d:l]</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = H06_BoilerAirShutOffReq
+Else If CC-PRF parent
+result == ReqYes
+End If
+If  result == ReqYes, 
+Display static text in AdditionalRequirements 
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                 <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E"  usage="copy">H06_BoilerAirShutOffReq</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqYes</dtyp:srcSchema>
+                                 </xsd:appinfo>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Ctrl07cc_BoilerFanMotorReq" type="comp:BoilerFanMotorReq" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Boiler combustion air fans with motor [d:gte/] 10 hp shall meet one of the following [d:l t="*"][d:list]  The fan motor shall be driven by a variable speed drive OR [/d:list][d:list] The fan motor shall include controls that limit the fan motor demand to [d:lte/]30% of the total design wattage at 50% of the design air volume.[/d:list][/d:l]</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = H07_BoilerFanMotorReq
+Else If CC-PRF parent
+result == ReqYes
+End If
+If  result == ReqYes, 
+Display static text in AdditionalRequirements 
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                 <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E"  usage="copy">H07_BoilerFanMotorReq</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqYes</dtyp:srcSchema>
+                                 </xsd:appinfo>
+                              </xsd:annotation>
+                           </xsd:element>
+                           <xsd:element name="Ctrl08cc_BoilerStackGasReq" type="comp:BoilerStackGasReq" >
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Newly installed boilers with an input capacity {d:gte/] 5MMBtu/h and a steady state full-load combustion efficiency [d:lt/] 90% shall maintain excess (stack-gas) oxygen concentrations [d:lte/]  5% by volume on a dry basis over firing rates of 20-100%. Combustion air volume shall be controlled with respect to firing rate or flue gas oxygen concentration. Use of a common gas and combustion air control linkage or jack shaft is prohibited.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+result = H08_BoilerStackGasReq
+Else If CC-PRF parent
+result == ReqYes
+End If
+If  result == ReqYes, 
+Display static text in AdditionalRequirements 
+Else 
+Nothing is displayed for this field
+End If</xsd:documentation>
+                                 <xsd:appinfo source="CIsrc">
+                                    <dtyp:srcSchema form="CCPLB01E"  usage="copy">H08_BoilerStackGasReq</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCPRF01E"  usage="value">ReqYes</dtyp:srcSchema>
+                                 </xsd:appinfo>
+                              </xsd:annotation>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_G" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">[d:b]G.  ACCEPTANCE TESTS &amp; FIELD VERIFICATION[/d:b]</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Values in this section are affected by data in other sections of the document which may change the result to true and select Yes radio button.  
+ 
+If user changes a required CV value from true to false by selecting the No radio button, an explanation is required in Section E Additional Remarks And D03_ExceptionalConditionMessageCIPLBE += UserChangedNRCVSelection.
+End If</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="G_BeginNoteNoNRCANRCV" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]There are no Acceptance Tests or HERS verifications indicated on the permitted NRCC related to the systems or materials documented on this NRCI.[/d:i]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If at least one RequireNRCAxxx == true, Or at least one RequireNRCVxxx == true
+the static text in AdditionalRequirements IS NOT DISPLAYED  
+Else If All RequireNRCAxxx == false And  All RequireNRCVxxx == false
+the static text in AdditionalRequirements is the only thing displayed after the Section title.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]The following Acceptance Tests and HERS Verifications related to the systems or materials documented on this Certificate of Installation have been indicated on the permitted Certificate of Compliance as being required to comply with Title 24, Part 6. [/d:i]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G_Col1Heading" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G_Col2Heading" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Systems To Be Field Verified</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G_LabelCA" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b]Certificates of Acceptance [/d:b]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G_BeginNoteNoCA" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]There are no Certificates of Acceptance applicable to service water heating requirements. [/d:i]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G_LabelCV" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b]Certificates of Verification [/d:b]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G_NoteCV" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i] HERS verifications must be completed by a HERS Rater and Certificate of Verification forms completed through an approved HERS Provider database.  The Certificate of Verification  forms indicated below will be required by the Authority Having Jurisdiction to demonstrate compliance.  [/d:i]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G01_RequireNRCVPlb21H" type="comp:RequireNRCVPlb21H" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">NRCV-PLB-21-H High-rise Residential Central Hot Water Distribution HERS Verification</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRF parent
+result = Nrcv05_RequireNRCVPlb21H
+If result == true 
+static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
+Else
+Nothing is displayed for this NRCV 
+End If
+End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrcv05_RequireNRCVPlb21H</dtyp:srcSchema>
+                        </xsd:appinfo>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G01_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If G01_RequireNRCVPlb21H == false Or NRCC-PLB is parent 
+this field is not required and nothing is displayed
+ 
+Else If G01_RequireNRCVPlb21H  == true And NRCC-PRF is parent
+result = Nrcv05_SystemFieldVerified and it is displayed
+End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrcv05_SystemFieldVerified</dtyp:srcSchema>
+                        </xsd:appinfo>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G01_SystemsToFieldVerify" type="comp:SystemsToFieldVerify"  minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If G01_RequireNRCVPlb21H == false Or NRCC-PLB is parent 
+this field is not required and nothing is displayed
+ 
+Else If G01_RequireNRCVPlb21H  == true And NRCC-PRF is parent
+result = Nrcv05_SystemsToFieldVerify and it is displayed
+End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrcv05_SystemsToFieldVerify</dtyp:srcSchema>
+                        </xsd:appinfo>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G02_RequireNRCVPlb22H" type="comp:RequireNRCVPlb22H" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">NRCV-PLB-22-H High-rise Residential Individual Dwelling Unit Hot Water Distribution HERS Verification</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If NRCC-PRF parent
+result = Nrcv06_RequireNRCVPlb22H 
+If result == true 
+static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
+Else
+Nothing is displayed for this NRCV 
+End If
+End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrcv06_RequireNRCVPlb22H</dtyp:srcSchema>
+                        </xsd:appinfo>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G02_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If G02_RequireNRCVPlb22H == false Or NRCC-PLB is parent 
+this field is not required and nothing is displayed
+ 
+Else If G02_RequireNRCVPlb22H  == true And NRCC-PRF is parent
+result = Nrcv06_SystemFieldVerified and it is displayed
+End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrcv06_SystemFieldVerified</dtyp:srcSchema>
+                        </xsd:appinfo>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G02_SystemsToFieldVerify" type="comp:SystemsToFieldVerify"  minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If G02_RequireNRCVPlb22H == false Or NRCC-PLB is parent  
+this field is not required and nothing is displayed
+ 
+Else If G02_RequireNRCVPlb22H  == true And NRCC-MCH is parent
+result = Nrcv06_SystemsToFieldVerify and it is displayed
+End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrcv06_SystemsToFieldVerify</dtyp:srcSchema>
+                        </xsd:appinfo>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="GEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]A copy of this Certificate of Installation should be distributed to the Field Technician(s) who will perform the acceptance test(s).  Title 24, Part 6 Section 10-103(a)3F also requires this Certificate of Installation be posted or made available to the Authority Having Jurisdiction for all applicable inspections. [/d:b]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="nRCIPLB01E" type="NRCIPLB01E">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the NRCIPLB01E compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>

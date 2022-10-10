@@ -1657,6 +1657,9 @@ receives the most illumination.  Units: ft2</xsd:documentation>
          <xsd:enumeration value="SingleFamilyDetached"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="ResidentialDwellingUnitDescriptor">
+      <xsd:restriction base="xsd:string"/>
+   </xsd:simpleType>
    <xsd:simpleType name="ResidentialDwellingUnitName">
       <xsd:restriction base="dtyp:ObjectNamePermissive"/>
    </xsd:simpleType>
@@ -2401,6 +2404,12 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="ThermalZoneName">
+      <xsd:annotation>
+         <xsd:documentation>This is a reference to the thermal zone that serves a given space.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:ObjectNamePermissive"/>
    </xsd:simpleType>
    <xsd:simpleType name="Thickness">
       <xsd:annotation>

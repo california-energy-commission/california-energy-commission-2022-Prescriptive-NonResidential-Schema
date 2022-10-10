@@ -369,6 +369,18 @@ End If</xsd:documentation>
                            </xsd:restriction>
                         </xsd:simpleType>
                      </xsd:element>
+                     <xsd:element name="B01Add0_NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Addition is [d:gt/]700 ft[d:sup]2[/d:sup]</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If B01New_ScopeIncludesNew == true
+ result = BlankGrayedOut stored in NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="comp:NotApplicableMessage">
+                              <xsd:enumeration value="BlankGrayedOut"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
                   </xsd:choice>
                   <xsd:choice maxOccurs="1">
                      <xsd:element name="B01Add1_SpaceGT5000Ft2CeilingGTE15Ft" type="comp:SpaceGT5000Ft2CeilingGTE15Ft" >
@@ -5430,43 +5442,41 @@ End If</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
-                                             <xsd:choice maxOccurs="1">
-                                                <xsd:element name="FframedMF04_Status" >
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Status</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">User selects one value from list that combines  FframedMF04_Status values and FframedMF04_RoofSlope values.  
+                                             <xsd:element name="FframedMF04_Status" >
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">Status</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">User selects one value from list that combines  FframedMF04_Status values and FframedMF04_RoofSlope values.  
  
 Status values are  AddGT700sf display term New or Add greater than 700ft, and AddLTE700sf  display term Add less than or equal to 700sf, 
  
 If user selects AddGT700sf or AddLTE700sf result is stored in this choice</xsd:documentation>
-                                                   </xsd:annotation>
-                                                   <xsd:simpleType>
-                                                      <xsd:restriction base="com:Status">
-                                                         <xsd:enumeration value="AddGT700sf"/>
-                                                         <xsd:enumeration value="AddLTE700sf"/>
-                                                      </xsd:restriction>
-                                                   </xsd:simpleType>
-                                                </xsd:element>
-                                                <xsd:element name="FframedMF04_RoofSlope" >
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Status</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">Roof values are LowSlope display term  Alt. Low Slope less than 2:12, and SteepSlope display term Alt. Steep Slope greater than or equal to 2:12
+                                                </xsd:annotation>
+                                                <xsd:simpleType>
+                                                   <xsd:restriction base="com:Status">
+                                                      <xsd:enumeration value="AddGT700sf"/>
+                                                      <xsd:enumeration value="AddLTE700sf"/>
+                                                   </xsd:restriction>
+                                                </xsd:simpleType>
+                                             </xsd:element>
+                                             <xsd:element name="FframedMF04_RoofSlope" >
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">Status</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">Roof values are LowSlope display term  Alt. Low Slope less than 2:12, and SteepSlope display term Alt. Steep Slope greater than or equal to 2:12
  
 If user selects LowSlope Or SteepSlope result is stored in this choice</xsd:documentation>
-                                                      <xsd:appinfo source="displayterm">
-                                                         <dtyp:displayterm value="LowSlope"> Alt. Low Slope [d:lt/]2:12</dtyp:displayterm>
-                                                         <dtyp:displayterm value="SteepSlope">Alt. Steep Slope[d:gte/] 2:12</dtyp:displayterm>
-                                                      </xsd:appinfo>
-                                                      
-                                                   </xsd:annotation>
-                                                   <xsd:simpleType>
-                                                      <xsd:restriction base="env:RoofSlope">
-                                                         <xsd:enumeration value="LowSlope"/>
-                                                         <xsd:enumeration value="SteepSlope"/>
-                                                      </xsd:restriction>
-                                                   </xsd:simpleType>
-                                                </xsd:element>
-                                             </xsd:choice>
+                                                   <xsd:appinfo source="displayterm">
+                                                      <dtyp:displayterm value="LowSlope"> Alt. Low Slope [d:lt/]2:12</dtyp:displayterm>
+                                                      <dtyp:displayterm value="SteepSlope">Alt. Steep Slope[d:gte/] 2:12</dtyp:displayterm>
+                                                   </xsd:appinfo>
+                                                   
+                                                </xsd:annotation>
+                                                <xsd:simpleType>
+                                                   <xsd:restriction base="env:RoofSlope">
+                                                      <xsd:enumeration value="LowSlope"/>
+                                                      <xsd:enumeration value="SteepSlope"/>
+                                                   </xsd:restriction>
+                                                </xsd:simpleType>
+                                             </xsd:element>
                                              <xsd:element name="FframedMF05_RoofType" >
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Roof Type [d:sup]2[/d:sup]</xsd:documentation>
@@ -17244,7 +17254,8 @@ End If</xsd:documentation>
 Or 
 If Kvertperf06_FenestrationModification == ReplaceLTE150ft2 Or AddLTE50ft2  
 Or 
-If Kvertperf06_TopLevelOccupancy == RelocableSchoolBuildingAllZones and  Kvertperf06_FenestrationModification == AllNew Or AddGT50ft2   
+If Kvertperf06_TopLevelOccupancy == RelocableSchoolBuildingAllZones and  Kvertperf06_FenestrationModification == AllNew Or AddGT50ft2   Or ReplaceGT150ft2 
+ 
 Or 
 If Kvertperf05_FenestrationProductType == GlazedDoor And  If Kvertperf06_TopLevelOccupancy == RelocableSchoolBuildingAllZones 
 Or
@@ -17569,7 +17580,7 @@ DoubleWithSpacers display term Double Pane- w/ spacers,
 DoublePaneDivided display term Double Pane- divided lite;
  
 Else If Kvertperf22_FenestrationFramingNR == NonMetalFraming Or MetalFraming 
- If Kvertperf20_GreenhouseGardenWindow == false 
+ If Kvertperf20_GreenhouseGardenWindow == false And Kvertperf05_FenestrationProductType != GlazedDoor
  list: 
 SinglePane display term Single Pane, 
 DoublePane display term Double Pane, 
