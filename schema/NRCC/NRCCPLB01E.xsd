@@ -991,6 +991,7 @@ Else If F08_WaterHeaterType == TableTopElectric
 Switch ( F10b_WaterHeaterFlow) 
 case GTE0LT1_7: 
 If F09_WaterHeaterVolume ==  LTE30Gal: result = 0.46
+Else If F09_WaterHeaterVolume ==  GT30Gal: result = 0.40
 Else If  F09_WaterHeaterVolume == 31To40Gal result = 0.40; 
 End If
 case GTE1_7LT2_8: 

@@ -1551,7 +1551,8 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:i>This table demonstrates compliance for prescriptive roof assembly requirements in 
                               <d:t24refnolink/>140.3(a)1B/ 
-                              <d:t24refnolink/>170.2(a)1B for new construction, d:t24refnolink/]141.0(a)/ 
+                              <d:t24refnolink/>170.2(a)1B for new construction, 
+                              <d:t24refnolink/>141.0(a)/ 
                               <d:t24refnolink/>180.1 for additions, or  
                               <d:t24refnolink/>141.0(b)2Biii/ 
                               <d:t24refnolink/>180.2 for alterations,  </d:i>
@@ -5593,7 +5594,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">
                            <d:b>Multifamily Framed Roof Assemblies</d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is required if F01FramedMF_RoofTypeApplies == true</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required if F01FramedMF_RoofTypeApplies == true And A04_WholeBuildingOccupancy == HighRiseResidential</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>

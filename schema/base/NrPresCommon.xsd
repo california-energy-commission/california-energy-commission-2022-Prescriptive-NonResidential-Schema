@@ -131,6 +131,13 @@
          <xsd:enumeration value="Urban"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="BuildingTotalVolume">
+      <xsd:annotation>
+         <xsd:documentation>  Units: ft3</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="BuildingUniqueID_CEC">
       <xsd:annotation>
          <xsd:documentation>This token uniquely identifies a whole building, developed by the  California Energy Commission.</xsd:documentation>
@@ -786,6 +793,13 @@
          <xsd:enumeration value="StudioUnit"/>
          <xsd:enumeration value="ThreeBedroom"/>
          <xsd:enumeration value="TwoBedroom"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="DwellUnitTotalVolume">
+      <xsd:annotation>
+         <xsd:documentation>  Units: ft3</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ElectricalLoadType">
@@ -1505,8 +1519,8 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:IntegerNonnegative">
-         <xsd:maxInclusive value="12"/>
          <xsd:minInclusive value="1"/>
+         <xsd:maxInclusive value="12"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="MonthDay">
@@ -1517,8 +1531,8 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:IntegerNonnegative">
-         <xsd:maxInclusive value="31"/>
          <xsd:minInclusive value="1"/>
+         <xsd:maxInclusive value="31"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="NaturalGasOnSite">

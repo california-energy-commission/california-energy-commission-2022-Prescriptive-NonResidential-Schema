@@ -40,6 +40,7 @@
             <dtyp:displayterm value="MetalPanel">Metal Panel</dtyp:displayterm>
             <dtyp:displayterm value="RaisedMass">Raised Mass</dtyp:displayterm>
             <dtyp:displayterm value="SIPS">SIPS</dtyp:displayterm>
+            <dtyp:displayterm value="SlabOnGradeLRMF">LRMF Slab-on-grade</dtyp:displayterm>
             <dtyp:displayterm value="Span">Span</dtyp:displayterm>
             <dtyp:displayterm value="SpandrelCurtain">Spandrel/ Curtain Wall</dtyp:displayterm>
             <dtyp:displayterm value="Strawbale">Strawbale</dtyp:displayterm>
@@ -58,6 +59,7 @@
          <xsd:enumeration value="MetalPanel"/>
          <xsd:enumeration value="RaisedMass"/>
          <xsd:enumeration value="SIPS"/>
+         <xsd:enumeration value="SlabOnGradeLRMF"/>
          <xsd:enumeration value="Span"/>
          <xsd:enumeration value="SpandrelCurtain"/>
          <xsd:enumeration value="Strawbale"/>
@@ -78,8 +80,8 @@
          <xsd:documentation>The CRRC rated 3-year aged thermal emittance of a roofing material.  Units: none</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
-         <xsd:maxInclusive value="1"/>
          <xsd:minInclusive value="0"/>
+         <xsd:maxInclusive value="1"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="CRRC_AgedReflectance">
@@ -87,8 +89,8 @@
          <xsd:documentation>The CRRC rated 3-year aged solar reflectance of a roofing material.  Units: none</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
-         <xsd:maxInclusive value="1"/>
          <xsd:minInclusive value="0"/>
+         <xsd:maxInclusive value="1"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="CRRC_AgedSRI">
@@ -102,8 +104,8 @@
          <xsd:documentation>The CRRC rated initial thermal emittance of a roofing material.  Units: none</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
-         <xsd:maxInclusive value="1"/>
          <xsd:minInclusive value="0"/>
+         <xsd:maxInclusive value="1"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="CRRC_InitialReflectance">
@@ -111,8 +113,8 @@
          <xsd:documentation>The CRRC rated initial solar reflectance of a roofing material.  Units: none</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
-         <xsd:maxInclusive value="1"/>
          <xsd:minInclusive value="0"/>
+         <xsd:maxInclusive value="1"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="CRRC_InitialSRI">

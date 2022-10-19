@@ -1907,7 +1907,7 @@ End If</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">For value in Fa01_HvacSystemName:  
 If F05_HeatingDesignCapacity GTE 1 Then
 If F02_HvacSystemType == UnitaryHeatPumps Or UnitaryHeatPumpsNoElectR  
-And F03_UnitaryHeatPumps == AirCooledSplit1PhaseAC ,AirCooledSplit3PhaseAC , AirCooledSplitConstrainedAC, AirCooledPkg1PhaseAC, AirCooledPkg3PhaseAC Or AirCooledPkgConstrainedAC 
+And F03_UnitaryHeatPumps == AirCooledSplit1PhaseHP ,AirCooledSplit3PhaseHP , AirCooledSplitConstrainedHP, AirCooledPkg1PhaseHP, AirCooledPkg3PhaseHP Or AirCooledPkgConstrainedHP 
 And  Fa02_SizeRangeUnitaryHeatPumps != LT65000, 
 user selects from list; 
  
@@ -1927,7 +1927,7 @@ If F05_NotApplicableMessage IsPresent Or F05_HeatingDesignCapacity LT 1
 result = BlankGrayedOut stored in Fa03_NotApplicableMessage and this field is greyed out;  
  
 Else If F02_HvacSystemType == UnitaryHeatPumps Or UnitaryHeatPumpsNoElectR 
-And F03_UnitaryHeatPumps == AirCooledSplit1PhaseAC ,AirCooledSplit3PhaseAC , AirCooledSplitConstrainedAC, AirCooledPkg1PhaseAC, AirCooledPkg3PhaseAC Or AirCooledPkgConstrainedAC 
+And F03_UnitaryHeatPumps == AirCooledSplit1PhaseHP ,AirCooledSplit3PhaseHP , AirCooledSplitConstrainedHP, AirCooledPkg1PhaseHP, AirCooledPkg3PhaseHP Or AirCooledPkgConstrainedHP 
 And  Fa02_SizeRangeUnitaryHeatPumps != LT65000, 
 user selects from list; 
  
@@ -7259,20 +7259,7 @@ End If
 End If
  
 If H00d_SystemZoning == DOASZone
-If Base allowance LT 1.0
-result = BlankGrayedOut stored in NotApplicableMessage
-Else
-If H00g_Elevation LTE 3,000 ft
-result =  Base allowance / 1000
-Else If H00g_Elevation GTE 3,000 ft And LT 4,000
-result = (0.896  x Base allowance) / 1000
-Else If H00g_Elevation GTE 4,000 ft And LT 5,000
-result = (0.864 x Base allowance) / 1000
-Else If H00g_Elevation GTE 5,000 ft And LT 6,000
-result = (0.832 x Base allowance) / 1000
-Else If H00g_Elevation GTE 6,000 ft 
-result = (0.801 x Base allowance) / 1000
-End If
+H00f_FanSystemFlowCapacity) / 1000 
  
 Else If H00d_SystemZoning != DOASZone
 If H00g_Elevation LTE 3,000 ft
@@ -8708,10 +8695,10 @@ End If</xsd:documentation>
                            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
-                                    <xsd:element name="Hfei01_HvacSystemName" type="comp:HvacSystemName">
+                                    <xsd:element name="Hfei01_FanName" type="hvac:FanName">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Name or Item Tag</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from  H00a_HvcSystemName</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Autofilled from H01_FanName</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="Hfei02_FanEnergyIndexException" type="comp:FanEnergyIndexException">
@@ -11291,7 +11278,7 @@ End If</xsd:documentation>
                   <xsd:element name="Nrca03_RequireNRCAMch04A" type="comp:RequireNRCAMch04A">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">NRCA-MCH-04-A - Air Distribution Duct Leakage</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">NRCA-MCH-04 - Air Distribution Duct Leakage</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false;  
  
 If L10e_DuctLeakageTestRequired == true for any system in section L 

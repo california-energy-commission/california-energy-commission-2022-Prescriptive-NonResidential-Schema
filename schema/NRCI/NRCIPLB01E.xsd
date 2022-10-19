@@ -1366,7 +1366,6 @@ End If</xsd:documentation>
                   <xsd:element name="Dist" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Domestic Hot Water Distribution Requirements[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is required if  B02_ProjectHasDistribution == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -1379,7 +1378,7 @@ End If</xsd:documentation>
                            <xsd:element name="DistRecircLoops" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">[d:b]Recirculation Loops in Central Systems Serving Dwelling Units or Nonresidential Spaces [/d:b]</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">This subsection is required and displayed If CC-PRF parent Or If CC-PLB parent And any row in this subsection has result == ReqYes</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">This subsection is required and displayed If CC-PLB parent And any row in this subsection has result == ReqYes  Else If CC-PRF parent this subsection is NOT displayed or required</xsd:documentation>
                               </xsd:annotation>
                               <xsd:complexType>
                                  <xsd:sequence>
@@ -1389,8 +1388,6 @@ End If</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">Automatic Air release valve no more that 4 feet from pump or vertical pump installation</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G01_AirReleaseValve
-Else If CC-PRF parent
-result == ReqYes
 End If
 If  result == ReqYes, 
 Display static text in AdditionalRequirements 
@@ -1409,8 +1406,6 @@ End If</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">Check valve or similar located between recirculation pump and water heating equipment to prevent backflow</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G02_BackflowCheckValve
-Else If CC-PRF parent
-result == ReqYes
 End If
 If  result == ReqYes, 
 Display static text in AdditionalRequirements 
@@ -1429,8 +1424,6 @@ End If</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">Hose bibb installed between pump and equipment and isolation valve between hose bibb and equipment</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G03_HoseBibb
-Else If CC-PRF parent
-result == ReqYes
 End If
 If  result == ReqYes, 
 Display static text in AdditionalRequirements 
@@ -1449,8 +1442,6 @@ End If</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">Isolation valves on both sides of the pump</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G04_IsolationValves
-Else If CC-PRF parent
-result == ReqYes
 End If
 If  result == ReqYes, 
 Display static text in AdditionalRequirements 
@@ -1469,8 +1460,6 @@ End If</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">Cold water and recirculation loop piping is not connected to the hot water storage tank drain port</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G05_TankDrainPort
-Else If CC-PRF parent
-result == ReqYes
 End If
 If  result == ReqYes, 
 Display static text in AdditionalRequirements 
@@ -1489,8 +1478,6 @@ End If</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">Check valve installed on cold water supply between hot water system and next closest tee on cold water supply</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G06_ColdWaterCheckValve
-Else If CC-PRF parent
-result == ReqYes
 End If
 If  result == ReqYes, 
 Display static text in AdditionalRequirements 
@@ -1509,8 +1496,6 @@ End If</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:  For central systems serving multiple dwelling units, design includes recirculation system serving separate dwelling units per [d:t24refnolink/]170.2(d) unless building has [d:lte/]8 dwelling units.</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G07_RecircLoopCount
-Else If CC-PRF parent
-result == ReqYes
 End If
 If  result == ReqYes, 
 Display static text in AdditionalRequirements 
@@ -1529,8 +1514,6 @@ End If</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:  For heat pump water heating systems, the hot water return from the recirculation loop shall connect to a recirculation loop tank and shall not directly connect to the primary heat pump water heater inlet or the primary thermal storage tanks per [d:t24refnolink/]170.2(d)2A</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G08_RecircLoopHP
-Else If CC-PRF parent
-result == ReqYes
 End If
 If  result == ReqYes, 
 Display static text in AdditionalRequirements 
@@ -1549,8 +1532,6 @@ End If</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">DWELLING UNITS ONLY:  For heat pump water heating systems, the fuel source for the recirculation loop tank shall be electricity if auxiliary heating is needed. The recirculation loop heater shall be capable of multi-pass water heating operation per [d:t24refnolink/]170.2(d)2B.</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result = G09_RecircFuelHP
-Else If CC-PRF parent
-result == ReqYes
 End If
 If  result == ReqYes, 
 Display static text in AdditionalRequirements 
@@ -1569,12 +1550,13 @@ End If</xsd:documentation>
                            <xsd:element name="DistUnits" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">[d:b]Distribution of Individual System(s) Serving Dwelling Units[/d:b]</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">This subsection is required and displayed If CC-PRF parent Or 
+                                 <xsd:documentation source="CalculationsAndRules">This subsection is required and displayed 
 If CC-PLB parent And (Dist08a_UfactorDistRequirement == ReqUfactorCompact Or Dist08b_UfactorDistRequirement == ReqUfactorDWHR)
 Or  
 Dist09_HeatPumpDistRequirement == ReqHeatPumpCompactDWHR
 Or
-Dist10_NEEA_DistRequirement == ReqNEEA_Compact</xsd:documentation>
+Dist10_NEEA_DistRequirement == ReqNEEA_Compact
+Else If CC-PRF parent this subsection is NOT displayed or required</xsd:documentation>
                               </xsd:annotation>
                               <xsd:complexType>
                                  <xsd:sequence>
@@ -1592,8 +1574,6 @@ Dist10_NEEA_DistRequirement == ReqNEEA_Compact</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 result == G10_HeatPumpDistRequirement
  
-Else If CC-PRF parent
-result ==ReqHeatPumpCompact
 End If
 If  result == ReqHeatPumpCompact Or ReqHeatPumpCompactDWHR
 static text in AdditionalRequirements is displayed
@@ -1612,9 +1592,6 @@ End If</xsd:documentation>
                                              <xsd:documentation source="AdditionalRequirements">A drain water heat recovery system that is field verified by a HERS rater per Reference Appendix RA3.6.9.in climate zone 16</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
 result == G10_HeatPumpDistRequirement
-End I
-Else If NRCC-PRF parent
-result == ReqHeatPumpDWHR
 End If
  
 If  result == ReqHeatPumpDWHR Or  ReqHeatPumpCompactDWHR  static text in AdditionalRequirements is displayed
@@ -1634,8 +1611,6 @@ End If</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">A drain water heat recovery system that is field verified by a HERS Rater per Reference Appendix RA3.6.9 in climate zone 16.</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
 result = G11_IndividualSysDistRequirement
-Else If NRCC-PRF parent
-result == ReqDWHRCZ16
 End If
  
 If  result == ReqDWHRCZ16 
@@ -1655,8 +1630,7 @@ End If</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">For recirculation distribution systems serving individual dwelling units, only Demand Recirculation Systems with manual on/off control as specified in the Reference Appendix RA4.4.9 shall be used.</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
 result =G12_IndividualSysDistRequirement
-Else If NRCC-PRF parent
-result == ReqDemandRecircEnd If
+End If
  
 If  result ==ReqDemandRecirc, static text in AdditionalRequirements is displayed
 Else 
@@ -1671,16 +1645,17 @@ End If</xsd:documentation>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
-                           <xsd:element name="DistMandatory" minOccurs="0">
+                           <xsd:element name="DistMandatory" >
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">[d:b]Mandatory Pipe Insulation Requirements[/d:b]</xsd:documentation>
                               </xsd:annotation>
-                           </xsd:element>
-                           <xsd:element name="Dist11_DwellingUnitsPipeInsulationComplies" type="comp:DwellingUnitsPipeInsulationComplies" >
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">For systems serving dwelling units and common areas, pipe insulation must meet the minimum insulation requirements in Table 160.4-A (see below) except: [d:l t="*"][d:list]  Piping that penetrates framing members shall not be required to have pipe insulation for the distance of the framing penetration. Piping that penetrates metal framing shall use grommets, plugs, wrapping or other insulating material to assure that no contact is made with the metal framing. Insulation shall abut securely against all framing members [/d:list][d:list]  Piping installed in interior or exterior walls shall not be required to have pipe insulation if all of the requirements are met for compliance with Quality Insulation Installation (QII) as specified in the Reference Residential Appendix RA3.5. [/d:list][d:list] Piping surrounded with a minimum of 1 inch of wall insulation, 2 inches of crawlspace insulation, or 4 inches of attic insulation, shall not be required to have pipe insulation.[/d:list][/d:l]</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="Dist11_DwellingUnitsPipeInsulationComplies" type="comp:DwellingUnitsPipeInsulationComplies" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">For systems serving dwelling units and common areas, pipe insulation must meet the minimum insulation requirements in Table 160.4-A (see below) except: [d:l t="*"][d:list]  Piping that penetrates framing members shall not be required to have pipe insulation for the distance of the framing penetration. Piping that penetrates metal framing shall use grommets, plugs, wrapping or other insulating material to assure that no contact is made with the metal framing. Insulation shall abut securely against all framing members [/d:list][d:list]  Piping installed in interior or exterior walls shall not be required to have pipe insulation if all of the requirements are met for compliance with Quality Insulation Installation (QII) as specified in the Reference Residential Appendix RA3.5. [/d:list][d:list] Piping surrounded with a minimum of 1 inch of wall insulation, 2 inches of crawlspace insulation, or 4 inches of attic insulation, shall not be required to have pipe insulation.[/d:list][/d:l]</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 If G13_DwellingUnitsPipeInsulationComplies IsPresent
 result = G13_DwellingUnitsPipeInsulationComplies
 Else If G13_NotApplicableMessage IsPresent
@@ -1694,18 +1669,18 @@ static text in AdditionalRequirements is displayed
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                                 <xsd:appinfo source="CIsrc">
-                                    <dtyp:srcSchema form="CCPLB01E"  usage="copy">G13_DwellingUnitsPipeInsulationComplies</dtyp:srcSchema>
-                                    <dtyp:srcSchema form="CCPLB01E"  usage="reference">G13_NotApplicableMessage</dtyp:srcSchema>
-                                    <dtyp:srcSchema form="CCPRF01E"  usage="value">true</dtyp:srcSchema>
-                                 </xsd:appinfo>
-                              </xsd:annotation>
-                           </xsd:element>
-                           <xsd:element name="Dist12_NonresPipeInsulationComplies" type="comp:NonresPipeInsulationComplies" >
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">For systems serving nonresidential spaces, pipe insulation for the following applications must comply with the following: [d:l t="*"][d:list] Recirculating system piping, including supply and return piping of the water heater [/d:list][d:list] The first 8 ft of hot and cold outlet piping, including between storage tank and heat trap, for a nonrecirculating storage system [/d:list][d:list] Pipes that are externally heated [/d:list][/d:l]</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="copy">G13_DwellingUnitsPipeInsulationComplies</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="reference">G13_NotApplicableMessage</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E"  usage="value">true</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Dist12_NonresPipeInsulationComplies" type="comp:NonresPipeInsulationComplies" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">For systems serving nonresidential spaces, pipe insulation for the following applications must comply with the following: [d:l t="*"][d:list] Recirculating system piping, including supply and return piping of the water heater [/d:list][d:list] The first 8 ft of hot and cold outlet piping, including between storage tank and heat trap, for a nonrecirculating storage system [/d:list][d:list] Pipes that are externally heated [/d:list][/d:l]</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 If G14_NonresPipeInsulationComplies IsPresent
 result = G14_NonresPipeInsulationComplies
 Else If G14_NotApplicableMessage IsPresent
@@ -1719,18 +1694,18 @@ static text in AdditionalRequirements is displayed
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                                 <xsd:appinfo source="CIsrc">
-                                    <dtyp:srcSchema form="CCPLB01E"  usage="copy">G14_NonresPipeInsulationComplies</dtyp:srcSchema>
-                                    <dtyp:srcSchema form="CCPLB01E"  usage="reference">G14_NotApplicableMessage</dtyp:srcSchema>
-                                    <dtyp:srcSchema form="CCPRF01E"  usage="value">true</dtyp:srcSchema>
-                                 </xsd:appinfo>
-                              </xsd:annotation>
-                           </xsd:element>
-                           <xsd:element name="Dist13_PipeInsulationProtectionComplies" type="comp:PipeInsulationProtectionComplies" >
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">Insulation shall be protected from damage, including that due to sunlight, moisture, equipment maintenance, and wind. Insulation exposed to weather shall be installed with a cover suitable for outdoor service per  [d:t24refnolink/]120.3(b)/  [d:t24refnolink/]160.4(f). Pipe insulation buried below grade must be installed in a water proof and non-crushable casing or sleeve.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="copy">G14_NonresPipeInsulationComplies</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="reference">G14_NotApplicableMessage</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E"  usage="value">true</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Dist13_PipeInsulationProtectionComplies" type="comp:PipeInsulationProtectionComplies" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">Insulation shall be protected from damage, including that due to sunlight, moisture, equipment maintenance, and wind. Insulation exposed to weather shall be installed with a cover suitable for outdoor service per  [d:t24refnolink/]120.3(b)/  [d:t24refnolink/]160.4(f). Pipe insulation buried below grade must be installed in a water proof and non-crushable casing or sleeve.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 If G15_PipeInsulationProtectionComplies IsPresent
 result = G15_PipeInsulationProtectionComplies
 Else If G15_NotApplicableMessage IsPresent
@@ -1744,12 +1719,15 @@ static text in AdditionalRequirements is displayed
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
-                                 <xsd:appinfo source="CIsrc">
-                                    <dtyp:srcSchema form="CCPLB01E"  usage="copy">G15_PipeInsulationProtectionComplies</dtyp:srcSchema>
-                                    <dtyp:srcSchema form="CCPLB01E"  usage="reference">G15_NotApplicableMessage</dtyp:srcSchema>
-                                    <dtyp:srcSchema form="CCPRF01E"  usage="value">true</dtyp:srcSchema>
-                                 </xsd:appinfo>
-                              </xsd:annotation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="copy">G15_PipeInsulationProtectionComplies</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPLB01E"  usage="reference">G15_NotApplicableMessage</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E"  usage="value">true</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
                            </xsd:element>
                         </xsd:sequence>
                      </xsd:complexType>
@@ -2086,7 +2064,8 @@ the static text in AdditionalRequirements is the only thing displayed after the 
 result = Nrcv05_RequireNRCVPlb21H
 If result == true 
 static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
-Else
+Else If NRCC-PLB parent
+reswult = false And 
 Nothing is displayed for this NRCV 
 End If
 End If</xsd:documentation>
@@ -2131,7 +2110,8 @@ End If</xsd:documentation>
 result = Nrcv06_RequireNRCVPlb22H 
 If result == true 
 static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
-Else
+Else If NRCC-PLB parent
+result = false And 
 Nothing is displayed for this NRCV 
 End If
 End If</xsd:documentation>
@@ -2160,7 +2140,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If G02_RequireNRCVPlb22H == false Or NRCC-PLB is parent  
 this field is not required and nothing is displayed
  
-Else If G02_RequireNRCVPlb22H  == true And NRCC-MCH is parent
+Else If G02_RequireNRCVPlb22H  == true And NRCC-PRF is parent
 result = Nrcv06_SystemsToFieldVerify and it is displayed
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">

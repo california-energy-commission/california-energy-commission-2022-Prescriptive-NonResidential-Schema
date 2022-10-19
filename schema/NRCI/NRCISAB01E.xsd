@@ -1280,7 +1280,7 @@ End If</xsd:documentation>
                            <xsd:element name="SHWOG100Reqs" minOccurs="0">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
-                                 <xsd:documentation source="AdditionalRequirements">[d:b]OG-100 Certified Collectors Requirements[/d:b] [d:line1/][d:i]The installed system shall meet the following eligibility criteria: [d:line1/]-- System is installed at the same orientation  and tilt as modeled. [d:line1/]-- System shall have the same collectors, pumps, controls, storage tank and backup water heater fuel type as the rated condition.  [d:line1/]-- The collectors are located in a position that is not shaded by adjacent buildings or trees.  [d:line1/]-- Backup storage tanks are insulated with either an internal R-16 (labeled on tank) or external R-12.  [d:line1/]--  All domestic hot water piping (including solar) shall be insulated.[/d:i]</xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">[d:b]OG-100 Certified Collectors Requirements[/d:b] [d:line1/][d:i]The installed system shall meet the following eligibility criteria: [d:line1/]- System is installed at the same orientation  and tilt as modeled. [d:line1/]- System shall have the same collectors, pumps, controls, storage tank and backup water heater fuel type as the rated condition.  [d:line1/]- The collectors are located in a position that is not shaded by adjacent buildings or trees.  [d:line1/]- Backup storage tanks are insulated with either an internal R-16 (labeled on tank) or external R-12.  [d:line1/]-  All domestic hot water piping (including solar) shall be insulated.[/d:i]</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
                         </xsd:sequence>
@@ -1303,7 +1303,9 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">All thermostats in each dwelling unit comply with the following requirements form Title 24, Part 6 [d:t24refnolink/]110.12(a) and all requirements in Joint Appendix 5: [d:l t="#"][d:list]All demand responsive controls shall be either: [/d:list] [d:l t="A"][d:list]A certified OpenADR 2.0a or OpenADR 2.0b Virtual End Node (VEN), as specified under Clause 11, Conformance, in the applicable OpenADR 2.0 specification; or [/d:list][d:list]Certified by the manufacturer as being capable of responding to a demand response signal from a certified OpenADR 2.0b Virtual End Node by automatically implementing the control functions requested by the Virtual End Node for the equipment it controls.[/d:list][/d:l] [d:list] All demand responsive controls shall be capable of communicating using one or more of the following: Wi-Fi, ZigBee, BACnet, Ethernet, or hard-wiring.[/d:list][d:list]Demand responsive controls may incorporate and use additional protocols beyond those specified in Sections 110.12(a)1 and 2.[/d:list][d:list]When communications are disabled or unavailable, all demand responsive controls shall continue to perform all other control functions provided by the control.[/d:list][/d:l]</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PRF 
+result = true And static text in AdditionalRequirements is displayed
+Else If CC-SAB parent
 If B01d_IsProjectSmartTstatPlusEE_Measure IsPresent And == true
 result = true And static text in AdditionalRequirements is displayed
 Else
@@ -1319,7 +1321,10 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Dwelling units include an ENERGY STAR dishwasher AND EITHER an ENERGY STAR refrigerator OR a whole house fan driven by an electronically commutated motor</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PRF parent And B01i_ProjectHasEnergyStar == true
+result = true And static text in AdditionalRequirements is displayed
+Else
+If CC-SAB parent
 If I02a_SolarReadyAlternativeEfficiencyMeasure == EnergyStarAppliances
 result = true And static text in AdditionalRequirements is displayed
 Else I02a_SolarReadyAlternativeEfficiencyMeasure == NoEfficiencyMeasure
@@ -1335,7 +1340,11 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Dwelling units include a home automation system that is capable of, at a minimum, controlling the appliances and lighting of the dwelling and responding to demand response signals.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PRF parent And B01b_ProjectHasHomeAutomation == true
+result = true And static text in AdditionalRequirements is displayed
+Else
+ 
+If CC-SAB parent
 If I02b_SolarReadyAlternativeEfficiencyMeasure == HomeAutomationDemandResponseCapable
 result = true And static text in AdditionalRequirements is displayed
 Else I02b_SolarReadyAlternativeEfficiencyMeasure == NoEfficiencyMeasure
@@ -1351,7 +1360,11 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Dwelling units include alternative plumbing piping to permit the discharge from the clothes washer and all showers and bathtubs to be used for an irrigation system in compliance with the California Plumbing Code and any applicable local ordinances.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PRF parent And B01d_ProjectHasGreyWater == true
+result = true And static text in AdditionalRequirements is displayed
+Else
+ 
+If CC-SAB parent
 If I02c_SolarReadyAlternativeEfficiencyMeasure == AlternativePlumbingForGrayWaterIrrigation
 result = true And static text in AdditionalRequirements is displayed
 Else I02c_SolarReadyAlternativeEfficiencyMeasure == NoEfficiencyMeasure
@@ -1367,7 +1380,11 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Dwelling units include a rainwater catchment system designed to comply with the California Plumbing Code and any applicable local ordinances, and that uses rainwater flowing from at least 65% of the available roof area.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PRF parent And B01i_ProjectHasRainWater == true
+result = true And static text in AdditionalRequirements is displayed
+Else
+ 
+If CC-SAB parent
 If I02d_SolarReadyAlternativeEfficiencyMeasure == RainwaterCatchmentSystem
 result = true And static text in AdditionalRequirements is displayed
 Else I02d_SolarReadyAlternativeEfficiencyMeasure == NoEfficiencyMeasure
@@ -1383,7 +1400,11 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Project complies with Title 24, Part 11 [d:t24refnolink/]A4.106.8.2 requirements for electric vehicle charging spaces.</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PRF parent And B01h_ProjectHasEVCharging == true
+result = true And static text in AdditionalRequirements is displayed
+Else
+ 
+If CC-SAB parent
 If I02e_SolarReadyAlternativeEfficiencyMeasure == ChargingSpaceForEV
 result = true And static text in AdditionalRequirements is displayed
 Else I02e_SolarReadyAlternativeEfficiencyMeasure == NoEfficiencyMeasure
