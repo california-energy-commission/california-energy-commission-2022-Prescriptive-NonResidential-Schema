@@ -11281,7 +11281,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-MCH-04 - Air Distribution Duct Leakage</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false;  
  
-If L10e_DuctLeakageTestRequired == true for any system in section L 
+If L10c1_DuctLeakageMeetsNA7Req Or L10c2_DuctLeakageMeetsNA7Req Or L10d1_DuctLeakageMeetsRA3Req Or L10d2_DuctLeakageMeetsRA3Req == true for any system in section L 
 result = true display term selected Yes radio button
 End If</xsd:documentation>
                      </xsd:annotation>
