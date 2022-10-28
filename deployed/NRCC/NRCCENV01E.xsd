@@ -8851,10 +8851,8 @@ Else If Hframed07_PartitionFramingMaterial == Metal
 result = 0.057
 End If
 End If
- 
-End Switch
- 
-Else If  Hframed04a_TopLevelOccupancy == ResidentialMF:
+
+case ResidentialMF:
 If Hframed06a_StructureFireRating == GT1hr
 If A03_ClimateZoneNumber == InRange(1,5) Or 8 Or 9 Or 10 Or 12 Or 13   result = 0.059
 Else If A03_ClimateZoneNumber == 11 Or 14 Or 15 Or 16   result = 0.051
@@ -8865,7 +8863,9 @@ If A03_ClimateZoneNumber == InRange(1,5) Or InRange(8,16)  result = 0.051
 Else If A03_ClimateZoneNumber == 6 Or 7   result = 0.065
 End If
 End If
-End If</xsd:documentation>
+End If
+ 
+End Switch</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
                                                 <xsd:element name="Hframed11_InsulationRValueLimit">
@@ -18991,8 +18991,12 @@ result= 0.30
  
 Else If Kskyperf06_TopLevelOccupancy == HighriseResidential
 If Kskyperf06_FenestrationModification == AllNew Or Kskyperf09_ComplianceMethodSHGC_VT == Table170_2A
- 
- 
+If A03_ClimateZoneNuber == 1
+result = 0.35
+Else
+result = 0.2
+End If
+End If
  
 Else If Kskyperf09_ComplianceMethodSHGC_VT == Table180_2B
 If A03_ClimateZoneNuber == 1
@@ -19050,9 +19054,10 @@ End If;</xsd:documentation>
                                                       <xsd:documentation source="FieldText">Required Product Performance</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Kskyperf05_FenestrationProductType == ChromogenicFen Or
 If Kskyperf06_TopLevelOccupancy == HotelMotel And Kskyperf05_FenestrationProductType == SkylightTubular:  Or 
- If Kskyperf06_FenestrationModification == AddLTE50ft2  Or 
+If Kskyperf06_FenestrationModification == AddLTE50ft2  Or 
 If Kskyperf06_TopLevelOccupancy == RelocableSchoolBuildingAllZones  Or 
 If Kskyperf06_TopLevelOccupancy == OtherOccupancy And Kskyperf06_FenestrationModification == NewSky16MF  Or
+If Kskyperf06_TopLevelOccupancy == "HighRiseResidential" AND Kskyperf06_FenestrationModification == "AllNew" OR "NewSky16MF" OR
 If Kskyperf09_ComplianceMethodSHGC_VT == Table170_2A
  
  
