@@ -773,11 +773,12 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="F05_IsEfficiencyCapWeightedAvg" type="hvac:IsEfficiencyCapWeightedAvg">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Capacity-weight efficiencies for gas systems 
+                                             <xsd:documentation source="FieldText">Gas Service Water Heating System 
                                                 <d:gte/> 1MMBtu/h<d:sup>1</d:sup>
                                              </xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B02New_WaterHeatingSystem  IsPresent And  B02New_WaterHeatingSystem ==  CentralNonresSpaces Or == CentralDwellingUnits 
+                                             <xsd:documentation source="CalculationsAndRules">result == true If B02New_WaterHeatingSystem  IsPresent And  B02New_WaterHeatingSystem ==  CentralNonresSpaces Or == CentralDwellingUnits 
 Or If  B02Altered_ WaterHeatingSystem  IsPresent And  B02Altered_WaterHeatingSystem ==  CentralNonresSpaces Or  == CentralDwellingUnits
+And If Sum of all rows F10a_WaterHeaterCapacityRated =&amp;gt; 1,000,000 where F10a_WaterHeaterCapacityRated &amp;gt;=100,000 And F08_WaterHeaterType == BoilerCommercialGTE1MMBtu Or BoilerResDutyCommercial Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or InstantaneousCommercial Or InstantaneousConsumer Or StorageCommercial Or StorageResDutyCommercial
  
 User input  If user checks box result = true Else result = false
 End If</xsd:documentation>
@@ -788,11 +789,9 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Capacity-weight efficiencies for gas systems 
                                                 <d:gte/> 1MMBtu/h<d:sup>1</d:sup>
                                              </xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B02New_WaterHeatingSystem  IsPresent And  B02New_WaterHeatingSystem !=  CentralNonresSpaces And  != CentralDwellingUnits 
+                                             <xsd:documentation source="CalculationsAndRules">If F05_IsEfficiencyCapWeightedAvg == false 
 result = BlankGrayedOut
-Else If B02Altered_ WaterHeatingSystem  IsPresent And  B02Altered_WaterHeatingSystem !=  CentralNonresSpaces And  != CentralDwellingUnits 
-result = BlankGrayedOut
- Else If F04_ExceptionsToPrescReqsDHW != ExceptionsNonApply
+Else If F04_ExceptionsToPrescReqsDHW != ExceptionsNonApply
 result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -807,11 +806,10 @@ End If</xsd:documentation>
                                        <xsd:element name="F06_EfficiencyCapWeightedAvg" type="hvac:EfficiencyCapWeightedAvg">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Capacity-weighted Average Efficiency %</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If (B02New_WaterHeatingSystem  IsPresent And  B02New_WaterHeatingSystem ==  CentralNonresSpaces Or == CentralDwellingUnits 
-Or B02Altered_ WaterHeatingSystem  IsPresent And  B02Altered_WaterHeatingSystem ==  CentralNonresSpaces Or  == CentralDwellingUnits)
-And F05_IsEfficiencyCapWeightedAvg == true
+                                             <xsd:documentation source="CalculationsAndRules">if F05_IsEfficiencyCapWeightedAvg == true
+And F04_ExceptionsToPrescReqsDHW == ExceptionsNonApply
  
-Calculated field: For all rows where  F10a_WaterHeaterCapacityRated GT 100,000
+Calculated field: For all rows where  F10a_WaterHeaterCapacityRated GT 100,000 And F08_WaterHeaterType == BoilerCommercialGTE1MMBtu Or BoilerResDutyCommercial Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or InstantaneousCommercial Or InstantaneousConsumer Or StorageCommercial Or StorageResDutyCommercial
 result = (SUM (F11 Rated Efficiency for the row which is either F11_ThermalEfficiency or F11_EfficiencyAFUE  x  F10a_WaterHeaterCapacityRated)) /  SUM ALL ( F10a_WaterHeaterCapacityRated that are GT 100,000)
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -819,13 +817,8 @@ End If</xsd:documentation>
                                        <xsd:element name="F06_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Capacity-weighted Average Efficiency %</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B02New_WaterHeatingSystem  IsPresent And  B02New_WaterHeatingSystem !=  CentralNonresSpaces And  != CentralDwellingUnits 
-result = BlankGrayedOut
-Else If B02Altered_ WaterHeatingSystem  IsPresent And  B02Altered_WaterHeatingSystem !=  CentralNonresSpaces And  != CentralDwellingUnits 
-result = BlankGrayedOut
-Else If F05_IsEfficiencyCapWeightedAvg == false
- result = BlankGrayedOut
-Else f F04_ExceptionsToPrescReqsDHW != ExceptionsNonApply
+                                             <xsd:documentation source="CalculationsAndRules">if F05_IsEfficiencyCapWeightedAvg == false
+Or F04_ExceptionsToPrescReqsDHW != ExceptionsNonApply
 result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -940,26 +933,10 @@ End If</xsd:documentation>
                                                          <xsd:element name="F10a_WaterHeaterCapacityRated" type="hvac:WaterHeaterCapacityRated">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Rated Input Capacity (Btu/h)</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If F08_WaterheaterType ==  StorageCommercial Or  StorageCommercialElectric  Or 
-If F08_WaterheaterType ==  InstantaneousCommercial  Or  BoilerWaterHeater And F09_WaterHeaterTankVolume GTE 10 
+                                                               <xsd:documentation source="CalculationsAndRules">If TableSystems IsPresent 
  User input
 End If</xsd:documentation>
                                                             </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="F10a_NotApplicableMessage">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Rated Input Capacity (Btu/h) or</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == StorageConsumer Or   StorageConsumerElectric Or StorageResDutyCommercial: Or InstantaneousConsumer Or InstantaneousConsumerElectric Or InstantaneousResDutyCommercial Or TableTopElectric Or CentralHeatPumpWH Or BoilerResDutyCommercial Or BoilerCommercialLT1MMBtu Or  BoilerCommercialGTE1MMBtu
-result = BlankGrayedOut 
-Else If F08_WaterHeaterType == InstantaneousCommercial Or  BoilerWaterHeater  And F09_WaterHeaterTankVolume LT 10 
-result = BlankGrayedOut 
-End If</xsd:documentation>
-                                                            </xsd:annotation>
-                                                            <xsd:simpleType>
-                                                               <xsd:restriction base="comp:NotApplicableMessage">
-                                                                  <xsd:enumeration value="BlankGrayedOut"/>
-                                                               </xsd:restriction>
-                                                            </xsd:simpleType>
                                                          </xsd:element>
                                                       </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
