@@ -1130,6 +1130,9 @@ End If</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">If CC-LTOE parent
 result = H01mf_SpaceDescription
 End If</xsd:documentation>
+                                                   <xsd:appinfo source="CIsrc">
+                                                      <dtyp:srcSchema form="CCLTO01E" usage="copy">H01mf_SpaceDescription</dtyp:srcSchema>
+                                                   </xsd:appinfo>
                                                 </xsd:annotation>
                                              </xsd:element>
                                              <xsd:element name="Ctrl01mf_InMyScope" type="comp:InMyScope" >
@@ -1178,6 +1181,9 @@ End If</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If CC-LTO-E parent
 result = H02mf_OutdoorCompliantLightSource
 End If</xsd:documentation>
+                                                                     <xsd:appinfo source="CIsrc">
+                                                                        <dtyp:srcSchema form="CCLTO01E" usage="copy">H02mf_OutdoorCompliantLightSource</dtyp:srcSchema>
+                                                                     </xsd:appinfo>
                                                                   </xsd:annotation>
                                                                </xsd:element>
                                                                <xsd:element name="Ctrl02mf_OutdoorCompliantLightSource" type="comp:OutdoorCompliantLightSource"  maxOccurs="unbounded">
@@ -1196,6 +1202,9 @@ End If</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If CC-LTO-E parent
 result = H03mf_OutdooLightingMF
 End If</xsd:documentation>
+                                                                     <xsd:appinfo source="CIsrc">
+                                                                        <dtyp:srcSchema form="CCLTO01E" usage="copy">H03mf_OutdoorLightingMF</dtyp:srcSchema>
+                                                                     </xsd:appinfo>
                                                                   </xsd:annotation>
                                                                </xsd:element>
                                                                <xsd:element name="Ctrl03mf_OutdoorLightingMF" type="comp:OutdoorLightingMF" >
