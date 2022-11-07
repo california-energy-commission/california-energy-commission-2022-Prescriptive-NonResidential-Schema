@@ -2593,7 +2593,7 @@ End If</xsd:documentation>
                   <xsd:element name="G02_RequireNRCALti03A" type="comp:RequireNRCALti03A">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">NRCA-LTI-03-A - Must be submitted for Must be submitted for all new, added or altered automatic daylight controls.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">NRCA-LTI-03-A - Must be submitted for all new, added or altered automatic daylight controls.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If NRCC-LTI parent
 result = Nrca02_RequireNRCALti03A
 If result == true 

@@ -732,19 +732,39 @@ The result is displayed in both the Per CC and As-built conditions</xsd:document
                                                    <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
-                                             <xsd:element name="Circuits02cc_ElectricalLoadSeparationRequirement" type="comp:ElectricalLoadSeparationRequirement">
-                                                <xsd:annotation>
-                                                   <xsd:documentation source="FieldText">Minimum Required Separation of Load</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                                             <xsd:choice maxOccurs="1">
+                                                <xsd:element name="Circuits02cc_ElectricalLoadSeparationRequirement" type="comp:ElectricalLoadSeparationRequirement">
+                                                   <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Minimum Required Separation of Load</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
 result = G02_ElectricalLoadSeparationRequirement
 End If
  
 The result is displayed in both the Per CC and As-built conditions</xsd:documentation>
-                                                   <xsd:appinfo source="CIsrc">
-                                                      <dtyp:srcSchema form="CCELC01E" usage="copy">G02_ElectricalLoadSeparationRequirement</dtyp:srcSchema>
-                                                   </xsd:appinfo>
-                                                </xsd:annotation>
-                                             </xsd:element>
+                                                      <xsd:appinfo source="CIsrc">
+                                                         <dtyp:srcSchema form="CCELC01E" usage="copy">G02_ElectricalLoadSeparationRequirement</dtyp:srcSchema>
+                                                      </xsd:appinfo>
+                                                   </xsd:annotation>
+                                                </xsd:element>
+                                                <xsd:element name="Circuits02cc_NotApplicableMessage">
+                                                   <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Separation Method<d:sup>2</d:sup>
+                                                      </xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+If G02_NotApplicableMessage IsPresent
+result = BlankGrayedOut
+End If</xsd:documentation>
+                                                      <xsd:appinfo source="CIsrc">
+                                                         <dtyp:srcSchema form="CCELC01E" usage="reference">G02_NotApplicableMessage</dtyp:srcSchema>
+                                                      </xsd:appinfo>
+                                                   </xsd:annotation>
+                                                   <xsd:simpleType>
+                                                      <xsd:restriction base="comp:NotApplicableMessage">
+                                                         <xsd:enumeration value="BlankGrayedOut"/>
+                                                      </xsd:restriction>
+                                                   </xsd:simpleType>
+                                                </xsd:element>
+                                             </xsd:choice>
                                              <xsd:choice maxOccurs="1">
                                                 <xsd:element name="Circuits03cc_ElectricalLoadComplianceMethod" type="comp:ElectricalLoadComplianceMethod">
                                                    <xsd:annotation>
@@ -1247,6 +1267,9 @@ End If
                                                             <xsd:documentation source="CalculationsAndRules">If CC-ELC parent 
 result = I04a_ControlledReceptacleDemandResponse
 End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCELC01E" usage="copy">I04a_ControlledReceptacleDemandResponse</dtyp:srcSchema>
+                                                            </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                       <xsd:element name="Controls04a_ControlledReceptacleDemandResponse" type="comp:ControlledReceptacleDemandResponse">

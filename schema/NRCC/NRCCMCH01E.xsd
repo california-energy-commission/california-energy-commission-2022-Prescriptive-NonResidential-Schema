@@ -1090,31 +1090,25 @@ End If</xsd:documentation>
                                     <xsd:element name="F02_HvacSystemType" type="hvac:HvacSystemType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Equipment Category per Tables 110.2, [d:t24refnolink/]140.4(a)2 and 170.2(c)3aii</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If Fscs04_NotApplicableMessage Or Fscs05_NotApplicableMessage Or Fscs06_NotApplicableMessage  IsPresent 
-Or If Fscs06_HeatRecovery IsPresent And Fscs06_HeatRecovery == true
+                                          <xsd:documentation source="CalculationsAndRules">If Fscs04_NotApplicableMessage Or Fscs05_NotApplicableMessage Or Fscs06_NotApplicableMessage IsPresent
+Or If Fscs06_HeatRecovery == true
 User selects for full list of equipment categories
-Else If Fscs03_SystemZoning == SingleDwellingUnit  Or MultiDwellingUnits
+Else If Fscs03_SystemZoning == SingleDwellingUnit Or MultiDwellingUnits
 If A02_ClimateZoneNumber == InRange(2,15)
 List UnitaryHeatPumps and UnitaryHeatPumpsNoElectR
 Else If A02_ClimateZoneNumber == 1 Or 16
 List HeatPumpDualFuel
 End If
- 
 Else If Fscs03_SystemZoning == SingleZone
 If Fscs05_WholeBuildingOccupancy == GroceryStoreBuilding Or RetailBuilding
-If F09_CoolingRatedCapacity IsPresent And LTE 240
-If A02_ClimateZoneNumber == InRange(2,15)
-List UnitaryHeatPumps and UnitaryHeatPumpsNoElectR
-End If
- 
-Else If F09_CoolingRatedCapacity IsPresent And LTE 65
-If A02_ClimateZoneNumber == 1 Or 16
+If F09_CoolingRatedCapacity IsPresent And LTE 65 And A02_ClimateZoneNumber == 1 Or 16
 List FurnaceAC
-End If
-Else If F09_CoolingRatedCapacity IsPresent And GT 65 And LT 240
-If A02_ClimateZoneNumber == 1 Or 16
+Else If F09_CoolingRatedCapacity IsPresent And GT 65 And LT 240 And A02_ClimateZoneNumber == 1 Or 16
 List HeatPumpDualFuel
-End If
+Else If F09_CoolingRatedCapacity IsPresent And LTE 240 And A02_ClimateZoneNumber == InRange(2,15)
+List UnitaryHeatPumps and UnitaryHeatPumpsNoElectR
+Else
+List all values
 End If
 Else If Fscs05_WholeBuildingOccupancy == SchoolBuilding
 If F09_CoolingRatedCapacity IsPresent And LTE 240
@@ -1123,42 +1117,26 @@ List UnitaryHeatPumps and UnitaryHeatPumpsNoElectR
 Else If A02_ClimateZoneNumber == 1 Or 16
 List HeatPumpDualFuel
 End If
+Else
+List all values
 End If
 Else If Fscs05_WholeBuildingOccupancy == OfficeBuilding Or FinancialInstitutionBuilding Or LibraryBuilding
-If F09_CoolingRatedCapacity IsPresent And LTE 240
-If A02_ClimateZoneNumber == InRange(1,15)
-List UnitaryHeatPumps and UnitaryHeatPumpsNoElectR
-End If
- 
-Else If F09_CoolingRatedCapacity IsPresent And LTE 65
-If A02_ClimateZoneNumber == 16
+If F09_CoolingRatedCapacity IsPresent And LTE 65 And A02_ClimateZoneNumber == 16
 List FurnaceAC and UnitaryHeatPumps
-End If
-Else If F09_CoolingRatedCapacity IsPresent And GT 65 And LT 240
-If A02_ClimateZoneNumber == 16
+Else If F09_CoolingRatedCapacity IsPresent And GT 65 And LT 240 And 02_ClimateZoneNumber == 16
 List HeatPumpDualFuel
-End If
-End If
- 
-Else If Fscs05_WholeBuildingOccupancy ==  Warehouse
-If F09_CoolingRatedCapacity IsPresent And LTE 240
+Else If F09_CoolingRatedCapacity IsPresent And LTE 240 And A02_ClimateZoneNumber == InRange(1,15)
 List UnitaryHeatPumps and UnitaryHeatPumpsNoElectR
-End If
-Else 
+Else
 List all values
 End If
-Else 
+Else If Fscs05_WholeBuildingOccupancy == Warehouse And F09_CoolingRatedCapacity IsPresent And LTE 240
+List UnitaryHeatPumps and UnitaryHeatPumpsNoElectR
+Else
 List all values
 End If
- 
- 
-Mandatory Measure Triggers:
-If result == UnitaryHeatPumps
-MM110_2b_MeasureApplies = true and is displayed And 
-MM120_2d_MeasureApplies = true and is displayed
- 
-Else If result == FurnaceUnitHeater And F06_HeatingRatedCapacity GTE 225,000
-MM110_2d_MeasureApplies = true and is displayed
+Else
+List all values
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -1759,7 +1737,7 @@ list GTE65000AndLT135000, GTE135000AndLT240000
 End If
  
  
-case  GroundSourceBrineWaterToWaterHP, GroundSourceHP, GroundWaterSourceHP, GroundWaterSourceWaterToWaterHP, WaterToWaterHP 
+case  GroundSourceBrineToWaterHP, GroundSourceHP, GroundWaterSourceHP, GroundWaterSourceWaterToWaterHP, WaterToWaterHP 
 list  LT135000; 
  
 case AirCooledSmallDuctHighVelocityHP: list LT65000;  
@@ -3363,7 +3341,7 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Rating Conditions</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Doas02_EquipmentDX == WaterCooledDX
-list ChillerWaterDX, CondenserSourceDX
+list ChilledWaterDX, CondenserSourceDX
 Else If   Doas02_EquipmentDX == WaterHeatPumpDX
 list GroundSourceDX, GroundWaterSourceDX, WaterSourceDX
 End If</xsd:documentation>
@@ -3451,14 +3429,14 @@ Else If Doas04_EnergyRecovery == true
 result = 5.2
 End If
  
-case WatreCooledDX
+case WaterCooledDX
 If Doas05_RatingConditionDOAS == CondenserSourceDX
 If Doas04_EnergyRecovery == false
 result = 4.9
 Else If Doas04_EnergyRecovery == true
 result = 5.3
 End If
-Else If Doas05_RatingConditionDOAS == ChillerWaterDX
+Else If Doas05_RatingConditionDOAS == ChilledWaterDX
 If Doas04_EnergyRecovery == false
 result = 6.0
 Else If Doas04_EnergyRecovery == true
@@ -3593,10 +3571,11 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from furnace options in FurnaceUnitHeater and result goes in bottom cell</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Fdfhp04a_SizeRangeUnitaryHeatPumps" type="hvac:SizeRangeUnitaryHeatPumps" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Size Category (Btu/h)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If Fdfhp03a_UnitaryHeatPumps  == AirCooledGasEngineHP:  result = NotRequired and field is greyed out
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="Fdfhp04a_SizeRangeUnitaryHeatPumps" type="hvac:SizeRangeUnitaryHeatPumps">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Size Category (Btu/h)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Fdfhp03a_UnitaryHeatPumps  == AirCooledGasEngineHP:  result = NotRequired and field is greyed out
  
 Else user selects from size ranges  in SizeRangeUnitaryHeatPumps choice based on the following
 Switch (Fdfhp03a_UnitaryHeatPumps) 
@@ -3611,18 +3590,33 @@ list GTE65000AndLT135000, GTE135000AndLT240000
 End If
  
  
-case  GroundSourceBrineWaterToWaterHP, GroundSourceHP, GroundWaterSourceHP, GroundWaterSourceWaterToWaterHP, WaterToWaterHP 
+case  GroundSourceBrineToWaterHP, GroundSourceHP, GroundWaterSourceHP, GroundWaterSourceWaterToWaterHP, WaterToWaterHP 
 list  LT135000; 
  
 case AirCooledSmallDuctHighVelocityHP: list LT65000;  
 End Switch
 End If</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="Fdfhp04b_SizeRangeFurnaceUnitHeater" type="hvac:SizeRangeFurnaceUnitHeater" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Size Category (Btu/h)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If  Fdfhp03b_FurnaceUnitHeater == FurnaceDuct and UnitHeater:  result = NotRequired and field is grayed out
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="Fdfhp04a_NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Size Category (Btu/h)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Fdfhp03a_UnitaryHeatPumps  == AirCooledGasEngineHP  
+result = NotRequired and field is greyed out
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut" />
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="Fdfhp04b_SizeRangeFurnaceUnitHeater" type="hvac:SizeRangeFurnaceUnitHeater">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Size Category (Btu/h)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If  Fdfhp03b_FurnaceUnitHeater == FurnaceDuct and UnitHeater:  result = NotRequired and field is grayed out
  
 Else user selects from size ranges  in SizeRangeFurnaceUnitHeater choice based on the following:  
 Switch ( Fdfhp03b_FurnaceUnitHeater) 
@@ -3647,8 +3641,22 @@ End Switch
  
 End If
 End If</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="Fdfhp04b_NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Size Category (Btu/h)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If  Fdfhp03b_FurnaceUnitHeater == FurnaceDuct Or UnitHeater
+result = NotRequired and field is grayed out
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut" />
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:element name="Fdfhp04to07Label" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Heating Mode</xsd:documentation>

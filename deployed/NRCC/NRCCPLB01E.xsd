@@ -778,9 +778,7 @@ End If</xsd:documentation>
                                              </xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">result == true If B02New_WaterHeatingSystem  IsPresent And  B02New_WaterHeatingSystem ==  CentralNonresSpaces Or == CentralDwellingUnits 
 Or If  B02Altered_ WaterHeatingSystem  IsPresent And  B02Altered_WaterHeatingSystem ==  CentralNonresSpaces Or  == CentralDwellingUnits
-And If Sum of all rows F10a_WaterHeaterCapacityRated =&amp;gt; 1,000,000 where F10a_WaterHeaterCapacityRated &amp;gt;=100,000 And F08_WaterHeaterType == BoilerCommercialGTE1MMBtu Or BoilerResDutyCommercial Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or InstantaneousCommercial Or InstantaneousConsumer Or StorageCommercial Or StorageResDutyCommercial
- 
-User input  If user checks box result = true Else result = false
+And If Sum of all rows F10a_WaterHeaterCapacityRated =&amp;gt; 1,000,000 where F10a_WaterHeaterCapacityRated &amp;gt;=100,000 And F08_WaterHeaterType == BoilerCommercialGTE1MMBtu Or BoilerResDutyCommercial Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or InstantaneousCommercial Or StorageCommercial 
 End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -806,11 +804,11 @@ End If</xsd:documentation>
                                        <xsd:element name="F06_EfficiencyCapWeightedAvg" type="hvac:EfficiencyCapWeightedAvg">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Capacity-weighted Average Efficiency %</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">if F05_IsEfficiencyCapWeightedAvg == true
+                                             <xsd:documentation source="CalculationsAndRules">If F05_IsEfficiencyCapWeightedAvg == true
 And F04_ExceptionsToPrescReqsDHW == ExceptionsNonApply
  
-Calculated field: For all rows where  F10a_WaterHeaterCapacityRated GT 100,000 And F08_WaterHeaterType == BoilerCommercialGTE1MMBtu Or BoilerResDutyCommercial Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or InstantaneousCommercial Or InstantaneousConsumer Or StorageCommercial Or StorageResDutyCommercial
-result = (SUM (F11 Rated Efficiency for the row which is either F11_ThermalEfficiency or F11_EfficiencyAFUE  x  F10a_WaterHeaterCapacityRated)) /  SUM ALL ( F10a_WaterHeaterCapacityRated that are GT 100,000)
+Calculated field: For all rows where  F10a_WaterHeaterCapacityRated GT 100,000 And F08_WaterHeaterType == BoilerCommercialGTE1MMBtu Or BoilerResDutyCommercial Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or InstantaneousCommercial Or StorageCommercial
+result = (SUM (F11 Rated Efficiency for the row where F08_WaterHeaterType == BoilerCommercialGTE1MMBtu Or BoilerResDutyCommercial Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or InstantaneousCommercial Or StorageCommercial  x  F10a_WaterHeaterCapacityRated)) /  SUM ALL ( F10a_WaterHeaterCapacityRated where F08_WaterHeaterType == BoilerCommercialGTE1MMBtu Or BoilerResDutyCommercial Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or InstantaneousCommercial Or StorageCommercial)
 End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -885,7 +883,7 @@ Multi-field triggers: See B03aAltered_ProjectHasEquipment  CalculationsAndRules 
                                                          <xsd:element name="F09_WaterHeaterTankVolume" type="hvac:WaterHeaterTankVolume">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Volume (gal)</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == BoilerCommercialGT1MMBtu, StorageCommercial Or StorageCommercialElectric Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or BoilerResDutyCommercial Or InstantaneousCommercial,
+                                                               <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == BoilerCommercialGT1MMBtu, StorageCommercial Or StorageCommercialElectric Or BoilerWaterHeater Or BoilerCommercialLT1MMBtu Or BoilerResDutyCommercial Or InstantaneousCommercial
 User enters value; which is stored in F09_WaterHeaterTankVolume 
 End If</xsd:documentation>
                                                             </xsd:annotation>

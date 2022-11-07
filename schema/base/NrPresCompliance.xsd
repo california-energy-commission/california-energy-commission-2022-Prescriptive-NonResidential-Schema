@@ -10530,6 +10530,7 @@
             <dtyp:displayterm value="Included">Included</dtyp:displayterm>
             <dtyp:displayterm value="NA_LTE40PctPreAltLP">NA:  [d:lte/] 40 % lower compared to pre-alteration LP</dtyp:displayterm>
             <dtyp:displayterm value="NA_LTE80PctAllowedLP">NA:  [d:lte/] 80 % LP (alt only)</dtyp:displayterm>
+            <dtyp:displayterm value="NA_NotDaylit">NA: Not daylit zone</dtyp:displayterm>
             <dtyp:displayterm value="OverhangRatioNA">NA: Overhang</dtyp:displayterm>
             <dtyp:displayterm value="PrimaryLT120NA">NA: General Ltg [d:lt/] 120W</dtyp:displayterm>
             <dtyp:displayterm value="RetailNA">NA: Sidelit retail sales area</dtyp:displayterm>
@@ -10544,6 +10545,7 @@
          <xsd:enumeration value="Included"/>
          <xsd:enumeration value="NA_LTE40PctPreAltLP"/>
          <xsd:enumeration value="NA_LTE80PctAllowedLP"/>
+         <xsd:enumeration value="NA_NotDaylit"/>
          <xsd:enumeration value="OverhangRatioNA"/>
          <xsd:enumeration value="PrimaryLT120NA"/>
          <xsd:enumeration value="RetailNA"/>
