@@ -1538,7 +1538,14 @@ result = TableIncomplete
  Else If Rcom01_InMyScope == false 
 result = NotInScope
   
-Else If</xsd:documentation>
+Else If
+Rbar02_InfiltrationBarrierMethod == Rbar02cc_InfiltrationBarrierMethod
+and
+Rbar03_DoorClosureMethod == Rbar03cc_DoorClosureMethod
+result = ExactMatch
+Else
+result = EqualBetter
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>

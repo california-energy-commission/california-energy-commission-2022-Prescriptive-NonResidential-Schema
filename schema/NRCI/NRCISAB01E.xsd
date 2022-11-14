@@ -975,16 +975,16 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank
  result = TableIncomplete
 Else If Bat03_BatteryCapacity  == Bat03cc_BatteryCapacity And 
-Bat04_BatteryChargingRate == Bat04cc_BatteryChargingRate
+Bat04_ChargingRate  == Bat04cc_BatteryChargingRate
 Or Bat04_NotApplicableMessage Is Present
 result = ExactMatch
  
 Else If Bat03cc_BatteryCapacity LT Bat03_BatteryCapacity And 
-Bat04_BatteryChargingRate Is Present And Bat04cc_BatteryChargingRate LT Bat04_BatteryChargingRate
+Bat04_ChargingRate  Is Present And Bat04cc_BatteryChargingRate LT Bat04_ChargingRate 
 result = EqualBetter
  
 Else If Bat03cc_BatteryCapacity GT Bat03_BatteryCapacity Or 
-Bat04_BatteryChargingRate Is Present And Bat04cc_BatteryChargingRate GT Bat04_BatteryChargingRate
+Bat04_ChargingRate  Is Present And Bat04cc_BatteryChargingRate GT Bat04_ChargingRate 
 result = MayNotComply
 End If</xsd:documentation>
                                        </xsd:annotation>

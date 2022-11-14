@@ -53,7 +53,7 @@
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
-                           <d:i>This  Certificate of Installation idocuments the installation of service water heating features, materials, components, and manufactured devices required to demonstrate compliance with Title 24, Part 6 per 
+                           <d:i>This  Certificate of Installation documents the installation of service water heating features, materials, components, and manufactured devices required to demonstrate compliance with Title 24, Part 6 per 
                               <d:t24refnolink/>110-103(a)3 for nonresidential, hotel/motel and high-rise residential occupancies.</d:i>
                         </xsd:documentation>
                      </xsd:annotation>
@@ -461,18 +461,6 @@ End If</xsd:documentation>
                                                                         </xsd:restriction>
                                                                      </xsd:simpleType>
                                                                   </xsd:element>
-                                                                  <xsd:element name="DHW04cc_DwellingUnitWaterHeater" type="hvac:DwellingUnitWaterHeater">
-                                                                     <xsd:annotation>
-                                                                        <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-If F16_DwellingUnitWaterHeater IsPresent
-result = F16_DwellingUnitWaterHeater
-End If</xsd:documentation>
-                                                                        <xsd:appinfo source="CIsrc">
-                                                                           <dtyp:srcSchema form="CCPLB01E" usage="copy">F16_DwellingUnitWaterHeater</dtyp:srcSchema>
-                                                                        </xsd:appinfo>
-                                                                     </xsd:annotation>
-                                                                  </xsd:element>
                                                                   <xsd:element name="DHW04cc_TankCategory" type="hvac:TankCategory">
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
@@ -543,18 +531,6 @@ End If</xsd:documentation>
                                                                         </xsd:restriction>
                                                                      </xsd:simpleType>
                                                                   </xsd:element>
-                                                                  <xsd:element name="DHW04_DwellingUnitWaterHeater" type="hvac:DwellingUnitWaterHeater">
-                                                                     <xsd:annotation>
-                                                                        <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If DHW01_InstalledSameAsCC == true
-If DHW04cc_DwellingUnitWaterHeater  IsPresent
-result = DHW04cc_DwellingUnitWaterHeater
-Else If DHW01_InstalledSameAsCC == false
-User input
-End If
-End If</xsd:documentation>
-                                                                     </xsd:annotation>
-                                                                  </xsd:element>
                                                                   <xsd:element name="DHW04_TankCategory" type="hvac:TankCategory">
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
@@ -562,7 +538,7 @@ End If</xsd:documentation>
 If DHW04cc_TankCategory IsPresent
 result = DHW04cc_TankCategory
 Else If DHW01_InstalledSameAsCC == false
-User input
+User input from options in DHW04_WaterHeaterType
 End If
 End If</xsd:documentation>
                                                                      </xsd:annotation>
@@ -619,7 +595,7 @@ End If</xsd:documentation>
                                                                         <xsd:documentation source="FieldText">Volume (gal)</xsd:documentation>
                                                                         <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 If F09_NotApplicableMessage IsPresent
-result = F00_NotApplicableMessage
+result = F09_NotApplicableMessage
 End If 
 Else If CC-PRF parent
 If Water05_NotApplicableMessage IsPresent
