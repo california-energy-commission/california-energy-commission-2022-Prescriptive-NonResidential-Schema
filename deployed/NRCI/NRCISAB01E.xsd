@@ -555,162 +555,64 @@ End If</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
-                                             <xsd:choice maxOccurs="1">
-                                                <xsd:element name="Pv03_ArrayModuleType" type="hvac:ArrayModuleType">
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Module Type</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                                                   </xsd:annotation>
-                                                </xsd:element>
-                                                <xsd:element name="Pv03_NotApplicableMessage">
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Module Type</xsd:documentation>
-                                                   </xsd:annotation>
-                                                   <xsd:simpleType>
-                                                      <xsd:restriction base="comp:NotApplicableMessage">
-                                                         <xsd:enumeration value="BlankGrayedOut"/>
-                                                      </xsd:restriction>
-                                                   </xsd:simpleType>
-                                                </xsd:element>
-                                             </xsd:choice>
-                                             <xsd:choice maxOccurs="1">
-                                                <xsd:element name="Pv04_Azimuth" type="dtyp:Azimuth">
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Azimuth (deg)</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                                                   </xsd:annotation>
-                                                </xsd:element>
-                                                <xsd:element name="Pv04_NotApplicableMessage">
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Azimuth (deg)</xsd:documentation>
-                                                   </xsd:annotation>
-                                                   <xsd:simpleType>
-                                                      <xsd:restriction base="comp:NotApplicableMessage">
-                                                         <xsd:enumeration value="BlankGrayedOut"/>
-                                                      </xsd:restriction>
-                                                   </xsd:simpleType>
-                                                </xsd:element>
-                                             </xsd:choice>
-                                             <xsd:choice maxOccurs="1">
-                                                <xsd:element name="Pv05_TiltMeasurementType" type="env:TiltMeasurementType">
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Tilt Input (deg/pitch)</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">Use input</xsd:documentation>
-                                                   </xsd:annotation>
-                                                </xsd:element>
-                                                <xsd:element name="Pv05_NotApplicableMessage">
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Tilt Input (deg/pitch)</xsd:documentation>
-                                                   </xsd:annotation>
-                                                   <xsd:simpleType>
-                                                      <xsd:restriction base="comp:NotApplicableMessage">
-                                                         <xsd:enumeration value="BlankGrayedOut"/>
-                                                      </xsd:restriction>
-                                                   </xsd:simpleType>
-                                                </xsd:element>
-                                             </xsd:choice>
+                                             <xsd:element name="Pv03_ArrayModuleType" type="hvac:ArrayModuleType">
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">Module Type</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                                </xsd:annotation>
+                                             </xsd:element>
+                                             <xsd:element name="Pv04_Azimuth" type="dtyp:Azimuth">
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">Azimuth (deg)</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                                </xsd:annotation>
+                                             </xsd:element>
+                                             <xsd:element name="Pv05_TiltMeasurementType" type="env:TiltMeasurementType">
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">Tilt Input (deg/pitch)</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">Use input</xsd:documentation>
+                                                </xsd:annotation>
+                                             </xsd:element>
                                              <xsd:choice maxOccurs="1">
                                                 <xsd:element name="Pv06_Tilt" type="dtyp:Tilt">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Angle/Tilt</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                                                   </xsd:annotation>
-                                                </xsd:element>
-                                                <xsd:element name="Pv06_RoofRise" type="env:RoofRise">
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Angle/Tilt</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If Pv05 == Degrees
+User input</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
                                                 <xsd:element name="Pv06_RoofRiseString" type="env:RoofRiseString">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Angle/Tilt</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If Pv05 == Pitch
+User input</xsd:documentation>
                                                    </xsd:annotation>
-                                                </xsd:element>
-                                                <xsd:element name="Pv06_NotApplicableMessage">
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Angle/Tilt</xsd:documentation>
-                                                   </xsd:annotation>
-                                                   <xsd:simpleType>
-                                                      <xsd:restriction base="comp:NotApplicableMessage">
-                                                         <xsd:enumeration value="BlankGrayedOut"/>
-                                                      </xsd:restriction>
-                                                   </xsd:simpleType>
                                                 </xsd:element>
                                              </xsd:choice>
-                                             <xsd:choice maxOccurs="1">
-                                                <xsd:element name="Pv07_AnnualSolarAccess" type="hvac:AnnualSolarAccess">
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Annual Solar Access (%)</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                                                   </xsd:annotation>
-                                                </xsd:element>
-                                                <xsd:element name="Pv07_NotApplicableMessage">
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Annual Solar Access (%)</xsd:documentation>
-                                                   </xsd:annotation>
-                                                   <xsd:simpleType>
-                                                      <xsd:restriction base="comp:NotApplicableMessage">
-                                                         <xsd:enumeration value="BlankGrayedOut"/>
-                                                      </xsd:restriction>
-                                                   </xsd:simpleType>
-                                                </xsd:element>
-                                             </xsd:choice>
-                                             <xsd:choice maxOccurs="1">
-                                                <xsd:element name="Pv08_InverterEfficiencyPercent" type="hvac:InverterEfficiencyPercent">
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Inverter Eff. (%)</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                                                   </xsd:annotation>
-                                                </xsd:element>
-                                                <xsd:element name="Pv08_NotApplicableMessage">
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Inverter Eff. (%)</xsd:documentation>
-                                                   </xsd:annotation>
-                                                   <xsd:simpleType>
-                                                      <xsd:restriction base="comp:NotApplicableMessage">
-                                                         <xsd:enumeration value="BlankGrayedOut"/>
-                                                      </xsd:restriction>
-                                                   </xsd:simpleType>
-                                                </xsd:element>
-                                             </xsd:choice>
-                                             <xsd:choice maxOccurs="1">
-                                                <xsd:element name="Pv09_ArrayType" type="hvac:ArrayType">
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Array Type</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                                                   </xsd:annotation>
-                                                </xsd:element>
-                                                <xsd:element name="Pv09_NotApplicableMessage">
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Array Type</xsd:documentation>
-                                                   </xsd:annotation>
-                                                   <xsd:simpleType>
-                                                      <xsd:restriction base="comp:NotApplicableMessage">
-                                                         <xsd:enumeration value="BlankGrayedOut"/>
-                                                      </xsd:restriction>
-                                                   </xsd:simpleType>
-                                                </xsd:element>
-                                             </xsd:choice>
-                                             <xsd:choice maxOccurs="1">
-                                                <xsd:element name="Pv10_PowerElectronics" type="hvac:PowerElectronics">
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Module Level Power Electronics</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                                                   </xsd:annotation>
-                                                </xsd:element>
-                                                <xsd:element name="Pv10_NotApplicableMessage">
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Module Level Power Electronics</xsd:documentation>
-                                                   </xsd:annotation>
-                                                   <xsd:simpleType>
-                                                      <xsd:restriction base="comp:NotApplicableMessage">
-                                                         <xsd:enumeration value="BlankGrayedOut"/>
-                                                      </xsd:restriction>
-                                                   </xsd:simpleType>
-                                                </xsd:element>
-                                             </xsd:choice>
+                                             <xsd:element name="Pv07_AnnualSolarAccess" type="hvac:AnnualSolarAccess">
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">Annual Solar Access (%)</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                                </xsd:annotation>
+                                             </xsd:element>
+                                             <xsd:element name="Pv08_InverterEfficiencyPercent" type="hvac:InverterEfficiencyPercent">
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">Inverter Eff. (%)</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                                </xsd:annotation>
+                                             </xsd:element>
+                                             <xsd:element name="Pv09_ArrayType" type="hvac:ArrayType">
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">Array Type</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                                </xsd:annotation>
+                                             </xsd:element>
+                                             <xsd:element name="Pv10_PowerElectronics" type="hvac:PowerElectronics">
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">Module Level Power Electronics</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                                </xsd:annotation>
+                                             </xsd:element>
                                           </xsd:sequence>
                                        </xsd:complexType>
                                     </xsd:element>
@@ -720,7 +622,7 @@ End If</xsd:documentation>
                            <xsd:element name="Pv11_PV_SystemPowerOutput" type="hvac:PV_SystemPowerOutput">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">Total As-built DC System Size (kW)</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">result = SUM ALL (PV02_PV_ArrayPowerOutput)</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">result = SUM ALL (PV02_ArrayPowerOutput)</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="Pv12cc_PV_DesignSize" type="comp:PV_DesignSize">
@@ -900,8 +802,8 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Rated Power Capacity of Battery (kWdc)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Bat01_InstalledSameAsCC == true
-If Bat04cc_BatteryChargingRate IsPresent
-result = Bat04cc_BatteryChargingRate
+If Bat04cc_ChargingRate IsPresent
+result = Bat04cc_ChargingRate 
 End If
 Else If Bat01_InstalledSameAsCC == false
 User input
@@ -997,17 +899,17 @@ End If</xsd:documentation>
                                           <xsd:documentation source="FieldText">Battery Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank
  result = TableIncomplete
-Else If Bat03_BatteryCapacity  == Bat03cc_BatteryCapacity And 
-Bat04_ChargingRate  == Bat04cc_BatteryChargingRate
+Else If Bat03_BatteryCapacity == Bat03cc_BatteryCapacity And
+Bat04_ChargingRate == Bat04cc_ChargingRate 
 Or Bat04_NotApplicableMessage Is Present
 result = ExactMatch
  
 Else If Bat03cc_BatteryCapacity LT Bat03_BatteryCapacity And 
-Bat04_ChargingRate  Is Present And Bat04cc_BatteryChargingRate LT Bat04_ChargingRate 
+Bat04_ChargingRate Is Present And Bat04cc_ChargingRate LT Bat04_ChargingRate 
 result = EqualBetter
  
 Else If Bat03cc_BatteryCapacity GT Bat03_BatteryCapacity Or 
-Bat04_ChargingRate  Is Present And Bat04cc_BatteryChargingRate GT Bat04_ChargingRate 
+Bat04_ChargingRate Is Present And Bat04cc_ChargingRate GT Bat04_ChargingRate 
 result = MayNotComply
 End If</xsd:documentation>
                                        </xsd:annotation>

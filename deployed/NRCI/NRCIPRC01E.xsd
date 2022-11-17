@@ -1568,6 +1568,13 @@ End If</xsd:documentation>
                                     <xsd:element name="Rgasclr01cc_ComponentName" type="comp:ComponentName">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Name or Item Tag</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Fgasclr02_ComponentName IsPresent
+result = Fgasclr02_ComponentName
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Fgasclr02_ComponentName</dtyp:srcSchema>
+                                          </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="Rgasclr01_InMyScope" type="comp:InMyScope">
@@ -1625,6 +1632,13 @@ End If</xsd:documentation>
                                                       <xsd:element name="Rgasclr04cc_GasCoolerCondensingTemp" type="comp:GasCoolerCondensingTemp">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Design Condensing Temperatures</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Fgasclr06_GasCoolerCondensingTemp IsPresent
+result = Fgasclr06_GasCoolerCondensingTemp
+End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Fgasclr06_GasCoolerCondensingTemp</dtyp:srcSchema>
+                                                            </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                       <xsd:element name="Rgasclr04_GasCoolerCondensingTemp" type="comp:GasCoolerCondensingTemp">
@@ -1635,6 +1649,13 @@ End If</xsd:documentation>
                                                       <xsd:element name="Rgasclr05cc_CondenserEfficiency" type="hvac:CondenserEfficiency">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Efficiency (Btuh/W)</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Fgasclr08_CondenserEfficiency IsPresent
+result = Fgasclr08_CondenserEfficiency
+End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Fgasclr08_CondenserEfficiency</dtyp:srcSchema>
+                                                            </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                       <xsd:element name="Rgasclr05_CondenserEfficiency" type="hvac:CondenserEfficiency">
@@ -2679,6 +2700,13 @@ End If</xsd:documentation>
                                     <xsd:element name="CRgasclr01cc_ComponentName" type="comp:ComponentName">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Name or Item Tag</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Ggasclr02_ComponentName IsPresent
+result = Ggasclr02_ComponentName
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Ggasclr02_ComponentName</dtyp:srcSchema>
+                                          </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="CRgasclr01_InMyScope" type="comp:InMyScope">
@@ -2741,11 +2769,25 @@ End If</xsd:documentation>
                                                       <xsd:element name="CRgasclr04_GasCoolerCondensingTemp" type="comp:GasCoolerCondensingTemp">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Design Condensing Temperatures</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Ggasclr06_GasCoolerCondensingTemp IsPresent
+result = Ggasclr06_GasCoolerCondensingTemp
+End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Ggasclr06_GasCoolerCondensingTemp</dtyp:srcSchema>
+                                                            </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                       <xsd:element name="CRgasclr05cc_CondenserEfficiency" type="hvac:CondenserEfficiency">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Efficiency (Btuh/W)</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Ggasclr08_CondenserEfficiency IsPresent
+result = Ggasclr08_CondenserEfficiency
+End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Ggasclr08_CondenserEfficiency</dtyp:srcSchema>
+                                                            </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                       <xsd:element name="CRgasclr05_CondenserEfficiency" type="hvac:CondenserEfficiency">
@@ -5553,6 +5595,13 @@ End If</xsd:documentation>
                                     <xsd:element name="HortLtg01cc_SystemDescription" type="comp:SystemDescription">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Zone/System or Item Tag</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If HortLtg01_SystemDescription IsPresent
+result = HortLtg01_SystemDescription
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="NRCCPRC01E" usage="copy">HortLtg01_SystemDescription</dtyp:srcSchema>
+                                          </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="HortLtg01_InMyScope" type="comp:InMyScope">
@@ -5591,11 +5640,25 @@ End If</xsd:documentation>
                                                          <xsd:element name="HortLtg02cc_HorticultureEfficacyPPE" type="comp:HorticultureEfficacyPPE">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Photosynthetic Photon Efficacy (PPE)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If HortLtg03_HorticultureEfficacyPPE IsPresent
+result = HortLtg03_HorticultureEfficacyPPE
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="NRCCPRC01E" usage="copy">HortLtg03_HorticultureEfficacyPPE</dtyp:srcSchema>
+                                                               </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
                                                          <xsd:element name="HortLtg02cc_NotApplicableMessage">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Photosynthetic Photon Efficacy (PPE)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If HortLtg03_NotApplicableMessage IsPresent
+result = HortLtg03_NotApplicableMessage
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="NRCCPRC01E" usage="copy">HortLtg03_NotApplicableMessage</dtyp:srcSchema>
+                                                               </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
                                                                <xsd:restriction base="comp:NotApplicableMessage">
@@ -5625,6 +5688,13 @@ End If</xsd:documentation>
                                                          <xsd:element name="HortLtg03cc_ShutOffControlsArea">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Time switch</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If HortLtg04_ShutOffControlsArea IsPresent
+result = HortLtg04_ShutOffControlsArea
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="NRCCPRC01E" usage="copy">HortLtg04_ShutOffControlsArea</dtyp:srcSchema>
+                                                               </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
                                                                <xsd:restriction base="comp:ShutOffControlsArea">
@@ -5637,6 +5707,13 @@ End If</xsd:documentation>
                                                          <xsd:element name="HortLtg03cc_NotApplicableMessage">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Time switch</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If HortLtg04_NotApplicableMessage IsPresent
+result = HortLtg04_NotApplicableMessage
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="NRCCPRC01E" usage="copy">HortLtg04_NotApplicableMessage</dtyp:srcSchema>
+                                                               </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
                                                                <xsd:restriction base="comp:NotApplicableMessage">
@@ -5673,6 +5750,13 @@ End If</xsd:documentation>
                                                          <xsd:element name="HortLtg04cc_MultilevelControls">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Multilevel</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If HortLtg05_MultilevelControls IsPresent
+result = HortLtg05_MultilevelControls
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="NRCCPRC01E" usage="copy">HortLtg05_MultilevelControls</dtyp:srcSchema>
+                                                               </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
                                                                <xsd:restriction base="comp:MultilevelControls">
@@ -5684,6 +5768,13 @@ End If</xsd:documentation>
                                                          <xsd:element name="HortLtg04cc_NotApplicableMessage">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Multilevel</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If HortLtg05_NotApplicableMessage IsPresent
+result = HortLtg05_NotApplicableMessage
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="NRCCPRC01E" usage="copy">HortLtg05_NotApplicableMessage</dtyp:srcSchema>
+                                                               </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
                                                                <xsd:restriction base="comp:NotApplicableMessage">
@@ -5752,6 +5843,13 @@ End If</xsd:documentation>
                                     <xsd:element name="Hort01_HvacSystemName" type="hvac:HvacSystemName">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">System Name/  Description</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Hort01_HvacSystemName IsPresent
+result = Hort01_HvacSystemName
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Hort01_HvacSystemName</dtyp:srcSchema>
+                                          </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="Hort01_InMyScope" type="comp:InMyScope">
@@ -5789,6 +5887,13 @@ End If</xsd:documentation>
                                                       <xsd:element name="Hort02cc_DehumidifyCompliance" type="comp:DehumidifyCompliance">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Dehumidification System for Indoor Grow CEH Compliance Method</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Hort02_DehumidifyCompliance IsPresent
+result = Hort02_DehumidifyCompliance
+End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Hort02_DehumidifyCompliance</dtyp:srcSchema>
+                                                            </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                       <xsd:element name="Hort02_DehumidifyCompliance" type="comp:DehumidifyCompliance">
@@ -5861,6 +5966,13 @@ End If</xsd:documentation>
                                              <xsd:element name="Steam01cc_SteamTrapRequirements">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Update Interval</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Steam01_SteamTrapRequirements IsPresent
+result = Steam01_SteamTrapRequirements
+End If</xsd:documentation>
+                                                   <xsd:appinfo source="CIsrc">
+                                                      <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Steam01_SteamTrapRequirements</dtyp:srcSchema>
+                                                   </xsd:appinfo>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
                                                    <xsd:restriction base="comp:SteamTrapRequirements">
@@ -5883,6 +5995,13 @@ End If</xsd:documentation>
                                              <xsd:element name="Steam02cc_SteamTrapRequirements">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Alarm Display</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Steam02_SteamTrapRequirements IsPresent
+result = Steam02_SteamTrapRequirements
+End If</xsd:documentation>
+                                                   <xsd:appinfo source="CIsrc">
+                                                      <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Steam02_SteamTrapRequirements</dtyp:srcSchema>
+                                                   </xsd:appinfo>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
                                                    <xsd:restriction base="comp:SteamTrapRequirements">
@@ -5905,6 +6024,13 @@ End If</xsd:documentation>
                                              <xsd:element name="Steam03cc_SteamTrapRequirements">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Strainer Installation</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Steam03_SteamTrapRequirements IsPresent
+result = Steam03_SteamTrapRequirements
+End If</xsd:documentation>
+                                                   <xsd:appinfo source="CIsrc">
+                                                      <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Steam03_SteamTrapRequirements</dtyp:srcSchema>
+                                                   </xsd:appinfo>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
                                                    <xsd:restriction base="comp:SteamTrapRequirements">
@@ -5954,6 +6080,13 @@ End If</xsd:documentation>
                                     <xsd:element name="Pool01cc_SystemDescription" type="comp:SystemDescription">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Pool/Spa Description</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Pool01_SystemDescription IsPresent
+result = Pool01_SystemDescription
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Pool01_SystemDescription</dtyp:srcSchema>
+                                          </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="Pool01_InMyScope" type="comp:InMyScope">
@@ -6003,6 +6136,31 @@ End If</xsd:documentation>
                                                       <xsd:element name="Pool04cc_PoolSpaRequirements">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Instructions &amp;amp; Covers</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Pool05_PoolSpaRequirements IsPresent
+result = Pool05_PoolSpaRequirements
+End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Pool05_PoolSpaRequirements</dtyp:srcSchema>
+                                                            </xsd:appinfo>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:PoolSpaRequirements">
+                                                               <xsd:enumeration value="CoverProvided"/>
+                                                               <xsd:enumeration value="NotHeatedNA"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Pool04_PoolSpaRequirements">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Instructions &amp;amp; Covers</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Pool01_InstalledSameAsCC == True
+result = Pool04cc_PoolSpaRequirements
+Else
+User selects from list
+End If
+End If</xsd:documentation>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
                                                             <xsd:restriction base="comp:PoolSpaRequirements">
@@ -6014,6 +6172,32 @@ End If</xsd:documentation>
                                                       <xsd:element name="Pool05cc_PoolSpaRequirements">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Electric Resistance Heating</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Pool06_PoolSpaRequirements IsPresent
+result = Pool06_PoolSpaRequirements
+End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Pool06_PoolSpaRequirements</dtyp:srcSchema>
+                                                            </xsd:appinfo>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:PoolSpaRequirements">
+                                                               <xsd:enumeration value="FullyInsulated"/>
+                                                               <xsd:enumeration value="NoElectResistanceHeat"/>
+                                                               <xsd:enumeration value="SolarRecoveredEnergy"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Pool05_PoolSpaRequirements">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Electric Resistance Heating</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Pool01_InstalledSameAsCC == True
+result = Pool05cc_PoolSpaRequirements
+Else
+User selects from list
+End If
+End If</xsd:documentation>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
                                                             <xsd:restriction base="comp:PoolSpaRequirements">
@@ -6026,6 +6210,31 @@ End If</xsd:documentation>
                                                       <xsd:element name="Pool06cc_PoolSpaRequirements">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Piping</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Pool07_PoolSpaRequirements IsPresent
+result = Pool07_PoolSpaRequirements
+End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Pool07_PoolSpaRequirements</dtyp:srcSchema>
+                                                            </xsd:appinfo>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:PoolSpaRequirements">
+                                                               <xsd:enumeration value="FutureSolarConnections"/>
+                                                               <xsd:enumeration value="FutureSolarPiping"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Pool06_PoolSpaRequirements">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Piping</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Pool01_InstalledSameAsCC == True
+result = Pool06cc_PoolSpaRequirements
+Else
+User selects from list
+End If
+End If</xsd:documentation>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
                                                             <xsd:restriction base="comp:PoolSpaRequirements">
@@ -6037,6 +6246,31 @@ End If</xsd:documentation>
                                                       <xsd:element name="Pool07cc_PoolSpaRequirements">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Pool Directional Inlets &amp;amp; Pump Control</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Pool08_PoolSpaRequirements IsPresent
+result = Pool08_PoolSpaRequirements
+End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Pool08_PoolSpaRequirements</dtyp:srcSchema>
+                                                            </xsd:appinfo>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:PoolSpaRequirements">
+                                                               <xsd:enumeration value="PoolInletsPump"/>
+                                                               <xsd:enumeration value="SpaNA"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Pool07_PoolSpaRequirements">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Pool Directional Inlets &amp;amp; Pump Control</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Pool01_InstalledSameAsCC == True
+result = Pool07cc_PoolSpaRequirements
+Else
+User selects from list
+End If
+End If</xsd:documentation>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
                                                             <xsd:restriction base="comp:PoolSpaRequirements">

@@ -1574,6 +1574,7 @@ D03_ExceptionalConditionMessageCCSABE += CalculatorOutputAttachedForH</xsd:docum
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]I. SMART THERMOSTATS AND ALTERNATIVE EFFICIENCY MEASURE FOR SOLAR READY EXCEPTION[/d:b]</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">Section I is required if B01d_IsProjectSmartTstatPlusEE_Measure == true</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Only 1 I02 element should be != NoEfficiencyMeasure</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1612,7 +1613,7 @@ D03_ExceptionalConditionMessageCCSABE += CalculatorOutputAttachedForH</xsd:docum
                   <xsd:element name="I02ColumnSubheading" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">In addition, my project consists of (check at least one):</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">In addition, my project includes:</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="I02a_SolarReadyAlternativeEfficiencyMeasure" >

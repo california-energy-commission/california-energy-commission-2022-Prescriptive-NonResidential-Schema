@@ -388,9 +388,9 @@ End If</xsd:documentation>
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText">Individual or Central System</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-If DwellingUnitEquipment IsPresent 
+If F08_WaterHeaterType == InstantaneousConsumer Or StorageConsumer Or StorageResDutyCommercial Or InstantaneousConsumerElectric Or InstantaneousResDutyCommercial Or StorageConsumerElectric
 result = false
-Else If DwellingUnitEquipmentCentralWH IsPresent 
+Else 
 result = true
 End If
 Else If CC-PRF parent
@@ -404,8 +404,7 @@ End If</xsd:documentation>
                                                                         <dtyp:displayterm value="false">Individual</dtyp:displayterm>
                                                                      </xsd:appinfo>
                                                                      <xsd:appinfo source="CIsrc">
-                                                                        <dtyp:srcSchema form="CCPLB01E" usage="reference">Section_F DwellingUnitEquipment</dtyp:srcSchema>
-                                                                        <dtyp:srcSchema form="CCPLB01E" usage="reference">Section_F DwellingUnitEquipmentCentralWH</dtyp:srcSchema>
+                                                                        <dtyp:srcSchema form="CCPLB01E" usage="reference">Section_F F08_WaterHeaterType</dtyp:srcSchema>
                                                                         <dtyp:srcSchema form="CCPRF01E" usage="copy">WaterMF03_CentralSystem</dtyp:srcSchema>
                                                                      </xsd:appinfo>
                                                                   </xsd:annotation>
@@ -690,17 +689,11 @@ End If</xsd:documentation>
                                                                   <xsd:element name="DHW06cc_NotApplicableMessage">
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Rated Input Capacity (Btu/h)</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-If F10a_NotApplicableMessage IsPresent
-result = F10a_NotApplicableMessage
-End If
-Else If CC-PRF
+                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PRF
 If Water06_NotApplicableMessage IsPresent
 result = Water06_NotApplicableMessage
-End If
 End If</xsd:documentation>
                                                                         <xsd:appinfo source="CIsrc">
-                                                                           <dtyp:srcSchema form="CCPLB01E" usage="copy">F10_NotApplicableMessage</dtyp:srcSchema>
                                                                            <dtyp:srcSchema form="CCPRF01E" usage="copy">Water06_NotApplicableMessage</dtyp:srcSchema>
                                                                         </xsd:appinfo>
                                                                      </xsd:annotation>

@@ -1151,116 +1151,124 @@ End If</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
-                                                      <xsd:element name="Controls02cc_ControlledReceptacleComplianceType" type="comp:ControlledReceptacleComplianceType" minOccurs="0" maxOccurs="unbounded">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup>
-                                                            </xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
-If  I02_ControlledReceptacleComplianceType IsPresent
-result = I02_ControlledReceptacleComplianceType 
-End If
-End If</xsd:documentation>
-                                                            <xsd:appinfo source="CIsrc">
-                                                               <dtyp:srcSchema form="CCELC01E" usage="copy">I02_ControlledReceptacleComplianceType</dtyp:srcSchema>
-                                                            </xsd:appinfo>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
-                                                      <xsd:element name="Controls02cc_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup>
-                                                            </xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
-If I02_ControlledReceptacleNA IsPresent
-result = I02_ControlledReceptacleNA 
-End If</xsd:documentation>
-                                                            <xsd:appinfo source="CIsrc">
-                                                               <dtyp:srcSchema form="CCELC01E" usage="copy">I02_ControlledReceptacleNA</dtyp:srcSchema>
-                                                            </xsd:appinfo>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
-                                                      <xsd:element name="Controls02_ControlledReceptacleComplianceType" type="comp:ControlledReceptacleComplianceType" minOccurs="0" maxOccurs="unbounded">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup>
-                                                            </xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == true
-If  Controls02cc_ControlledReceptacleComplianceType IsPresent
-result = Controls02cc_ControlledReceptacleComplianceType but user can change value or add additional values from dropdown list 
-Else If Controls01_InstalledSameAsCC == false
-User selects all that apply in this space from dropdown list of ControlledReceptacleComplianceType 
-End If
-End If</xsd:documentation>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
-                                                      <xsd:element name="Controls02_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup>
-                                                            </xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == true
-If Controlc02cc_ControlledReceptacleNA IsPresent
-result = Controlc02cc_ControlledReceptacleNA
-End If
-Else  If Controls01_InstalledSameAsCC == false
-User selects all that apply in this space from dropdown list of ControlledReceptacleNA values
-End If</xsd:documentation>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
-                                                      <xsd:element name="Controls03cc_ControlledReceptacleShutOffControl" type="comp:ControlledReceptacleShutOffControl">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If CC-ELC parent 
-If  I03_ControlledReceptacleShutOffControl IsPresent
-result = I03_ControlledReceptacleShutOffControl
-End If
-End If</xsd:documentation>
-                                                            <xsd:appinfo source="CIsrc">
-                                                               <dtyp:srcSchema form="CCELC01E" usage="copy">I03_ControlledReceptacleShutOffControl</dtyp:srcSchema>
-                                                            </xsd:appinfo>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
-                                                      <xsd:element name="Controls03cc_ControlledReceptacleNA" type="comp:ControlledReceptacleNA">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If CC-ELC parent 
-If I03_ControlledReceptacleNA IsPresent
-result = I03_ControlledReceptacleNA
-End If
-End If</xsd:documentation>
-                                                            <xsd:appinfo source="CIsrc">
-                                                               <dtyp:srcSchema form="CCELC01E" usage="copy">I03_ControlledReceptacleNA</dtyp:srcSchema>
-                                                            </xsd:appinfo>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
-                                                      <xsd:element name="Controls03_ControlledReceptacleShutOffControl" type="comp:ControlledReceptacleShutOffControl" minOccurs="0" maxOccurs="unbounded">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == true
-If Controls03cc_ControlledReceptacleShutOffControl IsPresent
-result = Controls03cc_ControlledReceptacleShutOffControl
- but user can add additional values from dropdown list of ControlledReceptacleShutOffControl values
-End If
-If Controls01_InstalledSameAsCC == false
-User can select from dropdown list of ControlledReceptacleShutOffControl
- End If
-End If</xsd:documentation>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
-                                                      <xsd:element name="Controls03_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == true
-If Controls03cc_ControlledReceptacleNA IsPresent
-result = Controls03cc_ControlledReceptacleNA but user can add additional values from dropdown list of ControlledReceptacleNA values
-End If
-If Controls01_InstalledSameAsCC == false
-User can select from dropdown list of ControlledReceptacleNA
- End If
-End If
- 
- 
- 
- ControlledReceptacleNA and user may select  one or more that apply in this space or may not select any.</xsd:documentation>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="Controls02cc_ControlledReceptacleComplianceType" type="comp:ControlledReceptacleComplianceType" minOccurs="0" maxOccurs="unbounded">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup>
+                                                               </xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+   If  I02_ControlledReceptacleComplianceType IsPresent
+   result = I02_ControlledReceptacleComplianceType 
+   End If
+   End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCELC01E" usage="copy">I02_ControlledReceptacleComplianceType</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Controls02cc_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup>
+                                                               </xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+   If I02_ControlledReceptacleNA IsPresent
+   result = I02_ControlledReceptacleNA 
+   End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCELC01E" usage="copy">I02_ControlledReceptacleNA</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="Controls02_ControlledReceptacleComplianceType" type="comp:ControlledReceptacleComplianceType" minOccurs="0" maxOccurs="unbounded">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup>
+                                                               </xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == true
+   If  Controls02cc_ControlledReceptacleComplianceType IsPresent
+   result = Controls02cc_ControlledReceptacleComplianceType but user can change value or add additional values from dropdown list 
+   Else If Controls01_InstalledSameAsCC == false
+   User selects all that apply in this space from dropdown list of ControlledReceptacleComplianceType 
+   End If
+   End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Controls02_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup>
+                                                               </xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == true
+   If Controlc02cc_ControlledReceptacleNA IsPresent
+   result = Controlc02cc_ControlledReceptacleNA
+   End If
+   Else  If Controls01_InstalledSameAsCC == false
+   User selects all that apply in this space from dropdown list of ControlledReceptacleNA values
+   End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="Controls03cc_ControlledReceptacleShutOffControl" type="comp:ControlledReceptacleShutOffControl">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-ELC parent 
+   If  I03_ControlledReceptacleShutOffControl IsPresent
+   result = I03_ControlledReceptacleShutOffControl
+   End If
+   End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCELC01E" usage="copy">I03_ControlledReceptacleShutOffControl</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Controls03cc_ControlledReceptacleNA" type="comp:ControlledReceptacleNA">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-ELC parent 
+   If I03_ControlledReceptacleNA IsPresent
+   result = I03_ControlledReceptacleNA
+   End If
+   End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCELC01E" usage="copy">I03_ControlledReceptacleNA</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="Controls03_ControlledReceptacleShutOffControl" type="comp:ControlledReceptacleShutOffControl" minOccurs="0" maxOccurs="unbounded">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == true
+   If Controls03cc_ControlledReceptacleShutOffControl IsPresent
+   result = Controls03cc_ControlledReceptacleShutOffControl
+   but user can add additional values from dropdown list of ControlledReceptacleShutOffControl values
+   End If
+   If Controls01_InstalledSameAsCC == false
+   User can select from dropdown list of ControlledReceptacleShutOffControl
+   End If
+   End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Controls03_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == true
+   If Controls03cc_ControlledReceptacleNA IsPresent
+   result = Controls03cc_ControlledReceptacleNA but user can add additional values from dropdown list of ControlledReceptacleNA values
+   End If
+   If Controls01_InstalledSameAsCC == false
+   User can select from dropdown list of ControlledReceptacleNA
+   End If
+   End If
+   
+   
+   
+   ControlledReceptacleNA and user may select  one or more that apply in this space or may not select any.</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                      </xsd:choice>
                                                       <xsd:element name="Controls04acc_ControlledReceptacleDemandResponse" type="comp:ControlledReceptacleDemandResponse">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Demand Response Controls</xsd:documentation>
@@ -1296,39 +1304,41 @@ End If</xsd:documentation>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
-                                                      <xsd:element name="Controls04_AreControlledReceptaclesPermanentlyMarked" type="comp:AreControlledReceptaclesPermanentlyMarked">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Permanent Durable Marking Is Used</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == false
-User selects from AreControlledReceptaclesPermanentlyMarked true value displayed in dropdown as  Controlled and Uncontrolled Receptacles Identified with Permanent Marking, or any values from ControlledReceptacleNA
- 
-Else If Controls01_InstalledSameAsCC == true
-If Controls04cc_AreControlledReceptaclesPermanentlyMarked == true
-result = Controls04cc_AreControlledReceptaclesPermanentlyMarked 
-Else  Controls04cc_AreControlledReceptaclesPermanentlyMarked == false
-User can select values from dropdown list of ControlledReceptacleNA values
-End If
-End If</xsd:documentation>
-                                                            <xsd:appinfo source="displayterm">
-                                                               <dtyp:displayterm value="true">Controlled and Uncontrolled Receptacles Identified with Permanent Marking</dtyp:displayterm>
-                                                            </xsd:appinfo>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
-                                                      <xsd:element name="Controls04_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Permanent Durable Marking Will be Used</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == false
-User selects from AreControlledReceptaclesPermanentlyMarked true value displayed in dropdown as  Controlled and Uncontrolled Receptacles Identified with Permanent Marking, or any values from ControlledReceptacleNA
- 
-Else If Controls01_InstalledSameAsCC == true
-If Controls04cc_AreControlledReceptaclesPermanentlyMarked == true
-result = Controls04cc_AreControlledReceptaclesPermanentlyMarked 
-Else  Controls04cc_AreControlledReceptaclesPermanentlyMarked == false
-User can select values from dropdown list of ControlledReceptacleNA values
-End If
-End If</xsd:documentation>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="Controls04_AreControlledReceptaclesPermanentlyMarked" type="comp:AreControlledReceptaclesPermanentlyMarked">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Permanent Durable Marking Is Used</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == false
+   User selects from AreControlledReceptaclesPermanentlyMarked true value displayed in dropdown as  Controlled and Uncontrolled Receptacles Identified with Permanent Marking, or any values from ControlledReceptacleNA
+   
+   Else If Controls01_InstalledSameAsCC == true
+   If Controls04cc_AreControlledReceptaclesPermanentlyMarked == true
+   result = Controls04cc_AreControlledReceptaclesPermanentlyMarked 
+   Else  Controls04cc_AreControlledReceptaclesPermanentlyMarked == false
+   User can select values from dropdown list of ControlledReceptacleNA values
+   End If
+   End If</xsd:documentation>
+                                                               <xsd:appinfo source="displayterm">
+                                                                  <dtyp:displayterm value="true">Controlled and Uncontrolled Receptacles Identified with Permanent Marking</dtyp:displayterm>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Controls04_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Permanent Durable Marking Will be Used</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Controls01_InstalledSameAsCC == false
+   User selects from AreControlledReceptaclesPermanentlyMarked true value displayed in dropdown as  Controlled and Uncontrolled Receptacles Identified with Permanent Marking, or any values from ControlledReceptacleNA
+   
+   Else If Controls01_InstalledSameAsCC == true
+   If Controls04cc_AreControlledReceptaclesPermanentlyMarked == true
+   result = Controls04cc_AreControlledReceptaclesPermanentlyMarked 
+   Else  Controls04cc_AreControlledReceptaclesPermanentlyMarked == false
+   User can select values from dropdown list of ControlledReceptacleNA values
+   End If
+   End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                      </xsd:choice>
                                                    </xsd:sequence>
                                                 </xsd:complexType>
                                              </xsd:element>

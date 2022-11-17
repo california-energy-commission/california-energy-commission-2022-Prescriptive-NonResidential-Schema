@@ -771,10 +771,18 @@ B02b_ProjectHasDimmerControl == true Or B02c_ProjectHasDemandControl == true Or<
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Name or Sign Tag</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTSE parent
+If F01_LightedSignName IsPresent
 result = F01_LightedSignName
+Else If G01_LightedSignName IsPresent
+result = G01_LightedSignName
+Else If H01_LightedSignName IsPresent
+result = H01_LightedSignName
+End If
 End If</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
                                              <dtyp:srcSchema form="CCLTS01E" usage="copy">F01_LightedSignName</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCLTS01E" usage="copy">G01_LightedSignName</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCLTS01E" usage="copy">H01_LightedSignName</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -822,10 +830,18 @@ End If</xsd:documentation>
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Sign Description</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTSE parent
-result = F02_LightedSignDescription 
+If F02_LightedSignDescription IsPresent
+result = F02_LightedSignDescription
+Else If G02_LightedSignDescription IsPresent
+result = G02_LightedSignDescription
+Else If H02_LightedSignDescription IsPresent
+result = H02_LightedSignDescription
+End If
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
                                                                <dtyp:srcSchema form="CCLTS01E" usage="copy">F02_LightedSignDescription</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTS01E" usage="copy">G02_LightedSignDescription</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTS01E" usage="copy">H02_LightedSignDescription</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -841,9 +857,16 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTSE parent
 If F08a_SignShutOffControls IsPresent for F01_LightedSignName assigned to Ctrl01cc_LightedSignName
 result = F08a_SignShutOffControls
+Else If G04a_SignShutOffControls IsPresent for G01_LightedSignName assigned to Ctrl01cc_LightedSignName
+result = G04a_SignShutOffControls
+Else If H03a_SignShutOffControls IsPresent for H01_LightedSignName assigned to Ctrl01cc_LightedSignName
+result = H03a_SignShutOffControls
+End If
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCLTS01E" usage="copy">F08a_SignShutOffControls</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">G04a_SignShutOffControls</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">H03a_SignShutOffControls</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -853,9 +876,16 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTSE parent
 If F08a_NotApplicableMessage IsPresent for F01_LightedSignName assigned to Ctrl01cc_LightedSignName
 result = F08a_NotApplicableMessage
+Else If G04a_NotApplicableMessage IsPresent for G01_LightedSignName assigned to Ctrl01cc_LightedSignName
+result = G04a_NotApplicableMessage
+Else If H03a_NotApplicableMessage IsPresent for H01_LightedSignName assigned to Ctrl01cc_LightedSignName
+result = H03a_NotApplicableMessage
+End If
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCLTS01E" usage="copy">F08a_NotApplicableMessage</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">G04a_NotApplicableMessage</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">H03a_NotApplicableMessage</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -899,9 +929,16 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTSE parent
 If F08b_SignDimmingControls IsPresent for F01_LightedSignName assigned to Ctrl01cc_LightedSignName
 result = F08b_SignDimmingControls
+Else If G04b_SignDimmingControls IsPresent for G01_LightedSignName assigned to Ctrl01cc_LightedSignName
+result = G04b_SignDimmingControls
+Else If H03b_SignDimmingControls IsPresent for H01_LightedSignName assigned to Ctrl01cc_LightedSignName
+result = H03b_SignDimmingControls
+End If
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCLTS01E" usage="copy">F08b_SignDimmingControls</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">G04b_SignDimmingControls</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">H03b_SignDimmingControls</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -911,9 +948,16 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTSE parent
 If F08b_NotApplicableMessage IsPresent for F01_LightedSignName assigned to Ctrl01cc_LightedSignName
 result = F08b_NotApplicableMessage
+Else If G04b_NotApplicableMessage IsPresent for G01_LightedSignName assigned to Ctrl01cc_LightedSignName
+result = G04b_NotApplicableMessage
+Else If H03b_NotApplicableMessage IsPresent for H01_LightedSignName assigned to Ctrl01cc_LightedSignName
+result = H03b_NotApplicableMessage
+End If
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCLTS01E" usage="copy">F08b_NotApplicableMessage</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">G04b_NotApplicableMessage</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">H03b_NotApplicableMessage</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -960,9 +1004,16 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTSE parent
 If F08c_SignDemandResponseControls IsPresent for F01_LightedSignName assigned to Ctrl01cc_LightedSignName
 result = F08c_SignDemandResponseControls
+Else If G04c_SignDemandResponseControls IsPresent for G01_LightedSignName assigned to Ctrl01cc_LightedSignName
+result = G04c_SignDemandResponseControls
+Else If H03c_SignDemandResponseControls IsPresent for H01_LightedSignName assigned to Ctrl01cc_LightedSignName
+result = H03c_SignDemandResponseControls
+End If
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCLTS01E" usage="copy">F08c_SignDemandResponseControls</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">G04c_SignDemandResponseControls</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">H03c_SignDemandResponseControls</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -972,9 +1023,16 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTSE parent
 If F08c_NotApplicableMessage IsPresent for F01_LightedSignName assigned to Ctrl01cc_LightedSignName
 result = F08c_NotApplicableMessage
+Else If G04c_NotApplicableMessage IsPresent for G01_LightedSignName assigned to Ctrl01cc_LightedSignName
+result = G04c_NotApplicableMessage
+Else If H03c_NotApplicableMessage IsPresent for H01_LightedSignName assigned to Ctrl01cc_LightedSignName
+result = H03c_NotApplicableMessage
+End If
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCLTS01E" usage="copy">F08c_NotApplicableMessage</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">G04c_NotApplicableMessage</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCLTS01E" usage="copy">H03c_NotApplicableMessage</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>

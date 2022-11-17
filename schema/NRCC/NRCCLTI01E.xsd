@@ -1943,7 +1943,7 @@ Multi-field triggers: See H02_ShutOffControlsBuilding CalculationsAndRules for t
                                           
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="H09_PrimarySkylitDaylightControlsIncluded" type="comp:PrimarySkylitDaylightControlsIncluded" >
+                                    <xsd:element name="H09_PrimarySkylitDaylightControlsIncluded">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Primary/Skylit Daylighting [d:t24refnolink/]130.1(d) /[d:t24refnolink/]160.5(b)4D</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from dropdown list.  
@@ -1967,8 +1967,23 @@ End If
  
 Note: MM130_1d includes text for 130.1d,  130.1d3, 130.1d4, and 130.1d5,</xsd:documentation>
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="dtyp:EnumerationConstant">
+                                             <xsd:enumeration value="GarageAdaptZoneNA" />
+                                             <xsd:enumeration value="GarageGlazingLT36Ft2NA" />
+                                             <xsd:enumeration value="GarageLT60NA" />
+                                             <xsd:enumeration value="GlazingLT24Ft2NA" />
+                                             <xsd:enumeration value="Included" />
+                                             <xsd:enumeration value="NA_LTE80PctAllowedLP" />
+                                             <xsd:enumeration value="NA_NotDaylit" />
+                                             <xsd:enumeration value="OverhangRatioNA" />
+                                             <xsd:enumeration value="PrimaryLT120NA" />
+                                             <xsd:enumeration value="RetailNA" />
+                                             <xsd:enumeration value="SkylightShaded" />
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
                                     </xsd:element>
-                                    <xsd:element name="H10_SecondaryDaylightControlsIncluded" type="comp:SecondaryDaylightControlsIncluded" >
+                                    <xsd:element name="H10_SecondaryDaylightControlsIncluded">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Secondary Daylighting [d:t24refnolink/]130.1(d) /[d:t24refnolink/]160.5(b)4D</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from dropdown list.  
@@ -1985,6 +2000,21 @@ D03_ExceptionalConditionMessageCCLTIE += LP80PercentAlterationOnlyIssueInH
 End If
 End If</xsd:documentation>
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="dtyp:EnumerationConstant">
+                                             <xsd:enumeration value="GarageAdaptZoneNA" />
+                                             <xsd:enumeration value="GarageGlazingLT36Ft2NA" />
+                                             <xsd:enumeration value="GarageLT60NA" />
+                                             <xsd:enumeration value="GlazingLT24Ft2NA" />
+                                             <xsd:enumeration value="Included" />
+                                             <xsd:enumeration value="NA_LTE80PctAllowedLP" />
+                                             <xsd:enumeration value="NA_NotDaylit" />
+                                             <xsd:enumeration value="OverhangRatioNA" />
+                                             <xsd:enumeration value="PrimaryLT120NA" />
+                                             <xsd:enumeration value="RetailNA" />
+                                             <xsd:enumeration value="SkylightShaded" />
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="H11_InterlockedLightingSystems" type="lit:InterlockedLightingSystems" >
                                        <xsd:annotation>
