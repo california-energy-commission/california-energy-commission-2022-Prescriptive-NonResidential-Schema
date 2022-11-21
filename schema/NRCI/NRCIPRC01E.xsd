@@ -1532,6 +1532,7 @@ End If</xsd:documentation>
                   <xsd:element name="TableRgasclr" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Transcritical CO[d:sub]2[/d:sub] Fan-powered Gas Coolers[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required if B05f_ProjectHasRefrigGasCooler == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -1564,6 +1565,9 @@ End If</xsd:documentation>
                                              <xsd:element name="RgasclrScopeNA_NotApplicableMessage" >
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText"></xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">If Rgasclr01_InMyScope == false
+result = BlankGrayedOut for Rgasclr02cc_VariableSpeedControl-Rgasclr05cc_CondenserEfficiency and Rgasclr02_VariableSpeedControl-Rgasclr05_CondenserEfficiency As-built fields are blank and grayed out 
+End If</xsd:documentation>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
                                                    <xsd:restriction base="comp:NotApplicableMessage">
@@ -1585,6 +1589,13 @@ End If</xsd:documentation>
                                                       <xsd:element name="Rgasclr02cc_VariableSpeedControl" type="comp:VariableSpeedControl" >
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Variable Speed Control</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Fgasclr04_VariableSpeedControl IsPresent
+result = Fgasclr04_VariableSpeedControl
+End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Fgasclr04_VariableSpeedControl</dtyp:srcSchema>
+                                                            </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                       <xsd:element name="Rgasclr02_VariableSpeedControl" type="comp:VariableSpeedControl" >
@@ -1595,6 +1606,13 @@ End If</xsd:documentation>
                                                       <xsd:element name="Rgasclr03cc_GasCoolerPressureControls" type="comp:GasCoolerPressureControls" >
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Gas Cooler Pressure Controls</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Fgasclr05_GasCoolerPressureControls IsPresent
+result = Fgasclr05_GasCoolerPressureControls
+End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Fgasclr05_GasCoolerPressureControls</dtyp:srcSchema>
+                                                            </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                       <xsd:element name="Rgasclr03_GasCoolerPressureControls" type="comp:GasCoolerPressureControls" >
@@ -1645,6 +1663,19 @@ End If</xsd:documentation>
                                     <xsd:element name="Rgasclr09_ComplianceResultCI" type="comp:ComplianceResultCI" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Compliance</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If any user input field is blank
+result = TableIncomplete
+Else If Rgasclr01_InMyScope == false 
+result = NotInScope
+  
+Else If
+Rgasclr04cc_GasCoolerCondensingTemp == Rgasclr04_GasCoolerCondensingTemp
+and
+Rgasclr05cc_CondenserEfficiency == Rgasclr05_CondenserEfficiency
+result = ExactMatch
+Else
+result = EqualBetter
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -2639,6 +2670,11 @@ End If</xsd:documentation>
                   <xsd:element name="TableCRgasclr" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Transcritical CO[d:sub]2[/d:sub] Fan-powered Gas Coolers[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This section is required If  B05a_ProjectHasFoodStores == true
+And 
+If NRCC-PRC parent 
+And 
+Ggasclr01Air_GasCoolerTypeApplies Or Ggasclr01Adiabatic_GasCoolerTypeApplies == True  </xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -2671,6 +2707,9 @@ End If</xsd:documentation>
                                              <xsd:element name="CRgasclrScopeNA_NotApplicableMessage" >
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText"></xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">If CRgasclr01_InMyScope == false
+result = BlankGrayedOut for CRgasclr02cc_VariableSpeedControl-CRgasclr05cc_CondenserEfficiency and CRgasclr02_VariableSpeedControl-CRgasclr05_CondenserEfficiency As-built fields are blank and grayed out 
+End If</xsd:documentation>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
                                                    <xsd:restriction base="comp:NotApplicableMessage">
@@ -2692,6 +2731,14 @@ End If</xsd:documentation>
                                                       <xsd:element name="CRgasclr02cc_VariableSpeedControl" type="comp:VariableSpeedControl" >
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Variable Speed Control</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Ggasclr04_VariableSpeedControl IsPresent
+result = Ggasclr04_VariableSpeedControl
+End If</xsd:documentation>
+
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Ggasclr04_VariableSpeedControl</dtyp:srcSchema>
+                                                            </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                       <xsd:element name="CRgasclr02_VariableSpeedControl" type="comp:VariableSpeedControl" >
@@ -2707,11 +2754,27 @@ End If</xsd:documentation>
                                                       <xsd:element name="CRgasclr03cc_GasCoolerPressureControls" type="comp:GasCoolerPressureControls" >
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Gas Cooler Pressure Controls</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Ggasclr05_GasCoolerPressureControls IsPresent
+result = Ggasclr05_GasCoolerPressureControls
+End If</xsd:documentation>
+
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Ggasclr05_GasCoolerPressureControls</dtyp:srcSchema>
+                                                            </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                       <xsd:element name="CRgasclr04cc_GasCoolerCondensingTemp" type="comp:GasCoolerCondensingTemp" >
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Design Condensing Temperatures</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Ggasclr06_GasCoolerCondensingTemp IsPresent
+result = Ggasclr06_GasCoolerCondensingTemp
+End If</xsd:documentation>
+
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Ggasclr06_GasCoolerCondensingTemp</dtyp:srcSchema>
+                                                            </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                       <xsd:element name="CRgasclr04_GasCoolerCondensingTemp" type="comp:GasCoolerCondensingTemp" >
@@ -2754,6 +2817,19 @@ End If</xsd:documentation>
                                     <xsd:element name="CRgasclr09_ComplianceResultCI" type="comp:ComplianceResultCI" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Compliance</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If any user input field is blank
+result = TableIncomplete
+Else If CRgasclr01_InMyScope == false 
+result = NotInScope
+  
+Else If
+CRgasclr04cc_GasCoolerCondensingTemp == CRgasclr04_GasCoolerCondensingTemp
+and
+CRgasclr05cc_CondenserEfficiency == CRgasclr05_CondenserEfficiency
+result = ExactMatch
+Else
+result = EqualBetter
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -5443,6 +5519,7 @@ End If</xsd:documentation>
                   <xsd:element name="TableHortLtg" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]CONTROLLED ENVIRONMENT HORTICULTURE LIGHTING[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This table is required If B06c_ProjectHasHorticulture == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -5475,6 +5552,9 @@ End If</xsd:documentation>
                                              <xsd:element name="HortLtgScopeNA_NotApplicableMessage" >
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText"></xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">If HortLtg01_InMyScope == false
+result = BlankGrayedOut for HortLtg02cc_HorticultureEfficacyPPE-HortLtg04cc_MultilevelControls and HortLtg02_HorticultureEfficacyPPE-HortLtg05_HorticultureMonitoring As-built fields are blank and grayed out 
+End If</xsd:documentation>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
                                                    <xsd:restriction base="comp:NotApplicableMessage">
@@ -5666,9 +5746,32 @@ End If</xsd:documentation>
                                                       <xsd:element name="HortLtg05_HorticultureMonitoring" type="comp:HorticultureMonitoring" >
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Electrical System Monitoring</xsd:documentation>
-                                                            <xsd:documentation source="AdditionalRequirements">Electrical system capable of monitoring electrical energy usage of horticulture lighting load</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If HortLtg06_HorticultureMonitoring IsPresent
+result = HortLtg06_HorticultureMonitoring
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="NRCCPRC01E" usage="copy">HortLtg06_HorticultureMonitoring</dtyp:srcSchema>
+                                                               </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
+                                                      <xsd:element name="HortLtg05_NotApplicableMessage" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Electrical System Monitoring</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If HortLtg06_NotApplicableMessage IsPresent
+result = HortLtg06_NotApplicableMessage
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="NRCCPRC01E" usage="copy">HortLtg06_NotApplicableMessage</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
                                                    </xsd:sequence>
                                                 </xsd:complexType>
                                              </xsd:element>
@@ -5678,6 +5781,21 @@ End If</xsd:documentation>
                                     <xsd:element name="HortLtg06_ComplianceResultCI" type="comp:ComplianceResultCI" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">CEH Compliance</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If any user input field is blank
+result = TableIncomplete
+Else If HortLtg01_InMyScope == false 
+result = NotInScope
+  
+Else If
+HortLtg02cc_HorticultureEfficacyPPE == HortLtg02_HorticultureEfficacyPPE
+And
+HortLtg03cc_ShutOffControlsArea == HortLtg03_ShutOffControlsArea
+And
+HortLtg04cc_MultilevelControls == HortLtg04_MultilevelControls
+result = ExactMatch
+Else
+result = EqualBetter
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -5689,6 +5807,7 @@ End If</xsd:documentation>
                   <xsd:element name="TableHortHvac" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Space Conditioning for Plant Production [/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This table is required If B06c_ProjectHasHorticulture == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -5721,6 +5840,9 @@ End If</xsd:documentation>
                                              <xsd:element name="HortScopeNA_NotApplicableMessage" >
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText"></xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">If Hort01_InMyScope == false
+result = BlankGrayedOut for Hort02cc_DehumidifyCompliance and Hort02_DehumidifyCompliance As-built fields are blank and grayed out 
+End If</xsd:documentation>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
                                                    <xsd:restriction base="comp:NotApplicableMessage">
@@ -5765,6 +5887,17 @@ End If</xsd:documentation>
                                     <xsd:element name="Hort03_ComplianceResultCI" type="comp:ComplianceResultCI" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">CEH Compliance</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If any user input field is blank
+result = TableIncomplete
+Else If Hort01_InMyScope == false 
+result = NotInScope
+  
+Else If
+Hort02cc_DehumidifyCompliance == Hort02_DehumidifyCompliance
+result = ExactMatch
+Else
+result = EqualBetter
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -5776,6 +5909,7 @@ End If</xsd:documentation>
                   <xsd:element name="Steam" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]STEAM TRAPS IN INDUSTRIAL FACILITIES[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This table is required If B06d_ProjectHasSteamTraps == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -5798,6 +5932,9 @@ End If</xsd:documentation>
                                     <xsd:element name="SteamScopeNA_NotApplicableMessage" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If Steam01_InMyScope == false
+result = BlankGrayedOut for Steam01cc_SteamTrapRequirements-Steam03cc_SteamTrapRequirements and Steam01_SteamTrapRequirements-Steam03_SteamTrapRequirements As-built fields are blank and grayed out 
+End If</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="comp:NotApplicableMessage">
@@ -5914,6 +6051,21 @@ End If</xsd:documentation>
                            <xsd:element name="Steam04_ComplianceResultCI" type="comp:ComplianceResultCI" >
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">CEH Compliance</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">If any user input field is blank
+result = TableIncomplete
+Else If Steam01_InMyScope == false 
+result = NotInScope
+  
+Else If
+Steam01cc_SteamTrapRequirements == Steam01_SteamTrapRequirements
+And
+Steam02cc_SteamTrapRequirements == Steam02_SteamTrapRequirements
+And
+Steam03cc_SteamTrapRequirements == Steam03_SteamTrapRequirements
+result = ExactMatch
+Else
+result = EqualBetter
+End If</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
                         </xsd:sequence>
@@ -5922,6 +6074,7 @@ End If</xsd:documentation>
                   <xsd:element name="TablePool" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Pools &amp; Spa [/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This table is required If B06e_ProjectHasPoolSpa == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -5954,6 +6107,9 @@ End If</xsd:documentation>
                                              <xsd:element name="PoolScopeNA_NotApplicableMessage" >
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText"></xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">If Pool01_InMyScope == false
+result = BlankGrayedOut for Pool04cc_PoolSpaRequirements-Pool07cc_PoolSpaRequirements and Pool02-Pool07_PoolSpaRequirements As-built fields are blank and grayed out 
+End If</xsd:documentation>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
                                                    <xsd:restriction base="comp:NotApplicableMessage">
@@ -5972,16 +6128,28 @@ End If</xsd:documentation>
                                                             <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
-                                                      <xsd:element name="Pool02cc" minOccurs="0">
+                                                      <xsd:element name="Pool02" minOccurs="0">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Efficiency</xsd:documentation>
-                                                            <xsd:documentation source="AdditionalRequirements">Equipment subject to State/federal appliance efficiency standards is in the CEC's directory of certified equipment</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Pool03_PoolSpaRequirements IsPresent
+result = Pool03_PoolSpaRequirements
+End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Pool03_PoolSpaRequirements</dtyp:srcSchema>
+                                                            </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
-                                                      <xsd:element name="Pool03cc" minOccurs="0">
+                                                      <xsd:element name="Pool03" minOccurs="0">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">On/Off Control</xsd:documentation>
-                                                            <xsd:documentation source="AdditionalRequirements">Includes on-off switch mounted on outside of heater allowing shutting off heater without adjusting thermostat</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Pool04_PoolSpaRequirements IsPresent
+result = Pool04_PoolSpaRequirements
+End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPRC01E" usage="copy">Pool04_PoolSpaRequirements</dtyp:srcSchema>
+                                                            </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                       <xsd:element name="Pool04cc_PoolSpaRequirements" >
@@ -6139,6 +6307,23 @@ End If</xsd:documentation>
                                     <xsd:element name="Pool08_ComplianceResultCI" type="comp:ComplianceResultCI" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Pool/Spa Compliance</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If any user input field is blank
+result = TableIncomplete
+Else If Pool01_InMyScope == false 
+result = NotInScope
+  
+Else If
+Pool04cc_PoolSpaRequirements == Pool04_PoolSpaRequirements
+And
+Pool05cc_PoolSpaRequirements == Pool05_PoolSpaRequirements
+And
+Pool06cc_PoolSpaRequirements == Pool06_PoolSpaRequirements
+And
+Pool07cc_PoolSpaRequirements == Pool07_PoolSpaRequirements
+result = ExactMatch
+Else
+result = EqualBetter
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -6150,6 +6335,7 @@ End If</xsd:documentation>
                   <xsd:element name="PoolSingleTenant" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Additional Requirements for Pool/Spa Serving One Tenant  [/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This table is required If B06e_ProjectHasPoolSpa == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
