@@ -4263,30 +4263,6 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Fc00b_Heating25PctRenewRecover" type="comp:Heating25PctRenewRecover" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">25% of annual space heating is provided by on site renewable energy, site recovered energy, or heat recovery chillers</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input - If checked result = true Else result = false</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="Fc00c_Heating50PctConvectiveRadiant" type="comp:Heating50PctConvectiveRadiant" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">50% or more of the design heating load is served using perimeter convective heating, and/or radiant panels</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input - If checked result = true Else result = false</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="Fc00d_InMultifamilyBldg" type="comp:InMultifamilyBldg" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Installed in Multifamily Building</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input - If checked result = true Else result = false</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="Fc00e_InstalledInExistingBldg" type="comp:InstalledInExistingBldg" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Boiler system added to existing building</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input - If checked result = true Else result = false</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
                                     <xsd:element name="TableBoiler" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"></xsd:documentation>
@@ -4514,15 +4490,14 @@ End If</xsd:documentation>
                                        <xsd:element name="Fc11_BoilerSystemEfficiency" type="hvac:BoilerSystemEfficiency" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">System Efficiency</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Sum All (Fc04_BoilerRatedInput that are GTE 300000) is GTE 1000000
-result = (sum (Fc05 x Fc04_BoilerRatedInput)) / total input capacty of boilers between 1000000 and 10000000</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Sum All (Fc04_BoilerRatedInput that are GTE 100000 AND Fc10_HighCapBoilerExceptions == NoExceptionsHCB) GTE 1000000
+result = (sum (Fc05 x Fc04_BoilerRatedInput that are GTE 100000 AND Fc10_HighCapBoilerExceptions == NoExceptionsHCB)) / total input capacty of boilers that are GTE 100000 AND Fc10_HighCapBoilerExceptions == NoExceptionsHCB</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="Fc11_NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">System Efficiency</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Sum All (Fc04_BoilerRatedInput ) LT  300000  Or
-Sum All (Fc04_BoilerRatedInput that are GTE 300000) is LT 1000000
+                                             <xsd:documentation source="CalculationsAndRules">If Sum All (Fc04_BoilerRatedInput that are GTE 100000 AND Fc10_HighCapBoilerExceptions == NoExceptionsHCB) TE 1000000
 result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -4537,16 +4512,17 @@ End If</xsd:documentation>
                                        <xsd:element name="Fc12_BoilerSystemMinEfficiency" type="hvac:BoilerSystemMinEfficiency" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Minimum System Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">result = 90 % Thermal Efficiency</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Sum All (Fc04_BoilerRatedInput that are GTE 100000 AND Fc10_HighCapBoilerExceptions == NoExceptionsHCB) GTE 1000000
+result = 90%
+End If</xsd:documentation>   
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="Fc12_NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Minimum System Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Fc10_HighCapBoilerExceptions != NoExceptionsHCB  Or 
-Sum All (Fc04_BoilerRatedInput ) LT  300000
-result = BlankGryedOut
-End If</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Sum All (Fc04_BoilerRatedInput that are GTE 100000 And Fc10_HighCapBoilerExceptions == NoExceptionsHCB) LT 1000000
+result = BlankGrayedOut
+End If_</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="comp:NotApplicableMessage">

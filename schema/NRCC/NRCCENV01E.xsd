@@ -2655,7 +2655,7 @@ Switch (Fframed12_ContinuousInsulationNR)
 case R0: result = 0.086; case R2: result = 0.073; case R4:  0.064; case R6: 0.057; case R7: result = 0.054; case R8: result = 0.051; case R10: result = 0.046; case R14: result = 0.039;  
 End Switch
  
-Else If  Fframed11_CavityInsulationOptionNR == R19Batt 
+Else If  Fframed11_CavityInsulationOptionNR == R19Batt Or R19
 Switch (Fframed12_ContinuousInsulationNR) 
 case R0: result = 0.083; case R2: result = 0.071; case R4: result = 0.062; case R6: result = 0.055; case R7: result = 0.052; case R8: result = 0.050; case R10: result = 0.045; case R14: result = 0.038;  
 End Switch
@@ -5951,62 +5951,62 @@ End If</xsd:documentation>
                                                                         <xsd:documentation source="CalculationsAndRules">If FframedMF05_RoofType != NonAtticOptionD Or RafterRoof And 
 FframedMF10_ConstructionAssemblyName ==  WoodFramedRoof Then
 If FframedMF11_FramingSpacing == 16InchOC 
-If FframedMF12_CavityInsulationOptionNR == R0 
+If FframedMF12_CavityInsulationNR== R0 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.300; case R2: result = 0.187; case R4: result =  0.136; case R6:result =  0.107; case R7: result = 0.097; case R8: result = 0.088; case R10: result = 0.075; case R14: result = 0.058; 
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R11 
+Else If  FframedMF12_CavityInsulationNR== R11 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.079; case R2: result = 0.068; case R4: result =  0.060; case R6: result = 0.053; case R7: result = 0.051; case R8: result = 0.048; case R10: result = 0.044; case R14: result = 0.037;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R13 
+Else If  FframedMF12_CavityInsulationNR== R13 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.071; case R2: result = 0.062; case R4: result =  0.055; case R6: result =  0.050; case R7: result = 0.047; case R8: result = 0.045; case R10: result = 0.041; case R14: result = 0.036; 
 End Switch 
  
-Else If  FframedMF12_CavityInsulationOptionNR == R19 
+Else If  FframedMF12_CavityInsulationNR== R19 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.049; case R2: result = 0.045; case R4: result =  0.041; case R6: result = 0.038; case R7: result = 0.037; case R8: result = 0.035; case R10: result = 0.033; case R14: result = 0.029;
 End Switch  
  
-Else If  FframedMF12_CavityInsulationOptionNR == R21 
+Else If  FframedMF12_CavityInsulationNR== R21 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.042; case R2: result = 0.039; case R4: result =  0.036; case R6: result =  0.034; case R7: result = 0.032; case R8: result = 0.031; case R10: result = 0.030; case R14: result = 0.026;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R22 
+Else If  FframedMF12_CavityInsulationNR== R22 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.043; case R2: result = 0.039; case R4:  result = 0.037; case R6: result = 0.034; case R7: result = 0.033; case R8: result = 0.032; case R10: result = 0.030; case R14: result = 0.027;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R25 
+Else If  FframedMF12_CavityInsulationNR== R25 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.038; case R2: result = 0.035; case R4:  result = 0.033; case R6: result = 0.031; case R7: result = 0.030; case R8: result = 0.029; case R10: result = 0.028; case R14: result = 0.025;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R30 
+Else If  FframedMF12_CavityInsulationNR== R30 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.032; case R2: result = 0.030; case R4:  result = 0.028; case R6: result = 0.027; case R7: result = 0.026; case R8: result = 0.025; case R10: result = 0.024; case R14: result = 0.022;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R38 
+Else If  FframedMF12_CavityInsulationNR== R38 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.026; case R2: result = 0.024; case R4:  result = 0.023; case R6: result = 0.022; case R7: result = 0.022; case R8: result = 0.021; case R10: result = 0.020; case R14: result = 0.019; 
 End Switch 
  
-Else If  FframedMF12_CavityInsulationOptionNR == R44 
+Else If  FframedMF12_CavityInsulationNR== R44 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.021; case R2: result = 0.020; case R4:  result = 0.019; case R6: result = 0.019; case R7: result = 0.018; case R8: result = 0.018; case R10: result = 0.017; case R14: result = 0.016;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R49 
+Else If  FframedMF12_CavityInsulationNR== R49 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.020; case R2: result = 0.019; case R4:  result = 0.019; case R6: result =  0.018; case R7: result = 0.018; case R8: result = 0.017; case R10: result = 0.017; case R14: result = 0.016;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R60 
+Else If  FframedMF12_CavityInsulationNR== R60 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.017; case R2: result = 0.016; case R4:  result = 0.016; case R6: result =  0.015; case R7: result = 0.015; case R8: result = 0.015; case R10: result = 0.014; case R14: result = 0.013;
 End Switch
@@ -6020,62 +6020,62 @@ End If</xsd:documentation>
                                                                         <xsd:documentation source="CalculationsAndRules">If FframedMF05_RoofType != NonAtticOptionD Or RafterRoof And 
 FframedMF10_ConstructionAssemblyName ==  WoodFramedRoof Then
 If FframedMF11_FramingSpacing ==  24InchOC 
-If FframedMF12_CavityInsulationOptionNR == R0 
+If FframedMF12_CavityInsulationNR== R0 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.305; case R2: result = 0.189; case R4:  result = 0.137; case R6: result = 0.108; case R7: result = 0.097; case R8: result = 0.089; case R10: result = 0.075; case R14: result = 0.058;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R11 
+Else If  FframedMF12_CavityInsulationNR== R11 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.076; case R2: result = 0.066; case R4:  result = 0.058; case R6: result = 0.052; case R7: result = 0.050; case R8: result = 0.047; case R10: result = 0.043; case R14: result = 0.037;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R13 
+Else If  FframedMF12_CavityInsulationNR== R13 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.068; case R2: result = 0.060; case R4:  result = 0.054; case R6: result =  0.048; case R7: result = 0.046; case R8: result = 0.044; case R10: result = 0.041; case R14: result = 0.035;
 End Switch  
  
-Else If  FframedMF12_CavityInsulationOptionNR == R19 
+Else If  FframedMF12_CavityInsulationNR== R19 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.048; case R2: result = 0.043; case R4:  result = 0.040; case R6: result = 0.037; case R7: result = 0.036; case R8: result = 0.034; case R10: result = 0.032; case R14: result = 0.029; 
 End Switch 
  
-Else If  FframedMF12_CavityInsulationOptionNR == R21 
+Else If  FframedMF12_CavityInsulationNR== R21 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.043; case R2: result = 0.040; case R4:  result = 0.037; case R6: result = 0.034; case R7: result = 0.033; case R8: result = 0.032; case R10: result = 0.030; case R14: result = 0.027;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R22 
+Else If  FframedMF12_CavityInsulationNR== R22 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.041; case R2: result = 0.038; case R4:  result = 0.036; case R6: result = 0.033; case R7: result = 0.032; case R8: result = 0.031; case R10: result = 0.029; case R14: result = 0.026; 
 End Switch 
  
-Else If  FframedMF12_CavityInsulationOptionNR == R25 
+Else If  FframedMF12_CavityInsulationNR== R25 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.037; case R2: result = 0.034; case R4:  result = 0.032; case R6: result = 0.030; case R7: result = 0.029; case R8: result = 0.028; case R10: result = 0.027; case R14: result = 0.024;  
 End Switch
  
-Else If FframedMF12_CavityInsulationOptionNR == R30 
+Else If FframedMF12_CavityInsulationNR== R30 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.031; case R2: result = 0.029; case R4:  result = 0.028; case R6: result =  0.026; case R7: result = 0.025; case R8: result = 0.025; case R10: result = 0.024; case R14: result = 0.022;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R38 
+Else If  FframedMF12_CavityInsulationNR== R38 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.025; case R2: result = 0.024; case R4:  0.023; case R6: 0.022; case R7: result = 0.021; case R8: result = 0.021; case R10: result = 0.020; case R14: result = 0.018;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R44 
+Else If  FframedMF12_CavityInsulationNR== R44 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.021; case R2: result = 0.020; case R4:  result = 0.019; case R6: result = 0.019; case R7: result = 0.018; case R8: result = 0.018; case R10: result = 0.017; case R14: result = 0.016;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R49 
+Else If  FframedMF12_CavityInsulationNR== R49 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.019; case R2: result = 0.019; case R4:  result = 0.018; case R6: result = 0.017; case R7: result = 0.017; case R8: result = 0.017; case R10: result = 0.016; case R14: result = 0.015;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R60 
+Else If  FframedMF12_CavityInsulationNR== R60 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.016; case R2: result = 0.016; case R4:  result = 0.015; case R6: result = 0.015; case R7: result = 0.014; case R8: result = 0.014; case R10: result = 0.014; case R14: result = 0.013;
 End Switch
@@ -6089,72 +6089,72 @@ End if</xsd:documentation>
                                                                         <xsd:documentation source="CalculationsAndRules">If FframedMF05_RoofType == NonAtticOptionD Or RafterRoof And 
 FframedMF10_ConstructionAssemblyName ==  WoodFramedRoof Then
 If FframedMF11_FramingSpacing == 16InchOC 
-If FframedMF12_CavityInsulationOptionNR == R0 
+If FframedMF12_CavityInsulationNR== R0 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.297; case R2: result = 0.186; case R4: result =  0.136; case R6: result = 0.107; case R7: result = 0.096; case R8: result = 0.088; case R10: result = 0.075; case R14: result = 0.058;  case R17: result = 0.049; case R20: result = 0.043; case R23: result = 0.038;
 End Switch
  
 Else If FframedMF11_FramingSize == 2x4 Then 
-If  FframedMF12_CavityInsulationOptionNR == R11 
+If  FframedMF12_CavityInsulationNR== R11 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.084; case R2: result = 0.072; case R4: result =  0.063; case R6: result = 0.056; case R7: result = 0.053; case R8: result = 0.050; case R10: result = 0.046; case R14: result = 0.039;  case R17: result = 0.035; case R20: result = 0.031; case R23: result = 0.029;
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R13 
+Else If  FframedMF12_CavityInsulationNR== R13 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.075; case R2: result = 0.065; case R4:  0.058; case R6: 0.052; case R7: result = 0.049; case R8: result = 0.047; case R10: result = 0.043; case R14: result = 0.037;  case R17: result = 0.033; case R20: result = 0.030; case R23: result = 0.028;
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R15 
+Else If  FframedMF12_CavityInsulationNR== R15 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.068; case R2: result = 0.060; case R4:  0.053; case R6: 0.048; case R7: result = 0.046; case R8: result = 0.044; case R10: result = 0.040; case R14: result = 0.035;  case R17: result = 0.032; case R20: result = 0.029; case R23: result = 0.027; 
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R19Batt 
+Else If  FframedMF12_CavityInsulationNR== R19Batt 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.075; case R2: result = 0.065; case R4: result = 0.058; case R6: result = 0.052; case R7: result = 0.049; case R8: result = 0.047; case R10: result = 0.043; case R14: result = 0.037;  case R17: result = 0.033; case R20: result = 0.030; case R23: result = 0.028;
 End Switch
  
-Else If FframedMF12_CavityInsulationOptionNR == R19SprayRigid 
+Else If FframedMF12_CavityInsulationNR== R19SprayRigid 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.062 case R2: result = 0.055; case R4: result = 0.050; case R6: result = 0.045; case R7: result = 0.043; case R8: result = 0.041; case R10: result = 0.038; case R14: result = 0.033;  case R17: result = 0.030; case R20: result = 0.028; case R23: result = 0.026;
 End Switch
 End If
  
 Else If FframedMF11_FramingSize == 2x6 Then 
-If FframedMF12_CavityInsulationOptionNR == R11 
+If FframedMF12_CavityInsulationNR== R11 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.076; case R2: result = 0.066; case R4: result =  0.058; case R6: result = 0.052; case R7: result = 0.050; case R8: result = 0.047; case R10: result = 0.043; case R14: result = 0.037;  case R17: result = 0.033; case R20: result = 0.030; case R23: result = 0.028;
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R13 
+Else If  FframedMF12_CavityInsulationNR== R13 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.069; case R2: result = 0.061; case R4:  0.054; case R6: 0.049; case R7: result = 0.047; case R8: result = 0.044; case R10: result = 0.041; case R14: result = 0.035;  case R17: result = 0.032; case R20: result = 0.029; case R23: result = 0.027;
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R15 
+Else If  FframedMF12_CavityInsulationNR== R15 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.062; case R2: result = 0.055; case R4:  0.050; case R6: 0.045; case R7: result = 0.043; case R8: result = 0.041; case R10: result = 0.038; case R14: result = 0.033;  case R17: result = 0.030; case R20: result = 0.028; case R23: result = 0.026;
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R19Batt 
+Else If  FframedMF12_CavityInsulationNR== R19Batt 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.056; case R2: result = 0.050; case R4: result = 0.046; case R6: result = 0.042; case R7: result = 0.040; case R8: result = 0.039; case R10: result = 0.036; case R14: result = 0.031; case R17: result = 0.029; case R20: result = 0.026; case R23: result = 0.024;
 End Switch 
  
-Else If  FframedMF12_CavityInsulationOptionNR == R21 
+Else If  FframedMF12_CavityInsulationNR== R21 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.052; case R2: result = 0.047; case R4:  0.043; case R6: 0.040; case R7: result = 0.038; case R8: result = 0.037; case R10: result = 0.034; case R14: result = 0.030; case R17: result = 0.028; case R20: result = 0.025; case R23: result = 0.024;
 End Switch
 End If 
  
 Else If FframedMF11_FramingSize == 2x8 Then 
-If  FframedMF12_CavityInsulationOptionNR == R19Batt 
+If  FframedMF12_CavityInsulationNR== R19Batt 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.051; case R2: result = 0.046; case R4: result = 0.042; case R6: result = 0.039; case R7: result = 0.038; case R8: result = 0.036; case R10: result = 0.034; case R14: result = 0.030; case R17: result = 0.027; case R20: result = 0.025; case R23: result = 0.023;
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R21 
+Else If  FframedMF12_CavityInsulationNR== R21 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.048; case R2: result = 0.044; case R4:  0.040; case R6: 0.037; case R7: result = 0.036; case R8: result = 0.035; case R10: result = 0.032; case R14: result = 0.029;   case R17: result = 0.026; case R20: result = 0.024; case R23: result = 0.023;
 End Switch
@@ -6162,17 +6162,17 @@ End If
  
  
 Else If FframedMF11_FramingSize == 2x10 Then 
-If  FframedMF12_CavityInsulationOptionNR == R22 
+If  FframedMF12_CavityInsulationNR== R22 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.044; case R2: result = 0.040; case R4:  0.037; case R6: 0.035; case R7: result = 0.034; case R8: result = 0.033; case R10: result = 0.031; case R14: result = 0.027;  case R17: result = 0.025; case R20: result = 0.023; case R23: result = 0.022;
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R25 
+Else If  FframedMF12_CavityInsulationNR== R25 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.041; case R2: result = 0.038; case R4: result =  0.035; case R6: result =  0.033; case R7: result = 0.032; case R8: result = 0.031; case R10: result = 0.029; case R14: result = 0.026;  case R17: result = 0.024; case R20: result = 0.023; case R23: result = 0.021
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R30 
+Else If  FframedMF12_CavityInsulationNR== R30 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.036; case R2: result = 0.034; case R4: result =  0.031; case R6: result = 0.030; case R7: result = 0.029; case R8: result = 0.028; case R10: result = 0.026; case R14: result = 0.024;  case R17: result = 0.022; case R20: result = 0.021; case R23: result = 0.020
 End Switch
@@ -6180,19 +6180,19 @@ End If
  
  
 Else If FframedMF11_FramingSize == 2x12 Then 
-If  FframedMF12_CavityInsulationOptionNR == R30 
+If  FframedMF12_CavityInsulationNR== R30 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.035; case R2: result = 0.033; case R4: result =  0.031; case R6: result = 0.029; case R7: result = 0.028; case R8: result = 0.027; case R10: result = 0.026; case R14: result = 0.023;   case R17: result = 0.022; case R20: result = 0.021; case R23: result = 0.019
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R38 
+Else If  FframedMF12_CavityInsulationNR== R38 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.029; case R2: result = 0.027; case R4: result =  0.026; case R6: result = 0.025; case R7: result = 0.024; case R8: result = 0.024; case R10: result = 0.022; case R14: result = 0.021;  case R17: result = 0.019; case R20: result = 0.018; case R23: result = 0.017
 End Switch
 End If
  
 Else If FframedMF11_FramingSize == 2x14 Then 
-If  FframedMF12_CavityInsulationOptionNR == R38 
+If  FframedMF12_CavityInsulationNR== R38 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.028; case R2: result = 0.027; case R4: result =  0.025; case R6: result = 0.024; case R7: result = 0.023; case R8: result = 0.023; case R10: result = 0.022; case R14: result = 0.020; case R17: result = 0.019; case R20: result = 0.018; case R23: result = 0.017
 End Switch 
@@ -6207,61 +6207,61 @@ End If</xsd:documentation>
                                                                         <xsd:documentation source="CalculationsAndRules">If FframedMF05_RoofType == NonAtticOptionD Or RafterRoof And 
 FframedMF10_ConstructionAssemblyName ==  WoodFramedRoof Then
 If FframedMF11_FramingSpacing == 24InchOC 
-If FframedMF12_CavityInsulationOptionNR == R0 
+If FframedMF12_CavityInsulationNR== R0 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.237;  case R2: result = 0.161; case R4: result =  0.122; case R6: result = 0.098; case R7: result = 0.089; case R8: result = 0.082; case R10: result = 0.070; case R14: result = 0.055;   case R17: result = 0.047; case R20: result = 0.041; case R23: result = 0.037;
 End Switch
  
 Else If FframedMF11_FramingSize == 2x4 Then 
-If  FframedMF12_CavityInsulationOptionNR == R11 
+If  FframedMF12_CavityInsulationNR== R11 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.081; case R2: result = 0.070; case R4: result =  0.061;  case R6: result = 0.055;  case R7: result = 0.052;  case R8: result = 0.049;  case R10: result = 0.045;  case R14: result = 0.038;  case R17: result = 0.034; case R20: result = 0.031; case R23: result = 0.028
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R13  
+Else If  FframedMF12_CavityInsulationNR== R13  
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.072; case R2: result = 0.063; case R4: result = 0.056; case R6: result =  0.050; case R7: result = 0.048; case R8: result = 0.046; case R10: result = 0.042; case R14: result = 0.036; case R17: result = 0.032; case R20: result = 0.030; case R23: result = 0.027
 End Switch
 End If
  
-Else If  FframedMF12_CavityInsulationOptionNR == R15 
+Else If  FframedMF12_CavityInsulationNR== R15 
  Switch (FframedMF13_ContinuousInsulationNR) 
  case R0: result = 0.065;  case R2: result = 0.058;  case R4: result =  0.052;  case R6:  result = 0.047;   case R7: result = 0.045;   case R8: result = 0.043;   case R10: result = 0.039;  case R14: result = 0.034; case R17: result = 0.031; case R20: result = 0.028; case R23: result = 0.026
 End Switch  
  
-Else If  FframedMF12_CavityInsulationOptionNR == R19Batt 
+Else If  FframedMF12_CavityInsulationNR== R19Batt 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.072;   case R2: result = 0.063;   case R4: result = 0.056;   case R6: result = 0.050;   case R7: result = 0.048;   case R8: result = 0.046;   case R10: result = 0.042;   case R14: result = 0.036; case R17: result = 0.032; case R20: result = 0.030; case R23: result = 0.027
 End Switch 
  
-Else If  FframedMF12_CavityInsulationOptionNR == R19SprayRigid 
+Else If  FframedMF12_CavityInsulationNR== R19SprayRigid 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.059;  case R2: result = 0.053;   case R4: result = 0.048;   case R6: result = 0.044;    case R7: result = 0.042;    case R8: result = 0.040;    case R10: result = 0.037;    case R14: result = 0.032; case R17: result = 0.029; case R20: result = 0.027; case R23: result = 0.025
 End Switch
 End If
  
 Else If FframedMF11_FramingSize == 2x6 Then 
-If FframedMF12_CavityInsulationOptionNR == R11 
+If FframedMF12_CavityInsulationNR== R11 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.075;  case R2: result = 0.065;   case R4: result =  0.058;  case R6: result = 0.052;   case R7: result = 0.049;   case R8: result = 0.047;   case R10: result = 0.043;  case R14: result = 0.037;  case R17: result = 0.033; case R20: result = 0.030; case R23: result = 0.028
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R13 
+Else If  FframedMF12_CavityInsulationNR== R13 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.067;  case R2: result = 0.059;  case R4: result = 0.053;  case R6: result = 0.048;  case R7: result = 0.046;  case R8: result = 0.044;  case R10: result = 0.040;   case R14: result = 0.035; case R17: result = 0.031; case R20: result = 0.029; case R23: result = 0.026
 End Switch
  
-Else If FframedMF12_CavityInsulationOptionNR == R15 
+Else If FframedMF12_CavityInsulationNR== R15 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.060;  case R2: result = 0.054;  case R4: result = 0.048;  case R6: result = 0.044;  case R7: result = 0.042;  case R8: result = 0.041;  case R10: result = 0.038;  case R14: result = 0.033;  case R17: result = 0.030; case R20: result = 0.027; case R23: result = 0.025
 End Switch  
  
-Else If  FframedMF12_CavityInsulationOptionNR == R19Batt 
+Else If  FframedMF12_CavityInsulationNR== R19Batt 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.054;  case R2: result = 0.049;  case R4: result = 0.044;  case R6: result = 0.041;  case R7: result = 0.039;  case R8: result = 0.038;  case R10: result = 0.035;  case R14: result = 0.031; case R17: result = 0.028; case R20: result = 0.026; case R23: result = 0.024
 End Switch 
  
-Else If  FframedMF12_CavityInsulationOptionNR == R21 
+Else If  FframedMF12_CavityInsulationNR== R21 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.049;  case R2: result = 0.045;  case R4: result = 0.041;  case R6: result = 0.038;  case R7: result = 0.036;  case R8: result = 0.035;  case R10: result = 0.033;  case R14: result = 0.029; case R17: result = 0.027; case R20: result = 0.025; case R23: result = 0.023
 End Switch
@@ -6269,12 +6269,12 @@ End if
  
  
 Else If FframedMF11_FramingSize == 2x8 Then 
-If  FframedMF12_CavityInsulationOptionNR == R19Batt 
+If  FframedMF12_CavityInsulationNR== R19Batt 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.049;   case R2: result = 0.045;  case R4: result = 0.041;  case R6: result = 0.038;    case R7: result = 0.036;  case R8: result = 0.035;   case R10: result = 0.033;   case R14: result = 0.029;  case R17: result = 0.027; case R20: result = 0.025; case R23: result = 0.023
 End Switch
  
-Else If FframedMF12_CavityInsulationOptionNR == R21 
+Else If FframedMF12_CavityInsulationNR== R21 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.046;  case R2: result = 0.042;  case R4: result = 0.039;  case R6: result = 0.036;  case R7: result = 0.035;  case R8: result = 0.034;   case R10: result = 0.032;  case R14: result = 0.028; case R17: result = 0.026; case R20: result = 0.024; case R23: result = 0.022
 End Switch
@@ -6282,17 +6282,17 @@ End if
  
  
 Else If FframedMF11_FramingSize == 2x10 Then 
-If FframedMF12_CavityInsulationOptionNR == R22 
+If FframedMF12_CavityInsulationNR== R22 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.043;  case R2: result = 0.040;  case R4: result = 0.037;  case R6: result = 0.034;   case R7: result = 0.033;   case R8: result = 0.032;  case R10: result = 0.030;  case R14: result = 0.027;  case R17: result = 0.025; case R20: result = 0.023; case R23: result = 0.022
 End Switch  
  
-Else If FframedMF12_CavityInsulationOptionNR == R25 
+Else If FframedMF12_CavityInsulationNR== R25 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.039;  case R2: result = 0.036;  case R4: result =  0.034;  case R6: result =  0.032;  case R7: result = 0.031;  case R8: result = 0.030;  case R10: result = 0.028;  case R14: result = 0.025; case R17: result = 0.023; case R20: result = 0.022; case R23: result = 0.021
 End Switch  
  
-Else If  FframedMF12_CavityInsulationOptionNR == R30 
+Else If  FframedMF12_CavityInsulationNR== R30 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.034;  case R2: result = 0.032;  case R4: result =  0.030;   case R6: result = 0.028;   case R7: result = 0.027;  case R8: result = 0.027;  case R10: result = 0.025; case R14: result = 0.023;  case R17: result = 0.022; case R20: result = 0.020; case R23: result = 0.019
 End Switch
@@ -6300,19 +6300,19 @@ End If
  
  
 Else If FframedMF11_FramingSize == 2x12 Then 
-If  FframedMF12_CavityInsulationOptionNR == R30 
+If  FframedMF12_CavityInsulationNR== R30 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.033;  case R2: result = 0.031;  case R4: result =  0.029;  case R6: result = 0.028;  case R7: result = 0.027;  case R8: result = 0.026;  case R10: result = 0.025;  case R14: result = 0.023; case R17: result = 0.021; case R20: result = 0.020; case R23: result = 0.019
 End Switch 
  
-Else If FframedMF12_CavityInsulationOptionNR == R38 
+Else If FframedMF12_CavityInsulationNR== R38 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.028;  case R2: result = 0.027;  case R4: result =  0.025;  case R6: result = 0.024;  case R7: result = 0.023; case R8: result = 0.023;  case R10: result = 0.022;  case R14: result = 0.020;  case R17: result = 0.019; case R20: result = 0.018; case R23: result = 0.017
 End Switch
 End If
  
 Else If FframedMF11_FramingSize == 2x14 Then 
-If  FframedMF12_CavityInsulationOptionNR == R38 
+If  FframedMF12_CavityInsulationNR== R38 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.027;  case R2: result = 0.026;  case R4: result =  0.024; case R6: result = 0.023;  case R7: result = 0.023;  case R8: result = 0.022;  case R10: result = 0.021;  case R14: result = 0.020; case R17: result = 0.019; case R20: result = 0.018; case R23: result = 0.017
 End Switch
@@ -6327,62 +6327,62 @@ End If</xsd:documentation>
                                                                         <xsd:documentation source="CalculationsAndRules">If FframedMF05_RoofType != NonAtticOptionD Or RafterRoof And 
 FframedMF10_ConstructionAssemblyName ==  MetalFramedRoof Then
 If FframedMF11_FramingSpacing ==  16InchOC 
-If FframedMF12_CavityInsulationOptionNR == R0 
+If FframedMF12_CavityInsulationNR== R0 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.328; case R2: result = 0.198; case R4: result =  0.142; case R6:result =  0.111; case R7: result = 0.100; case R8: result = 0.091; case R10: result = 0.077; case R14: result = 0.059;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R11 
+Else If  FframedMF12_CavityInsulationNR== R11 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.126; case R2: result = 0.101; case R4: result =  0.084; case R6: result = 0.072; case R7: result = 0.067; case R8: result = 0.063; case R10: result = 0.056; case R14: result = 0.046;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R13 
+Else If  FframedMF12_CavityInsulationNR== R13 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.121; case R2: result = 0.097; case R4: result =  0.082; case R6: result =  0.070; case R7: result = 0.066; case R8: result = 0.061; case R10: result = 0.055; case R14: result = 0.045;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R19 
+Else If  FframedMF12_CavityInsulationNR== R19 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.071; case R2: result = 0.062; case R4: result =  0.055; case R6: result = 0.050; case R7: result = 0.047; case R8: result = 0.045; case R10: result = 0.042; case R14: result = 0.036; 
 End Switch 
  
-Else If  FframedMF12_CavityInsulationOptionNR == R21 
+Else If  FframedMF12_CavityInsulationNR== R21 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.063; case R2: result = 0.056; case R4: result =  0.050; case R6: result =  0.046; case R7: result = 0.044; case R8: result = 0.042; case R10: result = 0.039; case R14: result = 0.033;  
 End Switch
  
-Else If FframedMF12_CavityInsulationOptionNR == R22 
+Else If FframedMF12_CavityInsulationNR== R22 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.059; case R2: result = 0.053; case R4:  result = 0.048; case R6: result = 0.044; case R7: result = 0.042; case R8: result = 0.040; case R10: result = 0.037; case R14: result = 0.032;  
 End Switch
  
-Else If FframedMF12_CavityInsulationOptionNR == R25 
+Else If FframedMF12_CavityInsulationNR== R25 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.051; case R2: result = 0.046; case R4:  result = 0.042; case R6: result = 0.039; case R7: result = 0.038; case R8: result = 0.036; case R10: result = 0.034; case R14: result = 0.030; 
 End Switch 
  
-Else If  FframedMF12_CavityInsulationOptionNR == R30 
+Else If  FframedMF12_CavityInsulationNR== R30 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.041; case R2: result = 0.038; case R4:  result = 0.035; case R6: result = 0.033; case R7: result = 0.032; case R8: result = 0.031; case R10: result = 0.029; case R14: result = 0.026;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R38 
+Else If  FframedMF12_CavityInsulationNR== R38 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.031; case R2: result = 0.029; case R4:  result = 0.028; case R6: result = 0.026; case R7: result = 0.025; case R8: result = 0.025; case R10: result = 0.024; case R14: result = 0.022;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R44 
+Else If  FframedMF12_CavityInsulationNR== R44 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.027; case R2: result = 0.026; case R4:  result = 0.024; case R6: result = 0.023; case R7: result = 0.023; case R8: result = 0.022; case R10: result = 0.021; case R14: result = 0.020; 
 End Switch 
  
-Else If  FframedMF12_CavityInsulationOptionNR == R49 
+Else If  FframedMF12_CavityInsulationNR== R49 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.024; case R2: result = 0.023; case R4:  result = 0.022; case R6: result =  0.021; case R7: result = 0.021; case R8: result = 0.020; case R10: result = 0.019; case R14: result = 0.018;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R60 
+Else If  FframedMF12_CavityInsulationNR== R60 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.019; case R2: result = 0.018; case R4:  result = 0.018; case R6: result =  0.017; case R7: result = 0.017; case R8: result = 0.016; case R10: result = 0.016; case R14: result = 0.015;
 End Switch
@@ -6396,61 +6396,61 @@ End if</xsd:documentation>
                                                                         <xsd:documentation source="CalculationsAndRules">If FframedMF05_RoofType != NonAtticOptionD Or RafterRoof And 
 FframedMF10_ConstructionAssemblyName ==  MetalFramedRoof Then
 If FframedMF11_FramingSpacing ==  24InchOC 
-If FframedMF12_CavityInsulationOptionNR == R0 
+If FframedMF12_CavityInsulationNR== R0 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.324; case R2: result = 0.197; case R4: result =  0.141; case R6:result =  0.110; case R7: result = 0.099; case R8: result = 0.090; case R10: result = 0.076; case R14: result = 0.059;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R11 
+Else If  FframedMF12_CavityInsulationNR== R11 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.109; case R2: result = 0.089; case R4: result =  0.076; case R6: result = 0.066; case R7: result = 0.062; case R8: result = 0.058; case R10: result = 0.052; case R14: result = 0.043;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R13 
+Else If  FframedMF12_CavityInsulationNR== R13 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.103; case R2: result = 0.085; case R4: result =  0.073; case R6: result =  0.064; case R7: result = 0.060; case R8: result = 0.056; case R10: result = 0.051; case R14: result = 0.042;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R19 
+Else If  FframedMF12_CavityInsulationNR== R19 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.065; case R2: result = 0.058; case R4: result =  0.052; case R6: result = 0.047; case R7: result = 0.045; case R8: result = 0.043; case R10: result = 0.039; case R14: result = 0.034;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R21 
+Else If  FframedMF12_CavityInsulationNR== R21 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.058; case R2: result = 0.052; case R4: result =  0.047; case R6: result =  0.043; case R7: result = 0.041; case R8: result = 0.040; case R10: result = 0.037; case R14: result = 0.032;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R22 
+Else If  FframedMF12_CavityInsulationNR== R22 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.055; case R2: result = 0.050; case R4:  result = 0.045; case R6: result = 0.041; case R7: result = 0.040; case R8: result = 0.038; case R10: result = 0.035; case R14: result = 0.031;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R25 
+Else If  FframedMF12_CavityInsulationNR== R25 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.047; case R2: result = 0.043; case R4:  result = 0.040; case R6: result = 0.037; case R7: result = 0.035; case R8: result = 0.034; case R10: result = 0.032; case R14: result = 0.028;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R30 
+Else If  FframedMF12_CavityInsulationNR== R30 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.039; case R2: result = 0.036; case R4:  result = 0.034; case R6: result = 0.032; case R7: result = 0.031; case R8: result = 0.030; case R10: result = 0.028; case R14: result = 0.025;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R38 
+Else If  FframedMF12_CavityInsulationNR== R38 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.030; case R2: result = 0.028; case R4:  result = 0.027; case R6: result = 0.025; case R7: result = 0.025; case R8: result = 0.024; case R10: result = 0.023; case R14: result = 0.021;  
  
-Else If  FframedMF12_CavityInsulationOptionNR == R44 
+Else If  FframedMF12_CavityInsulationNR== R44 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.026; case R2: result = 0.025; case R4:  result = 0.024; case R6: result = 0.022; case R7: result = 0.022; case R8: result = 0.022; case R10: result = 0.021; case R14: result = 0.019;
 End Switch  
  
-Else If  FframedMF12_CavityInsulationOptionNR == R49 
+Else If  FframedMF12_CavityInsulationNR== R49 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.023; case R2: result = 0.022; case R4:  result = 0.021; case R6: result =  0.020; case R7: result = 0.020; case R8: result = 0.019; case R10: result = 0.019; case R14: result = 0.017;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R60 
+Else If  FframedMF12_CavityInsulationNR== R60 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.019; case R2: result = 0.018; case R4:  result = 0.018; case R6: result =  0.017; case R7: result = 0.017; case R8: result = 0.016; case R10: result = 0.016; case R14: result = 0.015;
 End Switch
@@ -6464,29 +6464,29 @@ End If</xsd:documentation>
                                                                         <xsd:documentation source="CalculationsAndRules">If FframedMF05_RoofType == NonAtticOptionD Or RafterRoof And 
 FframedMF10_ConstructionAssemblyName ==  MetalFramedRoof Then
 If FframedMF11_FramingSpacing ==  16InchOC 
-If FframedMF12_CavityInsulationOptionNR == R0 
+If FframedMF12_CavityInsulationNR== R0 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.325; case R2: result = 0.197; case R4: result =  0.141; case R6: result = 0.110; case R7: result = 0.099; case R8: result = 0.090; case R10: result = 0.076; case R14: result = 0.059; 
 End Switch 
  
 Else If FframedMF11_FramingSize == 2x4 Then 
-If  FframedMF12_CavityInsulationOptionNR == R11 
+If  FframedMF12_CavityInsulationNR== R11 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.129; case R2: result = 0.103; case R4: result =  0.085; case R6: result = 0.073; case R7: result = 0.068; case R8: result = 0.063; case R10: result = 0.056; case R14: result = 0.046;  
 End Switch
 End If
  
-Else If  FframedMF12_CavityInsulationOptionNR == R13 
+Else If  FframedMF12_CavityInsulationNR== R13 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.121; case R2: result = 0.097; case R4:  0.082; case R6: 0.070; case R7: result = 0.066; case R8: result = 0.061; case R10: result = 0.055; case R14: result = 0.045; 
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R15 
+Else If  FframedMF12_CavityInsulationNR== R15 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.115; case R2: result = 0.093; case R4:  0.079; case R6: 0.068; case R7: result = 0.064; case R8: result = 0.060; case R10: result = 0.053; case R14: result = 0.044;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R19SprayRigid 
+Else If  FframedMF12_CavityInsulationNR== R19SprayRigid 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.121; case R2: result = 0.097; case R4: result = 0.082; case R6: result = 0.070; case R7: result = 0.066; case R8: result = 0.061; case R10: result = 0.055; case R14: result = 0.045;  
 End Switch
@@ -6494,58 +6494,58 @@ End If
  
  
 Else If FframedMF11_FramingSize == 2x6 Then 
-If  FframedMF12_CavityInsulationOptionNR == R11 
+If  FframedMF12_CavityInsulationNR== R11 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.123; case R2: result = 0.099; case R4: result =  0.082; case R6: result = 0.071; case R7: result = 0.066; case R8: result = 0.062; case R10: result = 0.055; case R14: result = 0.045;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R13 
+Else If  FframedMF12_CavityInsulationNR== R13 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.115; case R2: result = 0.093; case R4:  0.079; case R6: 0.068; case R7: result = 0.064; case R8: result = 0.060; case R10: result = 0.053; case R14: result = 0.044; 
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R15 
+Else If  FframedMF12_CavityInsulationNR== R15 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.101; case R2: result = 0.084; case R4:  0.072; case R6: 0.063; case R7: result = 0.059; case R8: result = 0.056; case R10: result = 0.050; case R14: result = 0.042;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R19Batt 
+Else If  FframedMF12_CavityInsulationNR== R19Batt 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.100; case R2: result = 0.083; case R4: result = 0.071; case R6: result = 0.063; case R7: result = 0.059; case R8: result = 0.056; case R10: result = 0.050; case R14: result = 0.042;  
 End Switch
 End If
  
 Else If FframedMF11_FramingSize == 2x8 Then 
-If FframedMF12_CavityInsulationOptionNR == R19Batt 
+If FframedMF12_CavityInsulationNR== R19Batt 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.096; case R2: result = 0.081; case R4: result = 0.069; case R6: result = 0.061; case R7: result = 0.057; case R8: result = 0.054; case R10: result = 0.049; case R14: result = 0.041; 
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R21 
+Else If  FframedMF12_CavityInsulationNR== R21 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.093; case R2: result = 0.078; case R4:  0.068; case R6: 0.060; case R7: result = 0.056; case R8: result = 0.053; case R10: result = 0.048; case R14: result = 0.040; 
 End Switch
 End If 
  
 Else If FframedMF11_FramingSize == 2x10 Then 
-If  FframedMF12_CavityInsulationOptionNR == R25 
+If  FframedMF12_CavityInsulationNR== R25 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.084; case R2: result = 0.072; case R4: result =  0.063; case R6: result =  0.056; case R7: result = 0.053; case R8: result = 0.050; case R10: result = 0.046; case R14: result = 0.039;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R30 
+Else If  FframedMF12_CavityInsulationNR== R30 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.079; case R2: result = 0.068; case R4: result =  0.060; case R6: result = 0.054; case R7: result = 0.051; case R8: result = 0.048; case R10: result = 0.044; case R14: result = 0.038;  
 End Switch
 End If
  
 Else If FframedMF11_FramingSize == 2x12 Then 
-If  FframedMF12_CavityInsulationOptionNR == R30 
+If  FframedMF12_CavityInsulationNR== R30 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.076; case R2: result = 0.066; case R4: result =  0.058; case R6: result = 0.052; case R7: result = 0.050; case R8: result = 0.047; case R10: result = 0.043; case R14: result = 0.037;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R38 
+Else If  FframedMF12_CavityInsulationNR== R38 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.071; case R2: result = 0.062; case R4: result =  0.055; case R6: result = 0.050; case R7: result = 0.047; case R8: result = 0.045; case R10: result = 0.042; case R14: result = 0.036;  
 End Switch
@@ -6553,7 +6553,7 @@ End If
  
  
 Else If FframedMF11_FramingSize == 2x14 Then 
-If FframedMF12_CavityInsulationOptionNR == R38 
+If FframedMF12_CavityInsulationNR== R38 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.068; case R2: result = 0.060; case R4: result =  0.053; case R6: result = 0.048; case R7: result = 0.046; case R8: result = 0.044; case R10: result = 0.040; case R14: result = 0.035;
 End Switch
@@ -6568,50 +6568,50 @@ End If</xsd:documentation>
                                                                         <xsd:documentation source="CalculationsAndRules">If FframedMF05_RoofType == NonAtticOptionD Or RafterRoof And 
 FframedMF10_ConstructionAssemblyName ==  MetalFramedRoof Then
 If FframedMF11_FramingSpacing ==  24InchOC 
-If FframedMF12_CavityInsulationOptionNR == R0 
+If FframedMF12_CavityInsulationNR== R0 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.322; Case R2: result = 0.196; case R4: result =  0.141; case R6: result = 0.110; case R7: result = 0.099; case R8: result = 0.090; case R10: result = 0.076; case R14: result = 0.058;
 End Switch
  
 Else If FframedMF11_FramingSize == 2x4 Then 
-If  FframedMF12_CavityInsulationOptionNR == R11 
+If  FframedMF12_CavityInsulationNR== R11 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.111; case R2: result = 0.091; case R4: result =  0.077; case R6: result = 0.067; case R7: result = 0.062; case R8: result = 0.059; case R10: result = 0.053; case R14: result = 0.043;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R13 
+Else If  FframedMF12_CavityInsulationNR== R13 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.102; case R2: result = 0.085; case R4:  0.072; case R6: 0.063; case R7: result = 0.060; case R8: result = 0.056; case R10: result = 0.050; case R14: result = 0.042;
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R15 
+Else If  FframedMF12_CavityInsulationNR== R15 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.096; case R2: result = 0.081; case R4:  0.069; case R6: 0.061; case R7: result = 0.057; case R8: result = 0.054; case R10: result = 0.049; case R14: result = 0.041; 
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R19SprayRigid 
+Else If  FframedMF12_CavityInsulationNR== R19SprayRigid 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.102; case R2: result = 0.085; case R4: result = 0.072; case R6: result = 0.063; case R7: result = 0.060; case R8: result = 0.056; case R10: result = 0.050; case R14: result = 0.042;  
 End Switch
 End If
  
 Else If FframedMF11_FramingSize == 2x6 Then 
-If  FframedMF12_CavityInsulationOptionNR == R11 
+If  FframedMF12_CavityInsulationNR== R11 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.107; case R2: result = 0.088; case R4: result =  0.075; case R6: result = 0.065; case R7: result = 0.061; case R8: result = 0.058; case R10: result = 0.052; case R14: result = 0.043; 
 End Switch 
  
-Else If  FframedMF12_CavityInsulationOptionNR == R13 
+Else If  FframedMF12_CavityInsulationNR== R13 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.099; case R2: result = 0.083; case R4:  0.071; case R6: 0.062; case R7: result = 0.058; case R8: result = 0.055; case R10: result = 0.050; case R14: result = 0.041; 
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R15 
+Else If  FframedMF12_CavityInsulationNR== R15 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.086; case R2: result = 0.073; case R4:  0.064; case R6: 0.057; case R7: result = 0.054; case R8: result = 0.051; case R10: result = 0.046; case R14: result = 0.039;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R19Batt 
+Else If  FframedMF12_CavityInsulationNR== R19Batt 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.083; case R2: result = 0.071; case R4: result = 0.062; case R6: result = 0.055; case R7: result = 0.052; case R8: result = 0.050; case R10: result = 0.045; case R14: result = 0.038;  
 End Switch
@@ -6619,24 +6619,24 @@ End If
  
  
 Else If FframedMF11_FramingSize == 2x8 Then 
-If FframedMF12_CavityInsulationOptionNR == R19Batt 
+If FframedMF12_CavityInsulationNR== R19Batt 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.080; case R2: result = 0.069; case R4: result = 0.061; case R6: result = 0.054; case R7: result = 0.051; case R8: result = 0.049; case R10: result = 0.044; case R14: result = 0.038; 
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R21 
+Else If  FframedMF12_CavityInsulationNR== R21 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.076; case R2: result = 0.066; case R4:  0.058; case R6: 0.052; case R7: result = 0.050; case R8: result = 0.047; case R10: result = 0.043; case R14: result = 0.037;  
 End Switch
 End If 
  
 Else If FframedMF11_FramingSize == 2x10 Then 
-If  FframedMF12_CavityInsulationOptionNR == R25 
+If  FframedMF12_CavityInsulationNR== R25 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.068; case R2: result = 0.060; case R4: result =  0.053; case R6: result =  0.048; case R7: result = 0.046; case R8: result = 0.044; case R10: result = 0.040; case R14: result = 0.035;  
 End Switch
  
-Else If  FframedMF12_CavityInsulationOptionNR == R30 
+Else If  FframedMF12_CavityInsulationNR== R30 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.063; case R2: result = 0.056; case R4: result =  0.050; case R6: result = 0.046; case R7: result = 0.044; case R8: result = 0.042; case R10: result = 0.039; case R14: result = 0.033;  
 End Switch
@@ -6644,19 +6644,19 @@ End If
  
  
 Else If FframedMF11_FramingSize == 2x12 Then 
-If  FframedMF12_CavityInsulationOptionNR == R30 
+If  FframedMF12_CavityInsulationNR== R30 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.061; case R2: result = 0.054; case R4: result =  0.049; case R6: result = 0.045; case R7: result = 0.043; case R8: result = 0.041; case R10: result = 0.038; case R14: result = 0.033; 
 End Switch 
  
-Else If  FframedMF12_CavityInsulationOptionNR == R38 
+Else If  FframedMF12_CavityInsulationNR== R38 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.055; case R2: result = 0.050; case R4: result =  0.045; case R6: result = 0.041; case R7: result = 0.040; case R8: result = 0.038; case R10: result = 0.035; case R14: result = 0.031;  
 End Switch
 End If
  
 Else If FframedMF11_FramingSize == 2x14 Then 
-If  FframedMF12_CavityInsulationOptionNR == R38 
+If  FframedMF12_CavityInsulationNR== R38 
 Switch (FframedMF13_ContinuousInsulationNR) 
 case R0: result = 0.053; case R2: result = 0.048; case R4: result =  0.044; case R6: result = 0.040; case R7: result = 0.039; case R8: result = 0.037; case R10: result = 0.035; case R14: result = 0.030;
 End Switch
@@ -18481,8 +18481,9 @@ End If</xsd:documentation>
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Required Product Performance</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If  Kskyperf05_FenestrationProductType == ChromogenicFen Or  SkylightTubular Or 
-If Kskyperf06_FenestrationModification == AddLTE50ft2  Or
- If  Kskyperf05_FenestrationProductType == SkylightPlasticCurb And  Kskyperf06_TopLevelOccupancy == Nonresidential Or HotelMotel 
+If Kskyperf06_FenestrationModification == AddLTE50ft2  
+Or If  Kskyperf05_FenestrationProductType == SkylightPlasticCurb And  Kskyperf06_TopLevelOccupancy == Nonresidential Or HotelMotel
+Or If KSky00_Adding16SkyMF == false and Kskyperf06_TopLevelOccupancy == RelocableSchoolBuildingAllZones
 result = BlankGrayedOut
 End If</xsd:documentation>
                                                    </xsd:annotation>
