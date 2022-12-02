@@ -723,7 +723,7 @@ End If</xsd:documentation>
                                           <xsd:documentation source="FieldText">Glare</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Bug01cc_LuminaireName" type="lit:LuminaireName" >
+                                    <xsd:element name="Bug01cc_LuminaireName" type="lit:LuminaireName">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Name or Item Tag</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
@@ -732,164 +732,204 @@ result = G01_LuminaireName
 Else skip this G01_LuminaireName -  not in installer's scope
 End If</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
-                                             <dtyp:srcSchema form="CCLTO01E"  usage="copy">G01_LuminaireName</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCLTO01E" usage="copy">G01_LuminaireName</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Bug01_InstalledSameAsCC" type="comp:InstalledSameAsCC"  minOccurs="0">
+                                    <xsd:element name="Bug01_InMyScope" type="comp:InMyScope" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Is this in your scope?</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from true value display term Yes and false value display term No, by others
+ If result == false Bug02cc-Bug07cc and Bug03-Bug07 As-built fields are blank and grayed out
+And D01_ExceptionalConditionMessageNRCILTOE += CtrlNotInScope  
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Bug02cc_LuminaireDescription" type="lit:LuminaireDescription" >
+                                    <xsd:element name="BugScopeChoice">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Luminaire Description</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:complexType>
+                                          <xsd:choice>
+                                             <xsd:element name="BugScopeNA_NotApplicableMessage">
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText"></xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">If Bug01_InMyScope == false
+result = BlankGrayedOut for Bug02cc-Bug07cc and Bug03-Bug07 As-built fields are blank and grayed out fields
+End If</xsd:documentation>
+                                                </xsd:annotation>
+                                                <xsd:simpleType>
+                                                   <xsd:restriction base="comp:NotApplicableMessage">
+                                                      <xsd:enumeration value="BlankGrayedOut" />
+                                                   </xsd:restriction>
+                                                </xsd:simpleType>
+                                             </xsd:element>
+                                             <xsd:element name="BugInScope">
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText"></xsd:documentation>
+                                                </xsd:annotation>
+                                                <xsd:complexType>
+                                                   <xsd:sequence>
+                                                      <xsd:element name="Bug01_InstalledSameAsCC" type="comp:InstalledSameAsCC" minOccurs="0">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="Bug02cc_LuminaireDescription" type="lit:LuminaireDescription">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Luminaire Description</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 result = G02_LuminaireDescription
 End If</xsd:documentation>
-                                          <xsd:appinfo source="CIsrc">
-                                             <dtyp:srcSchema form="CCLTO01E"  usage="copy">G02_LuminaireDescription</dtyp:srcSchema>
-                                          </xsd:appinfo>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="Bug03cc_MountingHeightRangeBUG" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Mounting Height from Property Line</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCLTO01E" usage="copy">G02_LuminaireDescription</dtyp:srcSchema>
+                                                            </xsd:appinfo>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="Bug03cc_MountingHeightRangeBUG">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Mounting Height from Property Line</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 result = G03_MountingHeightRangeBUG
 End If</xsd:documentation>
-                                          <xsd:appinfo source="CIsrc">
-                                             <dtyp:srcSchema form="CCLTO01E"  usage="copy">G03_MountingHeightRangeBUG</dtyp:srcSchema>
-                                          </xsd:appinfo>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="comp:MountingHeightRangeBUG">
-                                             <xsd:enumeration value="Back1To2MH"/>
-                                             <xsd:enumeration value="BackHalfTo1MH"/>
-                                             <xsd:enumeration value="BackLessThanHalfMH"/>
-                                             <xsd:enumeration value="GT2MH"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
-                                    <xsd:element name="Bug03_MountingHeightRangeBUG" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Mounting Height from Property Line</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If Bug01_InstalledSameAsCC == true
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCLTO01E" usage="copy">G03_MountingHeightRangeBUG</dtyp:srcSchema>
+                                                            </xsd:appinfo>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:MountingHeightRangeBUG">
+                                                               <xsd:enumeration value="Back1To2MH" />
+                                                               <xsd:enumeration value="BackHalfTo1MH" />
+                                                               <xsd:enumeration value="BackLessThanHalfMH" />
+                                                               <xsd:enumeration value="GT2MH" />
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Bug03_MountingHeightRangeBUG">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Mounting Height from Property Line</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If Bug01_InstalledSameAsCC == true
 result = Bug03cc_MountingHeightRangeBUG
 Else
 User input
 End If</xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="comp:MountingHeightRangeBUG">
-                                             <xsd:enumeration value="Back1To2MH"/>
-                                             <xsd:enumeration value="BackHalfTo1MH"/>
-                                             <xsd:enumeration value="BackLessThanHalfMH"/>
-                                             <xsd:enumeration value="GT2MH"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
-                                    <xsd:element name="Bug04cc_BackLightRatingBUG" type="comp:BackLightRatingBUG" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Backlight Rating</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:MountingHeightRangeBUG">
+                                                               <xsd:enumeration value="Back1To2MH" />
+                                                               <xsd:enumeration value="BackHalfTo1MH" />
+                                                               <xsd:enumeration value="BackLessThanHalfMH" />
+                                                               <xsd:enumeration value="GT2MH" />
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Bug04cc_BackLightRatingBUG" type="comp:BackLightRatingBUG">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Backlight Rating</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 result = G05_BackLightRatingBUG
 End If</xsd:documentation>
-                                          <xsd:appinfo source="CIsrc">
-                                             <dtyp:srcSchema form="CCLTO01E"  usage="copy">G05_BackLightRatingBUG</dtyp:srcSchema>
-                                          </xsd:appinfo>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="Bug04_BackLightRatingBUG" type="comp:BackLightRatingBUG" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Backlight Rating</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If Bug01_InstalledSameAsCC == true
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCLTO01E" usage="copy">G05_BackLightRatingBUG</dtyp:srcSchema>
+                                                            </xsd:appinfo>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="Bug04_BackLightRatingBUG" type="comp:BackLightRatingBUG">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Backlight Rating</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If Bug01_InstalledSameAsCC == true
 result = Bug04cc_BackLightRatingBUG
 Else
 Uer input
 End If</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="Bug05cc_UpLightRatingBUG" type="comp:UpLightRatingBUG" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Uplight Rating</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="Bug05cc_UpLightRatingBUG" type="comp:UpLightRatingBUG">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Uplight Rating</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 result = G08_UpLightRatingBUG
 End If</xsd:documentation>
-                                          <xsd:appinfo source="CIsrc">
-                                             <dtyp:srcSchema form="CCLTO01E"  usage="copy">G08_UpLightRatingBUG</dtyp:srcSchema>
-                                          </xsd:appinfo>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="Bug05_UpLightRatingBUG" type="comp:UpLightRatingBUG" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Uplight Rating</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If Bug01_InstalledSameAsCC == true
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCLTO01E" usage="copy">G08_UpLightRatingBUG</dtyp:srcSchema>
+                                                            </xsd:appinfo>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="Bug05_UpLightRatingBUG" type="comp:UpLightRatingBUG">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Uplight Rating</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If Bug01_InstalledSameAsCC == true
 result = Bug05cc_UpLightRatingBUG
 Else
 User input
 End If</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="Bug06cc_MountingHeightRangeBUG" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Mounting Height from Property Line</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="Bug06cc_MountingHeightRangeBUG">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Mounting Height from Property Line</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 result = G09_MountingHeightRangeBUG
 End If</xsd:documentation>
-                                          <xsd:appinfo source="CIsrc">
-                                             <dtyp:srcSchema form="CCLTO01E"  usage="copy">G09_MountingHeightRangeBUG</dtyp:srcSchema>
-                                          </xsd:appinfo>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="comp:MountingHeightRangeBUG">
-                                             <xsd:enumeration value="BackLessThanHalfMH"/>
-                                             <xsd:enumeration value="Front1To2MH"/>
-                                             <xsd:enumeration value="FrontHalfTo1MH"/>
-                                             <xsd:enumeration value="GT2MH"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
-                                    <xsd:element name="Bug06_MountingHeightRangeBUG" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Mounting Height from Property Line</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If Bug01_InstalledSameAsCC == true
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCLTO01E" usage="copy">G09_MountingHeightRangeBUG</dtyp:srcSchema>
+                                                            </xsd:appinfo>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:MountingHeightRangeBUG">
+                                                               <xsd:enumeration value="BackLessThanHalfMH" />
+                                                               <xsd:enumeration value="Front1To2MH" />
+                                                               <xsd:enumeration value="FrontHalfTo1MH" />
+                                                               <xsd:enumeration value="GT2MH" />
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Bug06_MountingHeightRangeBUG">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Mounting Height from Property Line</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If Bug01_InstalledSameAsCC == true
 result = Bug06cc_MountingHeightRangeBUG
 End If
 User input</xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="comp:MountingHeightRangeBUG">
-                                             <xsd:enumeration value="BackLessThanHalfMH"/>
-                                             <xsd:enumeration value="Front1To2MH"/>
-                                             <xsd:enumeration value="FrontHalfTo1MH"/>
-                                             <xsd:enumeration value="GT2MH"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
-                                    <xsd:element name="Bug07cc_GlareRatingBUG" type="comp:GlareRatingBUG" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Glare Rating</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:MountingHeightRangeBUG">
+                                                               <xsd:enumeration value="BackLessThanHalfMH" />
+                                                               <xsd:enumeration value="Front1To2MH" />
+                                                               <xsd:enumeration value="FrontHalfTo1MH" />
+                                                               <xsd:enumeration value="GT2MH" />
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Bug07cc_GlareRatingBUG" type="comp:GlareRatingBUG">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Glare Rating</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 result = G11_GlareRatingBUG
 End If</xsd:documentation>
-                                          <xsd:appinfo source="CIsrc">
-                                             <dtyp:srcSchema form="CCLTO01E"  usage="copy">G11_GlareRatingBUG</dtyp:srcSchema>
-                                          </xsd:appinfo>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="Bug07_GlareRatingBUG" type="comp:GlareRatingBUG" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Glare Rating</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If Bug01_InstalledSameAsCC == true
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCLTO01E" usage="copy">G11_GlareRatingBUG</dtyp:srcSchema>
+                                                            </xsd:appinfo>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="Bug07_GlareRatingBUG" type="comp:GlareRatingBUG">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Glare Rating</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If Bug01_InstalledSameAsCC == true
 result = Bug07cc_GlareRatingBUG
 Else
 User input
 End If</xsd:documentation>
-                                       </xsd:annotation>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                   </xsd:sequence>
+                                                </xsd:complexType>
+                                             </xsd:element>
+                                          </xsd:choice>
+                                       </xsd:complexType>
                                     </xsd:element>
-                                    <xsd:element name="Bug08_ComplianceResultCI" type="comp:ComplianceResultCI" >
+                                    <xsd:element name="Bug08_ComplianceResultCI" type="comp:ComplianceResultCI">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Fixture Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank

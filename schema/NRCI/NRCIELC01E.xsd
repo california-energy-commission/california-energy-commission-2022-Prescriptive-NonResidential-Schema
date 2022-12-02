@@ -1172,7 +1172,7 @@ End If</xsd:documentation>
                                                          </xsd:element>
                                                       </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="Controls03cc_ControlledReceptacleShutOffControl" type="comp:ControlledReceptacleShutOffControl" >
+                                                         <xsd:element name="Controls03cc_ControlledReceptacleShutOffControl" type="comp:ControlledReceptacleShutOffControl" minOccurs="0" maxOccurs="unbounded">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-ELC parent 
@@ -1185,7 +1185,7 @@ End If</xsd:documentation>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
-                                                         <xsd:element name="Controls03cc_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" >
+                                                         <xsd:element name="Controls03cc_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" minOccurs="0" maxOccurs="unbounded">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-ELC parent 

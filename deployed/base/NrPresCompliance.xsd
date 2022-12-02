@@ -3392,6 +3392,7 @@
          <xsd:enumeration value="NRCI-MCH-01-E"/>
          <xsd:enumeration value="NRCI-PLB-01-E"/>
          <xsd:enumeration value="NRCI-PRC-01-E"/>
+         <xsd:enumeration value="NRCI-SAB-01-E"/>
          <xsd:enumeration value="NRCV-MCH-04-H"/>
          <xsd:enumeration value="NRCV-MCH-24-H"/>
          <xsd:enumeration value="NRCV-MCH-27-H"/>
@@ -6345,6 +6346,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
             <dtyp:displayterm value="FiltersScrubbers">Filters, scrubber or other exhaust treatment</dtyp:displayterm>
             <dtyp:displayterm value="GasHeatAllowance">Gas heat</dtyp:displayterm>
             <dtyp:displayterm value="GasPhaseAirCleaner">Gas phase filtration</dtyp:displayterm>
+            <dtyp:displayterm value="HealthcareFacility">Healthcare Facility</dtyp:displayterm>
             <dtyp:displayterm value="HydronicHeatAllowance">Central Hydronic heating coil</dtyp:displayterm>
             <dtyp:displayterm value="LabExhaustVertDucts">Laboratory and vivarium exhaust system  with vertical ducts 
                <d:gt/> 75 ft2</dtyp:displayterm>
@@ -6390,6 +6392,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:enumeration value="FiltersScrubbers"/>
          <xsd:enumeration value="GasHeatAllowance"/>
          <xsd:enumeration value="GasPhaseAirCleaner"/>
+         <xsd:enumeration value="HealthcareFacility"/>
          <xsd:enumeration value="HydronicHeatAllowance"/>
          <xsd:enumeration value="LabExhaustVertDucts"/>
          <xsd:enumeration value="LowTurnDown1ZoneVAV"/>

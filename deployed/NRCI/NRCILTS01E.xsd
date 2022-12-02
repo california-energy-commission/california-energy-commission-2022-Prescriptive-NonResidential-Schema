@@ -368,12 +368,16 @@ End If</xsd:documentation>
                                                       </xsd:element>
                                                       <xsd:element name="Sign02cc_LightedSignDescription" type="lit:LightedSignDescription">
                                                          <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Sign Description</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If CCLTSE parent
+                                                            <xsd:documentation source="FieldText">Sign / Luminaire Description</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If CCLTSE parent 
+If F11_LuminaireDescription IsPresent
+result = F11_LuminaireDescription
+End If
 result = C02_LightedSignDescription 
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
                                                                <dtyp:srcSchema form="CCLTS01E" usage="copy">C02_LightedSignDescription</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCLTS01E" usage="copy">F11_LuminaireDescription</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                       </xsd:element>
@@ -512,9 +516,8 @@ End If</xsd:documentation>
                                                          <xsd:element name="Sign05cc_LightedSignDesignedPower" type="comp:LightedSignDesignedPower">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Total Watts</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If CCLTSE parent
-result = F07_LightedSignDesignedPower
-End If
+                                                               <xsd:documentation source="CalculationsAndRules">If CCLTSE parent And B05_LightedSignPrescriptiveMethod == MaximumAllowedPower
+result = Sign03cc_LuminairePower x Sign04cc_LuminaireCountByType 
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCLTS01E" usage="copy">F07_LightedSignDesignedPower</dtyp:srcSchema>

@@ -1083,18 +1083,16 @@ result = Q13_LuminaireCountByType
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Fixture Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank
- result = TableIncomplete  
+result = TableIncomplete  
 Else If Lum01_ScopeIncludesFixture == false
 result = NotInScope
-Else If in any row Lum05_LuminaireUse != Lum05cc_LuminaireUse
- result = MayNotComply
  
- Else If for all rows 
- Lum05cc_NotApplicableMessage IsPresent Or Lum05_LuminaireUse == Lum05cc_LuminaireUse
+Else If for all rows 
+Lum05cc_NotApplicableMessage IsPresent Or Lum05_LuminaireUse == Lum05cc_LuminaireUse
 And
- Lum06cc_NotApplicableMessage IsPresent Or Lum06_TrackLightingLength == Lum06cc_TrackLightingLength
- And 
- Lum07cc_NotApplicableMessage IsPresent Or  Lum07_TrackLightingCurrentLimiterPower  == Lum07cc_TrackLightingCurrentLimiterPower 
+Lum06cc_NotApplicableMessage IsPresent Or Lum06_TrackLightingLength == Lum06cc_TrackLightingLength
+And 
+Lum07cc_NotApplicableMessage IsPresent Or  Lum07_TrackLightingCurrentLimiterPower  == Lum07cc_TrackLightingCurrentLimiterPower 
 And 
 Lum08cc_NotApplicableMessage IsPresent Or Lum08cc_TrackLightingBranchCircuitPower  == Lum08_TrackLightingBranchCircuitPower 
 And 
@@ -1105,18 +1103,39 @@ And
 Lum11cc_LuminairePower IsPresent  And Lum11cc_LuminairePower == Lum11_LuminairePower
 And
 Lum12cc_LuminaireCountByType IsPresent And Lum12cc_LuminaireCountByType == Lum12_LuminaireCountByType
- result = ExactMatch
+result = ExactMatch
  
 Else If Lum05_LuminaireUse == Lum05cc_LuminaireUse
 And 
-Sum All rows ( Lum11cc_LuminairePower x Lum12cc_LuminaireCountByType)  GTE Sum All rows ( Lum11_LuminairePower x Lum12_LuminaireCountByType) 
- result = EqualBetter
- Else 
+Sum All CCRows excluding rows where Fc08_LightingPowerExcluded == True GTE Sum All AsBuiltRows
+If Lum05_LuminaireUse == OccupancyNonres
+CCRow = ( Lum11cc_LuminairePower x Lum12cc_LuminaireCountByType x 0.80)
+AsBuiltRow = ( Lum11_LuminairePower x Lum12_LuminaireCountByType x 0.80)
+Else If Lum05_LuminaireUse == OccupancyMF
+CCRow = ( Lum11cc_LuminairePower x Lum12cc_LuminaireCountByType x 0.75)
+AsBuiltRow = ( Lum11_LuminairePower x Lum12_LuminaireCountByType x 0.75)
+Else
+CCRow = ( Lum11cc_LuminairePower x Lum12cc_LuminaireCountByType)
+AsBuiltRow = ( Lum11_LuminairePower x Lum12_LuminaireCountByType) 
+result = EqualBetter
+Else 
 If Lum05_LuminaireUse != Lum05cc_LuminaireUse
 Or
-Sum All rows (  Lum11cc_LuminairePower x Lum12cc_LuminaireCountByType )  LT Sum All rows (  Lum11_LuminairePower x Lum12_LuminaireCountByType) 
- result = MayNotComply
- End If</xsd:documentation>
+Sum All CCRows excluding rows where Fc08_LightingPowerExcluded == True LT Sum All AsBuiltRows
+If Lum05_LuminaireUse == OccupancyNonres
+CCRow = ( Lum11cc_LuminairePower x Lum12cc_LuminaireCountByType x 0.80)
+AsBuiltRow = ( Lum11_LuminairePower x Lum12_LuminaireCountByType x 0.80)
+Else If Lum05_LuminaireUse == OccupancyMF
+CCRow = ( Lum11cc_LuminairePower x Lum12cc_LuminaireCountByType x 0.75)
+AsBuiltRow = ( Lum11_LuminairePower x Lum12_LuminaireCountByType x 0.75)
+Else
+CCRow = ( Lum11cc_LuminairePower x Lum12cc_LuminaireCountByType)
+AsBuiltRow = ( Lum11_LuminairePower x Lum12_LuminaireCountByType) 
+result = MayNotComply
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCLTI01E" usage="reference">Fc08_LightingPowerExcluded</dtyp:srcSchema>
+                                          </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>

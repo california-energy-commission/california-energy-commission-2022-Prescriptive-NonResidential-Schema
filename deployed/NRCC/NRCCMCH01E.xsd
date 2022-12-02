@@ -4453,7 +4453,8 @@ Switch (Fc02_BoilerType)
 case: HotWaterGas 
 result = .82 display term 82% AFUE; 
 case: HotWaterOil result = .84 display term 84% AFUE  
-case: SteamGas result = .80 display term 80% AFUE 
+case: SteamGas result = .80 display term 80% AFUE
+case: SteamGasNotNaturalDraft result = .80 display term 80% AFUE 
 case: SteamOil result = .82 display term 82% AFUE
 End Switch
 End If</xsd:documentation>
@@ -5956,6 +5957,12 @@ End If</xsd:documentation>
                                              </xsd:restriction>
                                           </xsd:simpleType>
                                        </xsd:element>
+                                       <xsd:element name="H00i_ServingFloors" type="hvac:ServingFloors">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User selects from Yes or No</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
                                     </xsd:choice>
                                     <xsd:element name="H01to11Choice">
                                        <xsd:annotation>
@@ -6050,19 +6057,15 @@ End If</xsd:documentation>
                                                                                           <xsd:element name="H04_FanPowerAllowanceDevice" type="comp:FanPowerAllowanceDevice">
                                                                                              <xsd:annotation>
                                                                                                 <xsd:documentation source="FieldText">Component</xsd:documentation>
-                                                                                                <xsd:documentation source="CalculationsAndRules">User must select one base allowance as folows:
- If H02_FanFunction == Supply
-User selects either BaseAllowanceGT6Floors or BaseAllowanceLTE6Floors
-And user can select any of the following options that apply:
+                                                                                                <xsd:documentation source="CalculationsAndRules">If H02_FanFunction == Supply
+User can select any of the following options that apply:
 MERV13_16Upstream, MERV13_16Downstream, MERV16GreaterOrHEPA, HydronicHeatAllowance, ElectHeatAllowance, GasHeatAllowance, CoilDXorHP, DesiccantAllowance, CoilReheat, EvapCoolerAllowance, AllOASystem, ERR_50ToLT_55, ERR_55ToLT_60, ERR_60ToLT_65, ERR_65ToLT_70, ERR_70ToLT_75, ERR_75ToLT_80, ERR_GTE_80, CoilRunaroundLoop, GasPhaseAirCleaner, EconReturnDamper, AirBlender, SoundAttenuation, TermUnitFanLT1kW, LowTurnDown1ZoneVAV
 Add to list the following If H00c_Status ==  Alteration:  ReplaceSupply and ReplaceSupplyAdapterCurb
  
 Else If H02_FanFunction != Supply
-User selects BaseAllowanceExhaust option 
-And user can select any of the following options that apply
-FilterAnyMERV,  ERR_50ToLT_55, ERR_55ToLT_60, ERR_60ToLT_65, ERR_65ToLT_70, ERR_70ToLT_75, ERR_75ToLT_80, ERR_GTE_80, CoilRunaroundLoop, PressureMaintained, AirflowControl, LabExhaustVertDucts, BiosafetyCabinet, FiltersScrubbers,  SoundAttenuation
+User can select any of the following options that apply
+FilterAnyMERV,  ERR_50ToLT_55, ERR_55ToLT_60, ERR_60ToLT_65, ERR_65ToLT_70, ERR_70ToLT_75, ERR_75ToLT_80, ERR_GTE_80, CoilRunaroundLoop, PressureMaintained, AirflowControl, LabExhaustVertDucts, BiosafetyCabinet, FiltersScrubbers, HealthcareFacility, SoundAttenuation
 Add to list the following If H00c_Status ==  Alteration:  ReplaceReturnExhaust and ReplaceReturnExhaustAdapterCurb
- 
 End If</xsd:documentation>
                                                                                                 <xsd:appinfo source="displayterm">
                                                                                                    <dtyp:displayterm value="SoundAttenuation">Sound Attenuation Section<d:sup>1</d:sup>
@@ -7184,80 +7187,95 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Fan System Allowance (kW)<d:sup>3</d:sup>
                                              </xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Calculated value: 
-Base allowance is assigned as follows: 
-If H04_FanPowerAllowanceDevice Includes BaseAllowanceLTE6FloorsAway:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-Base allowance = 0.395
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-Base allowance = 0.453
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-Base allowance = 0.413
+                                             <xsd:documentation source="CalculationsAndRules">Calculated value:
+SupplyFanBaseAllowance is assigned as follows:
+   If H02_FanFunction == Supply Is Not Present in TableFanSystems Row
+      SupplyFanBaseAllowance == 0
+   Else If H02_FanFunction == Supply Is Present in TableFanSystems Row
+      If H00i_ServingFloors = true
+         If H00d_SystemZoning = MultiZoneVAV
+            If H00f_FanSystemFlowCapacity LTE 5000
+               SupplyFanBaseAllowance = 0.508
+            Else If H00f_FanSystemFlowCapacity LTE 10000
+               SupplyFanBaseAllowance = 0.548
+            Else If H00f_FanSystemFlowCapacity GT 10000
+               SupplyFanBaseAllowance = 0.501
+            End If
+         Else If H00d_SystemZoning == AllOtherZoneTypes
+            If H00f_FanSystemFlowCapacity LTE 5000
+               SupplyFanBaseAllowance = 0.349
+            Else If H00f_FanSystemFlowCapacity LTE 10000
+               SupplyFanBaseAllowance = 0.356
+            Else If H00f_FanSystemFlowCapacity GT 10000
+               SupplyFanBaseAllowance = 0.325
+            End If
+         Else If H00f_FanSystemFlowCapacity ==  DOASZone
+            SupplyFanBaseAllowance is not applicable for calculation below
+         End If
+      End If
+   Else If H00i_ServingFloors = false
+      If H00d_SystemZoning = MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            SupplyFanBaseAllowance = 0.395
+         Else If H00f_FanSystemFlowCapacity LTE 10000
+            SupplyFanBaseAllowance = 0.453
+         Else If H00f_FanSystemFlowCapacity GT 10000
+            SupplyFanBaseAllowance = 0.413
+         End If
+      Else If H00d_SystemZoning == AllOtherZoneTypes
+         If H00f_FanSystemFlowCapacity LTE 5000
+            SupplyFanBaseAllowance = 0.232
+         Else If H00f_FanSystemFlowCapacity LTE 10000
+            SupplyFanBaseAllowance = 0.256
+         Else If H00f_FanSystemFlowCapacity GT 10000
+            SupplyFanBaseAllowance = 0.236
+         End If
+      Else If H00f_FanSystemFlowCapacity ==  DOASZone
+         SupplyFanBaseAllowance is not applicable for calculation below
+      End If
+   End If
 End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-Base allowance = 0.232
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-Base allowance= 0.256
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-Base allowance = 0.236
+
+ExhaustFanBaseAllowance is assigned as follows:
+   If H02_FanFunction == Exhaust Or Relief Or Return Or Transfer Is Not Present in TableFanSystems Row
+      ExhuastFanBaseAllowance == 0
+   Else If H02_FanFunction == Exhaust Or Relief Or Return Or Transfer Is Present in TableFanSystems Row
+      If H00d_SystemZoning = MultiZoneVAV
+         If H00f_FanSystemFlowCapacity LTE 5000
+            ExhuastFanBaseAllowance = 0.221
+         Else If H00f_FanSystemFlowCapacity LTE 10000
+            ExhuastFanBaseAllowance = 0.246
+         Else If H00f_FanSystemFlowCapacity GT 10000
+            ExhuastFanBaseAllowance = 0.236
+         End If
+      Else If H00d_SystemZoning = AllOtherZoneTypes
+         If H00f_FanSystemFlowCapacity LTE 5000
+            ExhuastFanBaseAllowance = 0.186
+         Else If H00f_FanSystemFlowCapacity LTE 10000
+            ExhuastFanBaseAllowance = 0.184
+         Else If H00f_FanSystemFlowCapacity GT 10000
+            ExhuastFanBaseAllowance = 0.190
+         End If
+      Else If H00f_FanSystemFlowCapacity ==  DOASZone
+         ExhuastFanBaseAllowance is not applicable for calculation below
+      End If
+   End If
 End If
-End If
-Else If  H04_FanPowerAllowanceDevice Includes BaseAllowanceGT6FloorsAway:
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-Base allowance = 0.508
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-Base allowance = 0.548
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-Base allowance = 0.501
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-Base allowance = 0.349
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-Base allowance = 0.356
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-Base allowance = 0.326
-End If
-End If
-Else If  H04_FanPowerAllowanceDevice Includes BaseAllowanceExhaust
-If H00d_SystemZoning == MultiZoneVAV
-If H00f_FanSystemFlowCapacity LTE 5000
-Base allowance = 0.221
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-Base allowance = 0.246
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-Base allowance = 0.236
-End If
-Else If H00d_SystemZoning == AllOtherZoneTypes
-If H00f_FanSystemFlowCapacity LTE 5000
-Base allowance= 0.186
-Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
-Base allowance = 0.184
-Else  If H00f_FanSystemFlowCapacity GT 10000 
-Base allowance = 0.190
-End If
-End If
-End If
- 
-If H00d_SystemZoning == DOASZone
-H00f_FanSystemFlowCapacity) / 1000 
- 
-Else If H00d_SystemZoning != DOASZone
-If H00g_Elevation LTE 3,000 ft
-result = ((Base allowance + SUM ALL (H03_FanCount x H08_FanAllowance))  x  H00f_FanSystemFlowCapacity) / 1000   
- 
-Else If H00g_Elevation GTE 3,000 ft And LT 4,000
-result = (0.896  x (Base allowance + SUM ALL (H03_FanCount x H08_FanAllowance))) x  H00f_FanSystemFlowCapacity) / 1000   
-Else If H00g_Elevation GTE 4,000 ft And LT 5,000
-result = (0.864 x (Base allowance + SUM ALL (H03_FanCount x H08_FanAllowance))) x  H00f_FanSystemFlowCapacity) / 1000   
-Else If H00g_Elevation GTE 5,000 ft And LT 6,000
-result = (0.832 x (Base allowance + SUM ALL (H03_FanCount x H08_FanAllowance))) x  H00f_FanSystemFlowCapacity) / 1000   
-Else If H00g_Elevation GTE 6,000 ft 
-result = (0.801 x (Base allowance + SUM ALL (H03_FanCount x H08_FanAllowance)))x  H00f_FanSystemFlowCapacity) / 1000   
-End If
+
+If H00d_SystemZoning != DOAS
+   If H00g_Elevation LTE 3,000 ft
+      result = ((SupplyFanBaseAllowance + ExhuastFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))  x  H00f_FanSystemFlowCapacity) / 1000   
+   Else If H00g_Elevation GTE 3,000 ft And LT 4,000
+      result = (0.896  x (SupplyFanBaseAllowance + ExhuastFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))) x  H00f_FanSystemFlowCapacity) / 1000   
+   Else If H00g_Elevation GTE 4,000 ft And LT 5,000
+      result = (0.864 x (SupplyFanBaseAllowance + ExhuastFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))) x  H00f_FanSystemFlowCapacity) / 1000   
+   Else If H00g_Elevation GTE 5,000 ft And LT 6,000
+      result = (0.832 x (SupplyFanBaseAllowance + ExhuastFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))) x  H00f_FanSystemFlowCapacity) / 1000   
+   Else If H00g_Elevation GTE 6,000 ft 
+      result = (0.801 x (SupplyFanBaseAllowance + ExhuastFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance)))x  H00f_FanSystemFlowCapacity) / 1000   
+   End If
+Else If H00d_SystemZoning == DOASZone
+   result = H00f_FanSystemFlowCapacity / 1000 
 End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -8682,7 +8700,11 @@ End If</xsd:documentation>
                                     <xsd:element name="Hfei01_FanName" type="hvac:FanName">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Name or Item Tag</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Autofilled from H01_FanName</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If H01_FanName IsPresent
+Autofilled from H01_FanName
+Else
+User Input
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="Hfei02_FanEnergyIndexException" type="comp:FanEnergyIndexException">
