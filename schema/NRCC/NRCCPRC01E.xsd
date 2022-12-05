@@ -4323,192 +4323,189 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i] This table documents compliance with mandatory pool/spa requirements in [d:t24refnolink/]110.4 / [d:t24refnolink/]160.7 [/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name = "PoolSpa">
+                  <xsd:element name="PoolSpa">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                      </xsd:annotation>
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
-                                 <xsd:complexType>
-                                    <xsd:sequence>
-                                       <xsd:element name="Pool01_SystemDescription" type="comp:SystemDescription">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Pool/Spa Description</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="Pool02_PoolSpaService" type="comp:PoolSpaService">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Pool/Spa Service Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from list: 
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="Pool01_SystemDescription" type="comp:SystemDescription">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Pool/Spa Description</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Pool02_PoolSpaService" type="comp:PoolSpaService">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Pool/Spa Service Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: 
             MultipleUsers display term Serves multiple tenants or public
             SingleTenant display term Serves one tenant</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="Pool03_PoolSpaRequirements">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Efficiency[d:sup]1[/d:sup]</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from list:  EfficiencyStandards display term Equipment subject to State/federal appliance efficiency standards is in the CEC's directory of certified equipment</xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:PoolSpaRequirements">
-                                                <xsd:enumeration value="EfficiencyStandards" />
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>
-                                       <xsd:element name="Pool04_PoolSpaRequirements">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">On/Off Control</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from list: OnOffSwitchProvided display term Includes on-off switch mounted on outside of heater allowing shutting off heater without adjusting thermostat</xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:PoolSpaRequirements">
-                                                <xsd:enumeration value="NotHeatedNA" />
-                                                <xsd:enumeration value="OnOffSwitchProvided" />
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>
-                                       <xsd:element name="Pool05_PoolSpaRequirements">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Instructions &amp; Covers</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from list: CoverProvided display term Heated outdoor pools/spas must include cover and weatherproof instruction for proper care of when cover is used
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Pool03_PoolSpaRequirements">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Efficiency[d:sup]1[/d:sup]</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list:  EfficiencyStandards display term Equipment subject to State/federal appliance efficiency standards is in the CEC's directory of certified equipment</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="comp:PoolSpaRequirements">
+                                             <xsd:enumeration value="EfficiencyStandards" />
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="Pool04_PoolSpaRequirements">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">On/Off Control</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: OnOffSwitchProvided display term Includes on-off switch mounted on outside of heater allowing shutting off heater without adjusting thermostat</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="comp:PoolSpaRequirements">
+                                             <xsd:enumeration value="NotHeatedNA" />
+                                             <xsd:enumeration value="OnOffSwitchProvided" />
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="Pool05_PoolSpaRequirements">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Instructions &amp; Covers</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: CoverProvided display term Heated outdoor pools/spas must include cover and weatherproof instruction for proper care of when cover is used
             NotHeatedNA display term NA: Pool/spa not heated</xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:PoolSpaRequirements">
-                                                <xsd:enumeration value="CoverProvided" />
-                                                <xsd:enumeration value="NotHeatedNA" />
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>
-                                       <xsd:element name="Pool06_PoolSpaRequirements">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Electric Resistance Heating</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from list:  NoElectResistanceHeat display term No electrical resistance heating used
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="comp:PoolSpaRequirements">
+                                             <xsd:enumeration value="CoverProvided" />
+                                             <xsd:enumeration value="NotHeatedNA" />
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="Pool06_PoolSpaRequirements">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Electric Resistance Heating</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list:  NoElectResistanceHeat display term No electrical resistance heating used
             FullyInsulated display term Listed package units with fully insulated enclosures, and with tight-fitting covers that are insulated to at least R-6
             SolarRecoveredEnergy display term Pools/spas where greater or equal to 60% of annual heating energy is from site solar energy or recovered energy</xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:PoolSpaRequirements">
-                                                <xsd:enumeration value="FullyInsulated" />
-                                                <xsd:enumeration value="NoElectResistanceHeat" />
-                                                <xsd:enumeration value="SolarRecoveredEnergy" />
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>
-                                       <xsd:element name="Pool07_PoolSpaRequirements">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Piping</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from list:  FutureSolarPiping display term greater than or equal to 36 in of pipe installed between filter and heater or dedicated suction and return lines to allow for the future addition of solar heating equipment
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="comp:PoolSpaRequirements">
+                                             <xsd:enumeration value="FullyInsulated" />
+                                             <xsd:enumeration value="NoElectResistanceHeat" />
+                                             <xsd:enumeration value="SolarRecoveredEnergy" />
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="Pool07_PoolSpaRequirements">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Piping</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list:  FutureSolarPiping display term greater than or equal to 36 in of pipe installed between filter and heater or dedicated suction and return lines to allow for the future addition of solar heating equipment
             FutureSolarConnections display term Built-in/built-up connections installed to allow for the future addition of solar heating equipment</xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:PoolSpaRequirements">
-                                                <xsd:enumeration value="FutureSolarConnections" />
-                                                <xsd:enumeration value="FutureSolarPiping" />
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>
-                                       <xsd:element name="Pool08_PoolSpaRequirements">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Pool Directional Inlets &amp; Pump Control</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from list: PoolInletsPump display term Has directional inlets to mix the pool water &amp; control mechanism to allow pumps to run only during off-peak electric demand period and for min time necessary
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="comp:PoolSpaRequirements">
+                                             <xsd:enumeration value="FutureSolarConnections" />
+                                             <xsd:enumeration value="FutureSolarPiping" />
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="Pool08_PoolSpaRequirements">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Pool Directional Inlets &amp; Pump Control</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: PoolInletsPump display term Has directional inlets to mix the pool water &amp; control mechanism to allow pumps to run only during off-peak electric demand period and for min time necessary
             SpaNA display term NA: Spa</xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:PoolSpaRequirements">
-                                                <xsd:enumeration value="PoolInletsPump" />
-                                                <xsd:enumeration value="SpaNA" />
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>
-                                       <xsd:element name="PoolEndNote1" minOccurs="0">
-                                             <xsd:annotation>
-                                                <xsd:documentation source="FieldText"></xsd:documentation>
-                                                <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]1[/d:sup]FOOTNOTE: CEC's appliance efficiency database, the Modernized Appliance Efficiency Database System (MAEDBS), is available online a https://cacertappliances.energy.ca.gov/Pages/ApplianceSearch.aspx[/d:i]</xsd:documentation>
-                                             </xsd:annotation>
-                                          </xsd:element>
-                                    </xsd:sequence>
-                                 </xsd:complexType>
-                              </xsd:element>
-                           </xsd:sequence>
-                        </xsd:complexType>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="comp:PoolSpaRequirements">
+                                             <xsd:enumeration value="PoolInletsPump" />
+                                             <xsd:enumeration value="SpaNA" />
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="PoolEndNote1" minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">[d:i][d:sup]1[/d:sup]FOOTNOTE: CEC's appliance efficiency database, the Modernized Appliance Efficiency Database System (MAEDBS), is available online a https://cacertappliances.energy.ca.gov/Pages/ApplianceSearch.aspx[/d:i]</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
                   </xsd:element>
-               </xsd:sequence>
-            </xsd:complexType>
-         </xsd:element>
-         <xsd:element name="PoolSingleTenant" minOccurs="0">
-            <xsd:annotation>
-               <xsd:documentation source="FieldText">[d:b]Additional Requirements for Pool/Spa Serving One Tenant [d:t24refnolink/]150.0(p) [/d:b]</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This subsection is required 
+                  <xsd:element name="PoolSingleTenant" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b]Additional Requirements for Pool/Spa Serving One Tenant [d:t24refnolink/]150.0(p) [/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required 
 If Pool02_PoolSpaService == SingleTenant 
 Else no data is collected and this subsection is not displayed</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-               <xsd:sequence>
-                  <xsd:element name="Pool09_PoolSpaOneTenantReqs">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">All pump flow rates shall be calculated using H = C x F[d:sup]2[/d:sup]
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Pool09_PoolSpaOneTenantReqs">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">All pump flow rates shall be calculated using H = C x F[d:sup]2[/d:sup]
 WHERE:
 H is the total system head in feet of water
 F is the flow rate in gallons per minute (gpm)
 C is a coefficient based on the volume of the pool (0.0167 for pools less than or equal to 17,000 gallons and 0.0082 for pools greater than 17,000 gallons)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
+                                 <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
 result = PumpFlowRate
 Else If box is unchecked
 result = PoolReqNotMet and this section does not comply
 End If</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="comp:PoolSpaOneTenantReqs">
-                           <xsd:enumeration value="PoolReqNotMet" />
-                           <xsd:enumeration value="PumpFlowRate" />
-                        </xsd:restriction>
-                     </xsd:simpleType>
-                  </xsd:element>
-                  <xsd:element name="Pool10_PoolSpaOneTenantReqs">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Filtration pumps shall be sized, or if programmable, shall be programmed, so that the filtration flow rate is not greater than the rate needed to turn over the pool water volume in 6 hours or 36 gpm, whichever is greater.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
+                              </xsd:annotation>
+                              <xsd:simpleType>
+                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
+                                    <xsd:enumeration value="PoolReqNotMet" />
+                                    <xsd:enumeration value="PumpFlowRate" />
+                                 </xsd:restriction>
+                              </xsd:simpleType>
+                           </xsd:element>
+                           <xsd:element name="Pool10_PoolSpaOneTenantReqs">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Filtration pumps shall be sized, or if programmable, shall be programmed, so that the filtration flow rate is not greater than the rate needed to turn over the pool water volume in 6 hours or 36 gpm, whichever is greater.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
 result = FiltrationPumpSize
 Else If box is unchecked
 result = PoolReqNotMet and this section does not comply
 End If</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="comp:PoolSpaOneTenantReqs">
-                           <xsd:enumeration value="FiltrationPumpSize" />
-                           <xsd:enumeration value="PoolReqNotMet" />
-                        </xsd:restriction>
-                     </xsd:simpleType>
-                  </xsd:element>
-                  <xsd:element name="Pool11_PoolSpaOneTenantReqs">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Pump motors used for filtration shall meet the applicable federal standard in 10 CFR 431.465.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
+                              </xsd:annotation>
+                              <xsd:simpleType>
+                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
+                                    <xsd:enumeration value="FiltrationPumpSize" />
+                                    <xsd:enumeration value="PoolReqNotMet" />
+                                 </xsd:restriction>
+                              </xsd:simpleType>
+                           </xsd:element>
+                           <xsd:element name="Pool11_PoolSpaOneTenantReqs">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Pump motors used for filtration shall meet the applicable federal standard in 10 CFR 431.465.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
 result = FiltrationPumpMotor
 Else If box is unchecked
 result = PoolReqNotMet and this section does not comply
 End If</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="comp:PoolSpaOneTenantReqs">
-                           <xsd:enumeration value="FiltrationPumpMotor" />
-                           <xsd:enumeration value="PoolReqNotMet" />
-                        </xsd:restriction>
-                     </xsd:simpleType>
-                  </xsd:element>
-                  <xsd:element name="Pool12_PoolSpaOneTenantReqs">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Each auxiliary pool load shall be served by either separate pumps or the system shall be served by a multispeed pump if pump hp [d:gte/] 1.
+                              </xsd:annotation>
+                              <xsd:simpleType>
+                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
+                                    <xsd:enumeration value="FiltrationPumpMotor" />
+                                    <xsd:enumeration value="PoolReqNotMet" />
+                                 </xsd:restriction>
+                              </xsd:simpleType>
+                           </xsd:element>
+                           <xsd:element name="Pool12_PoolSpaOneTenantReqs">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Each auxiliary pool load shall be served by either separate pumps or the system shall be served by a multispeed pump if pump hp [d:gte/] 1.
 - Multispeed pumps shall have controls which default to the filtration flow rate when no auxiliary pool loads are operating; and 
 - For multispeed pumps, the controls shall default to the filtration flow rate setting within 24 hours and shall have an override capability for servicing.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input.  
+                                 <xsd:documentation source="CalculationsAndRules">User input.  
 If user checks the Yes box
 result = AuxPoolLoad 
 Else If user checks the Not Applicable box
@@ -4516,68 +4513,71 @@ result = PoolReqNA
 Else If both Yes box and Not Applicable box are unchecked
 result = PoolReqNotMet and this section does not comply
 End If</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="comp:PoolSpaOneTenantReqs">
-                           <xsd:enumeration value="AuxPoolLoad" />
-                           <xsd:enumeration value="PoolReqNA" />
-                           <xsd:enumeration value="PoolReqNotMet" />
-                        </xsd:restriction>
-                     </xsd:simpleType>
-                  </xsd:element>
-                  <xsd:element name="Pool13_PoolSpaOneTenantReqs">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">System Piping must meet the following requirements: 
+                              </xsd:annotation>
+                              <xsd:simpleType>
+                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
+                                    <xsd:enumeration value="AuxPoolLoad" />
+                                    <xsd:enumeration value="PoolReqNA" />
+                                    <xsd:enumeration value="PoolReqNotMet" />
+                                 </xsd:restriction>
+                              </xsd:simpleType>
+                           </xsd:element>
+                           <xsd:element name="Pool13_PoolSpaOneTenantReqs">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">System Piping must meet the following requirements: 
 - A length of straight pipe that is greater than or equal to at least 4 pipe diameters shall be installed before the pump; and
 - Pool piping shall be sized so that the velocity of the water at maximum flow for auxiliary pool loads does not exceed 8 feet per second in the return line and 6 feet per second in the suction line; and 
 - All elbows shall be sweep elbows or of an elbow-type that has a pressure drop of less than the pressure drop of straight pipe with a length of 30 pipe diameters.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
+                                 <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
 result = PoolPiping
 Else If box is unchecked
 result = PoolReqNotMet and this section does not comply
 End If</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="comp:PoolSpaOneTenantReqs">
-                           <xsd:enumeration value="PoolPiping" />
-                           <xsd:enumeration value="PoolReqNotMet" />
-                        </xsd:restriction>
-                     </xsd:simpleType>
-                  </xsd:element>
-                  <xsd:element name="Pool14_PoolSpaOneTenantReqs">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Filters shall be at least the size specified in NSF/ANSI 50 for public pool intended applications.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
+                              </xsd:annotation>
+                              <xsd:simpleType>
+                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
+                                    <xsd:enumeration value="PoolPiping" />
+                                    <xsd:enumeration value="PoolReqNotMet" />
+                                 </xsd:restriction>
+                              </xsd:simpleType>
+                           </xsd:element>
+                           <xsd:element name="Pool14_PoolSpaOneTenantReqs">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Filters shall be at least the size specified in NSF/ANSI 50 for public pool intended applications.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
 result = FilterSize
 Else If box is unchecked
 result = PoolReqNotMet and this section does not comply
 End If</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="comp:PoolSpaOneTenantReqs">
-                           <xsd:enumeration value="FilterSize" />
-                           <xsd:enumeration value="PoolReqNotMet" />
-                        </xsd:restriction>
-                     </xsd:simpleType>
-                  </xsd:element>
-                  <xsd:element name="Pool15_PoolSpaOneTenantReqs">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Minimum diameter of backwash valves shall be 2 inches or the diameter of the return pipe, whichever is greater.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
+                              </xsd:annotation>
+                              <xsd:simpleType>
+                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
+                                    <xsd:enumeration value="FilterSize" />
+                                    <xsd:enumeration value="PoolReqNotMet" />
+                                 </xsd:restriction>
+                              </xsd:simpleType>
+                           </xsd:element>
+                           <xsd:element name="Pool15_PoolSpaOneTenantReqs">
+                              <xsd:annotation>
+                                 <xsd:documentation source="FieldText"></xsd:documentation>
+                                 <xsd:documentation source="AdditionalRequirements">Minimum diameter of backwash valves shall be 2 inches or the diameter of the return pipe, whichever is greater.</xsd:documentation>
+                                 <xsd:documentation source="CalculationsAndRules">User input.  If user checks the Yes box
 result = BackwashValves
 Else If box is unchecked
 result = PoolReqNotMet and this section does not comply
 End If</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="comp:PoolSpaOneTenantReqs">
-                           <xsd:enumeration value="BackwashValves" />
-                           <xsd:enumeration value="PoolReqNotMet" />
-                        </xsd:restriction>
-                     </xsd:simpleType>
+                              </xsd:annotation>
+                              <xsd:simpleType>
+                                 <xsd:restriction base="comp:PoolSpaOneTenantReqs">
+                                    <xsd:enumeration value="BackwashValves" />
+                                    <xsd:enumeration value="PoolReqNotMet" />
+                                 </xsd:restriction>
+                              </xsd:simpleType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>

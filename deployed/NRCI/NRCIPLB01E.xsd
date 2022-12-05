@@ -404,7 +404,7 @@ End If</xsd:documentation>
                                                                         <dtyp:displayterm value="false">Individual</dtyp:displayterm>
                                                                      </xsd:appinfo>
                                                                      <xsd:appinfo source="CIsrc">
-                                                                        <dtyp:srcSchema form="CCPLB01E" usage="reference">Section_F F08_WaterHeaterType</dtyp:srcSchema>
+                                                                        <dtyp:srcSchema form="CCPLB01E" usage="reference">F08_WaterHeaterType</dtyp:srcSchema>
                                                                         <dtyp:srcSchema form="CCPRF01E" usage="copy">WaterMF03_CentralSystem</dtyp:srcSchema>
                                                                      </xsd:appinfo>
                                                                   </xsd:annotation>
@@ -516,6 +516,7 @@ End If</xsd:documentation>
                                                                            <xsd:enumeration value="BoilerResDutyCommercial"/>
                                                                            <xsd:enumeration value="BoilerWaterHeater"/>
                                                                            <xsd:enumeration value="CentralHeatPumpWH"/>
+                                                                           <xsd:enumeration value="BoilerCommercialLT1MMBtu"/>
                                                                            <xsd:enumeration value="IndirectDHW"/>
                                                                            <xsd:enumeration value="InstantaneousCommercial"/>
                                                                            <xsd:enumeration value="InstantaneousConsumer"/>

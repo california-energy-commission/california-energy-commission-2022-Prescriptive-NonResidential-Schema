@@ -556,7 +556,7 @@ End If</xsd:documentation>
                                                 <xsd:element name="Pv06_Tilt" type="dtyp:Tilt">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Angle/Tilt</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules"> If Pv05 == Degrees
+                                                      <xsd:documentation source="CalculationsAndRules"> If Pv05_TiltMeasurementType == Degrees
 User input
                                                       </xsd:documentation>
                                                    </xsd:annotation>
@@ -564,7 +564,7 @@ User input
                                                 <xsd:element name="Pv06_RoofRiseString" type="env:RoofRiseString">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Angle/Tilt</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules"> If Pv05 == Pitch
+                                                      <xsd:documentation source="CalculationsAndRules"> If Pv05_TiltMeasurementType == Pitch
 User input
                                                       </xsd:documentation>
                                                    </xsd:annotation>
@@ -1225,15 +1225,12 @@ End If</xsd:documentation>
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"></xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Dwelling units include an ENERGY STAR dishwasher AND EITHER an ENERGY STAR refrigerator OR a whole house fan driven by an electronically commutated motor</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If CC-PRF parent And B01i_ProjectHasEnergyStar == true
+                                 <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
+result = false and static text is not displayed.
+Else If CC-SAB parent And B01i_ProjectHasEnergyStar == true And I02a_SolarReadyAlternativeEfficiencyMeasure == EnergyStarAppliances
 result = true And static text in AdditionalRequirements is displayed
 Else
-If CC-SAB parent
-If I02a_SolarReadyAlternativeEfficiencyMeasure == EnergyStarAppliances
-result = true And static text in AdditionalRequirements is displayed
-Else I02a_SolarReadyAlternativeEfficiencyMeasure == NoEfficiencyMeasure
 result = false And static text is not displayed
-End If
 End If</xsd:documentation>
                                  <xsd:appinfo source="CIsrc">
                                     <dtyp:srcSchema form="CCSAB01E"  usage="reference">I02a_SolarReadyAlternativeEfficiencyMeasure</dtyp:srcSchema>
