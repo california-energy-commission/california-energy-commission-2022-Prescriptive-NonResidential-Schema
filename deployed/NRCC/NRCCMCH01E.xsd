@@ -452,8 +452,8 @@ Condition 7
 If TableElectricHeat IsPresent  Then for every row 
 any field in range  Ff01 - Ff04 != BlankGrayedOut has data.  
  
-ondition 8
-If TableDOAS IsPresent Then for every row 
+Condition 8
+If TableDXDOAS IsPresent Then for every row 
 any field in range Fdoas01 - Fdoas08 != BlankGrayedOut has data. And
 If Fdoas06a And Fdoas08a != BlankGrayedOut Then Fdoas06a LT Fdoas08a And
 If Fdoas06b And Fdoas08b != BlankGrayedOut Then Fdoas06b LT Fdoas08b 
@@ -3398,7 +3398,7 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="TableDOAS" minOccurs="0">
+                  <xsd:element name="TableDXDOAS" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">
                            <d:b>DX-DOAS Efficiency </d:b>

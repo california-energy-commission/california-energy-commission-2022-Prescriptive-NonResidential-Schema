@@ -658,124 +658,127 @@ End If</xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">[d:i] Submetered electrical power distribution systems that provide power to dwelling units/common living areas only in multifamily occupancies do not need to be included. [/d:i]</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
-                           <xsd:element name="Circuits00cc_ElectricalServiceName" type="comp:ElectricalServiceName" >
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText">Electrical Service Designation/Description</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                           <xsd:element name="CircuitSystem">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="Circuits00cc_ElectricalServiceName" type="comp:ElectricalServiceName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Electrical Service Designation/Description</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
 result = G00_ElectricalServiceName 
 End If
  
 This field is displayed after the CircuitsTitle and before TableCircuits</xsd:documentation>
-                                 <xsd:appinfo source="CIsrc">
-                                    <dtyp:srcSchema form="CCELC01E"  usage="copy">G00_ElectricalServiceName</dtyp:srcSchema>
-                                 </xsd:appinfo>
-                              </xsd:annotation>
-                           </xsd:element>
-                           <xsd:element name="Circuits00_InMyScope" type="comp:InMyScope" >
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText">Is this in your scope?</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">User selects from true value display term Yes and false value display term No, by others
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCELC01E" usage="copy">G00_ElectricalServiceName</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="Circuits00_InMyScope" type="comp:InMyScope">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Is this in your scope?</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from true value display term Yes and false value display term No, by others
  If result == false Circuits01cc-Circuits03cc and Circuits03 As-built cell is blank and grayed out
 And D01_ExceptionalConditionMessageNRCIELCE += CircuitsNotInScope
 End If</xsd:documentation>
-                              </xsd:annotation>
-                           </xsd:element>
-                           <xsd:element name="TableCircuits" >
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText"></xsd:documentation>
-                              </xsd:annotation>
-                              <xsd:complexType>
-                                 <xsd:sequence>
-                                    <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="TableCircuits">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                       </xsd:annotation>
                                        <xsd:complexType>
                                           <xsd:sequence>
-                                             <xsd:element name="Circuits01cc_ElectricalLoadType" type="com:ElectricalLoadType" >
-                                                <xsd:annotation>
-                                                   <xsd:documentation source="FieldText">Load Type[d:sup]1[/d:sup]</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                                             <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                                                <xsd:complexType>
+                                                   <xsd:sequence>
+                                                      <xsd:element name="Circuits01cc_ElectricalLoadType" type="com:ElectricalLoadType">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Load Type[d:sup]1[/d:sup]</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
 result = G01_ElectricalLoadType 
 End If
  
 The result is displayed in both the Per CC and As-built conditions</xsd:documentation>
-                                                   <xsd:appinfo source="CIsrc">
-                                                      <dtyp:srcSchema form="CCELC01E"  usage="copy">G01_ElectricalLoadType</dtyp:srcSchema>
-                                                   </xsd:appinfo>
-                                                </xsd:annotation>
-                                             </xsd:element>
-                                             <xsd:element name="Circuits01_InstalledSameAsCC" type="comp:InstalledSameAsCC"  minOccurs="0">
-                                                <xsd:annotation>
-                                                   <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
-                                                </xsd:annotation>
-                                             </xsd:element>
-                                             <xsd:choice maxOccurs="1">
-                                                <xsd:element name="Circuits02cc_ElectricalLoadSeparationRequirement" type="comp:ElectricalLoadSeparationRequirement">
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Minimum Required Separation of Load</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCELC01E" usage="copy">G01_ElectricalLoadType</dtyp:srcSchema>
+                                                            </xsd:appinfo>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="Circuits01_InstalledSameAsCC" type="comp:InstalledSameAsCC" minOccurs="0">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="Circuits02cc_ElectricalLoadSeparationRequirement" type="comp:ElectricalLoadSeparationRequirement">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Minimum Required Separation of Load</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
 result = G02_ElectricalLoadSeparationRequirement
 End If
  
 The result is displayed in both the Per CC and As-built conditions</xsd:documentation>
-                                                      <xsd:appinfo source="CIsrc">
-                                                         <dtyp:srcSchema form="CCELC01E" usage="copy">G02_ElectricalLoadSeparationRequirement</dtyp:srcSchema>
-                                                      </xsd:appinfo>
-                                                   </xsd:annotation>
-                                                </xsd:element>
-                                                <xsd:element name="Circuits02cc_NotApplicableMessage">
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Separation Method[d:sup]2[/d:sup]</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCELC01E" usage="copy">G02_ElectricalLoadSeparationRequirement</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Circuits02cc_NotApplicableMessage">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Separation Method[d:sup]2[/d:sup]</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
 If G02_NotApplicableMessage IsPresent
 result = BlankGrayedOut
 End If</xsd:documentation>
-                                                      <xsd:appinfo source="CIsrc">
-                                                         <dtyp:srcSchema form="CCELC01E" usage="reference">G02_NotApplicableMessage</dtyp:srcSchema>
-                                                      </xsd:appinfo>
-                                                   </xsd:annotation>
-                                                   <xsd:simpleType>
-                                                      <xsd:restriction base="comp:NotApplicableMessage">
-                                                         <xsd:enumeration value="BlankGrayedOut" />
-                                                      </xsd:restriction>
-                                                   </xsd:simpleType>
-                                                </xsd:element>
-                                             </xsd:choice>
-                                             <xsd:choice maxOccurs="1">
-                                                <xsd:element name="Circuits03cc_ElectricalLoadComplianceMethod" type="comp:ElectricalLoadComplianceMethod" >
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Separation Method[d:sup]2[/d:sup]</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCELC01E" usage="reference">G02_NotApplicableMessage</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut" />
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="Circuits03cc_ElectricalLoadComplianceMethod" type="comp:ElectricalLoadComplianceMethod">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Separation Method[d:sup]2[/d:sup]</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
 If G03_ElectricalLoadComplianceMethod IsPresent
 result = G03_ElectricalLoadComplianceMethod
 End If</xsd:documentation>
-                                                      <xsd:appinfo source="CIsrc">
-                                                         <dtyp:srcSchema form="CCELC01E"  usage="copy">G03_ElectricalLoadComplianceMethod</dtyp:srcSchema>
-                                                      </xsd:appinfo>
-                                                   </xsd:annotation>
-                                                </xsd:element>
-                                                <xsd:element name="Circuits03cc_NotApplicableMessage" >
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Separation Method[d:sup]2[/d:sup]</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCELC01E" usage="copy">G03_ElectricalLoadComplianceMethod</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Circuits03cc_NotApplicableMessage">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Separation Method[d:sup]2[/d:sup]</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-ELC parent
 If G03_NotApplicableMessage IsPresent
 result = BlankGrayedOut
 End If</xsd:documentation>
-                                                      <xsd:appinfo source="CIsrc">
-                                                         <dtyp:srcSchema form="CCELC01E"  usage="reference">G03_NotApplicableMessage</dtyp:srcSchema>
-                                                      </xsd:appinfo>
-                                                   </xsd:annotation>
-                                                   <xsd:simpleType>
-                                                      <xsd:restriction base="comp:NotApplicableMessage">
-                                                         <xsd:enumeration value="BlankGrayedOut"/>
-                                                      </xsd:restriction>
-                                                   </xsd:simpleType>
-                                                </xsd:element>
-                                             </xsd:choice>
-                                             <xsd:choice maxOccurs="1">
-                                                <xsd:element name="Circuits03_ElectricalLoadComplianceMethod" type="comp:ElectricalLoadComplianceMethod" >
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Separation Method[d:sup]2[/d:sup]</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">User selects from dropdown list loaded as follows:
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCELC01E" usage="reference">G03_NotApplicableMessage</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut" />
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="Circuits03_ElectricalLoadComplianceMethod" type="comp:ElectricalLoadComplianceMethod">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Separation Method[d:sup]2[/d:sup]</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">User selects from dropdown list loaded as follows:
 If Circuits01_InstalledSameAsCC == true
 If Circuits03cc_ElectricalLoadComplianceMethod IsPresent
 result = Circuits03cc_ElectricalLoadComplianceMethod  but user can change the value
@@ -783,28 +786,28 @@ End If
 Else If Circuits01_InstalledSameAsCC == false
 User selects from list
 End If</xsd:documentation>
-                                                   </xsd:annotation>
-                                                </xsd:element>
-                                                <xsd:element name="Circuits03_NotApplicableMessage" >
-                                                   <xsd:annotation>
-                                                      <xsd:documentation source="FieldText">Separation Method[d:sup]2[/d:sup]</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Circuits00_InMyScope == false
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Circuits03_NotApplicableMessage">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Separation Method[d:sup]2[/d:sup]</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Circuits00_InMyScope == false
 result = BlankGrayedOut
 Else If Circuits03cc_NotApplicableMessage IsPresent
 result = Circuits03cc_NotApplicableMessage
 End If</xsd:documentation>
-                                                   </xsd:annotation>
-                                                   <xsd:simpleType>
-                                                      <xsd:restriction base="comp:NotApplicableMessage">
-                                                         <xsd:enumeration value="BlankGrayedOut"/>
-                                                      </xsd:restriction>
-                                                   </xsd:simpleType>
-                                                </xsd:element>
-                                             </xsd:choice>
-                                             <xsd:element name="Circuits04_ComplianceResultCI" type="comp:ComplianceResultCI" >
-                                                <xsd:annotation>
-                                                   <xsd:documentation source="FieldText">Compliance</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">If any user input field is blank
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut" />
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:element name="Circuits04_ComplianceResultCI" type="comp:ComplianceResultCI">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Compliance</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If any user input field is blank
 result = TableIncomplete  
 Else If Circuits00_InMyScope == false 
 result = NotInScope
@@ -817,7 +820,10 @@ Else
 result = EqualBetter
 End If
 End If</xsd:documentation>
-                                                </xsd:annotation>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                   </xsd:sequence>
+                                                </xsd:complexType>
                                              </xsd:element>
                                           </xsd:sequence>
                                        </xsd:complexType>
@@ -1315,17 +1321,16 @@ End If</xsd:documentation>
                                           <xsd:documentation source="FieldText">Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank
 result = TableIncomplete 
-Elsle If  Controls01_InMyScope == false
+Else If  Controls01_InMyScope == false
 result = NotInScope
 Else If Controls01_InstalledSameAsCC == true
-If Controls2cc_ControlledReceptacleComplianceType == Controls2_ControlledReceptacleComplianceType 
-And 
-Controls03cc_NotApplicableMessage IsPresent Or 
+If Controls02cc_ControlledReceptacleComplianceType  == Controls02_ControlledReceptacleComplianceType 
+And  
 Controls03cc_ControlledReceptacleShutOffControl == Controls03_ControlledReceptacleShutOffControl
+And  
+Controls04cc_AreControlledReceptaclesPermanentlyMarked == Controls04_AreControlledReceptaclesPermanentlyMarked
 And 
-Controls04cc_NotApplicableMessage IsPresent Or 
-Controls04cc_AreControlledReceptaclesPermanentlyMarked == Controls04_AreControlledReceptaclesPermanentlyMarked 
- 
+Controls04acc_ControlledReceptacleDemandResponse == Controls04a_ControlledReceptacleDemandResponse
 result = ExactMatch
 Else 
 result = EqualBetter

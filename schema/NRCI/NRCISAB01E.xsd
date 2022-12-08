@@ -1228,6 +1228,7 @@ End If</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
 result = false and static text is not displayed.
 Else If CC-SAB parent And B01i_ProjectHasEnergyStar == true And I02a_SolarReadyAlternativeEfficiencyMeasure == EnergyStarAppliances
+Or B01j_ProjectHasEnergyStarAndFanEC == true
 result = true And static text in AdditionalRequirements is displayed
 Else
 result = false And static text is not displayed

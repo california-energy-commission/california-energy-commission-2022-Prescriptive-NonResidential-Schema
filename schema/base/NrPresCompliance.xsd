@@ -13372,6 +13372,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          <xsd:enumeration value="Included"/>
          <xsd:enumeration value="NA_LTE40PctPreAltLP"/>
          <xsd:enumeration value="NA_LTE80PctAllowedLP"/>
+         <xsd:enumeration value="NA_NotDaylit"/>
          <xsd:enumeration value="OverhangRatioNA"/>
          <xsd:enumeration value="PrimaryLT120NA"/>
          <xsd:enumeration value="RetailNA"/>
