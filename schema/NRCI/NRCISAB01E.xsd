@@ -1227,9 +1227,12 @@ End If</xsd:documentation>
                                  <xsd:documentation source="AdditionalRequirements">Dwelling units include an ENERGY STAR dishwasher AND EITHER an ENERGY STAR refrigerator OR a whole house fan driven by an electronically commutated motor</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
 result = false and static text is not displayed.
-Else If CC-SAB parent And B01i_ProjectHasEnergyStar == true And I02a_SolarReadyAlternativeEfficiencyMeasure == EnergyStarAppliances
-Or B01j_ProjectHasEnergyStarAndFanEC == true
+Else If CC-SAB parent 
+If I02a_SolarReadyAlternativeEfficiencyMeasure == EnergyStarAppliances
+If B01i_ProjectHasEnergyStar == true Or iF B01j_ProjectHasEnergyStarAndFanEC == true
 result = true And static text in AdditionalRequirements is displayed
+End If
+End If
 Else
 result = false And static text is not displayed
 End If</xsd:documentation>

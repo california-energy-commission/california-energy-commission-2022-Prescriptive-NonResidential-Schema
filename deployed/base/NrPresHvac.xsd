@@ -3593,12 +3593,14 @@
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="FurnaceGasAHU">Gas Furnace Air Handling Units</dtyp:displayterm>
-            <dtyp:displayterm value="NonGasFurnaceAHU">All OtherAir Handling Units</dtyp:displayterm>
+            <dtyp:displayterm value="NonGasFurnaceAHU">All Other Air Handling Units</dtyp:displayterm>
+            <dtyp:displayterm value="NonAHU">Not Central Forced AHU</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="FurnaceGasAHU"/>
          <xsd:enumeration value="NonGasFurnaceAHU"/>
+         <xsd:enumeration value="NonAHU"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="FanSystemEconomizerType">

@@ -926,9 +926,12 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i]This table is used to demonstrate compliance for mechanical equipment with mandatory requirements found in [d:t24refnolink/]110.1 and [d:t24refnolink/]110.2(a) and prescriptive requirements found in [d:t24refnolink/]140.4(a), [d:t24refnolink/]140.4(b), [d:t24refnolink/]170.2(c)1, [d:t24refnolink/]170.2(c)3, [d:t24refnolink/]140.4(k) or  [d:t24refnolink/]141.0(b)2 and [d:t24refnolink/]180.2(b)2 for alterations.  [/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Fscs" >
+                  <xsd:element name="Fscs" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Space Conditioning System Information</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This section is required If B01a_ProjectHasHeatingAirSystem Or B01b_ProjectHasCoolingAirSystem  == true
+Else do not display anything for this section
+                        </xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -5818,7 +5821,7 @@ End If</xsd:documentation>
                                                                      <xsd:documentation source="FieldText"></xsd:documentation>
                                                                   </xsd:annotation>
                                                                   <xsd:complexType>
-                                                                     <xsd:choice >
+                                                                     <xsd:choice maxOccurs="1">
                                                                         <xsd:element name="HTableAllowanceNA_NotApplicableMessage" >
                                                                            <xsd:annotation>
                                                                               <xsd:documentation source="FieldText"></xsd:documentation>
@@ -5861,6 +5864,19 @@ End If</xsd:documentation>
                                                                                                 </xsd:appinfo>
                                                                                                 
                                                                                              </xsd:annotation>
+                                                                                          </xsd:element>
+                                                                                          <xsd:element name="H04_NotApplicableMessage">
+                                                                                             <xsd:annotation>
+                                                                                                <xsd:documentation source="FieldText">Component</xsd:documentation>
+                                                                                                <xsd:documentation source="CalculationsAndRules">If  H04_FanPowerAllowanceDevice is not present
+result = Blank grayed out stored in H04_NotApplicableMessage
+End if</xsd:documentation>
+                                                                                             </xsd:annotation>
+                                                                                             <xsd:simpleType>
+                                                                                                <xsd:restriction base="comp:NotApplicableMessage">
+                                                                                                   <xsd:enumeration value="BlankGrayedOut" />
+                                                                                                </xsd:restriction>
+                                                                                             </xsd:simpleType>
                                                                                           </xsd:element>
                                                                                           <xsd:choice maxOccurs="1">
                                                                                              <xsd:element name="H05_FanDevicePctFlow" type="hvac:FanDevicePctFlow" >
@@ -7248,23 +7264,25 @@ End If</xsd:documentation>
 If Hdwell03_SystemZoning == MultiDwellingUnits
 If Hdwell09_EnergyHeatRecoveryVent == ProvidesERV Or ProvidesHRV
 If A02_ClimateZoneNumber == 1, 2 Or InRange(11,16)
-result = BlankGrayedOut stored in NotApplicableMessage And this system must be transferred to TableFanSystems to meet common area fan power requirements (only highrise MF)
+If A03All_WholeBuildingOccupancy == HighRiseResidential
+result = BlankGrayedOut stored in NotApplicableMessage And this system must be transferred to TableFanSystems to meet common area fan power requirements
+End If
+End If
 End If
 Else If Hdwell03_SystemZoning == SingleDwellingUnit
+If Hdwell04_FanSystemAHU == NonAHU
 If Hdwell09_EnergyHeatRecoveryVent == ProvidesERV Or ProvidesHRV
 If A02_ClimateZoneNumber == 1, 2 Or InRange(11,16)
 result = 0.60
 End If
 End If
-If Hdwell04_FanSystemAHU == NonGasFurnaceAHU
+Else If Hdwell04_FanSystemAHU == NonGasFurnaceAHU
 result = 0.58
-Else Hdwell04_FanSystemAHU == FurnaceGasAHU
+Else if Hdwell04_FanSystemAHU == FurnaceGasAHU
 result = 0.45
 End If
- 
 Else
-result =  BlankGrayedOut stored in NotApplicableMessage
-And Hdwell05_NotApplicableMessage  And Hdwell06_NotApplicableMessage  And Hdwell07_NotApplicableMessage = BlanGrayedOut also
+result =  BlankGrayedOut stored in NotApplicableMessage And Hdwell05_NotApplicableMessage  And Hdwell06_NotApplicableMessage  And Hdwell07_NotApplicableMessage = BlanGrayedOut also
 End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -7275,23 +7293,25 @@ End If</xsd:documentation>
 If Hdwell03_SystemZoning == MultiDwellingUnits
 If Hdwell09_EnergyHeatRecoveryVent == ProvidesERV Or ProvidesHRV
 If A02_ClimateZoneNumber == 1, 2 Or InRange(11,16)
-result = BlankGrayedOut stored in NotApplicableMessage
+If A03All_WholeBuildingOccupancy == HighRiseResidential
+result = BlankGrayedOut stored in NotApplicableMessage And this system must be transferred to TableFanSystems to meet common area fan power requirements
+End If
+End If
 End If
 Else If Hdwell03_SystemZoning == SingleDwellingUnit
+If Hdwell04_FanSystemAHU == NonAHU
 If Hdwell09_EnergyHeatRecoveryVent == ProvidesERV Or ProvidesHRV
 If A02_ClimateZoneNumber == 1, 2 Or InRange(11,16)
-result = 0.60
+result = 0.60 stored in Hdwell08_FanPowerPerFlow
 End If
 End If
-If Hdwell04_FanSystemAHU == NonGasFurnaceAHU
-result = 0.58
-Else Hdwell04_FanSystemAHU == FurnaceGasAHU
-result = 0.45
+Else If Hdwell04_FanSystemAHU == NonGasFurnaceAHU
+result = 0.58 stored in Hdwell08_FanPowerPerFlow
+Else if Hdwell04_FanSystemAHU == FurnaceGasAHU
+result = 0.45 stored in Hdwell08_FanPowerPerFlow
 End If
- 
 Else
-result =  BlankGrayedOut stored in NotApplicableMessage
-And Hdwell05_NotApplicableMessage  And Hdwell06_NotApplicableMessage  And Hdwell07_NotApplicableMessage = BlanGrayedOut also
+result =  BlankGrayedOut stored in NotApplicableMessage And Hdwell05_NotApplicableMessage  And Hdwell06_NotApplicableMessage  And Hdwell07_NotApplicableMessage = BlanGrayedOut also
 End If</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
