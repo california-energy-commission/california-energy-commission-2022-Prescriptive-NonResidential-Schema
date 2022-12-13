@@ -5959,13 +5959,13 @@ End If</xsd:documentation>
                                              </xsd:restriction>
                                           </xsd:simpleType>
                                        </xsd:element>
-                                       <xsd:element name="H00i_ServingFloors" type="hvac:ServingFloors">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User selects from Yes or No</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
                                     </xsd:choice>
+                                    <xsd:element name="H00i_ServingFloors" type="hvac:ServingFloors">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from Yes or No</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
                                     <xsd:element name="H01to11Choice">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"/>
@@ -6056,10 +6056,11 @@ End If</xsd:documentation>
                                                                                  <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                                                                                     <xsd:complexType>
                                                                                        <xsd:sequence>
-                                                                                          <xsd:element name="H04_FanPowerAllowanceDevice" type="comp:FanPowerAllowanceDevice">
-                                                                                             <xsd:annotation>
-                                                                                                <xsd:documentation source="FieldText">Component</xsd:documentation>
-                                                                                                <xsd:documentation source="CalculationsAndRules">If H02_FanFunction == Supply
+                                                                                          <xsd:choice maxOccurs="1">
+                                                                                             <xsd:element name="H04_FanPowerAllowanceDevice" type="comp:FanPowerAllowanceDevice">
+                                                                                                <xsd:annotation>
+                                                                                                   <xsd:documentation source="FieldText">Component</xsd:documentation>
+                                                                                                   <xsd:documentation source="CalculationsAndRules">If H02_FanFunction == Supply
 User can select any of the following options that apply:
 MERV13_16Upstream, MERV13_16Downstream, MERV16GreaterOrHEPA, HydronicHeatAllowance, ElectHeatAllowance, GasHeatAllowance, CoilDXorHP, DesiccantAllowance, CoilReheat, EvapCoolerAllowance, AllOASystem, ERR_50ToLT_55, ERR_55ToLT_60, ERR_60ToLT_65, ERR_65ToLT_70, ERR_70ToLT_75, ERR_75ToLT_80, ERR_GTE_80, CoilRunaroundLoop, GasPhaseAirCleaner, EconReturnDamper, AirBlender, SoundAttenuation, TermUnitFanLT1kW, LowTurnDown1ZoneVAV
 Add to list the following If H00c_Status ==  Alteration:  ReplaceSupply and ReplaceSupplyAdapterCurb
@@ -6069,29 +6070,30 @@ User can select any of the following options that apply
 FilterAnyMERV,  ERR_50ToLT_55, ERR_55ToLT_60, ERR_60ToLT_65, ERR_65ToLT_70, ERR_70ToLT_75, ERR_75ToLT_80, ERR_GTE_80, CoilRunaroundLoop, PressureMaintained, AirflowControl, LabExhaustVertDucts, BiosafetyCabinet, FiltersScrubbers, HealthcareFacility, SoundAttenuation
 Add to list the following If H00c_Status ==  Alteration:  ReplaceReturnExhaust and ReplaceReturnExhaustAdapterCurb
 End If</xsd:documentation>
-                                                                                                <xsd:appinfo source="displayterm">
-                                                                                                   <dtyp:displayterm value="SoundAttenuation">Sound Attenuation Section<d:sup>1</d:sup>
-                                                                                                   </dtyp:displayterm>
-                                                                                                   <dtyp:displayterm value="LowTurnDown1ZoneVAV">Low-turndown single-zone VAV fan systems<d:sup>2</d:sup>
-                                                                                                   </dtyp:displayterm>
-                                                                                                   <dtyp:displayterm value="FilterAnyMERV">Filter (any MERV value)<d:sup>4</d:sup>
-                                                                                                   </dtyp:displayterm>
-                                                                                                </xsd:appinfo>
-                                                                                             </xsd:annotation>
-                                                                                          </xsd:element>
-                                                                                          <xsd:element name="H04_NotApplicableMessage">
-                                                                                             <xsd:annotation>
-                                                                                                <xsd:documentation source="FieldText">Component</xsd:documentation>
-                                                                                                <xsd:documentation source="CalculationsAndRules">If  H04_FanPowerAllowanceDevice is not present
+                                                                                                   <xsd:appinfo source="displayterm">
+                                                                                                      <dtyp:displayterm value="SoundAttenuation">Sound Attenuation Section<d:sup>1</d:sup>
+                                                                                                      </dtyp:displayterm>
+                                                                                                      <dtyp:displayterm value="LowTurnDown1ZoneVAV">Low-turndown single-zone VAV fan systems<d:sup>2</d:sup>
+                                                                                                      </dtyp:displayterm>
+                                                                                                      <dtyp:displayterm value="FilterAnyMERV">Filter (any MERV value)<d:sup>4</d:sup>
+                                                                                                      </dtyp:displayterm>
+                                                                                                   </xsd:appinfo>
+                                                                                                </xsd:annotation>
+                                                                                             </xsd:element>
+                                                                                             <xsd:element name="H04_NotApplicableMessage">
+                                                                                                <xsd:annotation>
+                                                                                                   <xsd:documentation source="FieldText">Component</xsd:documentation>
+                                                                                                   <xsd:documentation source="CalculationsAndRules">If  H04_FanPowerAllowanceDevice is not present
 result = Blank grayed out stored in H04_NotApplicableMessage
 End if</xsd:documentation>
-                                                                                             </xsd:annotation>
-                                                                                             <xsd:simpleType>
-                                                                                                <xsd:restriction base="comp:NotApplicableMessage">
-                                                                                                   <xsd:enumeration value="BlankGrayedOut"/>
-                                                                                                </xsd:restriction>
-                                                                                             </xsd:simpleType>
-                                                                                          </xsd:element>
+                                                                                                </xsd:annotation>
+                                                                                                <xsd:simpleType>
+                                                                                                   <xsd:restriction base="comp:NotApplicableMessage">
+                                                                                                      <xsd:enumeration value="BlankGrayedOut"/>
+                                                                                                   </xsd:restriction>
+                                                                                                </xsd:simpleType>
+                                                                                             </xsd:element>
+                                                                                          </xsd:choice>
                                                                                           <xsd:choice maxOccurs="1">
                                                                                              <xsd:element name="H05_FanDevicePctFlow" type="hvac:FanDevicePctFlow">
                                                                                                 <xsd:annotation>
