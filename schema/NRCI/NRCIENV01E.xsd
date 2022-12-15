@@ -5944,7 +5944,7 @@ result = Door03mf_UFactor
 End If
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
-                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="copy">Door04_UFactor</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="copy">Door03_UFactor</dtyp:srcSchema>
                                                                   <dtyp:srcSchema form="CCPRF01E"  usage="copy">Door03mf_UFactor</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>

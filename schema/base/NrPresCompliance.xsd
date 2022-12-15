@@ -10532,7 +10532,6 @@
             <dtyp:displayterm value="GarageLT60NA">NA: Garage General Ltg [d:lt/] 60W</dtyp:displayterm>
             <dtyp:displayterm value="GlazingLT24Ft2NA">NA: Rm [d:lt/] 24sf Glazing</dtyp:displayterm>
             <dtyp:displayterm value="Included">Included</dtyp:displayterm>
-            <dtyp:displayterm value="NA_LTE40PctPreAltLP">NA:  [d:lte/] 40 % lower compared to pre-alteration LP</dtyp:displayterm>
             <dtyp:displayterm value="NA_LTE80PctAllowedLP">NA:  [d:lte/] 80 % LP (alt only)</dtyp:displayterm>
             <dtyp:displayterm value="NA_NotDaylit">NA: Not daylit zone</dtyp:displayterm>
             <dtyp:displayterm value="OverhangRatioNA">NA: Overhang</dtyp:displayterm>
@@ -10547,7 +10546,6 @@
          <xsd:enumeration value="GarageLT60NA"/>
          <xsd:enumeration value="GlazingLT24Ft2NA"/>
          <xsd:enumeration value="Included"/>
-         <xsd:enumeration value="NA_LTE40PctPreAltLP"/>
          <xsd:enumeration value="NA_LTE80PctAllowedLP"/>
          <xsd:enumeration value="NA_NotDaylit"/>
          <xsd:enumeration value="OverhangRatioNA"/>
@@ -13355,7 +13353,6 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
             <dtyp:displayterm value="GarageLT60NA">NA: Garage General Ltg [d:lt/] 60W</dtyp:displayterm>
             <dtyp:displayterm value="GlazingLT24Ft2NA">NA: Rm [d:lt/] 24sf Glazing</dtyp:displayterm>
             <dtyp:displayterm value="Included">Included</dtyp:displayterm>
-            <dtyp:displayterm value="NA_LTE40PctPreAltLP">NA:  [d:lte/] 40 % lower compared to pre-alteration LP</dtyp:displayterm>
             <dtyp:displayterm value="NA_LTE80PctAllowedLP">NA:  [d:lte/] 80 % LP (alt only)</dtyp:displayterm>
             <dtyp:displayterm value="NA_NotDaylit">NA: Not daylit zone</dtyp:displayterm>
             <dtyp:displayterm value="OverhangRatioNA">NA: Overhang</dtyp:displayterm>
@@ -13370,7 +13367,6 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          <xsd:enumeration value="GarageLT60NA"/>
          <xsd:enumeration value="GlazingLT24Ft2NA"/>
          <xsd:enumeration value="Included"/>
-         <xsd:enumeration value="NA_LTE40PctPreAltLP"/>
          <xsd:enumeration value="NA_LTE80PctAllowedLP"/>
          <xsd:enumeration value="NA_NotDaylit"/>
          <xsd:enumeration value="OverhangRatioNA"/>
