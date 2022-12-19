@@ -1873,7 +1873,7 @@ result = Dfhp03b_SizeRangeFurnaceUnitHeater
 End If
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
-                                                               <dtyp:srcSchema form="CCMCH01E"  usage="copy">Fdfhp04b_SizeRangeFurnaceUnitHeater  Dfhp03b_SizeRangeFurnaceUnitHeater</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCMCH01E"  usage="copy">Fdfhp04b_SizeRangeFurnaceUnitHeater</dtyp:srcSchema>
                                                                <dtyp:srcSchema form="CCPRF01E"  usage="copy">Dfhp03b_SizeRangeFurnaceUnitHeater</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
@@ -2027,7 +2027,7 @@ Else If CC=PRF parent
 result = Dfhp04b_EfficiencyType
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
-                                                               <dtyp:srcSchema form="CCMCH01E"  usage="copy">Fdfhp06b_EfficiencyType  Dfhp04b_EfficiencyType</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCMCH01E"  usage="copy">Fdfhp06b_EfficiencyType</dtyp:srcSchema>
                                                                <dtyp:srcSchema form="CCPRF01E"  usage="copy">Dfhp04b_EfficiencyType</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
@@ -5899,7 +5899,7 @@ Else If
 (
 Fan05_FanPower  IsPresent And Fan05_FanPower GT Fan05cc_FanPower  
 Or  
-Fan05_FanPowerPerFlow  IsPresent And Fan05_FanPowerPerFlow  GT  Fan05cc_FanPowerPerFlow  
+Fan05_FanPowerPerFlow  IsPresent And Fan05_FanPowerPerFlow  LT  Fan05cc_FanPowerPerFlow  
 result = MayNotComply
  
 Else If 
@@ -6892,7 +6892,7 @@ this table is NOT REQUIRED</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">If CC-MCH parent
 result = Hfei01_HvacSystemName</xsd:documentation>
                                  <xsd:appinfo source="CIsrc">
-                                    <dtyp:srcSchema form="CCMCH01E"  usage="copy">Hfei01_HvacSystemName</dtyp:srcSchema>
+                                    <dtyp:srcSchema form="CCMCH01E"  usage="copy">Hfei01_FanName</dtyp:srcSchema>
                                  </xsd:appinfo>
                               </xsd:annotation>
                            </xsd:element>
