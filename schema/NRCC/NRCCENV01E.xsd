@@ -16667,7 +16667,9 @@ TopLevelOccupancy value HighriseResidental display term is listed 4 times, once 
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText"></xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">User selects occupancy type with the appropriate status value
- from list:  Nonresidential display term Nonresidential/ Relocatable 1 CZ,  HotelMotel display term Hotel/ Motel, RelocableSchoolBuildingAllZones display term Relocatable all CZ, AlteredOccupancy display term Occupancy other than dwelling unit: HighriseResidential display term Dwelling Units [d:gt/] 3 stories:</xsd:documentation>
+If Kvertperf05_FenestrationProductType == GlazedDoorMF Or OperableWindowMF, FixedWindowMF
+User selects from: HighriseResidential
+Else user selects from list:  Nonresidential display term Nonresidential/ Relocatable 1 CZ,  HotelMotel display term Hotel/ Motel, RelocableSchoolBuildingAllZones display term Relocatable all CZ, AlteredOccupancy display term Occupancy other than dwelling unit: HighriseResidential display term Dwelling Units [d:gt/] 3 stories:</xsd:documentation>
                                                                      <xsd:appinfo source="displayterm">
                                                                         <dtyp:displayterm value="HotelMotel">Hotel/ Motel: </dtyp:displayterm>
                                                                         <dtyp:displayterm value="Nonresidential">Nonresidential/ Relocatable 1 CZ: </dtyp:displayterm>

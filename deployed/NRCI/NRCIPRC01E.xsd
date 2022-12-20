@@ -1554,7 +1554,7 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="TableRgasclr">
+                  <xsd:element name="TableRgasclr" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">
                            <d:b>Transcritical CO<d:sub>2</d:sub> Fan-powered Gas Coolers</d:b>
@@ -2717,7 +2717,7 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="TableCRgasclr">
+                  <xsd:element name="TableCRgasclr" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">
                            <d:b>Transcritical CO<d:sub>2</d:sub> Fan-powered Gas Coolers</d:b>
@@ -4650,6 +4650,7 @@ result = ExactMatch
  
 Else If
 Elev04cc_FanPowerPerFlow IsPresent And Elev04_FanPowerPerFlow IsPresent  And Elev04_FanPowerPerFlow LTE  Elev04cc_FanPowerPerFlow
+Or If Elev04_FanPowerPerFlow LTE 0.33 
 result = EqualBetter
 End If</xsd:documentation>
                                        </xsd:annotation>
