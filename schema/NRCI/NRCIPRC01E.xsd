@@ -5744,25 +5744,26 @@ End If</xsd:documentation>
                                                             </xsd:simpleType>
                                                          </xsd:element>
                                                       </xsd:choice>
-                                                      <xsd:element name="HortLtg05_HorticultureMonitoring" type="comp:HorticultureMonitoring" >
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Electrical System Monitoring</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
-If HortLtg06_HorticultureMonitoring IsPresent
-result = HortLtg06_HorticultureMonitoring
-End If</xsd:documentation>
-                                                               <xsd:appinfo source="CIsrc">
-                                                                  <dtyp:srcSchema form="NRCCPRC01E" usage="copy">HortLtg06_HorticultureMonitoring</dtyp:srcSchema>
-                                                               </xsd:appinfo>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
-                                                      <xsd:element name="HortLtg05_NotApplicableMessage" >
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="HortLtg05_HorticultureMonitoring" type="comp:HorticultureMonitoring" >
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Electrical System Monitoring</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
-If HortLtg06_NotApplicableMessage IsPresent
-result = HortLtg06_NotApplicableMessage
-End If</xsd:documentation>
+   If HortLtg06_HorticultureMonitoring IsPresent
+   result = HortLtg06_HorticultureMonitoring
+   End If</xsd:documentation>
+                                                                  <xsd:appinfo source="CIsrc">
+                                                                     <dtyp:srcSchema form="NRCCPRC01E" usage="copy">HortLtg06_HorticultureMonitoring</dtyp:srcSchema>
+                                                                  </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="HortLtg05_NotApplicableMessage" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Electrical System Monitoring</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+   If HortLtg06_NotApplicableMessage IsPresent
+   result = HortLtg06_NotApplicableMessage
+   End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="NRCCPRC01E" usage="copy">HortLtg06_NotApplicableMessage</dtyp:srcSchema>
                                                                </xsd:appinfo>
@@ -5773,6 +5774,7 @@ End If</xsd:documentation>
                                                                </xsd:restriction>
                                                             </xsd:simpleType>
                                                          </xsd:element>
+                                                      </xsd:choice>
                                                    </xsd:sequence>
                                                 </xsd:complexType>
                                              </xsd:element>
@@ -6432,12 +6434,15 @@ the static text in AdditionalRequirements the only thing displayed after the Sec
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-01-F  Compressed Air Systems</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
-result = Q01_RequireNRCAPrc01F 
+result = Nrca01_RequireNRCAPrc01F 
 If result == true 
 static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
 Else If result == false
 Nothing is displayed for this NRCA 
 End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Nrca01_RequireNRCAPrc01F</dtyp:srcSchema>
+                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G01_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
@@ -6463,12 +6468,15 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-02-F Kitchen Exhaust</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
-result = Q02_RequireNRCAPrc02F 
+result = Nrca02_RequireNRCAPrc02F 
 If result == true 
 static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
 Else If result == false
 Nothing is displayed for this NRCA 
 End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Nrca02_RequireNRCAPrc02F</dtyp:srcSchema>
+                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G02_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
@@ -6494,12 +6502,15 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-03-F Garage Exhaust</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
-result = Q03_RequireNRCAPrc03F 
+result = Nrca03_RequireNRCAPrc03F 
 If result == true 
 static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
 Else If result == false
 Nothing is displayed for this NRCA 
 End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Nrca03_RequireNRCAPrc03F</dtyp:srcSchema>
+                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G03_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
@@ -6525,12 +6536,15 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-04-F Refrigerated Warehouses - Evaporator Fan Motor Controls</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
-result = Q04_RequireNRCAPrc04F 
+result = Nrca04_RequireNRCAPrc04F 
 If result == true 
 static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
 Else If result == false
 Nothing is displayed for this NRCA 
 End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Nrca04_RequireNRCAPrc04F</dtyp:srcSchema>
+                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G04_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
@@ -6556,12 +6570,15 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-05-F Refrigerated Warehouses - Evaporative Condenser Controls</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
-result = Q05_RequireNRCAPrc05F
+result = Nrca05_RequireNRCAPrc05F
 If result == true 
 static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
 Else If result == false
 Nothing is displayed for this NRCA 
 End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Nrca05_RequireNRCAPrc05F</dtyp:srcSchema>
+                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G05_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
@@ -6587,12 +6604,15 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-06-F Refrigerated Warehouses - Air Cooled Condenser Controls</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
-result = Q06_RequireNRCAPrc06F 
+result = Nrca06_RequireNRCAPrc06F 
 If result == true 
 static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
 Else If result == false
 Nothing is displayed for this NRCA 
 End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Nrca06_RequireNRCAPrc06F</dtyp:srcSchema>
+                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G06_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
@@ -6618,12 +6638,15 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-16-F Refrigerated Warehouses - Adiabatic Condenser Controls</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
-result = Q07_RequireNRCAPrc16F 
+result = Nrca07_RequireNRCAPrc16F 
 If result == true 
 static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
 Else If result == false
 Nothing is displayed for this NRCA 
 End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Nrca07_RequireNRCAPrc16F</dtyp:srcSchema>
+                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G07_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
@@ -6649,12 +6672,15 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-07-F Refrigerated Warehouses - Variable Speed Compressor</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
-result = Q08_RequireNRCAPrc07F 
+result = Nrca08_RequireNRCAPrc07F 
 If result == true 
 static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
 Else If result == false
 Nothing is displayed for this NRCA 
 End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Nrca08_RequireNRCAPrc07F</dtyp:srcSchema>
+                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G08_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
@@ -6680,12 +6706,15 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-08-F Refrigerated Warehouses - Electric Resistance Underslab Heating System</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
-result = Q09_RequireNRCAPrc08F 
+result = Nrca09_RequireNRCAPrc08F 
 If result == true 
 static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
 Else If result == false
 Nothing is displayed for this NRCA 
 End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Nrca09_RequireNRCAPrc08F</dtyp:srcSchema>
+                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G09_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
@@ -6711,12 +6740,15 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-12-F Elevator Lighting &amp; Ventilation Controls</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
-result = Q10_RequireNRCAPrc12F 
+result = Nrca10_RequireNRCAPrc12F 
 If result == true 
 static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
 Else If result == false
 Nothing is displayed for this NRCA 
 End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Nrca10_RequireNRCAPrc12F</dtyp:srcSchema>
+                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G10_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
@@ -6742,12 +6774,15 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-13-F Escalators &amp; Moving Walkways Speed Controls</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
-result = Q11_RequireNRCAPrc13F 
+result = Nrca11_RequireNRCAPrc13F 
 If result == true 
 static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
 Else If result == false
 Nothing is displayed for this NRCA 
-End If</xsd:documentation>
+End If</xsd:documentation>Nrca11_RequireNRCAPrc13F
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Nrca11_RequireNRCAPrc13F</dtyp:srcSchema>
+                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G11_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
@@ -6773,12 +6808,15 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-14-F Lab Exhaust Ventilation Systems</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
-result = Q12_RequireNRCAPrc14F
+result = Nrca12_RequireNRCAPrc14F
 If result == true 
 static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
 Else If result == false
 Nothing is displayed for this NRCA 
 End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Nrca12_RequireNRCAPrc14F</dtyp:srcSchema>
+                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G12_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
@@ -6804,12 +6842,15 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-15-F Fume Hood Automatic Sash Closure Systems</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
-result = Q13_RequireNRCAPrc15F
+result = Nrca13_RequireNRCAPrc15F
 If result == true 
 static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
 Else If result == false
 Nothing is displayed for this NRCA 
 End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Nrca13_RequireNRCAPrc15F</dtyp:srcSchema>
+                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G13_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">

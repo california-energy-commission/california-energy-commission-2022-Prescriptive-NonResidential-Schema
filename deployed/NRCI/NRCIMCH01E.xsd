@@ -6807,16 +6807,22 @@ End If</xsd:documentation>
                                                          <xsd:element name="Dwell06cc_SensibleRecoveryEfficiency" type="hvac:SensibleRecoveryEfficiency">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Sensible Recovery/Effectiveness</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If Dwell05_EnergyHeatRecoveryVent ==ProvidesERV Or ProvidesHRV
-result = 0.67
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent And Hdwell10_SensibleRecoveryEfficiency IsPresent
+result = Hdwell10_SensibleRecoveryEfficiency
 End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCMCH01E" usage="copy">Hdwell10_SensibleRecoveryEfficiency</dtyp:srcSchema>
+                                                               </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
                                                          <xsd:element name="Dwell06cc_NotApplicableMessage">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Sensible Recovery/Effectiveness</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If Dwell05_EnergyHeatRecoveryVent !=ProvidesERV And != ProvidesHRV
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent And Hdwell10_SensibleRecoveryEfficiency NotPresent
 result = BlankGrayedOut</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCMCH01E" usage="reference">Hdwell10_SensibleRecoveryEfficiency</dtyp:srcSchema>
+                                                               </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
                                                                <xsd:restriction base="comp:NotApplicableMessage">
@@ -7027,11 +7033,11 @@ user input</xsd:documentation>
                                                       <xsd:documentation source="FieldText">FEI</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Fei01_InMyScope == false
 result = BlankGrayedOut
-Else If Fei03cc_NotApplicableMessage IsPresent
+Else If Fei03cc_FanEnergyIndexException IsPresent
 If Fei01_InstalledSameAsCC == true
-result = Fei03cc_NotApplicableMessage 
+result = Fei03cc_FanEnergyIndexException 
 End if
-Else If Fei02_FanEnergyIndexException != NoneApplyFEI
+Else If Fei03_FanEnergyIndexException != NoneApplyFEI
 result = BlankGrayedOut
  
 End If</xsd:documentation>

@@ -1201,71 +1201,61 @@ End If</xsd:documentation>
                                        <xsd:element name="F03_ComputerRoomAC" type="hvac:ComputerRoomAC">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Equipment Type per Tables 110.2 and Title 20</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, user selects from equipment values in ComputerRoomAC choice
-If Fscs06_HeatRecovery == true, user can select from the group also</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, user selects from equipment values in ComputerRoomAC choice</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F03_CeilingCRAC" type="hvac:CeilingCRAC">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Equipment Type per Tables 110.2 and Title 20</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == CeilingCRAC, user selects from equipment values in ComputerRoomCeilingAC choice
-If Fscs06_HeatRecovery == true, user can select from the group also</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == CeilingCRAC, user selects from equipment values in ComputerRoomCeilingAC choice</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F03_FurnaceAC" type="hvac:FurnaceAC">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Equipment Type per Tables 110.2 and Title 20</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, user selects from equipment values in FurnaceAC  choice
-If Fscs06_HeatRecovery == true, user can select from the group also</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, user selects from equipment values in FurnaceAC  choice</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F03_FurnaceUnitHeater" type="hvac:FurnaceUnitHeater">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Equipment Type per Tables 110.2 and Title 20</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceUnitHeater, user selects from equipment values in FurnaceUnitHeater  choice
-If Fscs06_HeatRecovery == true, user can select from the group also</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceUnitHeater, user selects from equipment values in FurnaceUnitHeater  choice</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F03_HeatPumpAC" type="hvac:HeatPumpAC">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Equipment Type per Tables 110.2 and Title 20</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == HeatPumpAC, user selects from equipment values in HeatPumpAC choice
-If Fscs06_HeatRecovery == true, user can select from the group also</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == HeatPumpAC, user selects from equipment values in HeatPumpAC choice</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F03_PTAC_PTHP" type="hvac:PTAC_PTHP">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Equipment Type per Tables 110.2 and Title 20</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == PTAC_PTHP, user selects from equipment values in PTAC_PTHP choice
-If Fscs06_HeatRecovery == true, user can select from the group also</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == PTAC_PTHP, user selects from equipment values in PTAC_PTHP choice</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F03_RoomAC_HP" type="hvac:RoomAC_HP">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Equipment Type per Tables 110.2 and Title 20</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == RoomAC_HP, user selects from equipment values in RoomAC_HP choice
-If Fscs06_HeatRecovery == true, user can select from the group also</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == RoomAC_HP, user selects from equipment values in RoomAC_HP choice</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F03_SPV_ACHP" type="hvac:SPV_ACHP">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Equipment Type per Tables 110.2 and Title 20</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == SPV_ACHP, user selects from equipment values in SPV_ACHP choice
-If Fscs06_HeatRecovery == true, user can select from the group also</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == SPV_ACHP, user selects from equipment values in SPV_ACHP choice</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F03_UnitaryCondensersAC" type="hvac:UnitaryCondensersAC">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Equipment Type per Tables 110.2 and Title 20</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == UnitaryCondensersAC Or UnitaryCondensersAC_NoElectR, user selects from equipment values in UnitaryCondensersAC choice
-If Fscs06_HeatRecovery == true, user can select from the group also</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == UnitaryCondensersAC Or UnitaryCondensersAC_NoElectR, user selects from equipment values in UnitaryCondensersAC choice</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F03_UnitaryHeatPumps" type="hvac:UnitaryHeatPumps">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Equipment Type per Tables 110.2 and Title 20</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == UnitaryHeatPumps Or UnitaryHeatPumpsNoElectR, user selects from equipment values in UnitaryHeatPumps choice
-If Fscs06_HeatRecovery == true, user can select from the group also</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == UnitaryHeatPumps Or UnitaryHeatPumpsNoElectR, user selects from equipment values in UnitaryHeatPumps choice</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F03_VariableRefrigerantFlow" type="hvac:VariableRefrigerantFlow">
@@ -1277,8 +1267,7 @@ If Fscs06_HeatRecovery == true, user can select from the group also</xsd:documen
                                        <xsd:element name="F03_EquipmentDOAS" type="hvac:EquipmentDOAS">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Equipment Type per Tables 110.2 and Title 20</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == DedicatedOAS, user selects from equipment values in EquipmentDOAS choice
-If Fscs06_HeatRecovery == true, user can select from the group also</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == DedicatedOAS, user selects from equipment values in EquipmentDOAS choice</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F03_NotApplicableMessage">

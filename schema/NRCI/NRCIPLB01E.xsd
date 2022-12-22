@@ -436,7 +436,7 @@ End If</xsd:documentation>
                                                                            <xsd:enumeration value="BoilerResDutyCommercial"/>
                                                                            <xsd:enumeration value="BoilerWaterHeater"/>
                                                                            <xsd:enumeration value="CentralHeatPumpWH"/>
-                                                                           <xsd:enumeration value="IndirectDHW"/>
+                                                                           <xsd:enumeration value="BoilerCommercialLT1MMBtu"/>
                                                                            <xsd:enumeration value="InstantaneousCommercial"/>
                                                                            <xsd:enumeration value="InstantaneousConsumer"/>
                                                                            <xsd:enumeration value="InstantaneousConsumerElectric"/>
@@ -508,7 +508,6 @@ End If</xsd:documentation>
                                                                            <xsd:enumeration value="BoilerWaterHeater"/>
                                                                            <xsd:enumeration value="CentralHeatPumpWH"/>
                                                                            <xsd:enumeration value="BoilerCommercialLT1MMBtu"/>
-                                                                           <xsd:enumeration value="IndirectDHW"/>
                                                                            <xsd:enumeration value="InstantaneousCommercial"/>
                                                                            <xsd:enumeration value="InstantaneousConsumer"/>
                                                                            <xsd:enumeration value="InstantaneousConsumerElectric"/>
