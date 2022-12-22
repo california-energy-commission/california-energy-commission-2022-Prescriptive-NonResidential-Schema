@@ -6779,7 +6779,7 @@ If result == true
 static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
 Else If result == false
 Nothing is displayed for this NRCA 
-End If</xsd:documentation>Nrca11_RequireNRCAPrc13F
+End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Nrca11_RequireNRCAPrc13F</dtyp:srcSchema>
                         </xsd:appinfo>
