@@ -8645,7 +8645,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">
                            <d:b>Dedicated Outdoor Air System (DOAS)</d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This table is required  at least one row where F02_HvacSystemType == DOAS</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This table is required  at least one row where F02_HvacSystemType == DedicatedOAS</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -8655,7 +8655,7 @@ End If</xsd:documentation>
                                     <xsd:element name="Hdoas01_HvacSystemName" type="comp:HvacSystemName">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">System Name</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from F01_HvcSystemName where F02_HvacSystemType == DOAS</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from F01_HvcSystemName where F02_HvacSystemType == DedicatedOAS</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="Hdoas02_SystemCount" type="hvac:SystemCount">
@@ -11328,7 +11328,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-MCH-05-A - Air Economizer Controls</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false;  
  
-If H00b_FanSystemEconomizerType  == FixedTemperature, FixedEnthalpy, DifferentialTemperature Or  DifferentialEnthalpy  result = true  display term selected Yes radio button
+If H00h_FanSystemEconomizerType  == FixedTemperature, FixedEnthalpy, DifferentialTemperature Or  DifferentialEnthalpy  result = true  display term selected Yes radio button
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -11337,7 +11337,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Nrca04_RequireNRCAMch05A == true; this field loaded with systems/spaces that satisfy this condition:
  
- If H00b_FanSystemEconomizerType  == FixedTemperature, FixedEnthalpy, DifferentialTemperature Or  DifferentialEnthalpy  load value in H00a_FanSystemName
+ If H00h_FanSystemEconomizerType  == FixedTemperature, FixedEnthalpy, DifferentialTemperature Or  DifferentialEnthalpy  load value in H00a_FanSystemName
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>

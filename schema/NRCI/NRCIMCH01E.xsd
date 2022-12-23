@@ -2930,10 +2930,10 @@ End if</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Rated Input (Btu/h)</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-MCH parent 
-result = CC-MCH  Fc04_BoilerRatedInputRange 
+result = CC-MCH  Fc04_BoilerRatedInput 
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
-                                                                  <dtyp:srcSchema form="CCMCH01E"  usage="copy">Fc04_BoilerRatedInputRange</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCMCH01E"  usage="copy">Fc04_BoilerRatedInput</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -5694,8 +5694,8 @@ End If</xsd:documentation>
                                                          <xsd:element name="Fan04cc_FanSystemEconomizerType" type="hvac:FanSystemEconomizerType" >
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Economizer</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent And If H00b_FanSystemEconomizerType  IsPresent
-result = H00b_FanSystemEconomizerType
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent And If H00h_FanSystemEconomizerType  IsPresent
+result = H00h_FanSystemEconomizerType
 Else CC-PRF parent And If HvacDry09_EconomizerControlMethod  IsPresent for Fan01ccFanSystemName assigned from NRCC-PRF value
 If HvacDry09_EconomizerControlMethod == DifferentialEnthalpy
 result = DifferentialEnthalpy
@@ -5706,7 +5706,7 @@ result = FixedTemperature
 End If
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
-                                                                  <dtyp:srcSchema form="CCMCH01E"  usage="copy">H00b_FanSystemEconomizerType</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCMCH01E"  usage="copy">H00h_FanSystemEconomizerType</dtyp:srcSchema>
                                                                   <dtyp:srcSchema form="CCPRF01E"  usage="reference">HvacDry09_EconomizerControlMethod</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>

@@ -1267,10 +1267,13 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 If F17_NewUnitGasWaterHeater IsPresent
 result = F17_NewUnitGasWaterHeater
+Else if F17_NewUnitGasWaterHeater NotPresent
+result = ReqNA
 End If
 Else If CC-PRF parent
 result = ReqYes
 End If
+
 If result == ReqYes 
 Display static text in AdditionalRequirements
 Else

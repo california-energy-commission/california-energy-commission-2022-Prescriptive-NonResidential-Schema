@@ -1797,6 +1797,9 @@ End If</xsd:documentation>
 If any control in Section B col  B03 has a true value And Either  
 CCLTIE is parent And CCLTIE Section_P IsPresent  OR
 CCPRFE is parent And Section_LtgCredits IsPresent</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCLTI01E" usage="reference">Section_P</dtyp:srcSchema>
+                        </xsd:appinfo>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
