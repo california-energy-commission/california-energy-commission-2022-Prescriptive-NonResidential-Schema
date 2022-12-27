@@ -5929,6 +5929,7 @@
             <dtyp:displayterm value="MultipleChillerConflictInF">Table F indicates more than one chiller, however an exception for isolation valve has been indicated that only applies to plants with only one chiller.  Please revise Table F. prior to permit application.</dtyp:displayterm>
             <dtyp:displayterm value="NaturalVentilationInJ">The permit applicant has indicated on Table J that natural ventilation is being utilized to meet ventilation requirements.  Additional documentation may be requested by the Authority Having Jurisdiction demonstrating compliance for natural ventilation design.</dtyp:displayterm>
             <dtyp:displayterm value="TransferAirUsedInJ">Transfer air is being used in at least one zone to meet minimum ventilation requirements. See Table J for details. Transfer air must be designed per [d:t24ref/]120.1(g) for air classification and recirculation limitations and be documented within construction documents.</dtyp:displayterm>
+            <dtyp:displayterm value="UserChangedSelectionInCI">Selections made in the Certificates of Instalation Table have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
             <dtyp:displayterm value="UserChangedSelectionInCA">Selections made in the Certificates of Acceptance Table have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
             <dtyp:displayterm value="UserChangedSelectionInCV">Selections made in Certificates of  Verification Table have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
          </xsd:appinfo>
@@ -5944,6 +5945,7 @@
          <xsd:enumeration value="MultipleChillerConflictInF"/>
          <xsd:enumeration value="NaturalVentilationInJ"/>
          <xsd:enumeration value="TransferAirUsedInJ"/>
+         <xsd:enumeration value="UserChangedSelectionInCI"/>
          <xsd:enumeration value="UserChangedSelectionInCA"/>
          <xsd:enumeration value="UserChangedSelectionInCV"/>
       </xsd:restriction>

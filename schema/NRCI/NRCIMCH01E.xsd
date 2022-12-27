@@ -613,6 +613,45 @@ End If</xsd:documentation>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
+                                                         <xsd:element name="Dry03cc_CeilingCRAC" type="hvac:CeilingCRAC" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent                                                                
+If F03_CeilingCRAC IsPesent
+result = F03_CeilingCRAC
+End If
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCMCH01E"  usage="copy">F03_CeilingCRAC</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Dry03cc_EquipmentDOAS" type="hvac:EquipmentDOAS" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent                                                                
+If F03_EquipmentDOAS IsPesent
+result = F03_EquipmentDOAS
+End If
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCMCH01E"  usage="copy">F03_EquipmentDOAS</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Dry03cc_NotApplicableMessage" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent                                                                
+If F03_NotApplicableMessage IsPesent
+result = F03_NotApplicableMessage
+End If
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCMCH01E"  usage="copy">F03_NotApplicableMessage</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
                                                       </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
                                                          <xsd:element name="Dry03_ComputerRoomAC" type="hvac:ComputerRoomAC" >
@@ -758,6 +797,42 @@ Else If Dry01_InstalledSameAsCC == false Then
 User selects different value from ZoneSystemType Or from a different equipment list
 End If
 End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Dry03_CeilingCRAC" type="hvac:CeilingCRAC" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Dry03cc_CeilingCRAC has value 
+If Dry01_InstalledSameAsCC == true  Then
+result = Dry03_CeilingCRAC value
+Else If Dry01_InstalledSameAsCC == false Then
+User selects different value from CeilingCRAC Or from a different equipment list
+End If
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Dry03_EquipmentDOAS" type="hvac:EquipmentDOAS" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Dry03cc_EquipmentDOAS has value 
+If Dry01_InstalledSameAsCC == true  Then
+result = Dry03_EquipmentDOAS value
+Else If Dry01_InstalledSameAsCC == false Then
+User selects different value from EquipmentDOAS Or from a different equipment list
+End If
+End If</xsd:documentation>
+
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Dry03_NotApplicableMessage" type="hvac:EquipmentDOAS" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If F03_NotApplicableMessage IsPresent 
+result = BlanGrayedOut
+End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCMCH01E"  usage="reference">F03_NotApplicableMessage</dtyp:srcSchema>
+                                                            </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
                                                       </xsd:choice>
@@ -1863,30 +1938,64 @@ End If</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
                                                       </xsd:choice>
-                                                      <xsd:element name="Dfhp04cc_SizeRangeFurnaceUnitHeater" type="hvac:SizeRangeFurnaceUnitHeater" >
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Size Category (Btu/h)</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If CC-MCH parent
-result = Fdfhp04b_SizeRangeFurnaceUnitHeater
-Else If CC-PRF parent
-result = Dfhp03b_SizeRangeFurnaceUnitHeater
-End If
-End If</xsd:documentation>
-                                                            <xsd:appinfo source="CIsrc">
-                                                               <dtyp:srcSchema form="CCMCH01E"  usage="copy">Fdfhp04b_SizeRangeFurnaceUnitHeater</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="CCPRF01E"  usage="copy">Dfhp03b_SizeRangeFurnaceUnitHeater</dtyp:srcSchema>
-                                                            </xsd:appinfo>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
-                                                      <xsd:element name="Dfhp04_SizeRangeFurnaceUnitHeater" type="hvac:SizeRangeFurnaceUnitHeater" >
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Size Category (Btu/h)</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If Dfhp01_InstalledSameAsCC == true
-result = Dfhp04cc_SizeRangeFurnaceUnitHeater
-Else If Dfhp01_InstalledSameAsCC == false
-User input</xsd:documentation>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="Dfhp04cc_SizeRangeFurnaceUnitHeater" type="hvac:SizeRangeFurnaceUnitHeater" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Size Category (Btu/h)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent
+   result = Fdfhp04b_SizeRangeFurnaceUnitHeater
+   Else If CC-PRF parent
+   result = Dfhp03b_SizeRangeFurnaceUnitHeater
+   End If
+   End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCMCH01E"  usage="copy">Fdfhp04b_SizeRangeFurnaceUnitHeater</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="copy">Dfhp03b_SizeRangeFurnaceUnitHeater</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Dfhp04cc_NotApplicableMessage" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Size Category (Btu/h)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Fdfhp04b_NotApplicableMessage IsPresent
+   Result == BlankGrayedOut</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCMCH01E"  usage="copy">Fdfhp04b_NotApplicableMessage</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="Dfhp04_SizeRangeFurnaceUnitHeater" type="hvac:SizeRangeFurnaceUnitHeater" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Size Category (Btu/h)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Dfhp01_InstalledSameAsCC == true
+   result = Dfhp04cc_SizeRangeFurnaceUnitHeater
+   Else If Dfhp01_InstalledSameAsCC == false
+   User input</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Dfhp04_NotApplicableMessage" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Size Category (Btu/h)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Fdfhp04b_NotApplicableMessage IsPresent
+   Result == BlankGrayedOut</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCMCH01E"  usage="copy">Fdfhp04b_NotApplicableMessage</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
                                                          <xsd:element name="Dfhp05cc_CombustionEfficiency" type="hvac:CombustionEfficiency" >
                                                             <xsd:annotation>
@@ -2926,7 +3035,7 @@ End if</xsd:documentation>
                                                          </xsd:element>
                                                       </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="Blr05cc_BoilerRatedInputRange" type="hvac:BoilerRatedInputRange" >
+                                                         <xsd:element name="Blr05cc_BoilerRatedInput" type="hvac:BoilerRatedInput" >
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Rated Input (Btu/h)</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-MCH parent 
@@ -2950,12 +3059,12 @@ End If</xsd:documentation>
                                                          </xsd:element>
                                                       </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="Blr05_BoilerRatedInputRange" type="hvac:BoilerRatedInputRange" >
+                                                         <xsd:element name="Blr05_BoilerRatedInput" type="hvac:BoilerRatedInput" >
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Rated Input (Btu/h)</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If Blr05cc_BoilerRatedInputRange IsPresent
+                                                               <xsd:documentation source="CalculationsAndRules">If Blr05cc_BoilerRatedInput IsPresent
 If Blr01_InstalledSameAsCC == true
-result = Blr05cc_BoilerRatedInputRange but user can change value
+result = Blr05cc_BoilerRatedInput but user can change value
 Else If Blr01_InstalledSameAsCC == false
 User input
 End If
@@ -3300,7 +3409,7 @@ Or
 (
 Blr05_CapacityRated IsPresent And  Blr05_CapacityRated != Blr05cc_CapacityRated 
 Or 
-Blr05_BoilerRatedInputRange IsPresent And Blr05_BoilerRatedInputRange != Blr05cc_BoilerRatedInputRange
+Blr05_BoilerRatedInput IsPresent And Blr05_BoilerRatedInput != Blr05cc_BoilerRatedInput
 )
 Or
 (
@@ -3321,7 +3430,7 @@ And
 (
 Blr05_CapacityRated IsPresent And  Blr05_CapacityRated IsPresent == Blr05cc_CapacityRated 
 Or 
-Blr05_BoilerRatedInputRange IsPresent And Blr05_BoilerRatedInputRange == Blr05cc_BoilerRatedInputRange
+Blr05_BoilerRatedInput IsPresent And Blr05_BoilerRatedInput == Blr05cc_BoilerRatedInput
 )
 And 
 Blr08_NotApplicableMessage IsPresent Or Blr08_BoilerIsolationValve ==  Blr08cc_BoilerIsolationValve 
@@ -5561,7 +5670,7 @@ End If</xsd:documentation>
                   <xsd:element name="TableFan" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]FANS AND AIR ECONOMIZERS[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This table is required If B01f_ProjectHasFanSystems == true</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This table is required If B01f_ProjectHasFanSystems == true and H01to11NA_NotApplicableMessage NotPresent</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>

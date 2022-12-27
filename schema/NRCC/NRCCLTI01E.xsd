@@ -2261,7 +2261,7 @@ case GymnasiumBuilding: case OfficeBuilding: case SchoolBuilding case  Manufactu
 case ParkingGarageBuilding: result = 0.13; 
 case GroceryStoreBuilding: case HospitalBuilding: case RetailBuilding: result = 0.90; 
 case PerformingArtsTheaterBuilding:  case SportsArenaBuilding: result =0.75; 
-case AllOthersBuildings: case CommercialIndustrialStorageArea: result = 0.4;  
+case AllOthersBuildings: result = 0.4;  
 End Switch
  
 Else If Ic02_SpaceFunction NotNull Switch (Ic02_SpaceFunction)

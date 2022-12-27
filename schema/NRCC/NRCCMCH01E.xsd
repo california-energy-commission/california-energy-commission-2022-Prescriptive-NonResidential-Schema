@@ -1568,7 +1568,8 @@ End If</xsd:documentation>
                   <xsd:element name="Table1DryEquipment" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Dry System Equipment Efficiency (other than Package Terminal Air Conditioners (PTAC) and Package Terminal Heat Pumps (PTHP), DX-DOAS and Dual Fuel Heat Pumps) [/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This table is required if there is at least one row where F02_HvacSystemType != PTAC_PTHP Or DOAS Or HeatPumpDualFuel</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This table is required for every row such that F02_HvacSystemType != PTAC_PTHP Or DOAS Or HeatPumpDualFuel
+                        </xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>

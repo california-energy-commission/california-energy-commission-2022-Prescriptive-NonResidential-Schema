@@ -2116,7 +2116,7 @@ Display is concatenation of: Hconcrete08_PartitionFramingMaterial
                                                                               </xsd:restriction>
                                                                            </xsd:simpleType>
                                                                         </xsd:element>
-                                                                        <xsd:element name="WallsConcrete03cc_FramingDepth" type="env:FramingDepth">
+                                                                        <xsd:element name="WallsConcrete03cc_FramingDepth" type="env:FramingDepth" minOccurs="0">
                                                                            <xsd:annotation>
                                                                               <xsd:documentation source="FieldText"/>
                                                                               <xsd:documentation source="CalculationsAndRules">result = Hconcrete08_FramingDepth</xsd:documentation>
@@ -2459,12 +2459,12 @@ End If</xsd:documentation>
                                                                               </xsd:restriction>
                                                                            </xsd:simpleType>
                                                                         </xsd:element>
-                                                                        <xsd:element name="WallsConcrete03_FramingDepth" type="env:FramingDepth">
+                                                                        <xsd:element name="WallsConcrete03_FramingDepth" type="env:FramingDepth" minOccurs="0">
                                                                            <xsd:annotation>
                                                                               <xsd:documentation source="FieldText"/>
-                                                                              <xsd:documentation source="CalculationsAndRules">If Walls01_InstalledSameAsCC == true
+                                                                              <xsd:documentation source="CalculationsAndRules">If Walls01_InstalledSameAsCC == true 
 result = WallsConcrete03cc_FramingDepth
-Else 
+Else if WallsConcrete03_PartitionFramingMaterial != EIFS
 User selects from list
 End If</xsd:documentation>
                                                                            </xsd:annotation>
