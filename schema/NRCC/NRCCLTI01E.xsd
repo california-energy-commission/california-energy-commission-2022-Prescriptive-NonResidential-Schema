@@ -2268,7 +2268,7 @@ Else If Ic02_SpaceFunction NotNull Switch (Ic02_SpaceFunction)
 case AuditoriumArea: case BeautySalonArea:  case FinancialTransactionsArea:   case HospitalPatientRoom: case LobbyMainEntry: case LowVisionCorridorArea: case MuseumRestoration:    result = 0.70; 
 case AutoRepairArea: case HospitalMedicalSupply:   case LoungeBreakRoom: result = 0.55;  
  
-case ClassroomLectureTrainingVocationalArea:  case CommercialIndustrialStorageArea:  case ExhibitMuseumArea: case  GeneralCommercialIndustrialWorkAreaLowBay: case HospitalImaging:  case OfficeGreaterThan250Ft:  case RetailFittingRoom: case RetailMallConcourse:  case Stairwell    result = 0.60;  
+case ClassroomLectureTrainingVocationalArea:  case CommercialIndustrialStorageArea:  case ExhibitMuseumArea: case  GeneralCommercialIndustrialWorkAreaLowBay: case HospitalImaging:  case OfficeGreaterThan250Ft:  case RetailFittingRoom: case RetailMallConcourse:  case Stairwell: case MallAndAtria result = 0.60;  
  
 case LibraryReadingArea: case LowVisionStairwell:  case LowVisionDiningArea: LowVisionWaitingArea: case HospitalNursery: case TheaterPerformance:   result = 0.80;  
  
@@ -2543,7 +2543,7 @@ Else If Iu02_SpaceFunction NotNull Switch (Iu02_SpaceFunction)
 case AuditoriumArea: case BeautySalonArea:  case FinancialTransactionsArea:   case HospitalPatientRoom: case LobbyMainEntry: case LowVisionCorridorArea: case MuseumRestoration:    result = 0.70; 
 case AutoRepairArea: case HospitalMedicalSupply:   case LoungeBreakRoom: result = 0.55;  
  
-case ClassroomLectureTrainingVocationalArea:  case CommercialIndustrialStorageArea:  case ExhibitMuseumArea: case  GeneralCommercialIndustrialWorkAreaLowBay: case HospitalImaging:  case OfficeGreaterThan250Ft:  case RetailFittingRoom: case RetailMallConcourse:  case Stairwell    result = 0.60;  
+case ClassroomLectureTrainingVocationalArea:  case CommercialIndustrialStorageArea:  case ExhibitMuseumArea: case  GeneralCommercialIndustrialWorkAreaLowBay: case HospitalImaging:  case OfficeGreaterThan250Ft:  case RetailFittingRoom: case RetailMallConcourse:  case Stairwell: case MallAndAtria    result = 0.60;  
  
 case LibraryReadingArea: case LowVisionStairwell:  case LowVisionDiningArea: LowVisionWaitingArea: case HospitalNursery: case TheaterPerformance:   result = 0.80;  
  
@@ -2565,7 +2565,7 @@ case SportsArenaSeatsGTE5000ClassI:  result = 2.25;
 case HospitalExamTreatment:  result = 1.15;  
 case HospitalOperatingRoom:  result = 1.90;   
 case CivicMeetingPlaceArea:   case HospitalRecovery: case LaboratoryScientific: case  VideoConferencingStudio:    result = 0.90;  
-case KitchenCommercialFoodPreparation:   case ReligiousWorshipArea:  case RetailSalesArea: result = 0.95;        
+case KitchenCommercialFoodPreparation:   case ReligiousWorshipArea:  case RetailSalesArea: case:RetailMerchandiseSalesWholesaleShowroom result = 0.95;        
 ParkingGarageBuildingParkingArea: result = 0.10;
 End Switch
 End If</xsd:documentation>
