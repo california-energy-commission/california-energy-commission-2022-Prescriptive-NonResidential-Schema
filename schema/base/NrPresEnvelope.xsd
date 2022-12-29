@@ -3309,6 +3309,7 @@
             <dtyp:displayterm value="PartialGrout">Partial Grout-uninsulated</dtyp:displayterm>
             <dtyp:displayterm value="PartialInsulatedGrout">Partial Grout-insulated</dtyp:displayterm>
             <dtyp:displayterm value="SolidGrout">Solid Grout</dtyp:displayterm>
+            <dtyp:displayterm value="SolidUnit">Solid Unit</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -3316,6 +3317,7 @@
          <xsd:enumeration value="PartialGrout"/>
          <xsd:enumeration value="PartialInsulatedGrout"/>
          <xsd:enumeration value="SolidGrout"/>
+         <xsd:enumeration value="SolidUnit"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="MasonryType">

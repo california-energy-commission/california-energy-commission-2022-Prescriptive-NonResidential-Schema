@@ -3141,6 +3141,10 @@ ParkCtrl09_GarageTotalVentRate == ParkCtrl09cc_GarageTotalVentRate
 result = ExactMatch
  
 Else If
+ParkCtrl01_VehiclesGT20PctNonGas == True 
+Or 
+ParkCtrl02_NewExhaustLT10000cfm == True
+Or
 Park03_FanFlowCapacity IsPresent And Park03_FanFlowCapacity GTE  (Park02_ParkingGarageArea x 0.15)
 Or
 ParkCtrl03_FanControlContaminantLevels IsPresent And ParkCtrl03_FanControlContaminantLevels != ParkCtrl03cc_FanControlContaminantLevels

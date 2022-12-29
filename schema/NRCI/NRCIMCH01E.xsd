@@ -651,6 +651,11 @@ End If</xsd:documentation>
                                                                   <dtyp:srcSchema form="CCMCH01E"  usage="copy">F03_NotApplicableMessage</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
                                                          </xsd:element>
                                                       </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
@@ -824,7 +829,7 @@ End If</xsd:documentation>
 
                                                             </xsd:annotation>
                                                          </xsd:element>
-                                                         <xsd:element name="Dry03_NotApplicableMessage" type="hvac:EquipmentDOAS" >
+                                                         <xsd:element name="Dry03_NotApplicableMessage">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If F03_NotApplicableMessage IsPresent 
@@ -834,6 +839,11 @@ End If</xsd:documentation>
                                                                <dtyp:srcSchema form="CCMCH01E"  usage="reference">F03_NotApplicableMessage</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                             </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
                                                          </xsd:element>
                                                       </xsd:choice>
                                                       <xsd:element name="Dry04To07Subheading" minOccurs="0">
@@ -5765,40 +5775,78 @@ User input
 End If</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
-                                                      <xsd:element name="Fan03cc_FanFunction" type="hvac:FanFunction" >
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Fan Function</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If CC-MCH parent
-result = H02_FanFunction
-Else If CC-PRF parent
-If Fan01cc_FanSystemName is from Fan01_HvacSystemName
-If Fan04_FanFlowCapacity IsPresent
-result = Supply
-Else If Fan09_FanFlowCapacity IsPresent
-result = Return
-End If
-Else If Fan01cc_FanSystemName is from FanExh01_HvacSystemName
-result = Exhaust
-End If
-End If</xsd:documentation>
-                                                            <xsd:appinfo source="CIsrc">
-                                                               <dtyp:srcSchema form="CCMCH01E"  usage="copy">H02_FanFunction</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="CCPRF01E"  usage="reference">Fan04_FanFlowCapacity</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="CCPRF01E"  usage="reference">Fan09_FanFlowCapacity</dtyp:srcSchema>
-                                                               <dtyp:srcSchema form="CCPRF01E"  usage="reference">FanExh01_HvacSystemName</dtyp:srcSchema>
-                                                            </xsd:appinfo>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
-                                                      <xsd:element name="Fan03_FanFunction" type="hvac:FanFunction" >
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Fan Function</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If  Fan01_InstalledSameAsCC == true
-result = Fan02ccFanFunction 
-Else If  Fan01_InstalledSameAsCC == false
-User input
-End If</xsd:documentation>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="Fan03cc_FanFunction" type="hvac:FanFunction" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Fan Function</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent
+   result = H02_FanFunction
+   Else If CC-PRF parent
+   If Fan01cc_FanSystemName is from Fan01_HvacSystemName
+   If Fan04_FanFlowCapacity IsPresent
+   result = Supply
+   Else If Fan09_FanFlowCapacity IsPresent
+   result = Return
+   End If
+   Else If Fan01cc_FanSystemName is from FanExh01_HvacSystemName
+   result = Exhaust
+   End If
+   End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCMCH01E"  usage="copy">H02_FanFunction</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="reference">Fan04_FanFlowCapacity</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="reference">Fan09_FanFlowCapacity</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="reference">FanExh01_HvacSystemName</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Fan03cc_NotApplicableMessage" >
+                                                               <xsd:annotation>
+                                                                  <xsd:documentation source="FieldText">Fan Function</xsd:documentation>
+                                                                  <xsd:documentation source="CalculationsAndRules">If CC-MCH parent
+   If H02_NotApplicableMessage IsPresent
+   result = BlanGrayedOut stored in Fan03cc_NotApplicableMessage
+   End If</xsd:documentation>
+                                                                  <xsd:appinfo source="CIsrc">
+                                                                     <dtyp:srcSchema form="CCMCH01E"  usage="reference">H02_NotApplicableMessage</dtyp:srcSchema>
+                                                                  </xsd:appinfo>
+                                                               </xsd:annotation>
+                                                               <xsd:simpleType>
+                                                                  <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="Fan03_FanFunction" type="hvac:FanFunction" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Fan Function</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If  Fan01_InstalledSameAsCC == true
+   result = Fan02ccFanFunction 
+   Else If  Fan01_InstalledSameAsCC == false
+   User input
+   End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Fan03_NotApplicableMessage" >
+                                                               <xsd:annotation>
+                                                                  <xsd:documentation source="FieldText">Fan Function</xsd:documentation>
+                                                                  <xsd:documentation source="CalculationsAndRules">If CC-MCH parent
+   If H02_NotApplicableMessage IsPresent
+   result = BlanGrayedOut stored in Fan03cc_NotApplicableMessage
+   End If</xsd:documentation>
+                                                                  <xsd:appinfo source="CIsrc">
+                                                                     <dtyp:srcSchema form="CCMCH01E"  usage="reference">H02_NotApplicableMessage</dtyp:srcSchema>
+                                                                  </xsd:appinfo>
+                                                               </xsd:annotation>
+                                                               <xsd:simpleType>
+                                                                  <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
                                                          <xsd:element name="Fan04cc_FanSystemEconomizerType" type="hvac:FanSystemEconomizerType" >
                                                             <xsd:annotation>
@@ -5827,7 +5875,7 @@ End If</xsd:documentation>
 result = H00b_FanSystemEconomizerException
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
-                                                                  <dtyp:srcSchema form="CCMCH01E"  usage="copy">H00b_FanSystemEconomizerException</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCMCH01E"  usage="copy">H00h_FanSystemEconomizerException</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -7421,13 +7469,9 @@ End If</xsd:documentation>
 If Ctrl01_InstalledSamesCC == true
 result = Ctrl04cc_ControlSystemZone 
 Else If Ctrl01_InstalledSamesCC == false 
-User selects from list that includes all values but OtherControl
+User selects from list 
 End If 
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="displayterm">
-                                                                  <dtyp:displayterm value="OtherControl">Other</dtyp:displayterm>
-                                                               </xsd:appinfo>
-                                                               
                                                             </xsd:annotation>
                                                          </xsd:element>
                                                          <xsd:element name="Ctrl04_NotApplicableMessage" >
@@ -10431,7 +10475,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-MCH-20H Must be submitted for Multifamily Ventilation</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If NRCC-MCH parent
-result = Nrca19_RequireNRCAMch20H 
+result = Nrca19_RequireNRCAMch20 
 If result == true 
 static text and related SystemFieldVerified  or SystemsToFieldVerify are displayed
 Else
@@ -10441,7 +10485,7 @@ Else If NRCC-PRF parent
 result = Nrca32_RequireNRCAMch20H
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
-                           <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca19_RequireNRCAMch20H</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca19_RequireNRCAMch20</dtyp:srcSchema>
                            <dtyp:srcSchema form="CCPRF01E"  usage="copy">Nrca32_RequireNRCAMch20H</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
@@ -10489,7 +10533,7 @@ Else If NRCC-PRF parent
 Nothing is displayed for this NRCA 
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
-                           <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca20_RequireNRCAMch21H</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCMCH01E"  usage="copy">Nrca20_RequireNRCAMch21</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
