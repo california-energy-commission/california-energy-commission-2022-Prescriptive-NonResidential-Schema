@@ -683,6 +683,8 @@ Or
 Roof02cc_AssemblyType == MetalBuilding And Fmetalb10_NotApplicableMessage IsPresent
 Or
 Roof02cc_AssemblyType == SIPS And FSIPS11_NotApplicableMessage IsPresent
+Or
+If Roof02cc_AssemblyType == MetalPanel or Span
 result = BlankGrayedOut
 End If
 Else If CC-PRF parent
@@ -1014,6 +1016,8 @@ Or
 Roof02cc_AssemblyType == SIPS And FSIPS12_NotApplicableMessage IsPresent
 Or
 Roof02cc_AssemblyType == Span And Fspan11_NotApplicableMessage IsPresent
+Or
+If Roof02cc_AssemblyType == MetalPanel
 result = BlankGrayedOut
 End If
 Else If CC-PRF parent
@@ -2301,6 +2305,8 @@ End If</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
 If Walls02cc_AssemblyType == SIPS And HSIPS05_NotApplicableMessage IsPresent Or Walls02cc_AssemblyType == Spandrel And Hspandrel05_NotApplicableMessage IsPresent 
 Or Walls02cc_AssemblyType == MetalBuilding And Hmetalb05_NotApplicableMessage IsPresent Or  Walls02cc_AssemblyType == ConcretePanel And Hconcrete08_NotApplicableMessage IsPresent
+Or
+If Walls02cc_AssemblyType == MetalPanel or Strawbale
 result = BlankGrayedOut
 End If
 Else If CC-PRF parent 
@@ -2728,6 +2734,8 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="FieldText">Wall Thickness (in)</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
 If Walls02cc_AssemblyType == SIPS And HSIPS06_NotApplicableMessage IsPresent  
+Or 
+If Walls02cc_AssemblyType == MetalPanel or Strawbale or SpandrelCurtain or Framed or Log or ConcretePanel
 result = BlankGrayedOut
 End If
 Else If CC-PRF parent 
@@ -3222,6 +3230,8 @@ If (Walls02cc_AssemblyType == Mass And
 Hmass09_NotApplicableMessage  IsPresent) Or (Walls02cc_AssemblyType == ConcretePanel And 
 Hconcrete09_NotApplicableMessage  IsPresent) Or (Walls02cc_AssemblyType == Log And 
 Hlog07_NotApplicableMessage  IsPresent) 
+Or 
+If Walls02cc_AssemblyType == MetalPanel or ICF
 result = BlankGrayedOut
 End If
 Else If CC-PRF parent
@@ -3732,6 +3742,8 @@ If (Walls02cc_AssemblyType == Framed And
 Hframed09_NotApplicableMessage  IsPresent) Or (Walls02cc_AssemblyType == SIPS And 
 HSIPS08_NotApplicableMessage IsPresent) Or (Walls02cc_AssemblyType == MetalBuilding And 
 Hmetalb07_NotApplicableMessage IsPresent) 
+Or
+If Walls02cc_AssemblyType == MetalPanel or Strawbale or SpandrelCurtain or Log or ConcretePanel or ICF or Mass
 result = BlankGrayedOut
 End If
 Else If CC-PRF parent
