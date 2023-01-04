@@ -446,7 +446,7 @@ End If
 Condition 6
 If TableHeatRejection IsPresent  Then for every row 
 any field in range  Fe01 - Fe12 != BlankGrayedOut has data And 
-If Fe05 and Fe06 != BlankGrayedOut Then Fe05 GT Fe06; 
+If Fe05 and Fe06 != BlankGrayedOut Then Fe05 GTE Fe06; 
  
 Condition 7
 If TableElectricHeat IsPresent  Then for every row 
@@ -461,9 +461,9 @@ If Fdoas06b And Fdoas08b != BlankGrayedOut Then Fdoas06b LT Fdoas08b
 Condition 9 
  If TableDFHP IsPresent Then for every row
 any field in range Fdfhp01- Fdfhp11 != BlankGrayedOut has data. And
-If Fdfhp07a (min effic) And Fdfhp08a (design effic)  != BlankGrayedOut Then Fdfhp07a GT Fdfhp08a And 
-If Fdfhp07b (min effic) And Fdfhp08b (design effic)  != BlankGrayedOut Then Fdfhp07b GT Fdfhp08b And 
-If Fdfhp10a (min effic) And Fdfhp11a (design effic)  != BlankGrayedOut Then Fdfhp10a GT Fdfhp11a
+If Fdfhp07a (min effic) And Fdfhp08a (design effic)  != BlankGrayedOut Then Fdfhp07a GTE Fdfhp08a And 
+If Fdfhp07b (min effic) And Fdfhp08b (design effic)  != BlankGrayedOut Then Fdfhp07b GTE Fdfhp08b And 
+If Fdfhp10a (min effic) And Fdfhp11a (design effic)  != BlankGrayedOut Then Fdfhp10a GTE Fdfhp11a
  
  
 If all conditions are true
@@ -6933,6 +6933,25 @@ Else  If H00f_FanSystemFlowCapacity GT 10000
 result = 0.000
 End If
 End If
+
+case HealthcareFacility:
+If H00d_SystemZoning == MultiZoneVAV
+If H00f_FanSystemFlowCapacity LTE 5000
+result = 0.231
+Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+result = 0.198
+Else  If H00f_FanSystemFlowCapacity GT 10000 
+result = 0.177
+End If
+Else If H00d_SystemZoning == AllOtherZoneTypes
+If H00f_FanSystemFlowCapacity LTE 5000
+result = 0.232
+Else  If H00f_FanSystemFlowCapacity GT 5000 And LTE 10000
+result = 0.202
+Else  If H00f_FanSystemFlowCapacity GT 10000 
+result = 0.179
+End If
+End If
 End Switch
  
 If A03_WholeBuildingOccupancy includes HospitalBuilding   // assign special allowance from Table 140.4-B
@@ -7604,7 +7623,7 @@ End If</xsd:documentation>
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="Hdwell12_RecoveryBypassType">
+                                       <xsd:element name="Hdwell12_RecoveryBypassType" type="comp:RecoveryBypassType">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Recovery Bypass/ Directly Economize Controls 
                                                 <d:t24refnolink/>170.2(c)3Biv</xsd:documentation>
@@ -7614,13 +7633,6 @@ Else
 result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:RecoveryBypassType">
-                                                <xsd:enumeration value="CFI_NA"/>
-                                                <xsd:enumeration value="EconControls"/>
-                                                <xsd:enumeration value="ProvidesRecoveryBypass"/>
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
                                        </xsd:element>
                                        <xsd:element name="Hdwell12_NotApplicableMessage">
                                           <xsd:annotation>
@@ -8605,7 +8617,7 @@ End If</xsd:documentation>
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="Hexhaust11_RecoveryBypassType">
+                                       <xsd:element name="Hexhaust11_RecoveryBypassType" type="comp:RecoveryBypassType">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Energy Recovery Bypass</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User selects from dropdown list</xsd:documentation>
@@ -8613,12 +8625,6 @@ End If</xsd:documentation>
                                                 <dtyp:displayterm value="ProvidesRecoveryBypass">Energy Recovery Bypass or similar control Installed per 140.4(q)2</dtyp:displayterm>
                                              </xsd:appinfo>
                                           </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:RecoveryBypassType">
-                                                <xsd:enumeration value="DOAS_NA"/>
-                                                <xsd:enumeration value="ProvidesRecoveryBypass"/>
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
                                        </xsd:element>
                                        <xsd:element name="Hexhaust11_NotApplicableMessage">
                                           <xsd:annotation>
@@ -9060,7 +9066,7 @@ End If</xsd:documentation>
                      <xsd:element name="J02a_NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Check this box if the project included Nonresidential or Hotel/Motel spaces</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If J01_VentCalculationsAttached  == true
+                           <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == true
 result = BlankGrayedOut
 End If</xsd:documentation>
                         </xsd:annotation>
@@ -9088,7 +9094,7 @@ End If</xsd:documentation>
                      <xsd:element name="J02b_NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Check this box if the project included new or alteredmultifamily dwelling units.</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If J01_VentCalculationsAttached  == true
+                           <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == true
 result = BlankGrayedOut
 End If</xsd:documentation>
                         </xsd:annotation>
@@ -9112,7 +9118,7 @@ If result = true  D03_ExceptionalConditionMessageCCMCHE += NaturalVentilationInJ
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Check the box if the project is using natural ventilation in any nonresidential or hotel/motel spaces to meet required ventilation rates per 
                               <d:t24refnolink/>120.1(c)2.</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If J01_VentCalculationsAttached  == true
+                           <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == true
 result = BlankGrayedOut
 End If</xsd:documentation>
                         </xsd:annotation>
@@ -9128,7 +9134,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">
                            <d:b>Nonresidential and Hotel/ Motel Multifamily Common Use Ventilation Systems</d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If J01_VentCalculationsAttached  == false And  If J02a_NonResHotelMotelIncluded == true
+                        <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == false And  If J02a_NonResHotelMotelIncluded == true
 this table is required and displayed
 Else this table is minimized
 End If</xsd:documentation>
@@ -9656,7 +9662,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:i><d:sup>1</d:sup> FOOTNOTES: System CFM should include both mechanical and natural ventilation for the zone/system</d:i>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If J01_VentCalculationsAttached  == false And  If J02a_NonResHotelMotelIncluded == true
+                        <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == false And  If J02a_NonResHotelMotelIncluded == true
 this footnote should be displayed
 Else this footnote should NOT be displayed
 End If</xsd:documentation>
@@ -9669,7 +9675,7 @@ End If</xsd:documentation>
                            <d:i><d:sup>2</d:sup> Air filtration requirements apply to the following three system types per 
                               <d:t24refnolink/>120.1(c)1A: space conditioning systems utilizing ducts to supply air to occupiable space; supply-only ventilation systems providing outside air to occupiable space; supply side of balanced ventilation systems including heat recovery and energy recovery ventilation systems providing outside air to occupiable space. </d:i>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If J01_VentCalculationsAttached  == false And  If J02a_NonResHotelMotelIncluded == true
+                        <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == false And  If J02a_NonResHotelMotelIncluded == true
 this footnote should be displayed
 Else this footnote should NOT be displayed
 End If</xsd:documentation>
@@ -9681,7 +9687,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:i><d:sup>3</d:sup> Uniform Mechanical Code may have more stringent ventilation requirements; the most stringent code requirement takes precedence.</d:i>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If J01_VentCalculationsAttached  == false And  If J02a_NonResHotelMotelIncluded == true
+                        <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == false And  If J02a_NonResHotelMotelIncluded == true
 this footnote should be displayed
 Else this footnote should NOT be displayed
 End If</xsd:documentation>
@@ -9693,7 +9699,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:i><d:sup>4</d:sup> See Standards Tables 120.1-A and 120.1-B.</d:i>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If J01_VentCalculationsAttached  == false And  If J02a_NonResHotelMotelIncluded == true
+                        <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == false And  If J02a_NonResHotelMotelIncluded == true
 this footnote should be displayed
 Else this footnote should NOT be displayed
 End If</xsd:documentation>
@@ -9705,7 +9711,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:i><d:sup>5</d:sup> For lecture halls with fixed seating, the expected number of occupants shall be determined in accordance with the California Building Code. </d:i>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If J01_VentCalculationsAttached  == false And  If J02a_NonResHotelMotelIncluded == true
+                        <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == false And  If J02a_NonResHotelMotelIncluded == true
 this footnote should be displayed
 Else this footnote should NOT be displayed
 End If</xsd:documentation>
@@ -9720,7 +9726,7 @@ End If</xsd:documentation>
                               <d:t24refnolink/>130.1(c) to have lighting occupancy sensing controls to also have occupancy sensing zone controls for ventilation.  Examples of spaces which require lighting occupancy sensors include offices 250ft<d:sup>2</d:sup> or smaller, multipurpose rooms less than 1,000 ft<d:sup>2</d:sup>, classrooms, conference rooms, restrooms, aisles and open areas in warehouses, library book stack aisles, corridors, stairwells, parking garages, and loading and unloading zones, unless excepted by 
                               <d:t24refnolink/>130.1(c). </d:i>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If J01_VentCalculationsAttached  == false And  If J02a_NonResHotelMotelIncluded == true
+                        <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == false And  If J02a_NonResHotelMotelIncluded == true
 this footnote should be displayed
 Else this footnote should NOT be displayed
 End If</xsd:documentation>
@@ -9740,7 +9746,7 @@ If result == true D03_ExceptionalConditionMessageCCMCHE  += HRRContinuousVentInJ
                         <xsd:documentation source="FieldText">
                            <d:b>Multifamily Dwelling Unit Ventilation Systems</d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If J01_VentCalculationsAttached  == false And  If J02b_DwellingUnitsIncluded == true
+                        <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == false And  If J02b_DwellingUnitsIncluded == true
 this table is required and displayed
 Else this table is minimized
 End If
@@ -9886,7 +9892,7 @@ End If</xsd:documentation>
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Is this a balanced system<d:sup>4</d:sup>
                            </xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If J01_VentCalculationsAttached  == true 
+                           <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == true 
 this field is NOT required and NOT displayed
  
 Else If J02b_DwellingUnitsIncluded == false
@@ -9909,7 +9915,7 @@ End if</xsd:documentation>
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Is this a balanced system<d:sup>4</d:sup>
                            </xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If J01_VentCalculationsAttached  == true 
+                           <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == true 
 this field is NOT required and NOT displayed
  
 Else If J02b_DwellingUnitsIncluded == false
@@ -9937,7 +9943,7 @@ End if</xsd:documentation>
                   <xsd:element name="J29_DoesVentMeetRequiredOA" type="comp:DoesVentMeetRequiredOA" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Meeting Outside Air Requirements?</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If J01_VentCalculationsAttached  == true 
+                        <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == true 
 this field is NOT required and NOT displayed
 End If
  
@@ -9959,7 +9965,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:i><d:sup>1</d:sup> FOOTNOTES: Uniform Mechanical Code may have more stringent ventilation requirements; the most stringent code requirement takes precedence.</d:i>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If J01_VentCalculationsAttached  == false And  If J02b_DwellingUnitsIncluded == true
+                        <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == false And  If J02b_DwellingUnitsIncluded == true
 this footnote should be displayed
 Else this footnote should NOT be displayed
 End If</xsd:documentation>
@@ -9971,7 +9977,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:i><d:sup>2</d:sup> Kitchen range hood will be verified per NA7.18.1 to confirm model is rated by HVI or AHAM. </d:i>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If J01_VentCalculationsAttached  == false And  If J02b_DwellingUnitsIncluded == true
+                        <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == false And  If J02b_DwellingUnitsIncluded == true
 this footnote should be displayed
 Else this footnote should NOT be displayed
 End If</xsd:documentation>
@@ -9984,7 +9990,7 @@ End If</xsd:documentation>
                            <d:i><d:sup>3</d:sup> Air filtration requirements apply to the following three system types per 
                               <d:t24refnolink/>120.1(c)1A: space conditioning systems utilizing ducts to supply air to occupiable space; supply-only ventilation systems providing outside air to occupiable space; supply side of balanced ventilation systems including heat recovery and energy recovery ventilation systems providing outside air to occupiable space. </d:i>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If J01_VentCalculationsAttached  == false And  If J02b_DwellingUnitsIncluded == true
+                        <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == false And  If J02b_DwellingUnitsIncluded == true
 this footnote should be displayed
 Else this footnote should NOT be displayed
 End If</xsd:documentation>
@@ -9996,7 +10002,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:i><d:sup>4</d:sup> A balanced ventilation system provides ventilation airflow to each dwelling-unit at a rate equal to or greater than the required minimum rate, but not more than twenty percent. </d:i>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If J01_VentCalculationsAttached  == false And  If J02b_DwellingUnitsIncluded == true
+                        <xsd:documentation source="CalculationsAndRules">If J01_CalculationsAttached  == false And  If J02b_DwellingUnitsIncluded == true
 this footnote should be displayed
 Else this footnote should NOT be displayed
 End If</xsd:documentation>
@@ -10632,6 +10638,20 @@ result = false
 End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
+                                       <xsd:element name="L10c_NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">
+                                                <d:b>NR/ Common Use:</d:b> Duct leakage testing shall not exceed 15% per NA7.5.3 required for these systems?</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If L10c1_DuctLeakageMeetsNA7Req And L10c2_DuctLeakageMeetsNA7Req == false  
+result = BlankGrayedOut 
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="L10d1_DuctLeakageMeetsRA3Req" type="comp:DuctLeakageMeetsRA3Req">
@@ -10658,6 +10678,20 @@ result = false
 End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
+                                       <xsd:element name="L10d_NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">
+                                                <d:b>Dwelling Units: </d:b> Total duct leakage of duct system shall not exceed 15% or duct system to outside shall not exceed 10% per RA3.1.4 required for systems?</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If L10d1_DuctLeakageMeetsRA3Req And L10d2_DuctLeakageMeetsRA3Req == false  
+result = BlankGrayedOut 
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
                                     </xsd:choice>
                                     <xsd:element name="L10e_DuctLeakageTestRequired" type="comp:DuctLeakageTestRequired">
                                        <xsd:annotation>
@@ -10670,7 +10704,7 @@ result = false
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="L11_IsBuildingHeathcare" type="com:IsBuildingHeathcare">
+                                    <xsd:element name="L11_IsBuildingHealthcare" type="com:IsBuildingHeathcare">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">The scope of the project includes only duct systems serving healthcare facilities</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input;  

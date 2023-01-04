@@ -2239,29 +2239,69 @@ End If</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
                                                       </xsd:choice>
-                                                      <xsd:element name="Dfhp08cc_SizeRangeUnitaryHeatPumps" type="hvac:SizeRangeUnitaryHeatPumps">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Size Category (Btu/h)</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If CC-MCH parent
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="Dfhp08cc_SizeRangeUnitaryHeatPumps" type="hvac:SizeRangeUnitaryHeatPumps">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Size Category (Btu/h)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent
 result = Fdfhp04a_SizeRangeUnitaryHeatPumps
 Else If CC-PRF parent
 result = Dfhp03a_SizeRangeUnitaryHeatPumps
  
 End If</xsd:documentation>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
-                                                      <xsd:element name="Dfhp08_SizeRangeUnitaryHeatPumps" type="hvac:SizeRangeUnitaryHeatPumps">
-                                                         <xsd:annotation>
-                                                            <xsd:documentation source="FieldText">Size Category (Btu/h)</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If Dfhp08cc_SizeRangeUnitaryHeatPumps
- Is Present
-If Dfhp01_InstalledSameAsCC == true
-result = Dfhp08cc_SizeRangeUnitaryHeatPumps
-Else If Dfhp01_InstalledSameAsCC == false
-User input
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Dfhp08cc_NotApplicableMessage">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Size Category (Btu/h)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent
+If Fdfhp04a_NotApplicableMessage IsPresent
+result = BlankGrayedOut
+End If
 End If</xsd:documentation>
-                                                         </xsd:annotation>
-                                                      </xsd:element>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCMCH01E" usage="reference">Fdfhp04a_NotApplicableMessage</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="Dfhp08_SizeRangeUnitaryHeatPumps" type="hvac:SizeRangeUnitaryHeatPumps">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Size Category (Btu/h)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Dfhp08cc_SizeRangeUnitaryHeatPumps
+   Is Present
+   If Dfhp01_InstalledSameAsCC == true
+   result = Dfhp08cc_SizeRangeUnitaryHeatPumps
+   Else If Dfhp01_InstalledSameAsCC == false
+   User input
+   End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Dfhp08_NotApplicableMessage">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Size Category (Btu/h)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent
+If Fdfhp04a_NotApplicableMessage IsPresent
+result = BlankGrayedOut
+End If
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCMCH01E" usage="reference">Fdfhp04a_NotApplicableMessage</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
                                                          <xsd:element name="Dfhp09cc_EfficiencyCOP" type="hvac:EfficiencyCOP">
                                                             <xsd:annotation>
@@ -7063,16 +7103,6 @@ this table is NOT REQUIRED</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
-                           <xsd:element name="Fei01cc_HvacSystemName" type="comp:HvacSystemName">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText">Name or Item Tag</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If CC-MCH parent
-result = Hfei01_HvacSystemName</xsd:documentation>
-                                 <xsd:appinfo source="CIsrc">
-                                    <dtyp:srcSchema form="CCMCH01E" usage="copy">Hfei01_FanName</dtyp:srcSchema>
-                                 </xsd:appinfo>
-                              </xsd:annotation>
-                           </xsd:element>
                            <xsd:element name="TableFEI">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
@@ -7082,6 +7112,16 @@ result = Hfei01_HvacSystemName</xsd:documentation>
                                     <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                                        <xsd:complexType>
                                           <xsd:sequence>
+                                             <xsd:element name="Fei01cc_HvacSystemName" type="comp:HvacSystemName">
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText">Name or Item Tag</xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">If CC-MCH parent
+                  result = Hfei01_HvacSystemName</xsd:documentation>
+                                                   <xsd:appinfo source="CIsrc">
+                                                      <dtyp:srcSchema form="CCMCH01E" usage="copy">Hfei01_FanName</dtyp:srcSchema>
+                                                   </xsd:appinfo>
+                                                </xsd:annotation>
+                                             </xsd:element>
                                              <xsd:element name="Fei01_InMyScope" type="comp:InMyScope">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Is this in your scope?</xsd:documentation>

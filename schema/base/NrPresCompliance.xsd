@@ -11840,14 +11840,12 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
    <xsd:simpleType name="RecoveryBypassType">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="CFI_NA">NA: CFI</dtyp:displayterm>
             <dtyp:displayterm value="DOAS_NA">NA: DOAS unit with shut-off capabilities per 140.4(q)2</dtyp:displayterm>
-            <dtyp:displayterm value="EconControls">Economizer Controls</dtyp:displayterm>
+            <dtyp:displayterm value="EconControls">Economizer Controls per 140.4(q)2</dtyp:displayterm>
             <dtyp:displayterm value="ProvidesRecoveryBypass">Recovery Bypass provided</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="CFI_NA"/>
          <xsd:enumeration value="DOAS_NA"/>
          <xsd:enumeration value="EconControls"/>
          <xsd:enumeration value="ProvidesRecoveryBypass"/>
