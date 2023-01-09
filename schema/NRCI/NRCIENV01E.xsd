@@ -445,15 +445,15 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Assembly/ Framing Type</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
-If F01Framed_RoofTypeApplies == true Or F01FramedMF_RoofTypeApplies == true
-result =  Framed
-Else If F01SIPS_RoofTypeApplies == true
-result = SIPS 
-Else If F01Span_RoofTypeApplies == true
+If Fframed02_RoofAssemblyName IsPresent Or FframedMF02_RoofAssemblyName IsPresent
+result = Framed
+Else If FSIPS02_RoofAssemblyName IsPresent
+result = SIPS
+Else If Fspan02_RoofAssemblyName IsPresent
 result = Span
-Else If F01Metal_RoofTypeApplies == true
+Else If Fmetalp02_RoofAssemblyName IsPresent
 result = MetalPanel
-Else If F01MetalBldg_RoofTypeApplies == true
+Else If Fmetalb02_RoofAssemblyName IsPresent
 result = MetalBuilding
 End If
 End If</xsd:documentation>
@@ -1874,25 +1874,25 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="FieldText">Wall Type</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
 For current wall assigned to Walls01cc_WallAssemblyName
-If H01Framed_WallTypeApplies == true
+If Hframed03_WallAssemblyName IsPresent
 result = Framed
-Else If H01Mass_WallTypeApplies == true
+Else If Hmass02_WallAssemblyName IsPresent
 result = Mass
-Else If H01Concrete_WallTypeApplies == true
+Else If Hconcrete02_WallAssemblyName IsPresent
 result = ConcretePanel
-Else If H01SIPS_WallTypeApplies == true
+Else If HSIPS02_WallAssemblyName IsPresent
 result = SIPS
-Else If H01ICF_WallTypeApplies == true
+Else If HICF02_WallAssemblyName IsPresent
 result = ICF
-Else If H01Metal_WallTypeApplies == true
+Else If Hmetalp02_WallAssemblyName IsPresent
 result = MetalPanel
-Else If H01MetalBldg_WallTypeApplies == true
+Else If Hmetalb02_WallAssemblyName IsPresent
 result = MetalBuilding
-Else If H01Spandrel_WallTypeApplies == true
+Else If Hspandrel02_WallAssemblyName IsPresent
 result = SpandrelCurtain
-Else If H01Straw_WallTypeApplies == true
+Else If Hstraw02_WallAssemblyName IsPresent
 result = Straw
-Else If H01Log_WallTypeApplies == true
+Else If Hlog02_WallAssemblyName IsPresent
 result = Log
 End If
 End If</xsd:documentation>

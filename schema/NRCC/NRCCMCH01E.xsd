@@ -374,14 +374,14 @@ fields F01-F04 have data;
 Condition 2
 If Table1DryEquipment IsPresent  Then for every row 
 any field in range Fa01-Fa09 != BlankGrayedOut  has data And 
-If Fa05 and Fa06 != BlankGrayedOut Then Fa05 LT Fa06 And 
-If Fa08 And Fa09 != BlankGrayedOut Then Fa08 LT Fa09; 
+If Fa05 and Fa06 != BlankGrayedOut Then Fa05 LTE Fa06 And 
+If Fa08 And Fa09 != BlankGrayedOut Then Fa08 LTE Fa09; 
  
 Condition 3
 If Table2DryEquipment IsPresent  Then for every row 
 any field in range Fb01-Fb07 != BlankGrayedOut  has data And
- If Fb03 and Fb04  != BlankGrayedOut  Then Fb03 LT Fb04 And 
-If Fb06 And Fb07 != BlankGrayedOut Then Fb06 LT Fb07; 
+ If Fb03 and Fb04  != BlankGrayedOut  Then Fb03 LTE Fb04 And 
+If Fb06 And Fb07 != BlankGrayedOut Then Fb06 LTE Fb07; 
  
 Condition 4
 If TableBoiler IsPresent  Then  for every row 
@@ -3672,7 +3672,7 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Rating Condition [d:line1/]([d:deg/]F)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">For value in Fdfhp01_HvacSystemName:  
 If F05_HeatingDesignCapacity GTE 1 And
-If Fdfhp03a__UnitaryHeatPumps IsPresent And == AirCooledSplit1PhaseAC ,AirCooledSplit3PhaseAC , AirCooledSplitConstrainedAC, AirCooledPkg1PhaseAC, AirCooledPkg3PhaseAC Or AirCooledPkgConstrainedAC 
+If Fdfhp03a_UnitaryHeatPumps IsPresent And == AirCooledSplit1PhaseHP ,AirCooledSplit3PhaseHP , AirCooledSplitConstrainedHP, AirCooledPkg1PhaseHP, AirCooledPkg3PhaseHP Or AirCooledPkgConstrainedHP 
 And  Fdfhp04a_SizeRangeUnitaryHeatPumps != LT65000, 
 user selects from list; 
  
@@ -3684,7 +3684,7 @@ Else result = BlankGrayedOut stored in Fdfhp04_NotApplicableMessage and this fie
                                              <xsd:documentation source="FieldText">Rating Condition [d:line1/]([d:deg/]F)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">For value in Fdfhp01_HvacSystemName:  
 If F05_HeatingDesignCapacity GTE 1 And
-If Fdfhp03a_UnitaryHeatPumps IsPresent And == AirCooledSplit1PhaseAC ,AirCooledSplit3PhaseAC , AirCooledSplitConstrainedAC, AirCooledPkg1PhaseAC, AirCooledPkg3PhaseAC Or AirCooledPkgConstrainedAC 
+If Fdfhp03a_UnitaryHeatPumps IsPresent And == AirCooledSplit1PhaseHP ,AirCooledSplit3PhaseHP , AirCooledSplitConstrainedHP, AirCooledPkg1PhaseHP, AirCooledPkg3PhaseHP Or AirCooledPkgConstrainedHP 
 And  Fdfhp04a_SizeRangeUnitaryHeatPumps != LT65000, 
 user selects from list; 
  
@@ -5852,12 +5852,12 @@ End If</xsd:documentation>
                                                                                                    <xsd:documentation source="FieldText">Component</xsd:documentation>
                                                                                                    <xsd:documentation source="CalculationsAndRules">If H02_FanFunction == Supply
 User can select any of the following options that apply:
-MERV13_16Upstream, MERV13_16Downstream, MERV16GreaterOrHEPA, HydronicHeatAllowance, ElectHeatAllowance, GasHeatAllowance, CoilDXorHP, DesiccantAllowance, CoilReheat, EvapCoolerAllowance, AllOASystem, ERR_50ToLT_55, ERR_55ToLT_60, ERR_60ToLT_65, ERR_65ToLT_70, ERR_70ToLT_75, ERR_75ToLT_80, ERR_GTE_80, CoilRunaroundLoop, GasPhaseAirCleaner, EconReturnDamper, AirBlender, SoundAttenuation, TermUnitFanLT1kW, LowTurnDown1ZoneVAV
+MERV13_16Upstream, MERV13_16Downstream, MERV16GreaterOrHEPA, HydronicHeatAllowance, ElectHeatAllowance, GasHeatAllowance, CoilDXorHP, DesiccantAllowance, CoilReheat, EvapCoolerAllowance, AllOASystem, ERR_50ToLT_55, ERR_55ToLT_60, ERR_60ToLT_65, ERR_65ToLT_70, ERR_70ToLT_75, ERR_75ToLT_80, ERR_GTE_80, CoilRunaroundLoop, GasPhaseAirCleaner, EconReturnDamper, AirBlender, SoundAttenuation, TermUnitFanLT1kW, LowTurnDown1ZoneVAV, NoDevice
 Add to list the following If H00c_Status ==  Alteration:  ReplaceSupply and ReplaceSupplyAdapterCurb
  
 Else If H02_FanFunction != Supply
 User can select any of the following options that apply
-FilterAnyMERV,  ERR_50ToLT_55, ERR_55ToLT_60, ERR_60ToLT_65, ERR_65ToLT_70, ERR_70ToLT_75, ERR_75ToLT_80, ERR_GTE_80, CoilRunaroundLoop, PressureMaintained, AirflowControl, LabExhaustVertDucts, BiosafetyCabinet, FiltersScrubbers, HealthcareFacility, SoundAttenuation
+FilterAnyMERV,  ERR_50ToLT_55, ERR_55ToLT_60, ERR_60ToLT_65, ERR_65ToLT_70, ERR_70ToLT_75, ERR_75ToLT_80, ERR_GTE_80, CoilRunaroundLoop, PressureMaintained, AirflowControl, LabExhaustVertDucts, BiosafetyCabinet, FiltersScrubbers, HealthcareFacility, SoundAttenuation, NoDevice
 Add to list the following If H00c_Status ==  Alteration:  ReplaceReturnExhaust and ReplaceReturnExhaustAdapterCurb
 End If</xsd:documentation>
                                                                                                    <xsd:appinfo source="displayterm">
@@ -6849,7 +6849,7 @@ End if</xsd:documentation>
                                                                   <xsd:element name="H10_RangeNameplateHP" type="hvac:RangeNameplateHP" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Motor Nameplate Horsepower</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">User selects from dropdown list: GTE1LT1_5hp, GTE1_5LT2hp, GTE2LT3hp, GTE3LT5hp, GTE5LT7_5hp, GTE7_5LT10hp, GTE10LT15hp, GTE15LT20hp, GTE20LT25hp, GTE25LT30hp, GTE30LT40hp, GTE40LT50hp, GTE50LT60hp, 
+                                                                        <xsd:documentation source="CalculationsAndRules">User selects from dropdown list: LT1hp GTE1LT1_5hp, GTE1_5LT2hp, GTE2LT3hp, GTE3LT5hp, GTE5LT7_5hp, GTE7_5LT10hp, GTE10LT15hp, GTE15LT20hp, GTE20LT25hp, GTE25LT30hp, GTE30LT40hp, GTE40LT50hp, GTE50LT60hp, 
 GTE60LT75hp, GTE75LT100hp</xsd:documentation>
                                                                      </xsd:annotation>
                                                                   </xsd:element>
@@ -6875,7 +6875,13 @@ User input
 Else
 Calculated based on Table 140.4-D
  
-Switch (H10_RangeNameplateHP) 
+Switch (H10_RangeNameplateHP)
+case LT1hp:
+If H09_FanInputPowerMethod == Table140_4DVarSpeed
+result = 0.89
+Else
+result = 0.96
+End If
 case GTE1LT1_5hp
 If H09_FanInputPowerMethod == Table140_4DVarSpeed
 result = 1.38

@@ -2943,8 +2943,8 @@ Else If Jc02_SpaceFunction == HospitalNurseStation:  list TunableWhiteLuminaires
 Else If Jc02_SpaceFunction == HospitalPatientRoom:  list TunableWhiteLuminaires and DecorativeDisplayA;  
 Else If Jc02_SpaceFunction == LowVisionWaitingArea,  LowVisionMultipurposeRoom, LowVisionReligiousWorshipArea Or LowVisionDiningArea:   list TunableWhiteLuminaires and DecorativeDisplayD;
 Else If Jc02_SpaceFunction == VideoConferencingStudio: list VideoConferencing;  
-Else If Jc02_SpaceFunction ==  LowVisionLobbyMainEntry: list TunableWhiteLuminaires,  DecorativeDisplayD and LowVisionMainEntryTransition;
-Else If Jc02_SpaceFunction ==  LowVisionLobbyMainEntryMF: list DecorativeDisplayD and LowVisionMainEntryTransition;  
+Else If Jc02_SpaceFunction ==  LowVisionLobbyMainEntry: list TunableWhiteLuminaires,  DecorativeDisplayD
+Else If Jc02_SpaceFunction ==  LowVisionLobbyMainEntryMF: list DecorativeDisplayD 
 Else If Jc02_SpaceFunction == LowVisionCorridorArea or LowVisionStairwell Or LowVisionWaitingAreaMF Or LowVisionDiningAreaMF Or LowVisionMultipurposeRoomMF Or  ConferenceMultipurposeMeetingMF:  list DecorativeDisplayD.
 Else If Jc02_SpaceFunction == MuseumRestoration:  list  DetailedTaskC; 
 End If</xsd:documentation>
@@ -2969,7 +2969,6 @@ case PortableOfficeLighting: result = 0.20;
 case SpecializedTaskLighting result = 0.35; 
 case TunableWhiteLuminaires: result = 0.10; 
 case VideoConferencing: result = 1.00; 
-case LowVisionMainEntryTransition: result = 0.95;
 End Switch</xsd:documentation>
                                                                      </xsd:annotation>
                                                                   </xsd:element>
@@ -3272,8 +3271,8 @@ Else If Ju02_SpaceFunction == HospitalNurseStation:  list TunableWhiteLuminaires
 Else If Ju02_SpaceFunction == HospitalPatientRoom:  list TunableWhiteLuminaires and DecorativeDisplayA;  
 Else If Ju02_SpaceFunction == LowVisionWaitingArea,  LowVisionMultipurposeRoom, LowVisionReligiousWorshipArea Or LowVisionDiningArea:   list TunableWhiteLuminaires and DecorativeDisplayD;
 Else If Ju02_SpaceFunction == VideoConferencingStudio: list VideoConferencing;  
-Else If Ju02_SpaceFunction ==  LowVisionLobbyMainEntry: list TunableWhiteLuminaires,  DecorativeDisplayD and LowVisionMainEntryTransition; ;  
-Else If Ju02_SpaceFunction ==  LowVisionLobbyMainEntryMF: list DecorativeDisplayD and LowVisionMainEntryTransition; 
+Else If Ju02_SpaceFunction ==  LowVisionLobbyMainEntry: list TunableWhiteLuminaires and DecorativeDisplayD;  
+Else If Ju02_SpaceFunction ==  LowVisionLobbyMainEntryMF: list DecorativeDisplayD; 
 Else If Ju02_SpaceFunction == LowVisionCorridorArea or LowVisionStairwell Or LowVisionWaitingAreaMF Or LowVisionDiningAreaMF Or LowVisionMultipurposeRoomMF Or  ConferenceMultipurposeMeetingMF:   list DecorativeDisplayD.
 Else If Ju02_SpaceFunction == MuseumRestoration:  list  DetailedTaskC; 
 End If</xsd:documentation>
@@ -3298,7 +3297,6 @@ case PortableOfficeLighting: result = 0.20;
 case SpecializedTaskLighting result = 0.35; 
 case TunableWhiteLuminaires: result = 0.10; 
 case VideoConferencing: result = 1.00; 
-case LowVisionMainEntryTransition: result = 0.95;
 End Switch</xsd:documentation>
                                                                      </xsd:annotation>
                                                                   </xsd:element>

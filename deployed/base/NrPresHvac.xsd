@@ -8268,6 +8268,8 @@
    <xsd:simpleType name="RangeNameplateHP">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="LT1hp">
+               <d:lt/>1</dtyp:displayterm>
             <dtyp:displayterm value="GTE1_5LT2hp">
                <d:gte/>1.5 and 
                <d:lt/>2</dtyp:displayterm>
@@ -8316,6 +8318,7 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="LT1hp"/>
          <xsd:enumeration value="GTE1_5LT2hp"/>
          <xsd:enumeration value="GTE10LT15hp"/>
          <xsd:enumeration value="GTE15LT20hp"/>
