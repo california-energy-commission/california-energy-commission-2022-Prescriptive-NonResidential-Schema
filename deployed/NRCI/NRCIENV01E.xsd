@@ -1019,6 +1019,19 @@ End If</xsd:documentation>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
+                                                         <xsd:element name="Roof04cc_RoofInsulationException" type="comp:RoofInsulationException">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Continuous Insulation R-Value</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
+If Fframed05_RoofInsulationException IsPresent
+result = Fframed05_RoofInsulationException
+End If
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCENV01E" usage="copy">Fframed05_RoofInsulationException</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
                                                          <xsd:element name="Roof04cc_NotApplicableMessage">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Continuous Insulation R-Value</xsd:documentation>
@@ -1177,6 +1190,18 @@ If Roof01_InstalledSameAsCC == true
 result = Roof04cc_InsulationRValue
 Else 
 Use enters the R-value number
+End If
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Roof04_RoofInsulationException" type="comp:RoofInsulationException">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Continuous Insulation R-Value</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Roof04cc_RoofInsulationException IsPresent
+If Roof01_InstalledSameAsCC == true
+result = Roof04cc_RoofInsulationException
+Else 
+Use selects from list
 End If
 End If</xsd:documentation>
                                                             </xsd:annotation>

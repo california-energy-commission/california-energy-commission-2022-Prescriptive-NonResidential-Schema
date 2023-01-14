@@ -386,7 +386,7 @@ If Fb06 And Fb07 != BlankGrayedOut Then Fb06 LTE Fb07;
 Condition 4
 If TableBoiler IsPresent  Then  for every row 
 any field in range Fc01 - Fc12 != BlankGrayedOut has data And 
-If Fc11 and Fc12 != BlankGrayedOut Then Fc11 GT Fc12; 
+If Fc11 and Fc12 != BlankGrayedOut Then Fc11 GTE Fc12; 
  
 Condition 5
 If TableChiller IsPresent  Then for every row  
@@ -439,11 +439,11 @@ Condition 7
 If TableElectricHeat IsPresent  Then for every row 
 any field in range  Ff01 - Ff04 != BlankGrayedOut has data.  
  
-Condition 8
+Condition 8 
 If TableDXDOAS IsPresent Then for every row 
 any field in range Fdoas01 - Fdoas08 != BlankGrayedOut has data. And
-If Fdoas06a And Fdoas08a != BlankGrayedOut Then Fdoas06a LT Fdoas08a And
-If Fdoas06b And Fdoas08b != BlankGrayedOut Then Fdoas06b LT Fdoas08b 
+If Fdoas06a And Fdoas08a != BlankGrayedOut Then Fdoas06a LTE Fdoas08a And
+If Fdoas06b And Fdoas08b != BlankGrayedOut Then Fdoas06b LTE Fdoas08b 
  
 Condition 9 
  If TableDFHP IsPresent Then for every row

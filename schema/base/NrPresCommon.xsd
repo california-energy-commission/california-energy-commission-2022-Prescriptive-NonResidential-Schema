@@ -2358,6 +2358,30 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
          <xsd:enumeration value="WaitingArea"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="SpaceFunction_ControlledReceptacles">
+      <xsd:annotation>
+         <xsd:documentation>One of a list of occupancies assigned to the OccupancyArea</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Space Occupancy</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Office">Office Areas</dtyp:displayterm>
+            <dtyp:displayterm value="Lobbies">Lobbies</dtyp:displayterm>
+            <dtyp:displayterm value="Conference">Conference Rooms</dtyp:displayterm>
+            <dtyp:displayterm value="KitchenOffice">Kitchen In Office Spaces</dtyp:displayterm>
+            <dtyp:displayterm value="CopyRoom">Copy Room</dtyp:displayterm>
+            <dtyp:displayterm value="AllOthers">All Others</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Office"/>
+         <xsd:enumeration value="Lobbies"/>
+         <xsd:enumeration value="Conference"/>
+         <xsd:enumeration value="KitchenOffice"/>
+         <xsd:enumeration value="CopyRoom"/>
+         <xsd:enumeration value="AllOthers"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="SpaceHeight">
       <xsd:annotation>
          <xsd:documentation>  Units: ft</xsd:documentation>

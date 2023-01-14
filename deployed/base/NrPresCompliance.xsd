@@ -6427,6 +6427,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
                <d:lte/>33 kBtu/h cooling</dtyp:displayterm>
             <dtyp:displayterm value="MeetsEfficiencyTable140_4A">NA: Efficiency per Table 140.4-D</dtyp:displayterm>
             <dtyp:displayterm value="ServingComputerRoom">See CC-PRC for details</dtyp:displayterm>
+            <dtyp:displayterm value="IncreasesTDV">NA: Increases Overall TDV Energy Use</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -6438,6 +6439,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:enumeration value="LTE33kBtuPerHrCooling"/>
          <xsd:enumeration value="MeetsEfficiencyTable140_4A"/>
          <xsd:enumeration value="ServingComputerRoom"/>
+         <xsd:enumeration value="IncreasesTDV"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="FanSystemPowerAllowance">
