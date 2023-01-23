@@ -1306,6 +1306,8 @@ Or
 Roof04_ContinuousInsulationOther IsPresent And Roof04_ContinuousInsulationOther == Roof04cc_ContinuousInsulationOther 
 Or 
 Roof04_InsulationRValue IsPresent And Roof04_InsulationRValue == Roof04cc_InsulationRValue
+Or
+Roof04_RoofInsulationException IsPresent And Roof04cc_RoofInsulationException == Roof04_RoofInsulationException 
 )
  
 result = ExactMatch
@@ -1338,6 +1340,8 @@ Or
 Roof04_ContinuousInsulationOther IsPresent And Roof04_ContinuousInsulationOther GTE Roof04cc_ContinuousInsulationOther 
 Or 
 Roof04_InsulationRValue IsPresent And Roof04_InsulationRValue GTE Roof04cc_InsulationRValue
+Or 
+Roof04_RoofInsulationException IsPresent and Roof04cc_RoofInsulationException != Roof04_RoofInsulationException
 )
  
 result = EqualBetter

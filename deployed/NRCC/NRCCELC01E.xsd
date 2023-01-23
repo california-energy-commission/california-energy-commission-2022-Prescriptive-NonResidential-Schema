@@ -1229,7 +1229,7 @@ Multi-field triggers: See A02_WholeBuildingOccupancy for trigger values from thi
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup>
                                              </xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If I02_SpaceFunction == AllOthers
+                                             <xsd:documentation source="CalculationsAndRules">If I02a_SpaceFunction == AllOthers
 User selects all that apply from dropdown list: which includes ControlledReceptacleComplianceType  values :  ControlledWithin6ftOfUncontrolledReceptacle display term Within 6ft of uncontrolled receptacle, SplitWiredReceptacle display term Split-wired receptacle, ControlledWithin6ftOfUncontrolledAndSplitWiredReceptacle display term Within 6ft of uncontrolled AND Split-wired receptacle, ControlledReceptacle50PercentHotelMotel display term 50 % are controlled receptacle (hotel/motel room), 
 And includes ControlledReceptacleNA values
 
@@ -1240,7 +1240,7 @@ Else BlankGrayedOutStored in I02_NotApplicableMessage</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup>
                                              </xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If I02_SpaceFunction == AllOthers
+                                             <xsd:documentation source="CalculationsAndRules">If I02a_SpaceFunction == AllOthers
 User selects all that apply from dropdown list: which includes ControlledReceptacleComplianceType  values :  
 And ControlledReceptacleNA values
 
@@ -1251,7 +1251,7 @@ Else BlankGrayedOutStored in I02_NotApplicableMessage</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Location/ Type of Controlled Receptacles<d:sup>1</d:sup>
                                              </xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If I02_SpaceFunction != AllOthers 
+                                             <xsd:documentation source="CalculationsAndRules">If I02a_SpaceFunction != AllOthers 
 result = BlankGrayedOut</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -1265,7 +1265,7 @@ result = BlankGrayedOut</xsd:documentation>
                                        <xsd:element name="I03_ControlledReceptacleShutOffControl" type="comp:ControlledReceptacleShutOffControl" maxOccurs="unbounded">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If I02_SpaceFunction == AllOthers
+                                             <xsd:documentation source="CalculationsAndRules">If I02a_SpaceFunction == AllOthers
 User selects all that apply from dropdown list: which includes  AutomaticTimerSwitch display term Auto Time-Switch with applicable overrides, OccupancySensor display term Occupancy Sensor, HardwiredOccupancySensorPowerStrip display term Occ-sensing Hardwired Power Strip,   CardKeyHotelControlledReceptacles display term Captive Card Key (hotel/motel room only only),  OtherShutOffControl display term Other*   stored in this choice ControlledReceptacleShutOffControl
 And all ControlledReceptacleNA values  
 If result == OtherShutOffControl 
@@ -1277,7 +1277,7 @@ Else BlankGrayedOutStored in I03_NotApplicableMessage</xsd:documentation>
                                        <xsd:element name="I03_ControlledReceptacleNA" type="comp:ControlledReceptacleNA" maxOccurs="unbounded">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If I02_SpaceFunction == AllOthers
+                                             <xsd:documentation source="CalculationsAndRules">If I02a_SpaceFunction == AllOthers
 User selects all that apply from dropdown list which incudes ControlledReceptacleShutOffControl values
 And ControlledReceptacleNA values  which if selected are stored in this choice
 
@@ -1287,7 +1287,7 @@ Else BlankGrayedOut stored in I03_NotApplicableMessage</xsd:documentation>
                                        <xsd:element name="I03_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If I02_SpaceFunction != AllOthers 
+                                             <xsd:documentation source="CalculationsAndRules">If I02a_SpaceFunction != AllOthers 
 result = BlankGrayedOut</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -1301,7 +1301,7 @@ result = BlankGrayedOut</xsd:documentation>
                                        <xsd:element name="I04a_ControlledReceptacleDemandResponse" type="comp:ControlledReceptacleDemandResponse">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Demand Responsive Controls</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If I02_SpaceFunction == AllOthers
+                                             <xsd:documentation source="CalculationsAndRules">If I02a_SpaceFunction == AllOthers
 User selects from dropdown list:  ProvidingDR display term Included w capabilities per 110.12(e),  NotRequiredDR display term NA: Building does not require demand responsive lighting controls per 110.12(c), HealthSafetyRegNA display term NA: Health/ life safety regulation does not permit the receptacles to be automatically controlled
 
 Else BlankGrayedOut stored in I04a_NotApplicableMessage</xsd:documentation>
@@ -1310,7 +1310,7 @@ Else BlankGrayedOut stored in I04a_NotApplicableMessage</xsd:documentation>
                                        <xsd:element name="I04a_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Demand Responsive Controls</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If I02_SpaceFunction != AllOthers 
+                                             <xsd:documentation source="CalculationsAndRules">If I02a_SpaceFunction != AllOthers 
 result = BlankGrayedOut</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -1324,7 +1324,7 @@ result = BlankGrayedOut</xsd:documentation>
                                        <xsd:element name="I04_AreControlledReceptaclesPermanentlyMarked" type="comp:AreControlledReceptaclesPermanentlyMarked">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Permanent Durable Marking Will be Used</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If I02_SpaceFunction == AllOthers
+                                             <xsd:documentation source="CalculationsAndRules">If I02a_SpaceFunction == AllOthers
 User input. 
 If checked result = true Else result = false
 
@@ -1334,7 +1334,7 @@ Else result = BlankGrayedOut stored in I04_NotApplicableMessage</xsd:documentati
                                        <xsd:element name="I04_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Permanent Durable Marking Will be Used</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If I02_SpaceFunction != AllOthers 
+                                             <xsd:documentation source="CalculationsAndRules">If I02a_SpaceFunction != AllOthers 
 result = BlankGrayedOut</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -1348,7 +1348,7 @@ result = BlankGrayedOut</xsd:documentation>
                                        <xsd:element name="I05_BuildingPlanName" type="comp:BuildingPlanName">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Location of Requirements in Construction Documents</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If I02_SpaceFunction == AllOthers
+                                             <xsd:documentation source="CalculationsAndRules">If I02a_SpaceFunction == AllOthers
    User input
 
    Else BlankGrayedOutStored in I05_NotApplicableMessage</xsd:documentation>
@@ -1357,7 +1357,7 @@ result = BlankGrayedOut</xsd:documentation>
                                        <xsd:element name="I05_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Location of Requirements in Construction Documents</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If I02_SpaceFunction != AllOthers 
+                                             <xsd:documentation source="CalculationsAndRules">If I02a_SpaceFunction != AllOthers 
 result = BlankGrayedOut</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>

@@ -7647,86 +7647,31 @@ Condition:  G04_TopLevelOccupancy == ResidentialMF Or OtherOccupancy And G05_Roo
                                                       <xsd:element name="G07_CoolRoofComplianceMethod" type="comp:CoolRoofComplianceMethod">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Compliance Method</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">User selects from list customized as follows: 
-Always list: 
-InitialSolarReflectanceThermaEmittance display term Solar Reflectance (Initial)/ Emittance, 
-AgedSolarReflectanceThermaEmittance display term Solar Reflectance (Aged)/ Emittance, 
-DemisingRoof display term NA: Demising Roof; 
- 
-Customize the rest of the list as follows: 
-If G03_Status == ExistingAlteration And G04_TopLevelOccupancy == Nonresidential Or HotelMotel And  G05_RoofSlope == LowSlope add to list:
-SolarReflectanceIndex display term Solar Reflectance Index (SRI),
-RoofSolarPV display term NA: Roof-integrated PV or Solar Thermal, 
-MassRoofGTE25Lbs display term NA: Weight 
-                                                               <d:gte/> 25lb/ft<d:sup>2</d:sup> over membrane 
-RoofAlteredLT2000Ft2 display term NA:
-                                                               <d:lte/> 50% roof area &amp;amp; 
-                                                               <d:lt/>2,000ft2 altered
-UfactorTradeOffAlterations display term U-factor Trade-off per Table 141.0-B
- 
-Else If G03_Status == ExistingAlteration And G04_TopLevelOccupancy == Nonresidential Or HotelMotel And  G05_RoofSlope == SteepSlope add to list: 
-SolarReflectanceIndex display term Solar Reflectance Index (SRI),
-RoofSolarPV display term NA: Roof-integrated PV or Solar Thermal, 
-MassRoofGTE25Lbs display term NA: Weight 
-                                                               <d:gte/> 25lb/ft<d:sup>2</d:sup> over membrane 
-RoofAlteredLT2000Ft2 display term NA:
-                                                               <d:lte/> 50% roof area &amp;amp; 
-                                                               <d:lt/>2,000ft2 altered
- 
-Else If G04_TopLevelOccupancy == Nonresidential And G05_RoofSlope == LowSlope And A03_ClimateZoneNumber == 1, 2, 4 Or InRange (6, 16) add to list
-SolarReflectanceIndex display term Solar Reflectance Index (SRI),
-RoofSolarPV display term NA: Roof-integrated PV or Solar Thermal, 
-MassRoofGTE25Lbs display term NA: Weight 
-                                                               <d:gte/> 25lb/ft<d:sup>2</d:sup> over membrane 
-UfactorTradeOff display term U-factor Trade-off per Table 140.3;
- 
-Else If G04_TopLevelOccupancy == Nonresidential And G05_RoofSlope == LowSlope And A03_ClimateZoneNumber == 3 Or 5 add to list
-SolarReflectanceIndex display term Solar Reflectance Index (SRI),
-RoofSolarPV display term NA: Roof-integrated PV or Solar Thermal, 
-MassRoofGTE25Lbs display term NA: Weight 
-                                                               <d:gte/> 25lb/ft<d:sup>2</d:sup> over membrane 
-UfactorTradeOff display term U-factor Trade-off per Table 140.3;
-WoodFrameLTEU034 idsplay term NA: Wood Frame Roof U :
-                                                               <d:lte/> 0.034
- 
-Else If G04_TopLevelOccupancy == HotelMotel And G05_RoofSlope == LowSlope 
-Or G04_TopLevelOccupancy == ResidentialMF  Or OtherOccupancy And G03_Status ==  New  add to list
-SolarReflectanceIndex display term Solar Reflectance Index (SRI),
-RoofSolarPV display term NA: Roof-integrated PV or Solar Thermal, 
-MassRoofGTE25Lbs display term NA: Weight 
-                                                               <d:gte/> 25lb/ft<d:sup>2</d:sup> over membrane
- 
-Else If G03_Status ==  New  And G05_RoofSlope == SteepSlope add to list:
-SolarReflectanceIndex display term Solar Reflectance Index (SRI),
-RoofSolarPV display term NA: Roof-integrated PV or Solar Thermal,
- 
-Else If G03_Status == ExistingAlteration And G04_TopLevelOccupancy == ResidentialMF  Or OtherOccupancy And G05_RoofSlope == LowSlope  add to list
-SolarReflectanceIndex display term Solar Reflectance Index (SRI),
-RoofSolarPV display term NA: Roof-integrated PV or Solar Thermal, 
-MassRoofGTE25Lbs display term NA: Weight 
-                                                               <d:gte/> 25lb/ft<d:sup>2</d:sup> over membrane 
-RoofAlteredLT2000Ft2 display term NA:
-                                                               <d:lte/> 50% roof area &amp;amp; 
-                                                               <d:lt/>2,000ft2 altered
-RvalueTradeOff display term R-value Trade-off per Table 180.2-A
- 
-Else If G03_Status == ExistingAlteration And G04_TopLevelOccupancy == ResidentialMF  Or OtherOccupancy And G05_RoofSlope == SteepSlope  add to list
-SolarReflectanceIndex display term Solar Reflectance Index (SRI),
-RoofSolarPV display term NA: Roof-integrated PV or Solar Thermal, 
-MassRoofGTE25Lbs display term NA: Weight 
-                                                               <d:gte/> 25lb/ft<d:sup>2</d:sup> over membrane 
-RoofAlteredLT2000Ft2 display term NA:
-                                                               <d:lte/> 50% roof area &amp;amp; 
-                                                               <d:lt/>2,000ft2 altered
-CeilingUfactorNA display term NA: Ceiling U-factor 
-                                                               <d:lte/>0.25 
-AtticCeilingInsulationNA display term NA: Attic ceiling insulation 
-                                                               <d:gte/>R-38
-AtticRadiantBarrierNA display term NA: Attic radiant barrier per 
-                                                               <d:t24refnolink/>170.2(a)1C
-NoAtticDuctsInCZNA display term NA: no ducts in attic &amp;amp; CZ 2, 4, 9, 10, 12 or 14
-ContinuousInsulationNA display term NA: Continuous insulation above/below roof deck  
-                                                               <d:gte/>R-2
+                                                            <xsd:documentation source="CalculationsAndRules">User selects from list customized as follows:
+Always list:
+InitialSolarReflectanceThermaEmittance display term Solar Reflectance (Initial)/ Emittance,
+AgedSolarReflectanceThermaEmittance display term Solar Reflectance (Aged)/ Emittance,
+DemisingRoof display term NA: Demising Roof;
+
+Customize the rest of the list as follows:
+If G04_TopLevelOccupancy == RelocableSchoolBuildingAllZones
+add to list: InitialSolarReflectanceThermaEmittance, AgedSolarReflectanceThermaEmittance, DemisingRoof
+Else If G03_Status == New and G05_RoofSlope == SteepSlope
+add to list: SolarReflectanceIndex, RoofSolarPV
+Else If G03_Status == New and G04_TopLevelOccupancy == Nonresidential and G05_RoofSlope == LowSlope and A03 = 1, 2, 4 Or InRange (6, 16)
+add to list: SolarReflectanceIndex, RoofSolarPV, MassRoofGTE25Lbs, UfactorTradeOff
+Else If G03_Status == New and G04_TopLevelOccupancy == Nonresidential and G05_RoofSlope == LowSlope and A03 = 3 or 5
+add to list: SolarReflectanceIndex, RoofSolarPV, MassRoofGTE25Lbs, UfactorTradeOff, WoodFrameLTEU034
+Else If G03_Status == New and G04_TopLevelOccupancy == HotelMotel, MutifamilyAttic, or MultifamilyNonattic and G05_RoofSlope == LowSlope
+add to list: SolarReflectanceIndex, RoofSolarPV, MassRoofGTE25Lbs
+Else If G03_Status == ExistingAlteration and G04_TopLevelOccupancy == Nonresidential or HotelMotel and G05_RoofSlope == LowSlope
+add to list: SolarReflectanceIndex, RoofSolarPV, MassRoofGTE25Lbs, RoofAlteredLT2000Ft2, UfactorTradeOffAlterations
+Else If G03_Status == ExistingAlteration and G04_TopLevelOccupancy == MutifamilyAttic or MultifamilyNonattic and G05_RoofSlope == LowSlope
+add to list: SolarReflectanceIndex, RoofSolarPV, MassRoofGTE25Lbs, RoofAlteredLT2000Ft2, RvalueTradeOff
+Else If G03_Status == ExistingAlteration and G04_TopLevelOccupancy == MutifamilyAttic or MultifamilyNonattic and G05_RoofSlope == SteepSlope
+add to list: SolarReflectanceIndex, RoofSolarPV, MassRoofGTE25Lbs, RoofAlteredLT2000Ft2, CeilingUfactorNA, AtticCeilingInsulationNA, AtticRadiantBarrierNA, NoAtticDuctsInCZNA, ContinuousInsulationNA
+Else If G03_Status == ExistingAlteration and G04_TopLevelOccupancy == Nonresidential or HotelMotel and G05_RoofSlope == SteepSlope
+add to list: SolarReflectanceIndex, RoofSolarPV, MassRoofGTE25Lbs, RoofAlteredLT2000Ft2
 End If</xsd:documentation>
                                                             <xsd:appinfo source="displayterm">
                                                                <dtyp:displayterm value="AgedSolarReflectanceThermaEmittance">Solar Reflectance (Aged)/ Emittance</dtyp:displayterm>

@@ -2606,6 +2606,7 @@ End If</xsd:documentation>
                                                          <xsd:enumeration value="BeautySalonArea"/>
                                                          <xsd:enumeration value="CivicMeetingPlaceArea"/>
                                                          <xsd:enumeration value="ClassroomLectureTrainingVocationalArea"/>
+                                                         <xsd:enumeration value="CommercialIndustrialStorageArea"/>
                                                          <xsd:enumeration value="CommercialIndustrialStorageShipping"/>
                                                          <xsd:enumeration value="CommercialIndustrialWarehouse"/>
                                                          <xsd:enumeration value="ConferenceMultipurposeMeetingMF"/>
