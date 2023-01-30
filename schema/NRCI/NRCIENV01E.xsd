@@ -2491,6 +2491,17 @@ User selects from list
 End If</xsd:documentation>
                                                                            </xsd:annotation>
                                                                         </xsd:element>
+                                                                        <xsd:element name="WallsConcrete03_FramingMaterialOther" type="env:FramingMaterialOther" minOccurs="0" >
+                                                                           <xsd:annotation>
+                                                                              <xsd:documentation source="FieldText"></xsd:documentation>
+                                                                              <xsd:documentation source="CalculationsAndRules">If Walls01_InstalledSameAsCC == true 
+And WallsConcrete03cc_FramingMaterialOther isPresent
+result = WallsConcrete03_FramingMaterialOther
+Else 
+User selects from list
+End If</xsd:documentation>
+                                                                           </xsd:annotation>
+                                                                        </xsd:element>
                                                                      </xsd:sequence>
                                                                   </xsd:complexType>
                                                                </xsd:element>

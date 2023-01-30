@@ -1437,14 +1437,29 @@ result = TableIncomplete
 Else If  Controls01_InMyScope == false
 result = NotInScope
 Else If Controls01_InstalledSameAsCC == true
-If Controls02cc_ControlledReceptacleComplianceType  == Controls02_ControlledReceptacleComplianceType 
+If Controls02cc_ControlledReceptacleComplianceType == Controls02_ControlledReceptacleComplianceType
+Or
+Controls02cc_ControlledReceptacleNA == Controls02_ControlledReceptacleNA
+Or
+Controls02cc_NotApplicableMessage == Controls02_NotApplicableMessage
+
 And  
+
 Controls03cc_ControlledReceptacleShutOffControl == Controls03_ControlledReceptacleShutOffControl
-And  
-Controls04cc_AreControlledReceptaclesPermanentlyMarked == Controls04_AreControlledReceptaclesPermanentlyMarked
+Or
+Controls03cc_ControlledReceptacleNA == Controls03_ControlledReceptacleNA
+Or 
+Controls03cc_NotApplicableMessage == Controls03_NotApplicableMessage
+
 And 
 Controls04acc_ControlledReceptacleDemandResponse == Controls04a_ControlledReceptacleDemandResponse
-Or
+Or 
+Controls04acc_NotApplicableMessage == Controls04a_NotApplicableMessage 
+
+And 
+
+Controls04cc_AreControlledReceptaclesPermanentlyMarked == Controls04_AreControlledReceptaclesPermanentlyMarked
+Or 
 Controls04cc_NotApplicableMessage == Controls04_NotApplicableMessage
 result = ExactMatch
 Else 

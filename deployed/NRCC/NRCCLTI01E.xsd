@@ -2887,6 +2887,7 @@ End If</xsd:documentation>
                                                       <xsd:enumeration value="LowVisionRestroom"/>
                                                       <xsd:enumeration value="LowVisionStairwell"/>
                                                       <xsd:enumeration value="LowVisionWaitingArea"/>
+                                                      <xsd:enumeration value="MallAndAtria"/>
                                                       <xsd:enumeration value="MuseumRestoration"/>
                                                       <xsd:enumeration value="NurseStationMF"/>
                                                       <xsd:enumeration value="Office250FtOrLess"/>
@@ -2899,6 +2900,7 @@ End If</xsd:documentation>
                                                       <xsd:enumeration value="Restroom"/>
                                                       <xsd:enumeration value="RetailFittingRoom"/>
                                                       <xsd:enumeration value="RetailMallConcourse"/>
+                                                      <xsd:enumeration value="RetailMerchandiseSalesWholesaleShowroom"/>
                                                       <xsd:enumeration value="RetailSalesArea"/>
                                                       <xsd:enumeration value="SportsArenaSeatsGTE5000ClassI"/>
                                                       <xsd:enumeration value="SportsArenaSeatsLimitedClassIV"/>
@@ -2930,7 +2932,7 @@ End If</xsd:documentation>
  If Jc02_SpaceFunction == AuditoriumArea or ExhibitMuseumArea : list DecorativeDisplayF; 
 Else If Jc02_SpaceFunction == AutoRepairArea, ElectricalMechancialTelephoneRoom, GeneralCommercialIndustrialWorkAreaHighBay, Or  GeneralCommercialIndustrialWorkAreaLowBay:  list DetailedTaskA;   
  
-Else If Jc02_SpaceFunction == AudienceSeatingArea, CivicMeetingPlaceArea, ConventionCenterAudienceSeatingArea, CorridorArea, HotelFunctionArea,   FastfoodDining, FamilyDiningArea,  FinancialTransactionsArea,  LibraryReadingArea, LobbyMainEntry, LoungeBreakRoom, ReligiousWorshipArea, RetailMallConcourse, TheaterMotionPicture or TheaterPerformance   list DecorativeDisplayC;  
+Else If Jc02_SpaceFunction == AudienceSeatingArea, CivicMeetingPlaceArea, ConventionCenterAudienceSeatingArea, CorridorArea, HotelFunctionArea,   FastfoodDining, FamilyDiningArea,  FinancialTransactionsArea,  LibraryReadingArea, LobbyMainEntry, LoungeBreakRoom, ReligiousWorshipArea, RetailMallConcourse, TheaterMotionPicture, TheaterPerformance or MallAndAtria list DecorativeDisplayC;  
 Else If Jc02_SpaceFunction ==  BeautySalonArea: list DecorativeDisplayC and DetailedTaskB;  
 Else If Jc02_SpaceFunction == ClassroomLectureTrainingVocationalArea: list WhiteChalkBoardLighting;   
 Else If Jc02_SpaceFunction == TransportationFunctionTicketing Or LowVisionRestroom: list DecorativeDisplayB;  
@@ -2938,15 +2940,15 @@ Else If Jc02_SpaceFunction ==  GeneralCommercialIndustrialWorkAreaPrecision:  li
 Else If Jc02_SpaceFunction ==  Office250FtOrLess, OfficeGreaterThan250Ft Or OfficeOpenPlan:  list PortableOfficeLighting and DecorativeDisplayB;  
 Else If Jc02_SpaceFunction == ParkingGarageBuildingParkingArea: list ParkingGarageATM; 
 Else If Jc02_SpaceFunction == PharmacyArea Or LaboratoryScientific:  list SpecializedTaskLighting;  
-Else If Jc02_SpaceFunction == GrocerySalesArea, BarLoungeFineDiningArea, Restroom, Stairwell:  Or RetailSalesArea:  list DecorativeDisplayE;  
-Else If Jc02_SpaceFunction == RetailSalesFittingRoom: list MirrorLightingExternal and MirrorLightingInternal;  
+Else If Jc02_SpaceFunction == GrocerySalesArea, BarLoungeFineDiningArea, Restroom, Stairwell:  Or RetailSalesArea: Or RetailMerchandiseSalesWholesaleShowroom list DecorativeDisplayE;  
+Else If Jc02_SpaceFunction == RetailFittingRoom: list MirrorLightingExternal and MirrorLightingInternal;  
 Else If Jc02_SpaceFunction == HospitalNursery,  HospitalPhysicalTherapy  Or HospitalRecovery Or NurseStationMF Or PhysicalTherapyMF:  list TunableWhiteLuminaires;  
 Else If Jc02_SpaceFunction == HospitalImaging:  list TunableWhiteLuminaires and DecorativeDisplayB;
 Else If Jc02_SpaceFunction == HospitalNurseStation:  list TunableWhiteLuminaires and DetailedTaskA; 
 Else If Jc02_SpaceFunction == HospitalPatientRoom:  list TunableWhiteLuminaires and DecorativeDisplayA;  
 Else If Jc02_SpaceFunction == LowVisionWaitingArea,  LowVisionMultipurposeRoom, LowVisionReligiousWorshipArea Or LowVisionDiningArea:   list TunableWhiteLuminaires and DecorativeDisplayD;
 Else If Jc02_SpaceFunction == VideoConferencingStudio: list VideoConferencing;  
-Else If Jc02_SpaceFunction ==  LowVisionLobbyMainEntry: list TunableWhiteLuminaires,  DecorativeDisplayD
+Else If Jc02_SpaceFunction ==  LowVisionLobbyMainEntry: list TunableWhiteLuminaires,  DecorativeDisplayD, LowVisionMainEntryTransition
 Else If Jc02_SpaceFunction ==  LowVisionLobbyMainEntryMF: list DecorativeDisplayD 
 Else If Jc02_SpaceFunction == LowVisionCorridorArea or LowVisionStairwell Or LowVisionWaitingAreaMF Or LowVisionDiningAreaMF Or LowVisionMultipurposeRoomMF Or  ConferenceMultipurposeMeetingMF:  list DecorativeDisplayD.
 Else If Jc02_SpaceFunction == MuseumRestoration:  list  DetailedTaskC; 
@@ -2971,7 +2973,8 @@ case PrecisionLightingIndustrial: result = 0.70;
 case PortableOfficeLighting: result = 0.20;  
 case SpecializedTaskLighting result = 0.35; 
 case TunableWhiteLuminaires: result = 0.10; 
-case VideoConferencing: result = 1.00; 
+case VideoConferencing: result = 1.00;
+case LowVisionMainEntryTransition: result =  0.95;
 End Switch</xsd:documentation>
                                                                      </xsd:annotation>
                                                                   </xsd:element>
@@ -3214,6 +3217,7 @@ End If</xsd:documentation>
                                                       <xsd:enumeration value="LowVisionRestroom"/>
                                                       <xsd:enumeration value="LowVisionStairwell"/>
                                                       <xsd:enumeration value="LowVisionWaitingArea"/>
+                                                      <xsd:enumeration value="MallAndAtria"/>
                                                       <xsd:enumeration value="MuseumRestoration"/>
                                                       <xsd:enumeration value="NurseStationMF"/>
                                                       <xsd:enumeration value="Office250FtOrLess"/>
@@ -3226,6 +3230,7 @@ End If</xsd:documentation>
                                                       <xsd:enumeration value="Restroom"/>
                                                       <xsd:enumeration value="RetailFittingRoom"/>
                                                       <xsd:enumeration value="RetailMallConcourse"/>
+                                                      <xsd:enumeration value="RetailMerchandiseSalesWholesaleShowroom"/>
                                                       <xsd:enumeration value="RetailSalesArea"/>
                                                       <xsd:enumeration value="SportsArenaSeatsGTE5000ClassI"/>
                                                       <xsd:enumeration value="SportsArenaSeatsLimitedClassIV"/>
@@ -3257,7 +3262,7 @@ End If</xsd:documentation>
 If Ju02_SpaceFunction == AuditoriumArea or ExhibitMuseumArea : list DecorativeDisplayF; 
 Else If Ju02_SpaceFunction == AutoRepairArea, ElectricalMechancialTelephoneRoom, GeneralCommercialIndustrialWorkAreaHighBay, Or  GeneralCommercialIndustrialWorkAreaLowBay:  list DetailedTaskA;   
  
-Else If Ju02_SpaceFunction == AudienceSeatingArea, CivicMeetingPlaceArea, ConventionCenterAudienceSeatingArea, CorridorArea, HotelFunctionArea,   FastfoodDining, FamilyDiningArea,  FinancialTransactionsArea,  LibraryReadingArea, LobbyMainEntry, LoungeBreakRoom, ReligiousWorshipArea, RetailMallConcourse, TheaterMotionPicture or TheaterPerformance   list DecorativeDisplayC;  
+Else If Ju02_SpaceFunction == AudienceSeatingArea, CivicMeetingPlaceArea, ConventionCenterAudienceSeatingArea, CorridorArea, HotelFunctionArea,   FastfoodDining, FamilyDiningArea,  FinancialTransactionsArea,  LibraryReadingArea, LobbyMainEntry, LoungeBreakRoom, ReligiousWorshipArea, RetailMallConcourse, TheaterMotionPicture, TheaterPerformance or MallAndAtria list DecorativeDisplayC;  
  
 Else If Ju02_SpaceFunction ==  BeautySalonArea: list DecorativeDisplayC and DetailedTaskB;  
 Else If Ju02_SpaceFunction == ClassroomLectureTrainingVocationalArea: list WhiteChalkBoardLighting;   
@@ -3266,15 +3271,15 @@ Else If Ju02_SpaceFunction ==  GeneralCommercialIndustrialWorkAreaPrecision:  li
 Else If Ju02_SpaceFunction ==  Office250FtOrLess, OfficeGreaterThan250Ft Or OfficeOpenPlan:  list PortableOfficeLighting and DecorativeDisplayB;  
 Else If Ju02_SpaceFunction == ParkingGarageBuildingParkingArea: list ParkingGarageATM; 
 Else If Ju02_SpaceFunction == PharmacyArea Or LaboratoryScientific:  list SpecializedTaskLighting;  
-Else If Ju02_SpaceFunction == GrocerySalesArea, BarLoungeFineDiningArea, Restroom, Stairwell:  Or RetailSalesArea:  list DecorativeDisplayE;  
-Else If Ju02_SpaceFunction == RetailSalesFittingRoom: list MirrorLightingExternal and MirrorLightingInternal;  
+Else If Ju02_SpaceFunction == GrocerySalesArea, BarLoungeFineDiningArea, Restroom, Stairwell:  Or RetailSalesArea: Or RetailMerchandiseSalesWholesaleShowroom: list DecorativeDisplayE;  
+Else If Ju02_SpaceFunction == RetailFittingRoom : list MirrorLightingExternal and MirrorLightingInternal;  
 Else If Ju02_SpaceFunction == HospitalNursery,  HospitalPhysicalTherapy  Or HospitalRecovery Or NurseStationMF Or PhysicalTherapyMF:  list TunableWhiteLuminaires;  
 Else If Ju02_SpaceFunction == HospitalImaging:  list TunableWhiteLuminaires and DecorativeDisplayB;
 Else If Ju02_SpaceFunction == HospitalNurseStation:  list TunableWhiteLuminaires and DetailedTaskA; 
 Else If Ju02_SpaceFunction == HospitalPatientRoom:  list TunableWhiteLuminaires and DecorativeDisplayA;  
 Else If Ju02_SpaceFunction == LowVisionWaitingArea,  LowVisionMultipurposeRoom, LowVisionReligiousWorshipArea Or LowVisionDiningArea:   list TunableWhiteLuminaires and DecorativeDisplayD;
 Else If Ju02_SpaceFunction == VideoConferencingStudio: list VideoConferencing;  
-Else If Ju02_SpaceFunction ==  LowVisionLobbyMainEntry: list TunableWhiteLuminaires and DecorativeDisplayD;  
+Else If Ju02_SpaceFunction ==  LowVisionLobbyMainEntry: list TunableWhiteLuminaires, DecorativeDisplayD and LowVisionMainEntryTransition;  
 Else If Ju02_SpaceFunction ==  LowVisionLobbyMainEntryMF: list DecorativeDisplayD; 
 Else If Ju02_SpaceFunction == LowVisionCorridorArea or LowVisionStairwell Or LowVisionWaitingAreaMF Or LowVisionDiningAreaMF Or LowVisionMultipurposeRoomMF Or  ConferenceMultipurposeMeetingMF:   list DecorativeDisplayD.
 Else If Ju02_SpaceFunction == MuseumRestoration:  list  DetailedTaskC; 
@@ -3299,7 +3304,8 @@ case PrecisionLightingIndustrial: result = 0.70;
 case PortableOfficeLighting: result = 0.20;  
 case SpecializedTaskLighting result = 0.35; 
 case TunableWhiteLuminaires: result = 0.10; 
-case VideoConferencing: result = 1.00; 
+case VideoConferencing: result = 1.00;
+case LowVisionMainEntryTransition: result = 0.95; 
 End Switch</xsd:documentation>
                                                                      </xsd:annotation>
                                                                   </xsd:element>
