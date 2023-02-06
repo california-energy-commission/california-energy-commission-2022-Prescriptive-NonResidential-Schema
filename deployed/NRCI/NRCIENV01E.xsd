@@ -7295,10 +7295,10 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-ENV-03-F. - Must be submitted for Daylighting Power Adjustment Factor (PAF) for indoor lighting.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If B03a_ProjectHasFenestrationVertical  == false And B03b_ProjectHasFenestrationSkylight == false
 And 
-If NRCC-LTI parent Or  NRCC-PRF parent And Nrca02_RequireNRCAEnv03F == false 
+NRCC-PRF parent And Nrca02_RequireNRCAEnv03F == false 
 result = false and nothing is displayed for this NRCA 
 
- 
+
 Else If NRCC-PRF parent And Nrca02_RequireNRCAEnv03F == true And static text in AdditionalRequirements is displayed and related SystemFieldVerified  or SystemsToFieldVerify are displayed
 End If
 End If</xsd:documentation>
@@ -7311,7 +7311,6 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Systems To Be Field Verified</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If G02_RequireNRCAEnv03F == false
-Or NRCC-LTI parent
 this field is not required and nothing is displayed
  
 Else If G02_RequireNRCAEnv03F == true 
@@ -7328,7 +7327,6 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Systems To Be Field Verified</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If G02_RequireNRCAEnv03F == false
-Or NRCC-LTI parent
 this field is not required and nothing is displayed
 
 Else If G02_RequireNRCAEnv03F == true 
