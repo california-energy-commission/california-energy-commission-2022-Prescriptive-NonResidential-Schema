@@ -2141,7 +2141,6 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Efficiency</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Dfhp05cc_NotApplicableMessage  IsPresent
-If Dfhp01_InstalledSameAsCC == true
 result = Dfhp05cc_NotApplicableMessage
 End if</xsd:documentation>
                                                             </xsd:annotation>
@@ -6072,7 +6071,6 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Fan Electrical Input Power (W)</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Fan05cc_NotApplicableMessage  IsPresent
-If Fan01_InstalledSameAsCC == true
 result = Fan05cc_NotApplicableMessage
 End If
 End If</xsd:documentation>
@@ -6854,7 +6852,6 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">System Airflow (cfm)</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Dwell02cc_NotApplicableMessage IsPresent
-If Dwell01_InstalledSameAsCC == true
 result = Dwell02cc_NotApplicableMessage 
 End If
 End If</xsd:documentation>

@@ -1602,7 +1602,6 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="FieldText">Reflectance<d:sup>1</d:sup>
                                                                </xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If RoofMat04acc_NotApplicableMessage  IsPresent
-If RoofMat01_InstalledSameAsCC == true
 result = RoofMat04acc_NotApplicableMessage
 End If
 End If</xsd:documentation>
@@ -1667,7 +1666,6 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Emittance</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If RoofMat04bcc_NotApplicableMessage  IsPresent
-If RoofMat01_InstalledSameAsCC == true
 result = RoofMat04bcc_NotApplicableMessage
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -1738,7 +1736,6 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">SRI</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If RoofMat04ccc_NotApplicableMessage  IsPresent
-If RoofMat01_InstalledSameAsCC == true
 result = RoofMat04ccc_NotApplicableMessage
 End If
 End If</xsd:documentation>
@@ -2693,7 +2690,6 @@ End If</xsd:documentation>
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText">Wall Material</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If Walls03cc_NotApplicableMessage IsPresent 
-If Walls01_InstalledSameAsCC == true
 result = BlankGrayedOut
 End If</xsd:documentation>
                                                                   </xsd:annotation>
@@ -2905,7 +2901,6 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Wall Thickness (in)</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Walls04cc_NotApplicableMessage IsPresent  
-If Walls01_InstalledSameAsCC == true
 result = Walls04cc_NotApplicableMessage
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -3648,7 +3643,6 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Core/Cavity  Insulation R-value</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Walls05cc_NotApplicableMessage IsPresent
-If Walls01_InstalledSameAsCC == true
 result = Walls05cc_NotApplicableMessage
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -3957,7 +3951,6 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Continuous Insulation R-value</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Walls06cc_NotApplicableMessage IsPresent
-If Walls01_InstalledSameAsCC == true
 result = Walls06cc_NotApplicableMessage
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -6536,7 +6529,6 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="FieldText">Area ft<d:sup>2</d:sup>
                                                                </xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Fen04cc_NotApplicableMessage IsPresent 
-If Fen01_InstalledSameAsCC == true
 result = Fen04cc_NotApplicableMessage
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -6640,7 +6632,6 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Frame Type</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Fen05cc_NotApplicableMessage IsPresent 
-If Fen01_InstalledSameAsCC == true
 result = Fen05cc_NotApplicableMessage
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -6775,7 +6766,6 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">U-factor</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Fen06acc_NotApplicableMessage IsPresent 
-If Fen01_InstalledSameAsCC == true
 result = Fen06acc_NotApplicableMessage
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -6903,7 +6893,6 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">(R)SHGC</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Fen06bcc_NotApplicableMessage IsPresent 
-If Fen01_InstalledSameAsCC == true
 result = Fen06bcc_NotApplicableMessage
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -7036,7 +7025,6 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">VT</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Fen06ccc_NotApplicableMessage IsPresent 
-If Fen01_InstalledSameAsCC == true
 result = Fen06ccc_NotApplicableMessage
 End If</xsd:documentation>
                                                             </xsd:annotation>
