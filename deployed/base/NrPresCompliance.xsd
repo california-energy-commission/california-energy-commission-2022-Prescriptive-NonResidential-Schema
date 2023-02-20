@@ -2488,6 +2488,8 @@
    <xsd:simpleType name="ComputerRmEconomizer">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="ExistingRoom20Tons">NA: New cooling systems serving a new computer room in an existing building up to a total of 20 tons of new cooling equipment per building</dtyp:displayterm>
+            <dtyp:displayterm value="ExistingRoom50Tons">NA: New cooling systems serving an existing computer room in an existing building up to a total of 50 tons of new cooling equipment per building</dtyp:displayterm>
             <dtyp:displayterm value="IntegratedAirEconomizer">Integrated air economizer designed to partial cooling and provide 100% of cooling load @ OSA 65deg db and and below 50deg wb and below &amp;amp; includes FDD per  
                <d:t24refnolink/>120.2(i)</dtyp:displayterm>
             <dtyp:displayterm value="IntegratedWaterEconomizer">Integrated water economizer designed to partial cooling and provide 100% of cooling load @ OSA 50deg db and 45deg wb and below</dtyp:displayterm>
@@ -2502,6 +2504,8 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="ExistingRoom20Tons"/>
+         <xsd:enumeration value="ExistingRoom50Tons"/>
          <xsd:enumeration value="IntegratedAirEconomizer"/>
          <xsd:enumeration value="IntegratedWaterEconomizer"/>
          <xsd:enumeration value="LT5TonsCoolingNA"/>
@@ -14932,6 +14936,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="MeetsMinEfficiency">Systems meet or exceed min efficiency per Table 140.9-B</dtyp:displayterm>
             <dtyp:displayterm value="NEMAInputPlugNA">NA: UPS utilizes standardized NEMA 1-15P or NEMA 5-15P input plug</dtyp:displayterm>
+            <dtyp:displayterm value="NoUPS">NA: No UPS in scope</dtyp:displayterm>
             <dtyp:displayterm value="PowerDensityNA">NA: Room power density 
                <d:lt/> 20W/ft<d:sup>2</d:sup>
             </dtyp:displayterm>
@@ -14940,6 +14945,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="MeetsMinEfficiency"/>
          <xsd:enumeration value="NEMAInputPlugNA"/>
+         <xsd:enumeration value="NoUPS"/>
          <xsd:enumeration value="PowerDensityNA"/>
       </xsd:restriction>
    </xsd:simpleType>

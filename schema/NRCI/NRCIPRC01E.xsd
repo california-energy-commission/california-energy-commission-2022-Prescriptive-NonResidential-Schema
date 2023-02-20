@@ -4846,6 +4846,318 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
+                  <xsd:element name="TableCompUPS" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b]Computer Room Uninterruptible Power Supply[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection applies if  B02b_ProjectHasComputerRoom  == true.</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="CompUPS01cc_SpaceName" type="com:SpaceName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Computer Room Name/ ID</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+result = M01_SpaceName
+End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Ups01_SpaceName</dtyp:srcSchema>
+                                          </xsd:appinfo>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="CompUPS01_InMyScope" type="comp:InMyScope" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Is this in your scope?</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from true value display term Yes and false value display term No, by others
+ If result == false CompUPS02cc-CompUPS05cc and CompUPS02-CompUPS05 As-built fields are blank and grayed out
+And D01_ExceptionalConditionMessageNRCIPRCE += CompNotInScope  
+End If</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="CompUPSScopeChoice" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:complexType>
+                                          <xsd:choice >
+                                             <xsd:element name="CompUPSScopeNA_NotApplicableMessage" >
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText"></xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">If  CompUPS01_InMyScope == false
+result = BlankGrayedOut for CompUPS02cc-CompUPS05cc and CompUPS02-CompUPS05 As-built fields are blank and grayed out 
+End If</xsd:documentation>
+                                                </xsd:annotation>
+                                                <xsd:simpleType>
+                                                   <xsd:restriction base="comp:NotApplicableMessage">
+                                                      <xsd:enumeration value="BlankGrayedOut"/>
+                                                   </xsd:restriction>
+                                                </xsd:simpleType>
+                                             </xsd:element>
+                                             <xsd:element name="CompUPSScope" >
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText"></xsd:documentation>
+                                                </xsd:annotation>
+                                                <xsd:complexType>
+                                                   <xsd:sequence>
+                                                      <xsd:element name="CompUPS01_InstalledSameAsCC" type="comp:InstalledSameAsCC"  minOccurs="0">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as NRCC value  Or false if installed is different than NRCC value</xsd:documentation>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="CompUPS02cc_UpsComplianceMethod" type="comp:UpsComplianceMethod" >
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Alternating Current Output UPS Compliance Method</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+And Ups02_UpsComplianceMethod isPresent
+result = Ups02_UpsComplianceMethod
+End If</xsd:documentation>     
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Ups02_UpsComplianceMethod</dtyp:srcSchema>
+                                                            </xsd:appinfo>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="CompUPS02_UpsComplianceMethod" type="comp:UpsComplianceMethod" >
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Alternating Current Output UPS Compliance Method</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+If Comp01_InstalledSameAsCC == true                     
+result = CompUPS02cc_UpsComplianceMethod
+
+Else
+User selects from list
+End If
+End If
+End If</xsd:documentation>   
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="CompUPS03cc_UpsType" type="comp:UpsType" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Type Of UPS</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+   And Ups03_UpsType isPresent
+   result = Ups03_UpsType
+   End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Ups03_UpsType</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="CompUPS03cc_NotApplicableMessage" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Type Of UPS</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+   And Ups03_NotApplicableMessage isPresent
+   result = BlankGrayedOut
+   End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Ups03_NotApplicableMessage</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="CompUPS03_UpsType" type="comp:UpsType" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Type Of UPS</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+      If CompUPS02_UpsComplianceMethod != NEMAInputPlugNA Or PowerDensityNA Or NoUPS 
+      If Comp01_InstalledSameAsCC == true                     
+      result = Ups03_UpsType
+
+      Else 
+      User selects from list
+      End If
+      End If
+      End If
+      End If</xsd:documentation>                                    
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="CompUPS03_NotApplicableMessage" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Type Of UPS</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+      And CompUPS02_UpsComplianceMethod  == NEMAInputPlugNA  Or PowerDensityNA Or NoUPS 
+      result = BlankGrayedOut
+      End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="CompUPS04cc_UpsRatedPower" type="comp:UpsRatedPower" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">UPS Rated Output Power (W)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+      And Ups04_UpsRatedPower isPresent
+      result = Ups04_UpsRatedPower
+      End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Ups04_UpsRatedPower</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="CompUPS04cc_NotApplicableMessage">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">UPS Rated Output Power (W)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+      And Ups04_NotApplicableMessage isPresent
+      result = BlankGrayedOut
+      End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Ups04_NotApplicableMessage</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="CompUPS04_UpsRatedPower" type="comp:UpsRatedPower" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">UPS Rated Output Power (W)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+   If CompUPS02_UpsComplianceMethod != NEMAInputPlugNA Or PowerDensityNA Or NoUPS 
+   If Comp01_InstalledSameAsCC == true
+   Result == Ups04_UpsRatedPower
+
+   Else
+   User Input
+   End If
+   End If
+   End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="CompUPS04_NotApplicableMessage" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">UPS Rated Output Power (W)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+   And CompUPS02_UpsComplianceMethod == NEMAInputPlugNA  Or PowerDensityNA Or NoUPS 
+   result = BlankGrayedOut
+   End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="CompUPS05cc_UpsEfficiency" type="comp:UpsEfficiency" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Efficiency</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+      If Ups06_UpsEfficiency isPresent
+      result = Ups06_UpsEfficiency
+      End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Ups06_UpsEfficiency</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="CompUPS05cc_NotApplicableMessage">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Efficiency</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+      And Ups06_NotApplicableMessage isPresent
+      result = BlankGrayedOut
+      End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">Ups06_NotApplicableMessage</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="CompUPS05_UpsEfficiency" type="comp:UpsEfficiency" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Efficiency</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+   If CompUPS02_UpsComplianceMethod != NEMAInputPlugNA Or PowerDensityNA Or NoUPS 
+   If Comp01_InstalledSameAsCC == true
+   result = Comp05cc_FanSystemSensibleCooling
+
+   Else 
+   User input
+   End If
+   End If
+   End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="CompUPS05_NotApplicableMessage" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Efficiency</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If NRCC-PRC parent
+   And CompUPS02_UpsComplianceMethod == NEMAInputPlugNA  Or PowerDensityNA Or NoUPS 
+   result = BlankGrayedOut
+   End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                   </xsd:sequence>
+                                                </xsd:complexType>
+                                             </xsd:element>
+                                          </xsd:choice>
+                                       </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element name="CompUPS06_ComplianceResultCI" type="comp:ComplianceResultCI" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">UPS Compliance</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If any fields CompUPS02-CompUPS05 are not completed
+result = TableIncomplete
+Else If Comp01_InMyScope == false 
+result = NotInScope
+ 
+Else If
+CompUPS02_UpsComplianceMethod == CompUPS02cc_UpsComplianceMethod
+And
+CompUPS03_UpsType == CompUPS03cc_UpsType Or CompUPS03_NotApplicableMessage == CompUPS03cc_NotApplicableMessage
+And
+CompUPS04_UpsRatedPower == CompUPS04cc_UpsRatedPower Or CompUPS04_NotApplicableMessage == CompUPS04cc_NotApplicableMessage
+And
+CompUPS05_UpsEfficiency == CompUPS05cc_UpsEfficiency Or CompUPS05cc_UpsEfficiency == CompUPS05cc_UpsEfficiency
+result = ExactMatch
+
+Else If
+CompUPS05_UpsEfficiency LTE CompUPS05cc_UpsEfficiency
+result = MayNotComply
+Else
+result = EqualBetter
+End If</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
                   <xsd:element name="Kit" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Commercial Kitchen Exhaust &amp; Ventilation[/d:b]</xsd:documentation>
