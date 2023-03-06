@@ -2036,7 +2036,8 @@ End If</xsd:documentation>
                            <xsd:element name="Ctrl08cc_BoilerStackGasReq" type="comp:BoilerStackGasReq">
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText"/>
-                                 <xsd:documentation source="AdditionalRequirements">Newly installed boilers with an input capacity {d:gte/] 5MMBtu/h and a steady state full-load combustion efficiency 
+                                 <xsd:documentation source="AdditionalRequirements">Newly installed boilers with an input capacity 
+                                    <d:gte/> 5MMBtu/h and a steady state full-load combustion efficiency 
                                     <d:lt/> 90% shall maintain excess (stack-gas) oxygen concentrations 
                                     <d:lte/>  5% by volume on a dry basis over firing rates of 20-100%. Combustion air volume shall be controlled with respect to firing rate or flue gas oxygen concentration. Use of a common gas and combustion air control linkage or jack shaft is prohibited.</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">If CC-PLB parent

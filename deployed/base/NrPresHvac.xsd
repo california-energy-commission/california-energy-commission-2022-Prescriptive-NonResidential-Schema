@@ -3465,10 +3465,10 @@
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="Exhaust">Exhaust</dtyp:displayterm>
+            <dtyp:displayterm value="OtherFanFunction">Other (Transfer, VAV box)</dtyp:displayterm>
             <dtyp:displayterm value="Relief">Relief</dtyp:displayterm>
             <dtyp:displayterm value="Return">Return</dtyp:displayterm>
             <dtyp:displayterm value="Supply">Supply</dtyp:displayterm>
-            <dtyp:displayterm value="Transfer">Transfer</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">

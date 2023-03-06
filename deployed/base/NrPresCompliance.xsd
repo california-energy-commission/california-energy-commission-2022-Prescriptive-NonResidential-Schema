@@ -6251,7 +6251,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       <xsd:annotation>
          <xsd:documentation>Units: W per ft3 per min</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:Decimal"/>
    </xsd:simpleType>
    <xsd:simpleType name="FanEfficacyRequired">
       <xsd:annotation>
@@ -6429,7 +6429,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
                <d:lt/>54 kBtu/h</dtyp:displayterm>
             <dtyp:displayterm value="LTE33kBtuPerHrCooling">NA: 
                <d:lte/>33 kBtu/h cooling</dtyp:displayterm>
-            <dtyp:displayterm value="MeetsEfficiencyTable140_4A">NA: Efficiency per Table 140.4-D</dtyp:displayterm>
+            <dtyp:displayterm value="MeetsEfficiencyTable140_4A">NA: Efficiency per Table 140.4-F</dtyp:displayterm>
             <dtyp:displayterm value="ServingComputerRoom">See CC-PRC for details</dtyp:displayterm>
             <dtyp:displayterm value="IncreasesTDV">NA: Increases Overall TDV Energy Use</dtyp:displayterm>
          </xsd:appinfo>

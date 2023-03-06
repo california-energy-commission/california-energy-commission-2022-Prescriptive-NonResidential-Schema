@@ -8345,7 +8345,9 @@ End If</xsd:documentation>
                                        <xsd:element name="Hexhaust09_NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Type Of Heat Recovery Rating</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Hexhaust07_HeatRecoveryExemptions != NoExemptApply
+                                             <xsd:documentation source="CalculationsAndRules">If Hexhaust07_HeatRecoveryExemptions != NoExemptApply 
+Or Hexhaust08lt8000_HeatRecoveryRequirements == HeatCoolNotRequired
+Or Hexhaust08gte8000_HeatRecoveryRequirements == HeatCoolNotRequired
 result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -8399,7 +8401,8 @@ End If</xsd:documentation>
                                        <xsd:element name="Hexhaust11_NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Energy Recovery Bypass</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Hexhaust07_HeatRecoveryExemptions != NoExemptApply
+                                             <xsd:documentation source="CalculationsAndRules">If Hexhaust07_HeatRecoveryExemptions != NoExemptApply Or 
+Hexhaust09_NotApplicableMessage IsPresent                                            
 result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -10292,9 +10295,9 @@ End If</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Duct leakage testing per CMC Section 603.10.1 required  for these systems?</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated value: 
-If L10c_DuctLeakageMeetsNA&amp;Req   And L10d_DuctLeakageMeetsRA3Req  == false 
-result = true; 
-Else 
+If L10c1_DuctLeakageMeetsNA7Req == false and L10c2_DuctLeakageMeetsNA7Req == false and L10d1_DuctLeakageMeetsRA3Req == false and L10d2_DuctLeakageMeetsRA3Req == false
+result = true;
+Else
 result = false
 End If</xsd:documentation>
                                        </xsd:annotation>

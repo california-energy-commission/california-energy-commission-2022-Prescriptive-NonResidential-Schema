@@ -2221,7 +2221,7 @@ User input designed total battery power capacity (kW)</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
-                           <d:i><d:sup>1</d:sup>FOOTNOTE:  Rated single charge-discharge cycle AC to AC (round trip) effieincy of the battery storage system</d:i>
+                           <d:i><d:sup>1</d:sup>FOOTNOTE:  Rated single charge-discharge cycle AC to AC (round trip) efficiency of the battery storage system</d:i>
                         </xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Pv09_PV_MinimumSize GT 0 this field is displayed</xsd:documentation>
                      </xsd:annotation>
