@@ -5994,7 +5994,7 @@ End If</xsd:documentation>
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Fan Type</xsd:documentation>
                                                                         <xsd:documentation source="CalculationsAndRules">If H00d_SystemZoning != DOASZone
-User selects from list: Supply, Relief, Return, Exhaust, Transfer</xsd:documentation>
+User selects from list: Supply, Relief, Return, Exhaust, OtherFanFunction</xsd:documentation>
                                                                      </xsd:annotation>
                                                                   </xsd:element>
                                                                   <xsd:element name="H02_NotApplicableMessage">

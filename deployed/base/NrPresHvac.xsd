@@ -3473,10 +3473,10 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="Exhaust"/>
+         <xsd:enumeration value="OtherFanFunction"/>
          <xsd:enumeration value="Relief"/>
          <xsd:enumeration value="Return"/>
          <xsd:enumeration value="Supply"/>
-         <xsd:enumeration value="Transfer"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="FanMotorEfficiency">
