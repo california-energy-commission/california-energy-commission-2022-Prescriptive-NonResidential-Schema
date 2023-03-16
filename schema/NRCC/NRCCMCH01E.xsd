@@ -1866,10 +1866,12 @@ result = COP;
  
 case  VariableRefrigerantFlow 
 If F03_VariableRefrigerantFlow  == AirCooledHP_VRF 
+If Fa02_SizeRangeVariableRefrigerantFlow == LT65000
 result = HSPF; 
 Else result = COP;  
 End If
- 
+End If
+
 case  SPV_ACHP: list COP; 
  
 case FurnaceAC: 

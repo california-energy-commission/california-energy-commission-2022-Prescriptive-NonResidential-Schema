@@ -3874,7 +3874,7 @@ End If</xsd:documentation>
                                        <xsd:element name="Ups03_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Type of UPS</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Ups02_UpsComplianceMethod  == NEMAInputPlugNA  Or PowerDensityNA
+                                             <xsd:documentation source="CalculationsAndRules">If Ups02_UpsComplianceMethod  == NEMAInputPlugNA  Or PowerDensityNA Or Ups02_UpsComplianceMethod = NoUPS
 result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -3890,7 +3890,7 @@ End If</xsd:documentation>
                                        <xsd:element name="Ups04_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">UPS Rated Output Power (W)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Ups02_UpsComplianceMethod  == NEMAInputPlugNA  Or PowerDensityNA
+                                             <xsd:documentation source="CalculationsAndRules">If Ups02_UpsComplianceMethod  == NEMAInputPlugNA  Or PowerDensityNA Or Ups02_UpsComplianceMethod = NoUPS
 result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -3944,7 +3944,7 @@ End If</xsd:documentation>
                                        <xsd:element name="Ups05_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Minimum Efficiency Required Table 140.9-B</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Ups02_UpsComplianceMethod  == NEMAInputPlugNA  Or PowerDensityNA
+                                             <xsd:documentation source="CalculationsAndRules">If Ups02_UpsComplianceMethod  == NEMAInputPlugNA  Or PowerDensityNA Or Ups02_UpsComplianceMethod = NoUPS
 result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -3960,7 +3960,7 @@ End If</xsd:documentation>
                                        <xsd:element name="Ups06_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Design Efficiency Specified</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Ups02_UpsComplianceMethod  == NEMAInputPlugNA  Or PowerDensityNA
+                                             <xsd:documentation source="CalculationsAndRules">If Ups02_UpsComplianceMethod  == NEMAInputPlugNA  Or PowerDensityNA Or Ups02_UpsComplianceMethod = NoUPS
 result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
