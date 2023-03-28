@@ -6612,7 +6612,7 @@
             <dtyp:displayterm value="HasSpecialOutsideAirFiltration">NA: Special OA filtration</dtyp:displayterm>
             <dtyp:displayterm value="HasWatersideEconomizer">Waterside Economizer</dtyp:displayterm>
             <dtyp:displayterm value="HighRiseResHotelMotel">NA: Multifamily/hotel/motel</dtyp:displayterm>
-            <dtyp:displayterm value="LT54kBtuPerHrAlteredNA">NA: Altered other than packaged AC or HP [d:lt/]54 kBtu/h</dtyp:displayterm>
+            <dtyp:displayterm value="LT54kBtuPerHrAlteredNA">NA: Altered packaged AC or HP [d:lt/]54 kBtu/h</dtyp:displayterm>
             <dtyp:displayterm value="LTE33kBtuPerHrCooling">NA: [d:lte/]33 kBtu/h cooling</dtyp:displayterm>
             <dtyp:displayterm value="MeetsEfficiencyTable140_4A">NA: Efficiency per Table 140.4-F</dtyp:displayterm>
             <dtyp:displayterm value="ServingComputerRoom">See CC-PRC for details</dtyp:displayterm>
@@ -13556,12 +13556,14 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
             <dtyp:displayterm value="PowerReduced65">Power reduced 65%+</dtyp:displayterm>
             <dtyp:displayterm value="OutdoorUse24x7NA">NA: Outdoor 24x7x365 use</dtyp:displayterm>
             <dtyp:displayterm value="TunnelsNA">NA: Lighting in Tunnels</dtyp:displayterm>
+            <dtyp:displayterm value="OneHourNA">NA: Illuminated [d:lt/]1 hour during day</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="PowerReduced65"/>
          <xsd:enumeration value="OutdoorUse24x7NA"/>
          <xsd:enumeration value="TunnelsNA"/>
+         <xsd:enumeration value="OneHourNA"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="SignShutOffControls">

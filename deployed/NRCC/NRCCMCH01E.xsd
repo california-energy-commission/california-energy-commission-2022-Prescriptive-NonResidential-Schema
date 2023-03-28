@@ -398,8 +398,8 @@ If Fb06 And Fb07 != BlankGrayedOut Then Fb06 LTE Fb07;
  
 Condition 4
 If TableBoiler IsPresent  Then  for every row 
-any field in range Fc01 - Fc12 != BlankGrayedOut has data And 
-If Fc11 and Fc12 != BlankGrayedOut Then Fc11 GTE Fc12; 
+any field in range Fc01 - Fc12 != BlankGrayedOut has data And If Fc11 and Fc12 != BlankGrayedOut Then Fc11 GTE Fc12
+And If Fc05 and Fc06 != BlankGrayedOut Then Fc05 GTE Fc06;
  
 Condition 5
 If TableChiller IsPresent  Then for every row  
@@ -3259,7 +3259,10 @@ End if</xsd:documentation>
                                        <xsd:element name="Fb03_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Minimum COP Required per Table 110.2-E</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F10_NotApplicableMessage IsPresent Or F10_HeatingTotalLoad LT 1 for Fb01 result = BlankGrayedOut stored in NotApplicableMessage and cell is grayed out</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F10_NotApplicableMessage IsPresent 
+Or F10_HeatingTotalLoad LT 1 for Fb01 
+Or F03_PTAC_PTHP != NewSpacePTHP Or ReplacementsPTHP
+result = BlankGrayedOut stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="comp:NotApplicableMessage">
@@ -4630,6 +4633,7 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Minimum System Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Sum All (Fc04_BoilerRatedInput that are GTE 100000 And Fc10_HighCapBoilerExceptions == NoExceptionsHCB) LT 1000000
+Or If A02_ClimateZone == 7, 8, or 15
 result = BlankGrayedOut
 End If_</xsd:documentation>
                                           </xsd:annotation>
@@ -8616,6 +8620,8 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Required Recovery Ratio</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Hexhaust07_HeatRecoveryExemptions != NoExemptApply Or 
 Hexhaust09_NotApplicableMessage IsPresent
+Or Hexhaust08lt8000_HeatRecoveryRequirements == HeatCoolNotRequired
+Or Hexhaust08gte8000_HeatRecoveryRequirements == HeatCoolNotRequired
 result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -8640,7 +8646,9 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Energy Recovery Bypass</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Hexhaust07_HeatRecoveryExemptions != NoExemptApply Or 
-Hexhaust09_NotApplicableMessage IsPresent                                            
+Hexhaust09_NotApplicableMessage IsPresent  
+Or Hexhaust08lt8000_HeatRecoveryRequirements == HeatCoolNotRequired
+Or Hexhaust08gte8000_HeatRecoveryRequirements == HeatCoolNotRequired                                          
 result = BlankGrayedOut
 End If</xsd:documentation>
                                           </xsd:annotation>

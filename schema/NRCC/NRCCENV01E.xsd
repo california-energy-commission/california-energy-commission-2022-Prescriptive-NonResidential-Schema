@@ -7747,54 +7747,54 @@ If  G07_CoolRoofComplianceMethod == SolarReflectanceIndex And G04_TopLevelOccupa
 Switch ( G04_TopLevelOccupancy) 
 case Nonresidential: 
 If G05_RoofSlope == LowSlope  
-result = 0.75; 
+result = 75; 
 Else If G05_RoofSlope == SteepSlope  
 If A03_ClimateZoneNumber == 1 Or 3
-result = 0.16; 
+result = 16; 
 Else 
 End If A03_ClimateZoneNumber == 2 Or InRange(4, 16)
-result = 0.23; 
+result = 23; 
 End If
 End If
  
 case HotelMotel:  
 If G05_RoofSlope == LowSlope 
 If G03_Status == New And A03_ClimateZoneNumber == 9, 10, 11, 13, 14 Or 15 
-result = 0.64; 
+result = 64; 
 Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 9, 10, 11, 13, 14 Or 15 
-result = 0.64; 
+result = 64; 
 End If
 Else If G05_RoofSlope == SteepSlope And A03_ClimateZoneNumber InRange (2,15) 
-result = 0.16; 
+result = 16; 
 End If 
  
 case ResidentialMF  (display term Multifamily Attic Roof)
 If G05_RoofSlope == LowSlope 
 If G03_Status == New And A03_ClimateZoneNumber == 13 Or 15
-result = 0.75
+result = 75
 Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 2 Or 4 Or InRange(6,15)
-result = 0.75
+result = 75
 End If
 Else If G05_RoofSlope == SteepSlope
 If G03_Status == New And A03_ClimateZoneNumber == InRange(10,15)
-result = 0.16
+result = 16
 Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 4 Or InRange(8,15)
-result = 0.16
+result = 16
 End If
 End If
  
 case OtherOccupancy  (display term Multifamily Non-Attic Roof)
 If G05_RoofSlope == LowSlope 
 If G03_Status == New And A03_ClimateZoneNumber == 9 Or 10 Or 11 Or 13 Or 14 Or 15
-result = 0.75
+result = 75
 Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 2 Or 4 Or InRange(6,15)
-result = 0.75
+result = 75
 End If
 Else If G05_RoofSlope == SteepSlope
 If G03_Status == New And A03_ClimateZoneNumber == InRange(2,15)
-result = 0.16
+result = 16
 Else If G03_Status == ExistingAlteration And A03_ClimateZoneNumber == 4 Or InRange(8,15)
-result = 0.16
+result = 16
 End If
 End If
  

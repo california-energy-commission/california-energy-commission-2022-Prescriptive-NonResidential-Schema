@@ -217,7 +217,7 @@
                                  <xsd:sequence>
                                     <xsd:element name="B01a_PlumbingProjectScope">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">New system (DHW system being installed for the first time in newly constructed building)</xsd:documentation>
+                                          <xsd:documentation source="FieldText">New system (DHW system being installed for the first time)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input.  If user checks this box, result = NewSystem Else result = NotApplicableScope</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>

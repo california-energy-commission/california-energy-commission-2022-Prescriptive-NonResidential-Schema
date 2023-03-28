@@ -2038,12 +2038,20 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="H13_BuildingPlanName" type="comp:BuildingPlanName"  minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Plan Sheet Showing Daylit Zones:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This field is required if either H09_PrimarySkylitDaylightControlsIncluded Or H10_SecondaryDaylightControlsIncluded == Included</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="H13_BuildingPlanName" type="comp:BuildingPlanName"  minOccurs="0">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Plan Sheet Showing Daylit Zones:</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">This field is required if either H09_PrimarySkylitDaylightControlsIncluded Or H10_SecondaryDaylightControlsIncluded == Included</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="H13_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Plan Sheet Showing Daylit Zones:</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">This field is required if both H09_PrimarySkylitDaylightControlsIncluded And H10_SecondaryDaylightControlsIncluded != Included</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
                   <xsd:element name="HErrorMessage_SectionErrorMessage" type="comp:SectionErrorMessage"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>

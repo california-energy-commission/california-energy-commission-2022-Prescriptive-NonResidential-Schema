@@ -4061,7 +4061,7 @@ For selection of NA-6 properties</xsd:documentation>
       <xsd:annotation>
          <xsd:documentation>This is the required SRI which is a measure of the roof's ability to reject solar heat which includes both reflectance and emittance.  SRI is based on climate zone and roof slope  Units: none</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:EnumerationIntegerNonNegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="SpaceDaylitArea">
       <xsd:annotation>
