@@ -1951,6 +1951,10 @@ result = Pv03_RoofArea - Pv04_RoofArea70PercentSolarAccess - Pv06_RoofAreaOccupi
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Min Size of PV System Required (kWdc)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field:
+If Bpv01b_AccessAreaTooSmall == true
+Result = 0
+
+Else
 Smallest (((Pv07_SolarAccessRoofArea x 14 W per ft2)/1000), Equation result )
  
 Equation result = (Pv02_ConditionedFloorArea x FactorA) / 1000

@@ -17607,29 +17607,37 @@ End If</xsd:documentation>
                                                 <xsd:element name="Kvertperf11c_VT_Limit" type="com:VT_Limit">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Required Product Performance</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Kvertperf05_FenestrationProductType == GlazedDoor
- If Kvertperf06_TopLevelOccupancy == Nonresidential  Or HotelMotel result = 0.17
-End If
- 
-Else If Kvertperf08_ComplianceMethodSHGC_VT == Table140_3BCD 
- If Kvertperf06_TopLevelOccupancy == Nonresidential Or HotelMotel 
-Switch (Kvertperf05_FenestrationProductType) 
-case FixedWindow:  result = 0.42; 
-case OperableWindow:  result = 0.32;  
-case StoreFront:  case CurtainWall: result = 0.46; 
+                                                      <xsd:documentation source="CalculationsAndRules">f Kvertperf08_ComplianceMethodSHGC_VT == Table140_3BCD
+If Kvertperf06_TopLevelOccupancy == Nonresidential
+Switch (Kvertperf05_FenestrationProductType)
+case FixedWindow: result = 0.42
+case CurtainWall: result = 0.46
+case StoreFront: result = 0.46
+case OperableWindow: result = 0.32
+case GlazedDoor: result = 0.17
+End Switch
+
+Else If Kvertperf06_TopLevelOccupancy == HotelMotel
+Switch (Kvertperf05_FenestrationProductType)
+case FixedWindow: result = 0.42
+case CurtainWall: result = 0.46
+case StoreFront: result = 0.46
+case OperableWindow: result = 0.32
+case GlazedDoor: result = 0.17
 End Switch
 End If
- 
-Else  If Kvertperf08_ComplianceMethodSHGC_VT == Table170_2A Ot Table180_2B
+
+Else If Kvertperf08_ComplianceMethodSHGC_VT == Equation140_3B
+result = Smallest (0.11 / ( Kvert07_TotalGlazingAreaAllOrientations / SUM ALL (Kvert03_ExteriorSurfaceGrossArea)), 0.40)
+
+Else If Kvertperf08_ComplianceMethodSHGC_VT == Table170_2A Or Table180_2B
 If Kvertperf05_FenestrationProductType == CurtainWall Or StoreFront
 result = 0.46
- 
- 
-Else  If Kvertperf08_ComplianceMethodSHGC_VT == Equation140_3B 
-result = Smallest (0.11 / ( Kvert07_TotalGlazingAreaAllOrientations / SUM ALL (Kvert03_ExteriorSurfaceGrossArea)),   0.40);
- 
-Else  If Kvertperf08_ComplianceMethodSHGC_VT == Equation170_2B
-result = Smallest (0.11 / ( KvertMF07_TotalGlazingAreaAllOrientations / SUM ALL (KvertMF03_ExteriorSurfaceGrossArea)),   0.40);
+Else If Kvertperf05_FenestrationProductType == FixedWindowMF or OperableWindowMF
+result = 0.37
+
+Else If Kvertperf08_ComplianceMethodSHGC_VT == Equation170_2B
+result = Smallest (0.11 / ( KvertMF07_TotalGlazingAreaAllOrientations / SUM ALL (KvertMF03_ExteriorSurfaceGrossArea)), 0.40)
 End If</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
@@ -17639,18 +17647,20 @@ End If</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Kvertperf05_FenestrationProductType == ChromogenicFen Or DemisingWallFen Or
 GlazedDoorMF
 Or
-If Kvertperf06_FenestrationModification == ReplaceLTE150ft2 Or AddLTE50ft2  
+If Kvertperf06_TopLevelOccupancy == RelocableSchoolBuildingAllZones
 Or
- If Kvertperf06_TopLevelOccupancy == RelocableSchoolBuildingAllZones and  Kvertperf06_FenestrationModification == AllNew Or AddGT50ft2 Or ReplaceGT150ft2 
+If Kvertperf06_TopLevelOccupancy == Nonresidential and Kvertperf06_FenestrationModification == AddLTE50ft2
 Or
-If Kvertperf06_TopLevelOccupancy == RelocableSchoolBuildingAllZones And  
-Kvertperf05_FenestrationProductType == GlazedDoor  
+If Kvertperf06_TopLevelOccupancy == HotelMotel and Kvertperf06_FenestrationModification == AddLTE50ft2
 Or
-If Kvertperf06_FenestrationModification ==  ReplaceGT150ft2 And Kvertperf_ComplianceMethodSHGC_VT == Table170_2A 
+If Kvertperf06_TopLevelOccupancy == AlteredOccupancy and Kvertperf06_FenestrationModification == ReplaceLTE150ft2
+Or
+If Kvertperf06_TopLevelOccupancy == HighriseResidential and Kvertperf06_FenestrationModification == ReplaceLTE150ft2
 Or
 If Kvertperf08_ComplianceMethodSHGC_VT == NA_SkylitOverlap
- 
- result = BlankGrayedOutresult = BlankGrayedOut
+Or
+If Kvertperf08_ComplianceMethodSHGC_VT == Table170_2A or Table180_2B and Kvertperf05_FenestrationProductType != CurtainWall, StoreFront, FixedWindowMF, or OperableWindowMF
+result = BlankGrayedOut
 End If</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
@@ -17733,20 +17743,22 @@ End If</xsd:documentation>
                                                 <xsd:element name="Kvertperf12c_NotApplicableMessage">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Product Performance per Design</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Kvertperf05_FenestrationProductType == ChromogenicFen Or DemisingWallFen Or GlazedDoorMF 
-Or 
-If Kvertperf06_FenestrationModification == ReplaceLTE150ft2 Or AddLTE50ft2  
-Or 
-If Kvertperf06_TopLevelOccupancy == RelocableSchoolBuildingAllZones and  Kvertperf06_FenestrationModification == AllNew Or AddGT50ft2   Or ReplaceGT150ft2 
- 
-Or 
-If Kvertperf05_FenestrationProductType == GlazedDoor And  If Kvertperf06_TopLevelOccupancy == RelocableSchoolBuildingAllZones 
+                                                      <xsd:documentation source="CalculationsAndRules">f Kvertperf05_FenestrationProductType == ChromogenicFen Or DemisingWallFen Or
+GlazedDoorMF
 Or
-If Kvertperf06_FenestrationModification ==  ReplaceGT150ft2 And Kvertperf_ComplianceMethodSHGC_VT == Table170_2A 
+If Kvertperf06_TopLevelOccupancy == RelocableSchoolBuildingAllZones
+Or
+If Kvertperf06_TopLevelOccupancy == Nonresidential and Kvertperf06_FenestrationModification == AddLTE50ft2
+Or
+If Kvertperf06_TopLevelOccupancy == HotelMotel and Kvertperf06_FenestrationModification == AddLTE50ft2
+Or
+If Kvertperf06_TopLevelOccupancy == AlteredOccupancy and Kvertperf06_FenestrationModification == ReplaceLTE150ft2
+Or
+If Kvertperf06_TopLevelOccupancy == HighriseResidential and Kvertperf06_FenestrationModification == ReplaceLTE150ft2
 Or
 If Kvertperf08_ComplianceMethodSHGC_VT == NA_SkylitOverlap
- 
- 
+Or
+If Kvertperf08_ComplianceMethodSHGC_VT == Table170_2A or Table180_2B and Kvertperf05_FenestrationProductType != CurtainWall, StoreFront, FixedWindowMF, or OperableWindowMF
 result = BlankGrayedOut
 End If</xsd:documentation>
                                                    </xsd:annotation>
