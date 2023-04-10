@@ -1098,7 +1098,7 @@ Or If Fscs06_HeatRecovery == true
 User selects for full list of equipment categories
 Else If Fscs03_SystemZoning == SingleDwellingUnit Or MultiDwellingUnits
 If A02_ClimateZoneNumber == InRange(2,15)
-List UnitaryHeatPumps and UnitaryHeatPumpsNoElectR
+List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOAS
 Else If A02_ClimateZoneNumber == 1 Or 16
 List HeatPumpDualFuel
 End If
@@ -1109,14 +1109,14 @@ List FurnaceAC
 Else If F09_CoolingRatedCapacity IsPresent And GT 65 And LT 240 And A02_ClimateZoneNumber == 1 Or 16
 List HeatPumpDualFuel
 Else If F09_CoolingRatedCapacity IsPresent And LTE 240 And A02_ClimateZoneNumber == InRange(2,15)
-List UnitaryHeatPumps and UnitaryHeatPumpsNoElectR
+List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse
 Else
 List all values
 End If
 Else If Fscs05_WholeBuildingOccupancy == SchoolBuilding
 If F09_CoolingRatedCapacity IsPresent And LTE 240
 If A02_ClimateZoneNumber == InRange(2,15)
-List UnitaryHeatPumps and UnitaryHeatPumpsNoElectR
+List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse If A02_ClimateZoneNumber == 1 Or 16
 Else If A02_ClimateZoneNumber == 1 Or 16
 List HeatPumpDualFuel
 End If
@@ -1125,16 +1125,16 @@ List all values
 End If
 Else If Fscs05_WholeBuildingOccupancy == OfficeBuilding Or FinancialInstitutionBuilding Or LibraryBuilding
 If F09_CoolingRatedCapacity IsPresent And LTE 65 And A02_ClimateZoneNumber == 16
-List FurnaceAC and UnitaryHeatPumps
+List FurnaceAC
 Else If F09_CoolingRatedCapacity IsPresent And GT 65 And LT 240 And 02_ClimateZoneNumber == 16
 List HeatPumpDualFuel
 Else If F09_CoolingRatedCapacity IsPresent And LTE 240 And A02_ClimateZoneNumber == InRange(1,15)
-List UnitaryHeatPumps and UnitaryHeatPumpsNoElectR
+List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse
 Else
 List all values
 End If
 Else If Fscs05_WholeBuildingOccupancy == Warehouse And F09_CoolingRatedCapacity IsPresent And LTE 240
-List UnitaryHeatPumps and UnitaryHeatPumpsNoElectR
+List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse
 Else
 List all values
 End If
@@ -5593,7 +5593,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_H" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]H. FAN SYSTEMS &amp; AIR ECONOMIZERS[/d:b]</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If B03c_ProjectHasFanSystems == true Or If B03a_ProjectHasAirEconomizer== true</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required If B03c_ProjectHasFanSystems == true Or If B03a_ProjectHasAirEconomizer== true or if at least one row where F02_HvacSystemType == DedicatedOAS</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -5607,6 +5607,7 @@ End If</xsd:documentation>
                   <xsd:element name="TableFanSystems" minOccurs="0" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This section is required If B03c_ProjectHasFanSystems == true Or If B03a_ProjectHasAirEconomizer== true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
