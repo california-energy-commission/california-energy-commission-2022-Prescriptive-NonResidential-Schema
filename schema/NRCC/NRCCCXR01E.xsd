@@ -98,32 +98,64 @@ D03_ExceptionalConditionMessageCCCXRE += CoreShellOrTenantFitOutInA</xsd:documen
                         <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A05_ConditionedFloorAreaRangeNR" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Nonresidential Conditioned Floor Area  (ft[d:sup]2[/d:sup])</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input selected from list of floor area ranges:  LT10000Ft2, 10000To49999Ft2 and GTE50000Ft2
- 
-Mandatory Measure Triggers:
-If result == 10000To49999Ft2 Or GTE50000Ft2
-MM120_8_MeasureApplies = true and is displayed 
-Else If result == LT10000Ft2
-MM120_8_LT10K_MeasureApplies = true and is displayed
-End If</xsd:documentation>
-                     </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="env:ConditionedFloorAreaRangeNR">
-                           <xsd:enumeration value="10000To49999Ft2"/>
-                           <xsd:enumeration value="GTE50000Ft2"/>
-                           <xsd:enumeration value="LT10000Ft2"/>
-                        </xsd:restriction>
-                     </xsd:simpleType>
-                  </xsd:element>
-                  <xsd:element name="A06_CommissioningHvacSystem" type="hvac:CommissioningHvacSystem" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">HVAC System Type</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input selected from list of HVAC system types: UnitaryPackagedEquipmentPerZone, TwoPipeHeatingOnly, and ComplexHvacSystem</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
+                  <xsd:choice>
+                     <xsd:element name="A05_ConditionedFloorAreaRangeNR" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Nonresidential Conditioned Floor Area  (ft[d:sup]2[/d:sup])</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A02StopMessage and A0203StopMessage are false 
+   User input selected from list of floor area ranges:  LT10000Ft2, 10000To49999Ft2 and GTE50000Ft2
+   
+   Mandatory Measure Triggers:
+   If result == 10000To49999Ft2 Or GTE50000Ft2
+   MM120_8_MeasureApplies = true and is displayed 
+   Else If result == LT10000Ft2
+   MM120_8_LT10K_MeasureApplies = true and is displayed
+   End If</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="env:ConditionedFloorAreaRangeNR">
+                              <xsd:enumeration value="10000To49999Ft2"/>
+                              <xsd:enumeration value="GTE50000Ft2"/>
+                              <xsd:enumeration value="LT10000Ft2"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                     <xsd:element name="A05_NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Nonresidential Conditioned Floor Area  (ft[d:sup]2[/d:sup])</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A02StopMessage or A0203StopMessage are true
+Result = BlankGrayedOut stored in A05_NotApplicableMessage
+End if</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="comp:NotApplicableMessage">
+                              <xsd:enumeration value="BlankGrayedOut"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice>
+                     <xsd:element name="A06_CommissioningHvacSystem" type="hvac:CommissioningHvacSystem" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">HVAC System Type</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A02StopMessage and A0203StopMessage are false
+   If User input selected from list of HVAC system types: UnitaryPackagedEquipmentPerZone, TwoPipeHeatingOnly, and ComplexHvacSystem</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A06_NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">HVAC System Type</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A02StopMessage or A0203StopMessage are true
+Result = BlankGrayedOut stored in A06_NotApplicableMessage
+End if</xsd:documentation>
+                        </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="comp:NotApplicableMessage">
+                              <xsd:enumeration value="BlankGrayedOut"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                  </xsd:choice>
                   <xsd:element name="A07_ClimateZone" type="com:ClimateZone" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Climate Zone</xsd:documentation>
@@ -909,7 +941,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_F" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]F. DESIGN REVIEW KICKOFF MEETING[/d:b]</xsd:documentation>
-               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required when A02StopMessage And A0203StopMessage are false.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
@@ -2090,7 +2122,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_I" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]I. CONSTRUCTION DOCUMENT DESIGN REVIEW CHECKLIST[/d:b]</xsd:documentation>
-               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required when A02StopMessage And A0203StopMessage are false.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>

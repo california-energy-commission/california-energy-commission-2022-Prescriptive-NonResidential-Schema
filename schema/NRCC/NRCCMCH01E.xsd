@@ -7515,8 +7515,7 @@ End If</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">% Outdoor Air at Full Design Airflow</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field: 
-result =  Hexhaust05_OutdoorAirflow / (
- Hexhaust04_AirflowDesignRate + Hexhaust05_OutdoorAirflow )</xsd:documentation>
+result =  Hexhaust05_OutdoorAirflow / Hexhaust04_AirflowDesignRate </xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="Hexhaust07_HeatRecoveryExemptions" type="comp:HeatRecoveryExemptions" >
