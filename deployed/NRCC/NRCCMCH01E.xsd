@@ -2459,14 +2459,18 @@ End If</xsd:documentation>
                                                          <xsd:element name="Fa08_CoolEfficiencyMinUnitHP" type="hvac:CoolEfficiencyMinUnitHP">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == UnitaryHeatPumps Or UnitaryHeatPumpsNoElectR use this choice. 
+                                                               <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == UnitaryHeatPumps Or UnitaryHeatPumpsNoElectR
+And
+F03_UnitaryHeatPumps != WaterSourceHP And Fa02_SizeRangeUnitaryHeatPumps != GTE135000AndLT240000
+use this choice
+
 The value is stored in result1, the top displayed cell and the bottom cell is blank. 
  
- If F03_ UnitaryHeatPumps == AirCooledGasEngineHP 
+ If F03_UnitaryHeatPumps == AirCooledGasEngineHP 
 result1 = 0.60 (COP); 
  
 Else If Fa02_SizeRangeUnitaryHeatPumps == LT65000 
-Switch (F03_ UnitaryHeatPumps)  
+Switch (F03_UnitaryHeatPumps)  
 case AirCooledSplit1PhaseHP Or AirCooledPkg1PhaseHP: 
 result1 = 14.0 (SEER); 
  
@@ -2482,7 +2486,7 @@ End Switch
  
 Else If Fa02_SizeRangeUnitaryHeatPumps == LT135000 
  
-Switch (F03_ UnitaryHeatPumps) 
+Switch (F03_UnitaryHeatPumps) 
 case GroundWaterSourceHP: 
 If F02_HvacSystemType == UnitaryHeatPumps
 result1 = 18.0 (EER); 
@@ -2521,19 +2525,18 @@ End If
  
 End Switch
  
-Else If F03_ UnitaryHeatPumps == WaterSourceHP:
+Else If F03_UnitaryHeatPumps == WaterSourceHP:
+If F02_HvacSystemType == UnitaryHeatPumps
 If Fa02_SizeRangeUnitaryHeatPumps == LT17000  
-If F02_HvacSystemType == UnitaryHeatPumps
 result1 =12.2 (EER);  
+Else If Fa02_SizeRangeUnitaryHeatPumps == GTE17000AndLT135000 
+result == 13.0 (EER);
+End If
 Else If F02_HvacSystemType == UnitaryHeatPumpsNoElectR
-result1= 12.2 (EER);
-End If 
-Else If Fa02_SizeRangeUnitaryHeatPumps == GTE17000AndLT135000
-If F02_HvacSystemType == UnitaryHeatPumps
-result1 =13.0 (EER);  
-Else If F02_HvacSystemType == UnitaryHeatPumpsNoElectR
-result1= 12.8 (EER);
-End If 
+If Fa02_SizeRangeUnitaryHeatPumps == GTE65000AndLT135000
+result1 = 12.8 (EER);
+End If
+End If
 End If</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -2847,7 +2850,7 @@ End If
  
  
 Else If F02_HvacSystemType == UnitaryHeatPumps Or UnitaryHeatPumpsNoElectR  then 
-If F03_ UnitaryHeatPumps  == AirCooledSplit1PhaseHP, AirCooledSplit3PhaseHP, AirCooledPkg1PhaseHP, AirCooledPkg3PhaseHP, AirCooledSplitConstrainedHP Or AirCooledPkgConstrainedHP And SizeRangeUnitaryHeatPumps != LT65000 
+If F03_UnitaryHeatPumps  == AirCooledSplit1PhaseHP, AirCooledSplit3PhaseHP, AirCooledPkg1PhaseHP, AirCooledPkg3PhaseHP, AirCooledSplitConstrainedHP Or AirCooledPkgConstrainedHP And SizeRangeUnitaryHeatPumps != LT65000 
 result1 = EER and result2 = IEER: 
 End If
  
@@ -2909,7 +2912,7 @@ result1 = 11.0 And result2 = 14.0;
                                                                <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == UnitaryHeatPumps Or UnitaryHeatPumpsNoElectR use this choice. For the following evaluations result1 is the EER value and result2 is the IEER:  
  
-If F03_ UnitaryHeatPumps  == AirCooledSplit1PhaseHP, AirCooledSplit3PhaseHP, AirCooledPkg1PhaseHP, AirCooledPkg3PhaseHP, AirCooledSplitConstrainedHP Or AirCooledPkgConstrainedHP  
+If F03_UnitaryHeatPumps  == AirCooledSplit1PhaseHP, AirCooledSplit3PhaseHP, AirCooledPkg1PhaseHP, AirCooledPkg3PhaseHP, AirCooledSplitConstrainedHP Or AirCooledPkgConstrainedHP  
  
 Switch (Fa02_SizeRangeUnitaryHeatPumps) 
 case GTE65000AndLT135000: 
@@ -3139,7 +3142,7 @@ End If</xsd:documentation>
                                                    <xsd:documentation source="FieldText"/>
                                                    <xsd:documentation source="CalculationsAndRules">Use this choice If F08_NotApplicableMessage IsPresent
  Or F08_CoolingSensibleDesignCapacity LT 1 for Fa01 
-Or If F03_ UnitaryHeatPumps == WaterSourceHP And If Fa02_SizeRangeUnitaryHeatPumps == GTE135000AndLT240000
+Or If F03_UnitaryHeatPumps == WaterSourceHP And If Fa02_SizeRangeUnitaryHeatPumps == GTE135000AndLT240000
 Or If F03_ CeilingCRAC == AirCooledFreeAirDucted: And Fa02_SizeRangeCeilingCRAC ==LT29000</xsd:documentation>
                                                 </xsd:annotation>
                                                 <xsd:complexType>
@@ -4765,8 +4768,12 @@ EfficiencyException2 display term 2. Heat recovery w/ design capacity GT 40% of 
 EfficiencyException3 display term 3. Charging energy storage systems w/ charging temperature  LT 40
                                              <d:deg/>F, 
 EfficiencyException4 display term 4. 4th (or more) chiller in this building.  
+EfficiencyException5 display term 5. Water -Cooled Centrifugal Chilling Package per Exception 1 to 
+                                             <d:t24refnolink/>110.2(a)
  
-If result != NoExceptionTaken minimum efficiency values for path A should be used
+If result == EfficiencyException1 Or EfficiencyException2 Or EfficiencyException3 Or EfficiencyException4 minimum efficiency values for path A should be used
+Else If result == NoExceptionTaken minimum efficiency values for path B should be used
+Else Fd_NotApplicableMessage should be used
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -4780,7 +4787,9 @@ End If</xsd:documentation>
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText"/>
                                                    <xsd:documentation source="CalculationsAndRules">Use this choice 
-If  Fd02_ChillerType == AbsorptionSingleEffect  Or AbsorptionSingleEffectWater.  
+If  Fd02_ChillerType == AbsorptionSingleEffect  Or AbsorptionSingleEffectWater
+And
+Fd05_ChillerExceptionPathB != EfficiencyException5    
 End If
 There is only one efficiency value COP assigned to result1, the top cell and result2 bottom cell is blank.</xsd:documentation>
                                                 </xsd:annotation>
@@ -4822,7 +4831,9 @@ result2 bottom cell is blank.</xsd:documentation>
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText"/>
                                                    <xsd:documentation source="CalculationsAndRules">Use this choice 
-If Fd02_ChillerType == AbsorptionDoubleEffectDirectFired, AbsorptionDoubleEffectIndirectFired Or GasEngineDriven. 
+If Fd02_ChillerType == AbsorptionDoubleEffectDirectFired, AbsorptionDoubleEffectIndirectFired Or GasEngineDriven.
+And
+Fd05_ChillerExceptionPathB != EfficiencyException5   
 End If
 Two  efficiency values are required: COP  in result1 and IPLV in result2</xsd:documentation>
                                                 </xsd:annotation>
@@ -4892,7 +4903,9 @@ End If</xsd:documentation>
                                              <xsd:element name="FdEER_IPLV">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText"/>
-                                                   <xsd:documentation source="CalculationsAndRules">Use this choice If Fd02_ChillerType == AirCooledWithCondenser Or AirCooledWithOutCondenser. 
+                                                   <xsd:documentation source="CalculationsAndRules">Use this choice If Fd02_ChillerType == AirCooledWithCondenser Or AirCooledWithOutCondenser
+And
+Fd05_ChillerExceptionPathB != EfficiencyException5
  
 If Fd05_ChillerExceptionPathB == NoExceptionTaken Path B values are used; 
 Else Path A values are used.  
@@ -4976,7 +4989,9 @@ End If</xsd:documentation>
                                              <xsd:element name="FdKWperTon_IPLV">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText"/>
-                                                   <xsd:documentation source="CalculationsAndRules">Use this choice If Fd02_ChillerType Reciprocating,  PositiveDisplacement Or Centrifugal.  
+                                                   <xsd:documentation source="CalculationsAndRules">Use this choice If Fd02_ChillerType Reciprocating,  PositiveDisplacement Or Centrifugal
+And
+Fd05_ChillerExceptionPathB != EfficiencyException5  
  
 If Fd05_ChillerExceptionPathB == NoExceptionTaken Path B values are used; 
 Else Path A values are used.  
@@ -5120,6 +5135,100 @@ End If</xsd:documentation>
                                                          <xsd:simpleType>
                                                             <xsd:restriction base="hvac:EfficiencyType">
                                                                <xsd:enumeration value="KWperTon_IPLV"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                   </xsd:sequence>
+                                                </xsd:complexType>
+                                             </xsd:element>
+                                             <xsd:element name="Fd_NotApplicableMessage">
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText"/>
+                                                   <xsd:documentation source="CalculationsAndRules">Use this choice 
+If  Fd05_ChillerExceptionPathB == EfficiencyException5  
+End If</xsd:documentation>
+                                                </xsd:annotation>
+                                                <xsd:complexType>
+                                                   <xsd:sequence>
+                                                      <xsd:element name="Fd06a_NotApplicableMessage">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If Fe02_HeatRejectionType == WatersideEconomizer 
+result = BlankGrayedOut Stored in the NotApplicableMessage
+End If</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:NotApplicableMessage">
+                                                               <xsd:enumeration value="BlankGrayedOut"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd06b_NotApplicableMessage">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If Fe02_HeatRejectionType == WatersideEconomizer 
+result = BlankGrayedOut Stored in the NotApplicableMessage
+End If</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:NotApplicableMessage">
+                                                               <xsd:enumeration value="BlankGrayedOut"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd07a_NotApplicableMessage">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Efficiencies Required per 
+                                                               <d:t24refnolink/>110.2<d:sup>2</d:sup>
+                                                            </xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If Fe02_HeatRejectionType == WatersideEconomizer 
+result = BlankGrayedOut Stored in the NotApplicableMessage
+End If</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:NotApplicableMessage">
+                                                               <xsd:enumeration value="BlankGrayedOut"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd07b_NotApplicableMessage">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Efficiencies Required per 
+                                                               <d:t24refnolink/>110.2<d:sup>2</d:sup>
+                                                            </xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If Fe02_HeatRejectionType == WatersideEconomizer 
+result = BlankGrayedOut Stored in the NotApplicableMessage
+End If</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:NotApplicableMessage">
+                                                               <xsd:enumeration value="BlankGrayedOut"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd08a_NotApplicableMessage">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If Fe02_HeatRejectionType == WatersideEconomizer 
+result = BlankGrayedOut Stored in the NotApplicableMessage
+End If</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:NotApplicableMessage">
+                                                               <xsd:enumeration value="BlankGrayedOut"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd08b_NotApplicableMessage">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If Fe02_HeatRejectionType == WatersideEconomizer 
+result = BlankGrayedOut Stored in the NotApplicableMessage
+End If</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="comp:NotApplicableMessage">
+                                                               <xsd:enumeration value="BlankGrayedOut"/>
                                                             </xsd:restriction>
                                                          </xsd:simpleType>
                                                       </xsd:element>
