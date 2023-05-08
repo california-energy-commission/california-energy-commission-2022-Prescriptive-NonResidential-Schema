@@ -3811,6 +3811,22 @@ End If</xsd:documentation>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
+                                                         <xsd:element name="Chlr06cc_NotApplicableMessage" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Rated Efficiency #1</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent And And Fd_NotApplicableMessage IsPresent
+result = BlankGrayedOut
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="reference">HvacWet09_NotApplicableMessage</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
                                                       </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
                                                          <xsd:element name="Chlr06_EfficiencyCOP" type="hvac:EfficiencyCOP" >
@@ -3849,6 +3865,22 @@ End If
 End If</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
+                                                         <xsd:element name="Chlr06_NotApplicableMessage" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Rated Efficiency #1</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent And And Fd_NotApplicableMessage IsPresent
+result = BlankGrayedOut
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="reference">HvacWet09_NotApplicableMessage</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
                                                       </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
                                                          <xsd:element name="Chlr07cc_EfficiencyType" >
@@ -3876,6 +3908,7 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Efficiency Unit #1</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-PRF parent And And HvacWet09_NotApplicableMessage IsPresent
+Or CC-MCH parent and Fd_NotApplicableMessage IsPresent
 result = BlankGrayedOut
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
@@ -3913,6 +3946,7 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Efficiency Unit #1</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Chlr07cc_NotApplicableMessage IsPresent  
+Or CC-MCH parent and Fd_NotApplicableMessage IsPresent
 result = Chlr07cc_NotApplicableMessage
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -3961,6 +3995,7 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Rated Efficiency #2</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-MCH parent And Fd06b_EfficiencyCOP_IPLV NotPresent And Fd06b_EfficiencyEER_IPLV NotPresent  And Fd06b_EfficiencyKWperTon_IPLV NotPresent
+Or Fd_NotApplicableMessage IsPresent
 result = BlankGrayedOut
  
 Else If CC-PRF parent
@@ -4021,6 +4056,7 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Rated Efficiency #2</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Chlr08cc_NotApplicableMessage IsPresent
+Or Fd_NotApplicableMessage IsPresent
 result = Chlr08cc_NotApplicableMessage
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -4054,7 +4090,8 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Efficiency Unit #2</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-MCH parent 
-If Fd08b_EfficiencyType NotPresent  
+If Fd08b_EfficiencyType NotPresent 
+Or Fd_NotApplicableMessage IsPresent 
 result = BlankGrayedOut
 End If
 Else If CC-PRF parent
@@ -4096,6 +4133,7 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Efficiency Unit #2</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Chlr09cc_NotApplicableMessage IsPresent
+Or Fd_NotApplicableMessage IsPresent
 result = Chlr09cc_NotApplicableMessage 
 End If</xsd:documentation>
                                                             </xsd:annotation>
