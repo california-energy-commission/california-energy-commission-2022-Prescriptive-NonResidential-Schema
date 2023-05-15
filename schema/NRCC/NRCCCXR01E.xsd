@@ -87,7 +87,7 @@
                   <xsd:element name="A03_CommissioningProjectScope" type="comp:CommissioningProjectScope" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Project Type</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input selected from project types: NewConstruction, MajorRenovation, ShellCoreOnly, TenantFitOutOnly and AdditionAlteration.
+                        <xsd:documentation source="CalculationsAndRules">User input selected from project types: NewConstruction, ShellCoreOnly, TenantFitOutOnly and AdditionAlteration.
 If result == ShellCoreOnly Or , TenantFitOutOnly Then 
 D03_ExceptionalConditionMessageCCCXRE += CoreShellOrTenantFitOutInA</xsd:documentation>
                      </xsd:annotation>

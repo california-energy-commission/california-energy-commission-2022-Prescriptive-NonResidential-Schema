@@ -18439,13 +18439,13 @@ result = Kvertperf29_OverhangProjection / Kvertperf30_OverhangSpacing</xsd:docum
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">RSHGC</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">Calculated Field: Assign of equation variables as follows: 
- If Kvertperf27_ConstructedShadingType == Overhang  a = 0.150 and  b = 0.130 and c=5.67; 
-Else If Kvertperf27_ConstructedShadingType == HorizontalSlats  a = 0.144 and  b = 0.133 and c = 5.13;     
+If Kvertperf27_ConstructedShadingType == Overhang a = 0.150 and b = 0.008727 and c=5.67;
+Else If Kvertperf27_ConstructedShadingType == HorizontalSlats a = 0.144 and b = 0.008727 and c = 5.13;    
 End If
 Az = Kvertperf28_Azimuth
 PF =Kvertperf31_ProjectionFactor
  
-Equation for the result = Kvertperf26_SHGC  x  (1 + a x  (2.72^-PF  - 1) x (sin(b x Az)) - c)</xsd:documentation>
+Equation for the result = Kvertperf26_SHGC x (1 + a x (2.72^-PF - 1) x (sin(b x Az)) + c)</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                    </xsd:sequence>

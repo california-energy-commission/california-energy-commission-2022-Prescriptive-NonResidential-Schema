@@ -10588,7 +10588,7 @@
             <dtyp:displayterm value="BoilerDHW">Boiler</dtyp:displayterm>
             <dtyp:displayterm value="BoilerResDutyCommercial">Residential-duty Gas Hot Water Supply Boilers ([d:lt/]300k Btu/h)</dtyp:displayterm>
             <dtyp:displayterm value="BoilerWaterHeater">Commercial Gas Hot Water Supply Boilers</dtyp:displayterm>
-            <dtyp:displayterm value="CentralHeatPumpWH">Central Heat Pump Water Heater</dtyp:displayterm>
+            <dtyp:displayterm value="CentralHeatPumpWH">Heat Pump Water Heater</dtyp:displayterm>
             <dtyp:displayterm value="CommercialPkgBoiler">Commercial Packaged  Boiler</dtyp:displayterm>
             <dtyp:displayterm value="HeatPumpWaterHeater">Heat Pump Water Heater</dtyp:displayterm>
             <dtyp:displayterm value="IndirectDHW">Indirect</dtyp:displayterm>

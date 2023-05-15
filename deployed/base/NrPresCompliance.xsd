@@ -6427,6 +6427,9 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="ControlledHorticultureNA">NA: Controlled Environment Horticulture</dtyp:displayterm>
+            <dtyp:displayterm value="DOASEAHR">NA: DOAS with EAHR</dtyp:displayterm>
+            <dtyp:displayterm value="DOASGTE54">NA: DOAS 
+               <d:gte/> 54kbtu/h</dtyp:displayterm>
             <dtyp:displayterm value="HasSpecialOutsideAirFiltration">NA: Special OA filtration</dtyp:displayterm>
             <dtyp:displayterm value="HasWatersideEconomizer">Waterside Economizer</dtyp:displayterm>
             <dtyp:displayterm value="HighRiseResHotelMotel">NA: Multifamily/hotel/motel</dtyp:displayterm>
@@ -6441,6 +6444,8 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="ControlledHorticultureNA"/>
+         <xsd:enumeration value="DOASEAHR"/>
+         <xsd:enumeration value="DOASGTE54"/>
          <xsd:enumeration value="HasSpecialOutsideAirFiltration"/>
          <xsd:enumeration value="HasWatersideEconomizer"/>
          <xsd:enumeration value="HighRiseResHotelMotel"/>
