@@ -3873,9 +3873,6 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-MCH parent And And Chlr06cc_NotApplicableMessage IsPresent
 result = BlankGrayedOut
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="CIsrc">
-                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="reference">HvacWet09_NotApplicableMessage</dtyp:srcSchema>
-                                                               </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
                                                                <xsd:restriction base="comp:NotApplicableMessage">
@@ -3888,12 +3885,13 @@ End If</xsd:documentation>
                                                          <xsd:element name="Chlr07cc_EfficiencyType" >
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Efficiency Unit #1</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent 
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent And Fd08a_NotApplicableMessage NotPresent
 result = Fd08a_EfficiencyType 
 Else If CC-PRF parent And HvacWet02_ChillerType IsPresent
 result = HvacWet09_EfficiencyType
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCMCH01E"  usage="reference">Fd08a_NotApplicableMessage</dtyp:srcSchema>
                                                                   <dtyp:srcSchema form="CCMCH01E"  usage="copy">Fd08a_EfficiencyType</dtyp:srcSchema>
                                                                   <dtyp:srcSchema form="CCPRF01E"  usage="copy">HvacWet09_EfficiencyType</dtyp:srcSchema>
                                                                </xsd:appinfo>
@@ -3948,8 +3946,7 @@ End If</xsd:documentation>
                                                          <xsd:element name="Chlr07_NotApplicableMessage" >
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Efficiency Unit #1</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If Chlr07cc_NotApplicableMessage IsPresent  
-Or CC-MCH parent and Chlr07cc_NotApplicableMessage IsPresent
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-MCH parent and Chlr07cc_NotApplicableMessage IsPresent
 result = Chlr07cc_NotApplicableMessage
 End If</xsd:documentation>
                                                             </xsd:annotation>

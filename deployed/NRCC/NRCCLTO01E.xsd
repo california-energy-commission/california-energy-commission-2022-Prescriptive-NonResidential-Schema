@@ -1273,12 +1273,23 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
+                  <xsd:element name="TableControlsMFApplies" type="comp:DwellingUnitOutdoorLighting" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This field is required if A05_WholeBuildingOccupancy == MultiFamilyMixedUseGTE4
+The field asks the user if they have outdoor lighting that is controlled from within a dwelling unit
+If true
+TableControlsMF is required 
+Else
+TableControlsMF is not required</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="TableControlsMF" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">
                            <d:b> Outdoor Lighting Controlled from Inside Multifamily Dwelling Units </d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This table is required If A05_WholeBuildingOccupancy == MultiFamilyMixedUseGTE4</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This table is required If TableControlsMFApplies == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>

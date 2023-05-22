@@ -10743,9 +10743,12 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">
                                                 <d:b>NR/ Common Use:</d:b> Duct leakage testing shall not exceed 6% per NA7.5.3 required for these systems?</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Use this choice of 6%  If L17_PressureSealClassA == false
+                                             <xsd:documentation source="CalculationsAndRules">Use this choice of 6%  If L18_DuctWorkExtends == false And L20_DuctsLT25FtInstalled == true
+And 
+L23_DuctworkAlteredSystem == false
+
 Calculated field:If L12_SingleZoneConstantVol  And L13_ServesLT5000Ft2  And L14_LocationsGT25Pct  == true And 
-L11_IsBuildingHealthcare  And L15_DuctSystemHasAsbestos And L16_DuctSystemExistingSealed  == false 
+L11_IsBuildingHealthcare  And L15_DuctSystemHasAsbestos And L16_DuctSystemExistingSealed And L19_DuctWorkSingleDwelling And L20_DuctsLT25FtInstalled And L22_ExistingToRemain == false 
 result = true
 Else 
 result = false
@@ -10756,10 +10759,12 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">
                                                 <d:b>NR/ Common Use:</d:b> Duct leakage testing shall not exceed 15% per NA7.5.3 required for these systems?</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Use this choice of 15%  If L17_PressureSealClassA == true
+                                             <xsd:documentation source="CalculationsAndRules">Use this choice of 15%  If L18_DuctWorkExtends == true And L20_DuctsLT25FtInstalled == false
+Or 
+L23_DuctworkAlteredSystem == false
  
-Calculated field: If L12_SingleZoneConstantVol  And L13_ServesLT5000Ft2  And L14_LocationsGT25Pct  == true And 
-L11_IsBuildingHealthcare  And L15_DuctSystemHasAsbestos And L16_DuctSystemExistingSealed  == false 
+Calculated field:If L12_SingleZoneConstantVol  And L13_ServesLT5000Ft2  And L14_LocationsGT25Pct  == true And 
+L11_IsBuildingHealthcare  And L15_DuctSystemHasAsbestos And L16_DuctSystemExistingSealed And L19_DuctWorkSingleDwelling And L20_DuctsLT25FtInstalled And L22_ExistingToRemain == false 
 result = true
 Else 
 result = false
@@ -10786,8 +10791,12 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">
                                                 <d:b>Dwelling Units: </d:b> Total duct leakage of duct system shall not exceed 12% or duct system to outside shall not exceed 6% per RA3.1.4 required for systems?</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Use this choice of 12% and 6%  If evaluating L18_DuctWorkExtends and L17_PressureSealClassA
-Calculated field: If L18_DuctWorkExtends == true And L17_PressureSealClassA  == false
+                                             <xsd:documentation source="CalculationsAndRules">Use this choice of 12% and 6% If:
+L19_DuctWorkSingleDwelling == true
+And 
+L18_DuctWorkExtends, L20_DuctsLT25FtInstalled, and L23_DuctworkAlteredSystem == false
+And 
+A02_ClimateZoneNumber != 1, 3, 5, or 7
 result = true
 Else
 result = false
@@ -10798,8 +10807,14 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">
                                                 <d:b>Dwelling Units: </d:b> Total duct leakage of duct system shall not exceed 15% or duct system to outside shall not exceed 10% per RA3.1.4 required for systems?</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Use this choice of 15% and 10%  If evaluating L18_DuctWorkExtends and L19_DuctWorkSingleDwelling 
-Calculated field: If L18_DuctWorkExtends == true And L19_DuctWorkSingleDwelling  == false
+                                             <xsd:documentation source="CalculationsAndRules">Use this choice of 15% and 10% If: 
+L19_DuctWorkSingleDwelling == true
+And
+L15_DuctSystemHasAsbestos == false
+And
+L18_DuctWorkExtends == true And L20_DuctsLT25FtInstalled == false
+Or
+L23_DuctworkAlteredSystem == true And L15_DuctSystemHasAsbestos And L16_DuctSystemExistingSealed == false
 result = true
 Else
 result = false
@@ -10825,7 +10840,7 @@ End If</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Duct leakage testing per CMC Section 603.10.1 required  for these systems?</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated value: 
-If L10c1_DuctLeakageMeetsNA7Req == false and L10c2_DuctLeakageMeetsNA7Req == false and L10d1_DuctLeakageMeetsRA3Req == false and L10d2_DuctLeakageMeetsRA3Req == false
+If L10c1_DuctLeakageMeetsNA7Req == false and L10c2_DuctLeakageMeetsNA7Req == false and L10d1_DuctLeakageMeetsRA3Req == false and L10d2_DuctLeakageMeetsRA3Req == false And L22_ExistingToRemain == false
 result = true;
 Else
 result = false
@@ -11086,6 +11101,56 @@ End If
                                        <xsd:element name="L21_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Dust Insulation R-value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If L11_IsBuildingHealthcare == true  
+ result = BlankGrayedOut  
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice>
+                                       <xsd:element name="L22_ExistingToRemain" type="comp:DuctSystemExistingToRemain">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Ductwork Existing To Remain</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If L11_IsBuildingHealthcare != true  
+User selects from list
+End If
+ 
+If Yes result = true; Else result = false.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="L22_NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Ductwork Existing To Remain</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If L11_IsBuildingHealthcare == true  
+ result = BlankGrayedOut  
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice>
+                                       <xsd:element name="L23_DuctworkAlteredSystem" type="comp:DuctAlteredHVACSystem">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Duct System Connected To Altered Space Conditioning System</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If L11_IsBuildingHealthcare != true  
+User selects from list
+End If
+ 
+If Yes result = true; Else result = false.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="L23_NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Duct System Connected To Altered Space Conditioning System</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If L11_IsBuildingHealthcare == true  
  result = BlankGrayedOut  
 End If</xsd:documentation>
@@ -11459,7 +11524,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-MCH-04 - Air Distribution Duct Leakage</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false;  
  
-If L10c1_DuctLeakageMeetsNA7Req Or L10c2_DuctLeakageMeetsNA7Req Or L10d1_DuctLeakageMeetsRA3Req Or L10d2_DuctLeakageMeetsRA3Req == true for any system in section L 
+If L10c1_DuctLeakageMeetsNA7Req Or L10c2_DuctLeakageMeetsNA7Req == true for any system in section L 
 result = true display term selected Yes radio button
 End If</xsd:documentation>
                      </xsd:annotation>
