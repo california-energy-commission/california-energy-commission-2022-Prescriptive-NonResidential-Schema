@@ -76,7 +76,7 @@ result = Info01_ProjectCity
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCPLB01E"  usage="copy">A01_ProjectCity</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Info01_ProjectCity</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Info04_ProjectCity</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -89,7 +89,7 @@ Else If NRCC-PRF parent
 result = Info02_ProjectZipcode
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Info02_ProjectZipcode</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Info06_ProjectZipcode</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>

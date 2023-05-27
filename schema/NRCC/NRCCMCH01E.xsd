@@ -546,6 +546,13 @@ And If TableExhaustFan IsPresent
 If Hexhaust01- Hexhaust11 If != BlankGrayedOut have data 
 And If TableDOAS IsPresent
 If Hdoas01-Hdoas06 If != BlankGrayedOut have data
+
+And If TableFEI IsPresent
+If Hfei02_FanEnergyIndexException == NoneApplyFEI
+Hfei03_FanEnergyIndex GTE 1.0
+Else if Hfei02_FanEnergyIndexException == ExceptVavFan
+Hfei03_FanEnergyIndex GTE 0.95
+End If
  
 Then result = true display term Yes; 
 Else result = false display term No And D03_ExceptionalConditionMessageCCMCHE += FanPowerIndexExceedsMaxInH; 
@@ -7123,9 +7130,9 @@ End If</xsd:documentation>
                                        </xsd:complexType>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="H12_FanSystemPowerAllowance" type="comp:FanSystemPowerAllowance" >
+                                       <xsd:element name="H12a_SupplyFanBaseAllowance" type="comp:FanSystemPowerAllowance" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Fan System Allowance (kW)[d:sup]3[/d:sup]</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Supply Fan Base Allowance (kW)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Calculated value:
 SupplyFanBaseAllowance is assigned as follows:
    If H02_FanFunction == Supply Is Not Present in TableFanSystems Row
@@ -7174,7 +7181,30 @@ SupplyFanBaseAllowance is assigned as follows:
       End If
    End If
 End If
-
+</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="H12a_NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Supply Fan Base Allowance (kW)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If H00e_SystemZoning == MultiDwellingUnits Or SingleDwellingUnit
+result = BlankGrayedOut 
+Else If H00e_SystemZoning == DOASZone And  H13_FanSystemInputPower  LT 1.0 kW 
+result = BlankGrayedOut stored in NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="H12b_ExhaustFanBaseAllowance" type="comp:FanSystemPowerAllowance" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Exhuast/Return/Relief/Transfer Fan Base Allowance(kW)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Calculated value:
 ExhaustFanBaseAllowance is assigned as follows:
    If H02_FanFunction == Exhaust Or Relief Or Return Or Transfer Is Not Present in TableFanSystems Row
       ExhuastFanBaseAllowance == 0
@@ -7200,18 +7230,41 @@ ExhaustFanBaseAllowance is assigned as follows:
       End If
    End If
 End If
-
+</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="H12b_NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Exhuast/Return/Relief/Transfer Fan Base Allowance(kW)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If H00e_SystemZoning == MultiDwellingUnits Or SingleDwellingUnit
+result = BlankGrayedOut 
+Else If H00e_SystemZoning == DOASZone And  H13_FanSystemInputPower  LT 1.0 kW 
+result = BlankGrayedOut stored in NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="H12_FanSystemPowerAllowance" type="comp:FanSystemPowerAllowance" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Fan System Allowance (kW)[d:sup]3[/d:sup]</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Calculated value:
 If H00d_SystemZoning != DOAS
    If H00g_Elevation LTE 3,000 ft
-      result = ((SupplyFanBaseAllowance + ExhuastFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))  x  H00f_FanSystemFlowCapacity) / 1000   
+      result = ((H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))  x  H00f_FanSystemFlowCapacity) / 1000   
    Else If H00g_Elevation GTE 3,000 ft And LT 4,000
-      result = (0.896  x (SupplyFanBaseAllowance + ExhuastFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))) x  H00f_FanSystemFlowCapacity) / 1000   
+      result = (0.896  x (H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))) x  H00f_FanSystemFlowCapacity) / 1000   
    Else If H00g_Elevation GTE 4,000 ft And LT 5,000
-      result = (0.864 x (SupplyFanBaseAllowance + ExhuastFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))) x  H00f_FanSystemFlowCapacity) / 1000   
+      result = (0.864 x (H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))) x  H00f_FanSystemFlowCapacity) / 1000   
    Else If H00g_Elevation GTE 5,000 ft And LT 6,000
-      result = (0.832 x (SupplyFanBaseAllowance + ExhuastFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))) x  H00f_FanSystemFlowCapacity) / 1000   
+      result = (0.832 x (H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))) x  H00f_FanSystemFlowCapacity) / 1000   
    Else If H00g_Elevation GTE 6,000 ft 
-      result = (0.801 x (SupplyFanBaseAllowance + ExhuastFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance)))x  H00f_FanSystemFlowCapacity) / 1000   
+      result = (0.801 x (H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance)))x  H00f_FanSystemFlowCapacity) / 1000   
    End If
 Else If H00d_SystemZoning == DOASZone
    result = H00f_FanSystemFlowCapacity / 1000 
@@ -8615,7 +8668,7 @@ End If</xsd:documentation>
                                        <xsd:element name="Hfei03_FanEnergyIndex" type="comp:FanEnergyIndex" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">FEI</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Hfei02_FanEnergyIndexException  != NoneApplyFEI
+                                             <xsd:documentation source="CalculationsAndRules">If Hfei02_FanEnergyIndexException  == NoneApplyFEI Or ExceptVavFan
 User input
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -8623,7 +8676,7 @@ End If</xsd:documentation>
                                        <xsd:element name="Hfei03_NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">FEI</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Hfei02_FanEnergyIndexException  == NoneApplyFEI
+                                             <xsd:documentation source="CalculationsAndRules">If Hfei02_FanEnergyIndexException  != NoneApplyFEI or ExceptVavFan
 result = NotApplicableMessage
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -10333,12 +10386,14 @@ End If</xsd:documentation>
                                        <xsd:element name="L10c1_DuctLeakageMeetsNA7Req" type="comp:DuctLeakageMeetsNA7Req" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">[d:b]NR/ Common Use:[/d:b] Duct leakage testing shall not exceed 6% per NA7.5.3 required for these systems?</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Use this choice of 6%  If L18_DuctWorkExtends == false And L20_DuctsLT25FtInstalled == true
+                                             <xsd:documentation source="CalculationsAndRules">Use this choice of 6%  If L18_DuctWorkExtends == false 
 And 
 L23_DuctworkAlteredSystem == false
 
 Calculated field:If L12_SingleZoneConstantVol  And L13_ServesLT5000Ft2  And L14_LocationsGT25Pct  == true And 
-L11_IsBuildingHealthcare  And L15_DuctSystemHasAsbestos And L16_DuctSystemExistingSealed And L19_DuctWorkSingleDwelling And L20_DuctsLT25FtInstalled And L22_ExistingToRemain == false 
+L11_IsBuildingHealthcare  And L15_DuctSystemHasAsbestos And L16_DuctSystemExistingSealed And L19_DuctWorkSingleDwelling And L22_ExistingToRemain == false 
+And 
+L20_DuctsLT25FtInstalled != true
 result = true
 Else 
 result = false
@@ -10350,10 +10405,12 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">[d:b]NR/ Common Use:[/d:b] Duct leakage testing shall not exceed 15% per NA7.5.3 required for these systems?</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Use this choice of 15%  If L18_DuctWorkExtends == true And L20_DuctsLT25FtInstalled == false
 Or 
-L23_DuctworkAlteredSystem == false
+L23_DuctworkAlteredSystem == true
  
 Calculated field:If L12_SingleZoneConstantVol  And L13_ServesLT5000Ft2  And L14_LocationsGT25Pct  == true And 
-L11_IsBuildingHealthcare  And L15_DuctSystemHasAsbestos And L16_DuctSystemExistingSealed And L19_DuctWorkSingleDwelling And L20_DuctsLT25FtInstalled And L22_ExistingToRemain == false 
+L11_IsBuildingHealthcare  And L15_DuctSystemHasAsbestos And L16_DuctSystemExistingSealed And L19_DuctWorkSingleDwelling And L22_ExistingToRemain == false 
+And
+L20_DuctsLT25FtInstalled != true
 result = true
 Else 
 result = false
@@ -10381,7 +10438,9 @@ End If</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Use this choice of 12% and 6% If:
 L19_DuctWorkSingleDwelling == true
 And 
-L18_DuctWorkExtends, L20_DuctsLT25FtInstalled, and L23_DuctworkAlteredSystem == false
+L18_DuctWorkExtends, and L23_DuctworkAlteredSystem == false
+And
+L20_DuctsLT25FtInstalled != true
 And 
 A02_ClimateZoneNumber != 1, 3, 5, or 7
 result = true
@@ -10396,6 +10455,7 @@ End If</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Use this choice of 15% and 10% If: 
 L19_DuctWorkSingleDwelling == true
 And
+If 
 L15_DuctSystemHasAsbestos == false
 And
 L18_DuctWorkExtends == true And L20_DuctsLT25FtInstalled == false
@@ -10404,6 +10464,7 @@ L23_DuctworkAlteredSystem == true And L15_DuctSystemHasAsbestos And L16_DuctSyst
 result = true
 Else
 result = false
+End If
 End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -10646,19 +10707,21 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">[d:lt/] 25 ft of new or replacement space conditioning ducts installed</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If L11_IsBuildingHealthcare != true  
+And L18_DuctWorkExtends == true
+ 
 User input;  
 End If
  
- If Yes result = true; Else result = false.</xsd:documentation>
+If Yes result = true; Else result = false.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="L20_NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">[d:lt/] 25 ft of new or replacement space conditioning ducts installed</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If L11_IsBuildingHealthcare == true Or
-L18_DuctWorkExtends == true
+L18_DuctWorkExtends == false
  
- result = BlankGrayedOut  
+result = BlankGrayedOut  
 End If</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>

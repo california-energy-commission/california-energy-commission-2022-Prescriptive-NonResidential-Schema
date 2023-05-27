@@ -76,7 +76,7 @@ result = Info01_ProjectCity
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCENV01E"  usage="copy">A01_ProjectCity</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Info01_ProjectCity</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Info04_ProjectCity</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -90,7 +90,7 @@ result = Info02_ProjectZipcode
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="CCENV01E"  usage="copy">A02_Zipcode</dtyp:srcSchema>
-                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Info02_ProjectZipcode</dtyp:srcSchema>
+                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Info06_ProjectZipcode</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -698,7 +698,7 @@ End If</xsd:documentation>
                                                                   <dtyp:srcSchema form="CCENV01E"  usage="reference">Fframed11_NotApplicableMessage</dtyp:srcSchema>
                                                                   <dtyp:srcSchema form="CCENV01E"  usage="reference">Fmetalb10_NotApplicableMessage</dtyp:srcSchema>
                                                                   <dtyp:srcSchema form="CCENV01E"  usage="reference">FSIPS11_NotApplicableMessage</dtyp:srcSchema>
-                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="reference">Opaq05__NotApplicableMessage</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="reference">Opaq05_NotApplicableMessage</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -1003,7 +1003,7 @@ result = Opaq06_InsulationRValue
 End If
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
-                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="copy">Opaq06_InsulationRValue</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="copy">Opaq06int_InsulationRValue</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -1048,7 +1048,7 @@ End If</xsd:documentation>
                                                                   <dtyp:srcSchema form="CCENV01E"  usage="reference">Fmetalb11_NotApplicableMessage</dtyp:srcSchema>
                                                                   <dtyp:srcSchema form="CCENV01E"  usage="reference">FSIPS12_NotApplicableMessage</dtyp:srcSchema>
                                                                   <dtyp:srcSchema form="CCENV01E"  usage="reference">Fspan11_NotApplicableMessage</dtyp:srcSchema>
-                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="reference">Opaq06_NotApplicableMessage</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="reference">Opaq06int_NotApplicableMessage</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -3775,7 +3775,7 @@ result = Opaq06_InsulationRValue
 End If
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
-                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="copy">Opaq06_InsulationRValue</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="copy">Opaq06int_InsulationRValue</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -3800,7 +3800,7 @@ End If</xsd:documentation>
                                                                   <dtyp:srcSchema form="CCENV01E"  usage="reference">Hframed09_NotApplicableMessage</dtyp:srcSchema>
                                                                   <dtyp:srcSchema form="CCENV01E"  usage="reference">HSIPS08_NotApplicableMessage</dtyp:srcSchema>
                                                                   <dtyp:srcSchema form="CCENV01E"  usage="reference">Hmetalb07_NotApplicableMessage</dtyp:srcSchema>
-                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="reference">Opaq06_NotApplicableMessage</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="reference">Opaq06int_NotApplicableMessage</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -5379,7 +5379,7 @@ End If
 End If
 The displayed result fills the row cell and there is no division into top and bottom parts of the cell</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
-                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="copy">Opaq06_InsulationRValue</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="copy">Opaq06int_InsulationRValue</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -5401,7 +5401,7 @@ End If
 The cell is gray and blanked out and there is no division of top and bottom parts of the cell</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCENV01E"  usage="reference">Iframed08_NotApplicableMessage</dtyp:srcSchema>
-                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="reference">Opaq06_NotApplicableMessage</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E"  usage="reference">Opaq06int_NotApplicableMessage</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>

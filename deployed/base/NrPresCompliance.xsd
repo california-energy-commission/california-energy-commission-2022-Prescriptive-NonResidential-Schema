@@ -6300,6 +6300,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
    <xsd:simpleType name="FanEnergyIndexException">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="ExceptAltered">Altered Fan System</dtyp:displayterm>
             <dtyp:displayterm value="ExceptCRAC">Computer Room Air Conditioners</dtyp:displayterm>
             <dtyp:displayterm value="ExceptDxDoas">Dx-DOAS Unit</dtyp:displayterm>
             <dtyp:displayterm value="ExceptEmergencyOpOnly">Operates Only During Emergencies</dtyp:displayterm>
@@ -6308,16 +6309,21 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
                <d:lt/>5HP or 
                <d:lt/>4.1kW</dtyp:displayterm>
             <dtyp:displayterm value="ExceptFanReg110">Embedded Fan Regulated under 110.2 or 110.1</dtyp:displayterm>
+            <dtyp:displayterm value="ExceptLowrise">Lowrise Multifamily Occupancy</dtyp:displayterm>
+            <dtyp:displayterm value="ExceptVavFan">Variable Air Volume Fan System</dtyp:displayterm>
             <dtyp:displayterm value="NoneApplyFEI">None Applies</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="ExceptAltered"/>
          <xsd:enumeration value="ExceptCRAC"/>
          <xsd:enumeration value="ExceptDxDoas"/>
          <xsd:enumeration value="ExceptEmergencyOpOnly"/>
          <xsd:enumeration value="ExceptFanCirculatingCeiling"/>
          <xsd:enumeration value="ExceptFanLT5hp4_1kW"/>
          <xsd:enumeration value="ExceptFanReg110"/>
+         <xsd:enumeration value="ExceptLowrise"/>
+         <xsd:enumeration value="ExceptVavFan"/>
          <xsd:enumeration value="NoneApplyFEI"/>
       </xsd:restriction>
    </xsd:simpleType>

@@ -198,7 +198,7 @@
                                        <xsd:element name="B03_ElectricalServiceRating" type="comp:ElectricalServiceRating">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Rating<d:sup>2</d:sup> (kVA)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B02_ElectricalServiceProjectScope != AddAltFeedersBranchCircuitsOnly Or NewReplacementServiceExistingDistrubution Or
+                                             <xsd:documentation source="CalculationsAndRules">If B02_ElectricalServiceProjectScope != AddAltFeedersBranchCircuitsOnly Or 
 B05_DoesElectricalCodeExceptionApply == false  Or   (B02_ElectricalServiceProjectScope == NewReplacementServiceMeterOnly And B04_UtilityProvidedMeterException130_5a == false Or B07_DoesElectricalServicePowerMF == false)
 User input
 Else 
@@ -209,7 +209,7 @@ End If</xsd:documentation>
                                        <xsd:element name="B03_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Rating<d:sup>2</d:sup> (kVA)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B02_ElectricalServiceProjectScope == AddAltFeedersBranchCircuitsOnly Or NewReplacementServiceExistingDistrubution Or 
+                                             <xsd:documentation source="CalculationsAndRules">If B02_ElectricalServiceProjectScope == AddAltFeedersBranchCircuitsOnly Or  
 B05_DoesElectricalCodeExceptionApply == true  Or (B02_ElectricalServiceProjectScope == NewReplacementServiceMeterOnly And B04_UtilityProvidedMeterException130_5a == true Or B07_DoesElectricalServicePowerMF == true)
 result = BlankGrayedOut stored in NotApplicableMessage and cell is blank and grayed out; 
  
@@ -230,7 +230,7 @@ End If</xsd:documentation>
                                                 <d:t24refnolink/>130.5(a)/
                                                 <d:t24refnolink/>160.6(a)<d:sup>3</d:sup>
                                              </xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B02_ElectricalServiceProjectScope == AlterationsFeedersBranchCircuitsOnly  or NewReplacementServiceExistingDistrubution result = false and field is grayed out  Else user input.  If checked result = true, Else result = false.
+                                             <xsd:documentation source="CalculationsAndRules">If B02_ElectricalServiceProjectScope == AlterationsFeedersBranchCircuitsOnly  result = false and field is grayed out  Else user input.  If checked result = true, Else result = false.
 If result == true 
 D03_ExceptionalConditionMessageELCE += ProjectExemptUtilMeterSysB
 End If</xsd:documentation>
@@ -242,7 +242,7 @@ End If</xsd:documentation>
                                                 <d:t24refnolink/>130.5(a)/
                                                 <d:t24refnolink/>160.6(a)<d:sup>3</d:sup>
                                              </xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B02_ElectricalServiceProjectScope == AlterationsFeedersBranchCircuitsOnly  or NewReplacementServiceExistingDistrubution 
+                                             <xsd:documentation source="CalculationsAndRules">If B02_ElectricalServiceProjectScope == AlterationsFeedersBranchCircuitsOnly  
 result = false and field is grayed out</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -345,7 +345,7 @@ End If</xsd:documentation>
                               <d:line1/> (See Table F)</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated value: 
 For all rows in section B 
-If B02_ElectricalServiceProjectScope == AlterationsFeedersBranchCircuitsOnly  Or ReplacementElectricalServiceNotMeter Or NewReplacementServiceExistingDistrubution 
+If B02_ElectricalServiceProjectScope == AlterationsFeedersBranchCircuitsOnly  Or ReplacementElectricalServiceNotMeter 
 Or If B04_UtilityProvidedMeterException130_5a == true  
 Or If B05_DoesElectricalCodeExceptionApply == true 
 result = BlankGrayedOut stored in NotApplicableMessage and field is blank and grayed out;  
@@ -364,7 +364,7 @@ End if</xsd:documentation>
                               <d:line1/> (See Table F)</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated value: 
 For all rows in section B 
-If B02_ElectricalServiceProjectScope == AlterationsFeedersBranchCircuitsOnly  Or ReplacementElectricalServiceNotMeter Or NewReplacementServiceExistingDistrubution
+If B02_ElectricalServiceProjectScope == AlterationsFeedersBranchCircuitsOnly  Or ReplacementElectricalServiceNotMeter 
 Or If B04_UtilityProvidedMeterException130_5a == true  
 Or If B05_DoesElectricalCodeExceptionApply == true 
 result = BlankGrayedOut stored in NotApplicableMessage and field is blank and grayed out;  
@@ -493,7 +493,7 @@ End If</xsd:documentation>
 If A02_WholeBuildingOccupancy includes HospitalBuilding 
 result = true display term Yes, 
  
-Else If  B02_ElectricalServiceProjectScope == AddAltFeedersBranchCircuitsOnly Or NewReplacementServiceMeterOnly Or NewReplacementServiceExistingDistrubution
+Else If  B02_ElectricalServiceProjectScope == AddAltFeedersBranchCircuitsOnly Or NewReplacementServiceMeterOnly 
 result = BlankGrayedOut stored in NotApplicableMessage and field is blank and grayed out;  
  
 Else If in any rows  I02_ControlledReceptacleComplianceType Or  
@@ -510,7 +510,7 @@ End If</xsd:documentation>
                               <d:t24refnolink/>130.5(d)/ 
                               <d:t24refnolink/>160.6(d) 
                               <d:line1/> (See Table I)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If  B02_ElectricalServiceProjectScope == AddAltFeedersBranchCircuitsOnly Or NewReplacementServiceMeterOnly Or NewReplacementServiceExistingDistrubution
+                           <xsd:documentation source="CalculationsAndRules">If  B02_ElectricalServiceProjectScope == AddAltFeedersBranchCircuitsOnly Or NewReplacementServiceMeterOnly 
 result = BlankGrayedOut stored in NotApplicableMessage and field is blank and grayed out; 
 End If</xsd:documentation>
                         </xsd:annotation>

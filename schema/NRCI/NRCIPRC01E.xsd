@@ -76,7 +76,7 @@ result = Info01_ProjectCity
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
                            <dtyp:srcSchema form="NRCCPRC01E"  usage="copy">A01_ProjectCity</dtyp:srcSchema>
-                           <dtyp:srcSchema form="NRCCPRF01E"  usage="copy">Info01_ProjectCity</dtyp:srcSchema>
+                           <dtyp:srcSchema form="NRCCPRF01E"  usage="copy">Info04_ProjectCity</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -89,7 +89,7 @@ Else If NRCC-MCH parent
 User input
 End If</xsd:documentation>
                         <xsd:appinfo source="CIsrc">
-                           <dtyp:srcSchema form="NRCCPRF01E"  usage="copy">Info02_ProjectZipcode</dtyp:srcSchema>
+                           <dtyp:srcSchema form="NRCCPRF01E"  usage="copy">Info06_ProjectZipcode</dtyp:srcSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
