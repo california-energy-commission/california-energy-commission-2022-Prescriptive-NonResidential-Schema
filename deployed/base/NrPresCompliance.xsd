@@ -4530,7 +4530,6 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
             <dtyp:displayterm value="NewReplacementServiceMeterOnly">New or replacement service meter only</dtyp:displayterm>
             <dtyp:displayterm value="ReplacementElectricalService">Complete replacement service equipment and meter</dtyp:displayterm>
             <dtyp:displayterm value="ReplacementElectricalServiceNotMeter">Complete replacement service equipment, no meter change</dtyp:displayterm>
-            <dtyp:displayterm value="NewReplacementServiceExistingDistribution">New or complete replacement electrical service equipment and meter with existing distribution</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -4539,7 +4538,6 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:enumeration value="NewReplacementServiceMeterOnly"/>
          <xsd:enumeration value="ReplacementElectricalService"/>
          <xsd:enumeration value="ReplacementElectricalServiceNotMeter"/>
-         <xsd:enumeration value="NewReplacementServiceExistingDistribution"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ElectricalServiceRating">

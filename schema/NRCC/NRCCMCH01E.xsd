@@ -548,10 +548,13 @@ And If TableDOAS IsPresent
 If Hdoas01-Hdoas06 If != BlankGrayedOut have data
 
 And If TableFEI IsPresent
+If Hfei01- Hfei03 If != BlankGrayedOut have data 
+And
 If Hfei02_FanEnergyIndexException == NoneApplyFEI
 Hfei03_FanEnergyIndex GTE 1.0
 Else if Hfei02_FanEnergyIndexException == ExceptVavFan
 Hfei03_FanEnergyIndex GTE 0.95
+Else if Hfei02_FanEnergyIndexException !=NoneApplyFEI or ExceptVavFan
 End If
  
 Then result = true display term Yes; 
@@ -1862,6 +1865,8 @@ End If
 case UnitaryHeatPumps: case UnitaryHeatPumpsNoElectR:
 If F03_UnitaryHeatPumps == AirCooledGasEngineHP Or If Fa02_SizeRangeUnitaryHeatPumps != LT65000 
 result = COP; 
+Else if Fa02_SizeRangeUnitaryHeatPumps == LT65000 And F03_UnitaryHeatPumps === AirCooledPkg1PhaseHP Or AirCooledPkgConstrainedHP Or AirCooledSmallDuctHighVelocityHP Or AirCooledSplit1PhaseHP Or AirCooledSplitConstrainedHP
+result = HSPF2
 Else result = HSPF;  
 End If
  
@@ -1901,6 +1906,7 @@ End If</xsd:documentation>
                                                 <xsd:enumeration value="CombustionEfficiency"/>
                                                 <xsd:enumeration value="COP"/>
                                                 <xsd:enumeration value="HSPF"/>
+                                                <xsd:enumeration value="HSPF2"/>
                                                 <xsd:enumeration value="ThermalEfficiency"/>
                                              </xsd:restriction>
                                           </xsd:simpleType>
@@ -2008,17 +2014,17 @@ result == 0.72;
 Else Switch (Fa02_ SizeRangeUnitaryHeatPumps) 
 case LT65000:  
 If F03_UnitaryHeatPumps == AirCooledPkg1PhaseHP 
-result = 8.0;  
+result = 6.7;  
 Else If F03_UnitaryHeatPumps == AirCooledSplit3PhaseHP  
 result = 8.2;  
 Else If F03_UnitaryHeatPumps ==  AirCooledPkg3PhaseHP  
 result = 8.0;  
 Else If F03_UnitaryHeatPumps == AirCooledSplitConstrainedHP Or AirCooledPkgConstrainedHP 
-result = 7.4;  
+result = 6.3;  
 Else If F03_UnitaryHeatPumps == AirCooledSplit1PhaseHP 
-result = 8.2;  
+result = 7.5;  
 Else If F03_UnitaryHeatPumps == AirCooledSmallDuctHighVelocityHP 
-result = 7.2;  
+result = 6.1;  
  
 End If
  
@@ -2272,8 +2278,10 @@ If F03_UnitaryHeatPumps == GroundSourceHP, GroundWaterSourceHP, GroundWaterSourc
 result1 = EER; 
 Else If F03_UnitaryHeatPumps == AirCooledGasEngineHP 
 result1 = COP; 
-Else If F03_UnitaryHeatPumps == AirCooledSplit1PhaseHP, AirCooledSplit3PhaseHP, AirCooledPkg1PhaseHP, AirCooledPkg3PhaseHP,  AirCooledSplitConstrainedHP, AirCooledPkgConstrainedHP Or AirCooledSmallDuctHighVelocityHP And If SizeRangeUnitaryHeatPumps == LT65000 
+Else If F03_UnitaryHeatPumps == AirCooledSplit3PhaseHP, AirCooledPkg3PhaseHP  Or AirCooledSmallDuctHighVelocityHP And If SizeRangeUnitaryHeatPumps == LT65000 
 result1 = SEER; 
+Else If F03_UnitaryHeatPumps == AirCooledSplit1PhaseHP, AirCooledPkg1PhaseHP, AirCooledSplitConstrainedHP, AirCooledPkgConstrainedHP And If SizeRangeUnitaryHeatPumps == LT65000
+result = SEER2
 End If
  
 case VariableRefrigerantFlow: 
@@ -2290,6 +2298,7 @@ End Switch</xsd:documentation>
                                                                <xsd:enumeration value="EER"/>
                                                                <xsd:enumeration value="SCOP"/>
                                                                <xsd:enumeration value="SEER"/>
+                                                               <xsd:enumeration value="SEER2"/>
                                                             </xsd:restriction>
                                                          </xsd:simpleType>
                                                       </xsd:element>
@@ -2398,16 +2407,16 @@ result1 = 0.60 (COP);
 Else If Fa02_SizeRangeUnitaryHeatPumps == LT65000 
 Switch (F03_UnitaryHeatPumps)  
 case AirCooledSplit1PhaseHP Or AirCooledPkg1PhaseHP: 
-result1 = 14.0 (SEER); 
+result1 = 14.3 (SEER2); 
  
-cade AirCooledSplit3PhaseHP Or AirCooledPkg3PhaseHP 
+case AirCooledSplit3PhaseHP Or AirCooledPkg3PhaseHP 
 result1 = 14.0 (SEER);  
  
-cade AirCooledSmallDuctHighVelocityHP: 
-result1 = 12.0 (SEER); 
+case AirCooledSmallDuctHighVelocityHP: 
+result1 = 12.0 (SEER2); 
  
 case AirCooledSplitConstrainedHP Or AirCooledPkgConstrainedHP: 
-result1 = 12.0 (SEER); 
+result1 = 11.9 (SEER2); 
 End Switch
  
 Else If Fa02_SizeRangeUnitaryHeatPumps == LT135000 
@@ -2695,12 +2704,7 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == UnitaryCondensersAC Or UnitaryCondensersAC_NoElectR use this choice. 
 The value is stored in result1, the top displayed cell and the bottom cell is blank. 
  
-If F03_ UnitaryCondensersAC != AirCooledPkg1PhaseAC Or AirCooledSplit1PhaseAC And Fa02_SizeRangeUnitaryCondensersAC == LT65000  
-Switch (F03_ UnitaryCondensersAC)  
-case AirCooledPkgConstrainedAC Or AirCooledSplitConstrainedAC Or AirCooledSmallDuctHighVelocityAC: 
-result1 = 12.0; 
- 
-case  AirCooledSplit3PhaseAC Or AirCooledPkg3PhaseAC: 
+If F03_ UnitaryCondensersAC == AirCooledSplit3PhaseAC Or AirCooledPkg3PhaseAC And SizeRangeUnitaryCondensersAC  == LT65000: 
 result1 = 13.0
 End Switch
 End If</xsd:documentation>
@@ -2758,18 +2762,20 @@ EER  in result1 and SEER in result2 for the equipment</xsd:documentation>
                                                             <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">Two types are assigned for this choice as follows: 
 If F02_HvacSystemType == FurnaceAC 
-If Fa02_SizeRangeFurnaceAC == LT45000CoolLT225000Heat, LT45000CoolGTE225000Heat, GTE45000CoolLT225000Heat, GTE45000CoolGTE225000Heat, LT65000CoolLT225000Heat Or LT65000CoolGTE225000Heat 
+If Fa02_SizeRangeFurnaceAC == GTE45000CoolLT225000Heat, GTE45000CoolGTE225000Heat, 
 result 1 = EER and result 2 = SEER; 
+Else if Fa02_SizeRangeFurnaceAC == LT45000CoolLT225000Heat, LT45000CoolGTE225000Heat, LT65000CoolLT225000Heat Or LT65000CoolGTE22500 
+result1 = EER2 and result2 == SEER2
 Else  result1 = EER and result2 = IEER: 
 End If
  
  
 Else If F02_HvacSystemType == UnitaryCondensersAC Or UnitaryCondensersAC_NoElectR : 
 If SizeRangeUnitaryCondensersAC == LT45000  Or GTE45000LT65000 
-result 1 = EER and result 2 = SEER;
+result 1 = EER2 and result 2 = SEER2;
  
-Else If SizeRangeUnitaryCondensersAC  == LT65000 And F03_ UnitaryCondensersAC  == AirCooledPkg1PhaseAC 
-result 1 = EER and result 2 = SEER;
+Else If SizeRangeUnitaryCondensersAC  == LT65000 And F03_ UnitaryCondensersAC  == AirCooledPkg1PhaseAC, AirCooledPkgConstrainedAC, AirCooledSmallDuctHighVelocityAC Or AirCooledSplitConstrainedAC
+result 1 = EER2 and result 2 = SEER2;
 Else If SizeRangeUnitaryCondensersAC  != LT65000  
 result 1 =EER and result 2 = IEER;  
 End If
@@ -2790,8 +2796,10 @@ End If</xsd:documentation>
                                                          <xsd:simpleType>
                                                             <xsd:restriction base="hvac:EfficiencyType">
                                                                <xsd:enumeration value="EER"/>
+                                                               <xsd:enumeration value="EER2"/>
                                                                <xsd:enumeration value="IEER"/>
                                                                <xsd:enumeration value="SEER"/>
+                                                               
                                                             </xsd:restriction>
                                                          </xsd:simpleType>
                                                       </xsd:element>
@@ -2819,18 +2827,24 @@ End Switch</xsd:documentation>
                                                          <xsd:element name="Fa08_CoolEfficiencyMinFurnaceAC_EERSEER" type="hvac:CoolEfficiencyMinFurnaceAC_EERSEER"  minOccurs="2" maxOccurs="2">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC use this choice.  For the following evaluations result1 is the EER value and result2 is the SEER:  
+                                                               <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC use this choice.  For the following evaluations result1 is the EER/EER2 value and result2 is the SEER/SEER2:  
  
 Switch (Fa02_SizeRangeFurnaceAC) 
 case LT45000CoolLT225000Heat Or  LT45000CoolGTE225000Heat: 
-result1 = 12.2   And result2 = 14.0;  
+If F03_FurnaceAC == AirCooledSinglePkgAC_CentralFurnace Or AirCooledSinglePkgAC_CentralFurnaceWeatherized1Phase
+result1 = 10.6 And result2 = 13.4
+Else if F03_FurnaceAC == AirCooledSplitAC_CentralFurnace Or AirCooledSplitAC_CentralFurnaceWeatherized1Phase
+result1 = 9.8   And result2 = 14.3; 
+End If 
  
 case GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat: 
 result1 = 11.7 And  result2 = 14;  
  
 case LT65000CoolLT225000Heat Or LT65000CoolGTE225000Heat  
-result1 = 11.0 And result2 = 14.0; 
- End Switch</xsd:documentation>
+If F03_FurnaceAC == AirCooledSinglePkgAC_CentralFurnace Or AirCooledSinglePkgAC_CentralFurnaceWeatherized1Phase
+result1 = 10.6 And result2 = 13.4
+End If
+End Switch</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
                                                          <xsd:element name="Fa08_CoolEfficiencyMinUnitHP_EERIEER" type="hvac:CoolEfficiencyMinUnitHP_EERIEER"  minOccurs="2" maxOccurs="2">
@@ -2918,7 +2932,7 @@ End If</xsd:documentation>
 If Fa02_SizeRangeUnitaryCondensersAC != LT45000  GTE45000AndLT65000 Or LT65000  
 If F03_ UnitaryCondensersAC == WaterCooledAC 
  
-Switch Fa02_SizeRangeUnitaryCondensersAC) 
+Switch Fa02_SizeRangeUnitaryCondensersAC 
 case GTE65000AndLT135000: 
 If F02_HvacSystemType == UnitaryCondensersAC
 result1 = 12.1 (EER) and result2 = 13.9 (IEER); 
@@ -3033,12 +3047,14 @@ End if</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == UnitaryCondensersAC Or UnitaryCondensersAC_NoElectR use this choice. For the following evaluations result1 is the EER value and result2 is the SEER:  
- 
-If SizeRangeUnitaryCondensersAC == LT65000  And F03_ UnitaryCondensersAC  == AirCooledPkg1PhaseAC 
-result 1 = 11.0 (EER)  and result 2 =  14.0 (SEER); 
+If SizeRangeUnitaryCondensersAC == LT65000  And F03_ UnitaryCondensersAC  == AirCooledPkg1PhaseAC Or AirCooledPkgConstrainedAC
+result 1 = 10.6 (EER2)  and result 2 =  13.4 (SEER2); 
  
 Else If  SizeRangeUnitaryCondensersAC == LT45000 And F03_ UnitaryCondensersAC  == AirCooledSplit1PhaseAC
-result1 = 12.2 (EER) And result 2 =  14.0 (SEER);
+result1 = 9.8 (EER2) And result 2 =  14.3 (SEER2);
+
+Else If  SizeRangeUnitaryCondensersAC == GTE45000AndLT65000 or LT65000 And F03_ UnitaryCondensersAC  == AirCooledSplit1PhaseAC Or AirCooledSplitConstrainedAC
+result1 = 9.8 (EER2) And result 2 =  13.8 (SEER2);
  
 Else If   SizeRangeUnitaryCondensersAC ==GTE45000AndLT65000  
 result1 = 11.7 (EER) And result 2 =  14.0 (SEER) 
@@ -3727,7 +3743,9 @@ Else result = BlankGrayedOut stored in Fdfhp04_NotApplicableMessage and this fie
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If Fdfhp03a_UnitaryHeatPumps  == AirCooledGasEngineHP Or If Fdfhp04a_SizeRangeUnitaryHeatPump != LT65000 
-result = COP; 
+result = COP;
+Else if Fa02_SizeRangeUnitaryHeatPumps == LT65000 And F03_UnitaryHeatPumps === AirCooledPkg1PhaseHP Or AirCooledPkgConstrainedHP Or AirCooledSmallDuctHighVelocityHP Or AirCooledSplit1PhaseHP Or AirCooledSplitConstrainedHP
+result = HSPF2 
 Else result = HSPF;  
 End If</xsd:documentation>
                                        </xsd:annotation>
@@ -3735,6 +3753,7 @@ End If</xsd:documentation>
                                           <xsd:restriction base="hvac:EfficiencyType">
                                              <xsd:enumeration value="COP"/>
                                              <xsd:enumeration value="HSPF"/>
+                                             <xsd:enumeration value="HSPF2"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
@@ -3792,17 +3811,17 @@ result == 0.72;
 Else Switch (Fdfhp04a_ SizeRangeUnitaryHeatPumps) 
 case LT65000:  
 If Fdfhp03a_UnitaryHeatPumps == AirCooledPkg1PhaseHP 
-result = 8.0;  
-Else IfFdfhp03a_UnitaryHeatPumps == AirCooledSplit3PhaseHP  
+result = 6.7;  
+Else If Fdfhp03a_UnitaryHeatPumps == AirCooledSplit3PhaseHP  
 result = 8.2;  
 Else If Fdfhp03a_UnitaryHeatPumps ==  AirCooledPkg3PhaseHP  
 result = 8.0;  
 Else If Fdfhp03a_UnitaryHeatPumps == AirCooledSplitConstrainedHP Or AirCooledPkgConstrainedHP 
-result = 7.4;  
+result = 6.3;  
 Else If Fdfhp03a_UnitaryHeatPumps == AirCooledSplit1PhaseHP 
-result = 8.2;  
+result = 7.5;  
 Else If Fdfhp03a_UnitaryHeatPumps == AirCooledSmallDuctHighVelocityHP 
-result = 7.2;  
+result = 6.1; 
  
 End If
  
@@ -3987,10 +4006,11 @@ If Fdfhp03a_UnitaryHeatPumps  == GroundSourceHP, GroundWaterSourceHP, GroundWate
 result1 = EER; 
 Else If Fdfhp03a_UnitaryHeatPumps == AirCooledGasEngineHP 
 result1 = COP; 
-Else If Fdfhp03a_UnitaryHeatPumps == AirCooledSplit1PhaseHP, AirCooledSplit3PhaseHP, AirCooledPkg1PhaseHP, AirCooledPkg3PhaseHP,  AirCooledSplitConstrainedHP, AirCooledPkgConstrainedHP Or AirCooledSmallDuctHighVelocityHP And If Fdfhp04a_SizeRangeUnitaryHeatPumps == LT65000 
+Else If F03_UnitaryHeatPumps == AirCooledSplit3PhaseHP, AirCooledPkg3PhaseHP  Or AirCooledSmallDuctHighVelocityHP And If SizeRangeUnitaryHeatPumps == LT65000 
 result1 = SEER; 
+Else If F03_UnitaryHeatPumps == AirCooledSplit1PhaseHP, AirCooledPkg1PhaseHP, AirCooledSplitConstrainedHP, AirCooledPkgConstrainedHP And If SizeRangeUnitaryHeatPumps == LT65000
+result = SEER2
 End If
- 
 End If</xsd:documentation>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
@@ -3998,6 +4018,7 @@ End If</xsd:documentation>
                                                                <xsd:enumeration value="COP"/>
                                                                <xsd:enumeration value="EER"/>
                                                                <xsd:enumeration value="SEER"/>
+                                                               <xsd:enumeration value="SEER2"/>
                                                             </xsd:restriction>
                                                          </xsd:simpleType>
                                                       </xsd:element>
@@ -4024,16 +4045,16 @@ result1 = 0.60 (COP);
 Else If Fdfhp04a_SizeRangeUnitaryHeatPumps == LT65000 
 Switch (Fdfhp03a_UnitaryHeatPumps)  
 case AirCooledSplit1PhaseHP Or AirCooledPkg1PhaseHP: 
-result1 = 14.0 (SEER); 
+result1 = 14.3 (SEER2); 
  
-cade AirCooledSplit3PhaseHP Or AirCooledPkg3PhaseHP 
+case AirCooledSplit3PhaseHP Or AirCooledPkg3PhaseHP 
 result1 = 14.0 (SEER);  
  
-cade AirCooledSmallDuctHighVelocityHP: 
-result1 = 12.0 (SEER); 
+case AirCooledSmallDuctHighVelocityHP: 
+result1 = 12.0 (SEER2); 
  
 case AirCooledSplitConstrainedHP Or AirCooledPkgConstrainedHP: 
-result1 = 12.0 (SEER); 
+result1 = 11.9 (SEER2); 
 End Switch
  
 Else If Fdfhp04a_SizeRangeUnitaryHeatPumps == LT135000 
@@ -4531,7 +4552,7 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="Fc12_BoilerSystemMinEfficiency" type="hvac:BoilerSystemMinEfficiency" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Minimum System Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Minimum System Efficiency for High Capacity Boilers per  [d:t24refnolink/]140.4(k)8A</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Sum All (Fc04_BoilerRatedInput that are GTE 100000 AND Fc10_HighCapBoilerExceptions == NoExceptionsHCB) GTE 1000000
 result = 90%
 End If</xsd:documentation>   
@@ -4539,7 +4560,7 @@ End If</xsd:documentation>
                                        </xsd:element>
                                        <xsd:element name="Fc12_NotApplicableMessage" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Minimum System Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Minimum System Efficiency for High Capacity Boilers per  [d:t24refnolink/]140.4(k)8A</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Sum All (Fc04_BoilerRatedInput that are GTE 100000 And Fc10_HighCapBoilerExceptions == NoExceptionsHCB) LT 1000000
 Or If A02_ClimateZone == 7, 8, or 15
 result = BlankGrayedOut

@@ -26,6 +26,7 @@
                      <xsd:element name="DocAuthor" type="comp:DocumentAuthor" maxOccurs="unbounded"/>
                      <xsd:element name="RespPerson" type="comp:ResponsiblePersonNRCI" maxOccurs="unbounded"/>
                      <xsd:element name="Footer" type="comp:FooterNRCC"/>
+                     <xsd:element name="ComplianceID" minOccurs="0"/>
                   </xsd:sequence>
                </xsd:complexType>
             </xsd:element>
@@ -6035,7 +6036,7 @@ End If</xsd:documentation>
                                                       <xsd:choice maxOccurs="1">
                                                          <xsd:element name="Fan05cc_FanPower" type="hvac:FanPower">
                                                             <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Fan Electrical Input Power (W)</xsd:documentation>
+                                                               <xsd:documentation source="FieldText">Fan Electrical Input Power (kW)</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-MCH parent 
 If H11_FanPower IsPresent 
 result = H11_FanPower
@@ -6048,7 +6049,7 @@ End If</xsd:documentation>
                                                          </xsd:element>
                                                          <xsd:element name="Fan05cc_FanPowerPerFlow" type="hvac:FanPowerPerFlow">
                                                             <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Fan Electrical Input Power (W)</xsd:documentation>
+                                                               <xsd:documentation source="FieldText">Fan Electrical Input Power (kW)</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-PRF parent 
 If Fan01cc_FanSystemName is from Fan01_HvacSystemName
 If Fan05_FanPowerPerFlow  IsPresent
@@ -6065,7 +6066,7 @@ End If</xsd:documentation>
                                                          </xsd:element>
                                                          <xsd:element name="Fan05cc_NotApplicableMessage">
                                                             <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Fan Electrical Input Power (W)</xsd:documentation>
+                                                               <xsd:documentation source="FieldText">Fan Electrical Input Power (kW)</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-MCH parent 
 If H11_NotApplicableMessage IsPresent
 result = H11_NotApplicableMessage
@@ -6085,7 +6086,7 @@ End If</xsd:documentation>
                                                       <xsd:choice maxOccurs="1">
                                                          <xsd:element name="Fan05_FanPower" type="hvac:FanPower">
                                                             <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Fan Electrical Input Power (W)</xsd:documentation>
+                                                               <xsd:documentation source="FieldText">Fan Electrical Input Power (kW)</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Fan05cc_FanPower IsPresent
 If Fan01_InstalledSameAsCC == true
 result = Fan05cc_FanPower
@@ -6097,7 +6098,7 @@ End If</xsd:documentation>
                                                          </xsd:element>
                                                          <xsd:element name="Fan05_FanPowerPerFlow" type="hvac:FanPowerPerFlow">
                                                             <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Fan Electrical Input Power (W)</xsd:documentation>
+                                                               <xsd:documentation source="FieldText">Fan Electrical Input Power (kW)</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Fan05cc_FanPowerPerFlow  IsPresent
 If Fan01_InstalledSameAsCC == true
 result = Fan05cc_FanPowerPerFlow 
@@ -6109,7 +6110,7 @@ End If</xsd:documentation>
                                                          </xsd:element>
                                                          <xsd:element name="Fan05_NotApplicableMessage">
                                                             <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Fan Electrical Input Power (W)</xsd:documentation>
+                                                               <xsd:documentation source="FieldText">Fan Electrical Input Power (kW)</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Fan05cc_NotApplicableMessage  IsPresent
 result = Fan05cc_NotApplicableMessage
 End If

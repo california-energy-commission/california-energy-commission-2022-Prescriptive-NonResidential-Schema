@@ -39,6 +39,7 @@
                      <xsd:element name="DocAuthor" type="comp:DocumentAuthor" maxOccurs="unbounded" />
                      <xsd:element name="RespPerson" type="comp:ResponsiblePersonNRCI" maxOccurs="unbounded" />
                      <xsd:element name="Footer" type="comp:FooterNRCC" />
+                     <xsd:element name="ComplianceID" minOccurs="0"/>
                   </xsd:sequence>
                </xsd:complexType>
             </xsd:element>

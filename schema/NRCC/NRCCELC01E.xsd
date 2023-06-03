@@ -317,9 +317,10 @@ End If</xsd:documentation>
                            <xsd:documentation source="FieldText">Service Electrical Metering [d:t24refnolink/]130.5(a)/ [d:t24refnolink/]160.6(a) [d:line1/] (See Table F)</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated value: 
 For all rows in section B 
-If B02_ElectricalServiceProjectScope == AlterationsFeedersBranchCircuitsOnly  Or ReplacementElectricalServiceNotMeter 
+If B02_ElectricalServiceProjectScope == AddAltFeedersBranchCircuitsOnly Or ReplacementElectricalServiceNotMeter 
 Or If B04_UtilityProvidedMeterException130_5a == true  
 Or If B05_DoesElectricalCodeExceptionApply == true 
+Or if B07_DoesElectricalServicePowerMF == true
 result = BlankGrayedOut stored in NotApplicableMessage and field is blank and grayed out;  
  
 Else If all instances of  F04_BuildingPlanName NotNull 
@@ -333,9 +334,10 @@ End if</xsd:documentation>
                            <xsd:documentation source="FieldText">Service Electrical Metering [d:t24refnolink/]130.5(a)/ [d:t24refnolink/]160.6(a) [d:line1/] (See Table F)</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated value: 
 For all rows in section B 
-If B02_ElectricalServiceProjectScope == AlterationsFeedersBranchCircuitsOnly  Or ReplacementElectricalServiceNotMeter 
+If B02_ElectricalServiceProjectScope == AddAltFeedersBranchCircuitsOnly  Or ReplacementElectricalServiceNotMeter 
 Or If B04_UtilityProvidedMeterException130_5a == true  
 Or If B05_DoesElectricalCodeExceptionApply == true 
+Or if B07_DoesElectricalServicePowerMF == true
 result = BlankGrayedOut stored in NotApplicableMessage and field is blank and grayed out;  
  End if</xsd:documentation>
                         </xsd:annotation>
