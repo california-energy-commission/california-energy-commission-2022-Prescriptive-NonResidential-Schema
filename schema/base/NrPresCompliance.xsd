@@ -7319,7 +7319,8 @@
             <dtyp:displayterm value="Heating50PctConvectiveRadiant">[d:gte/]50% heating served by perimeter convective / radiant ceiling panels</dtyp:displayterm>
             <dtyp:displayterm value="InDwellingUnit">Installed in individual dwelling unit</dtyp:displayterm>
             <dtyp:displayterm value="NoExceptionsHCB">No Exceptions Apply</dtyp:displayterm>
-            <dtyp:displayterm value="ServingMF">Serving Multifamily Occupancy</dtyp:displayterm>
+            <dtyp:displayterm value="ReplacementBoiler">Replacement gas hot water boiler</dtyp:displayterm>
+            <dtyp:displayterm value="ServingMF">Serving Multifamily Occupancy</dtyp:displayterm>   
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -7329,6 +7330,7 @@
          <xsd:enumeration value="Heating50PctConvectiveRadiant"/>
          <xsd:enumeration value="InDwellingUnit"/>
          <xsd:enumeration value="NoExceptionsHCB"/>
+         <xsd:enumeration value="ReplacementBoiler"/>
          <xsd:enumeration value="ServingMF"/>
       </xsd:restriction>
    </xsd:simpleType>

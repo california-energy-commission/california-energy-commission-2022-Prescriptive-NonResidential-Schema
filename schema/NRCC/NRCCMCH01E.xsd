@@ -2799,7 +2799,7 @@ End If</xsd:documentation>
                                                                <xsd:enumeration value="EER2"/>
                                                                <xsd:enumeration value="IEER"/>
                                                                <xsd:enumeration value="SEER"/>
-                                                               
+                                                               <xsd:enumeration value="SEER2"/>
                                                             </xsd:restriction>
                                                          </xsd:simpleType>
                                                       </xsd:element>
