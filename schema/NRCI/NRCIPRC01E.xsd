@@ -267,15 +267,6 @@ Else result = false
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="B05a_ProjectHasFoodStores" type="comp:ProjectHasFoodStores" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Food/Beverage Stores [d:gte/]8,000 ft[d:sup]2[/d:sup]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input
-If checked result = true
-Else result = false
-End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
                   <xsd:element name="B05b_ProjectHasRefrigCompressors" type="comp:ProjectHasRefrigCompressors" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Refrigerated Spaces  [d:gte/]3,000 ft[d:sup]2[/d:sup] Compressors</xsd:documentation>
@@ -348,9 +339,18 @@ Else result = false
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="B06c_ProjectHasHorticulture" type="comp:ProjectHasHorticulture" >
+                  <xsd:element name="B06c_ProjectHasHorticultureSpaceConditioning" type="comp:ProjectHasHorticultureSpaceConditioning" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Controlled Environment Horticulture</xsd:documentation>
+                        <xsd:documentation source="FieldText">Controlled Environment Horticulture - Space Conditioning For Plant Production</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input
+If checked result = true
+Else result = false
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B06ca_ProjectHasHorticultureLighting" type="comp:ProjectHasHorticultureLighting" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Controlled Environment Horticulture Lighting</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input
 If checked result = true
 Else result = false
@@ -369,6 +369,56 @@ End If</xsd:documentation>
                   <xsd:element name="B06e_ProjectHasPoolSpa" type="comp:ProjectHasPoolSpa" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Pool / Spa</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input
+If checked result = true
+Else result = false
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B07_Subheading" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Food/Beverage Stores [d:gte/]8,000 ft[d:sup]2[/d:sup]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B07a_ProjectHasCondensers" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Condensers Serving Commercial Refrigeration System</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input
+If checked result = true
+Else result = false
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B07b_ProjectHasCompressorsCondensers" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Compressors and Condensing Units Serving Commercial Refrigeration System</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input
+If checked result = true
+Else result = false
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B07c_ProjectHasDisplayCase" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Refrigerated Display Cases</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input
+If checked result = true
+Else result = false
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B07d_ProjectHasHeatRecovery" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Heat Recovery of Refrigeration System</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input
+If checked result = true
+Else result = false
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B07d_ProjectHasTranscriticalGasCooler" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Transcritical CO2 Fan-powered Gas Coolers</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input
 If checked result = true
 Else result = false
@@ -1925,7 +1975,7 @@ End If</xsd:documentation>
                   <xsd:element name="CRcon" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Condensers Serving Commercial Refrigeration System[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This section is required If  B05a_ProjectHasFoodStores == true
+                        <xsd:documentation source="CalculationsAndRules">This section is required If  B07a_ProjectHasCondensers == true
  And If NRCC-PRC parent If Gcon subsection IsPresent</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
@@ -2308,7 +2358,7 @@ End If</xsd:documentation>
                   <xsd:element name="TableCRcom" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Compressors and Condensing Units Serving Refrigeration System[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This section is required If  B05a_ProjectHasFoodStores == true
+                        <xsd:documentation source="CalculationsAndRules">This section is required If  B07b_ProjectHasCompressorsCondensers == true
 And 
 If NRCC-PRC parent And TableGcom IsPresent</xsd:documentation>
                      </xsd:annotation>
@@ -2429,7 +2479,7 @@ End If</xsd:documentation>
                   <xsd:element name="CRcase" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Refrigerated Display Cases[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is required If  B05a_ProjectHasFoodStores == true
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required If  B07c_ProjectHasDisplayCase == true
 And If NRCC-PRC parent
 Gcase subsection IsPresent</xsd:documentation>
                      </xsd:annotation>
@@ -2553,7 +2603,7 @@ End If</xsd:documentation>
                   <xsd:element name="CRheat" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Heat Recovery of Refrigeration System[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is required If  B05a_ProjectHasFoodStores == true
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required If  B07d_ProjectHasHeatRecovery == true
 And If NRCC-PRC parent
 Gheat subsection IsPresent</xsd:documentation>
                      </xsd:annotation>
@@ -2671,7 +2721,7 @@ End If</xsd:documentation>
                   <xsd:element name="TableCRgasclr"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Transcritical CO[d:sub]2[/d:sub] Fan-powered Gas Coolers[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This section is required If  B05a_ProjectHasFoodStores == true
+                        <xsd:documentation source="CalculationsAndRules">This section is required If  B07d_ProjectHasTranscriticalGasCooler == true
 And 
 If NRCC-PRC parent 
 And 
@@ -5837,7 +5887,7 @@ End If</xsd:documentation>
                   <xsd:element name="TableHortLtg" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]CONTROLLED ENVIRONMENT HORTICULTURE LIGHTING[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This table is required If B06c_ProjectHasHorticulture == true</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This table is required If  B06ca_ProjectHasHorticultureLighting == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -6127,7 +6177,7 @@ End If</xsd:documentation>
                   <xsd:element name="TableHortHvac" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Space Conditioning for Plant Production [/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This table is required If B06c_ProjectHasHorticulture == true</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This table is required If B06c_ProjectHasHorticultureSpaceConditioning == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>

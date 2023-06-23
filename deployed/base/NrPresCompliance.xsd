@@ -778,6 +778,8 @@
             <dtyp:displayterm value="MultifamilyLightingNA">NA: MF Complying w 
                <d:t24refnolink/>160.5(a)</dtyp:displayterm>
             <dtyp:displayterm value="NotPermittedNA">NA: Not permitted by H&amp;amp;LS</dtyp:displayterm>
+            <dtyp:displayterm value="ParkingSalesNA">NA: Parking or Sales Lots 
+               <d:gt/>24 ft/all other at any height</dtyp:displayterm>
             <dtyp:displayterm value="TunnelsNA">NA: Lighting in Tunnels</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
@@ -786,6 +788,7 @@
          <xsd:enumeration value="EMCS"/>
          <xsd:enumeration value="MultifamilyLightingNA"/>
          <xsd:enumeration value="NotPermittedNA"/>
+         <xsd:enumeration value="ParkingSalesNA"/>
          <xsd:enumeration value="TunnelsNA"/>
       </xsd:restriction>
    </xsd:simpleType>
@@ -10794,6 +10797,24 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       <xsd:restriction base="xsd:boolean"/>
    </xsd:simpleType>
    <xsd:simpleType name="ProjectHasHorticulture">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="ProjectHasHorticultureLighting">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="ProjectHasHorticultureSpaceConditioning">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="true">Yes</dtyp:displayterm>

@@ -1000,10 +1000,57 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i] This table includes all refrigerated warehouses [d:gt/] 3,000 ft2 and refrigerated spaces with a sum total of [d:gt/] 3,000 ft2 served by the same refrigeration system.  The inputs within Table F are used to demonstrate compliance with the requirements of [d:t24refnolink/]120.6(a).[/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Fins" >
+                  <xsd:element name="F01Label">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Indicate refrigerated wareHouse/space scope included in the project:</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F01ExteriorInsulation_ComponentApplies" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Warehouse Exterior Surface Insulation</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F01UnderslabHeating_ComponentApplies" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Underslab Heating</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F01FanPoweredEvaporators_ComponentApplies" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Fan Power Evaporators</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F01Condensers_ComponentApplies" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Condensers</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F01Compressors_ComponentApplies" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Compressors</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F01InfiltrationAutomaticDoors_ComponentApplies" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Infiltration Barriers and Automatic Door Closures</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F01TranscriticalGasCoolers_ComponentApplies" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Transcritical CO[d:sub]2[/d:sub] Fan-Powerd Gas Coolers</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Fins" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Warehouse Exterior Surface Insulation[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is always required in section F</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required when F01ExteriorInsulation_ComponentApplies == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -1113,10 +1160,10 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="TableSlab" >
+                  <xsd:element name="TableSlab" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Underslab Heating[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This table is always required in section F</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This table is required when F01UnderslabHeating_ComponentApplies == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -1149,10 +1196,10 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="Ffan" >
+                  <xsd:element name="Ffan" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Fan Powered Evaporators[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is always required in section F</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is  required when F01FanPoweredEvaporators_ComponentApplies = true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -1272,10 +1319,10 @@ End I</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="Fcon" >
+                  <xsd:element name="Fcon" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Condensers[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is always required in section F</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required when F01Condensers_ComponentApplies == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -1789,9 +1836,10 @@ Multi-field triggers: See Fconadia07_CondenserMinEfficiency  CalculationsAndRule
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="Fcom" >
+                  <xsd:element name="Fcom" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Compressors[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required when F01Compressors_ComponentApplies == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -1946,9 +1994,10 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="Fbar" >
+                  <xsd:element name="Fbar" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b] Infiltration Barriers and Automatic Door Closers[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required when F01InfiltrationAutomaticDoors_ComponentApplies == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -1989,10 +2038,10 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="Fgasclr" >
+                  <xsd:element name="Fgasclr" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Transcritical CO[d:sub]2[/d:sub] Fan-powered Gas Coolers[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is always required in section F</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required when F01TranscriticalGasCoolers_ComponentApplies == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -2175,6 +2224,12 @@ End If</xsd:documentation>
                   <xsd:element name="G01Heat_ComponentApplies" type="comp:ComponentApplies" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Heat Recovery</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input; If checked result = true; Else result = false.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G01TranscriticalGasCooler_ComponentApplies" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Transcritical CO[d:sub]2[/d:sub] Fan Powered Gas Coolers</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input; If checked result = true; Else result = false.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -2533,10 +2588,10 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="Ggasclr" >
+                  <xsd:element name="Ggasclr" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Transcritical CO[d:sub]2[/d:sub] Fan-powered Gas Coolers[/d:b]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection is always required in section G</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This subsection is required when G01TranscriticalGasCooler_ComponentApplies == true </xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -3994,7 +4049,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_P" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]P. CONTROLLED ENVIRONMENT HORTICULTURE[/d:b]</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">If  B01_ProjectHasHorticulture == true
+               <xsd:documentation source="CalculationsAndRules">If B01_ProjectHasHorticulture == true
 this section is required
 End If</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
@@ -4007,9 +4062,33 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i] This table documents compliance with mandatory controlled environment horticulture requirements of [d:t24refnolink/]120.6(h). [/d:i]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="TableHortHvac" >
+                  <xsd:element name="H01Label">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Indicate controlled environment horticulture scope included in the project:</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H01SpaceConditioning_ComponentApplies" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Space Conditiong for Plant Production </xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H01LightingElectrical_ComponentApplies" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Lighting and Electrical Systems</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H01Envelope_ComponentApplies" type="comp:ComponentApplies" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Opaque and Non-Opaque Envelopes</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: If checked result = true; Else result = false</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="TableHortHvac" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Space Conditioning for Plant Production [d:t24refnolink/]120.6(h)1 and 5[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This sub-table applies when H01SpaceConditioning_ComponentApplies == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -4044,9 +4123,10 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="TableHortLtg" >
+                  <xsd:element name="TableHortLtg" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Lighting and Electrical Systems  [d:t24refnolink/]120.6(h)2, 3 and 6[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This sub-table applies when H01LightingElectrical_ComponentApplies == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -4172,9 +4252,10 @@ End If</xsd:documentation>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="TableHortEnv" >
+                  <xsd:element name="TableHortEnv" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Opaque and Non-Opaque Envelopes[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">This sub-table applies when H01Envelope_ComponentApplies == true</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>

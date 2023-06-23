@@ -461,7 +461,15 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="FieldText">Assembly/ Framing Type</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
 If Fframed02_RoofAssemblyName IsPresent Or FframedMF02_RoofAssemblyName IsPresent
-result = Framed
+If Fframed09_ConstructionAssemblyName == MetalFramedAttic
+result = MetalFramedAttic
+Else If Fframed09_ConstructionAssemblyName == MetalFramedRafter
+result =  MetalFramedRafter
+Else If Fframed09_ConstructionAssemblyName == WoodFramedAttic
+result =  WoodFramedAttic
+Else If Fframed09_ConstructionAssemblyName == MetalFramedRafter
+result =  MetalFramedRafter
+End If 
 Else If FSIPS02_RoofAssemblyName IsPresent
 result = SIPS
 Else If Fspan02_RoofAssemblyName IsPresent
@@ -473,21 +481,26 @@ result = MetalBuilding
 End If
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
-                                                                  <dtyp:srcSchema form="CCENV01E" usage="reference">F01Framed_RoofTypeApplies</dtyp:srcSchema>
-                                                                  <dtyp:srcSchema form="CCENV01E" usage="reference">F01FramedMF_RoofTypeApplies</dtyp:srcSchema>
-                                                                  <dtyp:srcSchema form="CCENV01E" usage="reference">F01SIPS_RoofTypeApplies</dtyp:srcSchema>
-                                                                  <dtyp:srcSchema form="CCENV01E" usage="reference">F01Span_RoofTypeApplies</dtyp:srcSchema>
-                                                                  <dtyp:srcSchema form="CCENV01E" usage="reference">F01Metal_RoofTypeApplies</dtyp:srcSchema>
-                                                                  <dtyp:srcSchema form="CCENV01E" usage="reference">F01MetalBldg_RoofTypeApplies</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCENV01E" usage="reference">Fframed02_RoofAssemblyName</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCENV01E" usage="reference">FSIPS02_RoofAssemblyName</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCENV01E" usage="reference">Fspan02_RoofAssemblyName</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCENV01E" usage="reference">Fmetalp02_RoofAssemblyName</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCENV01E" usage="reference">Fmetalb02_RoofAssemblyName</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCENV01E" usage="reference">FframedMF02_RoofAssemblyName</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCENV01E" usage="reference">Fframed09_ConstructionAssemblyName</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
                                                                <xsd:restriction base="env:AssemblyType">
                                                                   <xsd:enumeration value="Framed"/>
                                                                   <xsd:enumeration value="MetalBuilding"/>
+                                                                  <xsd:enumeration value="MetalFramedAttic"/>
+                                                                  <xsd:enumeration value="MetalFramedRafter"/>
                                                                   <xsd:enumeration value="MetalPanel"/>
                                                                   <xsd:enumeration value="SIPS"/>
                                                                   <xsd:enumeration value="Span"/>
+                                                                  <xsd:enumeration value="WoodFramedAttic"/>
+                                                                  <xsd:enumeration value="WoodFramedRafter"/>
                                                                </xsd:restriction>
                                                             </xsd:simpleType>
                                                          </xsd:element>

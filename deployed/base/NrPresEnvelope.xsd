@@ -37,6 +37,8 @@
             <dtyp:displayterm value="Mass">Mass</dtyp:displayterm>
             <dtyp:displayterm value="MetalBuilding">Metal Building</dtyp:displayterm>
             <dtyp:displayterm value="MetalFramed">Metal Framed</dtyp:displayterm>
+            <dtyp:displayterm value="MetalFramedAttic">Metal Framed Attic</dtyp:displayterm>
+            <dtyp:displayterm value="MetalFramedRafter">Metal Framed Attic</dtyp:displayterm>
             <dtyp:displayterm value="MetalPanel">Metal Panel</dtyp:displayterm>
             <dtyp:displayterm value="RaisedMass">Raised Mass</dtyp:displayterm>
             <dtyp:displayterm value="SIPS">SIPS</dtyp:displayterm>
@@ -45,6 +47,8 @@
             <dtyp:displayterm value="SpandrelCurtain">Spandrel/ Curtain Wall</dtyp:displayterm>
             <dtyp:displayterm value="Strawbale">Strawbale</dtyp:displayterm>
             <dtyp:displayterm value="WoodFramed">Wood Framed</dtyp:displayterm>
+            <dtyp:displayterm value="WoodFramedAttic">Wood Framed Attic</dtyp:displayterm>
+            <dtyp:displayterm value="WoodFramedRafter">Wood Framed Rafter</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -56,6 +60,8 @@
          <xsd:enumeration value="Mass"/>
          <xsd:enumeration value="MetalBuilding"/>
          <xsd:enumeration value="MetalFramed"/>
+         <xsd:enumeration value="MetalFramedAttic"/>
+         <xsd:enumeration value="MetalFramedRafter"/>
          <xsd:enumeration value="MetalPanel"/>
          <xsd:enumeration value="RaisedMass"/>
          <xsd:enumeration value="SIPS"/>
@@ -64,6 +70,8 @@
          <xsd:enumeration value="SpandrelCurtain"/>
          <xsd:enumeration value="Strawbale"/>
          <xsd:enumeration value="WoodFramed"/>
+         <xsd:enumeration value="WoodFramedAttic"/>
+         <xsd:enumeration value="WoodFramedRafter"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="AtticName">
