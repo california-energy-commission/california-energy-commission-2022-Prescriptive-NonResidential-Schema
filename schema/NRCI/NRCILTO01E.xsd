@@ -879,10 +879,10 @@ End If</xsd:documentation>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
                                                             <xsd:restriction base="comp:MountingHeightRangeBUG">
-                                                               <xsd:enumeration value="BackLessThanHalfMH" />
-                                                               <xsd:enumeration value="Front1To2MH" />
-                                                               <xsd:enumeration value="FrontHalfTo1MH" />
-                                                               <xsd:enumeration value="GT2MH" />
+                                                               <xsd:enumeration value="FrontLessThanHalfMH"/>
+                                                               <xsd:enumeration value="Front1To2MH"/>
+                                                               <xsd:enumeration value="FrontHalfTo1MH"/>
+                                                               <xsd:enumeration value="GT2MH"/>
                                                             </xsd:restriction>
                                                          </xsd:simpleType>
                                                       </xsd:element>
@@ -896,7 +896,7 @@ User input</xsd:documentation>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
                                                             <xsd:restriction base="comp:MountingHeightRangeBUG">
-                                                               <xsd:enumeration value="BackLessThanHalfMH" />
+                                                               <xsd:enumeration value="FrontLessThanHalfMH"/>
                                                                <xsd:enumeration value="Front1To2MH" />
                                                                <xsd:enumeration value="FrontHalfTo1MH" />
                                                                <xsd:enumeration value="GT2MH" />

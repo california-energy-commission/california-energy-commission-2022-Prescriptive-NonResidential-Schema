@@ -9457,6 +9457,7 @@
             <dtyp:displayterm value="BackLessThanHalfMH">Back hemisphere [d:lt/] 0.5 MH from prop line</dtyp:displayterm>
             <dtyp:displayterm value="Front1To2MH">Front hemisphere is 1 - 2 MH from prop line</dtyp:displayterm>
             <dtyp:displayterm value="FrontHalfTo1MH">Front hemisphere is 0.5 - 1 MH from prop line</dtyp:displayterm>
+            <dtyp:displayterm value="FrontLessThanHalfMH">Front hemisphere [d:lt/] 0.5 MH from prop line</dtyp:displayterm>
             <dtyp:displayterm value="GT2MH">[d:gt/] 2 MH from property  line</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
@@ -9466,6 +9467,7 @@
          <xsd:enumeration value="BackLessThanHalfMH"/>
          <xsd:enumeration value="Front1To2MH"/>
          <xsd:enumeration value="FrontHalfTo1MH"/>
+         <xsd:enumeration value="FrontLessThanHalfMH"/>
          <xsd:enumeration value="GT2MH"/>
       </xsd:restriction>
    </xsd:simpleType>

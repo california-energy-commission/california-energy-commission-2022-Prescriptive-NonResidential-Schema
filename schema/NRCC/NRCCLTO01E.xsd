@@ -963,11 +963,11 @@ the user must enter an explanation on how wattage is determined for each luminai
                                     <xsd:element name="G09_MountingHeightRangeBUG" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Mounting Height[d:sup]1[/d:sup]</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from dropdown list: GT2MH  display term GT 2 MH from property line, Front1To2MH display term Front hemisphere is 1 - 2 MH from prop line, FrontHalfTo1MH display term Front hemisphere is 0.5 - 1 MH from prop line, BackLessThanHalfMH display term Back hemisphere LT 0.5 MH from prop line</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from dropdown list: GT2MH  display term GT 2 MH from property line, Front1To2MH display term Front hemisphere is 1 - 2 MH from prop line, FrontHalfTo1MH display term Front hemisphere is 0.5 - 1 MH from prop line, FrontLessThanHalfMH display term Front hemisphere LT 0.5 MH from prop line</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="comp:MountingHeightRangeBUG">
-                                             <xsd:enumeration value="BackLessThanHalfMH"/>
+                                             <xsd:enumeration value="FrontLessThanHalfMH"/>
                                              <xsd:enumeration value="Front1To2MH"/>
                                              <xsd:enumeration value="FrontHalfTo1MH"/>
                                              <xsd:enumeration value="GT2MH"/>
