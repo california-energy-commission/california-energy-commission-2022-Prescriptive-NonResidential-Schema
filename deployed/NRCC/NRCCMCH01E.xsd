@@ -4731,6 +4731,7 @@ End If_</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list:
 AirCooledWithCondenser display term Air Cooled: Condenser elec. Operated; 
 AirCooledWithOutCondenser display term Air Cooled: w/o condenser elec. Operated; 
+AirSourceHeatPump display term Air Source Heat Pump;
 Reciprocating display term Water Cooled: Reciprocating; 
 PositiveDisplacement display term Water Cooled: Positive displacement; 
 Centrifugal display term Water Cooled: Centrifugal; 
@@ -4738,7 +4739,9 @@ AbsorptionSingleEffect display term Air Cooled: Absorption, single effect;
 AbsorptionSingleEffectWater display term Water Cooled: Absorption, single effect; 
 AbsorptionDoubleEffectDirectFired display term Absorption: Double Effect, direct-fired; 
 AbsorptionDoubleEffectIndirectFired display term Absorption: Double Effect, indirect-fired; 
-GasEngineDriven display term Water Cooled: Gas Engine</xsd:documentation>
+GasEngineDriven display term Water Cooled: Gas Engine
+HeatRecoveryChillerPositiveDisplacement display term Heat Recovery Chiller - Positive Displacement;
+HeatRecoveryChillerCentrifugal display term Heat Recovery Chiller - Centrifugal;</xsd:documentation>
                                           <xsd:appinfo source="displayterm">
                                              <dtyp:displayterm value="AbsorptionSingleEffect">Air Cooled: Absorption, single effect</dtyp:displayterm>
                                              <dtyp:displayterm value="Reciprocating">Water Cooled: Reciprocating</dtyp:displayterm>
@@ -4785,28 +4788,71 @@ GTE600 display term
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
-                                    <xsd:element name="Fd05_ChillerExceptionPathB" type="comp:ChillerExceptionPathB">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Chiller Efficiency "Path B" Exception per 
-                                             <d:t24refnolink/>140.4(i) &amp;amp; 
-                                             <d:t24refnolink/>170.2(c)g</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: 
+                                    <xsd:choice>
+                                       <xsd:element name="Fd04a_ChillerWaterTemp" type="hvac:LeavingHotWaterTemp">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Leaving Hot Water Temperature (F)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Fd02_ChillerType == AirSourceHeatPump or HeatRecoveryChillerPositiveDisplacement or HeatRecoveryChillerCentrifugal
+User selects from list
+
+Else BlankGrayedOut stored in Fd04a_NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="Fd04a_NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Leaving Hot Water Temperature (F)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Fd02_ChillerType != AirSourceHeatPump or HeatRecoveryChillerPositiveDisplacement or HeatRecoveryChillerCentrifugal
+BlankGrayedOut stored in Fd04a_NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice>
+                                       <xsd:element name="Fd05_ChillerExceptionPathB" type="comp:ChillerExceptionPathB">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Chiller Efficiency "Path B" Exception per 
+                                                <d:t24refnolink/>140.4(i) &amp;amp; 
+                                                <d:t24refnolink/>170.2(c)g</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Fd02_ChillerType != AirSourceHeatPump, HeatRecoveryChillerPositiveDisplacement or HeatRecoveryChillerCentrifugal
+User selects from list: 
 NoExceptionTaken display term No Exception Taken, 
 EfficiencyException1 display term 1. Electrical service 
-                                             <d:gt/> 600V, 
+                                                <d:gt/> 600V, 
 EfficiencyException2 display term 2. Heat recovery w/ design capacity GT 40% of the design chiller cooling capacity, 
 EfficiencyException3 display term 3. Charging energy storage systems w/ charging temperature  LT 40
-                                             <d:deg/>F, 
+                                                <d:deg/>F, 
 EfficiencyException4 display term 4. 4th (or more) chiller in this building.  
 EfficiencyException5 display term 5. Water -Cooled Centrifugal Chilling Package per Exception 1 to 
-                                             <d:t24refnolink/>110.2(a)
- 
+                                                <d:t24refnolink/>110.2(a)
+
 If result == EfficiencyException1 Or EfficiencyException2 Or EfficiencyException3 Or EfficiencyException4 minimum efficiency values for path A should be used
 Else If result == NoExceptionTaken minimum efficiency values for path B should be used
 Else Fd_NotApplicableMessage should be used
+End If
+Else BlankGrayedOut Stored in Fd05_NotApplicableMessage
 End If</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="Fd05_NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Leaving Hot Water Temperature (F)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Fd02_ChillerType == AirSourceHeatPump, HeatRecoveryChillerPositiveDisplacement or HeatRecoveryChillerCentrifugal
+BlankGrayedOut stored in Fd04a_NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:element name="FdEfficiency">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"/>
@@ -5171,6 +5217,530 @@ End If</xsd:documentation>
                                                    </xsd:sequence>
                                                 </xsd:complexType>
                                              </xsd:element>
+                                             <xsd:element name="FdAirSourceHeatPump">
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText"/>
+                                                   <xsd:documentation source="CalculationsAndRules">Use this choice If Fd02_ChillerType == AirSourceHeatPump
+And
+Fd05_ChillerExceptionPathB == NoExceptionTaken</xsd:documentation>
+                                                </xsd:annotation>
+                                                <xsd:complexType>
+                                                   <xsd:sequence>
+                                                      <xsd:choice>
+                                                         <xsd:element name="Fd06a_EfficiencyCOP" type="hvac:EfficiencyCOP">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Rated Efficiencies</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Fd04a_ChillerWaterTemp != Boost
+User enters the rated COP efficiency for the chiller in result1, top cell in table
+
+Else BlankGrayedOut stored in Fd06a_NotApplicableMessage</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Fd06a_NotApplicableMessage">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Rated Efficiencies</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Fd04a_ChillerWaterTemp == Boost
+   result = BlankGrayedOut Stored in the NotApplicableMessage
+   End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:choice>
+                                                         <xsd:element name="Fd06b_EfficiencyCOP" type="hvac:EfficiencyCOP">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Rated Efficiencies</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Fd04a_ChillerWaterTemp != Boost
+User enters the rated COP efficiency for the chiller in result2, second from top cell in table
+
+Else BlankGrayedOut stored in Fd06a_NotApplicableMessage</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Fd06b_NotApplicableMessage">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Rated Efficiencies</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Fd04a_ChillerWaterTemp == Boost
+result = BlankGrayedOut Stored in the NotApplicableMessage
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:element name="Fd06c_EfficiencyEER" type="hvac:EfficiencyEER">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Rated Efficiencies</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">User enters the rated EER efficiency for the chiller in result3, third from top cell in table</xsd:documentation>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd06d_EfficiencyEER_IPLV" type="hvac:EfficiencyEER_IPLV">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Rated Efficiencies</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">User enters the rated EER IPLV efficiency for the chiller in result4, bottom cell in table</xsd:documentation>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="Fd07a_RangeMinCOP" type="hvac:RangeMinCOP">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Efficiencies Required per 
+                                                                  <d:t24refnolink/>110.2<d:sup>2</d:sup>
+                                                               </xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Fd04a_ChillerWaterTemp != Boost
+Calculation for result1, top cell in table:  
+If Fd04a_ChillerWaterTemp == Low
+result1 = 3.290
+
+Else If Fd04a_ChillerWaterTemp == Medium
+result1 = 2.770
+
+Else If Fd04a_ChillerWaterTemp == High
+result1 = 2.310
+
+Else If Fd04a_ChillerWaterTemp == Boost
+result1 = blankGrayedOutStored in Fd07a_NotApplicableMessage
+
+
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Fd07a_NotApplicableMessage">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Efficiencies Required per 
+                                                                  <d:t24refnolink/>110.2<d:sup>2</d:sup>
+                                                               </xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Fd04a_ChillerWaterTemp == Boost  
+result = BlankGrayedOut Stored in the NotApplicableMessage
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="Fd07b_RangeMinCOP" type="hvac:RangeMinCOP">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Efficiencies Required per 
+                                                                  <d:t24refnolink/>110.2<d:sup>2</d:sup>
+                                                               </xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Fd04a_ChillerWaterTemp != Boost
+Calculation for result2, second from top cell in table:  
+If Fd04a_ChillerWaterTemp == Low
+result1 = 2.230
+
+Else If Fd04a_ChillerWaterTemp == Medium
+result1 = 1.950
+
+Else If Fd04a_ChillerWaterTemp == High
+result1 = 1.630
+
+Else If Fd04a_ChillerWaterTemp == Boost
+result1 = blankGrayedOutStored in Fd07b_NotApplicableMessage
+
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Fd07b_NotApplicableMessage">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Efficiencies Required per 
+                                                                  <d:t24refnolink/>110.2<d:sup>2</d:sup>
+                                                               </xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Fd04a_ChillerWaterTemp == Boost 
+result = BlankGrayedOut Stored in the NotApplicableMessage
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:element name="Fd07c_EfficiencyEER" type="hvac:RangeMinEER">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Efficiencies Required per 
+                                                               <d:t24refnolink/>110.2<d:sup>2</d:sup>
+                                                            </xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">User selection for result3, third from top cell in table:   
+result for Fd07c_EfficiencyEER and Fd07d_EfficiencyEER_IPLV == either:
+9.595 and 13.02
+Or 
+9.215 and 15.01</xsd:documentation>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd07d_EfficiencyEER_IPLV" type="hvac:RangeMinEER_IPLV">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Efficiencies Required per 
+                                                               <d:t24refnolink/>110.2<d:sup>2</d:sup>
+                                                            </xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">User selection  for result4, bottom cell in table:   
+result for Fd07c_EfficiencyEER and Fd07d_EfficiencyEER_IPLV == either:
+9.595 and 13.02
+Or 
+9.215 and 15.01</xsd:documentation>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:choice>
+                                                         <xsd:element name="Fd08a_EfficiencyType">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Fd04a_ChillerWaterTemp != Boost
+Result1, top cell in table: = COP
+
+Else result = BlankGrayedOut stored in Fd08a_NotApplicableMessage</xsd:documentation>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="hvac:EfficiencyType">
+                                                                  <xsd:enumeration value="COP"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                         <xsd:element name="Fd08a_NotApplicableMessage">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Fd04a_ChillerWaterTemp == Boost
+result = BlankGrayedOut stored in Fd08a_NotApplicableMessage</xsd:documentation>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:choice>
+                                                         <xsd:element name="Fd08b_EfficiencyType">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Fd04a_ChillerWaterTemp != Boost
+Result2, second from top cell in table: = COP
+
+Else result = BlankGrayedOut stored in Fd08b_NotApplicableMessage</xsd:documentation>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="hvac:EfficiencyType">
+                                                                  <xsd:enumeration value="COP"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                         <xsd:element name="Fd08b_NotApplicableMessage">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Fd04a_ChillerWaterTemp == Boost
+result = BlankGrayedOut stored in Fd08b_NotApplicableMessage</xsd:documentation>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                      <xsd:element name="Fd08c_EfficiencyType">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">Result3, third from top cell in table: = EER</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="hvac:EfficiencyType">
+                                                               <xsd:enumeration value="EER"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd08d_EfficiencyType">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">Result4, bottom cell in table: = EER_IPLV</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="hvac:EfficiencyType">
+                                                               <xsd:enumeration value="EER_IPLV"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                   </xsd:sequence>
+                                                </xsd:complexType>
+                                             </xsd:element>
+                                             <xsd:element name="FdHeatRecoveryChiller">
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText"/>
+                                                   <xsd:documentation source="CalculationsAndRules">Use this choice If Fd02_ChillerType == HeatRecoveryChillerPositiveDisplacement or HeatRecoveryChillerCentrifugal
+And
+Fd05_ChillerExceptionPathB == NoExceptionTaken</xsd:documentation>
+                                                </xsd:annotation>
+                                                <xsd:complexType>
+                                                   <xsd:sequence>
+                                                      <xsd:element name="Fd06a_EfficiencyCOP" type="hvac:EfficiencyCOP">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Rated Efficiencies</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">User enters the rated COP efficiency for the chiller in result1, top cell in table</xsd:documentation>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd06b_EfficiencyCOP" type="hvac:EfficiencyCOP">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Rated Efficiencies</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">User enters the rated COP efficiency for the chiller in result2, second from top cell in table</xsd:documentation>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd06c_EfficiencyKWperTon" type="hvac:EfficiencyKWperTon">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Rated Efficiencies</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">User enters the rated kw/ton efficiency for the chiller in result3, third from top cell in table</xsd:documentation>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd06d_EfficiencyKWperTon_IPLV" type="hvac:EfficiencyKWperTon_IPLV">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Rated Efficiencies</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">User enters the rated IPLV efficiency for the chiller in result4, bottom cell in table</xsd:documentation>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd07a_RangeMinCOP" type="hvac:RangeMinCOP">
+                                                         <!--  Gray Out 06 whenever these new chiller types are selected in 02. Not on this line-->
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Efficiencies Required per 
+                                                               <d:t24refnolink/>110.2<d:sup>2</d:sup>
+                                                            </xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">Calculation for result1, top cell in table:  
+If Fd04_ChillerTonsRange == LT75 Or GTE75ToLT150 Or GTE150ToLT300
+If Fd04a_ChillerWaterTemp == Low
+result = 4.640
+Else if Fd04a_ChillerWaterTemp == Medium
+result = 3.680
+Else if Fd04a_ChillerWaterTemp == High
+result = 2.680
+Else if Fd04a_ChillerWaterTemp == Boost
+result = 3.550
+End If
+Else if Fd04_ChillerTonsRange == GTE300ToLT400 Or GTE400ToLT600 Or GTE600
+If Fd04a_ChillerWaterTemp == Low
+result = 4.930
+Else if Fd04a_ChillerWaterTemp == Medium
+result = 3.960
+Else if Fd04a_ChillerWaterTemp == High
+result = 2.970
+Else if Fd04a_ChillerWaterTemp == Boost
+result = 3.900
+End If 
+End If</xsd:documentation>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd07b_RangeMinCOP" type="hvac:RangeMinCOP">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Efficiencies Required per 
+                                                               <d:t24refnolink/>110.2<d:sup>2</d:sup>
+                                                            </xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">Calculation for result2, second to top cell in table:  
+If Fd04_ChillerTonsRange == LT75 Or GTE75ToLT150 Or GTE150ToLT300
+If Fd04a_ChillerWaterTemp == Low
+result = 8.330
+Else if Fd04a_ChillerWaterTemp == Medium
+result = 6.410
+Else if Fd04a_ChillerWaterTemp == High
+result = 4.420
+Else if Fd04a_ChillerWaterTemp == Boost
+result = 3.550
+End If
+Else if Fd04_ChillerTonsRange == GTE300ToLT400 Or GTE400ToLT600 Or GTE600
+If Fd04a_ChillerWaterTemp == Low
+result = 8.900
+Else if Fd04a_ChillerWaterTemp == Medium
+result = 3.6.980
+Else if Fd04a_ChillerWaterTemp == High
+result = 5.000
+Else if Fd04a_ChillerWaterTemp == Boost
+result = 6.850
+End If 
+End If</xsd:documentation>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd07c_EfficiencyKWperTon" type="hvac:RangeMinKWperTon">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Efficiencies Required per 
+                                                               <d:t24refnolink/>110.2<d:sup>2</d:sup>
+                                                            </xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">User Selection for result3, third from top cell in table:   
+If Fd02_ChillerType == HeatRecoveryChillerCentrifugal
+If Fd04_ChillerTonsRange == LT75 
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.6421 and 0.5789
+Or 
+0.7316 and 0.4632
+Else If Fd04_ChillerTonsRange == GTE75ToLT150 
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.5895 and 0.5474
+Or 
+0.6684 and 0.4211
+Else If Fd04_ChillerTonsRange == GTE150ToLT300 
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.5895 and 0.5263
+Or 
+0.6263 and 0.4105
+Else If Fd04_ChillerTonsRange == GTE300ToLT400 Or GTE400ToLT600
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.5895 and 0.5263
+Or 
+0.6158 and 0.4000
+Else If Fd04_ChillerTonsRange == GTE600 
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.5895 and 0.5263
+Or 
+0.6158 and 0.4000
+End If
+Else If Fd02_ChillerType == HeatRecoveryChillerPositiveDisplacement
+If Fd04_ChillerTonsRange == LT75 
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.7885 and 0.6316
+Or 
+0.7875 and 0.5145
+Else If Fd04_ChillerTonsRange == GTE75ToLT150 
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.7579 and 0.5895
+Or 
+0.7140 and 0.4620
+Else If Fd04_ChillerTonsRange == GTE150ToLT300 
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.6947 and 0.5684
+Or 
+0.7140 and 0.4620
+Else If Fd04_ChillerTonsRange == GTE300ToLT400 Or GTE400ToLT600
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.6421 and 0.5474
+Or 
+0.6563 and 0.4305
+Else If Fd04_ChillerTonsRange == GTE600 
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.5895 and 0.5263
+Or 
+0.6143 and 0.3990
+End If
+End If</xsd:documentation>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd07d_EfficiencyKWperTon_IPLV" type="hvac:RangeMinKWperTon_IPLV">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Efficiencies Required per 
+                                                               <d:t24refnolink/>110.2<d:sup>2</d:sup>
+                                                            </xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">User Selection for result4, bottom cell in table:   
+If Fd02_ChillerType == HeatRecoveryChillerCentrifugal
+If Fd04_ChillerTonsRange == LT75 
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.6421 and 0.5789
+Or 
+0.7316 and 0.4632
+Else If Fd04_ChillerTonsRange == GTE75ToLT150 
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.5895 and 0.5474
+Or 
+0.6684 and 0.4211
+Else If Fd04_ChillerTonsRange == GTE150ToLT300 
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.5895 and 0.5263
+Or 
+0.6263 and 0.4105
+Else If Fd04_ChillerTonsRange == GTE300ToLT400 Or GTE400ToLT600
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.5895 and 0.5263
+Or 
+0.6158 and 0.4000
+Else If Fd04_ChillerTonsRange == GTE600 
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.5895 and 0.5263
+Or 
+0.6158 and 0.4000
+End If
+Else If Fd02_ChillerType == HeatRecoveryChillerPositiveDisplacement
+If Fd04_ChillerTonsRange == LT75 
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.7885 and 0.6316
+Or 
+0.7875 and 0.5145
+Else If Fd04_ChillerTonsRange == GTE75ToLT150 
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.7579 and 0.5895
+Or 
+0.7140 and 0.4620
+Else If Fd04_ChillerTonsRange == GTE150ToLT300 
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.6947 and 0.5684
+Or 
+0.7140 and 0.4620
+Else If Fd04_ChillerTonsRange == GTE300ToLT400 Or GTE400ToLT600
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.6421 and 0.5474
+Or 
+0.6563 and 0.4305
+Else If Fd04_ChillerTonsRange == GTE600 
+result for Fd07c_EfficiencyKWperTon And Fd07d_EfficiencyKWperTon_IPLV are either:
+0.5895 and 0.5263
+Or 
+0.6143 and 0.3990
+End If
+End If</xsd:documentation>
+                                                         </xsd:annotation>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd08a_EfficiencyType">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If Fd07a_RangeMinCOP IsPresent
+Result1, top cell in table: = COP
+
+Else result = BlankGrayedOut stored in Fd08a_NotApplicableMessage</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="hvac:EfficiencyType">
+                                                               <xsd:enumeration value="COP"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd08b_EfficiencyType">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If Fd07a_RangeMinCOP IsPresent
+Result1, top cell in table: = COP
+
+Else result = BlankGrayedOut stored in Fd08a_NotApplicableMessage</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="hvac:EfficiencyType">
+                                                               <xsd:enumeration value="COP"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd08c_EfficiencyType">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">Result3, third from top cell in table: = KWperTon</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="hvac:EfficiencyType">
+                                                               <xsd:enumeration value="KWperTon"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="Fd08d_EfficiencyType">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">Result4, bottom cell in table: = KWperTon_IPLV</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:restriction base="hvac:EfficiencyType">
+                                                               <xsd:enumeration value="KWperTon_IPLV"/>
+                                                            </xsd:restriction>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                   </xsd:sequence>
+                                                </xsd:complexType>
+                                             </xsd:element>
                                              <xsd:element name="Fd_NotApplicableMessage">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText"/>
@@ -5211,7 +5781,7 @@ End If</xsd:documentation>
                                                             <xsd:documentation source="FieldText">Efficiencies Required per 
                                                                <d:t24refnolink/>110.2<d:sup>2</d:sup>
                                                             </xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">IIf Fd05_ChillerExceptionPathB == EfficiencyException5 
+                                                            <xsd:documentation source="CalculationsAndRules">If Fd05_ChillerExceptionPathB == EfficiencyException5 
 result = BlankGrayedOut Stored in the NotApplicableMessage
 End If</xsd:documentation>
                                                          </xsd:annotation>

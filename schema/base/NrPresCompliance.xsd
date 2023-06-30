@@ -6679,7 +6679,7 @@
       <xsd:annotation>
          <xsd:documentation>  Units: kW</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative">
+      <xsd:restriction base="dtyp:Decimal3Places">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="FenestrationComplianceCalc">

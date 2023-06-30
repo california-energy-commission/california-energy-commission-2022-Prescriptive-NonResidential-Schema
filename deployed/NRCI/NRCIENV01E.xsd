@@ -532,9 +532,13 @@ End If</xsd:documentation>
                                                                <xsd:restriction base="env:AssemblyType">
                                                                   <xsd:enumeration value="Framed"/>
                                                                   <xsd:enumeration value="MetalBuilding"/>
+                                                                  <xsd:enumeration value="MetalFramedAttic"/>
+                                                                  <xsd:enumeration value="MetalFramedRafter"/>
                                                                   <xsd:enumeration value="MetalPanel"/>
                                                                   <xsd:enumeration value="SIPS"/>
                                                                   <xsd:enumeration value="Span"/>
+                                                                  <xsd:enumeration value="WoodFramedAttic"/>
+                                                                  <xsd:enumeration value="WoodFramedRafter"/>
                                                                </xsd:restriction>
                                                             </xsd:simpleType>
                                                          </xsd:element>
@@ -6337,7 +6341,7 @@ End If</xsd:documentation>
                                                          </xsd:element>
                                                       </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="Fen03cc_FenestrationComplianceCalc" type="comp:FenestrationComplianceCalc">
+                                                         <xsd:element name="Fen03cc_FenestrationComplianceCalc">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Calculation Method</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
@@ -6369,6 +6373,12 @@ End If</xsd:documentation>
                                                                   <dtyp:srcSchema form="CCPRF01E" usage="reference">Fen05_FenestrationCertificationMethod</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:FenestrationComplianceCalc">
+                                                                  <xsd:enumeration value="EnergyCodeDefaults"/>
+                                                                  <xsd:enumeration value="NFRC_Certified"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
                                                          </xsd:element>
                                                          <xsd:element name="Fen03cc_NotApplicableMessage">
                                                             <xsd:annotation>
@@ -6397,7 +6407,7 @@ End If</xsd:documentation>
                                                          </xsd:element>
                                                       </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="Fen03_FenestrationComplianceCalc" type="comp:FenestrationComplianceCalc">
+                                                         <xsd:element name="Fen03_FenestrationComplianceCalc">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Calculation Method</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Fen03cc_FenestrationComplianceCalc IsPresent 
@@ -6412,6 +6422,12 @@ End If</xsd:documentation>
                                                                   <dtyp:displayterm value="Table110_6Defaults">Energy Code Defaults</dtyp:displayterm>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:FenestrationComplianceCalc">
+                                                                  <xsd:enumeration value="EnergyCodeDefaults"/>
+                                                                  <xsd:enumeration value="NFRC_Certified"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
                                                          </xsd:element>
                                                          <xsd:element name="Fen03_NotApplicableMessage">
                                                             <xsd:annotation>
@@ -7109,10 +7125,7 @@ Else  If
 (FenVert02_FenestrationProductType  IsPresent and FenVert02_FenestrationProductType  != FenVert02cc_FenestrationProductType)  Or  (FenSky02_FenestrationProductType  IsPresent and FenSky02_FenestrationProductType  != FenSky02cc_FenestrationProductType) Or (FenPerf02_FenestrationProductType  IsPresent and FenPerf02_FenestrationProductType  != FenPerf02cc_FenestrationProductType) 
  
 Or 
-Fen03_FenestrationComplianceCalc IsPresent And  (Fen03cc_FenestrationComplianceCalc
-== CECDefaultPerformance Or NA6DefaultCOG Or Table110_6Defaults And 
-Fen03_FenestrationComplianceCalc  == NFRC_Certified)  Or 
-(Fen03cc_FenestrationComplianceCalc != CECDefaultPerformance Or NA6DefaultCOG Or Table110_6Defaults And Fen03_FenestrationComplianceCalc  == EnergyCodeDefaults)  
+Fen03_FenestrationComplianceCalc IsPresent And  Fen03_FenestrationComplianceCalc  != Fen03cc_FenestrationComplianceCalc
  
 Or 
 Fen05_FenestrationFramingNR  IsPresent And  Fen05_FenestrationFramingNR  !=  Fen05cc_FenestrationFramingNR 

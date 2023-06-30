@@ -1234,7 +1234,7 @@ End If</xsd:documentation>
                                              <d:line1/>
                                              <d:t24refnolink/>130.2(c)2 / 
                                              <d:t24refnolink/>160.5(c)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If BB01b_LightingProjectScopeNR IsPresent And  AND B03_LuminaireAlteredPercentRange = GTE10PercentLT50Percent Or GTE50Percentv
+                                          <xsd:documentation source="CalculationsAndRules">If BB01b_LightingProjectScopeNR IsPresent And  AND B03_LuminaireAlteredPercentRange = GTE10PercentLT50Percent Or GTE50Percent
 User selects from full dropdown list: 
 ParkingSalesNA display term NA: Parking or Sales Lots 
                                              <d:gt/>24 ft/all other at any height, AutoSchedule display term Yes, EMCS display term Yes - EMCS, MultifamilyLightingNA display term NA: MF Complying w 160.5(a), NotPermittedNA display term NA: Not permitted by H&amp;amp;LS, TunnelsNA display term NA: Lighting in Tunnels

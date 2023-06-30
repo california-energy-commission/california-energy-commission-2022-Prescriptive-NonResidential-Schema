@@ -1379,8 +1379,11 @@
             <dtyp:displayterm value="AbsorptionSingleEffectWater">Water Cooled: Absorption, single effect</dtyp:displayterm>
             <dtyp:displayterm value="AirCooledWithCondenser">Air Cooled: Condenser elec. operated</dtyp:displayterm>
             <dtyp:displayterm value="AirCooledWithOutCondenser">Air Cooled: w/o condenser elec. operated</dtyp:displayterm>
+            <dtyp:displayterm value="AirSourceHeatPump">Air Source Heat Pump</dtyp:displayterm>
             <dtyp:displayterm value="Centrifugal">Centrifugal</dtyp:displayterm>
             <dtyp:displayterm value="GasEngineDriven">Water Cooled: Gas Engine</dtyp:displayterm>
+            <dtyp:displayterm value="HeatRecoveryChillerPositiveDisplacement">Heat Recovery Chiller - Positive Displacement</dtyp:displayterm>
+            <dtyp:displayterm value="HeatRecoveryChillerCentrifugal">Heat Recovery Chiller - Centrifugal</dtyp:displayterm>
             <dtyp:displayterm value="PositiveDisplacement">Water Cooled: Positive displacement</dtyp:displayterm>
             <dtyp:displayterm value="Reciprocating">Reciprocating</dtyp:displayterm>
             <dtyp:displayterm value="Screw">Screw</dtyp:displayterm>
@@ -5570,6 +5573,22 @@
    </xsd:simpleType>
    <xsd:simpleType name="LaboratoryExhaustHasContaminantControl">
       <xsd:restriction base="xsd:boolean"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="LeavingHotWaterTemp">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Low">Low - 105F</dtyp:displayterm>
+            <dtyp:displayterm value="Medium">Medium - 120F</dtyp:displayterm>
+            <dtyp:displayterm value="High">High - 140F</dtyp:displayterm>
+            <dtyp:displayterm value="Boost">Boost - 140F</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Low"/>
+         <xsd:enumeration value="Medium"/>
+         <xsd:enumeration value="High"/>
+         <xsd:enumeration value="Boost"/>
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LoopTankBrandModel">
       <xsd:restriction base="xsd:token"/>
