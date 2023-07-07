@@ -1077,7 +1077,7 @@
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="BuildingPlanName">
-      <xsd:restriction base="dtyp:String50Char"/>
+      <xsd:restriction base="dtyp:StringMin1Char"/>
    </xsd:simpleType>
    <xsd:simpleType name="BuildingPressureMeasuredUnadjusted">
       <xsd:annotation>
