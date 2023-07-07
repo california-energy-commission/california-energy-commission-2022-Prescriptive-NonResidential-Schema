@@ -2405,9 +2405,12 @@ The value is stored in result1, the top displayed cell and the bottom cell is bl
 result1 = 0.60 (COP); 
  
 Else If Fa02_SizeRangeUnitaryHeatPumps == LT65000 
-Switch (F03_UnitaryHeatPumps)  
-case AirCooledSplit1PhaseHP Or AirCooledPkg1PhaseHP: 
-result1 = 14.3 (SEER2); 
+Switch (F03_UnitaryHeatPumps)
+case AirCooledSplit1PhaseHP:
+result1 = 14.3 (SEER2);
+
+case AirCooledPkg1PhaseHP:
+result1 = 13.4 (SEER2);
  
 case AirCooledSplit3PhaseHP Or AirCooledPkg3PhaseHP 
 result1 = 14.0 (SEER);  

@@ -941,7 +941,9 @@ End If</xsd:documentation>
                                                                   <xsd:enumeration value="R10ci"/>
                                                                   <xsd:enumeration value="R12ci"/>
                                                                   <xsd:enumeration value="R15ci"/>
+                                                                  <xsd:enumeration value="R17ci"/>
                                                                   <xsd:enumeration value="R20ci"/>
+                                                                  <xsd:enumeration value="R23ci"/>
                                                                   <xsd:enumeration value="R25ci"/>
                                                                   <xsd:enumeration value="R30ci"/>
                                                                   <xsd:enumeration value="R4ci"/>
@@ -1143,7 +1145,9 @@ End If</xsd:documentation>
                                                                   <xsd:enumeration value="R10ci"/>
                                                                   <xsd:enumeration value="R12ci"/>
                                                                   <xsd:enumeration value="R15ci"/>
+                                                                  <xsd:enumeration value="R17ci"/>
                                                                   <xsd:enumeration value="R20ci"/>
+                                                                  <xsd:enumeration value="R23ci"/>
                                                                   <xsd:enumeration value="R25ci"/>
                                                                   <xsd:enumeration value="R30ci"/>
                                                                   <xsd:enumeration value="R4ci"/>

@@ -3865,7 +3865,7 @@ Else If Fspan08_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters te
                                                       <xsd:documentation source="FieldText">Continuous Insulation per Design[d:sup]2[/d:sup]</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Fspan08_UfactorSpecSource == JA4Other Or ApprovedSoftware this row is grayed out; 
  
-Else If Fspan08_UfactorSpecSource == JA4Tables user selects from list: 
+Else If Fspan08_UfactorSpecSource == JA4Tables And != ExistingAlteration user selects from list: 
 R0ci display term None, 
 R4ci display term R-4, 
 R6ci display term R-6, 
@@ -3875,7 +3875,22 @@ R12ci display term R-12,
 R15ci display term R-15, 
 R20ci display term R-20, 
 R25ci display term R-25, 
-R30ci display term R-30,</xsd:documentation>
+R30ci display term R-30,
+
+Else user selects from the list:
+R0ci display term None, 
+R4ci display term R-4, 
+R6ci display term R-6, 
+R8ci display term R-8, 
+R10ci display term R-10, 
+R12ci display term R-12, 
+R15ci display term R-15, 
+R17ci display term R-17,
+R20ci display term R-20, 
+R23ci display term R-23, 
+R25ci display term R-25, 
+R30ci display term R-30,
+End If</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="env:ContinuousInsulationNR">
@@ -3883,7 +3898,9 @@ R30ci display term R-30,</xsd:documentation>
                                                          <xsd:enumeration value="R10ci"/>
                                                          <xsd:enumeration value="R12ci"/>
                                                          <xsd:enumeration value="R15ci"/>
+                                                         <xsd:enumeration value="R17ci"/>
                                                          <xsd:enumeration value="R20ci"/>
+                                                         <xsd:enumeration value="R23ci"/>
                                                          <xsd:enumeration value="R25ci"/>
                                                          <xsd:enumeration value="R30ci"/>
                                                          <xsd:enumeration value="R4ci"/>
@@ -4836,26 +4853,41 @@ Else If Fmetalb08_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters 
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Continuous Insulation per Design[d:sup]2[/d:sup]</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Fmetalb08_UfactorSpecSource == JA4Other Or ApprovedSoftware this row is grayed out; 
- 
-Else If Fmetalb08_UfactorSpecSource == JA4Tables user selects from list: 
+Else If Fspan08_UfactorSpecSource == JA4Tables And != ExistingAlteration user selects from list: 
 R0ci display term None, 
 R6ci display term R-6, 
 R9ci display term R-9, 
 R13ci display term R-13, 
 R15ci display term R-15, 
-R19ci display term R-19, 
 R22ci display term R-22, 
+R25ci display term R-15, 
+R32ci display term R-20, 
 R25ci display term R-25, 
-R32ci display term R-32, 
-R38ci display term R-38</xsd:documentation>
+R38ci display term R-30,
+
+Else user selects from the list:
+R0ci display term None, 
+R6ci display term R-6, 
+R9ci display term R-9, 
+R13ci display term R-13, 
+R15ci display term R-15, 
+R17ci display term R-17, 
+R22ci display term R-22, 
+R23ci display term R-23, 
+R25ci display term R-15, 
+R32ci display term R-20, 
+R25ci display term R-25, 
+R38ci display term R-30,</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="env:ContinuousInsulationNR">
                                                          <xsd:enumeration value="R0ci"/>
                                                          <xsd:enumeration value="R13ci"/>
                                                          <xsd:enumeration value="R15ci"/>
+                                                         <xsd:enumeration value="R17ci"/>
                                                          <xsd:enumeration value="R19ci"/>
                                                          <xsd:enumeration value="R22ci"/>
+                                                         <xsd:enumeration value="R23ci"/>
                                                          <xsd:enumeration value="R25ci"/>
                                                          <xsd:enumeration value="R32ci"/>
                                                          <xsd:enumeration value="R38ci"/>
