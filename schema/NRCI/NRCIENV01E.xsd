@@ -969,15 +969,18 @@ End If</xsd:documentation>
                                                             <xsd:simpleType>
                                                                <xsd:restriction base="env:ContinuousInsulationNR">
                                                                   <xsd:enumeration value="R0ci"/>
+                                                                  <xsd:enumeration value="R6ci"/>
+                                                                  <xsd:enumeration value="R9ci"/>
                                                                   <xsd:enumeration value="R13ci"/>
                                                                   <xsd:enumeration value="R15ci"/>
+                                                                  <xsd:enumeration value="R17ci"/>
                                                                   <xsd:enumeration value="R19ci"/>
+                                                                  <xsd:enumeration value="R20ci"/>
                                                                   <xsd:enumeration value="R22ci"/>
+                                                                  <xsd:enumeration value="R23ci"/>
                                                                   <xsd:enumeration value="R25ci"/>
                                                                   <xsd:enumeration value="R32ci"/>
                                                                   <xsd:enumeration value="R38ci"/>
-                                                                  <xsd:enumeration value="R6ci"/>
-                                                                  <xsd:enumeration value="R9ci"/>
                                                                </xsd:restriction>
                                                             </xsd:simpleType>
                                                          </xsd:element>
@@ -1170,15 +1173,18 @@ End If</xsd:documentation>
                                                             <xsd:simpleType>
                                                                <xsd:restriction base="env:ContinuousInsulationNR">
                                                                   <xsd:enumeration value="R0ci"/>
-                                                                  <xsd:enumeration value="R13ci"/>
-                                                                  <xsd:enumeration value="R15ci"/>
-                                                                  <xsd:enumeration value="R19ci"/>
-                                                                  <xsd:enumeration value="R22ci"/>
-                                                                  <xsd:enumeration value="R25ci"/>
-                                                                  <xsd:enumeration value="R32ci"/>
-                                                                  <xsd:enumeration value="R38ci"/>
                                                                   <xsd:enumeration value="R6ci"/>
                                                                   <xsd:enumeration value="R9ci"/>
+                                                                  <xsd:enumeration value="R13ci"/>
+                                                                  <xsd:enumeration value="R15ci"/>
+                                                                  <xsd:enumeration value="R17ci"/>
+                                                                  <xsd:enumeration value="R19ci"/>
+                                                                  <xsd:enumeration value="R20ci"/>
+                                                                  <xsd:enumeration value="R22ci"/>
+                                                                  <xsd:enumeration value="R23ci"/>
+                                                                  <xsd:enumeration value="R25ci"/>
+                                                                  <xsd:enumeration value="R32ci"/>
+                                                                  <xsd:enumeration value="R38ci"/> 
                                                                </xsd:restriction>
                                                             </xsd:simpleType>
                                                          </xsd:element>

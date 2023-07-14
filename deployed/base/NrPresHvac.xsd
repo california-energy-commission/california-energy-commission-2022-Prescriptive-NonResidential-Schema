@@ -1397,8 +1397,11 @@
          <xsd:enumeration value="AbsorptionSingleEffectWater"/>
          <xsd:enumeration value="AirCooledWithCondenser"/>
          <xsd:enumeration value="AirCooledWithOutCondenser"/>
+         <xsd:enumeration value="AirSourceHeatPump"/>
          <xsd:enumeration value="Centrifugal"/>
          <xsd:enumeration value="GasEngineDriven"/>
+         <xsd:enumeration value="HeatRecoveryChillerPositiveDisplacement"/>
+         <xsd:enumeration value="HeatRecoveryChillerCentrifugal"/>
          <xsd:enumeration value="PositiveDisplacement"/>
          <xsd:enumeration value="Reciprocating"/>
          <xsd:enumeration value="Screw"/>
@@ -8121,6 +8124,12 @@
                <d:gte/>1.000</dtyp:displayterm>
             <dtyp:displayterm value="GTE1_200">
                <d:gte/>1.2</dtyp:displayterm>
+            <dtyp:displayterm value="GTE1_630">
+               <d:gte/>1.630</dtyp:displayterm>
+            <dtyp:displayterm value="GTE1_950">
+               <d:gte/>1.950</dtyp:displayterm>
+            <dtyp:displayterm value="GTE2_230">
+               <d:gte/>2.230</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -8128,6 +8137,9 @@
          <xsd:enumeration value="GTE0_700"/>
          <xsd:enumeration value="GTE1_000"/>
          <xsd:enumeration value="GTE1_200"/>
+         <xsd:enumeration value="GTE1_630"/>
+         <xsd:enumeration value="GTE1_950"/>
+         <xsd:enumeration value="GTE2_230"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="RangeMinCOP_IPLV">
@@ -8200,41 +8212,80 @@
                <d:lte/>0.560</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_585">
                <d:lte/>0.585</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_5895">
+               <d:lte/>0.5895</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_595">
                <d:lte/>0.595</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_610">
                <d:lte/>0.610</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_6143">
+               <d:lte/>0.6143</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_6158">
+               <d:lte/>0.6158</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_625">
                <d:lte/>0.625</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_6263">
+               <d:lte/>0.6263</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_635">
                <d:lte/>0.635</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_6421">
+               <d:lte/>0.6421</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_6563">
+               <d:lte/>0.6563</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_660">
                <d:lte/>0.660</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_6684">
+               <d:lte/>0.6684</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_680">
                <d:lte/>0.680</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_6947">
+               <d:lte/>0.6947</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_695">
                <d:lte/>0.695</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_7140">
+               <d:lte/>0.7140</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_720">
                <d:lte/>0.720</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_7316">
+               <d:lte/>0.7316</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_750">
                <d:lte/>0.750</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_7579">
+               <d:lte/>0.7579</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_780">
                <d:lte/>0.780</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_7875">
+               <d:lte/>0.7875</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_7885">
+               <d:lte/>0.7885</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="LTE0_560"/>
          <xsd:enumeration value="LTE0_585"/>
+         <xsd:enumeration value="LTE0_5895"/>
          <xsd:enumeration value="LTE0_595"/>
          <xsd:enumeration value="LTE0_610"/>
+         <xsd:enumeration value="LTE0_6143"/>
+         <xsd:enumeration value="LTE0_6158"/>
          <xsd:enumeration value="LTE0_625"/>
+         <xsd:enumeration value="LTE0_6263"/>
          <xsd:enumeration value="LTE0_635"/>
+         <xsd:enumeration value="LTE0_6421"/>
+         <xsd:enumeration value="LTE0_6563"/>
          <xsd:enumeration value="LTE0_660"/>
+         <xsd:enumeration value="LTE0_6684"/>
          <xsd:enumeration value="LTE0_680"/>
+         <xsd:enumeration value="LTE0_6947"/>
          <xsd:enumeration value="LTE0_695"/>
+         <xsd:enumeration value="LTE0_7140"/>
          <xsd:enumeration value="LTE0_720"/>
+         <xsd:enumeration value="LTE0_7316"/>
          <xsd:enumeration value="LTE0_750"/>
+         <xsd:enumeration value="LTE0_7579"/>
          <xsd:enumeration value="LTE0_780"/>
+         <xsd:enumeration value="LTE0_7875"/>
+         <xsd:enumeration value="LTE0_7885"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="RangeMinKWperTon_IPLV">
@@ -8247,41 +8298,83 @@
                <d:lte/>0.380</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_390">
                <d:lte/>0.390</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_3990">
+               <d:lte/>0.3990</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_400">
                <d:lte/>0.400</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_4000">
+               <d:lte/>0.4000</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_410">
                <d:lte/>0.410</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_4105">
+               <d:lte/>0.4105</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_4211">
+               <d:lte/>0.4211</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_4305">
+               <d:lte/>0.4305</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_440">
                <d:lte/>0.440</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_4620">
+               <d:lte/>0.4620</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_4632">
+               <d:lte/>0.4632</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_490">
                <d:lte/>0.490</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_500">
                <d:lte/>0.500</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_5145">
+               <d:lte/>0.5145</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_520">
                <d:lte/>0.520</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_5263">
+               <d:lte/>0.5263</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_540">
                <d:lte/>0.540</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_5474">
+               <d:lte/>0.5474</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_550">
                <d:lte/>0.550</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_560">
                <d:lte/>0.560</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_5684">
+               <d:lte/>0.5684</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_5789">
+               <d:lte/>0.5789</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_5895">
+               <d:lte/>0.5895</dtyp:displayterm>
             <dtyp:displayterm value="LTE0_600">
                <d:lte/>0.600</dtyp:displayterm>
+            <dtyp:displayterm value="LTE0_6316">
+               <d:lte/>0.6316</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="LTE0_380"/>
          <xsd:enumeration value="LTE0_390"/>
+         <xsd:enumeration value="LTE0_3990"/>
          <xsd:enumeration value="LTE0_400"/>
+         <xsd:enumeration value="LTE0_4000"/>
          <xsd:enumeration value="LTE0_410"/>
+         <xsd:enumeration value="LTE0_4105"/>
+         <xsd:enumeration value="LTE0_4211"/>
+         <xsd:enumeration value="LTE0_4305"/>
          <xsd:enumeration value="LTE0_440"/>
+         <xsd:enumeration value="LTE0_4620"/>
+         <xsd:enumeration value="LTE0_4632"/>
          <xsd:enumeration value="LTE0_490"/>
          <xsd:enumeration value="LTE0_500"/>
+         <xsd:enumeration value="LTE0_5145"/>
          <xsd:enumeration value="LTE0_520"/>
+         <xsd:enumeration value="LTE0_5263"/>
          <xsd:enumeration value="LTE0_540"/>
+         <xsd:enumeration value="LTE0_5474"/>
          <xsd:enumeration value="LTE0_550"/>
          <xsd:enumeration value="LTE0_560"/>
+         <xsd:enumeration value="LTE0_5684"/>
+         <xsd:enumeration value="LTE0_5789"/>
+         <xsd:enumeration value="LTE0_5895"/>
          <xsd:enumeration value="LTE0_600"/>
+         <xsd:enumeration value="LTE0_6316"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="RangeNameplateHP">
