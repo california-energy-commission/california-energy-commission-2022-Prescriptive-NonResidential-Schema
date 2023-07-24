@@ -1850,16 +1850,16 @@ End If</xsd:documentation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="env:ContinuousInsulationNR">
                                                          <xsd:enumeration value="R0ci"/>
-                                                         <xsd:enumeration value="R10ci"/>
-                                                         <xsd:enumeration value="R14ci"/>
-                                                         <xsd:enumeration value="R17ci"/>
-                                                         <xsd:enumeration value="R20ci"/>
-                                                         <xsd:enumeration value="R23ci"/>
                                                          <xsd:enumeration value="R2ci"/>
                                                          <xsd:enumeration value="R4ci"/>
                                                          <xsd:enumeration value="R6ci"/>
                                                          <xsd:enumeration value="R7ci"/>
                                                          <xsd:enumeration value="R8ci"/>
+                                                         <xsd:enumeration value="R10ci"/>
+                                                         <xsd:enumeration value="R14ci"/>
+                                                         <xsd:enumeration value="R17ci"/>
+                                                         <xsd:enumeration value="R20ci"/>
+                                                         <xsd:enumeration value="R23ci"/>                           
                                                       </xsd:restriction>
                                                    </xsd:simpleType>
                                                 </xsd:element>
@@ -5864,16 +5864,16 @@ End If</xsd:documentation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="env:ContinuousInsulationNR">
                                                          <xsd:enumeration value="R0ci"/>
-                                                         <xsd:enumeration value="R10ci"/>
-                                                         <xsd:enumeration value="R14ci"/>
-                                                         <xsd:enumeration value="R17ci"/>
-                                                         <xsd:enumeration value="R20ci"/>
-                                                         <xsd:enumeration value="R23ci"/>
                                                          <xsd:enumeration value="R2ci"/>
                                                          <xsd:enumeration value="R4ci"/>
                                                          <xsd:enumeration value="R6ci"/>
                                                          <xsd:enumeration value="R7ci"/>
                                                          <xsd:enumeration value="R8ci"/>
+                                                         <xsd:enumeration value="R10ci"/>
+                                                         <xsd:enumeration value="R14ci"/>
+                                                         <xsd:enumeration value="R17ci"/>
+                                                         <xsd:enumeration value="R20ci"/>
+                                                         <xsd:enumeration value="R23ci"/> 
                                                       </xsd:restriction>
                                                    </xsd:simpleType>
                                                 </xsd:element>
@@ -17191,9 +17191,7 @@ GlazedDoorMF
 Or
 If Kvertperf06_TopLevelOccupancy == RelocableSchoolBuildingAllZones
 Or
-If Kvertperf06_TopLevelOccupancy == Nonresidential and Kvertperf06_FenestrationModification == AddLTE50ft2
-Or
-If Kvertperf06_TopLevelOccupancy == HotelMotel and Kvertperf06_FenestrationModification == AddLTE50ft2
+If Kvertperf06_FenestrationModification == AddLTE50ft2
 Or
 If Kvertperf06_TopLevelOccupancy == AlteredOccupancy and Kvertperf06_FenestrationModification == ReplaceLTE150ft2
 Or

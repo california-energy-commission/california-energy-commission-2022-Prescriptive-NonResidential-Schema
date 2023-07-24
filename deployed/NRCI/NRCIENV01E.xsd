@@ -900,13 +900,16 @@ End If</xsd:documentation>
                                                             <xsd:simpleType>
                                                                <xsd:restriction base="env:ContinuousInsulationNR">
                                                                   <xsd:enumeration value="R0ci"/>
-                                                                  <xsd:enumeration value="R10ci"/>
-                                                                  <xsd:enumeration value="R14ci"/>
                                                                   <xsd:enumeration value="R2ci"/>
                                                                   <xsd:enumeration value="R4ci"/>
                                                                   <xsd:enumeration value="R6ci"/>
                                                                   <xsd:enumeration value="R7ci"/>
                                                                   <xsd:enumeration value="R8ci"/>
+                                                                  <xsd:enumeration value="R10ci"/>
+                                                                  <xsd:enumeration value="R14ci"/>
+                                                                  <xsd:enumeration value="R17ci"/>
+                                                                  <xsd:enumeration value="R20ci"/>
+                                                                  <xsd:enumeration value="R23ci"/>
                                                                </xsd:restriction>
                                                             </xsd:simpleType>
                                                          </xsd:element>

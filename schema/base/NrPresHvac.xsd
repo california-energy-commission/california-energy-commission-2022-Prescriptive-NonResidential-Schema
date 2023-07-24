@@ -8438,11 +8438,15 @@
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="GTE10_100">[d:gte/]10.100</dtyp:displayterm>
             <dtyp:displayterm value="GTE9_700">[d:gte/]9.700</dtyp:displayterm>
+            <dtyp:displayterm value="GTE9_595">[d:gte/]9.595</dtyp:displayterm>
+            <dtyp:displayterm value="GTE9_215">[d:gte/]9.215</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="GTE10_100"/>
          <xsd:enumeration value="GTE9_700"/>
+         <xsd:enumeration value="GTE9_595"/>
+         <xsd:enumeration value="GTE9_215"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="RangeMinEER_IPLV">
@@ -8455,6 +8459,8 @@
             <dtyp:displayterm value="GTE14_000">[d:gte/]14.000</dtyp:displayterm>
             <dtyp:displayterm value="GTE15_800">[d:gte/]15.800</dtyp:displayterm>
             <dtyp:displayterm value="GTE16_100">[d:gte/]16.100</dtyp:displayterm>
+            <dtyp:displayterm value="GTE15_010">[d:gte/]15.010</dtyp:displayterm>
+            <dtyp:displayterm value="GTE13_020">[d:gte/]13.020</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -8462,6 +8468,8 @@
          <xsd:enumeration value="GTE14_000"/>
          <xsd:enumeration value="GTE15_800"/>
          <xsd:enumeration value="GTE16_100"/>
+         <xsd:enumeration value="GTE15_010"/>
+         <xsd:enumeration value="GTE13_020"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="RangeMinKWperTon">

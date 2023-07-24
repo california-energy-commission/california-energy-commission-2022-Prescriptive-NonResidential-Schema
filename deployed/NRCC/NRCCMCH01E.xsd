@@ -2848,24 +2848,25 @@ If F02_HvacSystemType == FurnaceAC
 If F03_FurnaceAC == AirCooledSinglePkgAC_CentralFurnaceWeatherized1Phase Or AirCooledSplitAC_CentralFurnaceWeatherized1Phase 
 If Fa02_SizeRangeFurnaceAC == LT45000CoolLT225000Heat Or LT45000CoolGTE225000Heat Or LT65000CoolLT225000Heat Or LT65000CoolGTE22500 Or GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
 result1 = EER2 and result2 == SEER2
-Else if Fa02_SizeRangeFurnaceAC == 
-Else  If F03_FurnaceAC ==  AirCooledSplitAC_CentralFurnace 
-If Fa02_SizeRangeFurnaceAC == LT45000CoolLT225000Heat, LT45000CoolGTE225000Heat, GTE45000CoolLT225000Heat, GTE45000CoolGTE225000Heat
-result 1 = BLANK and result 2 = BLANK; 
-Else If F03_FurnaceAC== AirCooledSinglePkgAC_CentralFurnace Or
+Else if Fa02_SizeRangeFurnaceAC != LT45000CoolLT225000Heat Or LT45000CoolGTE225000Heat Or LT65000CoolLT225000Heat Or LT65000CoolGTE22500 Or GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
+result1 = EER and result2 == IEER
 End If
- 
+Else If F03_FurnaceAC ==  AirCooledSplitAC_CentralFurnace Or AirCooledSinglePkgAC_CentralFurnace
+If Fa02_SizeRangeFurnaceAC == LT45000CoolLT225000Heat Or LT45000CoolGTE225000Heat Or LT65000CoolLT225000Heat Or LT65000CoolGTE22500 Or GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
+result1 = SEER and result2 = EER
+Else if Fa02_SizeRangeFurnaceAC == LT45000CoolLT225000Heat Or LT45000CoolGTE225000Heat Or LT65000CoolLT225000Heat Or LT65000CoolGTE22500 Or GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
+result 1 = EER and result 2 = IEER; 
+End If
+End If
  
 Else If F02_HvacSystemType == UnitaryCondensersAC Or UnitaryCondensersAC_NoElectR : 
 If SizeRangeUnitaryCondensersAC == LT45000  Or GTE45000LT65000 
 result 1 = EER2 and result 2 = SEER2;
- 
 Else If SizeRangeUnitaryCondensersAC  == LT65000 And F03_ UnitaryCondensersAC  == AirCooledPkg1PhaseAC, AirCooledPkgConstrainedAC, AirCooledSmallDuctHighVelocityAC Or AirCooledSplitConstrainedAC
 result 1 = EER2 and result 2 = SEER2;
 Else If SizeRangeUnitaryCondensersAC  != LT65000  
 result 1 =EER and result 2 = IEER;  
 End If
- 
  
 Else If F02_HvacSystemType == UnitaryHeatPumps Or UnitaryHeatPumpsNoElectR  then 
 If F03_UnitaryHeatPumps  == AirCooledSplit1PhaseHP, AirCooledSplit3PhaseHP, AirCooledPkg1PhaseHP, AirCooledPkg3PhaseHP, AirCooledSplitConstrainedHP Or AirCooledPkgConstrainedHP And SizeRangeUnitaryHeatPumps != LT65000 
@@ -10064,21 +10065,21 @@ End If</xsd:documentation>
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Required Min OA CFM</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If  J09_VentilationSpaceFunction == AllOthersVent, ClassroomArt, AutoRepairVent, BankLobby, BankVault , BarracksSleepingArea, BedroomLivingRoom,  CellWithToiletVent, MiscComputerSpace, ClassroomComputer, CopyPrintRoom, CorridorsResidential, DarkRoom, DaycareSickRoom, WeightRoom, AerobicsRoom,  JanitorRoom, FoodServiceKitchen, KitchenetteVent, SoiledLaundryStorage, LaundryRoom, DwellingUnitLaundryRoom, LibraryAssembly, LockerAllOthers, LockerAthleticIndustrial, MediaCenter,  StorageOccupiableDryMaterials, StorageOccupiableLiquids,  GeneralManufacturingLightIndustrial, OfficeSpaceVent, ParkingGarageVent, PharmacyPrepArea, PhotoStudio, OfficeReception,  ScienceLab, ShippingReceiving, ShowerRoom, ShowerContExhaust, WorkshopSortingPacking, SwimmingPool, TelephoneRoom, DataEntryTelephoneSpace, RestroomPrivateContExhaust, RestroomPublicContExhaust,  RestroomPrivate, RestroomPublic, TrashRecyclingRoom, CollegeLab MiscWarehouse Or WoodMetalShop; 
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result =  0.15 x J10_SpaceFloorArea
 Else
-result = Largest (( 0.15 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
+result = (J12_OccupantCount x 15.0);
 End If
  
 Else If  J09_VentilationSpaceFunction == Courtroom Or LegislativeChambers
 If J16a_DemandControlVent == ProvidedDCV 
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.15 x J10_SpaceFloorArea
 Else
 result = Largest (( 0.15 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
 End If
 Else  
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.19 x J10_SpaceFloorArea
 Else
 result = Largest (( 0.19 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
@@ -10087,13 +10088,13 @@ End If
  
 Else  If  J09_VentilationSpaceFunction == DaycareToAge4
 If J16a_DemandControlVent == ProvidedDCV 
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.15 x J10_SpaceFloorArea
 Else
 result = Largest (( 0.15 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
 End If
 Else
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.21 x J10_SpaceFloorArea
 Else
 result = Largest (( 0.21 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
@@ -10101,22 +10102,22 @@ End If
 End If
  
 Else  If  J09_VentilationSpaceFunction == LaundryCoinOperated 
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.30 x J10_SpaceFloorArea
 Else
-result = Largest (( 0.30 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
+result = (J12_OccupantCount x 15.0);
 End If
  
 Else  If  J09_VentilationSpaceFunction == MallCommon, MuseumChildrenAssembly, MuseumAssembly, Or PetShop
 If J16a_DemandControlVent == == ProvidedDCV 
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result =  0.15 x J10_SpaceFloorArea
 Else 
 result = Largest (( 0.15 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
 End If
  
 Else
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.25 x J10_SpaceFloorArea
 Else
 result = Largest (( 0.25 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
@@ -10125,13 +10126,13 @@ End If
  
 Else  If  J09_VentilationSpaceFunction == RetailSales Or Supermarket
 If J16a_DemandControlVent == ProvidedDCV 
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.20 x J10_SpaceFloorArea
 Else
 result = Largest (( 0.20 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
 End If
 Else
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.25 x J10_SpaceFloorArea
 Else
 result = Largest (( 0.25 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
@@ -10140,13 +10141,13 @@ End If
  
 Else If  J09_VentilationSpaceFunction == ClassroomAge5_18, ClassroomPostsecondary
 If J16a_DemandControlVent == ProvidedDCV  
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.15 x J10_SpaceFloorArea
 Else
 result = Largest (( 0.15 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
 End If
 Else
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result =  0.38 x J10_SpaceFloorArea)
 Else
 result = Largest (( 0.38 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0)); 
@@ -10154,21 +10155,21 @@ End If
 End If
  
 Else If  J09_VentilationSpaceFunction == BarberShop Or BeautyNailSalon
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.40 x J10_SpaceFloorArea
 Else
-result = Largest (( 0.40 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));  
+result = (J12_OccupantCount x 15.0);  
 End If
  
 Else If  J09_VentilationSpaceFunction == BarCocktailLounge
 If J16a_DemandControlVent == ProvidedDCV  
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.20 x J10_SpaceFloorArea
 Else
 result = Largest (( 0.20 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
 End If
 Else
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.50 x J10_SpaceFloorArea
 Else
 result = Largest (( 0.50 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));  
@@ -10177,12 +10178,12 @@ End If
  
 Else If  J09_VentilationSpaceFunction == OfficeBreakRoom, FastfoodCafeteriaVent, GeneralCoffeeStation, ConferenceMeetingVent, ArenasVent, AssemblyLobby, MainEntryOffice,  MultiuseAssembly, RestaurantDining,  SportsSpectatorAreaVent, StagesStudios, SwimmingDeck Or TransportWaiting
 If J16a_DemandControlVent == ProvidedDCV  
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.15 x J10_SpaceFloorArea
 Else
 result = Largest (( 0.15 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
 Else
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.50 x J10_SpaceFloorArea
 Else
 result = Largest (( 0.50 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));  
@@ -10190,20 +10191,20 @@ End If
 End If
  
 Else If  J09_VentilationSpaceFunction == LodgingAssembly,
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.50 x J10_SpaceFloorArea
 Else
-result = Largest (( 0.50 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));  
+result = (J12_OccupantCount x 15.0);  
 End If
  
 Else  If  J09_VentilationSpaceFunction == GamblingArea Or GameArcadesVent
 If J16a_DemandControlVent == ProvidedDCV  
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.15 x J10_SpaceFloorArea
 Else
 result = Largest (( 0.15 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
 Else
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.68 x J10_SpaceFloorArea
 Else
 result = Largest (( 0.68 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0)); 
@@ -10211,13 +10212,13 @@ End If
  
 Else If  J09_VentilationSpaceFunction == DanceFloor 
 If J16a_DemandControlVent == ProvidedDCV  
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.15 x J10_SpaceFloorArea
 Else
 result = Largest (( 0.15 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
 End If
 Else
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 1.50 x J10_SpaceFloorArea
 Else
 result = Largest (( 1.50 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));  
@@ -10226,13 +10227,13 @@ End If
  
 Else  If  J09_VentilationSpaceFunction == AudienceSeatingArea, BowlingAlleySeatingVent, ClassroomPerformance Or ReligiousAssemblyArea
 If J16a_DemandControlVent == ProvidedDCV  
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.15 x J10_SpaceFloorArea
 Else
 result = Largest (( 0.15 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
 End If
 Else
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 1.07 x J10_SpaceFloorArea
 Else
 result = Largest (( 1.07 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0)); 
@@ -10241,13 +10242,13 @@ End If
  
 Else  If J09_VentilationSpaceFunction == LectureHall
 If J16a_DemandControlVent == ProvidedDCV  
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.15 x J10_SpaceFloorArea 
 Else
 result = Largest (( 0.15 x J10_SpaceFloorArea), (J12_OccupantCount x 15.0));
 End If
 Else
-If J12_NotApplicableMessage == NotApplicable
+If J12_NotApplicableMessage == BlankGrayedOut 
 result = 0.15 x J10_SpaceFloorArea 
 Else
 result = J12_OccupantCount x 15.0; 
