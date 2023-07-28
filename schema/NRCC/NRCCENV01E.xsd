@@ -552,9 +552,16 @@ MM110_8c_MeasureApplies  = true and is displayed And
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="B02AltDoor" minOccurs="0">
+                  <xsd:element name="B02AltDoor_ComponentApplies" type="comp:ComponentApplies">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Exterior Opaque Doors NA. for Alts.</xsd:documentation>
+                        <xsd:documentation source="FieldText">Exterior Opaque Doors</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input; If checked result = true; Else result = false.
+
+Mandatory Measure Triggers
+If result == true  
+MM110_6a1_MeasureApplies  = true and is displayed
+End If
+</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="B02AltFen_ComponentApplies" type="comp:ComponentApplies" >

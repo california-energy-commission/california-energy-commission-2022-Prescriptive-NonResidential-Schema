@@ -9410,7 +9410,7 @@
             <dtyp:displayterm value="HistoricBuildingNA">NA: Historical Building Lighting</dtyp:displayterm>
             <dtyp:displayterm value="IndustrialNA">NA: Industrial Sites Lighting</dtyp:displayterm>
             <dtyp:displayterm value="LandscapeNA">NA: Landscape Lighting</dtyp:displayterm>
-            <dtyp:displayterm value="LuminaireLT40NA">NA: Each Luminaire [d:lt/] 40 Watts</dtyp:displayterm>
+            <dtyp:displayterm value="LuminaireLT40NA">NA: Each Luminaire [d:lte/] 40 Watts</dtyp:displayterm>
             <dtyp:displayterm value="MonumentNA">NA: Public Monument Lighting</dtyp:displayterm>
             <dtyp:displayterm value="MotionSensorCompliant">Provided</dtyp:displayterm>
             <dtyp:displayterm value="MultifamilyLightingNA">NA: MF Complying w [d:t24refnolink/]160.5(a)</dtyp:displayterm>

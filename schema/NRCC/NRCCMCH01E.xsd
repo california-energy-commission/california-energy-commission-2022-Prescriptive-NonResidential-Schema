@@ -2395,7 +2395,7 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == UnitaryHeatPumps Or UnitaryHeatPumpsNoElectR
 And
-F03_UnitaryHeatPumps != WaterSourceHP And Fa02_SizeRangeUnitaryHeatPumps != GTE135000AndLT240000
+F03_UnitaryHeatPumps != WaterSourceHP Or Fa02_SizeRangeUnitaryHeatPumps != GTE135000AndLT240000
 use this choice
 
 The value is stored in result1, the top displayed cell and the bottom cell is blank. 

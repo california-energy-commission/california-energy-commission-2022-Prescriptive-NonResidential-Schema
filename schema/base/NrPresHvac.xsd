@@ -8401,6 +8401,9 @@
             <dtyp:displayterm value="GTE1_630">[d:gte/]1.630</dtyp:displayterm> 
             <dtyp:displayterm value="GTE1_950">[d:gte/]1.950</dtyp:displayterm>    
             <dtyp:displayterm value="GTE2_230">[d:gte/]2.230</dtyp:displayterm>
+            <dtyp:displayterm value="GTE2_310">[d:gte/]2.310</dtyp:displayterm>
+            <dtyp:displayterm value="GTE2_770">[d:gte/]2.770</dtyp:displayterm>
+            <dtyp:displayterm value="GTE3_290">[d:gte/]3.290</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -8411,6 +8414,9 @@
          <xsd:enumeration value="GTE1_630"/>
          <xsd:enumeration value="GTE1_950"/>
          <xsd:enumeration value="GTE2_230"/>
+         <xsd:enumeration value="GTE2_310"/>
+         <xsd:enumeration value="GTE2_770"/>
+         <xsd:enumeration value="GTE3_290"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="RangeMinCOP_IPLV">

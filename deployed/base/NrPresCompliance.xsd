@@ -9181,7 +9181,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
             <dtyp:displayterm value="IndustrialNA">NA: Industrial Sites Lighting</dtyp:displayterm>
             <dtyp:displayterm value="LandscapeNA">NA: Landscape Lighting</dtyp:displayterm>
             <dtyp:displayterm value="LuminaireLT40NA">NA: Each Luminaire 
-               <d:lt/> 40 Watts</dtyp:displayterm>
+               <d:lte/> 40 Watts</dtyp:displayterm>
             <dtyp:displayterm value="MonumentNA">NA: Public Monument Lighting</dtyp:displayterm>
             <dtyp:displayterm value="MotionSensorCompliant">Provided</dtyp:displayterm>
             <dtyp:displayterm value="MultifamilyLightingNA">NA: MF Complying w 
