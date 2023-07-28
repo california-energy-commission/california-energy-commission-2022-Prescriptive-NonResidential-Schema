@@ -8397,13 +8397,28 @@
             <dtyp:displayterm value="GTE0_600">[d:gte/]0.600</dtyp:displayterm>
             <dtyp:displayterm value="GTE0_700">[d:gte/]0.700</dtyp:displayterm>
             <dtyp:displayterm value="GTE1_000">[d:gte/]1.000</dtyp:displayterm>
-            <dtyp:displayterm value="GTE1_200">[d:gte/]1.2</dtyp:displayterm>
+            <dtyp:displayterm value="GTE1_200">[d:gte/]1.200</dtyp:displayterm>
             <dtyp:displayterm value="GTE1_630">[d:gte/]1.630</dtyp:displayterm> 
             <dtyp:displayterm value="GTE1_950">[d:gte/]1.950</dtyp:displayterm>    
             <dtyp:displayterm value="GTE2_230">[d:gte/]2.230</dtyp:displayterm>
             <dtyp:displayterm value="GTE2_310">[d:gte/]2.310</dtyp:displayterm>
+            <dtyp:displayterm value="GTE2_680">[d:gte/]2.680</dtyp:displayterm>
             <dtyp:displayterm value="GTE2_770">[d:gte/]2.770</dtyp:displayterm>
+            <dtyp:displayterm value="GTE2_970">[d:gte/]2.970</dtyp:displayterm>
             <dtyp:displayterm value="GTE3_290">[d:gte/]3.290</dtyp:displayterm>
+            <dtyp:displayterm value="GTE3_550">[d:gte/]3.550</dtyp:displayterm>
+            <dtyp:displayterm value="GTE3_680">[d:gte/]3.680</dtyp:displayterm>
+            <dtyp:displayterm value="GTE3_900">[d:gte/]3.900</dtyp:displayterm>
+            <dtyp:displayterm value="GTE3_960">[d:gte/]3.960</dtyp:displayterm>
+            <dtyp:displayterm value="GTE4_420">[d:gte/]4.420</dtyp:displayterm>
+            <dtyp:displayterm value="GTE4_640">[d:gte/]4.640</dtyp:displayterm>
+            <dtyp:displayterm value="GTE4_930">[d:gte/]4.930</dtyp:displayterm>
+            <dtyp:displayterm value="GTE5_000">[d:gte/]5.000</dtyp:displayterm>
+            <dtyp:displayterm value="GTE6_410">[d:gte/]6.410</dtyp:displayterm>
+            <dtyp:displayterm value="GTE6_850">[d:gte/]6.850</dtyp:displayterm>
+            <dtyp:displayterm value="GTE6_980">[d:gte/]6.980</dtyp:displayterm>
+            <dtyp:displayterm value="GTE8_330">[d:gte/]8.330</dtyp:displayterm>
+            <dtyp:displayterm value="GTE8_900">[d:gte/]8.900</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -8415,8 +8430,23 @@
          <xsd:enumeration value="GTE1_950"/>
          <xsd:enumeration value="GTE2_230"/>
          <xsd:enumeration value="GTE2_310"/>
+         <xsd:enumeration value="GTE2_680"/>
          <xsd:enumeration value="GTE2_770"/>
+         <xsd:enumeration value="GTE2_970"/>
          <xsd:enumeration value="GTE3_290"/>
+         <xsd:enumeration value="GTE3_550"/>
+         <xsd:enumeration value="GTE3_680"/>
+         <xsd:enumeration value="GTE3_900"/>
+         <xsd:enumeration value="GTE3_960"/>
+         <xsd:enumeration value="GTE4_420"/>
+         <xsd:enumeration value="GTE4_640"/>
+         <xsd:enumeration value="GTE4_930"/>
+         <xsd:enumeration value="GTE5_000"/>
+         <xsd:enumeration value="GTE6_410"/>
+         <xsd:enumeration value="GTE6_850"/>
+         <xsd:enumeration value="GTE6_980"/>
+         <xsd:enumeration value="GTE8_330"/>
+         <xsd:enumeration value="GTE8_900"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="RangeMinCOP_IPLV">

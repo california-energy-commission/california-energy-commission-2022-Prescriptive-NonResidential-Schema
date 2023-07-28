@@ -5518,7 +5518,6 @@ result = BlankGrayedOut stored in Fd08b_NotApplicableMessage</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                       <xsd:element name="Fd07a_RangeMinCOP" type="hvac:RangeMinCOP">
-                                                         <!--  Gray Out 06 whenever these new chiller types are selected in 02. Not on this line-->
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Efficiencies Required per 
                                                                <d:t24refnolink/>110.2<d:sup>2</d:sup>
@@ -5567,7 +5566,7 @@ Else if Fd04_ChillerTonsRange == GTE300ToLT400 Or GTE400ToLT600 Or GTE600
 If Fd04a_ChillerWaterTemp == Low
 result = 8.900
 Else if Fd04a_ChillerWaterTemp == Medium
-result = 3.6.980
+result = 6.980
 Else if Fd04a_ChillerWaterTemp == High
 result = 5.000
 Else if Fd04a_ChillerWaterTemp == Boost
