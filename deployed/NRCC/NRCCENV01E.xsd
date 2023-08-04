@@ -1945,12 +1945,12 @@ Else If Fframed08_UfactorSpecSource == JA4Other Or ApprovedSoftware user enters 
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Continuous Insulation per Design<d:sup>2</d:sup>
                                                       </xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Fframed08_UfactorSpecSource == JA4Other Or ApprovedSoftware this row is grayed out; 
- 
+                                                      <xsd:documentation source="CalculationsAndRules">If Fframed08_UfactorSpecSource == JA4Other Or ApprovedSoftware this row is grayed out;
+                                                         
 Else If Fframed08_UfactorSpecSource == JA4Tables user selects from list customized as follows:
- 
-If Fframed09_ConstructionAssemblyName == WoodFramedRafter user selects from: None, R-2, R-4, R-6, R-7, R-8, R-10, R-14, R-17, R-20, and R-23
- 
+
+If Fframed09_ConstructionAssemblyName == WoodFramedRafter Or Fframed09_NotApplicableMessage == BlankGrayedOut user selects from: None, R-2, R-4, R-6, R-7, R-8, R-10, R-14, R-17, R-20, and R-23
+
 Else user selects from: None, R-2, R-4, R-6, R-7, R-8, R-10 and R-14
 End If</xsd:documentation>
                                                    </xsd:annotation>
