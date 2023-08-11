@@ -11328,7 +11328,7 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="L21_DuctRValue" type="hvac:DuctRValue" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Dust Insulation R-value</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Duct Insulation R-value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If L11_IsBuildingHealthcare != true  
 User selects R-value from list
 End If
@@ -11338,7 +11338,7 @@ End If
                                        </xsd:element>
                                        <xsd:element name="L21_NotApplicableMessage" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Dust Insulation R-value</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Duct Insulation R-value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If L11_IsBuildingHealthcare == true  
  result = BlankGrayedOut  
 End If</xsd:documentation>
