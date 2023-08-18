@@ -9374,6 +9374,8 @@
                <d:lt/>135,000</dtyp:displayterm>
             <dtyp:displayterm value="GTE760000">
                <d:gte/>760,000</dtyp:displayterm>
+            <dtyp:displayterm value="LT30000">
+               <d:lt/>30,000</dtyp:displayterm>
             <dtyp:displayterm value="LT45000">
                <d:lt/>45,000</dtyp:displayterm>
             <dtyp:displayterm value="LT65000">
@@ -9389,6 +9391,7 @@
          <xsd:enumeration value="GTE45000AndLT65000"/>
          <xsd:enumeration value="GTE65000AndLT135000"/>
          <xsd:enumeration value="GTE760000"/>
+         <xsd:enumeration value="LT30000"/>
          <xsd:enumeration value="LT45000"/>
          <xsd:enumeration value="LT65000"/>
       </xsd:restriction>

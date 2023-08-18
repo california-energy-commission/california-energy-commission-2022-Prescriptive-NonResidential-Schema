@@ -1792,7 +1792,7 @@ list GTE65000AndLT135000, GTE135000AndLT240000, GTE240000AndLT760000, GTE760000;
 case AirCooledCondensingUnit, WaterCooledCondensingUnit and EvaporativeCooledCondensingUnit: 
 list GTE135000;   
  
-case AirCooledSplit3PhaseAC , AirCooledSplitConstrainedAC, AirCooledPkg1PhaseAC, AirCooledPkg3PhaseAC and   AirCooledPkgConstrainedAC: 
+case AirCooledSplit3PhaseAC , AirCooledSplitConstrainedAC, AirCooledPkg1PhaseAC, and AirCooledPkg3PhaseAC: 
  list LT65000, GTE65000AndLT135000, GTE135000AndLT240000, GTE240000AndLT760000, GTE760000;  
  
 case AirCooledSplit1PhaseAC: 
@@ -1800,7 +1800,10 @@ list LT45000, GTE45000AndLT65000, GTE65000AndLT135000, GTE135000AndLT240000, GTE
  
 case AirCooledSmallDuctHighVelocityAC: 
 list LT65000.
- 
+
+case AirCooledPkgConstrainedAC: 
+list LT65000, GTE65000AndLT135000, GTE135000AndLT240000, GTE240000AndLT760000, GTE760000, LT30000; 
+
 End Switch
 End if</xsd:documentation>
                                           </xsd:annotation>
@@ -2789,7 +2792,9 @@ The value is stored in result1, the top displayed cell and the bottom cell is bl
  
 If F03_ UnitaryCondensersAC == AirCooledSplit3PhaseAC Or AirCooledPkg3PhaseAC And SizeRangeUnitaryCondensersAC  == LT65000: 
 result1 = 13.0
-End Switch
+
+Else if F03_ UnitaryCondensersAC == AirCooledSplitConstrainedAC
+result == 12.0
 End If</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -2846,15 +2851,15 @@ EER  in result1 and SEER in result2 for the equipment</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">Two types are assigned for this choice as follows: 
 If F02_HvacSystemType == FurnaceAC 
 If F03_FurnaceAC == AirCooledSinglePkgAC_CentralFurnaceWeatherized1Phase Or AirCooledSplitAC_CentralFurnaceWeatherized1Phase 
-If Fa02_SizeRangeFurnaceAC == LT45000CoolLT225000Heat Or LT45000CoolGTE225000Heat Or LT65000CoolLT225000Heat Or LT65000CoolGTE22500 Or GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
+If Fa02_SizeRangeFurnaceAC == LT45000CoolLT225000Heat Or LT45000CoolGTE225000Heat Or LT65000CoolLT225000Heat Or LT65000CoolGTE225000Heat Or GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
 result1 = EER2 and result2 == SEER2
-Else if Fa02_SizeRangeFurnaceAC != LT45000CoolLT225000Heat Or LT45000CoolGTE225000Heat Or LT65000CoolLT225000Heat Or LT65000CoolGTE22500 Or GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
+Else if Fa02_SizeRangeFurnaceAC != LT45000CoolLT225000Heat Or LT45000CoolGTE225000Heat Or LT65000CoolLT225000Heat Or LT65000CoolGTE225000Heat Or GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
 result1 = EER and result2 == IEER
 End If
 Else If F03_FurnaceAC ==  AirCooledSplitAC_CentralFurnace Or AirCooledSinglePkgAC_CentralFurnace
-If Fa02_SizeRangeFurnaceAC == LT45000CoolLT225000Heat Or LT45000CoolGTE225000Heat Or LT65000CoolLT225000Heat Or LT65000CoolGTE22500 Or GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
-result1 = SEER and result2 = EER
-Else if Fa02_SizeRangeFurnaceAC == LT45000CoolLT225000Heat Or LT45000CoolGTE225000Heat Or LT65000CoolLT225000Heat Or LT65000CoolGTE22500 Or GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
+If Fa02_SizeRangeFurnaceAC == LT45000CoolLT225000Heat Or LT45000CoolGTE225000Heat Or LT65000CoolLT225000Heat Or LT65000CoolGTE225000Heat Or GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
+result1 = EER and result2 = SEER
+Else if Fa02_SizeRangeFurnaceAC != LT45000CoolLT225000Heat Or LT45000CoolGTE225000Heat Or LT65000CoolLT225000Heat Or LT65000CoolGTE225000Heat Or GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
 result 1 = EER and result 2 = IEER; 
 End If
 End If
@@ -2929,7 +2934,7 @@ End Switch</xsd:documentation>
                                                          <xsd:element name="Fa08_CoolEfficiencyMinFurnaceAC_EER2SEER2" type="hvac:EfficiencySEER2_EER2" minOccurs="2" maxOccurs="2">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC And If Fa07_EfficiencyType result 1 == SEER2 and result2 = EER2, use this choice.  For the following evaluations result1 is the EER2 value and result2 is the SEER2:                                                                                                                                   
+                                                               <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC or UnitaryCondensersAC Or UnitaryCondensersAC_NoElectR    And    If Fa07_EfficiencyType result 1 == SEER2 and result2 = EER2, use this choice.  For the following evaluations result1 is the EER2 value and result2 is the SEER2:                                                                                                                                   
  
 Switch (F03_FurnaceAC) 
 case AirCooledSinglePkgAC_CentralFurnaceWeatherized1Phase
@@ -2943,6 +2948,47 @@ result1 =  9.8 (EER2), result2 = 14.3 (SEER2)
 If Fa02_SizeRangeFurnaceAC == GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
 result1 =  9.8 (EER2) , result2 = 13.8 (SEER2)
 End If 
+End Switch
+
+
+Switch (F03_UnitaryCondensersAC)
+case AirCooledPkg3PhaseAC 
+If Fa02_SizeRangeUnitaryCondensersAC == LT65000CoolLT225000Heat Or LT65000CoolGTE225000Heat
+result2 = 13.4 (SEER2), result1 = 10.6 (EER2) 
+End If 
+
+case AirCooledSplit3PhaseAC
+If Fa02_SizeRangeUnitaryCondensersAC == LT45000CoolLT225000Heat Or LT45000CoolGTE225000Heat
+result2 =  14.3 (SEER2), result1 = 9.8 (EER2)
+If Fa02_SizeRangeUnitaryCondensersAC == GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
+result2 =  13.8 (SEER2) , result1 = 9.8 (EER2)
+End If 
+
+case AirCooledSplitConstrainedAC or AirCooledPkgConstrainedAC
+If Fa02_SizeRangeUnitaryCondensersAC == LT30000
+result2 = 11.7 (SEER2), result1 = 0 (EER2) 
+End If 
+End Switch
+
+
+Switch (F03_UnitaryCondensersAC_NoElectR)
+case AirCooledPkg3PhaseAC 
+If Fa02_SizeRangeUnitaryCondensersAC == LT65000CoolLT225000Heat Or LT65000CoolGTE225000Heat
+result2 = 13.4 (SEER2), result1 = 10.6 (EER2) 
+End If 
+
+case AirCooledSplit3PhaseAC
+If Fa02_SizeRangeUnitaryCondensersAC == LT45000CoolLT225000Heat Or LT45000CoolGTE225000Heat
+result2 =  14.3 (SEER2), result1 = 9.8 (EER2)
+If Fa02_SizeRangeUnitaryCondensersAC == GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
+result2 =  13.8 (SEER2) , result1 = 9.8 (EER2)
+End If 
+
+case AirCooledSplitConstrainedAC or AirCooledPkgConstrainedAC
+If Fa02_SizeRangeUnitaryCondensersAC == LT30000
+result2 = 11.7 (SEER2), result1 = 0 (EER2) 
+End If 
+
 End Switch</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -3172,6 +3218,12 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Design Efficiency</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Fa07_EfficiencyType result 1== EER and  result 2== SEER use this choice to store user input of design  EER  for result1 and SEER for result2</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Fa09_EfficiencySEER2_EER" type="hvac:EfficiencySEER2_EER2" minOccurs="2" maxOccurs="2">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Design Efficiency</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Fa07_EfficiencyType result 1== EER2 and  result 2== SEER2 use this choice to store user input of design  EER2  for result1 and SEER2 for result2</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
                                                       </xsd:choice>
