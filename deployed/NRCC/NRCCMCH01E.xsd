@@ -1785,8 +1785,8 @@ End If</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">For value in Fa01_HvacSystemName: 
 If F02_HvacSystemType == UnitaryCondensersAC Or UnitaryCondensersAC_NoElectR, user selects from size ranges  in SizeRangeUnitaryCondensersAC choice based on the following
  
-Switch (F03_UnitaryCondensersAC Or F03_UnitaryCondensersAC_NoElectR) 
-case WaterCooledAC and  EvaporativeCooledAC: 
+Switch (F03_UnitaryCondensersAC) 
+case WaterCooledAC and EvaporativeCooledAC: 
 list GTE65000AndLT135000, GTE135000AndLT240000, GTE240000AndLT760000, GTE760000;  
  
 case AirCooledCondensingUnit, WaterCooledCondensingUnit and EvaporativeCooledCondensingUnit: 
@@ -2914,7 +2914,7 @@ End If</xsd:documentation>
                                                          <xsd:element name="Fa08_CoolEfficiencyMinFurnaceAC_EERSEER" type="hvac:CoolEfficiencyMinFurnaceAC_EERSEER" minOccurs="2" maxOccurs="2">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC And If Fa07_EfficiencyType result 1 == SEER and result2 = EER, use this choice.  For the following evaluations result1 is the EER value and result2 is the SEER:                                                                                                                                   
+                                                               <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC And If Fa07_EfficiencyType result 1 == EER and result2 = SEER, use this choice.  For the following evaluations result1 is the EER value and result2 is the SEER:                                                                                                                                   
  
 Switch (F03_FurnaceAC) 
 case AirCooledSinglePkgAC_CentralFurnace
@@ -2934,8 +2934,8 @@ End Switch</xsd:documentation>
                                                          <xsd:element name="Fa08_CoolEfficiencyMinFurnaceAC_EER2SEER2" type="hvac:EfficiencySEER2_EER2" minOccurs="2" maxOccurs="2">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC or UnitaryCondensersAC Or UnitaryCondensersAC_NoElectR    And    If Fa07_EfficiencyType result 1 == SEER2 and result2 = EER2, use this choice.  For the following evaluations result1 is the EER2 value and result2 is the SEER2:                                                                                                                                   
- 
+                                                               <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC or UnitaryCondensersAC Or UnitaryCondensersAC_NoElectR And If Fa07_EfficiencyType result 1 == EER2 and result2 = SEER2, use this choice.  For the following evaluations result1 is the EER2 value and result2 is the SEER2:                                                                                                                                   
+If F02_HvacSystemType == FurnaceAC
 Switch (F03_FurnaceAC) 
 case AirCooledSinglePkgAC_CentralFurnaceWeatherized1Phase
 If Fa02_SizeRangeFurnaceAC == LT65000CoolLT225000Heat Or LT65000CoolGTE225000Heat
@@ -2950,14 +2950,14 @@ result1 =  9.8 (EER2) , result2 = 13.8 (SEER2)
 End If 
 End Switch
 
-
+Else If F02_HvacSystemType == UnitaryCondensersAC
 Switch (F03_UnitaryCondensersAC)
-case AirCooledPkg3PhaseAC 
+case AirCooledPkg1PhaseAC 
 If Fa02_SizeRangeUnitaryCondensersAC == LT65000CoolLT225000Heat Or LT65000CoolGTE225000Heat
 result2 = 13.4 (SEER2), result1 = 10.6 (EER2) 
 End If 
 
-case AirCooledSplit3PhaseAC
+case AirCooledSplit1PhaseAC
 If Fa02_SizeRangeUnitaryCondensersAC == LT45000CoolLT225000Heat Or LT45000CoolGTE225000Heat
 result2 =  14.3 (SEER2), result1 = 9.8 (EER2)
 If Fa02_SizeRangeUnitaryCondensersAC == GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
@@ -2968,27 +2968,6 @@ case AirCooledSplitConstrainedAC or AirCooledPkgConstrainedAC
 If Fa02_SizeRangeUnitaryCondensersAC == LT30000
 result2 = 11.7 (SEER2), result1 = 0 (EER2) 
 End If 
-End Switch
-
-
-Switch (F03_UnitaryCondensersAC_NoElectR)
-case AirCooledPkg3PhaseAC 
-If Fa02_SizeRangeUnitaryCondensersAC == LT65000CoolLT225000Heat Or LT65000CoolGTE225000Heat
-result2 = 13.4 (SEER2), result1 = 10.6 (EER2) 
-End If 
-
-case AirCooledSplit3PhaseAC
-If Fa02_SizeRangeUnitaryCondensersAC == LT45000CoolLT225000Heat Or LT45000CoolGTE225000Heat
-result2 =  14.3 (SEER2), result1 = 9.8 (EER2)
-If Fa02_SizeRangeUnitaryCondensersAC == GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
-result2 =  13.8 (SEER2) , result1 = 9.8 (EER2)
-End If 
-
-case AirCooledSplitConstrainedAC or AirCooledPkgConstrainedAC
-If Fa02_SizeRangeUnitaryCondensersAC == LT30000
-result2 = 11.7 (SEER2), result1 = 0 (EER2) 
-End If 
-
 End Switch</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -3192,16 +3171,7 @@ End if</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == UnitaryCondensersAC Or UnitaryCondensersAC_NoElectR use this choice. For the following evaluations result1 is the EER value and result2 is the SEER:  
-If SizeRangeUnitaryCondensersAC == LT65000  And F03_ UnitaryCondensersAC  == AirCooledPkg1PhaseAC Or AirCooledPkgConstrainedAC
-result 1 = 10.6 (EER2)  and result 2 =  13.4 (SEER2); 
- 
-Else If  SizeRangeUnitaryCondensersAC == LT45000 And F03_ UnitaryCondensersAC  == AirCooledSplit1PhaseAC
-result1 = 9.8 (EER2) And result 2 =  14.3 (SEER2);
-
-Else If  SizeRangeUnitaryCondensersAC == GTE45000AndLT65000 or LT65000 And F03_ UnitaryCondensersAC  == AirCooledSplit1PhaseAC Or AirCooledSplitConstrainedAC
-result1 = 9.8 (EER2) And result 2 =  13.8 (SEER2);
- 
-Else If   SizeRangeUnitaryCondensersAC ==GTE45000AndLT65000  
+If   SizeRangeUnitaryCondensersAC ==GTE45000AndLT65000  
 result1 = 11.7 (EER) And result 2 =  14.0 (SEER) 
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -3220,7 +3190,7 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Fa07_EfficiencyType result 1== EER and  result 2== SEER use this choice to store user input of design  EER  for result1 and SEER for result2</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
-                                                         <xsd:element name="Fa09_EfficiencySEER2_EER" type="hvac:EfficiencySEER2_EER2" minOccurs="2" maxOccurs="2">
+                                                         <xsd:element name="Fa09_EfficiencySEER2_EER2" type="hvac:EfficiencySEER2_EER2" minOccurs="2" maxOccurs="2">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Design Efficiency</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Fa07_EfficiencyType result 1== EER2 and  result 2== SEER2 use this choice to store user input of design  EER2  for result1 and SEER2 for result2</xsd:documentation>
