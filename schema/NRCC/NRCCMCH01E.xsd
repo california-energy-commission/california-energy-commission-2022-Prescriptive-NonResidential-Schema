@@ -1717,7 +1717,7 @@ list GTE65000AndLT135000, GTE135000AndLT240000, GTE240000AndLT760000, GTE760000;
 case AirCooledCondensingUnit, WaterCooledCondensingUnit and EvaporativeCooledCondensingUnit: 
 list GTE135000;   
  
-case AirCooledSplit3PhaseAC , AirCooledSplitConstrainedAC, AirCooledPkg1PhaseAC, and AirCooledPkg3PhaseAC: 
+case AirCooledSplit3PhaseAC, AirCooledPkg1PhaseAC, and AirCooledPkg3PhaseAC: 
  list LT65000, GTE65000AndLT135000, GTE135000AndLT240000, GTE240000AndLT760000, GTE760000;  
  
 case AirCooledSplit1PhaseAC: 
@@ -1726,8 +1726,8 @@ list LT45000, GTE45000AndLT65000, GTE65000AndLT135000, GTE135000AndLT240000, GTE
 case AirCooledSmallDuctHighVelocityAC: 
 list LT65000.
 
-case AirCooledPkgConstrainedAC: 
-list LT65000, GTE65000AndLT135000, GTE135000AndLT240000, GTE240000AndLT760000, GTE760000, LT30000; 
+case AirCooledPkgConstrainedAC, AirCooledSplitConstrainedAC: 
+list LT30000, LT65000, GTE65000AndLT135000, GTE135000AndLT240000, GTE240000AndLT760000, GTE760000; 
 
 End Switch
 End if</xsd:documentation>
@@ -2784,7 +2784,7 @@ End If
 End If
  
 Else If F02_HvacSystemType == UnitaryCondensersAC Or UnitaryCondensersAC_NoElectR : 
-If SizeRangeUnitaryCondensersAC == LT45000  Or GTE45000LT65000 
+If SizeRangeUnitaryCondensersAC == LT45000  Or GTE45000AndLT65000 
 result 1 = EER2 and result 2 = SEER2;
 Else If SizeRangeUnitaryCondensersAC  == LT65000 And F03_ UnitaryCondensersAC  == AirCooledPkg1PhaseAC, AirCooledPkgConstrainedAC, AirCooledSmallDuctHighVelocityAC Or AirCooledSplitConstrainedAC
 result 1 = EER2 and result 2 = SEER2;
@@ -2870,17 +2870,17 @@ result1 =  9.8 (EER2) , result2 = 13.8 (SEER2)
 End If 
 End Switch
 
-Else If F02_HvacSystemType == UnitaryCondensersAC
+Else If F02_HvacSystemType == UnitaryCondensersAC Or UnitaryCondensersAC_NoElectR
 Switch (F03_UnitaryCondensersAC)
 case AirCooledPkg1PhaseAC 
-If Fa02_SizeRangeUnitaryCondensersAC == LT65000CoolLT225000Heat Or LT65000CoolGTE225000Heat
+If Fa02_SizeRangeUnitaryCondensersAC == LT65000
 result2 = 13.4 (SEER2), result1 = 10.6 (EER2) 
 End If 
 
 case AirCooledSplit1PhaseAC
-If Fa02_SizeRangeUnitaryCondensersAC == LT45000CoolLT225000Heat Or LT45000CoolGTE225000Heat
+If Fa02_SizeRangeUnitaryCondensersAC == LT45000
 result2 =  14.3 (SEER2), result1 = 9.8 (EER2)
-If Fa02_SizeRangeUnitaryCondensersAC == GTE45000CoolLT225000Heat Or GTE45000CoolGTE225000Heat
+Else If Fa02_SizeRangeUnitaryCondensersAC == GTE45000AndLT65000
 result2 =  13.8 (SEER2) , result1 = 9.8 (EER2)
 End If 
 
