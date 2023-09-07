@@ -1347,7 +1347,7 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Per Design (kBtu/h)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, FurnaceUnitHeater, HeatPumpAC,  UnitaryHeatPumps, UnitaryHeatPumpsNoElectR Or HeatPumpDualFuel
  
-Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == NonweatherizedSPVHP or SPVHP 
+Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == SPVHP 
  
 Or If F03_VariableRefrigerantFlow == AirCooledHP_VRF, GroundSourceVRF, GroundWaterSourceVRF Or WaterSourceVRF 
  
@@ -1363,7 +1363,7 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Per Design (kBtu/h)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, FurnaceUnitHeater, HeatPumpAC,  UnitaryHeatPumps, UnitaryHeatPumpsNoElectR Or HeatPumpDualFuel
  
-Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == NonweatherizedSPVHP or SPVHP 
+Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == SPVHP 
  
 Or If F03_VariableRefrigerantFlow == AirCooledHP_VRF, GroundSourceVRF, GroundWaterSourceVRF Or WaterSourceVRF 
  
@@ -1387,7 +1387,7 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Rated (kBtu/h)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, FurnaceUnitHeater, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR  Or HeatPumpDualFuel
  
-Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == NonweatherizedSPVHP or SPVHP 
+Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == SPVHP 
  
 Or If F03_VariableRefrigerantFlow == AirCooledHP_VRF, GroundSourceVRF, GroundWaterSourceVRF Or WaterSourceVRF 
  
@@ -1407,7 +1407,7 @@ Multi-field triggers: See F02_HvacSystemType CalculationsAndRules for trigger va
                                              <xsd:documentation source="FieldText">Rated (kBtu/h)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, FurnaceUnitHeater, HeatPumpAC,  UnitaryHeatPumps, UnitaryHeatPumpsNoElectR Or HeatPumpDualFuel
  
-Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == NonweatherizedSPVHP or SPVHP 
+Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == SPVHP 
  
 Or If F03_VariableRefrigerantFlow == AirCooledHP_VRF, GroundSourceVRF, GroundWaterSourceVRF Or WaterSourceVRF 
  
@@ -1431,7 +1431,7 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Supp. Heating Output (kBtu/h)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, FurnaceUnitHeater, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR Or HeatPumpDualFuel 
  
-Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == NonweatherizedSPVHP or SPVHP 
+Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == SPVHP 
  
 Or If F03_VariableRefrigerantFlow == AirCooledHP_VRF, GroundSourceVRF, GroundWaterSourceVRF Or WaterSourceVRF 
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
@@ -1445,7 +1445,7 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Supp. Heating Output k(Btu/h)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC, FurnaceUnitHeater, HeatPumpAC,  UnitaryHeatPumps, UnitaryHeatPumpsNoElectR  Or HeatPumpDualFuel
  
-Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == NonweatherizedSPVHP or SPVHP 
+Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == SPVHP 
  
 Or If F03_VariableRefrigerantFlow == AirCooledHP_VRF, GroundSourceVRF, GroundWaterSourceVRF Or WaterSourceVRF 
  
@@ -2244,7 +2244,7 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If F05_HeatingDesignCapacity GTE 1  And If F02_HvacSystemType == SPV_ACHP for Fa01 
 use this choice based on the following: 
-If F03_SPV_ACHP == SPVHP Or NonweatherizedSPVHP 
+If F03_SPV_ACHP == SPVHP
 If SizeRangeSPV_ACHP == LT65000
 result = 3.3 (COP);
 Else result = 3.0 (COP);
@@ -2867,9 +2867,11 @@ End If
 Else If F02_HvacSystemType == UnitaryCondensersAC Or UnitaryCondensersAC_NoElectR : 
 If SizeRangeUnitaryCondensersAC == LT45000  Or GTE45000AndLT65000 
 result 1 = EER2 and result 2 = SEER2;
-Else If SizeRangeUnitaryCondensersAC  == LT65000 And F03_ UnitaryCondensersAC  == AirCooledPkg1PhaseAC, AirCooledPkgConstrainedAC, AirCooledSmallDuctHighVelocityAC Or AirCooledSplitConstrainedAC
+Else If SizeRangeUnitaryCondensersAC  == LT65000 And F03_ UnitaryCondensersAC  == AirCooledPkg1PhaseAC, AirCooledSmallDuctHighVelocityAC Or AirCooledSplitConstrainedAC
 result 1 = EER2 and result 2 = SEER2;
-Else If SizeRangeUnitaryCondensersAC  != LT65000  
+Else If SizeRangeUnitaryCondensersAC  == LT30000 And  F03_ UnitaryCondensersAC == AirCooledPkgConstrainedAC Or AirCooledSplitConstrainedAC
+result 1 = EER2 and result 2 = SEER2;
+Else
 result 1 =EER and result 2 = IEER;  
 End If
  
@@ -2899,8 +2901,9 @@ End If</xsd:documentation>
                                                          <xsd:element name="Fa08_CoolEfficiencyMinFurnaceAC_EERIEER" type="hvac:CoolEfficiencyMinFurnaceAC_EERIEER" minOccurs="2" maxOccurs="2">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Minimum Efficiency Required per Tables 110.2 / Title 20</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC And If Fa07_EfficiencyType result 1 == EER and result2 == IEER, use this choice.  For the following evaluations result1 is the EER value and result2 is the IEER   NOTE these have been adjusted for systems that do not have electric resistance heating
-                                                                  <!-- FIX ME - this should not be used in all furnace+ Ac scenarios. It should be used when efficiency units are not the new SEER2/EER2 units -->Else If Fa02_SizeRangeFurnaceAC == GTE65000CoolLT225000Heat Or GTE65000CoolGTE225000Heat
+                                                               <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == FurnaceAC And If Fa07_EfficiencyType result 1 == EER and result2 == IEER, use this choice.  For the following evaluations result1 is the EER value and result2 is the IEER   NOTE these have been adjusted for systems that do not have electric resistance heating 
+ 
+Else If Fa02_SizeRangeFurnaceAC == GTE65000CoolLT225000Heat Or GTE65000CoolGTE225000Heat
 result1 =  11.0 (EER), result2 = 14.6 (IEER) 
 Else If Fa02_SizeRangeFurnaceAC == GTE135000CoolLT225000Heat Or GTE135000CoolGTE225000Heat
 result1 =  10.8 (EER), result2 = 14.0 (IEER) 
@@ -6809,7 +6812,9 @@ Else If H02_FanFunction != Supply
 User can select any of the following options that apply
 FilterAnyMERV,  ERR_50ToLT_55, ERR_55ToLT_60, ERR_60ToLT_65, ERR_65ToLT_70, ERR_70ToLT_75, ERR_75ToLT_80, ERR_GTE_80, CoilRunaroundLoop, PressureMaintained, AirflowControl, LabExhaustVertDucts, BiosafetyCabinet, FiltersScrubbers, HealthcareFacility, SoundAttenuation, NoDevice
 Add to list the following If H00c_Status ==  Alteration:  ReplaceReturnExhaust and ReplaceReturnExhaustAdapterCurb
-End If</xsd:documentation>
+End If
+
+Note - each enumeration can only be selected once per TableAllowance Row</xsd:documentation>
                                                                                                    <xsd:appinfo source="displayterm">
                                                                                                       <dtyp:displayterm value="SoundAttenuation">Sound Attenuation Section<d:sup>1</d:sup>
                                                                                                       </dtyp:displayterm>
@@ -7970,50 +7975,49 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Supply Fan Base Allowance (kW)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Calculated value:
 SupplyFanBaseAllowance is assigned as follows:
-   If H02_FanFunction == Supply Is Not Present in TableFanSystems Row
-      SupplyFanBaseAllowance == 0
-   Else If H02_FanFunction == Supply Is Present in TableFanSystems Row
-      If H00i_ServingFloors = true
-         If H00d_SystemZoning = MultiZoneVAV
-            If H00f_FanSystemFlowCapacity LTE 5000
-               SupplyFanBaseAllowance = 0.508
-            Else If H00f_FanSystemFlowCapacity LTE 10000
-               SupplyFanBaseAllowance = 0.548
-            Else If H00f_FanSystemFlowCapacity GT 10000
-               SupplyFanBaseAllowance = 0.501
-            End If
-         Else If H00d_SystemZoning == AllOtherZoneTypes
-            If H00f_FanSystemFlowCapacity LTE 5000
-               SupplyFanBaseAllowance = 0.349
-            Else If H00f_FanSystemFlowCapacity LTE 10000
-               SupplyFanBaseAllowance = 0.356
-            Else If H00f_FanSystemFlowCapacity GT 10000
-               SupplyFanBaseAllowance = 0.325
-            End If
-         Else If H00f_FanSystemFlowCapacity ==  DOASZone
-            SupplyFanBaseAllowance is not applicable for calculation below
-         End If
-      End If
-   Else If H00i_ServingFloors = false
+If H02_FanFunction == Supply Is Not Present in TableFanSystems Row
+   SupplyFanBaseAllowance = 0
+Else If H02_FanFunction == Supply Is Present in TableFanSystems Row
+   If H00i_ServingFloors = true
       If H00d_SystemZoning = MultiZoneVAV
          If H00f_FanSystemFlowCapacity LTE 5000
-            SupplyFanBaseAllowance = 0.395
+            SupplyFanBaseAllowance = 0.508
          Else If H00f_FanSystemFlowCapacity LTE 10000
-            SupplyFanBaseAllowance = 0.453
+            SupplyFanBaseAllowance = 0.548
          Else If H00f_FanSystemFlowCapacity GT 10000
-            SupplyFanBaseAllowance = 0.413
+            SupplyFanBaseAllowance = 0.501
          End If
       Else If H00d_SystemZoning == AllOtherZoneTypes
          If H00f_FanSystemFlowCapacity LTE 5000
-            SupplyFanBaseAllowance = 0.232
+            SupplyFanBaseAllowance = 0.349
          Else If H00f_FanSystemFlowCapacity LTE 10000
-            SupplyFanBaseAllowance = 0.256
+            SupplyFanBaseAllowance = 0.356
          Else If H00f_FanSystemFlowCapacity GT 10000
-            SupplyFanBaseAllowance = 0.236
+            SupplyFanBaseAllowance = 0.325
          End If
-      Else If H00f_FanSystemFlowCapacity ==  DOASZone
+      Else If H00d_SystemZoning  ==  DOASZone
          SupplyFanBaseAllowance is not applicable for calculation below
       End If
+   End If
+Else If H00i_ServingFloors = false
+   If H00d_SystemZoning = MultiZoneVAV
+      If H00f_FanSystemFlowCapacity LTE 5000
+         SupplyFanBaseAllowance = 0.395
+      Else If H00f_FanSystemFlowCapacity LTE 10000
+         SupplyFanBaseAllowance = 0.453
+      Else If H00f_FanSystemFlowCapacity GT 10000
+         SupplyFanBaseAllowance = 0.413
+      End If
+   Else If H00d_SystemZoning == AllOtherZoneTypes
+      If H00f_FanSystemFlowCapacity LTE 5000
+         SupplyFanBaseAllowance = 0.232
+      Else If H00f_FanSystemFlowCapacity LTE 10000
+         SupplyFanBaseAllowance = 0.256
+      Else If H00f_FanSystemFlowCapacity GT 10000
+         SupplyFanBaseAllowance = 0.236
+      End If
+   Else If H00d_SystemZoning  ==  DOASZone
+      SupplyFanBaseAllowance is not applicable for calculation below
    End If
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -8040,28 +8044,27 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Exhuast/Return/Relief/Transfer Fan Base Allowance(kW)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Calculated value:
 ExhaustFanBaseAllowance is assigned as follows:
-   If H02_FanFunction == Exhaust Or Relief Or Return Or Transfer Is Not Present in TableFanSystems Row
-      ExhuastFanBaseAllowance == 0
-   Else If H02_FanFunction == Exhaust Or Relief Or Return Or Transfer Is Present in TableFanSystems Row
-      If H00d_SystemZoning = MultiZoneVAV
-         If H00f_FanSystemFlowCapacity LTE 5000
-            ExhuastFanBaseAllowance = 0.221
-         Else If H00f_FanSystemFlowCapacity LTE 10000
-            ExhuastFanBaseAllowance = 0.246
-         Else If H00f_FanSystemFlowCapacity GT 10000
-            ExhuastFanBaseAllowance = 0.236
-         End If
-      Else If H00d_SystemZoning = AllOtherZoneTypes
-         If H00f_FanSystemFlowCapacity LTE 5000
-            ExhuastFanBaseAllowance = 0.186
-         Else If H00f_FanSystemFlowCapacity LTE 10000
-            ExhuastFanBaseAllowance = 0.184
-         Else If H00f_FanSystemFlowCapacity GT 10000
-            ExhuastFanBaseAllowance = 0.190
-         End If
-      Else If H00f_FanSystemFlowCapacity ==  DOASZone
-         ExhuastFanBaseAllowance is not applicable for calculation below
+If H02_FanFunction == Exhaust Or Relief Or Return Or Transfer Is Not Present in TableFanSystems Row
+   ExhuastFanBaseAllowance = 0
+Else If H02_FanFunction == Exhaust Or Relief Or Return Or Transfer Is Present in TableFanSystems Row
+   If H00d_SystemZoning = MultiZoneVAV
+      If H00f_FanSystemFlowCapacity LTE 5000
+         ExhuastFanBaseAllowance = 0.221
+      Else If H00f_FanSystemFlowCapacity LTE 10000
+         ExhuastFanBaseAllowance = 0.246
+      Else If H00f_FanSystemFlowCapacity GT 10000
+         ExhuastFanBaseAllowance = 0.236
       End If
+   Else If H00d_SystemZoning = AllOtherZoneTypes
+      If H00f_FanSystemFlowCapacity LTE 5000
+         ExhuastFanBaseAllowance = 0.186
+      Else If H00f_FanSystemFlowCapacity LTE 10000
+         ExhuastFanBaseAllowance = 0.184
+      Else If H00f_FanSystemFlowCapacity GT 10000
+         ExhuastFanBaseAllowance = 0.190
+      End If
+   Else If H00d_SystemZoning ==  DOASZone
+      ExhuastFanBaseAllowance is not applicable for calculation below
    End If
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -8088,20 +8091,22 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Fan System Allowance (kW)<d:sup>3</d:sup>
                                              </xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Calculated value:
+If H11_FanPower GTE 1.0
 If H00d_SystemZoning != DOAS
-   If H00g_Elevation LTE 3,000 ft
-      result = ((H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))  x  H00f_FanSystemFlowCapacity) / 1000   
-   Else If H00g_Elevation GTE 3,000 ft And LT 4,000
-      result = (0.896  x (H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))) x  H00f_FanSystemFlowCapacity) / 1000   
-   Else If H00g_Elevation GTE 4,000 ft And LT 5,000
-      result = (0.864 x (H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))) x  H00f_FanSystemFlowCapacity) / 1000   
-   Else If H00g_Elevation GTE 5,000 ft And LT 6,000
-      result = (0.832 x (H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))) x  H00f_FanSystemFlowCapacity) / 1000   
-   Else If H00g_Elevation GTE 6,000 ft 
-      result = (0.801 x (H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance)))x  H00f_FanSystemFlowCapacity) / 1000   
-   End If
+If H00g_Elevation LTE 3,000 ft
+result = ((H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))  x  H00f_FanSystemFlowCapacity) / 1000   
+Else If H00g_Elevation GTE 3,000 ft And LT 4,000
+result = 0.896  x (((H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance)) x  H00f_FanSystemFlowCapacity) / 1000)   
+Else If H00g_Elevation GTE 4,000 ft And LT 5,000
+result = 0.864 x (((H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance)) x  H00f_FanSystemFlowCapacity) / 1000)  
+Else If H00g_Elevation GTE 5,000 ft And LT 6,000
+result = 0.832 x (((H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance)) x  H00f_FanSystemFlowCapacity) / 1000)   
+Else If H00g_Elevation GTE 6,000 ft 
+result = 0.801 x (((H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance)) x  H00f_FanSystemFlowCapacity) / 1000)   
+End If
 Else If H00d_SystemZoning == DOASZone
-   result = H00f_FanSystemFlowCapacity / 1000 
+result = H00f_FanSystemFlowCapacity / 1000 
+End If
 End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -8110,6 +8115,7 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Fan System Allowance (kW)<d:sup>3</d:sup>
                                              </xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If H00e_SystemZoning == MultiDwellingUnits Or SingleDwellingUnit
+Or H11_FanPower LT 1.0
 result = BlankGrayedOut 
 Else If H00e_SystemZoning == DOASZone And  H13_FanSystemInputPower  LT 1.0 kW 
 result = BlankGrayedOut stored in NotApplicableMessage

@@ -1699,7 +1699,8 @@ receives the most illumination.  Units: ft2</xsd:documentation>
       <xsd:annotation>
          <xsd:documentation>Ratio of the horizontal depth of the external shading projection divided by the sum of the height of the fenestration and the distance from the top of the fenestration to the bottom of the farthest point of the external shading projection, in consistent units.  Units: none</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative">
+      <xsd:restriction base="dtyp:Decimal">
+         <xsd:minExclusive value="0"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ProjectName">
