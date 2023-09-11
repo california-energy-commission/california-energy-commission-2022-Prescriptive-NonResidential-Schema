@@ -2746,6 +2746,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
          <xsd:enumeration value="MultiuseAssembly"/>
          <xsd:enumeration value="MuseumAssembly"/>
          <xsd:enumeration value="MuseumChildrenAssembly"/>
+         <xsd:enumeration value="NoApplicableSpaceVent"/>
          <xsd:enumeration value="OfficeBreakRoom"/>
          <xsd:enumeration value="OfficeReception"/>
          <xsd:enumeration value="OfficeSpaceVent"/>
