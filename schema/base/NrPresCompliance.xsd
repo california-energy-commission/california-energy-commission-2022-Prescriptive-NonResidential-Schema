@@ -14308,6 +14308,129 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          <xsd:enumeration value="ReqYes"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="State2LetterCode">
+      <xsd:annotation>
+         <xsd:documentation>String representing a state 2 upper case letter code in an address associated with the project.</xsd:documentation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="AL">Alabama</dtyp:displayterm>
+            <dtyp:displayterm value="AK">Alaska</dtyp:displayterm>
+            <dtyp:displayterm value="AZ">Arizona</dtyp:displayterm>
+            <dtyp:displayterm value="AR">Arkansas</dtyp:displayterm>
+            <dtyp:displayterm value="AS">American Samoa</dtyp:displayterm>
+            <dtyp:displayterm value="CA">California</dtyp:displayterm>
+            <dtyp:displayterm value="CO">Colorado</dtyp:displayterm>
+            <dtyp:displayterm value="CT">Connecticut</dtyp:displayterm>
+            <dtyp:displayterm value="DE">Delaware</dtyp:displayterm>
+            <dtyp:displayterm value="DC">District of Columbia</dtyp:displayterm>
+            <dtyp:displayterm value="FL">Florida</dtyp:displayterm>
+            <dtyp:displayterm value="GA">Georgia</dtyp:displayterm>
+            <dtyp:displayterm value="GU">Guam</dtyp:displayterm>
+            <dtyp:displayterm value="HI">Hawaii</dtyp:displayterm>
+            <dtyp:displayterm value="ID">Idaho</dtyp:displayterm>
+            <dtyp:displayterm value="IL">Illinois</dtyp:displayterm>
+            <dtyp:displayterm value="IN">Indiana</dtyp:displayterm>
+            <dtyp:displayterm value="IA">Iowa</dtyp:displayterm>
+            <dtyp:displayterm value="KS">Kansas</dtyp:displayterm>
+            <dtyp:displayterm value="KY">Kentucky</dtyp:displayterm>
+            <dtyp:displayterm value="LA">Louisiana</dtyp:displayterm>
+            <dtyp:displayterm value="ME">Maine</dtyp:displayterm>
+            <dtyp:displayterm value="MD">Maryland</dtyp:displayterm>
+            <dtyp:displayterm value="MA">Massachusetts</dtyp:displayterm>
+            <dtyp:displayterm value="MI">Michigan</dtyp:displayterm>
+            <dtyp:displayterm value="MN">Minnesota</dtyp:displayterm>
+            <dtyp:displayterm value="MS">Mississippi</dtyp:displayterm>
+            <dtyp:displayterm value="MO">Missouri</dtyp:displayterm>
+            <dtyp:displayterm value="MT">Montana</dtyp:displayterm>
+            <dtyp:displayterm value="NE">Nebraska</dtyp:displayterm>
+            <dtyp:displayterm value="NV">Nevada</dtyp:displayterm>
+            <dtyp:displayterm value="NH">New Hampshire</dtyp:displayterm>
+            <dtyp:displayterm value="NJ">New Jersey</dtyp:displayterm>
+            <dtyp:displayterm value="NM">New Mexico</dtyp:displayterm>
+            <dtyp:displayterm value="NY">New York</dtyp:displayterm>
+            <dtyp:displayterm value="NC">North Carolina</dtyp:displayterm>
+            <dtyp:displayterm value="ND">North Dakota</dtyp:displayterm>
+            <dtyp:displayterm value="MP">Northern Mariana Islands</dtyp:displayterm>
+            <dtyp:displayterm value="OH">Ohio</dtyp:displayterm>
+            <dtyp:displayterm value="OK">Oklahoma</dtyp:displayterm>
+            <dtyp:displayterm value="OR">Oregon</dtyp:displayterm>
+            <dtyp:displayterm value="PA">Pennsylvania</dtyp:displayterm>
+            <dtyp:displayterm value="PR">Puerto Rico</dtyp:displayterm>
+            <dtyp:displayterm value="RI">Rhode Island</dtyp:displayterm>
+            <dtyp:displayterm value="SC">South Carolina</dtyp:displayterm>
+            <dtyp:displayterm value="SD">South Dakota</dtyp:displayterm>
+            <dtyp:displayterm value="TN">Tennessee</dtyp:displayterm>
+            <dtyp:displayterm value="TX">Texas</dtyp:displayterm>
+            <dtyp:displayterm value="TT">Trust Territories</dtyp:displayterm>
+            <dtyp:displayterm value="UT">Utah</dtyp:displayterm>
+            <dtyp:displayterm value="VT">Vermont</dtyp:displayterm>
+            <dtyp:displayterm value="VA">Virginia</dtyp:displayterm>
+            <dtyp:displayterm value="VI">Virgin Islands</dtyp:displayterm>
+            <dtyp:displayterm value="WA">Washington</dtyp:displayterm>
+            <dtyp:displayterm value="WV">West Virginia</dtyp:displayterm>
+            <dtyp:displayterm value="WI">Wisconsin</dtyp:displayterm>
+            <dtyp:displayterm value="WY">Wyoming</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstantPermissive">
+         <xsd:enumeration value="AL"/>
+         <xsd:enumeration value="AK"/>
+         <xsd:enumeration value="AZ"/>
+         <xsd:enumeration value="AR"/>
+         <xsd:enumeration value="AS"/>
+         <xsd:enumeration value="CA"/>
+         <xsd:enumeration value="CO"/>
+         <xsd:enumeration value="CT"/>
+         <xsd:enumeration value="DE"/>
+         <xsd:enumeration value="DC"/>
+         <xsd:enumeration value="FL"/>
+         <xsd:enumeration value="GA"/>
+         <xsd:enumeration value="GU"/>
+         <xsd:enumeration value="HI"/>
+         <xsd:enumeration value="ID"/>
+         <xsd:enumeration value="IL"/>
+         <xsd:enumeration value="IN"/>
+         <xsd:enumeration value="IA"/>
+         <xsd:enumeration value="KS"/>
+         <xsd:enumeration value="KY"/>
+         <xsd:enumeration value="LA"/>
+         <xsd:enumeration value="ME"/>
+         <xsd:enumeration value="MD"/>
+         <xsd:enumeration value="MA"/>
+         <xsd:enumeration value="MI"/>
+         <xsd:enumeration value="MN"/>
+         <xsd:enumeration value="MS"/>
+         <xsd:enumeration value="MO"/>
+         <xsd:enumeration value="MT"/>
+         <xsd:enumeration value="NE"/>
+         <xsd:enumeration value="NV"/>
+         <xsd:enumeration value="NH"/>
+         <xsd:enumeration value="NJ"/>
+         <xsd:enumeration value="NM"/>
+         <xsd:enumeration value="NY"/>
+         <xsd:enumeration value="NC"/>
+         <xsd:enumeration value="ND"/>
+         <xsd:enumeration value="MP"/>
+         <xsd:enumeration value="OH"/>
+         <xsd:enumeration value="OK"/>
+         <xsd:enumeration value="OR"/>
+         <xsd:enumeration value="PA"/>
+         <xsd:enumeration value="PR"/>
+         <xsd:enumeration value="RI"/>
+         <xsd:enumeration value="SC"/>
+         <xsd:enumeration value="SD"/>
+         <xsd:enumeration value="TN"/>
+         <xsd:enumeration value="TX"/>
+         <xsd:enumeration value="TT"/>
+         <xsd:enumeration value="UT"/>
+         <xsd:enumeration value="VT"/>
+         <xsd:enumeration value="VA"/>
+         <xsd:enumeration value="VI"/>
+         <xsd:enumeration value="WA"/>
+         <xsd:enumeration value="WV"/>
+         <xsd:enumeration value="WI"/>
+         <xsd:enumeration value="WY"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="StateString">
       <xsd:annotation>
          <xsd:documentation>String representing a state in an address associated with the project reported in the CF1R PRF.  This is used because CBECC-Res allows any text input fr this field</xsd:documentation>
@@ -16267,7 +16390,11 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:element name="documentAuthor05Address" type="comp:StreetAddress" minOccurs="0" ></xsd:element>
          <xsd:element name="documentAuthor06Certification" type="comp:CertificationNumber" minOccurs="0" ></xsd:element>
          <xsd:element name="documentAuthor07City" type="comp:City" minOccurs="0" ></xsd:element>
-         <xsd:element name="documentAuthor08State" type="comp:State" minOccurs="0" ></xsd:element>
+         <xsd:choice maxOccurs="1">
+            <xsd:element name="documentAuthor08State" type="comp:State" minOccurs="0" ></xsd:element>
+            <xsd:element name="documentAuthor08State2LetterCode" type="comp:State2LetterCode" minOccurs="0" ></xsd:element>
+            <xsd:element name="documentAuthor08StateString" type="comp:StateString" minOccurs="0" ></xsd:element>
+         </xsd:choice>
          <xsd:element name="documentAuthor09Zipcode" type="comp:Zipcode" minOccurs="0" ></xsd:element>
          <xsd:element name="documentAuthor10Phone" type="comp:PhoneNumber" minOccurs="0" ></xsd:element>
       </xsd:sequence>
@@ -16284,7 +16411,11 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:element name="documentAuthor05Address" type="comp:StreetAddress" minOccurs="0" ></xsd:element>
          <xsd:element name="documentAuthor06Certification" type="comp:CertificationNumber" minOccurs="0" ></xsd:element>
          <xsd:element name="documentAuthor07CityDA" type="comp:DocumentationAuthorCity" minOccurs="0" ></xsd:element>
-         <xsd:element name="documentAuthor08State" type="comp:State" minOccurs="0" ></xsd:element>
+         <xsd:choice maxOccurs="1">
+            <xsd:element name="documentAuthor08State" type="comp:State" minOccurs="0" ></xsd:element>
+            <xsd:element name="documentAuthor08State2LetterCode" type="comp:State2LetterCode" minOccurs="0" ></xsd:element>
+            <xsd:element name="documentAuthor08StateString" type="comp:StateString" minOccurs="0" ></xsd:element>
+         </xsd:choice>
          <xsd:element name="documentAuthor09Zipcode" type="comp:Zipcode" minOccurs="0" ></xsd:element>
          <xsd:element name="documentAuthor10Phone" type="comp:PhoneNumber" minOccurs="0" ></xsd:element>
       </xsd:sequence>
@@ -16510,7 +16641,11 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:element name="responsiblePerson06_Address" type="comp:StreetAddress" minOccurs="0" ></xsd:element>
          <xsd:element name="responsiblePerson07_License" type="comp:LicenseNumber" minOccurs="0" ></xsd:element>
          <xsd:element name="responsiblePerson08_City" type="comp:City" minOccurs="0" ></xsd:element>
-         <xsd:element name="responsiblePerson09_State" type="comp:State" minOccurs="0" ></xsd:element>
+         <xsd:choice maxOccurs="1">
+            <xsd:element name="responsiblePerson09_State" type="comp:State" minOccurs="0" ></xsd:element>
+            <xsd:element name="responsiblePerson09_State2LetterCode" type="comp:State2LetterCode" minOccurs="0" ></xsd:element>
+            <xsd:element name="responsiblePerson09_StateString" type="comp:StateString" minOccurs="0" ></xsd:element>
+         </xsd:choice>
          <xsd:element name="responsiblePerson10_Zipcode" type="comp:Zipcode" minOccurs="0" ></xsd:element>
          <xsd:element name="responsiblePerson11_Phone" type="comp:PhoneNumber" minOccurs="0" ></xsd:element>
       </xsd:sequence>
@@ -16532,7 +16667,11 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:element name="responsibleInstaller05_AddressNRCI" type="comp:StreetAddress" ></xsd:element>
          <xsd:element name="responsibleInstaller06_LicenseNRCI" type="comp:LicenseNumber" ></xsd:element>
          <xsd:element name="responsibleInstaller07_CityNRCI" type="comp:City" ></xsd:element>
-         <xsd:element name="responsibleInstaller08_StateNRCI" type="comp:State" ></xsd:element>
+         <xsd:choice maxOccurs="1">
+            <xsd:element name="responsibleInstaller08_StateNRCI" type="comp:State" minOccurs="0" ></xsd:element>
+            <xsd:element name="responsibleInstaller08_State2LetterCode" type="comp:State2LetterCode" minOccurs="0" ></xsd:element>
+            <xsd:element name="responsibleInstaller08_StateString" type="comp:StateString" minOccurs="0" ></xsd:element>
+         </xsd:choice>
          <xsd:element name="responsibleInstaller09_ZipcodeNRCI" type="comp:Zipcode" ></xsd:element>
          <xsd:element name="responsibleInstaller10_PhoneNRCI" type="comp:PhoneNumber" ></xsd:element>
          <xsd:element name="responsibleInstaller11_DateSignedNRCI" type="comp:SignatureDate" ></xsd:element>
