@@ -1725,7 +1725,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
-                           <d:i><d:sup>1</d:sup>FOOTNOTE: Compliant equipment may be found in the Modernized Appliance Efficiency Database System (MAEDBS) on the Energy Commission website: https://cacertappliances.energy.ca.gov/Pages/Search/AdvancedSearch.aspx </d:i>
+                           <d:i><d:sup>2</d:sup>FOOTNOTE: Compliant equipment may be found in the Modernized Appliance Efficiency Database System (MAEDBS) on the Energy Commission website: https://cacertappliances.energy.ca.gov/Pages/Search/AdvancedSearch.aspx </d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
