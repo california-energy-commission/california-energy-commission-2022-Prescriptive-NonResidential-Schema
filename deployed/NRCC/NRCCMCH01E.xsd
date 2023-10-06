@@ -10434,6 +10434,7 @@ Continuously operated per 120.2(e)3 exception,
 LowPowerNA display term NA: System less than 2kW demand + manual shutoff per 120.2(e)3 exception, 
 HotelMotelNA display term NA: Hotel/ Motel + manual shutoff per 120.2(e)3 exception, 
 SpaceTypeNA display term NA: Not required space type
+AlterationNA display term NA: Alteration
  
 Mandatory Measure Triggers:
 If result == ProvidedOccSensors

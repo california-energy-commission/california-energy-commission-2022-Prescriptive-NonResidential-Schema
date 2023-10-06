@@ -9757,6 +9757,7 @@
             <dtyp:displayterm value="LowPowerNA">NA: System [d:lt/] 2kW demand + manual shutoff per [d:t24ref/]120.2(e)3 exception</dtyp:displayterm>
             <dtyp:displayterm value="ProvidedOccSensors">Provided per [d:t24ref/]120.1(d)5</dtyp:displayterm>
             <dtyp:displayterm value="SpaceTypeNA">NA: Not required space type</dtyp:displayterm>
+            <dtyp:displayterm value="AlterationNA">NA: Alteration</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -9765,6 +9766,7 @@
          <xsd:enumeration value="LowPowerNA"/>
          <xsd:enumeration value="ProvidedOccSensors"/>
          <xsd:enumeration value="SpaceTypeNA"/>
+         <xsd:enumeration value="AlterationNA"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="OccupantTrainingGoalsOPR">
