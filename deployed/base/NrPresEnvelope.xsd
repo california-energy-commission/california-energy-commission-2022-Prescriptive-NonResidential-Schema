@@ -3605,7 +3605,7 @@ Used by the compliance software user interface to narrow list of material select
             <dtyp:displayterm value="Metal">Metal</dtyp:displayterm>
             <dtyp:displayterm value="NoFraming">No frame type</dtyp:displayterm>
             <dtyp:displayterm value="WoodFraming">Wood</dtyp:displayterm>
-            <dtyp:displayterm value="Wood0_625Gypsum">Wood</dtyp:displayterm>
+            <dtyp:displayterm value="Wood0_625Gypsum">Wood 5/8 in. gypsum</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">

@@ -6174,7 +6174,7 @@ End If
 End If</xsd:documentation>
                                              <xsd:appinfo source="CIsrc">
                                                 <dtyp:srcSchema form="CCENV01E" usage="copy">Kvertperf04_FenestrationName</dtyp:srcSchema>
-                                                <dtyp:srcSchema form="CCPRF01E" usage="copy">Fen01_FenestrationName</dtyp:srcSchema>
+                                                <dtyp:srcSchema form="CCPRF01E" usage="copy">Fen01_ConstructionAssemblyNameString</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -6492,10 +6492,10 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="FieldText">Area ft<d:sup>2</d:sup>
                                                                </xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
-result = Fen08mf_FenestrationAssemblyArea
+result = Fen08_FenestrationAssemblyArea
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
-                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">Fen08mf_FenestrationAssemblyArea</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">Fen08_FenestrationAssemblyArea</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -6715,12 +6715,12 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">U-factor</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
-If Fen09mf_FenestrationAssemblyUFactor IsPresent
-result = Fen09mf_FenestrationAssemblyUFactor
+If Fen09_FenestrationAssemblyUFactor IsPresent
+result = Fen09_FenestrationAssemblyUFactor
 End If
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
-                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">Fen09mf_FenestrationAssemblyUFactor</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">Fen09_FenestrationAssemblyUFactor</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -6844,12 +6844,12 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">(R)SHGC</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
-If Fen11mf_FenestrationAssemblySHGC IsPresent
-result = Fen11mf_FenestrationAssemblySHGC
+If Fen11_FenestrationAssemblySHGC IsPresent
+result = Fen11_FenestrationAssemblySHGC
 End If
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
-                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">Fen11mf_FenestrationAssemblySHGC</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">Fen11_FenestrationAssemblySHGC</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -6971,12 +6971,12 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">VT</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
-If Fen13mf_FenestrationAssemblyVT IsPresent
-result = Fen13mf_FenestrationAssemblyVT
+If Fen13_FenestrationAssemblyVT IsPresent
+result = Fen13_FenestrationAssemblyVT
 End If
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
-                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">Fen13mf_FenestrationAssemblyVT</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">Fen13_FenestrationAssemblyVT</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>

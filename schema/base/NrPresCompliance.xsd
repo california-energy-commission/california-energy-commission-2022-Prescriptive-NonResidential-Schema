@@ -8575,13 +8575,11 @@
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AlternateLightSources">Alternate Light Sources</dtyp:displayterm>
-            <dtyp:displayterm value="EnergyVerifiedLabel">ENERGY VERIFIED Label</dtyp:displayterm>
             <dtyp:displayterm value="MaximumAllowedPower">Max Allowed Lighting Power</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="AlternateLightSources"/>
-         <xsd:enumeration value="EnergyVerifiedLabel"/>
          <xsd:enumeration value="MaximumAllowedPower"/>
       </xsd:restriction>
    </xsd:simpleType>
