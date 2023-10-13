@@ -770,9 +770,9 @@ J01a_SingleUnitFurnace == true And J02_Ready240V  And J03_Future240V ==false
 Or
 J01b_SingleUnitCooktop == true  And J04_Ready240V  And J05_Future240V == false
 Or
-J01c_SingleUnitDryer == true And J04_Ready240V  And J05_Future240V == false
+J01c_SingleUnitDryer == true And J06_Ready240V  And J07_Future240V == false
 Or
-J01d_CommonAreaDryer == true And J03_Future240V == false
+J01d_CommonAreaDryer == true And J08_Future240V == false
 result = false
 Else result = true
 End If</xsd:documentation>
