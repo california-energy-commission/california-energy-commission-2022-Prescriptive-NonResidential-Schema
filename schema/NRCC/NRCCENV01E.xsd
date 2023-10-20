@@ -79,7 +79,8 @@ End If</xsd:documentation>
                                     <xsd:documentation source="AdditionalRequirements">MANUFACTURED FENESTRATION PRODUCTS AND EXTERIOR DOORS SHALL HAVE AIR INFILTRATION RATES CERTIFIED BY THE MANUFACTURER NOT EXCEEDING 0.3 CFM/FT<d:sup>2</d:sup> OF WINDOW AREA,  0.3 CFM/FT<d:sup>2</d:sup> OF DOOR AREA FOR NONRESIDENTIAL SINGLE DOORS (SWINGING AND SLIDING), AND 1.0  CFM/FT<d:sup>2</d:sup> FOR NONRESIDENTIAL DOUBLE DOORS (SWINGING), WHEN TESTED ACCORDING TO NFRC-400 OR ASTM E283 AT A PRESSURE DIFFERENTIAL OF 75 PASCALS.</xsd:documentation>
                                     <xsd:documentation source="CalculationsAndRules">If section J is required because  
 B02NewDoor_ComponentApplies == true Or 
-B02AddDoor_ComponentApplies == true 
+B02AddDoor_ComponentApplies == true Or 
+B02AltDoor_ComponentApplies == true
 Or 
 If section K is required because 
 B02NewFen_ComponentApplies == true Or 
@@ -14136,7 +14137,8 @@ End Switch</xsd:documentation>
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Mandatory U-factor Required</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">Calculated field: 
-If HCalc2UF01_AreaWeightAvgType == MassLight Or MassHeavy  
+If HCalc2UF01_AreaWeightAvgType == MassLight, then HCalc2UF03_UfactorMandatory should = 0.440
+If HCalc2UF01_AreaWeightAvgType = MassHeavy, then HCalc2UF03_UfactorMandatory should = 0.690  
 If Hmass05_MasonryType == CMULightWeight, CMUMediumWeight Or CMUNormalWeight Then 
 If Hmass06_ MasonryGrout != NoGrout And Hmass07_MassThickness == 6mass,  8mass, 10mass  Or 12mass  result = 0.440; 
 Else If Hmass06_ MasonryGrout == NoGrout And Hmass07_MassThickness == 6mass, 7mass, 8mass, 9mass, 10mass, 11mass, Or 12mass  result = 0.440;

@@ -823,7 +823,7 @@ If A05_ConditionedFloorAreaRangeNR != LT10000Ft2
 result is stored in C06_CompliantSectionK. 
 End if
  
-If K01_FunctionalTestingRequirementsWillBeMet == true 
+If K01_FunctionalTestingRequirementsWillBeMet == true AND K02_TestedSystemDescription, K03_FunctionalTestDescription, K04_TestingT24AppendixRef, And K05_IsAcceptanceTestTechRequired have values
 result = true 
 Else result  = false
 End If</xsd:documentation>

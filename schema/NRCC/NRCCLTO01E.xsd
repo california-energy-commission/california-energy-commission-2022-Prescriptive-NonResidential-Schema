@@ -1112,7 +1112,10 @@ End If</xsd:documentation>
                                     <xsd:element name="F06_LuminaireStatus" type="com:LuminaireStatus" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Luminaire Status[d:sup]3[/d:sup]</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input; If B01a == NewLightingSystem  list: New;  Else If B05_OutdoorLightingCalculationMethod == CalculatedAllowance then all options are listed: New, ExistingAlteration display term Altered, ExistingReinstalled display term Exist.Reinstalled, ExistingUnchanged display term Exist. Remain; Else If B05_OutdoorLightingCalculationMethod == ExistingPowerReduction or ExistingPowerMaintained then list: New and Altered</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input; 
+                                             If B01a == NewLightingSystem  list: New;  
+                                             Else If B05_OutdoorLightingCalculationMethod == CalculatedAllowance then list: New and Altered 
+                                             Else If B05_OutdoorLightingCalculationMethod == ExistingPowerReduction or ExistingPowerMaintained then all options are listed: New, ExistingAlteration display term Altered, ExistingReinstalled display term Exist.Reinstalled, ExistingUnchanged display term Exist. Remain;</xsd:documentation>
                                           <xsd:appinfo source="displayterm">
                                              <dtyp:displayterm value="ExistingAlteration">Altered</dtyp:displayterm>
                                              <dtyp:displayterm value="ExistingUnchanged"> Exist. Remain</dtyp:displayterm>
