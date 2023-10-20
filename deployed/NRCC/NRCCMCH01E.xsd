@@ -10312,8 +10312,10 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Supply Fan Base Allowance (kW)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If H00e_SystemZoning == MultiDwellingUnits Or SingleDwellingUnit
-result = BlankGrayedOut 
-Else If H00e_SystemZoning == DOASZone And  H13_FanSystemInputPower  LT 1.0 kW 
+Or 
+H00d_SystemZoning == DOASZone 
+Or 
+H13_FanSystemInputPower  LT 1.0 kW 
 result = BlankGrayedOut stored in NotApplicableMessage
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -10359,8 +10361,10 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Exhuast/Return/Relief/Transfer Fan Base Allowance(kW)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If H00e_SystemZoning == MultiDwellingUnits Or SingleDwellingUnit
-result = BlankGrayedOut 
-Else If H00e_SystemZoning == DOASZone And  H13_FanSystemInputPower  LT 1.0 kW 
+Or
+H00d_SystemZoning == DOASZone
+Or 
+H13_FanSystemInputPower  LT 1.0 kW 
 result = BlankGrayedOut stored in NotApplicableMessage
 End If</xsd:documentation>
                                           </xsd:annotation>
@@ -10377,7 +10381,7 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Fan System Allowance (kW)<d:sup>3</d:sup>
                                              </xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Calculated value:
-If H11_FanPower GTE 1.0
+If H13_FanSystemInputPower GTE 1.0
 If H00d_SystemZoning != DOAS
 If H00g_Elevation LTE 3,000 ft
 result = ((H12a_SupplyFanBaseAllowance + H12b_ExhaustFanBaseAllowance + SUM ALL (H03_FanCount x H08_FanAllowance))  x  H00f_FanSystemFlowCapacity) / 1000   
@@ -10401,9 +10405,8 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Fan System Allowance (kW)<d:sup>3</d:sup>
                                              </xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If H00e_SystemZoning == MultiDwellingUnits Or SingleDwellingUnit
-Or H11_FanPower LT 1.0
-result = BlankGrayedOut 
-Else If H00e_SystemZoning == DOASZone And  H13_FanSystemInputPower  LT 1.0 kW 
+Or
+H13_FanSystemInputPower  LT 1.0 kW  
 result = BlankGrayedOut stored in NotApplicableMessage
 End If</xsd:documentation>
                                           </xsd:annotation>
