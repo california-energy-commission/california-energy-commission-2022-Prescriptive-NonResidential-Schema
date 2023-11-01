@@ -2585,7 +2585,7 @@ End If</xsd:documentation>
                               <d:list>Boilers where one stack serves two or more boilers with a total combined input capacity per stack of 2.5 MMBtu/h.</d:list>
                            </d:l>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy == HighRiseResidential Or LowRiseResidential user selects from radio buttons Yes result = ReqYes and No result = ReqNo and Not Applicable radio button is disabled; Else result = ReqNA and row is grayed out</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy == HighRiseResidential user selects from radio buttons Yes result = ReqYes and No result = ReqNo and Not Applicable radio button is disabled; Else result = ReqNA and row is grayed out</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="H07_BoilerFanMotorReq" type="comp:BoilerFanMotorReq">
@@ -2599,7 +2599,7 @@ End If</xsd:documentation>
                                  <d:lte/>30% of the total design wattage at 50% of the design air volume.</d:list>
                            </d:l>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy == HighRiseResidential Or LowRiseResidential user selects from radio buttons Yes result = ReqYes and No result = ReqNo and Not Applicable radio button is disabled; Else result = ReqNA and row is grayed out</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy == HighRiseResidential user selects from radio buttons Yes result = ReqYes and No result = ReqNo and Not Applicable radio button is disabled; Else result = ReqNA and row is grayed out</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="H08_BoilerStackGasReq" type="comp:BoilerStackGasReq">
@@ -2608,7 +2608,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Newly installed boilers with an input capacity {d:gte/] 5MMBtu/h and a steady state full-load combustion efficiency 
                            <d:lt/> 90% shall maintain excess (stack-gas) oxygen concentrations 
                            <d:lte/>  5% by volume on a dry basis over firing rates of 20-100%. Combustion air volume shall be controlled with respect to firing rate or flue gas oxygen concentration. Use of a common gas and combustion air control linkage or jack shaft is prohibited.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy == HighRiseResidential Or LowRiseResidential user selects from radio buttons Yes result = ReqYes and No result = ReqNo and Not Applicable radio button is disabled; Else result = ReqNA and row is grayed out</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If A03_WholeBuildingOccupancy == HighRiseResidential user selects from radio buttons Yes result = ReqYes and No result = ReqNo and Not Applicable radio button is disabled; Else result = ReqNA and row is grayed out</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="HErrorMessage_SectionErrorMessage" type="comp:SectionErrorMessage" minOccurs="0">

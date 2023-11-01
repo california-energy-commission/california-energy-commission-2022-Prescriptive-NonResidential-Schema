@@ -2727,6 +2727,20 @@ These documents must be provided to the building inspector during construction a
                         <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="Nrci02_RequireNRCIPlb01E" type="comp:RequireNRCIPlbE">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">NRCI-Plb-01-E - Must be submitted for all buildings that must comply with solar water heating requirements.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If B01c_IsProjectInstalledSolarWaterHeating or Bdhw01a_SystemIncludesSolarDHW == true, result = true
+                           else 
+                           result = false</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Nrci02a_VerifedByInspector" type="comp:VerifedByInspector" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
