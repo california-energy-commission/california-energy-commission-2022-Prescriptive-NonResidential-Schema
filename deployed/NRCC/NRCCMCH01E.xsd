@@ -408,7 +408,7 @@ End if</xsd:documentation>
                                        <d:line1/>C. SYSTEM AIR FILTERS SHALL BE EITHER 
                                        <d:line1/>i. NOMINAL 2 INCH MINIMUM DEPTH, OR 
                                        <d:line1/>ii NOMINAL 1 INCH MINIMUM DEPTH, IF SIZED PER EQUATION 120.1-A BASED ON A MAXIMUM FACE VELOCITY OF 150 FT/MIN</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If J07_AirFiltrationRequirements Or J27_AirFiltrationRequirements == ProvidedNR Or ProvidedAlteration
+                                    <xsd:documentation source="CalculationsAndRules">If J07_AirFiltrationRequirements Or J27_AirFiltrationRequirements == ProvidedAirFiltration
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
@@ -2109,7 +2109,7 @@ End if</xsd:documentation>
                                        <d:tab1/>C: MEET 
                                        <d:t24refnolink/>110.2(c): ALL HEATING OR COOLING SYSTEMS NOT CONTROLLED BY A CENTRAL ENERGY MANAGEMENT CONTROL SYSTEM (EMCS) SHALL HAVE A SETBACK THERMOSTAT WITH CLOCK MECHANISM THAT ALLOWS BUILDING OCCUPANT TO PROGRAM THE TEMPERATURE SETPOINTS FOR AT LEAST FOUR PERIODS WITHIN 24 HOURS. THERMOSTATS FOR HEAT PUMPS SHALL MEET REQUIREMENTS OF 
                                        <d:t24refnolink/>110.2(b).</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If   A03Guest_OccupancyApplies == true  And I04_ThermostatType  == SetbackThermostat Or EnergyManagementSystem Or SetbackPlusDR  
+                                    <xsd:documentation source="CalculationsAndRules">If   A03All_WholeBuildingOccupancy == HotelMotel  And I04_ThermostatType  == SetbackThermostat Or EnergyManagementSystem Or SetbackPlusDR  
  
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
@@ -2153,22 +2153,6 @@ End If
  
 If result == true  FieldText and AdditionalRequirements static text is displayed in the report
 Else If result == false nothing is displayed in the report
-End if</xsd:documentation>
-                                 </xsd:annotation>
-                              </xsd:element>
-                              <xsd:element name="DUMM120_2c2_MeasureApplies" type="comp:MeasureApplies">
-                                 <xsd:annotation>
-                                    <xsd:documentation source="FieldText">
-                                       <d:b>
-                                          <d:t24refnolink/>120.2(c)2 HIGH-RISE RESIDENTIAL DWELLING UNIT THERMOSTATS</d:b>
-                                    </xsd:documentation>
-                                    <xsd:documentation source="AdditionalRequirements">REQUIRED TO MEET 
-                                       <d:t24refnolink/>110.2(c): ALL HEATING OR COOLING SYSTEMS NOT CONTROLLED BY A CENTRAL ENERGY MANAGEMENT CONTROL SYSTEM (EMCS) SHALL HAVE A SETBACK THERMOSTAT WITH CLOCK MECHANISM THAT ALLOWS BUILDING OCCUPANT TO PROGRAM THE TEMPERATURE SETPOINTS FOR AT LEAST FOUR PERIODS WITHIN 24 HOURS. THERMOSTATS FOR HEAT PUMPS SHALL MEET REQUIREMENTS OF 
-                                       <d:t24refnolink/>110.2(b).</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If   A03HRR_OccupancyApplies == true  And I04_ThermostatType  == SetbackThermostat Or EnergyManagementSystem Or SetbackPlusDR  
- 
-result = true and FieldText and any AdditionalRequirements static text is displayed in the report
-Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
@@ -2301,7 +2285,7 @@ End if</xsd:documentation>
                                        <d:deg/>C) IN COOLING MODE AND SET-DOWN AT LEAST +5
                                        <d:deg/>F (+3
                                        <d:deg/>C) IN HEATING MODE.</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If A03Guest_OccupancyApplies == true  And  I05_ControlSystemShutOff ==  CardKeyShutOff Or OccupancySensor Or EMCS
+                                    <xsd:documentation source="CalculationsAndRules">If A03All_WholeBuildingOccupancy == HotelMotel  And  I05_ControlSystemShutOff ==  CardKeyShutOff Or OccupancySensor Or EMCS
  result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false nothing is displayed in the report
 End if</xsd:documentation>

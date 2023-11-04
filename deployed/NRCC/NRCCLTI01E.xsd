@@ -74,8 +74,13 @@ End If</xsd:documentation>
                                        <d:b>
                                           <d:t24refnolink/>110.12(c) DEMAND RESPONSIVE LIGHTING CONTROLS</d:b>
                                     </xsd:documentation>
-                                    <xsd:documentation source="AdditionalRequirements">LIGHTING CONTROLS IN NONRESIDENTIAL BUILDINGS 
-                                       <d:gt/>10,000 FT2 SHALL BE CAPABLE OF AUTOMATICALLY REDUCING LIGHTING POWER IN RESPONSE TO A DEMAND RESPONSE SIGNAL.  GENERAL LIGHTING SHALL BE REDUCED PER TABLE 130.1-A.   CONTROLS SHALL DEMONSTRATE A LIGHTING POWER REDUCTION OF AT LEAST 15% BELOW THE TOTAL INSTALLED LIGHTING POWER IN CONTROLLED SPACES.</xsd:documentation>
+                                    <xsd:documentation source="AdditionalRequirements">BUILDINGS WITH NONRESIDENTIAL LIGHTING SYSTEMS HAVING A TOTAL INSTALLED LIGHTING POWER OF 4,000 WATTS OR GREATER THAT IS SUBJECT TO THE REQUIREMENTS OF SECTION 130.1(B): 
+                                       <d:l t="*">
+                                          <d:list> 1. LIGHTING CONTROLS SHALL DEMONSTRATE A 15 PERCENT OR GREATER REDUCTION IN LIGHTING POWER AS DESCRIBED IN NA7.6.3. </d:list>
+                                          <d:list> 2. FOR BUILDINGS WHERE DEMAND RESPONSE CONTROLS ARE REQUIRED, DEMAND RESPONSIVE CONTROLS SHALL CONTROL THE GENERAL LIGHTING THAT IS SUBJECT TO THE REQUIREMENTS OF SECTION 130.1(B) AND MAY CONTROL ADDITIONAL LIGHTING. </d:list>
+                                          <d:list> 3. GENERAL LIGHTING SHALL BE REDUCED IN A MANNER CONSISTENT WITH THE UNIFORM LEVEL OF ILLUMINATION REQUIREMENTS IN TABLE 130.1-A. </d:list>
+                                       </d:l>
+                                    </xsd:documentation>
                                     <xsd:documentation source="CalculationsAndRules">If  H01_MandatoryLightingDemandResponseNR == RequiredGTE4000W Or RequiredUsingPAF
 result = true
 Else result = false
@@ -2999,8 +3004,6 @@ Then in MM
 MM130_1c_MeasureApplies  = true and is displayed And    
 MM130_1c1AB_MeasureApplies  = true and is displayed And 
 MM130_1c1C_MeasureApplies  = true and is displayed  And 
-MM130_1c1D_MeasureApplies  = true and is displayed And 
-MM130_1c1E_MeasureApplies  = true and is displayed   And 
 MM130_1c2_MeasureApplies  = true and is displayed And 
 MM130_1c6_MeasureApplies  = true and is displayed</xsd:documentation>
                      </xsd:annotation>
@@ -3236,8 +3239,6 @@ Then in MM
 MM130_1c_MeasureApplies  = true and is displayed And    
 MM130_1c1AB_MeasureApplies  = true and is displayed And 
 MM130_1c1C_MeasureApplies  = true and is displayed  And 
-MM130_1c1D_MeasureApplies  = true and is displayed And 
-MM130_1c1E_MeasureApplies  = true and is displayed   And 
 MM130_1c2_MeasureApplies  = true and is displayed And 
 MM130_1c6_MeasureApplies  = true and is displayed And
 MM130_1c7_MeasureApplies  = true and is displayed And 

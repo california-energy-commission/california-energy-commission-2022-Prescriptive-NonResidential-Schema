@@ -272,7 +272,8 @@ End If</xsd:documentation>
                            </xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">If NRCC-SAB-E is included in scope And 
 A06_RequestedMMB == true And 
-A04_SolarReadyBuildingTypeNR ==  HighRiseMultifamilyLTE10Stories Or HotelMotelLTE10Stories
+A04_WholeBuildingOccupancy == HighRiseResidential or HotelMotel AND 
+A06_BuildingStoryRange == StoriesLTE3 or Stories4to10
 this Mandatory Measures Noteblock is required 
  
 Else it is not required and nothing is captured or displayed

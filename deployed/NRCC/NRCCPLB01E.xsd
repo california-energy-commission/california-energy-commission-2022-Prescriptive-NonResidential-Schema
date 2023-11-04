@@ -1567,7 +1567,7 @@ Else If F10b_FirstHourRatingRange == GTE51LT75
 Switch (F09_WaterHeaterVolume) case LTE30Gal: case 31To40Gal: case 41To50Gal: 51To55Gal 55Gal: result = 0.92;  case 56To60Gal: result = 2.05;  case 61To75Gal: case GT75Gal: result = 2.02;  
 End Switch
 Else If F10b_FirstHourRatingRange == GTE75 
-Switch (F09_WaterHeaterVolume)  case LTE30Gal: case 31To40Gal: case 41To50Gal: case 51To55Gal: result = 0.93; case 51To60Gal: result = 2.18;  case 61To75Gal: result = 2.16;  case GT75Gal: result = 2.15;  
+Switch (F09_WaterHeaterVolume)  case LTE30Gal: case 31To40Gal: case 41To50Gal: case 51To55Gal: result = 0.93; case 56To60Gal: result = 2.18;  case 61To75Gal: result = 2.16;  case GT75Gal: result = 2.15;  
 End Switch
 End If
 End If</xsd:documentation>
