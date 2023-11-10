@@ -360,8 +360,7 @@ End if</xsd:documentation>
                                     </xsd:documentation>
                                     <xsd:documentation source="AdditionalRequirements">ALL INSTALLED INDOOR LIGHTING SHALL HAVE ALL OF THE FOLLOWING: 
                                        <d:line1/> A. CONTROL(S) CAPABLE OF AUTOMATICALLY SHUTTING OFF ALL LIGHTING IN THE SPACE WHEN TYPICALLY UNOCCUPIED (OCCUPANT SENSING CONTROL, AUTOMATIC TIME-SWITCH CONTROL, OR OTHER) 
-                                       <d:line1/> B. SEPARATE CONTROLS FOR LIGHTING ON EACH FLOOR (OTHER THAN STAIRWELLS) 
-                                       <d:line1/> C. SEPARATE CONTROLS FOR A SPACE ENCLOSED BY CEILING HEIGHT PARTITIONS NOT EXCEEDING 5,000 FT2</xsd:documentation>
+                                       <d:line1/> B. SEPARATE CONTROLS FOR LIGHTING ON EACH FLOOR (OTHER THAN STAIRWELLS)</xsd:documentation>
                                     <xsd:documentation source="CalculationsAndRules">If MM130_1c_MeasureApplies == true, 
 result = true and FieldText and AdditionalRequirements static text is displayed in the report
 Else
@@ -498,8 +497,8 @@ End if</xsd:documentation>
                                     </xsd:documentation>
                                     <xsd:documentation source="AdditionalRequirements">COUNTDOWN TIMER SWITCHES ONLY ALLOWED TO MEET SHUT-OFF REQUIREMENTS IN CLOSETS 
                                        <d:lt/>70 FT2 AND SERVER AISLES IN SERVER ROOMS.  MAXIMUM TIMER SETTINGS: 10 MINUTES FOR CLOSETS, 30 MINUTES FOR SERVER AISLES</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If  any row has H08_ShutOffControlsArea == AutomaticTimerSwitch, EMCS Or OccupancySensor 
-Or If  any row has H08_ShutOffControlsArea == BuildingLevelShutOffControl And  If H02_ShutOffControlsBuilding == WholeBuildingAutoTimeSwitch 
+                                    <xsd:documentation source="CalculationsAndRules">If any row has H08_ShutOffControlsArea == CountdownTimerSwitch
+Or If any row has H08_ShutOffControlsArea == BuildingLevelShutOffControl And If H02_ShutOffControlsBuilding == WholeBuildingAutoTimeSwitch
 Then result = true and FieldText and AdditionalRequirements static text is displayed in the report
 Else
 result = false and nothing is displayed in the report

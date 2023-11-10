@@ -6321,8 +6321,8 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
             <dtyp:displayterm value="ExceptLowrise">Lowrise Multifamily Occupancy</dtyp:displayterm>
             <dtyp:displayterm value="ExceptVavFan">Variable Air Volume Fan System</dtyp:displayterm>
             <dtyp:displayterm value="NoneApplyFEI">None Applies</dtyp:displayterm>
-            <dtyp:displayterm value="GTE1HP">
-               <d:gte/>1.00 HP/0.89 kW</dtyp:displayterm>
+            <dtyp:displayterm value="LT1HP">
+               <d:lt/>1.00 HP or 0.89 kW</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -6336,7 +6336,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:enumeration value="ExceptLowrise"/>
          <xsd:enumeration value="ExceptVavFan"/>
          <xsd:enumeration value="NoneApplyFEI"/>
-         <xsd:enumeration value="GTE1HP"/>
+         <xsd:enumeration value="LT1HP"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="FanInputPowerMethod">

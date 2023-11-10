@@ -580,7 +580,7 @@ End If</xsd:documentation>
 											<xsd:annotation>
 												<xsd:documentation source="FieldText"/>
 												<xsd:documentation source="AdditionalRequirements">[d:t24refnolink/]120.1(f)1 ALL MECHANICAL VENTILATION AND SPACE-CONDITIONING SYSTEMS SHALL BE DESIGNED WITH AND HAVE INSTALLED DUCTWORK, DAMPERS, AND CONTROLS TO ALLOW OA RATES TO BE OPERATED AT NO LESS THAN THE LARGER OF: 120.1(c)3 MINIMUMS OR THE RATE REQUIRED FOR MAKE-UP OF EXHAUST SYSTEMS FOR AN EXEMPT OR COVERED PROCESS, CONTROL OF ODORS, OR CONTAMINANT REMOVAL IN A SPACE.</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If H00d_FanFlowType ==VariableFlow  
+												<xsd:documentation source="CalculationsAndRules">If  Section J is required because B03e_ProjectHasVentilation == true  
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
@@ -590,7 +590,7 @@ End if</xsd:documentation>
 											<xsd:annotation>
 												<xsd:documentation source="FieldText"/>
 												<xsd:documentation source="AdditionalRequirements">[d:t24refnolink/]120.1(f)2 ALL VAV SYSTEMS SHALL INCLUDE DYNAMIC CONTROLS THAT ARE CAPABLE OF MAINTAINING OA VENTILATION RATES WITHIN 10% OF THE DESIGN MINIMUM OA VENTILATION RATE AT BOTH FULL AND REDUCED SUPPLY AIRFLOW CONDITIONS.  FIXED MINIMUM DAMPER POSITION IS NOT AN ALLOWED STRATEGY.</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If H00d_FanFlowType ==VariableFlow  
+												<xsd:documentation source="CalculationsAndRules">If there is at least one row where H00d_SystemZoning == MultiZoneVAV  
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
@@ -600,7 +600,7 @@ End if</xsd:documentation>
 											<xsd:annotation>
 												<xsd:documentation source="FieldText"/>
 												<xsd:documentation source="AdditionalRequirements">[d:t24refnolink/]120.1(f)3 MEASURED OA RATES OF CONSTANT VOLUME SYSTEMS SHALL BE TESTED TO CONFIRM THEIR ABILITY TO OPERATE WITHIN 10% OF THE DESIGN MINIMUM OUTSIDE AIR RATE.</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If H00d_FanFlowType ==FixedFlow   
+												<xsd:documentation source="CalculationsAndRules">If there is at least one row where H00d_SystemZoning == AllOtherZoneTypes  
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
@@ -1339,7 +1339,7 @@ End if</xsd:documentation>
 											<xsd:annotation>
 												<xsd:documentation source="FieldText">[d:b][d:t24refnolink/]120.1(b)1 AIR FILTRATION REQUIREMENTS FOR HIGH-RISE RESIDENTIAL ATTACHED DWELLING UNITS[/d:b]</xsd:documentation>
 												<xsd:documentation source="AdditionalRequirements">A. THE FOLLOWING SYSTEM TYPES SHALL BE PROVIDED WITH AIR FILTERS TO MEET [d:t24refnolink/]120.1(b)1B THROUGH 1D.  [d:line2/]Ai. NEWLY INSTALLED MECHANICAL SPACE CONDITIONING SYSTEMS THAT USE FORCED AIR DUCTS [d:gt/] 10 FT LONG TO SUPPLY AIR TO AN OCCUPIABLE SPACE.  NOTE: AIR FILTERS FOR THESE SYSTEMS MUST BE LABELED BY MANUFACTURER TO DISCLOSE EFFICIENCY AND PRESSURE DROP RATINGS THAT SHOW PRODUCT MEETS [d:t24refnolink/]120.1(b).1.  [d:line2/]Aii. MECHANICAL SUPPLY-ONLY VENTILATION SYSTEMS THAT PROVIDE OUTSIDE AIR TO AN OCCUPIABLE SPACE.  [d:line2/]Aiii. THE SUPPLY SIDE OF MECHANICAL BALANCED VENTILATION SYSTEMS, INCLUDING HEAT RECOVERY VENTILATION SYSTEMS AND ENERGY RECOVERY VENTILATION SYSTEMS THAT PROVIDE OUTSIDE AIR TO AN OCCUPIABLE SPACE.  [d:line2/]Bi. SYSTEM SHALL BE DESIGNED TO ENSURE ALL RECIRCULATED/OUTDOOR AIR SUPPLIED TO THE OCCUPIABLE SPACE IS FILTERED BEFORE PASSING THROUGH ANY THERMAL CONDITIONING SYSTEM COMPONENTS.  [d:line2/]Bii. SYSTEM AIR FILTERS SHALL BE EITHER [d:line1/]a. NOMINAL 2 INCH MINIMUM DEPTH, OR [d:line1/]b. NOMINAL 1 INCH MINIMUM DEPTH, IF SIZED PER EQUATION 120.1-A BASED ON A MAXIMUM FACE VELOCITY OF 150 FT/MIN [d:line2/]Biii. ALL SYSTEM AIR FILTERS SHALL BE ACCESSIBLE FOR REGULAR SERVICE BY THE SYSTEM OWNER.  [d:line2/]Biv. ALL SYSTEM AIR FILTERS SHALL BE LABELED TO DISCLOSE THE APPLICABLE DESIGN AIR FLOW RATE AND MAXIMUM ALLOWABLE CLEAN AIR-FILTER PRESSURE DROP. THE LABELS SHALL BE PERMANENTLY AFFIXED TO THE AIR FILTER AND BE LEGIBLE AND VISIBLE TO A PERSON REPLACING THE AIR FILTER  [d:line2/]C. AIR FILTERS SHALL HAVE EFFICIENCY [d:gte/] MERV 13 WHEN TESTED PER ASHRAE STANDARD 52.2 OR A PARTICLE SIZE EFFICIENCY RATING PER [d:t24refnolink/]120.1(c)1B.</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If J27_AirFiltrationRequirements == ProvidedHiRiseRes Or ProvidedAlteration
+												<xsd:documentation source="CalculationsAndRules">If J27_AirFiltrationRequirements == ProvidedAirFiltration
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
@@ -1381,7 +1381,7 @@ End If</xsd:documentation>
 											<xsd:annotation>
 												<xsd:documentation source="FieldText"/>
 												<xsd:documentation source="AdditionalRequirements">i. WINDOW OPERATION IS NOT PERMISSIBLE FOR PROVIDING DWELLING UNIT VENTILATION SPECIFIED IN [d:t24refnolink/]120.1(b)2Aiv OR v  [d:line2/]ii. CONTINUOUS OPERATION OF CENTRAL FORCED AIR SYSTEM AIR HANDLERS USED IN CENTRAL FAN INTEGRATED VENTILATION SYSTEMS IS NOT A PERMISSIBLE METHOD FOR PROVIDING DWELLING UNIT VENTILATION REQUIRED IN SECTION 4 OF ASHRAE 62.2.</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If J27_AirFiltrationRequirements == ProvidedHiRiseRes Or ProvidedAlteration
+												<xsd:documentation source="CalculationsAndRules">If J27_AirFiltrationRequirements == ProvidedAirFiltration
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
@@ -1408,7 +1408,7 @@ End if</xsd:documentation>
 											<xsd:annotation>
 												<xsd:documentation source="FieldText"/>
 												<xsd:documentation source="AdditionalRequirements">iii. AIR FILTRATION SHALL CONFORM TO [d:t24refnolink/]120.1(b)1. COMPLIANCE WITH ASHRAE 62.2 SECTIONS 6.7 (MINIMUM FILTRATION) AND 6.7.1 (FILTER PRESSURE DROP) IS NOT REQUIRED.</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If J27_AirFiltrationRequirements == ProvidedHiRiseRes Or ProvidedAlteration
+												<xsd:documentation source="CalculationsAndRules">If J27_AirFiltrationRequirements == ProvidedAirFiltration
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
@@ -1465,7 +1465,7 @@ End if</xsd:documentation>
 											<xsd:annotation>
 												<xsd:documentation source="FieldText">[d:b][d:t24refnolink/]120.1(b)2B HIGH-RISE RESIDENTIAL DWELLING UNIT ACCEPTANCE[/d:b]</xsd:documentation>
 												<xsd:documentation source="AdditionalRequirements">i. THE DWELLING UNIT VENTILATION AIRFLOW REQUIRED BY [d:t24refnolink/]120.1(b)2Aiv OR [d:t24refnolink/]120.1(b)2Av: SHALL BE CONFIRMED WITH FIELD VERIFICATION AND TESTING PER REFERENCE NONRESIDENTIAL APPENDIX NA7.18.1.  [d:line2/]ii. KITCHEN RANGE HOODS SHALL BE FIELD VERIFIED PER REFERENCE NONRESIDENTIAL APPENDIX NA7.18.1 TO CONFIRM MODEL IS RATED BY HVI TO COMPLY WITH THE FOLLOWING: [d:line2/]a. MINIMUM VENTILATION AIRFLOW RATE PER ASHRAE 62.2 SECTION 5  [d:line2/]b. MAXIMUM SOUND RATING PER [d:t24refnolink/]120.1(b)2Avi.</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If  O19_RequireNRCAMch20 == true
+												<xsd:documentation source="CalculationsAndRules">If  Nrca19_RequireNRCAMch20 == true
 result = true and FieldText and any AdditionalRequirements static text is displayed in the report
 Else result = false and nothing is displayed in the report
 End if</xsd:documentation>
@@ -14058,7 +14058,7 @@ End If</xsd:documentation>
                   <xsd:element name="Nrcv03_RequireNRCVMch27H" type="comp:RequireNRCVMch27H" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">NRCV-MCH-27 High-rise Residential [d:i] NOTE: Must be completed by a HERS Rater [/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">NRCV-MCH-27-H Indoor Air Quality and Mechanical Ventilation [d:i] NOTE: Must be completed by a HERS Rater [/d:i]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: Boolean value Default result = false.
  
  If  J26b_BathroomVentIAQ == true 
