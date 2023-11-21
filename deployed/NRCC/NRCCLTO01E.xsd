@@ -2163,7 +2163,8 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">
                                                 <d:b>Initial Wattage Allowance for Entire Site (Watts):</d:b>
                                              </xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B02_DoesAlterationIncreaseLightingLoad == true result = BlankGrayedOut stored in NotApplicableMessage and cell is blank and grayed out;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If if B01a_LightingProjectScopeNR is false OR if (B01a_LightingProjectScopeNR true and I01a_UsingGeneralHardscapeAllowance is false) 
+result = BlankGrayedOut stored in NotApplicableMessage and cell is blank and grayed out;</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="comp:NotApplicableMessage">
@@ -2209,7 +2210,7 @@ End If</xsd:documentation>
                                              <d:b>Total General Hardscape Allowance  (Watts):</d:b>
                                           </xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated Value:  
-If B02_DoesAlterationIncreaseLightingLoad == true
+If B01a_LightingProjectScopeNR is false OR if (B01a_LightingProjectScopeNR true and I01a_UsingGeneralHardscapeAllowance is false)
 result = SUM All ( I09_HardscapeAreaTotalAllowance)
 Else If I11_NotApplicableMessage IsPresent
 result = SUM All ( I09_HardscapeAreaTotalAllowance) +  I10_HardscapeInitialAllowance
@@ -2302,7 +2303,8 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">
                                                 <d:b>Initial Wattage Allowance for Entire Site (Watts):</d:b>
                                              </xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B02_DoesAlterationIncreaseLightingLoad == true result =  BlankGrayedOut stored in NotApplicableMessage and cell is grayed out;   
+                                             <xsd:documentation source="CalculationsAndRules">If if B01a_LightingProjectScopeNR is false OR if (B01a_LightingProjectScopeNR true and I01a_UsingGeneralHardscapeAllowance is false)
+result =  BlankGrayedOut stored in NotApplicableMessage and cell is grayed out;   
 End If</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -2349,7 +2351,7 @@ End If</xsd:documentation>
                                              <d:b>Total General Hardscape Allowance  (Watts):</d:b>
                                           </xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated Value:  
-If B02_DoesAlterationIncreaseLightingLoad == true
+If B01a_LightingProjectScopeNR is false OR if (B01a_LightingProjectScopeNR true and I01a_UsingGeneralHardscapeAllowance is false)
 result = SUM All ( I05mf_HardscapeAreaTotalAllowance)
 Else If I07mf_NotApplicableMessage IsPresent
 result = SUM All ( I05mf_HardscapeAreaTotalAllowance) +   I06mf_HardscapeInitialAllowance
@@ -3275,7 +3277,8 @@ End If</xsd:documentation>
                               <d:t24refnolink/>141.0(b)2L /
                               <d:t24refnolink/>180.2(b)4Bv:</d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated value: If B03_LuminaireAlteredPercentRange == GTE10PercentLT50Percent Then result = NTotals06_AllLuminairePowerInArea  Else result = PRODUCT (NTotals06_AllLuminairePowerInArea,   0.6)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated value: If B03_LuminaireAlteredPercentRange == GTE50Percent Then result = PRODUCT (NTotals06_AllLuminairePowerInArea, 0.6)
+                           Else result = NTotals06_AllLuminairePowerInArea</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="NNote1" minOccurs="0">

@@ -18210,6 +18210,7 @@ End If</xsd:documentation>
                                                          Or Kvertperf06_TopLevelOccupancy = RelocableSchoolBuildingAllZones
                                                          Or Kvertperf06_FenestrationModification = AddLTE50ft2 or ReplaceLTE150ft2
                                                          Or Kvertperf07_ComplianceMethodSHGC_VT = Table170_2A
+                                                         Or Kvertperf05_FenestrationProductType == FixedWindowMF or OperableWindowMF
                                                          result = BlankGrayedOut
                                                          End If</xsd:documentation>
                                                    </xsd:annotation>
