@@ -1212,7 +1212,7 @@ End If</xsd:documentation>
                            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
-                                    <xsd:element name="Ctrl01cc_SpaceDescription" type="com:SpaceDescription">
+                                    <xsd:element name="Ctrl01cc_SpaceDescription" type="com:SpaceDescription" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Area Description</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTIE parent

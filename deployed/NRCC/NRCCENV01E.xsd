@@ -18211,6 +18211,7 @@ End If</xsd:documentation>
                                                          Or Kvertperf06_FenestrationModification = AddLTE50ft2 or ReplaceLTE150ft2
                                                          Or Kvertperf07_ComplianceMethodSHGC_VT = Table170_2A
                                                          Or Kvertperf05_FenestrationProductType = FixedWindow or OperableWindow And Kvertperf08_ComplianceMethodSHGC_VT = Table180_2B
+                                                         Or Kvertperf08_ComplianceMethodSHGC_VT = NA_SkylitOverlap
                                                          result = BlankGrayedOut
                                                          End If</xsd:documentation>
                                                    </xsd:annotation>

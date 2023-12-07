@@ -66,7 +66,7 @@ End If</xsd:documentation>
                                     </xsd:documentation>
                                     <xsd:documentation source="AdditionalRequirements">REFRIGERATED SPACES 
                                        <d:lt/> 3,000 FT2 SHALL MEET THE REQUIREMENTS OF THE APPLIANCE EFFICIENCY REGULATIONS FOR WALK-IN COOLERS OR FREEZERS CONTAINED IN THE APPLIANCE EFFICIENCY REGULATIONS (CALIFORNIA CODE OF REGULATIONS, TITLE 20, SECTIONS 1601 THROUGH 1608).</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If B01a_ProjectHasRefrigSpaceLT3kFt2 == true
+                                    <xsd:documentation source="CalculationsAndRules">If B01_ProjectHasRefrigSpaceLT3kFt2 == true
 result = true and FieldText and AdditionalRequirements static text is displayed in the report
 Else
 result = false and nothing is displayed in the report
@@ -91,7 +91,7 @@ End If</xsd:documentation>
                                        <d:line1/>COOLERS:
                                        <d:line1/>ROOF/CEILING: R-28
                                        <d:line1/>WALL: R-28</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If B01b_ProjectHasRefrigSpace == true
+                                    <xsd:documentation source="CalculationsAndRules">If B01_ProjectHasRefrigSpace == true
 result = true and FieldText and AdditionalRequirements static text is displayed in the report
 Else
 result = false and nothing is displayed in the report
@@ -418,7 +418,7 @@ End if</xsd:documentation>
                                     <xsd:documentation source="FieldText"/>
                                     <xsd:documentation source="AdditionalRequirements">
                                        <d:t24refnolink/>120.6(a)4D ALL CONDENSER FANS FOR AIR-COOLED, EVAPORATIVE-COOLED, AND ADIABATIC CONDENSERS, GAS COOLERS, AIR OR WATER FLUID COOLERS, OR COOLING TOWERS SHALL BE CONTINUOUSLY VARIABLE SPEED. THE SPEED OF ALL FANS SERVING A COMMON CONDENSER HIGH SIDE SHALL BE CONTROLLED IN UNISON.</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Section F is required because B01b_ProjectHasRefrigSpace == true
+                                    <xsd:documentation source="CalculationsAndRules">If Section F is required because B01_ProjectHasRefrigSpace == true
  
 result = true and FieldText and AdditionalRequirements static text is displayed in the report
 Else
@@ -581,7 +581,7 @@ End if</xsd:documentation>
                                        <d:b>
                                           <d:t24refnolink/>120.6(a)5 COMPRESSOR SYSTEMS IN REFRIGERATED WAREHOUSES </d:b>
                                     </xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If MM120_6a5A_MeasureApplies Or MM120_6a5B_MeasureApplies Or MM120_6a5C_MeasureApplies== true
+                                    <xsd:documentation source="CalculationsAndRules">If MM120_6a5A_MeasureApplies Or MM120_6a5C_MeasureApplies Or MM120_6a5D_MeasureApplies== true
  
 this static text is displayed in the report once as a heading  for these measures
 Else
@@ -596,7 +596,7 @@ End If</xsd:documentation>
                                        <d:t24refnolink/>120.6(a)5A DESIGNED TO OPERATE AT CONDENSING TEMPERATURE OF 
                                        <d:lte/> 70
                                        <d:deg/>F.</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Section F is required because B01b_ProjectHasRefrigSpace == true 
+                                    <xsd:documentation source="CalculationsAndRules">If Section F is required because B01_ProjectHasRefrigSpace == true 
  
 result = true and FieldText and AdditionalRequirements static text is 
 displayed in the report
@@ -605,7 +605,7 @@ result = false and nothing is displayed in the report
 End If</xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
-                              <xsd:element name="MM120_6a5D_MeasureApplies" type="comp:MeasureApplies">
+                              <xsd:element name="MM120_6a5B_MeasureApplies" type="comp:MeasureApplies">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText"/>
                                     <xsd:documentation source="AdditionalRequirements">
@@ -620,7 +620,7 @@ result = false and nothing is displayed in the report
 End If</xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
-                              <xsd:element name="MM120_6a5B_MeasureApplies" type="comp:MeasureApplies">
+                              <xsd:element name="MM120_6a5C_MeasureApplies" type="comp:MeasureApplies">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText"/>
                                     <xsd:documentation source="AdditionalRequirements">
@@ -635,7 +635,7 @@ result = false and nothing is displayed in the report
 End If</xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
-                              <xsd:element name="MM120_6a5C_MeasureApplies" type="comp:MeasureApplies">
+                              <xsd:element name="MM120_6a5D_MeasureApplies" type="comp:MeasureApplies">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText"/>
                                     <xsd:documentation source="AdditionalRequirements">
@@ -724,7 +724,7 @@ End if</xsd:documentation>
                                           <d:list>TRANSCRITICAL CO2 REFRIGERATION SYSTEMS </d:list>
                                        </d:l>
                                        <d:line2/>NOTE: A CERTIFICATE OF ACCEPTANCE SHALL BE SUBMITTED TO THE ENFORCEMENT AGENCY.</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Section F is required because B01b_ProjectHasRefrigSpace == true 
+                                    <xsd:documentation source="CalculationsAndRules">If Section F is required because B01_ProjectHasRefrigSpace == true 
  
 result = true and FieldText and AdditionalRequirements static text is 
 displayed in the report
@@ -1466,7 +1466,7 @@ End If</xsd:documentation>
                                           <d:t24refnolink/>120.6(c)8 PARKING GARAGE VENTILATION SYSTEM ACCEPTANCE </d:b>
                                     </xsd:documentation>
                                     <xsd:documentation source="AdditionalRequirements">BEFORE AN OCCUPANCY PERMIT IS GRANTED FOR A PARKING GARAGE SYSTEM A CERTIFICATE OF ACCEPTANCE SHALL BE SUBMITTED TO THE ENFORCEMENT AGENCY THAT CERTIFIES THAT THE EQUIPMENT AND SYSTEMS MEET THE ACCEPTANCE REQUIREMENTS SPECIFIED IN NONRESIDENTIAL REFERENCE APPENDICES NA7.12.</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If B01d_ProjectHasEnclosedParking  == true
+                                    <xsd:documentation source="CalculationsAndRules">If B01_ProjectHasEnclosedParking  == true
 result = true and FieldText and AdditionalRequirements static text is 
 displayed in the report
 Else
@@ -1604,7 +1604,7 @@ End If</xsd:documentation>
                                           <d:t24refnolink/>120.6(e) COMPRESSED AIR SYSTEMS</d:b>
                                     </xsd:documentation>
                                     <xsd:documentation source="AdditionalRequirements">ALL NEW COMPRESSED AIR SYSTEMS, AND ALL ADDITIONS OR ALTERATIONS OF COMPRESSED AIR SYSTEMS WITH TOTAL COMBINED ONLINE HP OF THE COMPRESSOR(S) IS 25 HP OR MORE SHALL MEET THE FOLLOWING:</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Section J is required because  B01f_ProjectHasCompressedAir == true.
+                                    <xsd:documentation source="CalculationsAndRules">If Section J is required because  B01_ProjectHasCompressedAir == true.
 result = true and FieldText and AdditionalRequirements static text is 
 displayed in the report
 Else
@@ -1727,12 +1727,12 @@ End If</xsd:documentation>
                                     <xsd:documentation source="AdditionalRequirements">
                                        <d:t24refnolink/>120.6(e)3 COMPRESSED AIR SYSTEMS HAVING A COMBINED HORSEPOWER RATING EQUAL TO OR GREATER THAN 100 HP SHALL HAVE AN ENERGY AND AIR DEMAND MONITORING SYSTEM WITH THE FOLLOWING MINIMUM REQUIREMENTS: 
                                        <d:l t="A">
-                                          <d:list> A. MEASUREMENT OF SYSTEM PRESSURE. </d:list>
-                                          <d:list>B. MEASUREMENT OF AMPS OR POWER OF EACH COMPRESSOR. </d:list>
-                                          <d:list>C. MEASUREMENT OR DETERMINATION OF TOTAL AIRFLOW FROM COMPRESSORS IN CFM. </d:list>
-                                          <d:list>D. DATA LOGGING OF PRESSURE, POWER IN KW, AIRFLOW IN CFM, AND COMPRESSED AIR SYSTEM SPECIFIC EFFICIENCY IN KW/100 CFM AT INTERVALS OF 5 MINUTES OR LESS </d:list>
-                                          <d:list>E. MAINTAINED DATA STORAGE OF AT LEAST THE MOST RECENT 24 MONTHS </d:list>
-                                          <d:list>F. VISUAL TRENDING DISPLAY OF EACH RECORDED POINT, LOAD, AND SPECIFIC ENERGY </d:list>
+                                          <d:list> MEASUREMENT OF SYSTEM PRESSURE. </d:list>
+                                          <d:list> MEASUREMENT OF AMPS OR POWER OF EACH COMPRESSOR. </d:list>
+                                          <d:list> MEASUREMENT OR DETERMINATION OF TOTAL AIRFLOW FROM COMPRESSORS IN CFM. </d:list>
+                                          <d:list> DATA LOGGING OF PRESSURE, POWER IN KW, AIRFLOW IN CFM, AND COMPRESSED AIR SYSTEM SPECIFIC EFFICIENCY IN KW/100 CFM AT INTERVALS OF 5 MINUTES OR LESS </d:list>
+                                          <d:list> MAINTAINED DATA STORAGE OF AT LEAST THE MOST RECENT 24 MONTHS </d:list>
+                                          <d:list> VISUAL TRENDING DISPLAY OF EACH RECORDED POINT, LOAD, AND SPECIFIC ENERGY </d:list>
                                        </d:l>
                                     </xsd:documentation>
                                     <xsd:documentation source="CalculationsAndRules">If Section J is required if J03_CompressorControls == SensorControllerProvided
@@ -1766,12 +1766,11 @@ End If</xsd:documentation>
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText"/>
                                     <xsd:documentation source="AdditionalRequirements">
-                                       <d:t24refnolink/>120.6(e)5 PIPE SIZING 
+                                       <d:t24refnolink/>120.6(e)5 PIPE SIZING. COMPRESSED AIR PIPING GREATER THAN 50 ADJOINING FEET IN LENGTH SHALL BE DESIGNED AND INSTALLED TO MINIMIZE FRICTIONAL LOSSES IN THE DISTRIBUTION NETWORK. THESE PIPING INSTALLATIONS SHALL MEET THE REQUIREMENTS OF SECTION 120.6(E)5A AND EITHER SECTION 120.6(E)5B OR 120.6(E)5C: 
                                        <d:l t="A">
-                                          <d:list>COMPRESSED AIR PIPING GREATER THAN 50 ADJOINING FEET IN LENGTH SHALL BE DESIGNED AND INSTALLED TO MINIMIZE FRICTIONAL LOSSES IN THE DISTRIBUTION NETWORK. THESE PIPING INSTALLATIONS SHALL MEET THE REQUIREMENTS OF SECTION 120.6(E)5A AND EITHER SECTION 120.6(E)5B OR 120.6(E)5C" </d:list>
-                                          <d:list>A. SERVICE LINE PIPING SHALL HAVE INNER DIAMETERS GREATER THAN OR EQUAL TO ¾ INCH. SERVICE LINE PIPING ARE PIPES THAT DELIVER COMPRESSED AIR FROM DISTRIBUTION PIPING TO END USES. </d:list>
-                                          <d:list>B. PIPING SECTION AVERAGE VELOCITY. COMPRESSOR ROOM INTERCONNECTION AND MAIN HEADER PIPING SHALL BE SIZED SO THAT AT COINCIDENT PEAK FLOW CONDITIONS, THE AVERAGE VELOCITY IN THE SEGMENT OF PIPE IS NO GREATER THAN 20 FT/SEC. COMPRESSOR ROOM INTERCONNECTION AND MAIN HEADER PIPING ARE THE PIPES THAT DELIVER COMPRESSED AIR FROM THE COMPRESSOR OUTLETS TO THE INLET TO THE DISTRIBUTION PIPING. EACH SEGMENT OF DISTRIBUTION AND SERVICE PIPING SHALL BE SIZED SO THAT AT COINCIDENT PEAK FLOW CONDITIONS, THE AVERAGE VELOCITY IN THE SEGMENT OF PIPE IS NO GREATER THAN 30 FT/SEC. DISTRIBUTION PIPING ARE PIPES THAT DELIVER COMPRESSED AIR FROM THE COMPRESSOR ROOM INTERCONNECTION PIPING OR MAIN HEADER PIPING TO THE SERVICE LINE PIPING </d:list>
-                                          <d:list>C. PIPING TOTAL PRESSURE DROP. PIPING SHALL BE DESIGNED SUCH THAT PIPING FRICTIONAL PRESSURE LOSS AT COINCIDENT PEAK LOADS ARE LESS THAN 5 PERCENT OF OPERATING PRESSURE BETWEEN THE COMPRESSOR AND END USE OR END USE REGULATOR.</d:list>
+                                          <d:list> SERVICE LINE PIPING SHALL HAVE INNER DIAMETERS GREATER THAN OR EQUAL TO ¾ INCH. SERVICE LINE PIPING ARE PIPES THAT DELIVER COMPRESSED AIR FROM DISTRIBUTION PIPING TO END USES. </d:list>
+                                          <d:list> PIPING SECTION AVERAGE VELOCITY. COMPRESSOR ROOM INTERCONNECTION AND MAIN HEADER PIPING SHALL BE SIZED SO THAT AT COINCIDENT PEAK FLOW CONDITIONS, THE AVERAGE VELOCITY IN THE SEGMENT OF PIPE IS NO GREATER THAN 20 FT/SEC. COMPRESSOR ROOM INTERCONNECTION AND MAIN HEADER PIPING ARE THE PIPES THAT DELIVER COMPRESSED AIR FROM THE COMPRESSOR OUTLETS TO THE INLET TO THE DISTRIBUTION PIPING. EACH SEGMENT OF DISTRIBUTION AND SERVICE PIPING SHALL BE SIZED SO THAT AT COINCIDENT PEAK FLOW CONDITIONS, THE AVERAGE VELOCITY IN THE SEGMENT OF PIPE IS NO GREATER THAN 30 FT/SEC. DISTRIBUTION PIPING ARE PIPES THAT DELIVER COMPRESSED AIR FROM THE COMPRESSOR ROOM INTERCONNECTION PIPING OR MAIN HEADER PIPING TO THE SERVICE LINE PIPING </d:list>
+                                          <d:list> PIPING TOTAL PRESSURE DROP. PIPING SHALL BE DESIGNED SUCH THAT PIPING FRICTIONAL PRESSURE LOSS AT COINCIDENT PEAK LOADS ARE LESS THAN 5 PERCENT OF OPERATING PRESSURE BETWEEN THE COMPRESSOR AND END USE OR END USE REGULATOR.</d:list>
                                        </d:l>
                                     </xsd:documentation>
                                     <xsd:documentation source="CalculationsAndRules">If Section J is required if J05_CompressedAirLineSize == LineInnerDiameter.
@@ -1787,7 +1786,7 @@ End If</xsd:documentation>
                                     <xsd:documentation source="FieldText"/>
                                     <xsd:documentation source="AdditionalRequirements">
                                        <d:t24refnolink/>120.6(e)6  BEFORE AN OCCUPANCY PERMIT IS GRANTED FOR A COMPRESSED AIR SYSTEM, A CERTIFICATE OF ACCEPTANCE SHALL BE SUBMITTED TO THE ENFORCEMENT AGENCY THAT CERTIFIES THAT THE EQUIPMENT AND SYSTEMS MEET THE ACCEPTANCE REQUIREMENTS SPECIFIED IN NONRESIDENTIAL REFERENCE APPENDICES NA7.13.</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Section J is required because  B01f_ProjectHasCompressedAir == true.
+                                    <xsd:documentation source="CalculationsAndRules">If Section J is required because  B01_ProjectHasCompressedAir == true.
 result = true and FieldText and AdditionalRequirements static text is 
 displayed in the report
 Else
@@ -1813,7 +1812,7 @@ End If</xsd:documentation>
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText"/>
                                     <xsd:documentation source="AdditionalRequirements">1. THE LIGHT POWER DENSITY FOR THE LUMINAIRES INSIDE THE ELEVATOR CAB SHALL BE NO GREATER THAN 0.6 WATTS PER SQUARE FOOT.</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Section K is required because B02a_ProjectHasElevatorControls == true. == true.
+                                    <xsd:documentation source="CalculationsAndRules">If Section K is required because B01_ProjectHasElevatorControls == true.
 result = true and FieldText and AdditionalRequirements static text is 
 displayed in the report
 Else
@@ -1860,7 +1859,7 @@ End If</xsd:documentation>
                                     <xsd:documentation source="AdditionalRequirements">3. WHEN STOPPED AND UNOCCUPIED WITH DOORS CLOSED FOR OVER 15 MINUTES, THE CAB INTERIOR LIGHTING AND VENTILATION FANS SHALL BE SWITCHED OFF.  
                                        <d:line1/>4. LIGHTING AND VENTILATION SHALL REMAIN OPERATIONAL IN THE EVENT THAT THE ELEVATOR CABIN GETS STUCK WHEN PASSENGERS ARE IN THE CABIN.  
                                        <d:line1/>5. BEFORE AN OCCUPANCY PERMIT IS GRANTED FOR ELEVATORS, A CERTIFICATE OF ACCEPTANCE SHALL BE SUBMITTED TO THE ENFORCEMENT AGENCY THAT CERTIFIES THAT THE EQUIPMENT AND SYSTEMS MEET THE ACCEPTANCE REQUIREMENTS SPECIFIED IN NONRESIDENTIAL REFERENCE APPENDICES NA7.14.</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Section K is required because B02a_ProjectHasElevatorControls == true
+                                    <xsd:documentation source="CalculationsAndRules">If Section K is required because B01_ProjectHasElevatorControls == true
 result = true and FieldText and AdditionalRequirements static text is 
 displayed in the report
 Else
@@ -1896,7 +1895,7 @@ End if</xsd:documentation>
                                     </xsd:documentation>
                                     <xsd:documentation source="AdditionalRequirements">1. ESCALATORS AND MOVING WALKWAYS LOCATED IN AIRPORTS, HOTELS, AND TRANSPORTATION FUNCTION AREAS SHALL AUTOMATICALLY SLOW TO THE MINIMUM PERMITTED SPEED IN ACCORDANCE WITH ASME A17.1/CSA B44 WHEN NOT CONVEYING PASSENGERS.  
                                        <d:line1/>2. BEFORE AN OCCUPANCY PERMIT IS GRANTED FOR ESCALATORS AND MOVING WALKWAYS, A CERTIFICATE OF ACCEPTANCE SHALL BE SUBMITTED TO THE ENFORCEMENT AGENCY THAT CERTIFIES THAT THE EQUIPMENT AND SYSTEMS MEET THE ACCEPTANCE REQUIREMENTS SPECIFIED IN NONRESIDENTIAL REFERENCE APPENDICES NA7.15.</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Section L is required because B02b_ProjectHasEscalatorControls == true.
+                                    <xsd:documentation source="CalculationsAndRules">If Section L is required because B01_ProjectHasEscalatorControls == true.
  
 result = true and FieldText and AdditionalRequirements static text is 
 displayed in the report
@@ -2128,7 +2127,7 @@ If result == true
 MM120_6a1_MeasureApplies = true and is displayed
 End If</xsd:documentation>
                         <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.003" changed="cell number">B01b_ProjectHasRefrigSpace</dtyp:prevSchema>
+                           <dtyp:prevSchema version="2019.1.003" changed="cell number">B01_ProjectHasRefrigSpace</dtyp:prevSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
@@ -4002,7 +4001,7 @@ End If
  
 Mandatory Measure Triggers:
 If result == CompressorSpeedControlled
-MM120_6a5B_MeasureApplies = true and is displayed 
+MM120_6a5C_MeasureApplies = true and is displayed 
 End If</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
@@ -4033,7 +4032,7 @@ End If
  
 Mandatory Measure Triggers:
 If result == AutoVaryVolRatio
-MM120_6a5C_MeasureApplies = true and is displayed 
+MM120_6a5D_MeasureApplies = true and is displayed 
 End If</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
@@ -7163,7 +7162,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-04-F Refrigerated Warehouses - Evaporator Fan Motor Controls</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Default result = false;  If B01b_ProjectHasRefrigSpace == true and Table F is triggered  And  Ffan06_EvapFanControl NotNull  result = true</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Default result = false;  If B01_ProjectHasRefrigSpace == true and Table F is triggered  And  Ffan06_EvapFanControl NotNull  result = true</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Nrca04_SystemFieldVerified" type="comp:SystemFieldVerified" minOccurs="0" maxOccurs="unbounded">
@@ -7171,7 +7170,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Nrca04_RequireNRCAPrc04F == true; this field is loaded with systems/spaces that satisfy this condition:
  
- If B01b_ProjectHasRefrigSpace == true and Table F is triggered  And  Ffan06_EvapFanControl NotNull 
+ If B01_ProjectHasRefrigSpace == true and Table F is triggered  And  Ffan06_EvapFanControl NotNull 
 load values in Ffan01_FanName
 End If</xsd:documentation>
                      </xsd:annotation>
@@ -7191,7 +7190,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-05-F Refrigerated Warehouses - Evaporative Condenser Controls</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Default result = false;  If B01b_ProjectHasRefrigSpace == true and Table F is triggered  And  Fcon01Evap_CondenserTypeApplies == true  result = true</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Default result = false;  If B01_ProjectHasRefrigSpace == true and Table F is triggered  And  Fcon01Evap_CondenserTypeApplies == true  result = true</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Nrca05_SystemFieldVerified" type="comp:SystemFieldVerified" minOccurs="0" maxOccurs="unbounded">
@@ -7199,7 +7198,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Nrca05_RequireNRCAPrc05F == true; this field is loaded with systems/spaces that satisfy this condition:
  
- If B01b_ProjectHasRefrigSpace == true and Table F is triggered  And  Fcon01Evap_CondenserTypeApplies == true
+ If B01_ProjectHasRefrigSpace == true and Table F is triggered  And  Fcon01Evap_CondenserTypeApplies == true
 load values in Fconwater02_ComponentName
 End If</xsd:documentation>
                      </xsd:annotation>
@@ -7219,7 +7218,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-06-F Refrigerated Warehouses - Air Cooled Condenser Controls</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Default result = false;  If B01b_ProjectHasRefrigSpace == true and Table F is triggered  And  Fcon01Air_CondenserTypeApplies == true  result = true</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Default result = false;  If B01_ProjectHasRefrigSpace == true and Table F is triggered  And  Fcon01Air_CondenserTypeApplies == true  result = true</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Nrca06_SystemFieldVerified" type="comp:SystemFieldVerified" minOccurs="0" maxOccurs="unbounded">
@@ -7227,7 +7226,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Nrca06_RequireNRCAPrc06F == true; this field is loaded with systems/spaces that satisfy this condition:
  
- If B01b_ProjectHasRefrigSpace == true and Table F is triggered  And  Fcon01Air_CondenserTypeApplies == true  
+ If B01_ProjectHasRefrigSpace == true and Table F is triggered  And  Fcon01Air_CondenserTypeApplies == true  
 load values in Fconair02_ComponentName
 End If</xsd:documentation>
                      </xsd:annotation>
@@ -7247,7 +7246,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-16-F Refrigerated Warehouses - Adiabatic Condenser Controls</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Default result = false;  If B01b_ProjectHasRefrigSpace == true and Table F is triggered  And  Fcon01Adiabatic_CondenserTypeApplies == true  result = true</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Default result = false;  If B01_ProjectHasRefrigSpace == true and Table F is triggered  And  Fcon01Adiabatic_CondenserTypeApplies == true  result = true</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Nrca07_SystemFieldVerified" type="comp:SystemFieldVerified" minOccurs="0" maxOccurs="unbounded">
@@ -7255,7 +7254,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Nrca07_RequireNRCAPrc16F == true; this field is loaded with systems/spaces that satisfy this condition:
  
- If B01b_ProjectHasRefrigSpace == true and Table F is triggered  And  Fcon01Adiabatic_CondenserTypeApplies == true  
+ If B01_ProjectHasRefrigSpace == true and Table F is triggered  And  Fcon01Adiabatic_CondenserTypeApplies == true  
 load values in Fconadia02_ComponentName
 End If</xsd:documentation>
                      </xsd:annotation>
@@ -7275,7 +7274,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-07-F Refrigerated Warehouses - Variable Speed Compressor</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Default result = false;  If B01b_ProjectHasRefrigSpace == true and Table F is triggered  And  Fcom04_CompressorVariableSpeed == CompressorSpeedControlled result = true</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Default result = false;  If B01_ProjectHasRefrigSpace == true and Table F is triggered  And  Fcom04_CompressorVariableSpeed == CompressorSpeedControlled result = true</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Nrca08_SystemFieldVerified" type="comp:SystemFieldVerified" minOccurs="0" maxOccurs="unbounded">
@@ -7283,7 +7282,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Nrca08_RequireNRCAPrc07F == true; this field is loaded with systems/spaces that satisfy this condition:
  
- If B01b_ProjectHasRefrigSpace == true and Table F is triggered  And  Fcom04_CompressorVariableSpeed == CompressorSpeedControlled
+ If B01_ProjectHasRefrigSpace == true and Table F is triggered  And  Fcom04_CompressorVariableSpeed == CompressorSpeedControlled
 load values in Fcom02_ComponentName
 End If</xsd:documentation>
                      </xsd:annotation>
@@ -7303,7 +7302,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-08-F Refrigerated Warehouses - Electric Resistance Underslab Heating System</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Default result = false;  If B01b_ProjectHasRefrigSpace == true and Table F is triggered  And Fslab02_SlabHeatingType == HeatElecResist  result = true</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Default result = false;  If B01_ProjectHasRefrigSpace == true and Table F is triggered  And Fslab02_SlabHeatingType == HeatElecResist  result = true</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Nrca09_SystemFieldVerified" type="comp:SystemFieldVerified" minOccurs="0" maxOccurs="unbounded">
@@ -7311,7 +7310,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If Nrca09_RequireNRCAPrc08F == true; this field is oaded with systems/spaces that satisfy this condition:
  
- If B01b_ProjectHasRefrigSpace == true and Table F is triggered  And  Fslab02_SlabHeatingType == HeatElecResist 
+ If B01_ProjectHasRefrigSpace == true and Table F is triggered  And  Fslab02_SlabHeatingType == HeatElecResist 
 load values in Fslab01_SpaceName
 End If</xsd:documentation>
                      </xsd:annotation>
@@ -7332,7 +7331,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-PRC-09-F Transcritical CO<d:sub>2</d:sub> Refrigeration Systems</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Default result = false;  
-If B01b_ProjectHasRefrigSpace == true and Section_F IsPresent And Fgasclr IsPresent Or Section_G IsPresent And Ggasclr IsPresent
+If B01_ProjectHasRefrigSpace == true and Section_F IsPresent And Fgasclr IsPresent Or Section_G IsPresent And Ggasclr IsPresent
   result = true</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
