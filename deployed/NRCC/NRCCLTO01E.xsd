@@ -1781,7 +1781,7 @@ MM130_2c2_MeasureApplies  = true and text is displayed
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="H04_MotionSensorCompliance" type="comp:MotionSensorCompliance">
+                                    <xsd:element name="H04_MotionSensorCompliance">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Motion Sensor  
                                              <d:line1/>
@@ -1799,6 +1799,29 @@ If result == MotionSensorCompliant
 MM130_2c3_MeasureApplies  = true and text is displayed 
 End If</xsd:documentation>
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="comp:MotionSensorCompliance">
+                                             <xsd:enumeration value="AthleticNA"/>
+                                             <xsd:enumeration value="FacadeLTE24Ft"/>
+                                             <xsd:enumeration value="GTE24Ft"/>
+                                             <xsd:enumeration value="HistoricBuildingNA"/>
+                                             <xsd:enumeration value="IndustrialNA"/>
+                                             <xsd:enumeration value="LandscapeNA"/>
+                                             <xsd:enumeration value="LuminaireLT40NA"/>
+                                             <xsd:enumeration value="MonumentNA"/>
+                                             <xsd:enumeration value="MotionSensorCompliant"/>
+                                             <xsd:enumeration value="MultifamilyLightingNA"/>
+                                             <xsd:enumeration value="NotPermittedNA"/>
+                                             <xsd:enumeration value="OutdoorTheaterNA"/>
+                                             <xsd:enumeration value="PublicRoadNA"/>
+                                             <xsd:enumeration value="RegulatedNA"/>
+                                             <xsd:enumeration value="SignageNA"/>
+                                             <xsd:enumeration value="StairsRampNA"/>
+                                             <xsd:enumeration value="TempLightNA"/>
+                                             <xsd:enumeration value="ThemeParkNA"/>
+                                             <xsd:enumeration value="TunnelsNA"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="H05_VerifedByInspector" type="comp:VerifedByInspector" minOccurs="0">
                                        <xsd:annotation>

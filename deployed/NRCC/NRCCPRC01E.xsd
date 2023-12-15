@@ -750,7 +750,7 @@ End If</xsd:documentation>
                                           <d:list>FAN-POWERED GAS COOLERS SHALL MEET THE GAS COOLER EFFICIENCY REQUIREMENTS LISTED IN TABLE 120.6-C. </d:list>
                                        </d:l>
                                     </xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If Section F is required if Fcom03_CompressorTemps == TranscCO2MinTemp 
+                                    <xsd:documentation source="CalculationsAndRules">If Section F is required if F01TranscriticalGasCoolers_ComponentApplies == true 
  
 result = true and FieldText and AdditionalRequirements static text is 
 displayed in the report
@@ -1343,7 +1343,7 @@ End If</xsd:documentation>
                                           <d:t24refnolink/>120.6(b)6 COMMERCIAL REFRIGERATION ACCEPTANCE </d:b>
                                     </xsd:documentation>
                                     <xsd:documentation source="AdditionalRequirements">BEFORE AN OCCUPANCY PERMIT IS GRANTED FOR A NEW RETAIL FOOD OR BEVERAGE STORE, OR BEFORE A NEW REFRIGERATION SYSTEM SERVING A RETAIL FOOD OR BEVERAGE STORE IS OPERATED FOR NORMAL USE, THE FOLLOWING EQUIPMENT AND SYSTEMS SHALL BE CERTIFIED AS MEETING THE ACCEPTANCE REQUIREMENTS FOR CODE COMPLIANCE, AS SPECIFIED BY THE REFERENCE NONRESIDENTIAL APPENDIX NA7. A CERTIFICATE OF ACCEPTANCE SHALL BE SUBMITTED TO THE ENFORCEMENT AGENCY THAT CERTIFIES THAT THE EQUIPMENT AND SYSTEMS MEET THE ACCEPTANCE REQUIREMENTS.</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">If  G01TranscriticalGasCooler_ComponentApplies == true
+                                    <xsd:documentation source="CalculationsAndRules">If  B01_ProjectHasFoodStores == true
  
 result = true and FieldText and AdditionalRequirements static text is 
 displayed in the report
@@ -2127,7 +2127,7 @@ If result == true
 MM120_6a1_MeasureApplies = true and is displayed
 End If</xsd:documentation>
                         <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.003" changed="cell number">B01_ProjectHasRefrigSpace</dtyp:prevSchema>
+                           <dtyp:prevSchema version="2019.1.003" changed="cell number">B01b_ProjectHasRefrigSpace</dtyp:prevSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>

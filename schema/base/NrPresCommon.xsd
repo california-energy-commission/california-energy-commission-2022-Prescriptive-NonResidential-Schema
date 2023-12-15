@@ -2778,6 +2778,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
             <dtyp:displayterm value="MuseumAssembly">Museum/ galleries</dtyp:displayterm>
             <dtyp:displayterm value="MuseumChildrenAssembly">Museum (children's)</dtyp:displayterm>
             <dtyp:displayterm value="NoApplicableSpaceVent">No applicable space vent</dtyp:displayterm>
+            <dtyp:displayterm value="NonEducationalScienceLab">Non-educational Science Laboratories</dtyp:displayterm>
             <dtyp:displayterm value="OfficeBreakRoom">Break room</dtyp:displayterm>
             <dtyp:displayterm value="OfficeReception">Reception area</dtyp:displayterm>
             <dtyp:displayterm value="OfficeSpaceVent">Office space</dtyp:displayterm>
@@ -2869,6 +2870,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
          <xsd:enumeration value="MuseumAssembly"/>
          <xsd:enumeration value="MuseumChildrenAssembly"/>
          <xsd:enumeration value="NoApplicableSpaceVent"/>
+         <xsd:enumeration value="NonEducationalScienceLab"/>
          <xsd:enumeration value="OfficeBreakRoom"/>
          <xsd:enumeration value="OfficeReception"/>
          <xsd:enumeration value="OfficeSpaceVent"/>

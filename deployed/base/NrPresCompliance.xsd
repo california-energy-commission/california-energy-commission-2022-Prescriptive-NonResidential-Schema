@@ -6478,7 +6478,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
             <dtyp:displayterm value="HasSpecialOutsideAirFiltration">NA: Special OA filtration</dtyp:displayterm>
             <dtyp:displayterm value="HasWatersideEconomizer">Waterside Economizer</dtyp:displayterm>
             <dtyp:displayterm value="HighRiseResHotelMotel">NA: Multifamily/hotel/motel</dtyp:displayterm>
-            <dtyp:displayterm value="LT54kBtuPerHrAlteredNA">NA: Altered packaged AC or HP 
+            <dtyp:displayterm value="LT54kBtuPerHrAlteredNA">NA: Altered other than packaged AC or HP 
                <d:lt/>54 kBtu/h</dtyp:displayterm>
             <dtyp:displayterm value="LTE33kBtuPerHrCooling">NA: 
                <d:lte/>33 kBtu/h cooling</dtyp:displayterm>

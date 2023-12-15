@@ -1656,6 +1656,8 @@ End If</xsd:documentation>
 result = BlankGrayedOut 
 Else If F08_WaterHeaterType == StorageConsumer Or   StorageConsumerElectric Or StorageResDutyCommercial: Or InstantaneousConsumer Or InstantaneousConsumerElectric Or InstantaneousResDutyCommercial Or TableTopElectric Or CentralHeatPumpWH
 result = BlankGrayedOut 
+Else If F09_WaterHeaterTankVolume GT 140
+result = BlankGrayedOut
 End If</xsd:documentation>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -1690,6 +1692,8 @@ End If</xsd:documentation>
 result = BlankGrayedOut
 Else If F08_WaterHeaterType == StorageConsumer Or   StorageConsumerElectric Or StorageResDutyCommercial: Or InstantaneousConsumer Or InstantaneousConsumerElectric Or InstantaneousResDutyCommercial Or TableTopElectric Or CentralHeatPumpWH
 result = BlankGrayedOut 
+Else If F09_WaterHeaterTankVolume GT 140
+result = BlankGrayedOut
 End If</xsd:documentation>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>

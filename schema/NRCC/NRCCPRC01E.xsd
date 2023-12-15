@@ -580,7 +580,7 @@ End If</xsd:documentation>
 											<xsd:annotation>
 												<xsd:documentation source="FieldText">[d:b][d:t24refnolink/]120.6(a)8 TRANSCRITICAL CO2 GAS COOLERS[/d:b]</xsd:documentation>
 												<xsd:documentation source="AdditionalRequirements">NEW FAN-POWERED GAS COOLERS ON ALL NEW TRANSCRITICAL CO2 REFRIGERATION SYSTEMS SHALL CONFORM WITH THE FOLLOWING: [d:l t="A"][d:list]AIR-COOLED GAS COOLERS ARE PROHIBITED IN CLIMATE ZONES 9 THROUGH 15 [/d:list][d:list]DESIGN LEAVING GAS TEMPERATURE FOR AIR-COOLED GAS COOLERS SHALL BE LESS THAN OR EQUAL TO THE DESIGN DRY BULB TEMPERATURE PLUS 6°F OR PLUS 8°F FOR CZ 2,4, AND 8. [/d:list][d:list]ALL GAS COOLER FANS SHALL BE CONTINUOUSLY VARIABLE SPEED, WITH THE SPEED OF ALL FANS SERVING A COMMON CONDENSER HIGH SIDE CONTROLLED IN UNISON.[/d:list][d:list]WHILE OPERATING BELOW THE CRITICAL POINT, THE GAS COOLER PRESSURE SHALL BE CONTROLLED IN ACCORDANCE TO 120.6(A)4F.[/d:list][d:list]WHILE OPERATING ABOVE THE CRITICAL POINT, THE GAS COOLER PRESSURE SETPOINT SHALL BE RESET BASED ON AMBIENT CONDITIONS SUCH THAT THE SYSTEM EFFICIENCY IS MAXIMIZED.[/d:list][d:list]THE MINIMUM CONDENSING TEMPERATURE SETPOINT SHALL BE LESS THAN OR EQUAL TO 60°F FOR SYSTEMS UTILIZING AIR-COOLED GAS COOLERS, EVAPORATIVE-COOLED GAS COOLERS, ADIABATIC GAS COOLERS, AIR OR WATER COOLED FLUID COOLERS OR COOLING TOWERS FOR HEAT REJECTION.[/d:list][d:list]FAN-POWERED GAS COOLERS SHALL MEET THE GAS COOLER EFFICIENCY REQUIREMENTS LISTED IN TABLE 120.6-C. [/d:list][/d:l]</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If Section F is required if Fcom03_CompressorTemps == TranscCO2MinTemp 
+												<xsd:documentation source="CalculationsAndRules">If Section F is required if F01TranscriticalGasCoolers_ComponentApplies == true 
  
 result = true and FieldText and AdditionalRequirements static text is 
 displayed in the report
@@ -1075,7 +1075,7 @@ End If</xsd:documentation>
 											<xsd:annotation>
 												<xsd:documentation source="FieldText">[d:b][d:t24refnolink/]120.6(b)6 COMMERCIAL REFRIGERATION ACCEPTANCE [/d:b]</xsd:documentation>
 												<xsd:documentation source="AdditionalRequirements">BEFORE AN OCCUPANCY PERMIT IS GRANTED FOR A NEW RETAIL FOOD OR BEVERAGE STORE, OR BEFORE A NEW REFRIGERATION SYSTEM SERVING A RETAIL FOOD OR BEVERAGE STORE IS OPERATED FOR NORMAL USE, THE FOLLOWING EQUIPMENT AND SYSTEMS SHALL BE CERTIFIED AS MEETING THE ACCEPTANCE REQUIREMENTS FOR CODE COMPLIANCE, AS SPECIFIED BY THE REFERENCE NONRESIDENTIAL APPENDIX NA7. A CERTIFICATE OF ACCEPTANCE SHALL BE SUBMITTED TO THE ENFORCEMENT AGENCY THAT CERTIFIES THAT THE EQUIPMENT AND SYSTEMS MEET THE ACCEPTANCE REQUIREMENTS. </xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If  G01TranscriticalGasCooler_ComponentApplies == true
+												<xsd:documentation source="CalculationsAndRules">If  B01_ProjectHasFoodStores == true
  
 result = true and FieldText and AdditionalRequirements static text is 
 displayed in the report
@@ -1747,7 +1747,7 @@ If result == true
 MM120_6a1_MeasureApplies = true and is displayed
 End If</xsd:documentation>
                         <xsd:appinfo source="PrevName">
-                           <dtyp:prevSchema version="2019.1.003" changed="cell number">B01_ProjectHasRefrigSpace</dtyp:prevSchema>
+                           <dtyp:prevSchema version="2019.1.003" changed="cell number">B01b_ProjectHasRefrigSpace</dtyp:prevSchema>
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
