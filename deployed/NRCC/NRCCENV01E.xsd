@@ -18060,7 +18060,9 @@ End If</xsd:documentation>
                                                 <xsd:element name="Kvertperf11b_SHGC_Limit" type="com:SHGC_Limit">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Required Product Performance</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Kvertperf07_ComplianceMethodSHGC_VT == NoOverHang result = 0.56;
+                                                      <xsd:documentation source="CalculationsAndRules">If Kvertperf05_FenestrationProductType == GlazedDoor
+result = 0.23
+Else IfIf Kvertperf07_ComplianceMethodSHGC_VT == NoOverHang result = 0.56;
  
 Else If Kvertperf07_ComplianceMethodSHGC_VT == Table140_3BCD  
 If Kvertperf06_TopLevelOccupancy == Nonresidential
