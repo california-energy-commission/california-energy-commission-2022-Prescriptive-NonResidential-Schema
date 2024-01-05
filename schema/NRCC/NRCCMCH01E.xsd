@@ -197,7 +197,7 @@ End if</xsd:documentation>
 												<xsd:documentation source="AdditionalRequirements">[d:b]EXCEPTION[/d:b] TO [d:t24refnolink/]110.2(c) [d:b]APPLIES[/d:b]:  
 
 GRAVITY GAS WALL AND/OR FLOOR HEATERS, GRAVITY ROOM HEATERS, NONCENTRAL ELECTRIC HEATERS, FIREPLACES OR DECORATIVE GAS APPLIANCES, WOOD STOVES, ROOM AIR CONDITIONERS, AND ROOM AIR-CONDITIONER HEAT PUMPS.</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If MM110_2c_MeasureApplies == true, 
+												<xsd:documentation source="CalculationsAndRules">If MM110_2c_MeasureApplies == true or I04_ThermostatType == EquipmentException 
 user input
 Else
 result = false
@@ -1489,40 +1489,6 @@ End if</xsd:documentation>
 
 THERMOSTATS THAT ARE INTEGRATED INTO THE ROOM HEATING AND COOLING EQUIPMENT.</xsd:documentation>
 												<xsd:documentation source="CalculationsAndRules">If DUMM120_2c1_MeasureApplies == true, 
-user input
-Else
-result = false
-End If
- 
-If result == true  FieldText and AdditionalRequirements static text is displayed in the report
-Else If result == false nothing is displayed in the report
-End if</xsd:documentation>
-											</xsd:annotation>
-										</xsd:element>
-										<xsd:element name="DUMM110_2cExc_ExceptionApplies" type="comp:ExceptionApplies" minOccurs="0">
-											<xsd:annotation>
-												<xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-												<xsd:documentation source="AdditionalRequirements">[d:b]EXCEPTION[/d:b] TO [d:t24refnolink/]110.2(c) [d:b]APPLIES[/d:b]:  
-
-GRAVITY GAS WALL HEATERS, GRAVITY FLOOR HEATERS, GRAVITY ROOM HEATERS, NONCENTRAL ELECTRIC HEATERS, FIREPLACES OR DECORATIVE GAS APPLIANCES, WOOD STOVES, ROOM AIR CONDITIONERS, AND ROOM AIR-CONDITIONER HEAT PUMPS.</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If DUMM120_2c1_MeasureApplies == true, 
-user input
-Else
-result = false
-End If
- 
-If result == true  FieldText and AdditionalRequirements static text is displayed in the report
-Else If result == false nothing is displayed in the report
-End if</xsd:documentation>
-											</xsd:annotation>
-										</xsd:element>
-										<xsd:element name="DUMM110_2c2Exc_ExceptionApplies" type="comp:ExceptionApplies" minOccurs="0">
-											<xsd:annotation>
-												<xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
-												<xsd:documentation source="AdditionalRequirements">[d:b]EXCEPTION[/d:b] TO [d:t24refnolink/]110.2(c) [d:b]APPLIES[/d:b]:  
-
-GRAVITY GAS WALL HEATERS, GRAVITY FLOOR HEATERS, GRAVITY ROOM HEATERS, NONCENTRAL ELECTRIC HEATERS, FIREPLACES OR DECORATIVE GAS APPLIANCES, WOOD STOVES, ROOM AIR CONDITIONERS, AND ROOM AIR-CONDITIONER HEAT PUMPS.</xsd:documentation>
-												<xsd:documentation source="CalculationsAndRules">If DUMM120_2c2_MeasureApplies == true, 
 user input
 Else
 result = false

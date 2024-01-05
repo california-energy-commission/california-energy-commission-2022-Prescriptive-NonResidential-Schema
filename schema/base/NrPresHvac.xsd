@@ -1835,6 +1835,7 @@
    <xsd:simpleType name="ControlSystemDR">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="DwellingNA">NA: Dwelling Unit</dtyp:displayterm>
             <dtyp:displayterm value="EMCS">EMCS</dtyp:displayterm>
             <dtyp:displayterm value="EquipmentNA">NA: PTAC, PTHP, Rm AC, HP</dtyp:displayterm>
             <dtyp:displayterm value="HealthcareNA">NA: Healthcare only</dtyp:displayterm>
@@ -1843,6 +1844,7 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="DwellingNA"/>
          <xsd:enumeration value="EMCS"/>
          <xsd:enumeration value="EquipmentNA"/>
          <xsd:enumeration value="HealthcareNA"/>
