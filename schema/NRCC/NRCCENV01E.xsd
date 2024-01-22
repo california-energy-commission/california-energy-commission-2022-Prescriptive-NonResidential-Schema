@@ -17573,7 +17573,7 @@ End If</xsd:documentation>
                                                       <xsd:documentation source="FieldText">Required Product Performance</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If Kvertperf05_FenestrationProductType == GlazedDoor
 result = 0.23
-Else IfIf Kvertperf07_ComplianceMethodSHGC_VT == NoOverHang result = 0.56;
+Else If Kvertperf07_ComplianceMethodSHGC_VT == NoOverHang result = 0.56;
  
 Else If Kvertperf07_ComplianceMethodSHGC_VT == Table140_3BCD  
 If Kvertperf06_TopLevelOccupancy == Nonresidential
@@ -17630,13 +17630,13 @@ If A03_ClimateZoneNumber == 1
 resut = 0.35
 Else If A03_ClimateZoneNumber ==  InRange(2, 13) Or 15
 result = 0.26; 
-Else If A03_ClimateZoneNumber == 14 Or 15
+Else If A03_ClimateZoneNumber == 14 Or 16
 result = 0.25
 End If
 Else Kvertperf05_FenestrationProductType != StoreFront Or CurtainWall  
 If A03_ClimateZoneNumber == 1 
 resut = 0.35
-Else If A03_ClimateZoneNumber == InRange (2, 15)
+Else If A03_ClimateZoneNumber == InRange (2, 16)
  result = 0.23;  
 End If
 End If

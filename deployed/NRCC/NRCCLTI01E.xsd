@@ -8112,9 +8112,9 @@ End If</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated Boolean value based on user input in previous sections of this form. By default result = false represented as a selected No radio button.  
  
 If H02_ShutOffControlsBuilding ==WholeBuildingAutoTimeSwitch 
-Or H08_ShutOffControlsArea == AutomaticTimerSwitch Or OccupancySensor 
+Or H08_ShutOffControlsArea == AutomaticTimerSwitch Or OccupancySensor Or PartialOnShutOffControl Or PartialOffShutOffControl
 Or If Q18_ShutOffControlsBuilding == WholeBuildingAutoTimeSwitch Or WholeBuildingOccupancySensors 
-Or Q18_ShutOffControlsArea == AutomaticTimerSwitch Or OccupancySensor  
+Or Q18_ShutOffControlsArea == AutomaticTimerSwitch Or OccupancySensor Or PartialOffShutOffControl Or PartialOnShutOffControl 
 result = true represented as a selected Yes radio button.  
 End If
  

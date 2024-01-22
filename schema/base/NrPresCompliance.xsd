@@ -9414,7 +9414,7 @@
             <dtyp:displayterm value="MonumentNA">NA: Public Monument Lighting</dtyp:displayterm>
             <dtyp:displayterm value="MotionSensorCompliant">Provided</dtyp:displayterm>
             <dtyp:displayterm value="MultifamilyLightingNA">NA: MF Complying w [d:t24refnolink/]160.5(a)</dtyp:displayterm>
-            <dtyp:displayterm value="NotPermittedNA">NA: Not permitted by H&amp;LS</dtyp:displayterm>
+            <dtyp:displayterm value="NotPermittedNA">H&amp;LS: time-out period longer than 15 minutes/ dimming level above 50 percent</dtyp:displayterm>
             <dtyp:displayterm value="OutdoorTheaterNA">NA: Outdoor Theater</dtyp:displayterm>
             <dtyp:displayterm value="ParkingLuminaireLT78NA">NA: Parking Lot each Luminaire [d:lt/] 78 Watts</dtyp:displayterm>
             <dtyp:displayterm value="PublicRoadNA">NA: Lighting for Public Roadways</dtyp:displayterm>
