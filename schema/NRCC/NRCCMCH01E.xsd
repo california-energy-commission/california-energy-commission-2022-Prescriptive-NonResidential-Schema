@@ -1935,7 +1935,11 @@ any field in range Fc01 - Fc12 != BlankGrayedOut has data And If Fc11 and Fc12 !
 And If Fc05 and Fc06 != BlankGrayedOut Then Fc05 GTE Fc06;
  
 Condition 5
-If TableChiller IsPresent  Then for every row  
+If TableChiller IsPresent  Then for every row
+If Fd02_ChillerType == AirCooledWithCondenser or AirCooledWithOutCondenser
+AND
+Fd05_ChillerExceptionPathB != EfficiencyException6 Or EfficiencyException7 Or EfficiencyException8 Then
+Fd04_ChillerTonsRange != GTE300ToLT400 or GTE400ToLT600 or GTE600
 If any field in range Fd01 - Fd10 != BlankGrayedOut has data Then
  
 Switch (Fd08a_EfficiencyType )
@@ -6295,6 +6299,9 @@ EfficiencyException2 display term 2. Heat recovery w/ design capacity GT 40% of 
 EfficiencyException3 display term 3. Charging energy storage systems w/ charging temperature  LT 40[d:deg/]F, 
 EfficiencyException4 display term 4. 4th (or more) chiller in this building.  
 EfficiencyException5 display term 5. Water -Cooled Centrifugal Chilling Package per Exception 1 to [d:t24refnolink/]110.2(a)
+EfficiencyException6 display term 6. Water quality at site fails to meet manufacturers specifications per Exception 1 to [d:t24refnolink/]140.4(j)
+EfficiencyException7 display term 7. Chillers used to charge a thermal energy storage system with a design temperature of less than 40[d:deg/]F per Exception 2 to [d:t24refnolink/]140.4(j)
+EfficiencyException8 display term 8. Systems serving healthcare facilities per Exception 3 to [d:t24refnolink/]140.4(j)
 
 If result == EfficiencyException1 Or EfficiencyException2 Or EfficiencyException3 Or EfficiencyException4 minimum efficiency values for path A should be used
 Else If result == NoExceptionTaken minimum efficiency values for path B should be used

@@ -1262,6 +1262,13 @@
             <dtyp:displayterm value="EfficiencyException4">4. 4th (or more) chiller in this building</dtyp:displayterm>
             <dtyp:displayterm value="EfficiencyException5">Water-Cooled Centrifugal Chilling Package per Exception 1 to 
                <d:t24refnolink/>110.2(a)</dtyp:displayterm>
+            <dtyp:displayterm value="EfficiencyException6">6. Water quality at site fails to meet manufacturers specifications per Exception 1 to 
+               <d:t24refnolink/>140.4(j)</dtyp:displayterm>
+            <dtyp:displayterm value="EfficiencyException7">7. Chillers used to charge a thermal energy storage system with a design temperature of less than 40
+               <d:deg/>F per Exception 2 to 
+               <d:t24refnolink/>140.4(j)</dtyp:displayterm>
+            <dtyp:displayterm value="EfficiencyException8">8. Systems serving healthcare facilities per Exception 3 to 
+               <d:t24refnolink/>140.4(j)</dtyp:displayterm>
             <dtyp:displayterm value="NoExceptionTaken">No Exception Taken</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
@@ -1271,6 +1278,9 @@
          <xsd:enumeration value="EfficiencyException3"/>
          <xsd:enumeration value="EfficiencyException4"/>
          <xsd:enumeration value="EfficiencyException5"/>
+         <xsd:enumeration value="EfficiencyException6"/>
+         <xsd:enumeration value="EfficiencyException7"/>
+         <xsd:enumeration value="EfficiencyException8"/>
          <xsd:enumeration value="NoExceptionTaken"/>
       </xsd:restriction>
    </xsd:simpleType>
@@ -9195,7 +9205,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
             <dtyp:displayterm value="MotionSensorCompliant">Provided</dtyp:displayterm>
             <dtyp:displayterm value="MultifamilyLightingNA">NA: MF Complying w 
                <d:t24refnolink/>160.5(a)</dtyp:displayterm>
-            <dtyp:displayterm value="NotPermittedNA">H&amp;amp;LS: time-out period longer than 15 minutes/ dimming level above 50 percent</dtyp:displayterm>
+            <dtyp:displayterm value="NotPermittedNA">NA: Not permitted by H&amp;amp;LS</dtyp:displayterm>
             <dtyp:displayterm value="OutdoorTheaterNA">NA: Outdoor Theater</dtyp:displayterm>
             <dtyp:displayterm value="ParkingLuminaireLT78NA">NA: Parking Lot each Luminaire 
                <d:lt/> 78 Watts</dtyp:displayterm>
@@ -9205,6 +9215,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
             <dtyp:displayterm value="StairsRampNA">NA: Stairs Wheelchair Lift/Ramp Lighting</dtyp:displayterm>
             <dtyp:displayterm value="TempLightNA">NA: Temporary Lighting</dtyp:displayterm>
             <dtyp:displayterm value="ThemeParkNA">NA: Theme Park Special Effect Lighting</dtyp:displayterm>
+            <dtyp:displayterm value="TimeOutNA">H&amp;amp;LS: time-out period longer than 15 minutes/ dimming level above 50 percent</dtyp:displayterm>
             <dtyp:displayterm value="TunnelsNA">NA: Lighting in Tunnels</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
