@@ -6640,6 +6640,7 @@ End If</xsd:documentation>
                                              <xsd:restriction base="comp:HorticultureCompliance">
                                                 <xsd:enumeration value="PerformanceEnvelope"/>
                                                 <xsd:enumeration value="PrescriptiveEnvelope"/>
+                                                <xsd:enumeration value="Greenhouse"/>
                                              </xsd:restriction>
                                           </xsd:simpleType>
                                        </xsd:element>

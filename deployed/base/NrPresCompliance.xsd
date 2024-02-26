@@ -7382,10 +7382,11 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="NoHvacNA">NA: No HVAC system for CEH</dtyp:displayterm>
-            <dtyp:displayterm value="PerformanceEnvelope">Envelope complying via Performance Path and are documented on the CC-PRF document</dtyp:displayterm>
+            <dtyp:displayterm value="PerformanceEnvelope">Indoor Grow: Envelope complying via Performance Path and are documented on the CC-PRF document</dtyp:displayterm>
             <dtyp:displayterm value="PerformanceHvac">HVAC systems comply via Performance Path and are documented on the CC-PRF document</dtyp:displayterm>
-            <dtyp:displayterm value="PrescriptiveEnvelope">Envelope complying via Prescriptive Path and are documented on the CC-ENV document</dtyp:displayterm>
+            <dtyp:displayterm value="PrescriptiveEnvelope">Indoor Grow: Envelope complying via Prescriptive Path and are documented on the CC-ENV document</dtyp:displayterm>
             <dtyp:displayterm value="PrescriptiveHvac">HVAC systems comply via Prescriptive Path and are documented on the CC-MCH document</dtyp:displayterm>
+            <dtyp:displayterm value="Greenhouse">Greenhouse: Envelope will meet all applicable mandatory requirements of Section 120.7 for opaque assemblies.</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -7394,6 +7395,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:enumeration value="PerformanceHvac"/>
          <xsd:enumeration value="PrescriptiveEnvelope"/>
          <xsd:enumeration value="PrescriptiveHvac"/>
+         <xsd:enumeration value="Greenhouse"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="HorticultureEfficacyPPE">

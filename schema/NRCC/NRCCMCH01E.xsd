@@ -11065,8 +11065,8 @@ DwellingUnitNA display term NA: dwelling unit</xsd:documentation>
                                     </xsd:element>
                                     <xsd:element name="I10_ControlSystemDDC" type="hvac:ControlSystemDDC" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Direct Digital Control (DDC) per 110.12</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: ProvidesDDC, SingleZoneNA</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Direct Digital Control (DDC) per 120.2</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list:</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>

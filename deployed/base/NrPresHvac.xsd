@@ -1783,12 +1783,14 @@
             <dtyp:displayterm value="MultifamilyNA">NA: Multifamily</dtyp:displayterm>
             <dtyp:displayterm value="ProvidesDDC">Provided</dtyp:displayterm>
             <dtyp:displayterm value="SingleZoneNA">NA: Single Zone</dtyp:displayterm>
+            <dtyp:displayterm value="AlterationPneumatic">NA: Alteration in which no DDC is existing</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="MultifamilyNA"/>
          <xsd:enumeration value="ProvidesDDC"/>
          <xsd:enumeration value="SingleZoneNA"/>
+         <xsd:enumeration value="AlterationPneumatic"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ControlSystemDR">
