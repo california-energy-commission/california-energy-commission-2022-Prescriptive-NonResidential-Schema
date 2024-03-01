@@ -8826,10 +8826,10 @@ End If</xsd:documentation>
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Location/ Fire Rating</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User selects from list customized as follows: 
-If Hframed04a_TopLevelOccupancy != ResidentialMF list
-ExteriorWall display term Exterior, DemisingWall display term Demising
-Else If Hframed04a_TopLevelOccupancy == ResidentialMF list
-ExteriorWall display term Exterior greater than 1hr fire rating,  WallTypeOther display term Exterior less than or equal to 1hr fire rating, DemisingWall display term Demising
+If Hframed04a_TopLevelOccupancy != ResidentialMF 
+User selects from list: ExteriorWall, DemisingWall 
+Else If Hframed04a_TopLevelOccupancy == ResidentialMF 
+User selects from list: ExteriorWallMFLTE, ExteriorWallMFGT, DemisingWall
 End If
  
 Mandatory Measure Triggers:
@@ -8872,6 +8872,8 @@ End If</xsd:documentation>
                                                    <xsd:restriction base="env:WallType">
                                                       <xsd:enumeration value="DemisingWall"/>
                                                       <xsd:enumeration value="ExteriorWall"/>
+                                                      <xsd:enumeration value="ExteriorWallMFLTE"/>
+                                                      <xsd:enumeration value="ExteriorWallMFGT"/>
                                                       <xsd:enumeration value="WallTypeOther"/>
                                                    </xsd:restriction>
                                                 </xsd:simpleType>

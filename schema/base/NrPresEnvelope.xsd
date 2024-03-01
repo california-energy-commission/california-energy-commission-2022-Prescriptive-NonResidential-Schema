@@ -4537,6 +4537,8 @@ For selection of NA-6 properties</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="DemisingWall">Demising wall</dtyp:displayterm>
             <dtyp:displayterm value="ExteriorWall">Exterior wall</dtyp:displayterm>
+            <dtyp:displayterm value="ExteriorWallMFLTE">Exterior [d:lte/] 1hr fire rating</dtyp:displayterm>
+            <dtyp:displayterm value="ExteriorWallMFGT">Exterior [d:gt/] 1hr fire rating</dtyp:displayterm>
             <dtyp:displayterm value="InteriorWall">Interior wall</dtyp:displayterm>
             <dtyp:displayterm value="UndergroundWall">Underground wall</dtyp:displayterm>
             <dtyp:displayterm value="WallTypeOther">Other wall type</dtyp:displayterm>
@@ -4545,6 +4547,8 @@ For selection of NA-6 properties</xsd:documentation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="DemisingWall"/>
          <xsd:enumeration value="ExteriorWall"/>
+         <xsd:enumeration value="ExteriorWallMFLTE"/>
+         <xsd:enumeration value="ExteriorWallMFGT"/>
          <xsd:enumeration value="InteriorWall"/>
          <xsd:enumeration value="UndergroundWall"/>
          <xsd:enumeration value="WallTypeOther"/>

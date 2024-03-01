@@ -4887,6 +4887,8 @@ If Fa02_SizeRangeCeilingCRAC ==LT29000
 Switch (F03_ CeilingCRAC) 
 case AirCooledFreeAirNonDucted: 
 result1 = 2.08; 
+case AirCooledFreeAirDucted
+result1 = 2.05;
 case AirCooledEconDucted: 
 result1 = 2.01; 
 case AirCooledEconNonDucted: 
