@@ -1234,9 +1234,7 @@ End If</xsd:documentation>
                                                       <xsd:element name="F08_WaterHeaterType" >
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">User selects from list: 
-BoilerCommercialGTE1MMBtu, display term Commercial Package Gas Hot Water Supply Boilers ([d:gte/] 1MM Btu/h); BoilerResDutyCommercial, display term Residential-duty Gas Hot Water Supply Boilers ([d:lt/]300k Btu/h); BoilerWaterHeater, display term Commercial Gas Hot Water Supply Boilers; InstantaneousCommercial, display term Commercial Gas Instantaneous Water Heater; InstantaneousConsumer, display term Consumer Rated Gas-Fired Instantaneous (50,000-200,000 BTUH); InstantaneousConsumerElectric, display term Consumer Rated Electric Instantaneous ([d:lte/]12kW); InstantaneousResDutyCommercial, display term Residential-Duty Commercial Electric Instantaneous (12-58.6kW); StorageCommercial, display term Commercial Gas Storage Water Heater; StorageCommercialElectric, display term Commercial Electric Storage Water Heater; StorageConsumer, display term Consumer Rated Gas-Fired Storage ([d:lte/] 75,000 BTUH); StorageConsumerElectric, display term Consumer Rated Electric Storage; StorageResDutyCommercial, display term Residential-Duty Commercial Gas-Fired Storage (75,000-105,000 BTUH); TableTopElectric, display term Consumer Rated Electric Tabletop Water Heater; BoilerCommercialLT1MMBtu, display term Commercial Package Gas Hot Water Supply Boilers (300K-[d:lt/]1MM Btu/h); CentralHeatPumpWH, display term NA: Central Heat Pump Water Heater (Se Other Table)  NOTE: this selection grays out col 09-15
- 
+                                                            <xsd:documentation source="CalculationsAndRules">User selects from list 
 Mandatory Measure Triggers:  
 Multi-field triggers: See B03aAltered_ProjectHasEquipment  CalculationsAndRules for trigger values from this field</xsd:documentation>
                                                             <xsd:appinfo source="displayterm">
@@ -1261,6 +1259,8 @@ Multi-field triggers: See B03aAltered_ProjectHasEquipment  CalculationsAndRules 
                                                                <xsd:enumeration value="StorageConsumerElectric"/>
                                                                <xsd:enumeration value="StorageResDutyCommercial"/>
                                                                <xsd:enumeration value="TableTopElectric"/>
+                                                               <xsd:enumeration value="NEEAIndividualHeatPumpWH"/>
+                                                               <xsd:enumeration value="NonNEEAIndividualHeatPumpWH"/>
                                                             </xsd:restriction>
                                                          </xsd:simpleType>
                                                       </xsd:element>
@@ -1294,7 +1294,7 @@ End Switch</xsd:documentation>
                                                          <xsd:element name="F09_NotApplicableMessage" >
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Volume (gal)</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == CentralHeatPumpWH
+                                                               <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == CentralHeatPumpWH or NEEAIndividualHeatPumpWH or NonNEEAIndividualHeatPumpWH
  result = BlankGrayedOut stored in NotApplicableMessage
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -1339,7 +1339,7 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Rated Input Capacity (Btu/h) or</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType !=  StorageConsumer Or   StorageConsumerElectric Or StorageResDutyCommercial: Or InstantaneousConsumer Or InstantaneousConsumerElectric Or InstantaneousResDutyCommercial Or TableTopElectric:
-Or If F08_WaterHeaterType == CentralHeatPumpWH
+Or If F08_WaterHeaterType == CentralHeatPumpWH or NEEAIndividualHeatPumpWH or NonNEEAIndividualHeatPumpWH
 result = BlankGrayedOut stored in NotApplicableMessage
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -1375,7 +1375,7 @@ User enters UEF efficiency</xsd:documentation>
                                                          <xsd:element name="F11_NotApplicableMessage" >
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Rated Efficiency</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == CentralHeatPumpWH Or StorageCommercialElectric
+                                                               <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == CentralHeatPumpWH Or NEEAIndividualHeatPumpWH Or NonNEEAIndividualHeatPumpWH Or StorageCommercialElectric
 result = BlankGrayedOut stored in NotApplicableMessage
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -1491,7 +1491,7 @@ End If</xsd:documentation>
                                                          <xsd:element name="F12_NotApplicableMessage" >
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Minimum Efficiency Required</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == CentralHeatPumpWH Or StorageCommercialElectric
+                                                               <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == CentralHeatPumpWH Or NEEAIndividualHeatPumpWH Or NonNEEAIndividualHeatPumpWH Or StorageCommercialElectric
 result = BlankGrayedOut stored in NotApplicableMessage
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -1506,7 +1506,7 @@ End If</xsd:documentation>
                                                          <xsd:element name="F13_EfficiencyType" >
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == CentralHeatPumpWH Or StorageCommercialElectric
+                                                               <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == CentralHeatPumpWH Or NEEAIndividualHeatPumpWH Or NonNEEAIndividualHeatPumpWH Or StorageCommercialElectric
   result = BlankGrayedOut stored in NotApplicablemesage; 
 Else If F08_WaterHeaterType == BoilerResDutyCommercial result = AFUE; 
  
@@ -1531,7 +1531,7 @@ End If</xsd:documentation>
                                                          <xsd:element name="F13_NotApplicableMessage" >
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == CentralHeatPumpWH Or StorageCommercialElectric
+                                                               <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == CentralHeatPumpWH Or NEEAIndividualHeatPumpWH Or NonNEEAIndividualHeatPumpWH Or StorageCommercialElectric
  result = BlankGrayedOut 
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -1564,7 +1564,7 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == BoilerResDutyCommercial Or BoilerCommercialLT1MMBtu Or  BoilerCommercialGTE1MMBtu
   Or (F08_WaterheaterType ==  InstantaneousCommercial Or  BoilerWaterHeater  And F09_WaterHeaterTankVolume LT 10 )
 result = BlankGrayedOut 
-Else If F08_WaterHeaterType == StorageConsumer Or   StorageConsumerElectric Or StorageResDutyCommercial: Or InstantaneousConsumer Or InstantaneousConsumerElectric Or InstantaneousResDutyCommercial Or TableTopElectric Or CentralHeatPumpWH
+Else If F08_WaterHeaterType == StorageConsumer Or   StorageConsumerElectric Or StorageResDutyCommercial: Or InstantaneousConsumer Or InstantaneousConsumerElectric Or InstantaneousResDutyCommercial Or TableTopElectric Or CentralHeatPumpWH Or NEEAIndividualHeatPumpWH Or NonNEEAIndividualHeatPumpWH
 result = BlankGrayedOut 
 Else If F09_WaterHeaterTankVolume GT 140
 result = BlankGrayedOut
@@ -1598,9 +1598,9 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Maximum Standby Loss</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == BoilerResDutyCommercial Or BoilerCommercialLT1MMBtu Or  BoilerCommercialGTE1MMBtu
-  Or (F08_WaterheaterType ==  InstantaneousCommercial  Or BoilerWaterHeater  And F09_WaterHeaterTankVolume LT 10) 
+Or (F08_WaterheaterType ==  InstantaneousCommercial  Or BoilerWaterHeater  And F09_WaterHeaterTankVolume LT 10) 
 result = BlankGrayedOut
-Else If F08_WaterHeaterType == StorageConsumer Or   StorageConsumerElectric Or StorageResDutyCommercial: Or InstantaneousConsumer Or InstantaneousConsumerElectric Or InstantaneousResDutyCommercial Or TableTopElectric Or CentralHeatPumpWH
+Else If F08_WaterHeaterType == StorageConsumer Or   StorageConsumerElectric Or StorageResDutyCommercial: Or InstantaneousConsumer Or InstantaneousConsumerElectric Or InstantaneousResDutyCommercial Or TableTopElectric Or CentralHeatPumpWH Or NEEAIndividualHeatPumpWH Or NonNEEAIndividualHeatPumpWH
 result = BlankGrayedOut 
 Else If F09_WaterHeaterTankVolume GT 140
 result = BlankGrayedOut

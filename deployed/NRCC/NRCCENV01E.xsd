@@ -9118,12 +9118,6 @@ Else If HFramed07_FramingSize == 2x6 Or 2x8
 MM120_7b7A3_MeasureApplies = true and is displayed
 End If
 End If</xsd:documentation>
-                                                   <xsd:appinfo source="displayterm">
-                                                      <dtyp:displayterm value="ExteriorWall">Exterior 
-                                                         <d:gt/> 1hr fire rating</dtyp:displayterm>
-                                                      <dtyp:displayterm value="WallTypeOther">Exterior 
-                                                         <d:lte/> 1hr fire rating</dtyp:displayterm>
-                                                   </xsd:appinfo>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
                                                    <xsd:restriction base="env:WallType">

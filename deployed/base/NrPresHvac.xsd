@@ -10597,6 +10597,8 @@
             <dtyp:displayterm value="StorageConsumerElectric">Consumer Rated Electric Storage</dtyp:displayterm>
             <dtyp:displayterm value="StorageResDutyCommercial">Residential-Duty Commercial Gas-Fired Storage (75,000-105,000 BTUH)</dtyp:displayterm>
             <dtyp:displayterm value="TableTopElectric">Consumer Rated Electric Tabletop Water Heater</dtyp:displayterm>
+            <dtyp:displayterm value="NEEAIndividualHeatPumpWH">NEEA Individual Heat Pump Water Heater</dtyp:displayterm>
+            <dtyp:displayterm value="NonNEEAIndividualHeatPumpWH">Non-NEEA Individual Heat Pump Water Heater</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -10619,6 +10621,8 @@
          <xsd:enumeration value="StorageConsumerElectric"/>
          <xsd:enumeration value="StorageResDutyCommercial"/>
          <xsd:enumeration value="TableTopElectric"/>
+         <xsd:enumeration value="NEEAIndividualHeatPumpWH"/>
+         <xsd:enumeration value="NonNEEAIndividualHeatPumpWH"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="WaterHeaterTypeNR">
