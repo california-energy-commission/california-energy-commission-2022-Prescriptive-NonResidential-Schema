@@ -521,6 +521,8 @@ End If</xsd:documentation>
                                                                            <xsd:enumeration value="StorageConsumerElectric"/>
                                                                            <xsd:enumeration value="StorageResDutyCommercial"/>
                                                                            <xsd:enumeration value="TableTopElectric"/>
+                                                                           <xsd:enumeration value="NEEAIndividualHeatPumpWH"/>
+                                                                           <xsd:enumeration value="NonNEEAIndividualHeatPumpWH"/>
                                                                         </xsd:restriction>
                                                                      </xsd:simpleType>
                                                                   </xsd:element>
