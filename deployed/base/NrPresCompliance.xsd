@@ -9217,7 +9217,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
             <dtyp:displayterm value="StairsRampNA">NA: Stairs Wheelchair Lift/Ramp Lighting</dtyp:displayterm>
             <dtyp:displayterm value="TempLightNA">NA: Temporary Lighting</dtyp:displayterm>
             <dtyp:displayterm value="ThemeParkNA">NA: Theme Park Special Effect Lighting</dtyp:displayterm>
-            <dtyp:displayterm value="TimeOutNA">H&amp;amp;LS: time-out period longer than 15 minutes/ dimming level above 50 percent</dtyp:displayterm>
+            <dtyp:displayterm value="TimeOutNA">NA: H&amp;amp;LS: time-out period longer than 15 minutes/ dimming level above 50 percent</dtyp:displayterm>
             <dtyp:displayterm value="TunnelsNA">NA: Lighting in Tunnels</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
@@ -9241,6 +9241,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:enumeration value="StairsRampNA"/>
          <xsd:enumeration value="TempLightNA"/>
          <xsd:enumeration value="ThemeParkNA"/>
+         <xsd:enumeration value="TimeOutNA"/>
          <xsd:enumeration value="TunnelsNA"/>
       </xsd:restriction>
    </xsd:simpleType>

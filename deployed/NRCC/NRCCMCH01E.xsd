@@ -3396,7 +3396,7 @@ Or If Fscs06_HeatRecovery == true
 User selects for full list of equipment categories
 Else If Fscs03_SystemZoning == SingleDwellingUnit
 If A02_ClimateZoneNumber == InRange(2,15)
-List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOAS
+List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOAS
 Else If A02_ClimateZoneNumber == 1 Or 16
 List HeatPumpDualFuel
 End If
@@ -3407,14 +3407,14 @@ List FurnaceAC
 Else If F09_CoolingRatedCapacity IsPresent And GT 65 And LT 240 And A02_ClimateZoneNumber == 1 Or 16
 List HeatPumpDualFuel
 Else If F09_CoolingRatedCapacity IsPresent And LTE 240 And A02_ClimateZoneNumber == InRange(2,15)
-List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse
+List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse
 Else
 List all values
 End If
 Else If Fscs05_WholeBuildingOccupancy == SchoolBuilding
 If F09_CoolingRatedCapacity IsPresent And LTE 240
 If A02_ClimateZoneNumber == InRange(2,15)
-List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse If A02_ClimateZoneNumber == 1 Or 16
+List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse If A02_ClimateZoneNumber == 1 Or 16
 Else If A02_ClimateZoneNumber == 1 Or 16
 List HeatPumpDualFuel
 End If
@@ -3427,12 +3427,12 @@ List FurnaceAC
 Else If F09_CoolingRatedCapacity IsPresent And GT 65 And LT 240 And 02_ClimateZoneNumber == 16
 List HeatPumpDualFuel
 Else If F09_CoolingRatedCapacity IsPresent And LTE 240 And A02_ClimateZoneNumber == InRange(1,15)
-List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse
+List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse
 Else
 List all values
 End If
 Else If Fscs05_WholeBuildingOccupancy == Warehouse And F09_CoolingRatedCapacity IsPresent And LTE 240
-List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse
+List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse
 Else
 List all values
 End If
@@ -3506,6 +3506,12 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Equipment Type per Tables 110.2 and Title 20</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == VariableRefrigerantFlow, user selects from equipment values in VariableRefrigerantFlow choice</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="F03VRFHeatRecovery_VariableRefrigerantFlow" type="hvac:VariableRefrigerantFlow">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Equipment Type per Tables 110.2 and Title 20</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == VariableRefrigerantFlowHeatRecovery, user selects from equipment values in VariableRefrigerantFlow choice</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F03_EquipmentDOAS" type="hvac:EquipmentDOAS">
@@ -3584,6 +3590,8 @@ End If</xsd:documentation>
 Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == SPVHP 
  
 Or If F03_VariableRefrigerantFlow == AirCooledHP_VRF, GroundSourceVRF, GroundWaterSourceVRF Or WaterSourceVRF 
+
+Or If F03VRFHeatRecovery_VariableRefrigerantFlow == AirCooledHP_VRF, GroundSourceVRF, GroundWaterSourceVRF Or WaterSourceVRF 
  
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
 user input in this field is required; 
@@ -3600,6 +3608,8 @@ End If</xsd:documentation>
 Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == SPVHP 
  
 Or If F03_VariableRefrigerantFlow == AirCooledHP_VRF, GroundSourceVRF, GroundWaterSourceVRF Or WaterSourceVRF 
+
+Or If F03VRFHeatRecovery_VariableRefrigerantFlow == AirCooledHP_VRF, GroundSourceVRF, GroundWaterSourceVRF Or WaterSourceVRF 
  
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
  
@@ -3624,6 +3634,8 @@ End If</xsd:documentation>
 Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == SPVHP 
  
 Or If F03_VariableRefrigerantFlow == AirCooledHP_VRF, GroundSourceVRF, GroundWaterSourceVRF Or WaterSourceVRF 
+
+Or If F03VRFHeatRecovery_VariableRefrigerantFlow == AirCooledHP_VRF, GroundSourceVRF, GroundWaterSourceVRF Or WaterSourceVRF 
  
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
  
@@ -3644,6 +3656,8 @@ Multi-field triggers: See F02_HvacSystemType CalculationsAndRules for trigger va
 Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == SPVHP 
  
 Or If F03_VariableRefrigerantFlow == AirCooledHP_VRF, GroundSourceVRF, GroundWaterSourceVRF Or WaterSourceVRF 
+
+Or If F03VRFHeatRecovery_VariableRefrigerantFlow == AirCooledHP_VRF, GroundSourceVRF, GroundWaterSourceVRF Or WaterSourceVRF 
  
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
  
@@ -3668,6 +3682,7 @@ End If</xsd:documentation>
 Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == SPVHP 
  
 Or If F03_VariableRefrigerantFlow == AirCooledHP_VRF, GroundSourceVRF, GroundWaterSourceVRF Or WaterSourceVRF 
+Or If F03VRFHeatRecovery_VariableRefrigerantFlow == AirCooledHP_VRF, GroundSourceVRF, GroundWaterSourceVRF Or WaterSourceVRF 
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
 user input in this field is required; 
 Else result = BlankGrayedOut stored in teh NotApplicableMessage and field is blank and grayed out
@@ -3682,7 +3697,7 @@ End If</xsd:documentation>
 Or If F03_PTAC_PTHP == NewSpacePTHP Or ReplacementsPTHP Or If F03_SPV_ACHP == SPVHP 
  
 Or If F03_VariableRefrigerantFlow == AirCooledHP_VRF, GroundSourceVRF, GroundWaterSourceVRF Or WaterSourceVRF 
- 
+Or If F03VRFHeatRecovery_VariableRefrigerantFlow == AirCooledHP_VRF, GroundSourceVRF, GroundWaterSourceVRF Or WaterSourceVRF  
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
  
 user input in this field is required; 
@@ -3706,7 +3721,7 @@ End If</xsd:documentation>
                                        <xsd:element name="F08_CoolingSensibleDesignCapacity" type="hvac:CoolingSensibleDesignCapacity">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Sensible Per Design (kBtu/h)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR,  UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, HeatPumpDualFuel, PTAC_PTHP, SPV_ACHP Or VariableRefrigerantFlow 
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR,  UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, HeatPumpDualFuel, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, or VariableRefrigerantFlowHeatRecovery  
  
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
  
@@ -3719,7 +3734,7 @@ End If</xsd:documentation>
                                        <xsd:element name="F08_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Sensible Per Design (kBtu/h)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, HeatPumpDualFuel, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP Or VariableRefrigerantFlow 
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, HeatPumpDualFuel, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, or VariableRefrigerantFlowHeatRecovery
  
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
 user input in this field is required; 
@@ -3738,7 +3753,7 @@ End If</xsd:documentation>
                                        <xsd:element name="F09_CoolingRatedCapacity" type="hvac:CoolingRatedCapacity">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Rated (kBtu/h)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, HeatPumpDualFuel, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP Or VariableRefrigerantFlow 
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, HeatPumpDualFuel, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, or VariableRefrigerantFlowHeatRecovery 
  
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
  
@@ -3751,7 +3766,7 @@ End If</xsd:documentation>
                                        <xsd:element name="F09_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Rated (kBtu/h)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, HeatPumpDualFuel, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP Or VariableRefrigerantFlow 
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, HeatPumpDualFuel, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, or VariableRefrigerantFlowHeatRecovery 
  
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
  
@@ -3806,7 +3821,7 @@ End if</xsd:documentation>
                                        <xsd:element name="F11_CoolingSensibleTotalLoad" type="hvac:CoolingSensibleTotalLoad">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Total Sensible Cooling Load (kBtu/h)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps,  UnitaryHeatPumpsNoElectR, HeatPumpDualFuel, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP Or VariableRefrigerantFlow 
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps,  UnitaryHeatPumpsNoElectR, HeatPumpDualFuel, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, or VariableRefrigerantFlowHeatRecovery 
  
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
  
@@ -3818,7 +3833,7 @@ End If</xsd:documentation>
                                        <xsd:element name="F11_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Total Sensible Cooling Load (kBtu/h)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps,  UnitaryHeatPumpsNoElectR, HeatPumpDualFuel, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP Or VariableRefrigerantFlow 
+                                             <xsd:documentation source="CalculationsAndRules">If F02_HvacSystemType == ComputerRoomAC, CeilingCRAC, RoomAC_HP, FurnaceAC, HeatPumpAC, UnitaryHeatPumps,  UnitaryHeatPumpsNoElectR, HeatPumpDualFuel, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, or VariableRefrigerantFlowHeatRecovery
  
 Or If F02_HvacSystemType == DedicatedOAS And F03_EquipmentDOAS != DOAS
  
@@ -4087,6 +4102,22 @@ End Switch
 End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
+                                       <xsd:element name="Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow" type="hvac:SizeRangeVariableRefrigerantFlow">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Size Category 
+                                                <d:line1/>(Btu/h)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">For value in Fa01_HvacSystemName: 
+If F02_HvacSystemType == VariableRefrigerantFlowHeatRecovery, user selects from size ranges  in SizeRangeVariableRefrigerantFlow choice  based on the following: 
+Switch (F03VRFHeatRecovery_VariableRefrigerantFlow) 
+case AirCooledHP_VRF,  AirConditionerVRF and WaterSourceVRF: 
+list  LT65000, GTE65000AndLT135000, GTE135000AndLT240000, GTE240000;  
+ 
+case GroundSourceVRF and GroundWaterSourceVRF: 
+list LT135000, GTE135000.
+End Switch
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
                                        <xsd:element name="Fa02_NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Size Category 
@@ -4127,6 +4158,9 @@ And  Fa02_SizeRangeUnitaryHeatPumps != LT65000,
 user selects from list; 
  
 Else If F02_HvacSystemType == VariableRefrigerantFlow And F03_VariableRefrigerantFlow == AirCooledHP_VRF And SizeRangeVariableRefrigerantFlow !=   LT65000 
+or
+F02_HvacSystemType == VariableRefrigerantFlowHeatRecovery And F03VRFHeatRecovery_VariableRefrigerantFlow == AirCooledHP_VRF And SizeRangeVariableRefrigerantFlow !=   LT65000 
+
 user selects from list; 
  
 Else result = BlankGrayedOut stored in Fa03_NotApplicableMessage and this field is greyed out</xsd:documentation>
@@ -4147,6 +4181,8 @@ And  Fa02_SizeRangeUnitaryHeatPumps != LT65000,
 user selects from list; 
  
 Else If F02_HvacSystemType == VariableRefrigerantFlow And F03_VariableRefrigerantFlow == AirCooledHP_VRF And SizeRangeVariableRefrigerantFlow !=   LT65000 
+or
+F02_HvacSystemType == VariableRefrigerantFlowHeatRecovery And F03VRFHeatRecovery_VariableRefrigerantFlow == AirCooledHP_VRF And SizeRangeVariableRefrigerantFlow !=   LT65000
 user selects from list; 
  
 Else result = BlankGrayedOut stored in Fa03_NotApplicableMessage and this field is greyed out 
@@ -4197,6 +4233,14 @@ result = COP;
 case  VariableRefrigerantFlow 
 If F03_VariableRefrigerantFlow  == AirCooledHP_VRF 
 If Fa02_SizeRangeVariableRefrigerantFlow == LT65000
+result = HSPF; 
+Else result = COP;  
+End If
+End If
+
+case  VariableRefrigerantFlowHeatRecovery 
+If F03VRFHeatRecovery_VariableRefrigerantFlow  == AirCooledHP_VRF 
+If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT65000
 result = HSPF; 
 Else result = COP;  
 End If
@@ -4420,6 +4464,53 @@ Else If Fa02_SizeRangeVariableRefrigerantFlow == GTE135000
 result = 2.8 (COP).
 End If
 End Switch
+End If
+
+Else If F05_HeatingDesignCapacity GTE 1  And If F02_HvacSystemType == VariableRefrigerantFlowHeatRecovery for Fa01
+
+use this choice based on the following: 
+Switch (F03VRFHeatRecovery_VariableRefrigerantFlow ) 
+case: AirCooledHP_VRF 
+If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT65000 
+result =7.7 (HSPF);  
+Else If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE65000AndLT135000 
+If Fa03_TemperatureRatingCondition == Fdb47Fwb43 
+result = 3.3 ( COP) 
+Else If Fa03_TemperatureRatingCondition == Fdb17Fwb15 
+result = 2.25 (COP); 
+End If
+ 
+Else If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE135000AndLT240000 Or GTE240000
+If Fa03_TemperatureRatingCondition == Fdb47Fwb43 
+result = 3.2 (COP) 
+Else If Fa03_TemperatureRatingCondition == Fdb17Fwb15 
+result = 2.05 (COP);  
+End If
+End If
+ 
+case: WaterSourceVRF 
+If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT65000 Or GTE65000AndLT135000 
+result = 4.3(COP); 
+Else If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE135000AndLT240000 
+result = 4.0 (COP); 
+Else If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE240000 
+result = 3.9 (COP);  
+End If
+ 
+case: GroundWaterSourceVRF 
+If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT135000 
+result = 3.6 (COP); 
+Else If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE135000 
+result = 3.3 (COP);  
+End If
+ 
+case: GroundSourceVRF 
+If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT135000 
+result = 3.1 (COP); 
+Else If Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE135000 
+result = 2.8 (COP).
+End If
+End Switch
 End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -4605,6 +4696,13 @@ case VariableRefrigerantFlow:
 If F03_ VariableRefrigerantFlow == AirConditionerVRF Or AirCooledHP_VRF And  Fa02_SizeRangeVariableRefrigerantFlow == LT65000 
 result1 SEER; 
 Else  If F03_ VariableRefrigerantFlow == GroundWaterSourceVRF Or GroundSourceVRF 
+result1 = EER; 
+End If
+
+case VariableRefrigerantFlowHeatRecovery: 
+If F03VRFHeatRecovery_VariableRefrigerantFlow == AirConditionerVRF Or AirCooledHP_VRF And  Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT65000 
+result1 SEER; 
+Else  If F03VRFHeatRecovery_VariableRefrigerantFlow == GroundWaterSourceVRF Or GroundSourceVRF 
 result1 = EER; 
 End If
 End Switch</xsd:documentation>
@@ -5017,6 +5115,29 @@ result1 = 13.4 (EER);
 Else if Fa02_SizeRangeVariableRefrigerantFlow == GTE135000 
 result1 = 11.0 (EER);
 End If
+End If
+
+
+Else If F02_HvacSystemType == VariableRefrigerantFlowHeatRecovery use this choice. 
+ 
+The value is stored in result1, the top displayed cell and the bottom cell is blank.  
+ 
+If F03VRFHeatRecovery_VariableRefrigerantFlow == AirConditionerVRF Or AirCooledHP_VRF And  Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT65000 
+result1 13.0 (SEER);  
+ 
+Else  If F03VRFHeatRecovery_VariableRefrigerantFlow == GroundWaterSourceVRF Then 
+If  Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT135000 
+result1 = 16.2 (EER); 
+Else if Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE135000 
+result1 = 13.8 (EER); 
+End If
+ 
+Else  If F03VRFHeatRecovery_VariableRefrigerantFlow == GroundSourceVRF Then 
+If  Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT135000 
+result1 = 13.4 (EER); 
+Else if Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE135000 
+result1 = 11.0 (EER);
+End If
 End If</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -5119,6 +5240,13 @@ End If
 Else If F02_HvacSystemType == VariableRefrigerantFlow 
 If F03_ VariableRefrigerantFlow != GroundWaterSourceVRF Or GroundSourceVRF 
 Or If F03_ VariableRefrigerantFlow == AirConditionerVRF Or AirCooledHP_VRF And  Fa02_SizeRangeVariableRefrigerantFlow != LT65000  
+result1 = EER and result2 = IEER:
+End If
+End If
+
+Else If F02_HvacSystemType == VariableRefrigerantFlowHeatRecovery 
+If F03VRFHeatRecovery_VariableRefrigerantFlow != GroundWaterSourceVRF Or GroundSourceVRF 
+Or If F03VRFHeatRecovery_VariableRefrigerantFlow == AirConditionerVRF Or AirCooledHP_VRF And  Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow != LT65000  
 result1 = EER and result2 = IEER:
 End If
 End If</xsd:documentation>
@@ -5283,6 +5411,45 @@ result1 = 10.0 (EER) and result2 = 14.0 (IEER);
  
 case GTE240000: 
 result1 = 10.0 (EER) and result2 = 12.0 (IEER);
+End Switch
+End If
+
+Else If F02_HvacSystemType == VariableRefrigerantFlowHeatRecovery use this choice. For the following evaluations result1 is the EER value and result2 is the IEER:   
+ 
+If F03VRFHeatRecovery_VariableRefrigerantFlow == AirConditionerVRF 
+Switch (Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow) 
+case GTE65000AndLT135000: 
+result1 = 11.0(EER) and result2 = 15.3 (IEER); 
+ 
+case GTE135000AndLT240000: 
+result1 = 10.8 (EER) and result2 = 14.7 (IEER); 
+ 
+case GTE240000: 
+result1 = 9.8 (EER) and result2 = 13.7 (IEER);  
+End Switch
+ 
+If F03VRFHeatRecovery_VariableRefrigerantFlow == AirCooledHP_VRF  
+Switch (Fa02_SizeRangeUnitaryCondensersAC) 
+case GTE65000AndLT135000: 
+result1 = 10.8 (EER) and result2 = 14.4 (IEER); 
+ 
+case GTE135000AndLT240000: 
+result1 = 10.4 (EER) and result2 = 13.7 (IEER); 
+ 
+case GTE240000: 
+result1 = 9.3 (EER) and result2 = 12.5 (IEER);   
+End Switch
+ 
+Else If F03VRFHeatRecovery_VariableRefrigerantFlow == WaterSourceVRF  
+Switch (Fa02_SizeRangeUnitaryCondensersAC)  
+case LT65000: Or  GTE65000AndLT135000: 
+result1 = 11.8 (EER) and result2 = 15.8 (IEER); 
+ 
+case GTE135000AndLT240000: 
+result1 = 9.8 (EER) and result2 = 13.8 (IEER); 
+ 
+case GTE240000: 
+result1 = 9.8 (EER) and result2 = 11.8 (IEER);
 End Switch
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -14417,7 +14584,7 @@ End If
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
-                           <d:i>Selections have been made based on information provided in previous tables of this document.  If any selection needs to be changed, please explain why in Table E Additional Remarks.  These documents must be provided to the building inspector during construction and can be found online at https://www.energy.ca.gov/title24/2019standards/2019_compliance_documents/Nonresidential_Documents/NRCA/ </d:i>
+                           <d:i>Selections have been made based on information provided in previous tables of this document.  If any selection needs to be changed, please explain why in Table E Additional Remarks.  These documents must be provided to the building inspector during construction and can be found online at https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2022-building-energy-efficiency-4 </d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -15106,7 +15273,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
-                           <d:i> Selections have been made based on information provided in previous tables of this document.  If any selection needs to be changed, please explain why in Table E Additional Remarks.  These documents must be completed by a HERS Rater and provided to the building inspector during construction.  The final documents must be created by a HERS Provider's registry, but drafts can be found online at https://www.energy.ca.gov/title24/2019standards/2019_compliance_documents/Nonresidential_Documents/NRCV/  </d:i>
+                           <d:i> Selections have been made based on information provided in previous tables of this document.  If any selection needs to be changed, please explain why in Table E Additional Remarks.  These documents must be completed by a HERS Rater and provided to the building inspector during construction.  The final documents must be created by a HERS Provider's registry, but drafts can be found online at https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2022-building-energy-efficiency-4  </d:i>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>

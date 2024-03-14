@@ -4590,6 +4590,7 @@ MM120_6e1_MeasureApplies = true and is displayed
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    <xsd:choice maxOccurs="1">
                                     <xsd:element name="J03_CompressorControls" type="comp:CompressorControls" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Controls [d:t24refnolink/]120.6(e)2</xsd:documentation>
@@ -4601,31 +4602,110 @@ MM120_6e2_MeasureApplies = true and is displayed
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    <xsd:element name="J03_NotApplicableMessage" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Controls [d:t24refnolink/]120.6(e)2</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules"> If J02_CompressorTrimMethod == MedicalGasNA
+                                       result = BlankGrayedOut
+                                       End If
+                                       </xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                    </xsd:element>
+                                 </xsd:choice>
+                                 <xsd:choice maxOccurs="1">
                                     <xsd:element name="J04_CompressedAirMonitoring" type="comp:CompressedAirMonitoring" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Monitoring [d:t24refnolink/]120.6(e)3</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    <xsd:element name="J04_NotApplicableMessage" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Controls [d:t24refnolink/]120.6(e)2</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules"> If J02_CompressorTrimMethod == MedicalGasNA
+                                       result = BlankGrayedOut
+                                       End If
+                                       </xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                    </xsd:element>
+                                 </xsd:choice>
                                     <xsd:element name="J05to07ColLabel" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Compressed Air Piping [d:gt/] 50 adjoining ft in Length [d:t24refnolink/]120.6(e)5</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    <xsd:choice maxOccurs="1">
                                     <xsd:element name="J05_CompressedAirLineSize" type="comp:CompressedAirLineSize" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Service Line Size[d:sup]1[/d:sup]</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    <xsd:element name="J05_NotApplicableMessage" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Controls [d:t24refnolink/]120.6(e)2</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules"> If J02_CompressorTrimMethod == MedicalGasNA
+                                       result = BlankGrayedOut
+                                       End If
+                                       </xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                    </xsd:element>
+                                 </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
                                     <xsd:element name="J06_CompressedAirVelocity" type="comp:CompressedAirVelocity" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Section Average Velocity</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    <xsd:element name="J06_NotApplicableMessage" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Controls [d:t24refnolink/]120.6(e)2</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules"> If J02_CompressorTrimMethod == MedicalGasNA
+                                       result = BlankGrayedOut
+                                       End If
+                                       </xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                    </xsd:element>
+                                 </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
                                     <xsd:element name="J07_CompressedAirPressureDrop" type="comp:CompressedAirPressureDrop" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Total Pressure Drop</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    <xsd:element name="J07_NotApplicableMessage" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Controls [d:t24refnolink/]120.6(e)2</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules"> If J02_CompressorTrimMethod == MedicalGasNA
+                                       result = BlankGrayedOut
+                                       End If
+                                       </xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                             <xsd:restriction base="comp:NotApplicableMessage">
+                                                <xsd:enumeration value="BlankGrayedOut"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                    </xsd:element>
+                                 </xsd:choice>
                                     <xsd:element name="JEndNote1" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"></xsd:documentation>

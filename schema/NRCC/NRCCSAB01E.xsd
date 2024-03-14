@@ -2385,8 +2385,8 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">[d:b]Battery Storage System[/d:b]</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">This table is required If Pv09_PV_MinimumSize GT 0 And
-Pv10_PV_DesignSize GTE (0.15 x SUM ALL (Pv08_PV_MinSizeSARA)  And
-SUM ALL (Pv02_ConditionedFloorArea) GTE 5000</xsd:documentation>
+Pv10_PV_DesignSize GTE (0.15 x SUM ALL (Pv08_PV_MinSizeSARA))  
+                        </xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -2428,8 +2428,8 @@ SUM ALL (Pv02_ConditionedFloorArea) GTE 5000</xsd:documentation>
                                     </xsd:element>
                                     <xsd:element name="Bat02_PV_MinSizeSARA" type="comp:PV_MinSizeSARA" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Min Size of PV System Required (kWdc)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from Pv08</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Min Size of PV Applicable To Battery Sizing (kWdc)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules"> result = sum of all Pv08_PV_MinSizeSARA where Pv02_ConditionedFloorArea GTE 5000</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="Bat03_ChargeDischargeEfficiency" type="hvac:ChargeDischargeEfficiency" >

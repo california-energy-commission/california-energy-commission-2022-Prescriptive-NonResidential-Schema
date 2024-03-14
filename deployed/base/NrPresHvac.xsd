@@ -5387,6 +5387,7 @@
             <dtyp:displayterm value="UnitaryHeatPumps">Unitary Heat Pumps</dtyp:displayterm>
             <dtyp:displayterm value="UnitaryHeatPumpsNoElectR">Unitary Heat Pumps (no elec. resistance)</dtyp:displayterm>
             <dtyp:displayterm value="VariableRefrigerantFlow">Variable Refrigerant Flow</dtyp:displayterm>
+            <dtyp:displayterm value="VariableRefrigerantFlowHeatRecovery">Variable Refrigerant Flow (with heat recovery)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -5405,6 +5406,7 @@
          <xsd:enumeration value="UnitaryHeatPumps"/>
          <xsd:enumeration value="UnitaryHeatPumpsNoElectR"/>
          <xsd:enumeration value="VariableRefrigerantFlow"/>
+         <xsd:enumeration value="VariableRefrigerantFlowHeatRecovery"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="HydronicHeatingEffectiveAFUE">
