@@ -5123,20 +5123,20 @@ Else If F02_HvacSystemType == VariableRefrigerantFlowHeatRecovery use this choic
 The value is stored in result1, the top displayed cell and the bottom cell is blank.  
  
 If F03VRFHeatRecovery_VariableRefrigerantFlow == AirConditionerVRF Or AirCooledHP_VRF And  Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT65000 
-result1 13.0 (SEER);  
+result1 12.8 (SEER);  
  
 Else  If F03VRFHeatRecovery_VariableRefrigerantFlow == GroundWaterSourceVRF Then 
 If  Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT135000 
-result1 = 16.2 (EER); 
+result1 = 16.0 (EER); 
 Else if Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE135000 
-result1 = 13.8 (EER); 
+result1 = 13.6 (EER); 
 End If
  
 Else  If F03VRFHeatRecovery_VariableRefrigerantFlow == GroundSourceVRF Then 
 If  Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == LT135000 
-result1 = 13.4 (EER); 
+result1 = 13.2 (EER); 
 Else if Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow == GTE135000 
-result1 = 11.0 (EER);
+result1 = 10.8 (EER);
 End If
 End If</xsd:documentation>
                                                             </xsd:annotation>
@@ -5429,7 +5429,7 @@ result1 = 9.8 (EER) and result2 = 13.7 (IEER);
 End Switch
  
 If F03VRFHeatRecovery_VariableRefrigerantFlow == AirCooledHP_VRF  
-Switch (Fa02_SizeRangeUnitaryCondensersAC) 
+Switch (Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow) 
 case GTE65000AndLT135000: 
 result1 = 10.8 (EER) and result2 = 14.4 (IEER); 
  
@@ -5441,7 +5441,7 @@ result1 = 9.3 (EER) and result2 = 12.5 (IEER);
 End Switch
  
 Else If F03VRFHeatRecovery_VariableRefrigerantFlow == WaterSourceVRF  
-Switch (Fa02_SizeRangeUnitaryCondensersAC)  
+Switch (Fa02VRFHeatRecovery_SizeRangeVariableRefrigerantFlow)  
 case LT65000: Or  GTE65000AndLT135000: 
 result1 = 11.8 (EER) and result2 = 15.8 (IEER); 
  

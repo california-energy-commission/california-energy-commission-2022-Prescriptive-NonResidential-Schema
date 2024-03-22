@@ -19336,7 +19336,7 @@ list  HighriseResidential display term Dwelling Units
                                                                         <d:lte/>3 stories:
 3 times,once with each of these Kskyperf06_FenestrationModification value display terms appended: AllNew, ReplaceSkyMF and AddSky16PlusMF
 And
-list only 1 time OtherOccupancy with no display term  with Kskyperf06_FenestrationModification value NewSky16MF
+list only 1 time HighriseResidential with no display term  with Kskyperf06_FenestrationModification value NewSky16MF
 End If</xsd:documentation>
                                                                      <xsd:appinfo source="displayterm">
                                                                         <dtyp:displayterm value="HotelMotel">High-rise Hotel/ Motel:</dtyp:displayterm>
