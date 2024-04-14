@@ -5409,11 +5409,11 @@ R6ci display term R-6,
 R9ci display term R-9, 
 R13ci display term R-13, 
 R15ci display term R-15, 
+R19ci display term R-19, 
 R22ci display term R-22, 
-R25ci display term R-15, 
-R32ci display term R-20, 
 R25ci display term R-25, 
-R38ci display term R-30,
+R32ci display term R-32, 
+R38ci display term R-38,
 
 Else user selects from the list:
 R0ci display term None, 
@@ -5422,12 +5422,12 @@ R9ci display term R-9,
 R13ci display term R-13, 
 R15ci display term R-15, 
 R17ci display term R-17, 
+R19ci display term R-19, 
 R22ci display term R-22, 
 R23ci display term R-23, 
-R25ci display term R-15, 
-R32ci display term R-20, 
 R25ci display term R-25, 
-R38ci display term R-30,</xsd:documentation>
+R32ci display term R-32, 
+R38ci display term R-38,</xsd:documentation>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
                                                       <xsd:restriction base="env:ContinuousInsulationNR">

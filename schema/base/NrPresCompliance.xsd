@@ -6567,9 +6567,6 @@
             <dtyp:displayterm value="AirBlender">Air Blender</dtyp:displayterm>
             <dtyp:displayterm value="AirflowControl">Airflow control devices required for space pressurization control</dtyp:displayterm>
             <dtyp:displayterm value="AllOASystem">100% outdoor air system</dtyp:displayterm>
-            <dtyp:displayterm value="BaseAllowanceExhaust">Exhaust System Base Allowance</dtyp:displayterm>
-            <dtyp:displayterm value="BaseAllowanceGT6Floors">Base Allowance for system serving spaces [d:gt/]6 floors away</dtyp:displayterm>
-            <dtyp:displayterm value="BaseAllowanceLTE6Floors">Base Allowance for system serving spaces [d:lte/]6 floors away</dtyp:displayterm>
             <dtyp:displayterm value="BiosafetyCabinet">Biosafety cabinet</dtyp:displayterm>
             <dtyp:displayterm value="CoilDXorHP">Hydronic/DX cooling coil or heat pump coil</dtyp:displayterm>
             <dtyp:displayterm value="CoilReheat">Reheat Coil for Dehumidification</dtyp:displayterm>
@@ -6611,7 +6608,7 @@
          <xsd:enumeration value="AirflowControl"/>
          <xsd:enumeration value="AllOASystem"/>
          <xsd:enumeration value="BaseAllowanceExhaust"/>
-         <xsd:enumeration value="BaseAllowanceGT6Floors"/>
+         <xsd:enumeration value="BaseAllowanceExhaust"/>
          <xsd:enumeration value="BaseAllowanceLTE6Floors"/>
          <xsd:enumeration value="BiosafetyCabinet"/>
          <xsd:enumeration value="CoilDXorHP"/>
