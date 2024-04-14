@@ -17955,129 +17955,130 @@ End If</xsd:documentation>
                                                 <xsd:element name="Kvertperf11a_UFactorLimit" type="com:UFactorLimit">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Required Product Performance</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If FenestrationProductType == GlazedDoor
+                                                      <xsd:documentation source="CalculationsAndRules">If Kvertperf05_FenestrationProductType == GlazedDoor
    If Kvertperf06_FenestrationModification != ReplaceGT150ft2 Or ReplaceLTE150ft2
       If Kvertperf06_TopLevelOccupancy == Nonresidential Or HotelMotel Or RelocableSchoolBuildingAllZones
-         result == 0.45                                           
+         result = 0.45                                           
       Else if Kvertperf06_TopLevelOccupancy== HighRiseResidential
          If A03_ClimateZoneNumber == InRange (1,6) Or InRange (9,16)
-            result == 0.30
-         Else
-            result == 0.34
-         End If
-      End If
-   Else
-      If A03_ClimateZoneNumber == 3 or 5 
-         result == 0.58
-      Else 
-         result == 0.47
-      End If
-   End If
-
-Else If Kvertperf06_FenestrationModification == AllNew, AddGT50ft2 Or AddLTE50ft2  
-   If Kvertperf06_TopLevelOccupancy == Nonresidential
-      Switch (Kvertperf05_FenestrationProductType) 
-      case FixedWindow: 
-         If A03_ClimateZoneNumber == InRange (1,8) Or 10 Or 16
-            result = 0.36; 
-         Else If A03_ClimateZoneNumber == 9 Or InRange (11, 15)
-            result = 0.34; 
-         End If
-      case OperableWindow:  
-         result = 0.46;  
-      case StoreFront:  case CurtainWall: case DemisingWallFen:
-         If A03_ClimateZoneNumber == 1 Or 7
-            resut = 0.38
-         Else
-            result = 0.41; 
-         End If
-      End Switch
-   Else If Kvertperf06_TopLevelOccupancy == HotelMotel 
-      Switch (Kvertperf05_FenestrationProductType) 
-      case FixedWindow: 
-         result = 0.36
-      case OperableWindow:  
-         result = 0.46;  
-      case StoreFront:  case CurtainWall: case DemisingWallFen:
-         result = 0.41
-      End Switch
-
-   Else If Kvertperf06_TopLevelOccupancy == RelocableSchoolBuildingAllZones 
-      result = 0.47; 
-   Else  If Kvertperf06_TopLevelOccupancy == HighriseResidential
-      If Kvertperf05_FenestrationProductType == StoreFront Or CurtainWall Or DemisingWallFen
-         If A03_ClimateZoneNumber == 1 Or 16
-            resut = 0.38
-         Else 
-            result = 0.41; 
-         End If
-      Else  If Kvertperf05_FenestrationProductType == FixedWindow Or GlazedDoor Or OperableWindow
-         If A03_ClimateZoneNumber == InRange (1,6) Or InRange(9, 16)
-            result = 0.30; 
+            result = 0.30
          Else If A03_ClimateZoneNumber == 7 Or 8
-            result = 0.34; 
+            result = 0.34
          End If
-      Else if Kvertperf05_FenestrationProductType = FixedWindowMF Or OperableWindowMF
-         If A03_ClimateZoneNumber == 1 Or 16
-            result = 0.38
-         Else
-            result = 0.40
-         End If
-      Else if Kvertperf05_FenestrationProductType = GlazedDoorMF  
-         result = BlankGrayedOut stored in Kvertperf11a_NotApplicableMessage 
-      End if
-   End If
-Else If Kvertperf06_FenestrationModification == ReplaceGT150ft2 Or ReplaceLTE150ft2 
-   If Kvertperf06_TopLevelOccupancy != HighriseResidential
-      If A03_ClimateZoneNumber == 1, 2, 4 Or InRange (6, 16) 
-         result = 0.47; 
-      Else If A03_ClimateZoneNumber == 3 Or 5 
-         result = 0.58;
       End If
-   Else If Kvertperf06_TopLevelOccupancy == HighriseResidential
-      If Kvertperf05_FenestrationProductType == StoreFront Or CurtainWall Or DemisingWallFen
-         If Kvertperf07_ComplianceMethodSHGC_VT == Table170_2A Or Table180_2B
-            If A03_ClimateZoneNumber == 1 Or 16
+   Else if Kvertperf06_FenestrationModification == AddGT50ft2 Or AddLTE50ft2 Or AllNew
+      If A03_ClimateZoneNumber == 3 Or 5 
+         result = 0.58
+      Else If A03_ClimateZoneNumber == 1 Or 2 Or 4 or InRange (6, 16)
+         result = 0.47
+      End If
+   End If
+Else If Kvertperf05_FenestrationProductType != GlazedDoor
+   If Kvertperf06_FenestrationModification == AllNew, AddGT50ft2 Or AddLTE50ft2  
+      If Kvertperf06_TopLevelOccupancy == Nonresidential
+         Switch (Kvertperf05_FenestrationProductType) 
+         case FixedWindow: 
+            If A03_ClimateZoneNumber == InRange (1,8) Or 10 Or 16
+               result = 0.36; 
+            Else If A03_ClimateZoneNumber == 9 Or InRange (11, 15)
+               result = 0.34; 
+            End If
+         case OperableWindow:  
+            result = 0.46;  
+         case StoreFront:  case CurtainWall: case DemisingWallFen:
+            If A03_ClimateZoneNumber == 1 Or 7
                result = 0.38
-            Else
+            Else If A03_ClimateZoneNumber == InRange (2, 6) or InRange (8, 16)
                result = 0.41; 
             End If
-         End If
-      Else Kvertperf05_FenestrationProductType = FixedWindow Or GlazedDoor Or OperableWindow 
-         If Kvertperf07_ComplianceMethodSHGC_VT == Table170_2A
+         End Switch
+      Else If Kvertperf06_TopLevelOccupancy == HotelMotel 
+         Switch (Kvertperf05_FenestrationProductType) 
+         case FixedWindow: 
+            result = 0.36
+         case OperableWindow:  
+            result = 0.46;  
+         case StoreFront:  case CurtainWall: case DemisingWallFen:
+            result = 0.41
+         End Switch
+      Else If Kvertperf06_TopLevelOccupancy == RelocableSchoolBuildingAllZones 
+         result = 0.47; 
+      Else  If Kvertperf06_TopLevelOccupancy == HighriseResidential
+         If Kvertperf05_FenestrationProductType == StoreFront Or CurtainWall Or DemisingWallFen
+            If A03_ClimateZoneNumber == 1 Or 16
+               result = 0.38
+            Else If A03_ClimateZoneNumber == InRange (2, 15)
+               result = 0.41; 
+            End If
+         Else  If Kvertperf05_FenestrationProductType == FixedWindow Or GlazedDoor Or OperableWindow
             If A03_ClimateZoneNumber == InRange (1,6) Or InRange(9, 16)
                result = 0.30; 
             Else If A03_ClimateZoneNumber == 7 Or 8
                result = 0.34; 
             End If
-         Else If Kvertperf07_ComplianceMethodSHGC_VT == Table180_2B
-            If A03_ClimateZoneNumber == InRange (1,6) Or InRange(8, 16)
-               result = 0.30; 
-            Else If A03_ClimateZoneNumber == 7
-               result = 0.34; 
-            End If
-         End If
-      Else if Kvertperf05_FenestrationProductType = GlazedDoorMF
-         result = BlankGrayedOut stored in Kvertperf11a_NotApplicableMessage 
-      Else If Kvertperf07_ComplianceMethodSHGC_VT == Table170_2A
-         If A03_ClimateZoneNumber == 1 Or 16
-            result = 0.38
-         Else
-            result = 0.40
-         End If
-      Else If Kvertperf07_ComplianceMethodSHGC_VT == Table180_2B
-         If Kvertperf05_FenestrationProductType = FixedWindowMF
-            If A03_ClimateZoneNumber == InRange (1,5) or InRange (10, 16)
+         Else if Kvertperf05_FenestrationProductType = FixedWindowMF Or OperableWindowMF
+            If A03_ClimateZoneNumber == 1 Or 16
                result = 0.38
-            Else If A03_ClimateZoneNumber == 6 or 7
-               result = 0.47
-            Else If A03_ClimateZoneNumber == 8 or 9
-               result = 0.41
-         Else If Kvertperf05_FenestrationProductType = OperableWindowMF
-            If A03_ClimateZoneNumber == InRange (1,5) or InRange (8, 16)
-               result = 0.43
-            Else If If A03_ClimateZoneNumber == 6 or 7
-               result = 0.47
+            Else If A03_ClimateZoneNumber == InRange (2, 15)
+               result = 0.40
+            End If
+         Else if Kvertperf05_FenestrationProductType == GlazedDoorMF  
+            result = BlankGrayedOut stored in Kvertperf11a_NotApplicableMessage 
+         End if
+      End If
+   Else If Kvertperf06_FenestrationModification == ReplaceGT150ft2 Or ReplaceLTE150ft2 
+      If Kvertperf06_TopLevelOccupancy != HighriseResidential
+         If A03_ClimateZoneNumber == 1, 2, 4 Or InRange (6, 16) 
+            result = 0.47; 
+         Else If A03_ClimateZoneNumber == 3 Or 5 
+            result = 0.58;
+         End If
+      Else If Kvertperf06_TopLevelOccupancy == HighriseResidential
+         If Kvertperf05_FenestrationProductType == StoreFront Or CurtainWall Or DemisingWallFen
+            If Kvertperf07_ComplianceMethodSHGC_VT == Table170_2A Or Table180_2B
+               If A03_ClimateZoneNumber == 1 Or 16
+                  result = 0.38
+               Else If A03_ClimateZoneNumber == InRange (2, 15)
+                  result = 0.41; 
+               End If
+            End If
+         Else If Kvertperf05_FenestrationProductType = FixedWindow Or GlazedDoor Or OperableWindow 
+            If Kvertperf07_ComplianceMethodSHGC_VT == Table170_2A
+               If A03_ClimateZoneNumber == InRange (1,6) Or InRange(9, 16)
+                  result = 0.30; 
+               Else If A03_ClimateZoneNumber == 7 Or 8
+                  result = 0.34; 
+               End If
+            Else If Kvertperf07_ComplianceMethodSHGC_VT == Table180_2B
+               If A03_ClimateZoneNumber == InRange (1,6) Or InRange(8, 16)
+                  result = 0.30; 
+               Else If A03_ClimateZoneNumber == 7
+                  result = 0.34; 
+               End If
+            End If
+         Else if Kvertperf05_FenestrationProductType == GlazedDoorMF
+            result = BlankGrayedOut stored in Kvertperf11a_NotApplicableMessage 
+         Else If Kvertperf07_ComplianceMethodSHGC_VT == Table170_2A
+            If A03_ClimateZoneNumber == 1 Or 16
+               result = 0.38
+            Else If A03_ClimateZoneNumber == InRange (2, 15)
+               result = 0.40
+            End If
+         Else If Kvertperf07_ComplianceMethodSHGC_VT == Table180_2B
+            If Kvertperf05_FenestrationProductType == FixedWindowMF
+               If A03_ClimateZoneNumber == InRange (1,5) or InRange (10, 16)
+                  result = 0.38
+               Else If A03_ClimateZoneNumber == 6 or 7
+                  result = 0.47
+               Else If A03_ClimateZoneNumber == 8 or 9
+                  result = 0.41
+               End If
+            Else If Kvertperf05_FenestrationProductType = OperableWindowMF
+               If A03_ClimateZoneNumber == InRange (1,5) or InRange (8, 16)
+                  result = 0.43
+               Else If A03_ClimateZoneNumber == 6 or 7
+                  result = 0.47
+               End If
             End If
          End If
       End If
@@ -18116,19 +18117,23 @@ Else If Kvertperf05_FenestrationProductType == GlazedDoor
             result = 0.35
          Else if A03_ClimateZoneNumber == InRange(2, 16)
             result = 0.24
-      Else
+         End If
+      Else If Kvertperf06_TopLevelOccupancy == HotelMotel Or Nonresidential Or RelocableSchoolBuildingAllZones
          result = 0.23
+      End If
    Else If Kvertperf06_FenestrationModification == ReplaceGT150ft2
       If Kvertperf07_ComplianceMethodSHGC_VT == Table170_2A
          If A03_ClimateZoneNumber == 1
             result = 0.35
          Else if A03_ClimateZoneNumber = InRange(2,16)
             result = 0.23
+         End If
       Else If Kvertperf07_ComplianceMethodSHGC_VT == Table180_2B
          If A03_ClimateZoneNumber == 1
             result = 0.35
          Else if A03_ClimateZoneNumber = InRange(2,16)
             result = 0.26
+         End If
       Else If Kvertperf07_ComplianceMethodSHGC_VT == Table141_0A
          If A03_ClimateZoneNumber == 1 Or 3 Or 5 or 16
             result = 0.41
@@ -18168,7 +18173,6 @@ Else If Kvertperf07_ComplianceMethodSHGC_VT == Table140_3BCD
    Else If Kvertperf06_TopLevelOccupancy == RelocableSchoolBuildingAllZones 
       result = 0.26;  
    End If
- 
 Else  If Kvertperf07_ComplianceMethodSHGC_VT == Table141_0A 
    If A03_ClimateZoneNumber == 1, 3, 5 Or 16 
       result = 0.41; 
@@ -18178,13 +18182,13 @@ Else  If Kvertperf07_ComplianceMethodSHGC_VT == Table141_0A
 Else If Kvertperf07_ComplianceMethodSHGC_VT == Table170_2A 
    If Kvertperf05_FenestrationProductType == StoreFront Or CurtainWall  
       If A03_ClimateZoneNumber == 1 
-         resut = 0.35
+         result = 0.35
       Else If A03_ClimateZoneNumber ==  InRange(2, 13) Or 15
          result = 0.26; 
       Else If A03_ClimateZoneNumber == 14 Or 16
          result = 0.25
       End If
-   Else Kvertperf05_FenestrationProductType == FixedWindow Or OperableWindow
+   Else If Kvertperf05_FenestrationProductType == FixedWindow Or OperableWindow
       If A03_ClimateZoneNumber == 1 
          result = 0.35
       Else If A03_ClimateZoneNumber == InRange (2, 16)
@@ -18197,7 +18201,6 @@ Else If Kvertperf07_ComplianceMethodSHGC_VT == Table170_2A
          result = 0.24
       End If
    End If
-
 Else If Kvertperf07_ComplianceMethodSHGC_VT == Table180_2B
    If Kvertperf05_FenestrationProductType == StoreFront Or CurtainWall
       If A03_ClimateZoneNumber == 1
@@ -18207,7 +18210,7 @@ Else If Kvertperf07_ComplianceMethodSHGC_VT == Table180_2B
       Else If A03_ClimateZoneNumber == 16
          result = 0.25 
       End If
-   Else Kvertperf05_FenestrationProductType == FixedWindow Or OperableWindow 
+   Else If Kvertperf05_FenestrationProductType == FixedWindow Or OperableWindow 
       If A03_ClimateZoneNumber == 1
          result = 0.35
       Else If A03_ClimateZoneNumber == InRange (2,16) 
