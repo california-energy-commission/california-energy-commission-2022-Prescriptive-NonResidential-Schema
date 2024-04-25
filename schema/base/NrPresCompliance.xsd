@@ -9722,6 +9722,7 @@
             <dtyp:displayterm value="NotApplicable">N/A</dtyp:displayterm>
             <dtyp:displayterm value="NotApplicableRequirement">[d:i]This requirement does not apply.[/d:i]</dtyp:displayterm>
             <dtyp:displayterm value="NotProvided">Not Provided</dtyp:displayterm>
+            <dtyp:displayterm value="SeePlans">See Plans</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstantPermissive">
@@ -9735,6 +9736,7 @@
          <xsd:enumeration value="NotApplicable"/>
          <xsd:enumeration value="NotApplicableRequirement"/>
          <xsd:enumeration value="NotProvided"/>
+         <xsd:enumeration value="SeePlans"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="OccupancyApplies">

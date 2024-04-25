@@ -523,77 +523,327 @@ End If</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">In this table there is no Per C of C row of data, only the as-built row of data</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
+                                              <xsd:element name="Pv01cc_ArrayName" type="hvac:ArrayName">
+                                                  <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">PV Array ID or Name</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">result = SeePlans</xsd:documentation>
+                                                  </xsd:annotation>
+                                                  <xsd:simpleType>
+                                                      <xsd:union memberTypes="hvac:ArrayName comp:NotApplicableMessage"/>
+                                                  </xsd:simpleType>
+                                              </xsd:element>
                                              <xsd:element name="Pv01_ArrayName" type="hvac:ArrayName">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">PV Array ID or Name</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
+                                              <xsd:element name="PV02cc_ArrayPowerOutput" type="hvac:ArrayPowerOutput">
+                                                  <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Installed DC Power Rating (kW)</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
+                                                          If Bat07b_BatteryPower IsPresent
+                                                          result = Bat07b_BatteryPower
+                                                          Else If CC-PRF parent
+                                                          result = Pv01_PV_SystemTotalRatedPowerDC
+                                                          End If</xsd:documentation>
+                                                      <xsd:appinfo source="CIsrc">
+                                                          <dtyp:srcSchema form="NRCCSAB1E"  usage="copy">Bat07b_BatteryPower</dtyp:srcSchema>
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv01_PV_SystemTotalRatedPowerDC</dtyp:srcSchema>
+                                                      </xsd:appinfo>
+                                                  </xsd:annotation>
+                                              </xsd:element>
                                              <xsd:element name="PV02_ArrayPowerOutput" type="hvac:ArrayPowerOutput">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Installed DC Power Rating (kW)</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
-                                             <xsd:element name="Pv03_ArrayModuleType" type="hvac:ArrayModuleType">
-                                                <xsd:annotation>
-                                                   <xsd:documentation source="FieldText">Module Type</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
-                                                </xsd:annotation>
-                                             </xsd:element>
-                                             <xsd:element name="Pv04_Azimuth" type="dtyp:Azimuth">
+                                              <xsd:element name="Pv03cc_ArrayModuleType">
+                                                  <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Module Type</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
+                                                          result = SeePlans
+                                                          Else If CC-PRF parent
+                                                          If Pv03_ArrayModuleType IsPresent
+                                                          result = Pv03_ArrayModuleType
+                                                          Else If Pv03_NotApplicableMessage IsPresent
+                                                          result = Pv03_NotApplicableMessage
+                                                          End If
+                                                          End If</xsd:documentation>
+                                                      <xsd:appinfo source="CIsrc">
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv03_ArrayModuleType</dtyp:srcSchema>
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv03_NotApplicableMessage</dtyp:srcSchema>
+                                                      </xsd:appinfo>
+                                                  </xsd:annotation>
+                                                  <xsd:simpleType>
+                                                      <xsd:union memberTypes="hvac:ArrayModuleType comp:NotApplicableMessage"/>
+                                                  </xsd:simpleType>
+                                              </xsd:element>
+                                              <xsd:element name="Pv03_ArrayModuleType">
+                                                  <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Module Type</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">User Input</xsd:documentation>
+                                                  </xsd:annotation>
+                                                  <xsd:simpleType>
+                                                      <xsd:union memberTypes="hvac:ArrayModuleType comp:NotApplicableMessage"/>
+                                                  </xsd:simpleType>
+                                              </xsd:element>
+                                              <xsd:element name="Pv04cc_Azimuth">
+                                                  <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Azimuth (deg)</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
+                                                          result = SeePlans
+                                                          Else If CC-PRF parent
+                                                          If Pv03_ArrayModuleType IsPresent
+                                                          result = Pv03_ArrayModuleType
+                                                          Else If Pv03_NotApplicableMessage IsPresent
+                                                          result = Pv03_NotApplicableMessage
+                                                          End If
+                                                          End If</xsd:documentation>
+                                                      <xsd:appinfo source="CIsrc">
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv03_ArrayModuleType</dtyp:srcSchema>
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv03_NotApplicableMessage</dtyp:srcSchema>
+                                                      </xsd:appinfo>
+                                                  </xsd:annotation>
+                                                  <xsd:simpleType>
+                                                      <xsd:union memberTypes="dtyp:Azimuth comp:NotApplicableMessage"/>
+                                                  </xsd:simpleType>
+                                              </xsd:element>
+                                             <xsd:element name="Pv04_Azimuth">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Azimuth (deg)</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                                 </xsd:annotation>
+                                                 <xsd:simpleType>
+                                                     <xsd:union memberTypes="dtyp:Azimuth comp:NotApplicableMessage"/>
+                                                 </xsd:simpleType>
                                              </xsd:element>
-                                             <xsd:element name="Pv05_TiltMeasurementType" type="env:TiltMeasurementType">
+                                              <xsd:element name="Pv05cc_TiltMeasurementType">
+                                                  <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Tilt Input (deg/pitch)</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
+                                                          result = SeePlans
+                                                          Else If CC-PRF parent
+                                                          If Pv08_TiltMeasurementType IsPresent
+                                                          result = Pv08_TiltMeasurementType
+                                                          Else If Pv08_NotApplicableMessage IsPresent
+                                                          result = Pv08_NotApplicableMessage
+                                                          End If
+                                                          End If</xsd:documentation>
+                                                      <xsd:appinfo source="CIsrc">
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv08_TiltMeasurementType</dtyp:srcSchema>
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv08_NotApplicableMessage</dtyp:srcSchema>
+                                                      </xsd:appinfo>
+                                                  </xsd:annotation>
+                                                  <xsd:simpleType>
+                                                      <xsd:union memberTypes="env:TiltMeasurementType comp:NotApplicableMessage"/>
+                                                  </xsd:simpleType>
+                                              </xsd:element>
+                                             <xsd:element name="Pv05_TiltMeasurementType">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Tilt Input (deg/pitch)</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">Use input</xsd:documentation>
                                                 </xsd:annotation>
+                                                 <xsd:simpleType>
+                                                     <xsd:union memberTypes="env:TiltMeasurementType comp:NotApplicableMessage"/>
+                                                 </xsd:simpleType>
                                              </xsd:element>
+                                          <xsd:choice maxOccurs="1">
+                                              <xsd:element name="Pv06cc_Tilt">
+                                                  <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Angle/Tilt</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
+                                                          result = SeePlans
+                                                          Else If CC-PRF parent
+                                                          If Pv09_Tilt IsPresent
+                                                          result = Pv09_Tilt
+                                                          Else If Pv09_NotApplicableMessage IsPresent
+                                                          result = Pv09_NotApplicableMessage
+                                                          End If
+                                                          End If</xsd:documentation>
+                                                      <xsd:appinfo source="CIsrc">
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv09_Tilt</dtyp:srcSchema>
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv09_NotApplicableMessage</dtyp:srcSchema>
+                                                      </xsd:appinfo>
+                                                  </xsd:annotation>
+                                                  <xsd:simpleType>
+                                                      <xsd:union memberTypes="dtyp:Tilt comp:NotApplicableMessage"/>
+                                                  </xsd:simpleType>
+                                              </xsd:element>
+                                              <xsd:element name="Pv06cc_RoofRiseString">
+                                                  <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Angle/Tilt</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
+                                                          result = SeePlans
+                                                          Else If CC-PRF parent
+                                                          If Pv10_RoofRiseString IsPresent
+                                                          result = Pv10_RoofRiseString
+                                                          Else If Pv10_NotApplicableMessage IsPresent
+                                                          result = Pv10_NotApplicableMessage
+                                                          End If
+                                                          End If</xsd:documentation>
+                                                      <xsd:appinfo source="CIsrc">
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv10_RoofRiseString</dtyp:srcSchema>
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv10_NotApplicableMessage</dtyp:srcSchema>
+                                                      </xsd:appinfo>
+                                                  </xsd:annotation>
+                                                  <xsd:simpleType>
+                                                    <xsd:union memberTypes="env:RoofRiseString comp:NotApplicableMessage"/>
+                                                  </xsd:simpleType>
+                                              </xsd:element>
+                                          </xsd:choice>
                                              <xsd:choice maxOccurs="1">
                                                 <xsd:element name="Pv06_Tilt" type="dtyp:Tilt">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Angle/Tilt</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules"> If Pv05_TiltMeasurementType == Degrees
-User input
+                                                      <xsd:documentation source="CalculationsAndRules">
+                                                          If Pv06cc_Tilt IsPresent And Pv06cc_Tilt != BlankGrayedOut And Pv05_TiltMeasurementType == Degrees
+                                                          User input
+                                                          Else If Pv06cc_Tilt == BlankGrayedOut
+                                                          result = BlankGrayedOut
+                                                          End If
                                                       </xsd:documentation>
                                                    </xsd:annotation>
+                                                    <xsd:simpleType>
+                                                        <xsd:union memberTypes="dtyp:Tilt comp:NotApplicableMessage"/>
+                                                    </xsd:simpleType>
                                                 </xsd:element>
                                                 <xsd:element name="Pv06_RoofRiseString" type="env:RoofRiseString">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Angle/Tilt</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules"> If Pv05_TiltMeasurementType == Pitch
-User input
+                                                      <xsd:documentation source="CalculationsAndRules">
+                                                          If Pv06cc_RoofRiseString IsPresent And Pv06cc_RoofRiseString != BlankGrayedOut And Pv05_TiltMeasurementType == Pitch
+                                                          User input
+                                                          Else If Pv06cc_RoofRiseString == BlankGrayedOut
+                                                          result = BlankGrayedOut
+                                                          End If
                                                       </xsd:documentation>
                                                    </xsd:annotation>
+                                                   <xsd:simpleType>
+                                                       <xsd:union memberTypes="env:RoofRiseString comp:NotApplicableMessage"/>
+                                                   </xsd:simpleType>
                                                 </xsd:element>
                                              </xsd:choice>
+                                              <xsd:element name="Pv07cc_AnnualSolarAccess">
+                                                  <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Annual Solar Access (%)</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
+                                                          result = SeePlans
+                                                          Else If CC-PRF parent
+                                                          If Pv12_AnnualSolarAccess IsPresent
+                                                          result = Pv12_AnnualSolarAccess
+                                                          Else If Pv12_NotApplicableMessage IsPresent
+                                                          result = Pv12_NotApplicableMessage
+                                                          End If
+                                                          End If</xsd:documentation>
+                                                      <xsd:appinfo source="CIsrc">
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv12_AnnualSolarAccess</dtyp:srcSchema>
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv12_NotApplicableMessage</dtyp:srcSchema>
+                                                      </xsd:appinfo>
+                                                  </xsd:annotation>
+                                                  <xsd:simpleType>
+                                                      <xsd:union memberTypes="hvac:AnnualSolarAccess comp:NotApplicableMessage"/>
+                                                  </xsd:simpleType>
+                                              </xsd:element>
                                              <xsd:element name="Pv07_AnnualSolarAccess" type="hvac:AnnualSolarAccess">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Annual Solar Access (%)</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                                 </xsd:annotation>
+                                                 <xsd:simpleType>
+                                                     <xsd:union memberTypes="hvac:AnnualSolarAccess comp:NotApplicableMessage"/>
+                                                 </xsd:simpleType>
                                              </xsd:element>
+                                              <xsd:element name="Pv08cc_InverterEfficiencyPercent">
+                                                  <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Inverter Eff. (%)</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
+                                                          result = SeePlans
+                                                          Else If CC-PRF parent
+                                                          If Pv11_InverterEfficiencyPercent IsPresent
+                                                          result = Pv11_InverterEfficiencyPercent
+                                                          Else If Pv11_NotApplicableMessage IsPresent
+                                                          result = Pv11_NotApplicableMessage
+                                                          End If
+                                                          End If</xsd:documentation>
+                                                      <xsd:appinfo source="CIsrc">
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv11_InverterEfficiencyPercent</dtyp:srcSchema>
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv11_NotApplicableMessage</dtyp:srcSchema>
+                                                      </xsd:appinfo>
+                                                  </xsd:annotation>
+                                                  <xsd:simpleType>
+                                                      <xsd:union memberTypes="hvac:InverterEfficiencyPercent comp:NotApplicableMessage"/>
+                                                  </xsd:simpleType>
+                                              </xsd:element>
                                              <xsd:element name="Pv08_InverterEfficiencyPercent" type="hvac:InverterEfficiencyPercent">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Inverter Eff. (%)</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                                 </xsd:annotation>
+                                                 <xsd:simpleType>
+                                                     <xsd:union memberTypes="hvac:InverterEfficiencyPercent comp:NotApplicableMessage"/>
+                                                 </xsd:simpleType>
                                              </xsd:element>
+                                              <xsd:element name="Pv09cc_ArrayType">
+                                                  <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Array Type</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
+                                                          result = SeePlans
+                                                          Else If CC-PRF parent
+                                                          If Pv04_ArrayType IsPresent
+                                                          result = Pv04_ArrayType
+                                                          Else If Pv04_NotApplicableMessage IsPresent
+                                                          result = Pv04_NotApplicableMessage
+                                                          End If
+                                                          End If</xsd:documentation>
+                                                      <xsd:appinfo source="CIsrc">
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv04_ArrayType</dtyp:srcSchema>
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv04_NotApplicableMessage</dtyp:srcSchema>
+                                                      </xsd:appinfo>
+                                                  </xsd:annotation>
+                                                  <xsd:simpleType>
+                                                      <xsd:union memberTypes="hvac:ArrayType comp:NotApplicableMessage"/>
+                                                  </xsd:simpleType>
+                                              </xsd:element>
                                              <xsd:element name="Pv09_ArrayType" type="hvac:ArrayType">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Array Type</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                                 </xsd:annotation>
+                                                 <xsd:simpleType>
+                                                     <xsd:union memberTypes="hvac:ArrayType comp:NotApplicableMessage"/>
+                                                 </xsd:simpleType>
                                              </xsd:element>
+                                              <xsd:element name="Pv10cc_PowerElectronics">
+                                                  <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Module Level Power Electronics</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
+                                                          result = SeePlans
+                                                          Else If CC-PRF parent
+                                                          If Pv05_PowerElectronics IsPresent
+                                                          result = Pv05_PowerElectronics
+                                                          Else If Pv05_NotApplicableMessage IsPresent
+                                                          result = Pv05_NotApplicableMessage
+                                                          End If
+                                                          End If</xsd:documentation>
+                                                      <xsd:appinfo source="CIsrc">
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv05_PowerElectronics</dtyp:srcSchema>
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv05_NotApplicableMessage</dtyp:srcSchema>
+                                                      </xsd:appinfo>
+                                                  </xsd:annotation>
+                                                  <xsd:simpleType>
+                                                      <xsd:union memberTypes="hvac:PowerElectronics comp:NotApplicableMessage"/>
+                                                  </xsd:simpleType>
+                                              </xsd:element>
                                              <xsd:element name="Pv10_PowerElectronics" type="hvac:PowerElectronics">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Module Level Power Electronics</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                                 </xsd:annotation>
+                                                 <xsd:simpleType>
+                                                     <xsd:union memberTypes="hvac:PowerElectronics comp:NotApplicableMessage"/>
+                                                 </xsd:simpleType>
                                              </xsd:element>
                                           </xsd:sequence>
                                        </xsd:complexType>
@@ -765,9 +1015,14 @@ End If</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If parent NRCC_SAB
 If  Bat07b_BatteryPower NotPresent
 result = BlankGrayedOut
+Else If parent CC-PRF
+If Bat04_NotApplicableMessage isPresent
+result = Bat04_NotApplicableMessage
+End If
 End If</xsd:documentation>
                                              <xsd:appinfo source="CIsrc">
                                                 <dtyp:srcSchema form="NRCCSAB1E"  usage="reference">Bat07b_BatteryPower</dtyp:srcSchema>
+                                                 <dtyp:srcSchema form="CCPRF01E"  usage="reference">Bat04_NotApplicableMessage</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
                                           <xsd:simpleType>
