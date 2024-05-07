@@ -523,6 +523,21 @@ End If</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">In this table there is no Per C of C row of data, only the as-built row of data</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
+                                              <xsd:element name="Pv01_InMyScope" type="comp:InMyScope">
+                                                  <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">Is this in your scope?</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">User selects from true value display term Yes and false value display term No, by others
+                                                          If result == false Pv02cc-Pv10cc As-built fields is blank and grayed out
+                                                          End If</xsd:documentation>
+                                                  </xsd:annotation>
+                                              </xsd:element>
+                                              <xsd:element name="Pv01_InstalledSameAsCC" type="comp:InstalledSameAsCC" minOccurs="0">
+                                                  <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
+                                                  </xsd:annotation>
+                                              </xsd:element>
+
                                               <xsd:element name="Pv01cc_ArrayName" type="hvac:ArrayName">
                                                   <xsd:annotation>
                                                       <xsd:documentation source="FieldText">PV Array ID or Name</xsd:documentation>
@@ -595,15 +610,15 @@ End If</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
                                                           result = SeePlans
                                                           Else If CC-PRF parent
-                                                          If Pv03_ArrayModuleType IsPresent
-                                                          result = Pv03_ArrayModuleType
-                                                          Else If Pv03_NotApplicableMessage IsPresent
-                                                          result = Pv03_NotApplicableMessage
+                                                          If Pv07_Azimuth IsPresent
+                                                          result = Pv07_Azimuth
+                                                          Else If Pv07_NotApplicableMessage IsPresent
+                                                          result = Pv07_NotApplicableMessage
                                                           End If
                                                           End If</xsd:documentation>
                                                       <xsd:appinfo source="CIsrc">
-                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv03_ArrayModuleType</dtyp:srcSchema>
-                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv03_NotApplicableMessage</dtyp:srcSchema>
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv07_Azimuth</dtyp:srcSchema>
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv07_NotApplicableMessage</dtyp:srcSchema>
                                                       </xsd:appinfo>
                                                   </xsd:annotation>
                                                   <xsd:simpleType>
@@ -694,14 +709,12 @@ End If</xsd:documentation>
                                               </xsd:element>
                                           </xsd:choice>
                                              <xsd:choice maxOccurs="1">
-                                                <xsd:element name="Pv06_Tilt" type="dtyp:Tilt">
+                                                <xsd:element name="Pv06_Tilt">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Angle/Tilt</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">
-                                                          If Pv06cc_Tilt IsPresent And Pv06cc_Tilt != BlankGrayedOut And Pv05_TiltMeasurementType == Degrees
+                                                          If Pv05_TiltMeasurementType == Degrees
                                                           User input
-                                                          Else If Pv06cc_Tilt == BlankGrayedOut
-                                                          result = BlankGrayedOut
                                                           End If
                                                       </xsd:documentation>
                                                    </xsd:annotation>
@@ -709,14 +722,12 @@ End If</xsd:documentation>
                                                         <xsd:union memberTypes="dtyp:Tilt comp:NotApplicableMessage"/>
                                                     </xsd:simpleType>
                                                 </xsd:element>
-                                                <xsd:element name="Pv06_RoofRiseString" type="env:RoofRiseString">
+                                                <xsd:element name="Pv06_RoofRiseString">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Angle/Tilt</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">
-                                                          If Pv06cc_RoofRiseString IsPresent And Pv06cc_RoofRiseString != BlankGrayedOut And Pv05_TiltMeasurementType == Pitch
-                                                          User input
-                                                          Else If Pv06cc_RoofRiseString == BlankGrayedOut
-                                                          result = BlankGrayedOut
+                                                          If Pv05_TiltMeasurementType == Pitch
+                                                          User Input
                                                           End If
                                                       </xsd:documentation>
                                                    </xsd:annotation>
@@ -746,7 +757,7 @@ End If</xsd:documentation>
                                                       <xsd:union memberTypes="hvac:AnnualSolarAccess comp:NotApplicableMessage"/>
                                                   </xsd:simpleType>
                                               </xsd:element>
-                                             <xsd:element name="Pv07_AnnualSolarAccess" type="hvac:AnnualSolarAccess">
+                                             <xsd:element name="Pv07_AnnualSolarAccess">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Annual Solar Access (%)</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
@@ -776,7 +787,7 @@ End If</xsd:documentation>
                                                       <xsd:union memberTypes="hvac:InverterEfficiencyPercent comp:NotApplicableMessage"/>
                                                   </xsd:simpleType>
                                               </xsd:element>
-                                             <xsd:element name="Pv08_InverterEfficiencyPercent" type="hvac:InverterEfficiencyPercent">
+                                             <xsd:element name="Pv08_InverterEfficiencyPercent">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Inverter Eff. (%)</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
@@ -806,7 +817,7 @@ End If</xsd:documentation>
                                                       <xsd:union memberTypes="hvac:ArrayType comp:NotApplicableMessage"/>
                                                   </xsd:simpleType>
                                               </xsd:element>
-                                             <xsd:element name="Pv09_ArrayType" type="hvac:ArrayType">
+                                             <xsd:element name="Pv09_ArrayType">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Array Type</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
@@ -836,7 +847,7 @@ End If</xsd:documentation>
                                                       <xsd:union memberTypes="hvac:PowerElectronics comp:NotApplicableMessage"/>
                                                   </xsd:simpleType>
                                               </xsd:element>
-                                             <xsd:element name="Pv10_PowerElectronics" type="hvac:PowerElectronics">
+                                             <xsd:element name="Pv10_PowerElectronics">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Module Level Power Electronics</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
@@ -845,6 +856,88 @@ End If</xsd:documentation>
                                                      <xsd:union memberTypes="hvac:PowerElectronics comp:NotApplicableMessage"/>
                                                  </xsd:simpleType>
                                              </xsd:element>
+                                              <xsd:element name="PVRow_ComplianceResultsCI" type="comp:ComplianceResultCI" >
+                                                  <xsd:annotation>
+                                                      <xsd:documentation source="FieldText">PV Compliance</xsd:documentation>
+                                                      <xsd:documentation source="CalculationsAndRules">If any user input field is blank
+                                                          result = TableIncomplete
+                                                          Else If Pv01_ArrayName IsPresent 
+                                                          And
+                                                          PV02_ArrayPowerOutput IsPresent And PV02_ArrayPowerOutput == PV02cc_ArrayPowerOutput
+                                                          And
+                                                          Pv03_ArrayModuleType IsPresent And Pv03_ArrayModuleType == Pv03cc_ArrayModuleType
+                                                          And
+                                                          Pv04_Azimuth IsPresent And Pv04_Azimuth == Pv04cc_Azimuth
+                                                          And
+                                                          Pv05_TiltMeasurementType IsPresent And Pv05_TiltMeasurementType == Pv05cc_TiltMeasurementType
+                                                          And
+                                                          (
+                                                          Pv06_Tilt IsPresent And Pv06cc_Tilt == Pv06cc_Tilt
+                                                          Or
+                                                          Pv06_RoofRiseString IsPresent And Pv06_RoofRiseString == Pv06cc_RoofRiseString
+                                                          )
+                                                          And
+                                                          Pv07_AnnualSolarAccess IsPresent And Pv07_AnnualSolarAccess == Pv07cc_AnnualSolarAccess
+                                                          And
+                                                          Pv08_InverterEfficiencyPercent IsPresent And Pv08_InverterEfficiencyPercent == Pv08cc_InverterEfficiencyPercent
+                                                          And
+                                                          Pv09_ArrayType IsPresent And Pv09_ArrayType == Pv09cc_ArrayType
+                                                          And
+                                                          Pv10_PowerElectronics IsPresent And Pv10_PowerElectronics == Pv10cc_PowerElectronics
+                                                          result = ExactMatch
+                                                          Else If Pv01_ArrayName IsPresent 
+                                                          And
+                                                          PV02_ArrayPowerOutput IsPresent And PV02_ArrayPowerOutput GT PV02cc_ArrayPowerOutput
+                                                          And
+                                                          Pv03_ArrayModuleType IsPresent 
+                                                          And
+                                                          Pv04_Azimuth IsPresent And Pv04cc_Azimuth == SeePlans Or  Pv04cc_Azimuth == Pv04_Azimuth 
+                                                          And
+                                                          Pv05_TiltMeasurementType IsPresent 
+                                                          And
+                                                          (
+                                                          Pv06_Tilt IsPresent 
+                                                          Or
+                                                          Pv06_RoofRiseString IsPresent 
+                                                          )
+                                                          And
+                                                          Pv07_AnnualSolarAccess IsPresent And Pv07_AnnualSolarAccess GT Pv07cc_AnnualSolarAccess Or Pv07cc_AnnualSolarAccess == SeePlans
+                                                          And
+                                                          Pv08_InverterEfficiencyPercent IsPresent 
+                                                          And 
+                                                          Pv08_InverterEfficiencyPercent GT Pv08cc_InverterEfficiencyPercent Or Pv08cc_InverterEfficiencyPercent == SeePlans
+                                                          And
+                                                          (
+                                                          (Pv09_ArrayType IsPresent And (Pv09_ArrayType == Tracking2Axis And Pv09cc_ArrayType == FixedArray Or FixedArrayOpen Or Tracking1Axis Or Tracking2Axis)
+                                                          Or
+                                                          (Pv09_ArrayType == Tracking1Axis And Pv09cc_ArrayType == Tracking1Axis Or FixedArrayOpen Or FixedArray)
+                                                          Or
+                                                          (Pv09_ArrayType == FixedArrayOpen And Pv09cc_ArrayType== FixedArrayOpen Or FixedArray)
+                                                          )
+                                                          And
+                                                          Pv10_PowerElectronics IsPresent And Pv10_PowerElectronics == Pv10cc_PowerElectronics
+                                                          result = EqualBetter
+                                                          Else If 
+                                                          PV02_ArrayPowerOutput IsPresent And PV02_ArrayPowerOutput LT PV02cc_ArrayPowerOutput
+                                                          Or
+                                                          Pv04_Azimuth IsPresent And Pv04_Azimuth != Pv04cc_Azimuth
+                                                          Or
+                                                          And
+                                                          Pv07_AnnualSolarAccess IsPresent And Pv07_AnnualSolarAccess LT Pv07cc_AnnualSolarAccess
+                                                          Or
+                                                          Pv08_InverterEfficiencyPercent IsPresent And Pv08_InverterEfficiencyPercent LT Pv08cc_InverterEfficiencyPercent
+                                                          Or  
+                                                          (  
+                                                          (Pv09_ArrayType IsPresent And (Pv09_ArrayType == FixedArray Or FixedArrayOpen Or Tracking1Axis  And Pv09cc_ArrayType== Tracking2Axis)  
+                                                          Or  
+                                                          (Pv09_ArrayType == FixedArray Or FixedArrayOpen And Pv09cc_ArrayType== Tracking1Axis  Or Tracking2Axis)  
+                                                          Or  
+                                                          (Pv09_ArrayType == FixedArray And Pv09cc_ArrayType== FixedArrayOpen Or Tracking1Axis  Or Tracking2Axis)  
+                                                          )  
+                                                          result = MayNotComply
+                                                          End If</xsd:documentation>
+                                                  </xsd:annotation>
+                                              </xsd:element>
                                           </xsd:sequence>
                                        </xsd:complexType>
                                     </xsd:element>
@@ -863,7 +956,7 @@ End If</xsd:documentation>
                                  <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
 result = C04_PV_SystemTotalRatedPowerDC / 1000
 Else If CC-PRF parent
-result = Pv01_PV_SystemTotalRatedPowerDC</xsd:documentation>
+result = SUM(Pv01_PV_SystemTotalRatedPowerDC)</xsd:documentation>
                                  <xsd:appinfo source="CIsrc">
                                     <dtyp:srcSchema form="CCSAB01E"  usage="copy">C04_PV_SystemTotalRatedPowerDC</dtyp:srcSchema>
                                     <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv01_PV_SystemTotalRatedPowerDC</dtyp:srcSchema>
