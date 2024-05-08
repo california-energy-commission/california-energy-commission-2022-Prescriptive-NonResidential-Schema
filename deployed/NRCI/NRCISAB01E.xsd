@@ -558,7 +558,7 @@ End If</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
                                                 </xsd:annotation>
                                              </xsd:element>
-                                             <xsd:element name="Pv01cc_ArrayName" type="hvac:ArrayName">
+                                             <xsd:element name="Pv01cc_ArrayName">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">PV Array ID or Name</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">result = SeePlans</xsd:documentation>
