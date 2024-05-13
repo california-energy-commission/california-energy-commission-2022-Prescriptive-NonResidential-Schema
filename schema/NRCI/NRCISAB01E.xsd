@@ -604,34 +604,34 @@ End If</xsd:documentation>
                                                       <xsd:union memberTypes="hvac:ArrayModuleType comp:NotApplicableMessage"/>
                                                   </xsd:simpleType>
                                               </xsd:element>
-                                              <xsd:element name="Pv04cc_Azimuth">
+                                              <xsd:element name="Pv04cc_AzimuthRangeString">
                                                   <xsd:annotation>
                                                       <xsd:documentation source="FieldText">Azimuth (deg)</xsd:documentation>
                                                       <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
                                                           result = SeePlans
                                                           Else If CC-PRF parent
-                                                          If Pv07_Azimuth IsPresent
-                                                          result = Pv07_Azimuth
+                                                          If Pv07_AzimuthRangeString IsPresent
+                                                          result = Pv07_AzimuthRangeString
                                                           Else If Pv07_NotApplicableMessage IsPresent
                                                           result = Pv07_NotApplicableMessage
                                                           End If
                                                           End If</xsd:documentation>
                                                       <xsd:appinfo source="CIsrc">
-                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv07_Azimuth</dtyp:srcSchema>
+                                                          <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv07_AzimuthRangeString</dtyp:srcSchema>
                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Pv07_NotApplicableMessage</dtyp:srcSchema>
                                                       </xsd:appinfo>
                                                   </xsd:annotation>
                                                   <xsd:simpleType>
-                                                      <xsd:union memberTypes="dtyp:Azimuth comp:NotApplicableMessage"/>
+                                                      <xsd:union memberTypes="com:AzimuthRangeString comp:NotApplicableMessage"/>
                                                   </xsd:simpleType>
                                               </xsd:element>
-                                             <xsd:element name="Pv04_Azimuth">
+                                             <xsd:element name="Pv04_AzimuthRangeString">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Azimuth (deg)</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                                 </xsd:annotation>
                                                  <xsd:simpleType>
-                                                     <xsd:union memberTypes="dtyp:Azimuth comp:NotApplicableMessage"/>
+                                                     <xsd:union memberTypes="com:AzimuthRangeString comp:NotApplicableMessage"/>
                                                  </xsd:simpleType>
                                              </xsd:element>
                                               <xsd:element name="Pv05cc_TiltMeasurementType">
@@ -867,7 +867,7 @@ End If</xsd:documentation>
                                                           And
                                                           Pv03_ArrayModuleType IsPresent And Pv03_ArrayModuleType == Pv03cc_ArrayModuleType
                                                           And
-                                                          Pv04_Azimuth IsPresent And Pv04_Azimuth == Pv04cc_Azimuth
+                                                          Pv04_AzimuthRangeString IsPresent And Pv04_AzimuthRangeString == Pv04cc_AzimuthRangeString
                                                           And
                                                           Pv05_TiltMeasurementType IsPresent And Pv05_TiltMeasurementType == Pv05cc_TiltMeasurementType
                                                           And
@@ -891,7 +891,7 @@ End If</xsd:documentation>
                                                           And
                                                           Pv03_ArrayModuleType IsPresent 
                                                           And
-                                                          Pv04_Azimuth IsPresent And Pv04cc_Azimuth == SeePlans Or  Pv04cc_Azimuth == Pv04_Azimuth 
+                                                          Pv04_AzimuthRangeString IsPresent And Pv04cc_AzimuthRangeString == SeePlans Or  Pv04cc_AzimuthRangeString == Pv04_AzimuthRangeString
                                                           And
                                                           Pv05_TiltMeasurementType IsPresent 
                                                           And
@@ -920,7 +920,7 @@ End If</xsd:documentation>
                                                           Else If 
                                                           PV02_ArrayPowerOutput IsPresent And PV02_ArrayPowerOutput LT PV02cc_ArrayPowerOutput
                                                           Or
-                                                          Pv04_Azimuth IsPresent And Pv04_Azimuth != Pv04cc_Azimuth
+                                                          Pv04_AzimuthRangeString IsPresent And Pv04_AzimuthRangeString != Pv04cc_AzimuthRangeString
                                                           Or
                                                           And
                                                           Pv07_AnnualSolarAccess IsPresent And Pv07_AnnualSolarAccess LT Pv07cc_AnnualSolarAccess
