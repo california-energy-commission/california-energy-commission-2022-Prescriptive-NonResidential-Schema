@@ -1790,7 +1790,8 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from dropdown list: 
 MotionSensorCompliant  display term Yes, 
 FacadeGTE24Ft display term NA: Facade, etc. 
-                                             <d:gte/>24 ft, 
+                                             <d:gte/>24 ft, FacadeLTE24Ft display term NA: Facade, etc. 
+                                             <d:lt/> 24ft,
 WallGTE24Ft display term NA: Wall 
                                              <d:gte/>24 ft, MultifamilyLightingNA display term NA: MF Complying w 160.5(a), NotPermittedNA display term NA: Not permitted by H&amp;amp;LS, TunnelsNA display term NA: Lighting in Tunnels, AthleticNA display term NA: Athletic Fields/Playgrounds Lighting, HistoricBuildingNA display term NA: Historical Building Lighting, IndustrialNA display term NA: Industrial Sites Lighting, LandscapeNA display term NA: Landscape Lighting, LuminaireLT40NA display term NA: Each Luminaire less than or equal to 40 Watts, MonumentNA display term NA: Public Monument Lighting, PublicRoadNA display term NA: Lighting for Public Roadways, RegulatedNA display term NA: Regulated by FAA or Coast Guard, StairsRampNA display term NA: Stairs Wheelchair Lift/Ramp Lighting, ThemeParkNA display term NA: Theme Park Special Effect Lighting, TimeOutNA display term NA: H&amp;amp;LS: time-out period longer than 15 minutes/ dimming level above 50 percent, OutdoorTheaterNA display term NA: Outdoor Theater, ParkingLuminaireLT78NA display term NA: Parking Lot each Luminaire less than 48 Watts
  

@@ -9190,7 +9190,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AthleticNA">NA: Athletic Fields/Playgrounds Lighting</dtyp:displayterm>
             <dtyp:displayterm value="FacadeLTE24Ft">NA: Facade, etc. 
-               <d:lte/>24 ft</dtyp:displayterm>
+               <d:lt/>24 ft</dtyp:displayterm>
             <dtyp:displayterm value="GTE24Ft">NA: 
                <d:gte/>24 ft</dtyp:displayterm>
             <dtyp:displayterm value="HistoricBuildingNA">NA: Historical Building Lighting</dtyp:displayterm>

@@ -13960,7 +13960,7 @@ End If</xsd:documentation>
                                     </xsd:choice>
                                     <xsd:element name="L10e_DuctLeakageTestRequired" type="comp:DuctLeakageTestRequired">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Duct leakage testing per CMC Section 603.10.1 required  for these systems?</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Duct leakage testing per CMC Section 603.9.2 required  for these systems?</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated value: 
 If L10c1_DuctLeakageMeetsNA7Req == false and L10c2_DuctLeakageMeetsNA7Req == false and L10d1_DuctLeakageMeetsRA3Req == false and L10d2_DuctLeakageMeetsRA3Req == false And L22_ExistingToRemain == false
 result = true;

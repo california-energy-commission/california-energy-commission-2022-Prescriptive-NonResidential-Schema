@@ -389,7 +389,7 @@ End If</xsd:documentation>
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText">Individual or Central System</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-If F08_WaterHeaterType == InstantaneousConsumer Or StorageConsumer Or StorageResDutyCommercial Or InstantaneousConsumerElectric Or InstantaneousResDutyCommercial Or StorageConsumerElectric Or NonNEEAIndividualHeatPumpWH Or NEEAIndividualHeatPumpWH
+If F08_WaterHeaterType == InstantaneousConsumer Or StorageConsumer Or StorageResDutyCommercial Or InstantaneousConsumerElectric Or InstantaneousResDutyCommercial Or StorageConsumerElectric Or NonNEEAIndividualHeatPumpWH Or NEEAIndividualHeatPumpWH Or TableTopElectric
 result = false
 Else 
 result = true

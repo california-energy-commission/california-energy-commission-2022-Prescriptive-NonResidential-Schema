@@ -17966,7 +17966,7 @@ End If</xsd:documentation>
             result = 0.34
          End If
       End If
-   Else if Kvertperf06_FenestrationModification == AddGT50ft2 Or AddLTE50ft2 Or AllNew
+   Else if Kvertperf06_FenestrationModification == AddGT50ft2 Or AddLTE50ft2 Or AllNew Or ReplaceGT150ft2 Or ReplaceLTE150ft2
       If A03_ClimateZoneNumber == 3 Or 5 
          result = 0.58
       Else If A03_ClimateZoneNumber == 1 Or 2 Or 4 or InRange (6, 16)

@@ -1381,10 +1381,23 @@ End If</xsd:documentation>
                                                          <xsd:element name="F10a_WaterHeaterCapacityRated" type="hvac:WaterHeaterCapacityRated">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Rated Input Capacity (Btu/h)</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If TableSystems IsPresent 
- User input
+                                                               <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType ==   BoilerCommercialGTE1MMBtu or BoilerResDutyCommercial or BoilerWaterHeater or BoilerCommercialLT1MMBtu or InstantaneousCommercial or InstantaneousConsumer or StorageCommercial or StorageConsumer or StorageResDutyCommercial:
+User input
 End If</xsd:documentation>
                                                             </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="F10a_NotApplicableMessage">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Rated Input Capacity (Btu/h) or</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If F08_WaterHeaterType == CentralHeatPumpWH or InstantaneousConsumerElectric or InstantaneousResDutyCommercial or StorageCommercialElectric or StorageConsumerElectric or TableTopElectric or NEEAIndividualHeatPumpWH or NonNEEAIndividualHeatPumpWH:
+result = BlankGrayedOut stored in NotApplicableMessage
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:restriction base="comp:NotApplicableMessage">
+                                                                  <xsd:enumeration value="BlankGrayedOut"/>
+                                                               </xsd:restriction>
+                                                            </xsd:simpleType>
                                                          </xsd:element>
                                                       </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
