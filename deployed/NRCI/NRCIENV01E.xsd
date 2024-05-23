@@ -5244,6 +5244,42 @@ End If</xsd:documentation>
                                                             </xsd:simpleType>
                                                          </xsd:element>
                                                       </xsd:choice>
+                                                      <xsd:element name="FloorsSlab06aValue" minOccurs="0">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Vertical</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If Floors02cc_AssemblyType == HeatedSlab and Iheated05a_SlabInsulationRValueRequired is present
+result = Iheated05a_SlabInsulationRValueRequired
+
+Else if Floors02cc_AssemblyType != HeatedSlab or Iheated05a_NotApplicableMessage is present
+result = BlankGrayedOut
+End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCENV01E" usage="copy">Iheated05a_SlabInsulationRValueRequired</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCENV01E" usage="copy">Iheated05a_NotApplicableMessage</dtyp:srcSchema>
+                                                            </xsd:appinfo>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:union memberTypes="env:SlabInsulationRValueRequired comp:NotApplicableMessage"/>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="FloorsSlab06bValue" minOccurs="0">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Vertical</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If Floors02cc_AssemblyType == HeatedSlab and Iheated05b_SlabInsulationRValueRequired is present
+result = Iheated05b_SlabInsulationRValueRequired
+
+Else if Floors02cc_AssemblyType != HeatedSlab or Iheated05b_NotApplicableMessage is present
+result = BlankGrayedOut
+End If</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCENV01E" usage="copy">Iheated05b_SlabInsulationRValueRequired</dtyp:srcSchema>
+                                                               <dtyp:srcSchema form="CCENV01E" usage="copy">Iheated05b_NotApplicableMessage</dtyp:srcSchema>
+                                                            </xsd:appinfo>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:union memberTypes="env:SlabInsulationRValueRequired comp:NotApplicableMessage"/>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
                                                       <xsd:choice maxOccurs="1">
                                                          <xsd:element name="FloorsFramed06cc_ContinuousInsulationNR">
                                                             <xsd:annotation>
