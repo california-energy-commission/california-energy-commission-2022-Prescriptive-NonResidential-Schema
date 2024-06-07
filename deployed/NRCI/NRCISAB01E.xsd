@@ -577,13 +577,13 @@ End If</xsd:documentation>
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Installed DC Power Rating (kW)</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
-                                                          If Bat07b_BatteryPower IsPresent
-                                                          result = Bat07b_BatteryPower
+                                                          If Pv10_PV_DesignSize IsPresent
+                                                          result = Pv10_PV_DesignSize
                                                           Else If CC-PRF parent
                                                           result = Pv01_PV_SystemTotalRatedPowerDC
                                                           End If</xsd:documentation>
                                                    <xsd:appinfo source="CIsrc">
-                                                      <dtyp:srcSchema form="NRCCSAB1E" usage="copy">Bat07b_BatteryPower</dtyp:srcSchema>
+                                                      <dtyp:srcSchema form="NRCCSAB1E" usage="copy">Pv10_PV_DesignSize</dtyp:srcSchema>
                                                       <dtyp:srcSchema form="CCPRF01E" usage="copy">Pv01_PV_SystemTotalRatedPowerDC</dtyp:srcSchema>
                                                    </xsd:appinfo>
                                                 </xsd:annotation>
