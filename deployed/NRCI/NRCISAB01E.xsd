@@ -564,7 +564,7 @@ End If</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">result = SeePlans</xsd:documentation>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
-                                                   <xsd:union memberTypes="hvac:ArrayName comp:NotApplicableMessage"/>
+                                                   <xsd:union memberTypes="hvac:ArrayName comp:NotApplicableMessage comp:SeePlansMessage"/>
                                                 </xsd:simpleType>
                                              </xsd:element>
                                              <xsd:element name="Pv01_ArrayName" type="hvac:ArrayName">
@@ -612,7 +612,7 @@ End If</xsd:documentation>
                                                    </xsd:appinfo>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
-                                                   <xsd:union memberTypes="hvac:ArrayModuleType comp:NotApplicableMessage"/>
+                                                   <xsd:union memberTypes="hvac:ArrayModuleType comp:NotApplicableMessage comp:SeePlansMessage"/>
                                                 </xsd:simpleType>
                                              </xsd:element>
                                              <xsd:element name="Pv03_ArrayModuleType">
@@ -642,7 +642,7 @@ End If</xsd:documentation>
                                                    </xsd:appinfo>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
-                                                   <xsd:union memberTypes="com:AzimuthRangeString comp:NotApplicableMessage"/>
+                                                   <xsd:union memberTypes="com:AzimuthRangeString comp:NotApplicableMessage comp:SeePlansMessage"/>
                                                 </xsd:simpleType>
                                              </xsd:element>
                                              <xsd:element name="Pv04_AzimuthRangeString">
@@ -672,7 +672,7 @@ End If</xsd:documentation>
                                                    </xsd:appinfo>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
-                                                   <xsd:union memberTypes="env:TiltMeasurementType comp:NotApplicableMessage"/>
+                                                   <xsd:union memberTypes="env:TiltMeasurementType comp:NotApplicableMessage comp:SeePlansMessage"/>
                                                 </xsd:simpleType>
                                              </xsd:element>
                                              <xsd:element name="Pv05_TiltMeasurementType">
@@ -703,7 +703,7 @@ End If</xsd:documentation>
                                                       </xsd:appinfo>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
-                                                      <xsd:union memberTypes="dtyp:Tilt comp:NotApplicableMessage"/>
+                                                      <xsd:union memberTypes="dtyp:Tilt comp:NotApplicableMessage comp:SeePlansMessage"/>
                                                    </xsd:simpleType>
                                                 </xsd:element>
                                                 <xsd:element name="Pv06cc_RoofRiseString">
@@ -724,7 +724,7 @@ End If</xsd:documentation>
                                                       </xsd:appinfo>
                                                    </xsd:annotation>
                                                    <xsd:simpleType>
-                                                      <xsd:union memberTypes="env:RoofRiseString comp:NotApplicableMessage"/>
+                                                      <xsd:union memberTypes="env:RoofRiseString comp:NotApplicableMessage comp:SeePlansMessage"/>
                                                    </xsd:simpleType>
                                                 </xsd:element>
                                              </xsd:choice>
@@ -770,7 +770,7 @@ End If</xsd:documentation>
                                                    </xsd:appinfo>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
-                                                   <xsd:union memberTypes="hvac:AnnualSolarAccess comp:NotApplicableMessage"/>
+                                                   <xsd:union memberTypes="hvac:AnnualSolarAccess comp:NotApplicableMessage comp:SeePlansMessage"/>
                                                 </xsd:simpleType>
                                              </xsd:element>
                                              <xsd:element name="Pv07_AnnualSolarAccess">
@@ -800,7 +800,7 @@ End If</xsd:documentation>
                                                    </xsd:appinfo>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
-                                                   <xsd:union memberTypes="hvac:InverterEfficiencyPercent comp:NotApplicableMessage"/>
+                                                   <xsd:union memberTypes="hvac:InverterEfficiencyPercent comp:NotApplicableMessage comp:SeePlansMessage"/>
                                                 </xsd:simpleType>
                                              </xsd:element>
                                              <xsd:element name="Pv08_InverterEfficiencyPercent">
@@ -830,7 +830,7 @@ End If</xsd:documentation>
                                                    </xsd:appinfo>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
-                                                   <xsd:union memberTypes="hvac:ArrayType comp:NotApplicableMessage"/>
+                                                   <xsd:union memberTypes="hvac:ArrayType comp:NotApplicableMessage comp:SeePlansMessage"/>
                                                 </xsd:simpleType>
                                              </xsd:element>
                                              <xsd:element name="Pv09_ArrayType">
@@ -860,7 +860,7 @@ End If</xsd:documentation>
                                                    </xsd:appinfo>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
-                                                   <xsd:union memberTypes="hvac:PowerElectronics comp:NotApplicableMessage"/>
+                                                   <xsd:union memberTypes="hvac:PowerElectronics comp:NotApplicableMessage comp:SeePlansMessage"/>
                                                 </xsd:simpleType>
                                              </xsd:element>
                                              <xsd:element name="Pv10_PowerElectronics">
@@ -1008,13 +1008,14 @@ End If</xsd:documentation>
                            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
-                                    <xsd:element name="Bat01cc_NotApplicableMessage">
+                                    <xsd:element name="Bat01cc_SeePlansMessage">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Manufacturer</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">result = SeePlans</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
-                                          <xsd:restriction base="comp:NotApplicableMessage">
-                                             <xsd:enumeration value="BlankGrayedOut"/>
+                                          <xsd:restriction base="comp:SeePlansMessage">
+                                             <xsd:enumeration value="SeePlans"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
@@ -1023,13 +1024,14 @@ End If</xsd:documentation>
                                           <xsd:documentation source="FieldText">Manufacturer</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Bat02cc_NotApplicableMessage">
+                                    <xsd:element name="Bat02cc_SeePlansMessage">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Model #</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">result = SeePlans</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
-                                          <xsd:restriction base="comp:NotApplicableMessage">
-                                             <xsd:enumeration value="BlankGrayedOut"/>
+                                          <xsd:restriction base="comp:SeePlansMessage">
+                                             <xsd:enumeration value="SeePlans"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
@@ -1172,15 +1174,24 @@ End If</xsd:documentation>
                                           </xsd:simpleType>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="Bat05cc_NotApplicableMessage">
+                                    <xsd:element name="Bat05CC_BatteryControl">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Control</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">result = BlankGrayedOut</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CC-SAB parent
+                                                result = SeePlans
+                                             Else If CC-PRF parent
+                                                If Bat01_BatteryControl IsPresent
+                                                   result = Bat01_BatteryControl
+                                                Else
+                                                   result = SeePlans
+                                                End If
+                                             End If</xsd:documentation>
+                                          <xsd:appinfo source="CIsrc">
+                                             <dtyp:srcSchema form="CCPRF01E" usage="copy">Bat01_BatteryControl</dtyp:srcSchema>
+                                          </xsd:appinfo>
                                        </xsd:annotation>
                                        <xsd:simpleType>
-                                          <xsd:restriction base="comp:NotApplicableMessage">
-                                             <xsd:enumeration value="BlankGrayedOut"/>
-                                          </xsd:restriction>
+                                          <xsd:union memberTypes="hvac:BatteryControl comp:NotApplicableMessage comp:SeePlansMessage"/>
                                        </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="Bat05_BatteryControl" type="hvac:BatteryControl">
@@ -1189,14 +1200,14 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Bat06cc_NotApplicableMessage">
+                                    <xsd:element name="Bat06cc_SeePlansMessage">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Charging Efficiency</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">result = BlankGrayedOut</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">result = SeePlans</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
-                                          <xsd:restriction base="comp:NotApplicableMessage">
-                                             <xsd:enumeration value="BlankGrayedOut"/>
+                                          <xsd:restriction base="comp:SeePlansMessage">
+                                             <xsd:enumeration value="SeePlans"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
@@ -1206,14 +1217,14 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Bat07cc_NotApplicableMessage">
+                                    <xsd:element name="Bat07cc_SeePlansMessage">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Discharging Efficiency</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">result = BlankGrayedOut</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">result = SeePlans</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
-                                          <xsd:restriction base="comp:NotApplicableMessage">
-                                             <xsd:enumeration value="BlankGrayedOut"/>
+                                          <xsd:restriction base="comp:SeePlansMessage">
+                                             <xsd:enumeration value="SeePlans"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
@@ -1223,14 +1234,14 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Bat08cc_NotApplicableMessage">
+                                    <xsd:element name="Bat08cc_SeePlansMessage">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Battery System Certified by CEC?</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">result = BlankGrayedOut</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">result = SeePlans</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
-                                          <xsd:restriction base="comp:NotApplicableMessage">
-                                             <xsd:enumeration value="BlankGrayedOut"/>
+                                          <xsd:restriction base="comp:SeePlansMessage">
+                                             <xsd:enumeration value="SeePlans"/>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
@@ -1247,15 +1258,23 @@ End If</xsd:documentation>
  result = TableIncomplete
 Else If Bat03_BatteryCapacity == Bat03cc_BatteryCapacity And
 Bat04_ChargingRate == Bat04cc_ChargingRate 
-Or Bat04_NotApplicableMessage Is Present
+Or Bat04_NotApplicableMessage Is Present And
+Bat05_BatteryControl == Bat05CC_BatteryControl 
 result = ExactMatch
  
 Else If Bat03cc_BatteryCapacity LT Bat03_BatteryCapacity And 
-Bat04_ChargingRate Is Present And Bat04cc_ChargingRate LT Bat04_ChargingRate 
+Bat04_ChargingRate Is Present And Bat04cc_ChargingRate LT Bat04_ChargingRate And
+Bat05CC_BatteryControl == Basic and Bat05_BatteryControl == TOU or RankedDayDR or AdvancedDR
+or Bat05CC_BatteryControl == TOU and Bat05_BatteryControl == RankedDayDR or AdvancedDR
+or Bat05CC_BatteryControl == RankedDayDR and Bat05_BatteryControl == AdvancedDR
+or Bat05CC_BatteryControl == AdvancedDR and Bat05_BatteryControl == RankedDayDR
 result = EqualBetter
  
 Else If Bat03cc_BatteryCapacity GT Bat03_BatteryCapacity Or 
-Bat04_ChargingRate Is Present And Bat04cc_ChargingRate GT Bat04_ChargingRate 
+Bat04_ChargingRate Is Present And Bat04cc_ChargingRate GT Bat04_ChargingRate Or 
+Bat05CC_BatteryControl == AdvancedDR and Bat05_BatteryControl == Basic or TOU 
+Or Bat05CC_BatteryControl == RankedDayDR and Bat05_BatteryControl == Basic or TOU 
+Or Bat05CC_BatteryControl == TOU and Bat05_BatteryControl == Basic
 result = MayNotComply
 End If</xsd:documentation>
                                        </xsd:annotation>
