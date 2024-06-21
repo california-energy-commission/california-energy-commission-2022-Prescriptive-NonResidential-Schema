@@ -625,7 +625,7 @@ End If</xsd:documentation>
                                                       <xsd:union memberTypes="com:AzimuthRangeString comp:NotApplicableMessage comp:SeePlansMessage"/>
                                                   </xsd:simpleType>
                                               </xsd:element>
-                                             <xsd:element name="Pv04_AzimuthRangeString">
+                                             <xsd:element name="Pv04_AzimuthRangeDegree">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Azimuth (deg)</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
@@ -867,7 +867,7 @@ End If</xsd:documentation>
                                                           And
                                                           Pv03_ArrayModuleType IsPresent And (Pv03_ArrayModuleType == Pv03cc_ArrayModuleType or Pv03cc_ArrayModuleType == SeePlans)
                                                           And
-                                                          Pv04_AzimuthRangeString IsPresent And (Pv04_AzimuthRangeString == Pv04cc_AzimuthRangeString or Pv04cc_AzimuthRangeString == SeePlans)
+                                                          Pv04_AzimuthRangeDegree IsPresent And (Pv04_AzimuthRangeDegree == Pv04cc_AzimuthRangeString or Pv04cc_AzimuthRangeString == SeePlans)
                                                           And
                                                           Pv05_TiltMeasurementType IsPresent And (Pv05_TiltMeasurementType == Pv05cc_TiltMeasurementType or Pv05cc_TiltMeasurementType == SeePlans)
                                                           And
@@ -893,7 +893,7 @@ End If</xsd:documentation>
                                                           And
                                                           Pv03_ArrayModuleType IsPresent 
                                                           And
-                                                          Pv04_AzimuthRangeString IsPresent And Pv04cc_AzimuthRangeString == SeePlans Or  Pv04cc_AzimuthRangeString == Pv04_AzimuthRangeString
+                                                          Pv04_AzimuthRangeDegree IsPresent And Pv04cc_AzimuthRangeString == SeePlans Or  Pv04cc_AzimuthRangeString == Pv04_AzimuthRangeDegree
                                                           And
                                                           Pv05_TiltMeasurementType IsPresent 
                                                           And
@@ -924,7 +924,7 @@ End If</xsd:documentation>
                                                           Else If 
                                                           PV02_ArrayPowerOutput IsPresent And PV02_ArrayPowerOutput LT PV02cc_ArrayPowerOutput
                                                           Or
-                                                          Pv04_AzimuthRangeString IsPresent And Pv04_AzimuthRangeString != Pv04cc_AzimuthRangeString
+                                                          Pv04_AzimuthRangeDegree IsPresent And Pv04_AzimuthRangeDegree != Pv04cc_AzimuthRangeString
                                                           Or
                                                           And
                                                           Pv07_AnnualSolarAccess IsPresent And Pv07_AnnualSolarAccess LT Pv07cc_AnnualSolarAccess
