@@ -966,15 +966,17 @@ result = SUM(Pv01_PV_SystemTotalRatedPowerDC)</xsd:documentation>
                            <xsd:element name="PV13_ComplianceResultCI" type="comp:ComplianceResultCI" >
                               <xsd:annotation>
                                  <xsd:documentation source="FieldText">PV Compliance</xsd:documentation>
-                                 <xsd:documentation source="CalculationsAndRules">If any user input field is blank
- result = TableIncomplete  
-Else If PV11_PV_SystemPowerOutput == PV12cc_PV_DesignSize
-result = ExactMatch
-Else If PV11_PV_SystemPowerOutput GT PV12cc_PV_DesignSize
-result = EqualBetter
+                                 <xsd:documentation source="CalculationsAndRules">If PVRow_ComplianceResultsCI == TableIncomplete
+result = TableIncomplete
 Else If PV11_PV_SystemPowerOutput LT PV12cc_PV_DesignSize
+Or PVRow_ComplianceResultsCI == MayNotComply
 result = MayNotComply
-End If</xsd:documentation>
+Else If PV11_PV_SystemPowerOutput GT PV12cc_PV_DesignSize
+And PVRow_ComplianceResultsCI == EqualBetter Or PVRow_ComplianceResultsCI == ExactMatch
+result = EqualBetter
+Else If PV11_PV_SystemPowerOutput == PV12cc_PV_DesignSize
+And PVRow_ComplianceResultsCI == ExactMatch
+result = ExactMatch</xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
                         </xsd:sequence>
