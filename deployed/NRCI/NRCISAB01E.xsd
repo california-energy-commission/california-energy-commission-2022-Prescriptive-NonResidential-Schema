@@ -651,7 +651,7 @@ End If</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                                 </xsd:annotation>
                                                 <xsd:simpleType>
-                                                   <xsd:union memberTypes="com:AzimuthRangeString comp:NotApplicableMessage"/>
+                                                   <xsd:union memberTypes="com:AzimuthRangeDegree comp:NotApplicableMessage"/>
                                                 </xsd:simpleType>
                                              </xsd:element>
                                              <xsd:element name="Pv05cc_TiltMeasurementType">
@@ -881,26 +881,28 @@ End If</xsd:documentation>
                                                           And
                                                           PV02_ArrayPowerOutput IsPresent And PV02_ArrayPowerOutput == PV02cc_ArrayPowerOutput
                                                           And
-                                                          Pv03_ArrayModuleType IsPresent And Pv03_ArrayModuleType == Pv03cc_ArrayModuleType
+                                                          Pv03_ArrayModuleType IsPresent And (Pv03_ArrayModuleType == Pv03cc_ArrayModuleType or Pv03cc_ArrayModuleType == SeePlans)
                                                           And
-                                                          Pv04_AzimuthRangeString IsPresent And Pv04_AzimuthRangeString == Pv04cc_AzimuthRangeString
+                                                          Pv04_AzimuthRangeString IsPresent And (Pv04_AzimuthRangeString == Pv04cc_AzimuthRangeString or Pv04cc_AzimuthRangeString == SeePlans)
                                                           And
-                                                          Pv05_TiltMeasurementType IsPresent And Pv05_TiltMeasurementType == Pv05cc_TiltMeasurementType
+                                                          Pv05_TiltMeasurementType IsPresent And (Pv05_TiltMeasurementType == Pv05cc_TiltMeasurementType or Pv05cc_TiltMeasurementType == SeePlans)
                                                           And
                                                           (
-                                                          Pv06_Tilt IsPresent And Pv06cc_Tilt == Pv06cc_Tilt
+                                                          Pv06_Tilt IsPresent And (Pv06cc_Tilt == Pv06cc_Tilt or Pv06cc_Tilt == SeePlans)
                                                           Or
-                                                          Pv06_RoofRiseString IsPresent And Pv06_RoofRiseString == Pv06cc_RoofRiseString
+                                                          Pv06_RoofRiseString IsPresent And (Pv06_RoofRiseString == Pv06cc_RoofRiseString or Pv06cc_RoofRiseString == SeePlans)
                                                           )
                                                           And
-                                                          Pv07_AnnualSolarAccess IsPresent And Pv07_AnnualSolarAccess == Pv07cc_AnnualSolarAccess
+                                                          Pv07_AnnualSolarAccess IsPresent And (Pv07_AnnualSolarAccess == Pv07cc_AnnualSolarAccess or Pv07cc_AnnualSolarAccess == SeePlans)
                                                           And
-                                                          Pv08_InverterEfficiencyPercent IsPresent And Pv08_InverterEfficiencyPercent == Pv08cc_InverterEfficiencyPercent
+                                                          Pv08_InverterEfficiencyPercent IsPresent And (Pv08_InverterEfficiencyPercent == Pv08cc_InverterEfficiencyPercent or Pv08cc_InverterEfficiencyPercent == SeePlans)
                                                           And
-                                                          Pv09_ArrayType IsPresent And Pv09_ArrayType == Pv09cc_ArrayType
+                                                          Pv09_ArrayType IsPresent And (Pv09_ArrayType == Pv09cc_ArrayType or Pv09cc_ArrayType == SeePlans)
                                                           And
-                                                          Pv10_PowerElectronics IsPresent And Pv10_PowerElectronics == Pv10cc_PowerElectronics
+                                                          Pv10_PowerElectronics IsPresent And (Pv10_PowerElectronics == Pv10cc_PowerElectronics or Pv10cc_PowerElectronics == SeePlans)
                                                           result = ExactMatch
+                                                          
+                                                          
                                                           Else If Pv01_ArrayName IsPresent 
                                                           And
                                                           PV02_ArrayPowerOutput IsPresent And PV02_ArrayPowerOutput GT PV02cc_ArrayPowerOutput
@@ -924,15 +926,17 @@ End If</xsd:documentation>
                                                           Pv08_InverterEfficiencyPercent GT Pv08cc_InverterEfficiencyPercent Or Pv08cc_InverterEfficiencyPercent == SeePlans
                                                           And
                                                           (
-                                                          (Pv09_ArrayType IsPresent And (Pv09_ArrayType == Tracking2Axis And Pv09cc_ArrayType == FixedArray Or FixedArrayOpen Or Tracking1Axis Or Tracking2Axis)
+                                                          (Pv09_ArrayType IsPresent And (Pv09_ArrayType == Tracking2Axis And Pv09cc_ArrayType == FixedArray Or FixedArrayOpen Or Tracking1Axis Or Tracking2Axis or SeePlans)
                                                           Or
-                                                          (Pv09_ArrayType == Tracking1Axis And Pv09cc_ArrayType == Tracking1Axis Or FixedArrayOpen Or FixedArray)
+                                                          (Pv09_ArrayType == Tracking1Axis And Pv09cc_ArrayType == Tracking1Axis Or FixedArrayOpen Or FixedArray or SeePlans)
                                                           Or
-                                                          (Pv09_ArrayType == FixedArrayOpen And Pv09cc_ArrayType== FixedArrayOpen Or FixedArray)
+                                                          (Pv09_ArrayType == FixedArrayOpen And Pv09cc_ArrayType== FixedArrayOpen Or  or SeePlans)
                                                           )
                                                           And
-                                                          Pv10_PowerElectronics IsPresent And Pv10_PowerElectronics == Pv10cc_PowerElectronics
+                                                          Pv10_PowerElectronics IsPresent And (Pv10_PowerElectronics == Pv10cc_PowerElectronics or Pv10cc_PowerElectronics == SeePlans)
                                                           result = EqualBetter
+                                                          
+                                                          
                                                           Else If 
                                                           PV02_ArrayPowerOutput IsPresent And PV02_ArrayPowerOutput LT PV02cc_ArrayPowerOutput
                                                           Or

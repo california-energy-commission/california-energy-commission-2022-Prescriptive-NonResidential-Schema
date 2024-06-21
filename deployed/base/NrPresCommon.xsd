@@ -62,6 +62,12 @@
          <xsd:enumeration value="150To270"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="AzimuthRangeDegree">
+      <xsd:restriction base="xsd:decimal">
+         <xsd:minInclusive value="0"/>
+         <xsd:maxInclusive value="360"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="AzimuthRangeString">
       <xsd:restriction base="xsd:string"/>
    </xsd:simpleType>

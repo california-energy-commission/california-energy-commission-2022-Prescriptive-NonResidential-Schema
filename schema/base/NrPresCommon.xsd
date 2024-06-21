@@ -77,6 +77,12 @@
       <xsd:restriction base="xsd:string">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="AzimuthRangeDegree">
+      <xsd:restriction base="xsd:decimal">
+         <xsd:minInclusive value="0"/>
+         <xsd:maxInclusive value="360"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="BedroomCount">
       <xsd:annotation>
          <xsd:documentation>  Units: none</xsd:documentation>
