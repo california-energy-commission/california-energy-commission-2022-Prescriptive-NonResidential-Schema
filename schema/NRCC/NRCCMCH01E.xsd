@@ -8910,7 +8910,7 @@ End Switch</xsd:documentation>
                                                                                              </xsd:element>
                                                                                              <xsd:element name="H07exhaust_FanDeviceAllowance" type="comp:FanDeviceAllowance" >
                                                                                                 <xsd:annotation>
-                                                                                                   <xsd:documentation source="FieldText">Component Allowance</xsd:documentation>
+                                                                                                   <xsd:documentation source="FieldText">Component Allowance (watt/cfm)</xsd:documentation>
                                                                                                    <xsd:documentation source="CalculationsAndRules">If H02_FanFunction != Supply use this choice
  
  Switch (H04_FanPowerAllowanceDevice)
@@ -9337,7 +9337,7 @@ result = BlankGrayedOut</xsd:documentation>
                                                                <xsd:choice maxOccurs="1">
                                                                   <xsd:element name="H11_FanPower" type="hvac:FanPower" >
                                                                      <xsd:annotation>
-                                                                        <xsd:documentation source="FieldText">Design Electrical Input Power (kW)</xsd:documentation>
+                                                                        <xsd:documentation source="FieldText">Fan Electrical Input Power (kW)</xsd:documentation>
                                                                         <xsd:documentation source="CalculationsAndRules">If H09_FanInputPowerMethod == Manufacturer
 User input
 Else
@@ -9481,7 +9481,7 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="H12a_SupplyFanBaseAllowance" type="comp:FanSystemPowerAllowance" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Supply Fan Base Allowance (kW)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Supply Fan Base Allowance (watt/cfm)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Calculated value:
 SupplyFanBaseAllowance is assigned as follows:
 If H02_FanFunction == Supply Is Not Present in TableFanSystems Row
@@ -9553,7 +9553,7 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="H12b_ExhaustFanBaseAllowance" type="comp:FanSystemPowerAllowance" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Exhuast/Return/Relief/Transfer Fan Base Allowance(kW)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Exhuast/Return/Relief/Transfer Fan Base Allowance(watt/cfm)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Calculated value:
 ExhaustFanBaseAllowance is assigned as follows:
 If H02_FanFunction == Exhaust Or Relief Or Return Or Transfer Is Not Present in TableFanSystems Row
@@ -9643,7 +9643,7 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="H13_FanSystemInputPower" type="hvac:FanSystemInputPower" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Fan System Electrical Output (kW)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Fan System Electrical Input Power (kW)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Calculated value: result = for  fans in system Sum All (H03_FanCount x H11_FanPower)</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>

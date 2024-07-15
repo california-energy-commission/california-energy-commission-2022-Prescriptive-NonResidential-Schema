@@ -6543,8 +6543,8 @@
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="Manufacturer">Manufacturer provided</dtyp:displayterm>
-            <dtyp:displayterm value="Table140_4D">Default per Table 140.4-D</dtyp:displayterm>
-            <dtyp:displayterm value="Table140_4DVarSpeed">Default per Table 140.4-D Variable Speed Drive</dtyp:displayterm>
+            <dtyp:displayterm value="Table140_4D">Default per Table 140.4-D/141.0-D</dtyp:displayterm>
+            <dtyp:displayterm value="Table140_4DVarSpeed">Default per Table 140.4-D/141.0-D Variable Speed Drive</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -6595,10 +6595,10 @@
             <dtyp:displayterm value="MERV16GreaterOrHEPA">Filtration allowance for [d:gt/] MERV 16 or HEPA filter</dtyp:displayterm>
             <dtyp:displayterm value="NoDevice">None used</dtyp:displayterm>
             <dtyp:displayterm value="PressureMaintained">Fully ducted, or Systems that maintain pressure differential between rooms</dtyp:displayterm>
-            <dtyp:displayterm value="ReplaceReturnExhaust">Exhaust/Relief/Return/Transfer Fan System</dtyp:displayterm>
-            <dtyp:displayterm value="ReplaceReturnExhaustAdapterCurb">Exhaust/Relief/Return/Transfer In-Unit with Adapter Curb</dtyp:displayterm>
-            <dtyp:displayterm value="ReplaceSupply">Supply Fan System</dtyp:displayterm>
-            <dtyp:displayterm value="ReplaceSupplyAdapterCurb">Supply Fan In-Unit with Adapter Curb</dtyp:displayterm>
+            <dtyp:displayterm value="ReplaceReturnExhaust">Altered:Exhaust/Relief/Return/Transfer Fan System</dtyp:displayterm>
+            <dtyp:displayterm value="ReplaceReturnExhaustAdapterCurb">Altered:Exhaust/Relief/Return/Transfer In-Unit with Adapter Curb</dtyp:displayterm>
+            <dtyp:displayterm value="ReplaceSupply">Altered:Supply Fan System</dtyp:displayterm>
+            <dtyp:displayterm value="ReplaceSupplyAdapterCurb">Altered:Supply Fan In-Unit with Adapter Curb</dtyp:displayterm>
             <dtyp:displayterm value="SoundAttenuation">Sound Attenuation Section</dtyp:displayterm>
             <dtyp:displayterm value="TermUnitFanLT1kW">System feeds a terminal unit with a fan with electrical input power [d:lt/] 1kW</dtyp:displayterm>
          </xsd:appinfo>
@@ -9428,7 +9428,7 @@
             <dtyp:displayterm value="StairsRampNA">NA: Stairs Wheelchair Lift/Ramp Lighting</dtyp:displayterm>
             <dtyp:displayterm value="TempLightNA">NA: Temporary Lighting</dtyp:displayterm>
             <dtyp:displayterm value="ThemeParkNA">NA: Theme Park Special Effect Lighting</dtyp:displayterm>
-            <dtyp:displayterm value="TimeOutNA">NA: H&amp;LS: time-out period longer than 15 minutes/ dimming level above 50 percent</dtyp:displayterm>
+            <dtyp:displayterm value="TimeOutNA">H&amp;LS: time-out period longer than 15 minutes/ dimming level above 50 percent</dtyp:displayterm>
             <dtyp:displayterm value="TunnelsNA">NA: Lighting in Tunnels</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
