@@ -1885,7 +1885,7 @@ Note: All following fields in this table reference CC parent fields for the wall
                                              <dtyp:srcSchema form="CCENV01E"  usage="reference">H01Log_WallTypeApplies</dtyp:srcSchema>
                                              <dtyp:srcSchema form="CCENV01E"  usage="copy">Hlog02_WallAssemblyName</dtyp:srcSchema>
                                              <dtyp:srcSchema form="CCENV01E"  usage="reference">IOpaq02_CompatibleSurfaceType</dtyp:srcSchema>
-                                             <dtyp:srcSchema form="CCENV01E"  usage="copy">Opaq01_ConstructionAssemblyNameString</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E"  usage="copy">Opaq01_ConstructionAssemblyNameString</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -2369,11 +2369,7 @@ End If</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
 If Walls02cc_AssemblyType == SIPS And HSIPS05_NotApplicableMessage IsPresent Or Walls02cc_AssemblyType == Spandrel And Hspandrel05_NotApplicableMessage IsPresent 
 Or Walls02cc_AssemblyType == MetalBuilding And Hmetalb05_NotApplicableMessage IsPresent Or  Walls02cc_AssemblyType == ConcretePanel And Hconcrete08_NotApplicableMessage IsPresent
-Or
-If Walls02cc_AssemblyType == MetalPanel or Strawbale
-result = BlankGrayedOut
-End If
-Else If CC-PRF parent 
+Or Walls02cc_AssemblyType == MetalPanel or Strawbale
 result = BlankGrayedOut
 End If</xsd:documentation>
                                                                      <xsd:appinfo source="CIsrc">
@@ -6341,7 +6337,7 @@ End If</xsd:documentation>
                                                       <xsd:choice maxOccurs="1">
                                                          <xsd:element name="Fen03cc_FenestrationComplianceCalc" >
                                                             <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Calculation Method</xsd:documentation>
+                                                               <xsd:documentation source="FieldText">Calculation/Certification Method</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
 If Fen01cc_FenestrationName IsPresent and assigned from Kvertperf04_FenestrationName 
 If Kvertperf09_FenestrationComplianceCalc IsPresent
@@ -6380,7 +6376,7 @@ End If</xsd:documentation>
                                                          </xsd:element>
                                                          <xsd:element name="Fen03cc_NotApplicableMessage" >
                                                             <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Calculation Method</xsd:documentation>
+                                                               <xsd:documentation source="FieldText">Calculation/Certification Method</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
 If Fen01cc_FenestrationName IsPresent and assigned from Kvertperf04_FenestrationName 
 If Kvertperf09_NotApplicableMessage IsPresent
@@ -6407,7 +6403,7 @@ End If</xsd:documentation>
                                                       <xsd:choice maxOccurs="1">
                                                          <xsd:element name="Fen03_FenestrationComplianceCalc">
                                                             <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Calculation Method</xsd:documentation>
+                                                               <xsd:documentation source="FieldText">Calculation/Certification Method</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Fen03cc_FenestrationComplianceCalc IsPresent 
 If Fen01_InstalledSameAsCC == true
 result =  Fen03cc_FenestrationComplianceCalc
@@ -6430,7 +6426,7 @@ End If</xsd:documentation>
                                                          </xsd:element>
                                                          <xsd:element name="Fen03_NotApplicableMessage" >
                                                             <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Calculation Method</xsd:documentation>
+                                                               <xsd:documentation source="FieldText">Calculation/Certification Method</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Fen03cc_NotApplicableMessage IsPresent 
 result = Fen03cc_NotApplicableMessage
 End If</xsd:documentation>
@@ -7194,7 +7190,7 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:i]There are no Acceptance Tests indicated on the permitted NRCC related to the systems or materials documented on this NRCI.[/d:i]</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If at least one RequireNRCAxxx == true, 
+                        <xsd:documentation source="CalculationsAndRules">If at least one RequireNRCAxxx == true Or CC-PRF parent,
 the static text in AdditionalRequirements IS NOT DISPLAYED  
 Else If All RequireNRCAxxx == false 
 the static text in AdditionalRequirements the only thing displayed after the Section title.</xsd:documentation>
