@@ -1038,7 +1038,7 @@ End If
 End If</xsd:documentation>
                                                                         <xsd:appinfo source="CIsrc">
                                                                            <dtyp:srcSchema form="CCPLB01E" usage="copy">F13_NotApplicableMessage</dtyp:srcSchema>
-                                                                           <dtyp:srcSchema form="CCPRF01E" usage="reference">Water08_NotApplicableMessage</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E" usage="reference">Water09_NotApplicableMessage</dtyp:srcSchema>
                                                                         </xsd:appinfo>
                                                                      </xsd:annotation>
                                                                      <xsd:simpleType>
@@ -1593,8 +1593,8 @@ Else If CC-PRF parent this subsection is NOT displayed or required</xsd:document
                                              <xsd:documentation source="FieldText"/>
                                              <xsd:documentation source="AdditionalRequirements">Compact hot water distribution system as specified in  Reference Appendix RA4.4.16 in climate zone 1 &amp;amp; 16; AND</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-result == G10_HeatPumpDistRequirement
- 
+result = G10_HeatPumpDistRequirement
+Else result = ReqHeatPumpCompact
 End If
 If  result == ReqHeatPumpCompact Or ReqHeatPumpCompactDWHR
 static text in AdditionalRequirements is displayed
@@ -1612,8 +1612,8 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText"/>
                                              <xsd:documentation source="AdditionalRequirements">A drain water heat recovery system that is field verified by a HERS rater per Reference Appendix RA3.6.9.in climate zone 16</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
-result == G10_HeatPumpDistRequirement
-End If
+result = G10_HeatPumpDistRequirement
+Else result = ReqHeatPumpDWHR
  
 If  result == ReqHeatPumpDWHR Or  ReqHeatPumpCompactDWHR  static text in AdditionalRequirements is displayed
 Else 
@@ -1632,9 +1632,9 @@ End If</xsd:documentation>
                                           <xsd:documentation source="AdditionalRequirements">A drain water heat recovery system that is field verified by a HERS Rater per Reference Appendix RA3.6.9 in climate zone 16.</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
 result = G11_IndividualSysDistRequirement
-End If
+Else result = ReqDWHRCZ16
  
-If  result == ReqDWHRCZ16 
+If  result == ReqDWHRCZ16
 static text in AdditionalRequirements is displayed
 Else 
 Nothing is displayed for this field
@@ -1650,10 +1650,10 @@ End If</xsd:documentation>
                                           <xsd:documentation source="FieldText"/>
                                           <xsd:documentation source="AdditionalRequirements">For recirculation distribution systems serving individual dwelling units, only Demand Recirculation Systems with manual on/off control as specified in the Reference Appendix RA4.4.9 shall be used.</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
-result =G12_IndividualSysDistRequirement
-End If
+result = G12_IndividualSysDistRequirement
+Else result = ReqDemandRecirc
  
-If  result ==ReqDemandRecirc, static text in AdditionalRequirements is displayed
+If  result == ReqDemandRecirc, static text in AdditionalRequirements is displayed
 Else 
 Nothing is displayed for this field
 End If</xsd:documentation>
