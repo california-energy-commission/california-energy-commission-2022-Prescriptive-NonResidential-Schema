@@ -538,7 +538,7 @@ End If</xsd:documentation>
                                                                         </xsd:restriction>
                                                                      </xsd:simpleType>
                                                                   </xsd:element>
-                                                                  <xsd:element name="DHW04_TankCategory" type="hvac:TankCategory" >
+                                                                  <xsd:element name="DHW04_TankCategory">
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
                                                                         <xsd:documentation source="CalculationsAndRules">
@@ -550,6 +550,17 @@ If DHW04cc_TankCategory IsPresent
    End If
 End If</xsd:documentation>
                                                                      </xsd:annotation>
+                                                                     <xsd:simpleType>
+                                                                        <xsd:restriction base="hvac:TankCategory">
+                                                                           <xsd:enumeration value="BoilerCommercial"/>
+                                                                           <xsd:enumeration value="Boiler"/>
+                                                                           <xsd:enumeration value="Indirect"/>
+                                                                           <xsd:enumeration value="InstantaneousCommercial"/>
+                                                                           <xsd:enumeration value="Instantaneous"/>
+                                                                           <xsd:enumeration value="StorageCommercial"/>
+                                                                           <xsd:enumeration value="Storage"/>
+                                                                        </xsd:restriction>
+                                                                     </xsd:simpleType>
                                                                   </xsd:element>
                                                                   <xsd:element name="DHW04_NotApplicableMessage" >
                                                                      <xsd:annotation>
@@ -707,10 +718,13 @@ If CC-PRF parent
    If Water06_WaterHeaterGasRatedInput IsNotPresent And Water06_WaterHeaterElectricFiredRatedInput IsNotPresent
       result = BlankGrayedOut
    End If
+Else if CC-PLB parent
+   If F10a_NotApplicableMessage IsPresent
+      result = F10a_NotApplicableMessage 
+   End If
 End If</xsd:documentation>
                                                                         <xsd:appinfo source="CIsrc">
-                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water06_WaterHeaterElectricFiredRatedInput</dtyp:srcSchema>
-                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water06_WaterHeaterGasRatedInput</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water06_NotApplicableMessage</dtyp:srcSchema>
                                                                         </xsd:appinfo>
                                                                      </xsd:annotation>
                                                                      <xsd:simpleType>

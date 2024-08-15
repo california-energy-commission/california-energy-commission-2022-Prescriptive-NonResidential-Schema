@@ -2371,13 +2371,19 @@ If Walls02cc_AssemblyType == SIPS And HSIPS05_NotApplicableMessage IsPresent Or 
 Or Walls02cc_AssemblyType == MetalBuilding And Hmetalb05_NotApplicableMessage IsPresent Or  Walls02cc_AssemblyType == ConcretePanel And Hconcrete08_NotApplicableMessage IsPresent
 Or Walls02cc_AssemblyType == MetalPanel or Strawbale
 result = BlankGrayedOut
-End If</xsd:documentation>
+End If
+
+Else If CC-PRF parent 
+   If Opaq04_NotApplicableMessage IsPresent
+   result = BlankGrayedOut
+End If
+</xsd:documentation>
                                                                      <xsd:appinfo source="CIsrc">
                                                                         <dtyp:srcSchema form="CCENV01E"  usage="reference">HSIPS05_NotApplicableMessage</dtyp:srcSchema>
                                                                         <dtyp:srcSchema form="CCENV01E"  usage="reference">Hspandrel05_NotApplicableMessage</dtyp:srcSchema>
                                                                         <dtyp:srcSchema form="CCENV01E"  usage="reference">Hmetalb05_NotApplicableMessage  Hconcrete08_NotApplicableMessage</dtyp:srcSchema>
                                                                         <dtyp:srcSchema form="CCENV01E"  usage="reference">Hconcrete08_NotApplicableMessage</dtyp:srcSchema>
-                                                                        <dtyp:srcSchema form="CCPRF01E"  usage="value">BlankGrayedOut</dtyp:srcSchema>
+                                                                        <dtyp:srcSchema form="CCPRF01E"  usage="reference">Opaq04_NotApplicableMessage</dtyp:srcSchema>
                                                                      </xsd:appinfo>
                                                                   </xsd:annotation>
                                                                   <xsd:simpleType>
