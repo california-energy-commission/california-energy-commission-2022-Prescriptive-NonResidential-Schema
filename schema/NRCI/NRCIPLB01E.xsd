@@ -303,14 +303,20 @@ End If</xsd:documentation>
                                              <xsd:element name="DHW01cc_WaterHeaterName" type="hvac:WaterHeaterName" >
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Name or Item Tag</xsd:documentation>
-                                                   <xsd:documentation source="CalculationsAndRules">If NRCC-PLB parent
-result = F07_WaterHeaterName
+                                                   <xsd:documentation source="CalculationsAndRules">
+If NRCC-PLB parent
+   result = F07_WaterHeaterName
 Else If NRCC-PRF parent
-result = Water01_WaterHeaterName 
+   If WaterMF01_WaterHeatingSystemName
+      result = WaterMF01_WaterHeatingSystemName
+   Else If Water01_WaterHeaterName IsPresent
+      result = Water01_WaterHeaterName
+   End If
 End If</xsd:documentation>
                                                    <xsd:appinfo source="CIsrc">
                                                       <dtyp:srcSchema form="CCPLB01E"  usage="copy">F07_WaterHeaterName</dtyp:srcSchema>
                                                       <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water01_WaterHeaterName</dtyp:srcSchema>
+                                                      <dtyp:srcSchema form="CCPRF01E"  usage="copy">WaterMF01_WaterHeatingSystemName</dtyp:srcSchema>
                                                    </xsd:appinfo>
                                                 </xsd:annotation>
                                              </xsd:element>
@@ -371,20 +377,20 @@ End If</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                                                   </xsd:annotation>
                                                                </xsd:element>
-                                                               <xsd:element name="DHW03cc_CentralSystem" type="hvac:CentralSystem" >
+                                                               <xsd:element name="DHW03cc_CentralSystem">
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText">Individual or Central System</xsd:documentation>
-                                                                     <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-If F08_WaterHeaterType == InstantaneousConsumer Or StorageConsumer Or StorageResDutyCommercial Or InstantaneousConsumerElectric Or InstantaneousResDutyCommercial Or StorageConsumerElectric Or NonNEEAIndividualHeatPumpWH Or NEEAIndividualHeatPumpWH Or TableTopElectric
-result = false
-Else 
-result = true
-End If
+                                                                     <xsd:documentation source="CalculationsAndRules">
+If CC-PLB parent
+   If F08_WaterHeaterType == InstantaneousConsumer Or StorageConsumer Or StorageResDutyCommercial Or InstantaneousConsumerElectric Or InstantaneousResDutyCommercial Or StorageConsumerElectric Or NonNEEAIndividualHeatPumpWH Or NEEAIndividualHeatPumpWH Or TableTopElectric
+      result = false
+   Else 
+      result = true
 Else If CC-PRF parent
-If WaterMF03_CentralSystem IsPresent
-result = WaterMF03_CentralSystem
-End If
-End If
+   If WaterMF03_CentralSystem IsPresent
+      result = WaterMF03_CentralSystem
+   Else
+      result = BlankGrayedOut
 End If</xsd:documentation>
                                                                      <xsd:appinfo source="displayterm">
                                                                         <dtyp:displayterm value="true">Central</dtyp:displayterm>
@@ -393,11 +399,14 @@ End If</xsd:documentation>
                                                                      
                                                                      <xsd:appinfo source="CIsrc">
                                                                         <dtyp:srcSchema form="CCPLB01E"  usage="reference">F08_WaterHeaterType</dtyp:srcSchema>
-                                                                        <dtyp:srcSchema form="CCPRF01E"  usage="copy">WaterMF03_CentralSystem</dtyp:srcSchema>
+                                                                        <dtyp:srcSchema form="CCPRF01E"  usage="reference">WaterMF03_CentralSystem</dtyp:srcSchema>
                                                                      </xsd:appinfo>
                                                                   </xsd:annotation>
+                                                                  <xsd:simpleType>
+                                                                     <xsd:union memberTypes="hvac:CentralSystem comp:NotApplicableMessage"/>
+                                                                  </xsd:simpleType>
                                                                </xsd:element>
-                                                               <xsd:element name="DHW03_CentralSystem" type="hvac:CentralSystem" >
+                                                               <xsd:element name="DHW03_CentralSystem">
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText">Individual or Central System</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If DHW01_InstalledSameAsCC == true
@@ -411,6 +420,9 @@ End If</xsd:documentation>
                                                                      </xsd:appinfo>
                                                                      
                                                                   </xsd:annotation>
+                                                                  <xsd:simpleType>
+                                                                     <xsd:union memberTypes="hvac:CentralSystem comp:NotApplicableMessage"/>
+                                                                  </xsd:simpleType>
                                                                </xsd:element>
                                                                <xsd:choice maxOccurs="1">
                                                                   <xsd:element name="DHW04cc_WaterHeaterType" >
@@ -423,8 +435,7 @@ End If</xsd:documentation>
                                                                            <dtyp:displayterm value="StorageCommercial">Gas Storage Water Heater</dtyp:displayterm>
                                                                            <dtyp:displayterm value="InstantaneousCommercial">Gas Instantaneous Water Heater</dtyp:displayterm>
                                                                            <dtyp:displayterm value="StorageCommercialElectric">Electric Storage Water Heater</dtyp:displayterm>
-                                                                           <dtyp:displayterm value="BoilerCommercialGT300kBtu">Commercial Package Gas Hot Water Supply Boilers (300k-2.5MM Btu/h)
-</dtyp:displayterm>
+                                                                           <dtyp:displayterm value="BoilerCommercialGT300kBtu">Commercial Package Gas Hot Water Supply Boilers (300k-2.5MM Btu/h)</dtyp:displayterm>
                                                                         </xsd:appinfo>
                                                                         
                                                                         <xsd:appinfo source="CIsrc">
@@ -470,12 +481,12 @@ End If</xsd:documentation>
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
                                                                         <xsd:documentation source="CalculationsAndRules">If CC-PRF parent 
-If Water03_NotApplicableMessage IsPresent
+If Water03_TankCategory IsNotPresent 
 result = BlankGrayedOut
 End If
 End If</xsd:documentation>
                                                                         <xsd:appinfo source="CIsrc">
-                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water03_NotApplicableMessage</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water03_TankCategory</dtyp:srcSchema>
                                                                         </xsd:appinfo>
                                                                      </xsd:annotation>
                                                                      <xsd:simpleType>
@@ -489,12 +500,13 @@ End If</xsd:documentation>
                                                                   <xsd:element name="DHW04_WaterHeaterType" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If DHW01_InstalledSameAsCC == true
+                                                                        <xsd:documentation source="CalculationsAndRules">
 If DHW04cc_WaterHeaterType IsPresent
-result = DHW04cc_WaterHeaterType
-Else If DHW01_InstalledSameAsCC == false
-User input
-End If
+   If DHW01_InstalledSameAsCC == true
+      result = DHW04cc_WaterHeaterType
+   Else If DHW01_InstalledSameAsCC == false
+      User input
+   End If
 End If</xsd:documentation>
                                                                         <xsd:appinfo source="displayterm">
                                                                            <dtyp:displayterm value="StorageCommercial">Gas Storage Water Heater</dtyp:displayterm>
@@ -529,21 +541,22 @@ End If</xsd:documentation>
                                                                   <xsd:element name="DHW04_TankCategory" type="hvac:TankCategory" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If DHW01_InstalledSameAsCC == true
+                                                                        <xsd:documentation source="CalculationsAndRules">
 If DHW04cc_TankCategory IsPresent
-result = DHW04cc_TankCategory
-Else If DHW01_InstalledSameAsCC == false
-User input from options in DHW04_WaterHeaterType
-End If
+   If DHW01_InstalledSameAsCC == true
+      result = DHW04cc_TankCategory
+   Else If DHW01_InstalledSameAsCC == false
+      User input
+   End If
 End If</xsd:documentation>
                                                                      </xsd:annotation>
                                                                   </xsd:element>
                                                                   <xsd:element name="DHW04_NotApplicableMessage" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Equipment Type</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If DHW04cc_NotApplicableMessage IsPresent
-If DHW01_InstalledSameAsCC == true
-result = DHW04cc_NotApplicableMessage 
+                                                                        <xsd:documentation source="CalculationsAndRules">
+If DHW04cc_NotApplicableMessage IsPresent
+   result = DHW04cc_NotApplicableMessage 
 End If</xsd:documentation>
                                                                      </xsd:annotation>
                                                                      <xsd:simpleType>
@@ -570,14 +583,15 @@ End If</xsd:documentation>
                                                                   <xsd:element name="DHW05cc_WaterHeaterTankVolume" type="hvac:WaterHeaterTankVolume" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Volume (gal)</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-If F09_WaterHeaterTankVolume IsPresent 
-result = F09_WaterHeaterTankVolume
-End If 
+                                                                        <xsd:documentation source="CalculationsAndRules">
+If CC-PLB parent
+   If F09_WaterHeaterTankVolume IsPresent 
+      result = F09_WaterHeaterTankVolume
+   End If 
 Else If CC-PRF parent
-If Water05_StorageCapacity IsPresent
-result = Water05_StorageCapacity
-End If
+   If Water05_StorageCapacity IsPresent
+      result = Water05_StorageCapacity
+   End If
 End If</xsd:documentation>
                                                                         <xsd:appinfo source="CIsrc">
                                                                            <dtyp:srcSchema form="CCPLB01E"  usage="copy">F09_WaterHeaterTankVolume</dtyp:srcSchema>
@@ -588,18 +602,19 @@ End If</xsd:documentation>
                                                                   <xsd:element name="DHW05cc_NotApplicableMessage" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Volume (gal)</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-If F09_NotApplicableMessage IsPresent
-result = F09_NotApplicableMessage
-End If 
+                                                                        <xsd:documentation source="CalculationsAndRules">
+If CC-PLB parent
+   If F09_NotApplicableMessage IsPresent
+      result = F09_NotApplicableMessage
+   End If 
 Else If CC-PRF parent
-If Water05_NotApplicableMessage IsPresent
-result = BlankGrayedOut
-End If
+   If Water05_StorageCapacity IsNotPresent
+      result = BlankGrayedOut
+   End If
 End If</xsd:documentation>
                                                                         <xsd:appinfo source="CIsrc">
                                                                            <dtyp:srcSchema form="CCPLB01E"  usage="copy">F09_NotApplicableMessage</dtyp:srcSchema>
-                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water05_NotApplicableMessage</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water05_StorageCapacity</dtyp:srcSchema>
                                                                         </xsd:appinfo>
                                                                      </xsd:annotation>
                                                                      <xsd:simpleType>
@@ -613,33 +628,35 @@ End If</xsd:documentation>
                                                                   <xsd:element name="DHW05_WaterHeaterVolume" type="hvac:WaterHeaterVolume" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Volume (gal)</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If DHW01_InstalledSameAsCC == true
-If DHW05cc_WaterHeaterVolume IsPresent 
-result = DHW05cc_WaterHeaterVolume
-Else If DHW01_InstalledSameAsCC == false
-User input
-End If 
+                                                                        <xsd:documentation source="CalculationsAndRules">
+If DHW05cc_WaterHeaterVolume IsPresent
+   If DHW01_InstalledSameAsCC == true
+      result = DHW05cc_WaterHeaterVolume
+   Else If DHW01_InstalledSameAsCC == false
+      User input
+   End If 
 End If</xsd:documentation>
                                                                      </xsd:annotation>
                                                                   </xsd:element>
                                                                   <xsd:element name="DHW05_WaterHeaterTankVolume" type="hvac:WaterHeaterTankVolume" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Volume (gal)</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If DHW01_InstalledSameAsCC == true
+                                                                        <xsd:documentation source="CalculationsAndRules">
 If DHW05cc_WaterHeaterTankVolume IsPresent 
-result = DHW05cc_WaterHeaterTankVolume
-Else If DHW01_InstalledSameAsCC == false
-User input
-End If 
+   If DHW01_InstalledSameAsCC == true
+      result = DHW05cc_WaterHeaterTankVolume
+   Else If DHW01_InstalledSameAsCC == false
+      User input
+   End If 
 End If</xsd:documentation>
                                                                      </xsd:annotation>
                                                                   </xsd:element>
                                                                   <xsd:element name="DHW05_NotApplicableMessage" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Volume (gal)</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If DHW05cc_NotApplicableMessage IsPresent
-If DHW01_InstalledSameAsCC == true
-result = DHW05cc_NotApplicableMessage
+                                                                        <xsd:documentation source="CalculationsAndRules">
+If DHW05cc_NotApplicableMessage IsPresent
+   result = DHW05cc_NotApplicableMessage
 End If</xsd:documentation>
                                                                      </xsd:annotation>
                                                                      <xsd:simpleType>
@@ -653,15 +670,15 @@ End If</xsd:documentation>
                                                                   <xsd:element name="DHW06cc_WaterHeaterCapacityRated" type="hvac:WaterHeaterCapacityRated" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Rated Input Capacity (Btu/h)</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-If F10a_WaterHeaterCapacityRated IsPresent
-result = F10a_WaterHeaterCapacityRated
-End If
-End If
+                                                                        <xsd:documentation source="CalculationsAndRules">
+If CC-PLB parent
+   If F10a_WaterHeaterCapacityRated IsPresent
+      result = F10a_WaterHeaterCapacityRated
+   End If
 Else If NRCC-PRF
-If Water06_WaterHeaterGasRatedInput IsPresent
-result = Water06_WaterHeaterGasRatedInput
-End If
+   If Water06_WaterHeaterGasRatedInput IsPresent
+      result = Water06_WaterHeaterGasRatedInput
+   End If
 End If</xsd:documentation>
                                                                         <xsd:appinfo source="CIsrc">
                                                                            <dtyp:srcSchema form="CCPLB01E"  usage="copy">F10a_WaterHeaterCapacityRated</dtyp:srcSchema>
@@ -685,12 +702,15 @@ End If</xsd:documentation>
                                                                   <xsd:element name="DHW06cc_NotApplicableMessage" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Rated Input Capacity (Btu/h)</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PRF
-If Water06_NotApplicableMessage IsPresent
-result = Water06_NotApplicableMessage
+                                                                        <xsd:documentation source="CalculationsAndRules">
+If CC-PRF parent
+   If Water06_WaterHeaterGasRatedInput IsNotPresent And Water06_WaterHeaterElectricFiredRatedInput IsNotPresent
+      result = BlankGrayedOut
+   End If
 End If</xsd:documentation>
                                                                         <xsd:appinfo source="CIsrc">
-                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water06_NotApplicableMessage</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water06_WaterHeaterElectricFiredRatedInput</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water06_WaterHeaterGasRatedInput</dtyp:srcSchema>
                                                                         </xsd:appinfo>
                                                                      </xsd:annotation>
                                                                      <xsd:simpleType>
@@ -704,34 +724,35 @@ End If</xsd:documentation>
                                                                   <xsd:element name="DHW06_WaterHeaterCapacityRated" type="hvac:WaterHeaterCapacityRated" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Rated Input Capacity (Btu/h)</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If DHW01_InstalledSameAsCC == true
+                                                                        <xsd:documentation source="CalculationsAndRules">
 If DHW06cc_WaterHeaterCapacityRated IsPresent 
-result = DHW06cc_WaterHeaterCapacityRated
-Else If DHW01_InstalledSameAsCC == false
-User input
-End If 
+   If DHW01_InstalledSameAsCC == true
+      result = DHW06cc_WaterHeaterCapacityRated
+   Else If DHW01_InstalledSameAsCC == false
+      User input
+   End If 
 End If</xsd:documentation>
                                                                      </xsd:annotation>
                                                                   </xsd:element>
                                                                   <xsd:element name="DHW06_WaterHeaterElectricFiredRatedInput" type="hvac:WaterHeaterElectricFiredRatedInput" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Rated Input Capacity (kW)</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If DHW01_InstalledSameAsCC == true
+                                                                        <xsd:documentation source="CalculationsAndRules">
 If DHW06cc_WaterHeaterElectricFiredRatedInput IsPresent
-result = DHW06cc_WaterHeaterElectricFiredRatedInput
-Else If DHW01_InstalledSameAsCC == false
-User input
-End If
+   If DHW01_InstalledSameAsCC == true
+      result = DHW06cc_WaterHeaterElectricFiredRatedInput
+   Else If DHW01_InstalledSameAsCC == false
+      User input
+   End If
 End If</xsd:documentation>
                                                                      </xsd:annotation>
                                                                   </xsd:element>
                                                                   <xsd:element name="DHW06_NotApplicableMessage" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Rated Input Capacity (Btu/h)</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If DHW06cc_NotApplicableMessage IsPresent
-If DHW01_InstalledSameAsCC == true
-result = DHW06cc_NotApplicableMessage
-End If
+                                                                        <xsd:documentation source="CalculationsAndRules">
+If DHW06cc_NotApplicableMessage IsPresent
+   result = DHW06cc_NotApplicableMessage
 End If</xsd:documentation>
                                                                      </xsd:annotation>
                                                                      <xsd:simpleType>
@@ -745,12 +766,12 @@ End If</xsd:documentation>
                                                                   <xsd:element name="DHW07cc_WaterHeaterRatedInputUnits" type="hvac:WaterHeaterRatedInputUnits" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Capacity Units</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-result = BtuHr
+                                                                        <xsd:documentation source="CalculationsAndRules">
+If CC-PLB parent
+   result = BtuHr
 Else If CC-PRF parent
-If Water07_WaterHeaterRatedInputUnits
- IsPresent
-result = Water07_WaterHeaterRatedInputUnits
+   If Water07_WaterHeaterRatedInputUnits IsPresent
+      result = Water07_WaterHeaterRatedInputUnits
 End If</xsd:documentation>
                                                                         <xsd:appinfo source="CIsrc">
                                                                            <dtyp:srcSchema form="CCPLB01E"  usage="value">BtuHr</dtyp:srcSchema>
@@ -761,14 +782,14 @@ End If</xsd:documentation>
                                                                   <xsd:element name="DHW07cc_NotApplicableMessage" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Capacity Units</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
-If Water07_NotApplicableMessage
- IsPresent
-result =Water07_NotApplicableMessage
-End If
+                                                                        <xsd:documentation source="CalculationsAndRules">
+If CC-PRF parent
+   If Water07_WaterHeaterRatedInputUnits IsNotPresent
+      result = BlankGrayedOut
+   End If
 End If</xsd:documentation>
                                                                         <xsd:appinfo source="CIsrc">
-                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water07_NotApplicableMessage</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water07_WaterHeaterRatedInputUnits</dtyp:srcSchema>
                                                                         </xsd:appinfo>
                                                                      </xsd:annotation>
                                                                      <xsd:simpleType>
@@ -782,21 +803,22 @@ End If</xsd:documentation>
                                                                   <xsd:element name="DHW07_WaterHeaterRatedInputUnits" type="hvac:WaterHeaterRatedInputUnits" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Capacity Units</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If DHW01_InstalledSameAsCC == true
+                                                                        <xsd:documentation source="CalculationsAndRules">
 If DHW07cc_WaterHeaterRatedInputUnits IsPresent
-result = DHW07cc_WaterHeaterRatedInputUnits
-Else If DHW01_InstalledSameAsCC == false
-User input
-End If 
+   If DHW01_InstalledSameAsCC == true
+      result = DHW07cc_WaterHeaterRatedInputUnits
+   Else If DHW01_InstalledSameAsCC == false
+      User input
+   End If 
 End If</xsd:documentation>
                                                                      </xsd:annotation>
                                                                   </xsd:element>
                                                                   <xsd:element name="DHW07_NotApplicableMessage" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Capacity Units</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If DHW07cc_NotApplicableMessage IsPresent
-If DHW01_InstalledSameAsCC == true
-result = DHW07cc_NotApplicableMessage
+                                                                        <xsd:documentation source="CalculationsAndRules">
+If DHW07cc_NotApplicableMessage IsPresent
+   result = DHW07cc_NotApplicableMessage
 End If</xsd:documentation>
                                                                      </xsd:annotation>
                                                                      <xsd:simpleType>
@@ -810,13 +832,15 @@ End If</xsd:documentation>
                                                                   <xsd:element name="DHW08cc_ThermalEfficiency" type="hvac:ThermalEfficiency" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Rated Efficiency</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-If F11_ThermalEfficiency IsPresent
-result = F11_ThermalEfficiency
+                                                                        <xsd:documentation source="CalculationsAndRules">
+If CC-PLB parent
+   If F11_ThermalEfficiency IsPresent
+      result = F11_ThermalEfficiency
+   End If
 Else If CC-PRF parent
-If Water08_ThermalEfficiency IsPresent
-result = Water08_ThermalEfficiency
-End If
+   If Water08_ThermalEfficiency IsPresent
+      result = Water08_ThermalEfficiency
+   End If
 End If</xsd:documentation>
                                                                         <xsd:appinfo source="CIsrc">
                                                                            <dtyp:srcSchema form="CCPLB01E"  usage="copy">F11_ThermalEfficiency</dtyp:srcSchema>
@@ -868,7 +892,7 @@ End If</xsd:documentation>
                                                                         <xsd:documentation source="FieldText">Rated Efficiency</xsd:documentation>
                                                                         <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
 If F11_UniformEnergyFactor IsPresent
-result = F05_UniformEnergyFactor
+result = F11_UniformEnergyFactor
 End If
 Else If CC-PRF parent
 If Water08_UniformEnergyFactor IsPresent
@@ -884,20 +908,26 @@ End If</xsd:documentation>
                                                                   <xsd:element name="DHW08cc_NotApplicableMessage" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Rated Efficiency</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-If F11_NotApplicableMessage IsPresent
-result = F11_NotApplicableMessage
-End If
+                                                                        <xsd:documentation source="CalculationsAndRules">
+If CC-PLB parent
+   If F11_NotApplicableMessage IsPresent
+      result = F11_NotApplicableMessage
+   End If
 Else  If CC-PRF parent
-If Water08_NotApplicableMessage IsPresent
-result = BlankGrayedOut
-End If
- 
+   If F11_ThermalEfficiency IsNotPresent AND Water08_ThermalEfficiency IsNotPresent And F11_EfficiencyAFUE IsNotPresent And Water08_EfficiencyCOP IsNotPresent And Water08_EnergyFactor IsNotPresent And F11_UniformEnergyFactor IsNotPresent And Water08_UniformEnergyFactor IsNotPresent
+      result = BlankGrayedOut
+   End If
 End If
 .</xsd:documentation>
                                                                         <xsd:appinfo source="CIsrc">
                                                                            <dtyp:srcSchema form="CCPLB01E"  usage="copy">F11_NotApplicableMessage</dtyp:srcSchema>
-                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water08_NotApplicableMessage</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="reference">F11_UniformEnergyFactor</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water08_UniformEnergyFactor</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water08_EnergyFactor</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water08_EfficiencyCOP</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="reference">F11_EfficiencyAFUE</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="reference">F11_ThermalEfficiency</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water08_ThermalEfficiency</dtyp:srcSchema>
                                                                         </xsd:appinfo>
                                                                      </xsd:annotation>
                                                                      <xsd:simpleType>
@@ -1019,17 +1049,19 @@ End If</xsd:documentation>
                                                                   <xsd:element name="DHW09cc_NotApplicableMessage" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Efficiency Unit</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-If F13_NotApplicableMessage IsPresent
-result = F13_NotApplicableMessage End If
+                                                                        <xsd:documentation source="CalculationsAndRules">
+If CC-PLB parent
+   If F13_NotApplicableMessage IsPresent
+      result = F13_NotApplicableMessage 
+   End If
 Else If CC-PRF parent
-If Water08_NotApplicableMessage IsPresent
-result = BlankGrayedOut
-End If
+   If Water09_EfficiencyType IsNotPresent
+      result = BlankGrayedOut
+   End If
 End If</xsd:documentation>
                                                                         <xsd:appinfo source="CIsrc">
                                                                            <dtyp:srcSchema form="CCPLB01E"  usage="copy">F13_NotApplicableMessage</dtyp:srcSchema>
-                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water09_NotApplicableMessage</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water09_EfficiencyType</dtyp:srcSchema>
                                                                         </xsd:appinfo>
                                                                      </xsd:annotation>
                                                                      <xsd:simpleType>
@@ -1074,18 +1106,19 @@ End If</xsd:documentation>
                                                                   <xsd:element name="DHW10cc_NotApplicableMessage" >
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Standby Loss</xsd:documentation>
-                                                                        <xsd:documentation source="CalculationsAndRules">If CC-PLB parent
-If F14_NotApplicableMessage IsPresent
-result = F14_NotApplicableMessage
-End If
+                                                                        <xsd:documentation source="CalculationsAndRules">
+If CC-PLB parent
+   If F14_NotApplicableMessage IsPresent
+      result = F14_NotApplicableMessage
+   End If
 Else If CC-PRF parent
-If Water11_NotApplicableMessage IsPresent
-result = BlankGrayedOut
-End If
+   If Water11_WaterHeaterStandbyLossFraction IsNotPresent
+      result = BlankGrayedOut
+   End If
 End If</xsd:documentation>
                                                                         <xsd:appinfo source="CIsrc">
                                                                            <dtyp:srcSchema form="CCPLB01E"  usage="copy">F14_NotApplicableMessage</dtyp:srcSchema>
-                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water11_NotApplicableMessage</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="reference">Water11_WaterHeaterStandbyLossFraction</dtyp:srcSchema>
                                                                         </xsd:appinfo>
                                                                      </xsd:annotation>
                                                                      <xsd:simpleType>
