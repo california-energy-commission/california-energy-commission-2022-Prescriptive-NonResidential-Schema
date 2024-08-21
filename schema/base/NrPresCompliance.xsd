@@ -119,6 +119,15 @@
       <xsd:restriction base="xsd:token">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="AddressHash">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Address Hash</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:string">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="AHRI_CertificateNumber">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
@@ -16563,6 +16572,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
    <xsd:complexType name="Payload">
       <xsd:sequence>
       </xsd:sequence>
+      <xsd:attribute name="addressHash" type="comp:AddressHash" use="required"/>
       <xsd:attribute name="complianceDocumentGUID" type="comp:ComplianceDocumentGUID" use="required"></xsd:attribute>
       <xsd:attribute name="complianceDocumentSchemaVersion" type="comp:ComplianceDocumentSchemaVersion" use="required"></xsd:attribute>
       <xsd:attribute name="compMgrVersion" type="comp:CompMgrVersion" use="optional"></xsd:attribute>
