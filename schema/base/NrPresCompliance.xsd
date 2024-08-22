@@ -8913,6 +8913,8 @@
             <dtyp:displayterm value="CutoffLT6200Lumens">NA: [d:lt/] 6200 lumens</dtyp:displayterm>
             <dtyp:displayterm value="CutoffLtgZone0">NA: Ltg Zone LZ-0</dtyp:displayterm>
             <dtyp:displayterm value="NotPermittedNA">NA: Not permitted by H&amp;LS</dtyp:displayterm>
+            <dtyp:displayterm value="Part11">NA: Exception in Section 5.106.8 of Part 11</dtyp:displayterm>
+            <dtyp:displayterm value="Per1407">NA: Exception in Section 140.7(a)</dtyp:displayterm>
             <dtyp:displayterm value="ReplacePoleMountNA">NA: Replacement of pole-mounted per [d:t24refnolink/]130.2(b) /[d:t24refnolink/]160.5(c)</dtyp:displayterm>
             <dtyp:displayterm value="ResControlledNA">NA: Controlled by dwelling unit/guest rm</dtyp:displayterm>
             <dtyp:displayterm value="RightOfWayNA">NA: Illuminate public right-of-way</dtyp:displayterm>
@@ -8926,6 +8928,8 @@
          <xsd:enumeration value="CutoffLT6200Lumens"/>
          <xsd:enumeration value="CutoffLtgZone0"/>
          <xsd:enumeration value="NotPermittedNA"/>
+         <xsd:enumeration value="Part11"/>
+         <xsd:enumeration value="Per1407"/>
          <xsd:enumeration value="ReplacePoleMountNA"/>
          <xsd:enumeration value="ResControlledNA"/>
          <xsd:enumeration value="RightOfWayNA"/>

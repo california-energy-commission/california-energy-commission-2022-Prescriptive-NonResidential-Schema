@@ -3391,53 +3391,56 @@ End If</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Equipment Category per Tables 110.2, 
                                              <d:t24refnolink/>140.4(a)2 and 170.2(c)3aii</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If Fscs04_NotApplicableMessage Or Fscs05_NotApplicableMessage Or Fscs06_NotApplicableMessage IsPresent
+                                          <xsd:documentation source="CalculationsAndRules">If A08_ProjectScopeNR == ExistingAdditionAndAlteration Or ExistingAlteration
+   List all values
+Else If Fscs04_NotApplicableMessage Or Fscs05_NotApplicableMessage Or Fscs06_NotApplicableMessage IsPresent
 Or If Fscs06_HeatRecovery == true
-User selects for full list of equipment categories
+   User selects for full list of equipment categories
 Else If Fscs03_SystemZoning == SingleDwellingUnit
-If A02_ClimateZoneNumber == InRange(2,15)
-List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOAS
-Else If A02_ClimateZoneNumber == 1 Or 16
-List HeatPumpDualFuel
+   If A02_ClimateZoneNumber == InRange(2,15)
+      List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOAS
+   Else If A02_ClimateZoneNumber == 1 Or 16
+         List HeatPumpDualFuel
 End If
 Else If Fscs03_SystemZoning == SingleZone
-If Fscs05_WholeBuildingOccupancy == GroceryStoreBuilding Or RetailBuilding
-If F09_CoolingRatedCapacity IsPresent And LTE 65 And A02_ClimateZoneNumber == 1 Or 16
-List FurnaceAC
-Else If F09_CoolingRatedCapacity IsPresent And GT 65 And LT 240 And A02_ClimateZoneNumber == 1 Or 16
-List HeatPumpDualFuel
-Else If F09_CoolingRatedCapacity IsPresent And LTE 240 And A02_ClimateZoneNumber == InRange(2,15)
-List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse
-Else
-List all values
+   If Fscs05_WholeBuildingOccupancy == GroceryStoreBuilding Or RetailBuilding
+      If F09_CoolingRatedCapacity IsPresent And LTE 65 And A02_ClimateZoneNumber == 1 Or 16
+         List FurnaceAC
+   Else If F09_CoolingRatedCapacity IsPresent And GT 65 And LT 240 And A02_ClimateZoneNumber == 1 Or 16
+         List HeatPumpDualFuel
+   Else If F09_CoolingRatedCapacity IsPresent And LTE 240 And A02_ClimateZoneNumber == InRange(2,15)
+         List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse
+   Else
+      List all values
 End If
 Else If Fscs05_WholeBuildingOccupancy == SchoolBuilding
-If F09_CoolingRatedCapacity IsPresent And LTE 240
-If A02_ClimateZoneNumber == InRange(2,15)
-List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse If A02_ClimateZoneNumber == 1 Or 16
-Else If A02_ClimateZoneNumber == 1 Or 16
-List HeatPumpDualFuel
-End If
-Else
-List all values
+   If F09_CoolingRatedCapacity IsPresent And LTE 240
+      If A02_ClimateZoneNumber == InRange(2,15)
+         List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse If A02_ClimateZoneNumber == 1 Or 16
+      Else If A02_ClimateZoneNumber == 1 Or 16
+         List HeatPumpDualFuel
+   End If
+   Else
+      List all values
 End If
 Else If Fscs05_WholeBuildingOccupancy == OfficeBuilding Or FinancialInstitutionBuilding Or LibraryBuilding
-If F09_CoolingRatedCapacity IsPresent And LTE 65 And A02_ClimateZoneNumber == 16
-List FurnaceAC
-Else If F09_CoolingRatedCapacity IsPresent And GT 65 And LT 240 And 02_ClimateZoneNumber == 16
-List HeatPumpDualFuel
-Else If F09_CoolingRatedCapacity IsPresent And LTE 240 And A02_ClimateZoneNumber == InRange(1,15)
-List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse
-Else
-List all values
+   If F09_CoolingRatedCapacity IsPresent And LTE 65 And A02_ClimateZoneNumber == 16
+      List FurnaceAC
+   Else If F09_CoolingRatedCapacity IsPresent And GT 65 And LT 240 And 02_ClimateZoneNumber == 16
+      List HeatPumpDualFuel
+   Else If F09_CoolingRatedCapacity IsPresent And LTE 240 And A02_ClimateZoneNumber == InRange(1,15)
+      List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse
+   Else
+      List all values
 End If
-Else If Fscs05_WholeBuildingOccupancy == Warehouse And F09_CoolingRatedCapacity IsPresent And LTE 240
-List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse
-Else
-List all values
+Else If Fscs05_WholeBuildingOccupancy == Warehouse 
+   If F09_CoolingRatedCapacity IsPresent And LTE 240
+      List UnitaryHeatPumps, UnitaryHeatPumpsNoElectR, UnitaryCondensersAC, UnitaryCondensersAC_NoElectR, PTAC_PTHP, SPV_ACHP, VariableRefrigerantFlow, VariableRefrigerantFlowHeatRecovery, CeilingCRAC, ComputerRoomAC, HeatPumpAC, RoomAC_HP, DedicatedOASElse
+   Else
+      List all values
 End If
 Else
-List all values
+   List all values
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -14622,7 +14625,13 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-MCH-03-A - Constant Volume Single Zone HVAC  NOTE: This form does not automatically move to "Yes'.  If Constant Volume Single Zone HVAC Systems are included in the scope, permit applicant should move this form to "Yes".</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false;</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Nrca02_RequireNRCAMch03A = True If
+                              I02_SystemZoning == SingleZone
+                              And
+                              I.04 == SetbackThermostat Or SetbackPlusDRR
+                              And
+                              A03All_WholeBuildingOccupancy != HospitalBuilding
+                           Else Nrca02_RequireNRCAMch03A = False</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Nrca02_SystemFieldVerified" type="comp:SystemFieldVerified" minOccurs="0" maxOccurs="unbounded">
@@ -14863,10 +14872,9 @@ End If</xsd:documentation>
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">NRCA-MCH-11-A Automatic Demand Shed Controls</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field:Boolean values with default result = false; 
- 
- If I02_SystemZoning == MultiZoneDDC result = true display term selected Yes radio button
-End If</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Nrca10_RequireNRCAMch11A = True if 
+                              I04_ThermostatType == EnergyManagementSystem
+                           Else Nrca10_RequireNRCAMch11A = False</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="Nrca10_SystemFieldVerified" type="comp:SystemFieldVerified" minOccurs="0" maxOccurs="unbounded">

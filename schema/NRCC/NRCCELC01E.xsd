@@ -504,7 +504,7 @@ End If</xsd:documentation>
                                        <xsd:element name="B04_UtilityProvidedMeterException130_5a" type="comp:UtilityProvidedMeterException130_5a" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Utility Provided Metering System Exception to  [d:t24refnolink/]130.5(a)/[d:t24refnolink/]160.6(a)[d:sup]3[/d:sup]</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B02_ElectricalServiceProjectScope == AlterationsFeedersBranchCircuitsOnly  result = false and field is grayed out  Else user input.  If checked result = true, Else result = false.
+                                             <xsd:documentation source="CalculationsAndRules">If B02_ElectricalServiceProjectScope == AddAltFeedersBranchCircuitsOnly  result = false and field is grayed out  Else user input.  If checked result = true, Else result = false.
 If result == true 
 D03_ExceptionalConditionMessageELCE += ProjectExemptUtilMeterSysB
 End If</xsd:documentation>
@@ -513,7 +513,7 @@ End If</xsd:documentation>
                                        <xsd:element name="B04_NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Utility Provided Metering System Exception to  [d:t24refnolink/]130.5(a)/[d:t24refnolink/]160.6(a)[d:sup]3[/d:sup]</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B02_ElectricalServiceProjectScope == AlterationsFeedersBranchCircuitsOnly  
+                                             <xsd:documentation source="CalculationsAndRules">If B02_ElectricalServiceProjectScope == AddAltFeedersBranchCircuitsOnly  
 result = false and field is grayed out</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -894,7 +894,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_F" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]F. SERVICE ELECTRICAL METERING[/d:b]</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If B02_ElectricalServiceProjectScope != AlterationsFeedersBranchCircuitsOnly Or ReplacementElectricalServiceNotMeter  And
+               <xsd:documentation source="CalculationsAndRules">This section is required If B02_ElectricalServiceProjectScope != AddAltFeedersBranchCircuitsOnly Or ReplacementElectricalServiceNotMeter  And
 B04_UtilityProvidedMeterException130_5a == false And
 B05_DoesElectricalCodeExceptionApply == false And
 B07_DoesElectricalServicePowerMF == false
@@ -925,7 +925,7 @@ End If</xsd:documentation>
                                     <xsd:element name="F01_ElectricalServiceName" type="comp:ElectricalServiceName" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Electrical Service Designation/ Description</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated value: result = B01_ElectricalServiceName where B02_ElectricalServiceProjectScope != AlterationsFeedersBranchCircuitsOnly Or ReplacementElectricalServiceNotMeter And    
+                                          <xsd:documentation source="CalculationsAndRules">Calculated value: result = B01_ElectricalServiceName where B02_ElectricalServiceProjectScope != AddAltFeedersBranchCircuitsOnly Or ReplacementElectricalServiceNotMeter And    
 B04_UtilityProvidedMeterException130_5a == false And
 B05_DoesElectricalCodeExceptionApply == false And
 B07_DoesElectricalServicePowerMF == false</xsd:documentation>

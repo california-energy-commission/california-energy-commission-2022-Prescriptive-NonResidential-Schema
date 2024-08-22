@@ -724,7 +724,9 @@ Else if CC-PLB parent
    End If
 End If</xsd:documentation>
                                                                         <xsd:appinfo source="CIsrc">
-                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water06_NotApplicableMessage</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water06_WaterHeaterGasRatedInput</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E"  usage="copy">Water06_WaterHeaterElectricFiredRatedInput</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPLB01E"  usage="copy">F10a_NotApplicableMessage</dtyp:srcSchema>
                                                                         </xsd:appinfo>
                                                                      </xsd:annotation>
                                                                      <xsd:simpleType>

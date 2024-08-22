@@ -7239,7 +7239,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_T" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]T. DWELLING UNIT LIGHTING[/d:b]</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If A03_WholeBuildingOccupancy includes MultiFamilyMixedUseGTE4</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required If A03_WholeBuildingOccupancy includes MultiFamilyMixedUseGTE4 or HighRiseResidential</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
