@@ -412,6 +412,7 @@ End If
                                              <dtyp:srcSchema form="CCENV01E" usage="copy">FframedMF02_RoofAssemblyName</dtyp:srcSchema>
                                              <dtyp:srcSchema form="CCPRF01E" usage="reference">Opaq02_CompatibleSurfaceType</dtyp:srcSchema>
                                              <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq01_ConstructionAssemblyNameString</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq02_OpaqueSurfaceType</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -1910,6 +1911,7 @@ Note: All following fields in this table reference CC parent fields for the wall
                                              <dtyp:srcSchema form="CCENV01E" usage="copy">Hlog02_WallAssemblyName</dtyp:srcSchema>
                                              <dtyp:srcSchema form="CCENV01E" usage="reference">IOpaq02_CompatibleSurfaceType</dtyp:srcSchema>
                                              <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq01_ConstructionAssemblyNameString</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq02_OpaqueSurfaceType</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -4313,6 +4315,7 @@ Note: All following fields in this table reference CC parent fields for the floo
                                              <dtyp:srcSchema form="CCENV01E" usage="copy">Iheated01_FloorAssemblyName</dtyp:srcSchema>
                                              <dtyp:srcSchema form="CCPRF01E" usage="reference">Opaq02_CompatibleSurfaceType</dtyp:srcSchema>
                                              <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq01_ConstructionAssemblyNameString</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq02_OpaqueSurfaceType</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
