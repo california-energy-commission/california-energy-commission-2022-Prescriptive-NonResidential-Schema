@@ -19565,15 +19565,16 @@ Else If Kskyperf06_TopLevelOccupancy == OtherOccupancy And Kskyperf06_Fenestrati
 result = 0.55
  
 Else If Kskyperf06_TopLevelOccupancy == HighriseResidential
-If Kskyperf06_FenestrationModification == AllNew Or Kskyperf09_ComplianceMethodSHGC_VT == Table170_2A
-If A03_ClimateZoneNumber == InRange(1, 6) Or InRange (9, 16)
-result = 0.30
-Else If A03_ClimateZoneNumber == 7 Or 8
-result = 0.34 
- End If
-Else If Kskyperf09_ComplianceMethodSHGC_VT == Table180_2B
-result 0.46
- 
+   If Kskyperf06_FenestrationModification == AllNew Or Kskyperf09_ComplianceMethodSHGC_VT == Table170_2A
+      If A03_ClimateZoneNumber == InRange(1, 6) Or InRange (9, 16)
+         result = 0.30
+      Else If A03_ClimateZoneNumber == 7 Or 8
+         result = 0.34 
+   End If
+   Else If Kskyperf09_ComplianceMethodSHGC_VT == Table180_2B
+      result 0.46
+   Else If Kskyperf06_FenestrationModification = NewSky16MF
+      result 0.55                                          
 End If
 End If</xsd:documentation>
                                                    </xsd:annotation>

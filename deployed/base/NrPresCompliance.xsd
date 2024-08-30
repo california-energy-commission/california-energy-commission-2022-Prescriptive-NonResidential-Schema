@@ -6302,7 +6302,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       <xsd:annotation>
          <xsd:documentation>Units: W per ft3 per min</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:Decimal"/>
+      <xsd:restriction base="dtyp:Decimal3Places"/>
    </xsd:simpleType>
    <xsd:simpleType name="FanEfficacyRequired">
       <xsd:annotation>

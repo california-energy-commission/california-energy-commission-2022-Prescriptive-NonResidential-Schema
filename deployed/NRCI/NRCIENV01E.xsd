@@ -505,16 +505,26 @@ End If</xsd:documentation>
                                                                </xsd:restriction>
                                                             </xsd:simpleType>
                                                          </xsd:element>
-                                                         <xsd:element name="Roof02cc_PartitionFramingMaterial" type="env:PartitionFramingMaterial">
+                                                         <xsd:element name="Roof02cc_PartitionFramingMaterial">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Assembly/ Framing Type</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
- result = Opaq04_PartitionFramingMaterial
+If Opaq04_PartitionFramingMaterial Is Present
+   result = Opaq04_PartitionFramingMaterial
+Else If Opaq04_ConstructionAssemblyType is Present
+   Result = Opaq04_ConstructionAssemblyType
+Else If Opaq04_NotApplicableMessage is Present
+   Result = BlankGrayedOut
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq04_PartitionFramingMaterial</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq04_ConstructionAssemblyType</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq04_NotApplicableMessage</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:union memberTypes=" env:PartitionFramingMaterial comp:ConstructionAssemblyType comp:NotApplicableMessage"/>
+                                                            </xsd:simpleType>
                                                          </xsd:element>
                                                       </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
@@ -2213,11 +2223,14 @@ End If</xsd:documentation>
                                                                      </xsd:appinfo>
                                                                   </xsd:annotation>
                                                                </xsd:element>
-                                                               <xsd:element name="WallsPerf03cc_PartitionFramingMaterial" type="env:PartitionFramingMaterial">
+                                                               <xsd:element name="WallsPerf03cc_PartitionFramingMaterial">
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText">Wall Material</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
-result = Opaq04_PartitionFramingMaterial
+If Opaq04_PartitionFramingMaterial Is Present   
+   result = Opaq04_PartitionFramingMaterial
+Else If Opaq04_ConstructionAssemblyType is Present
+   Result = Opaq04_ConstructionAssemblyType
 End If</xsd:documentation>
                                                                      <xsd:appinfo source="displayterm">
                                                                         <dtyp:displayterm value="Metal">Metal</dtyp:displayterm>
@@ -2226,8 +2239,12 @@ End If</xsd:documentation>
                                                                      </xsd:appinfo>
                                                                      <xsd:appinfo source="CIsrc">
                                                                         <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq04_PartitionFramingMaterial</dtyp:srcSchema>
+                                                                        <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq04_ConstructionAssemblyType</dtyp:srcSchema>
                                                                      </xsd:appinfo>
                                                                   </xsd:annotation>
+                                                                  <xsd:simpleType>
+                                                                     <xsd:union memberTypes=" env:PartitionFramingMaterial comp:ConstructionAssemblyType"/>
+                                                                  </xsd:simpleType>
                                                                </xsd:element>
                                                                <xsd:element name="WallsMass03cc_MasonryType" type="env:MasonryType">
                                                                   <xsd:annotation>
@@ -2825,13 +2842,56 @@ End If</xsd:documentation>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
+                                                         <xsd:element name="Walls04cc_ConcreteSandwichInsulation" type="env:ConcreteSandwichInsulation">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Wall Thickness (in)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
+If Walls02cc_AssemblyType == ConcretePanel                                                                
+   If Hconcrete07_ConcreteSandwichInsulation is Present
+      result = Hconcrete07_ConcreteSandwichInsulation
+End If
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">Hconcrete07_ConcreteSandwichInsulation</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Walls04cc_FramingDepth" type="env:FramingDepth">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Wall Thickness (in)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
+If Walls02cc_AssemblyType == Log  
+   If Hlog06_FramingDepth is present
+      Result = Hlog06_FramingDepth 
+End If
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCENV01E" usage="copy">Hlog06_FramingDepth</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Walls04cc_FramingMaterialOther" type="env:FramingMaterialOther">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Wall Thickness (in)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
+If Walls02cc_AssemblyType == Log
+   If Hlog06_FramingMaterialOther is Present 
+      result = Hlog06_FramingMaterialOther
+End If
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCENV01E" usage="copy">Hlog06_FramingMaterialOther</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
                                                          <xsd:element name="Walls04cc_NotApplicableMessage">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Wall Thickness (in)</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
 If Walls02cc_AssemblyType == SIPS And HSIPS06_NotApplicableMessage IsPresent  
 Or 
-If Walls02cc_AssemblyType == MetalBuilding or Strawbale or SpandrelCurtain or Framed or Log or ConcretePanel
+If Walls02cc_AssemblyType == MetalBuilding or Strawbale or SpandrelCurtain or Framed 
+Or Walls02cc_AssemblyType == Log And Hlog06_NotApplicableMessage IsPresent
 result = BlankGrayedOut
 End If
 Else If CC-PRF parent 
@@ -2925,6 +2985,42 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Walls04cc_CoreICF IsPresent
 If Walls01_InstalledSameAsCC == true
 result = Walls04cc_CoreICF
+Else 
+User selects from list
+End If
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Walls04_ConcreteSandwichInsulation" type="env:ConcreteSandwichInsulation">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Wall Thickness (in)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Hconcrete07_ConcreteSandwichInsulation IsPresent
+If Walls01_InstalledSameAsCC == true
+result = Hconcrete07_ConcreteSandwichInsulation
+Else 
+User selects from list
+End If
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Walls04_FramingDepth" type="env:FramingDepth">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Wall Thickness (in)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Hlog06_FramingDepth IsPresent
+If Walls01_InstalledSameAsCC == true
+result = Hlog06_FramingDepth
+Else 
+User selects from list
+End If
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Walls04_FramingMaterialOther" type="env:FramingMaterialOther">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Wall Thickness (in)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Hlog06_FramingMaterialOther IsPresent
+If Walls01_InstalledSameAsCC == true
+result = Hlog06_FramingMaterialOther
 Else 
 User selects from list
 End If
@@ -4044,6 +4140,12 @@ Or
 Walls04_MetalPanelThickness IsPresent And Walls04_MetalPanelThickness is less thick than Walls04cc_MetalPanelThickness
 Or
 Walls04_CoreICF isPresent And Walls04_CoreICF is less thick than Walls04cc_CoreICF
+Or 
+Walls04_ConcreteSandwichInsulation is Present And Walls04_ConcreteSandwichInsulation is LT Walls04cc_ConcreteSandwichInsulation
+Or 
+Walls04_FramingDepth is Present And Walls04_FramingDepth is LT Walls04cc_FramingDepth
+Or 
+Walls04_FramingMaterialOther is Present And Walls04_FramingMaterialOther is LT Walls04cc_FramingMaterialOther
 )
 Or
 (
@@ -4135,6 +4237,12 @@ Or
 Walls04_MetalPanelThickness IsPresent And Walls04_MetalPanelThickness == Walls04cc_MetalPanelThickness
 Or
 Walls04_CoreICF isPresent And Walls04_CoreICF == Walls04cc_CoreICF
+Or 
+Walls04_ConcreteSandwichInsulation is Present And Walls04_ConcreteSandwichInsulation is == Walls04cc_ConcreteSandwichInsulation
+Or 
+Walls04_FramingDepth is Present And Walls04_FramingDepth is == Walls04cc_FramingDepth
+Or 
+Walls04_FramingMaterialOther is Present And Walls04_FramingMaterialOther is == Walls04cc_FramingMaterialOther
 )
  
 And
@@ -4200,6 +4308,12 @@ Or
 Walls04_MetalPanelThickness IsPresent And Walls04_MetalPanelThickness is GTE Walls04cc_MetalPanelThickness
 Or
 Walls04_CoreICF isPresent And Walls04_CoreICF is GTE  Walls04cc_CoreICF
+Or 
+Walls04_ConcreteSandwichInsulation is Present And Walls04_ConcreteSandwichInsulation is GTE Walls04cc_ConcreteSandwichInsulation
+Or 
+Walls04_FramingDepth is Present And Walls04_FramingDepth is GTE Walls04cc_FramingDepth
+Or 
+Walls04_FramingMaterialOther is Present And Walls04_FramingMaterialOther is GTE Walls04cc_FramingMaterialOther
 )
  
 Or
@@ -4575,18 +4689,24 @@ End If</xsd:documentation>
                                                                      </xsd:appinfo>
                                                                   </xsd:annotation>
                                                                </xsd:element>
-                                                               <xsd:element name="FloorsPerf03cc_PartitionFramingMaterial" type="env:PartitionFramingMaterial">
+                                                               <xsd:element name="FloorsPerf03cc_PartitionFramingMaterial">
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText">Floor/ Spline Material</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
 If  Opaq04_PartitionFramingMaterial IsPresent
-result = Opaq04_PartitionFramingMaterial
+   result = Opaq04_PartitionFramingMaterial
+Else If Opaq04_ConstructionAssemblyType is present
+   result = Opaq04_ConstructionAssemblyType
 End If
 End If</xsd:documentation>
                                                                      <xsd:appinfo source="CIsrc">
                                                                         <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq04_PartitionFramingMaterial</dtyp:srcSchema>
+                                                                        <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq04_ConstructionAssemblyType</dtyp:srcSchema>
                                                                      </xsd:appinfo>
                                                                   </xsd:annotation>
+                                                                  <xsd:simpleType>
+                                                                     <xsd:union memberTypes=" env:PartitionFramingMaterial comp:ConstructionAssemblyType"/>
+                                                                  </xsd:simpleType>
                                                                </xsd:element>
                                                                <xsd:element name="Floors03cc_NotApplicableMessage">
                                                                   <xsd:annotation>
@@ -5416,6 +5536,10 @@ If in CC row where the Iframed02_FloorAssemblyName was assigned to current CI ro
 Iframed08_NotApplicableMessage IsPresent 
 result = BlankGrayedOut
 End If
+Else If Floors02cc_AssemblyType == HeatedSlab
+   result = BlankGrayedOut
+End If
+
 Else If CC-PRF parent
 If Opaq06_NotApplicableMessage IsPresent
 result = BlankGrayedOut
@@ -5560,6 +5684,8 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="FieldText">Continuous Insulation R-value</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Floors06cc_NotApplicableMessage IsPresent 
 result = Floors06cc_NotApplicableMessage
+Else If Floors02cc_AssemblyType == HeatedSlab
+   result = BlankGrayedOut
 End If</xsd:documentation>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
