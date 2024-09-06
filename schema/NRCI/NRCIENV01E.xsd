@@ -539,7 +539,7 @@ End If</xsd:documentation>
                                                                </xsd:restriction>
                                                             </xsd:simpleType>
                                                          </xsd:element>
-                                                         <xsd:element name="Roof02_PartitionFramingMaterial" type="env:PartitionFramingMaterial" >
+                                                         <xsd:element name="Roof02_PartitionFramingMaterial" >
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Assembly/ Framing Type</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Roof02cc_PartitionFramingMaterial IsPresent
@@ -550,6 +550,9 @@ Use selects from list
 End If
 End If</xsd:documentation>
                                                             </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:union memberTypes=" env:PartitionFramingMaterial comp:ConstructionAssemblyType comp:NotApplicableMessage" />
+                                                            </xsd:simpleType>
                                                          </xsd:element>
                                                       </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
@@ -2562,7 +2565,7 @@ User selects from list
 End If</xsd:documentation>
                                                                   </xsd:annotation>
                                                                </xsd:element>  
-                                                               <xsd:element name="WallsPerf03_PartitionFramingMaterial" type="env:PartitionFramingMaterial" >
+                                                               <xsd:element name="WallsPerf03_PartitionFramingMaterial" >
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText">Wall Material</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If WallsPerf03cc_PartitionFramingMaterial IsPresent
@@ -2573,6 +2576,9 @@ User input
 End If
 End If</xsd:documentation>
                                                                   </xsd:annotation>
+                                                                  <xsd:simpleType>
+                                                                     <xsd:union memberTypes=" env:PartitionFramingMaterial comp:ConstructionAssemblyType" />
+                                                                  </xsd:simpleType>
                                                                </xsd:element>
                                                                <xsd:element name="WallsMass03_MasonryType" type="env:MasonryType" >
                                                                   <xsd:annotation>
@@ -4856,7 +4862,7 @@ End If
 End If</xsd:documentation>
                                                                   </xsd:annotation>
                                                                </xsd:element>
-                                                               <xsd:element name="FloorsPerf03_PartitionFramingMaterial" type="env:PartitionFramingMaterial" >
+                                                               <xsd:element name="FloorsPerf03_PartitionFramingMaterial" >
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText">Floor/ Spline Material</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If  FloorsPerf03cc_PartitionFramingMaterial IsPresent
@@ -4867,6 +4873,9 @@ User input
 End If
 End If</xsd:documentation>
                                                                   </xsd:annotation>
+                                                                  <xsd:simpleType>
+                                                                     <xsd:union memberTypes=" env:PartitionFramingMaterial comp:ConstructionAssemblyType" />
+                                                                  </xsd:simpleType>
                                                                </xsd:element>
                                                                <xsd:element name="Floors03_NotApplicableMessage" >
                                                                   <xsd:annotation>
