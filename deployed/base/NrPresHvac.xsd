@@ -7548,7 +7548,7 @@
       <xsd:annotation>
          <xsd:documentation>Units: percent</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:IntegerNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="PTAC_PTHP">
       <xsd:annotation>

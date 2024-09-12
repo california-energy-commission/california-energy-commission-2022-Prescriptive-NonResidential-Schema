@@ -1957,7 +1957,7 @@ End If
  
 case kWperTon:
 If Fd06a_EfficiencykWperTon And Fd07a_RangeMinkWperTon != BlankGrayedOut Then 
-Fd07a_RangeMinkWperTon GTE Fd06a_EfficiencykWperTon;
+Fd07a_RangeMinkWperTon LTE Fd06a_EfficiencykWperTon;
 End If
 End Switch
  
@@ -1974,7 +1974,7 @@ End If
  
 case kWperTon_IPLV:
 If Fd06b_EfficiencykWperTon_IPLV And Fd07b_RangeMinkWperTon_IPLV != BlankGrayedOut Then 
-Fd07b_RangeMinkWperTon_IPLV GTE Fd06b_EfficiencykWperTon_IPLV;
+Fd07b_RangeMinkWperTon_IPLV LTE Fd06b_EfficiencykWperTon_IPLV;
 End If
 End Switch
 End If 

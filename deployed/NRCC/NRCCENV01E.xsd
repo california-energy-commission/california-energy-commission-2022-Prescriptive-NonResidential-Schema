@@ -17805,9 +17805,11 @@ End If</xsd:documentation>
                                                 <xsd:element name="Kvertperf07_NotApplicableMessage">
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">U-factor/ (R)SHGC Compliance Method</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Kvertperf05_FenestrationProductType == ChromogenicFen Or DemisingWallFen Or GlazedDoorMF  
-Or 
-If Kvertperf06_TopLevelOccupancy == AlteredOccupancy Or   Kvertperf06_FenestrationModification == AddLTE50ft2  Or ReplaceLTE150ft2
+                                                      <xsd:documentation source="CalculationsAndRules">If Kvertperf05_FenestrationProductType == ChromogenicFen Or DemisingWallFen Or GlazedDoorMF 
+Or
+If Kvertperf06_TopLevelOccupancy == AlteredOccupancy Or
+If Kvertperf06_FenestrationModification == AddLTE50ft2 Or
+If Kvertperf06_FenestrationModification == ReplaceLTE150ft2 and Kvertperf06_TopLevelOccupancy != HighRiseResidentail
 result = BlankGrayedOut
 End If</xsd:documentation>
                                                    </xsd:annotation>
