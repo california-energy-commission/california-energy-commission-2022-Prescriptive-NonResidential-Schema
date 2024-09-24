@@ -468,7 +468,7 @@ If Lum01_InstalledSameasCC == true
 If Lum05cc_LuminairePower == SeePlans and Lum04_IsLuminaireLinear == false
 User Input
 Else result = Lum05cc_LuminairePower 
-Else
+Else If Lum05cc_LuminairePower IsPresent
 User input
 End If
 End If
@@ -479,9 +479,9 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Rated Watts per Luminaire<d:sup>1</d:sup>
                                              </xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Lum02_ScopeIncludesFixture == true
+                                             <xsd:documentation source="CalculationsAndRules">If Lum02_ScopeIncludesFixture == true and Lum04_IsLuminaireLinear == true
 If Lum01_InstalledSameasCC == true
-If Lum05cc_LuminaireWattsPerLF == SeePlans and Lum04_IsLuminaireLinear == true
+If Lum05cc_LuminaireWattsPerLF == SeePlans
 User Input
 Else result = Lum05cc_LuminaireWattsPerLF
 Else
@@ -544,9 +544,9 @@ End If</xsd:documentation>
                                        <xsd:element name="Lum06_LuminaireCountByType" type="lit:LuminaireCountByType">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Total Number of Luminaires</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Lum02_ScopeIncludesFixture == true
+                                             <xsd:documentation source="CalculationsAndRules">If Lum02_ScopeIncludesFixture == true and Lum04_IsLuminaireLinear == false
 If Lum01_InstalledSameasCC == true
-If Lum06cc_LuminaireCountByType == SeePlans and Lum04_IsLuminaireLinear == false
+If Lum06cc_LuminaireCountByType == SeePlans
 User Input
 Else result = Lum06cc_LuminaireCountByType
 Else
@@ -731,9 +731,11 @@ and Lum07cc_LuminairePowerByType LT  Lum07_LuminairePowerByType
 or
 Lum04cc_IsLuminaireLinear == SeePlans
 or
-Lum05cc_LuminairePower == SeePlans
+Lum05cc_LuminairePower == SeePlans and Lum05cc_LuminaireWattsPerLF IsNotPresent
 or
-Lum05cc_LuminaireWattsPerLF == SeePlans
+Lum05cc_LuminaireWattsPerLF == SeePlans and Lum05cc_LuminaireWattsPerLF IsNotPresent
+or
+Lum05cc_LuminairePower == SeePlans and Lum05cc_LuminaireWattsPerLF == SeePlans
 or
 Lum06cc_LuminaireCountByType == SeePlans
 or
@@ -812,18 +814,21 @@ End If</xsd:documentation>
                                           <xsd:documentation source="FieldText">Glare</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Bug01cc_LuminaireName" type="lit:LuminaireName">
+                                    <xsd:element name="Bug01cc_LuminaireName">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Name or Item Tag</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 If G01_LuminaireName == Lum01_LuminaireName  where Lum02_ScopeIncludesFixture == true
 result = G01_LuminaireName
-Else skip this G01_LuminaireName -  not in installer's scope
+Else result = BlankGrayedOut
 End If</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
                                              <dtyp:srcSchema form="CCLTO01E" usage="copy">G01_LuminaireName</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:union memberTypes="lit:LuminaireName comp:NotApplicableMessage"/>
+                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="Bug01_InMyScope" type="comp:InMyScope">
                                        <xsd:annotation>
@@ -865,28 +870,36 @@ End If</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
-                                                      <xsd:element name="Bug02cc_LuminaireDescription" type="lit:LuminaireDescription">
+                                                      <xsd:element name="Bug02cc_LuminaireDescription">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Luminaire Description</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+If G02_LuminaireDescription IsPresent
 result = G02_LuminaireDescription
+Else result = BlankGrayedOut
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
                                                                <dtyp:srcSchema form="CCLTO01E" usage="copy">G02_LuminaireDescription</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:union memberTypes="lit:LuminaireDescription comp:NotApplicableMessage"/>
+                                                         </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:element name="Bug03cc_MountingHeightRangeBUG">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Mounting Height from Property Line</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+If G03_MountingHeightRangeBUG IsPresent
 result = G03_MountingHeightRangeBUG
+Else result = SeePlans
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
                                                                <dtyp:srcSchema form="CCLTO01E" usage="copy">G03_MountingHeightRangeBUG</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
+                                                            <xsd:union memberTypes="lit:LuminaireDescription comp:SeePlansMessage"/>
                                                             <xsd:restriction base="comp:MountingHeightRangeBUG">
                                                                <xsd:enumeration value="Back1To2MH"/>
                                                                <xsd:enumeration value="BackHalfTo1MH"/>
@@ -899,7 +912,9 @@ End If</xsd:documentation>
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Mounting Height from Property Line</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If Bug01_InstalledSameAsCC == true
-result = Bug03cc_MountingHeightRangeBUG
+If Bug03cc_MountingHeightRangeBUG == SeePlans
+User Input
+Else result = Bug03cc_MountingHeightRangeBUG
 Else
 User input
 End If</xsd:documentation>
@@ -913,43 +928,57 @@ End If</xsd:documentation>
                                                             </xsd:restriction>
                                                          </xsd:simpleType>
                                                       </xsd:element>
-                                                      <xsd:element name="Bug04cc_BackLightRatingBUG" type="comp:BackLightRatingBUG">
+                                                      <xsd:element name="Bug04cc_BackLightRatingBUG">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Backlight Rating</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+If G05_BackLightRatingBUG IsPresent
 result = G05_BackLightRatingBUG
+Else result = SeePlans
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
                                                                <dtyp:srcSchema form="CCLTO01E" usage="copy">G05_BackLightRatingBUG</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:union memberTypes="comp:BackLightRatingBUG comp:SeePlansMessage"/>
+                                                         </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:element name="Bug04_BackLightRatingBUG" type="comp:BackLightRatingBUG">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Backlight Rating</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If Bug01_InstalledSameAsCC == true
-result = Bug04cc_BackLightRatingBUG
+If Bug04cc_BackLightRatingBUG == SeePlans
+User Input
+Else result = Bug04cc_BackLightRatingBUG
 Else
-Uer input
+User input
 End If</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
-                                                      <xsd:element name="Bug05cc_UpLightRatingBUG" type="comp:UpLightRatingBUG">
+                                                      <xsd:element name="Bug05cc_UpLightRatingBUG">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Uplight Rating</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+If G08_UpLightRatingBUG IsPresent
 result = G08_UpLightRatingBUG
+Else result = SeePlans
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
                                                                <dtyp:srcSchema form="CCLTO01E" usage="copy">G08_UpLightRatingBUG</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:union memberTypes="comp:UpLightRatingBUG comp:SeePlansMessage"/>
+                                                         </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:element name="Bug05_UpLightRatingBUG" type="comp:UpLightRatingBUG">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Uplight Rating</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If Bug01_InstalledSameAsCC == true
-result = Bug05cc_UpLightRatingBUG
+If Bug05cc_UpLightRatingBUG == SeePlans
+User Input
+Else result = Bug05cc_UpLightRatingBUG
 Else
 User input
 End If</xsd:documentation>
@@ -959,13 +988,16 @@ End If</xsd:documentation>
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Mounting Height from Property Line</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+If G09_MountingHeightRangeBUG IsPresent
 result = G09_MountingHeightRangeBUG
+Else result = SeePlans
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
                                                                <dtyp:srcSchema form="CCLTO01E" usage="copy">G09_MountingHeightRangeBUG</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
+                                                            <xsd:union memberTypes="comp:MountingHeightRangeBUG comp:SeePlansMessage"/>
                                                             <xsd:restriction base="comp:MountingHeightRangeBUG">
                                                                <xsd:enumeration value="FrontLessThanHalfMH"/>
                                                                <xsd:enumeration value="Front1To2MH"/>
@@ -978,8 +1010,10 @@ End If</xsd:documentation>
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Mounting Height from Property Line</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If Bug01_InstalledSameAsCC == true
-result = Bug06cc_MountingHeightRangeBUG
-End If
+If Bug06cc_MountingHeightRangeBUG == SeePlans
+User Input
+Else result = Bug06cc_MountingHeightRangeBUG
+Else
 User input</xsd:documentation>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
@@ -991,22 +1025,29 @@ User input</xsd:documentation>
                                                             </xsd:restriction>
                                                          </xsd:simpleType>
                                                       </xsd:element>
-                                                      <xsd:element name="Bug07cc_GlareRatingBUG" type="comp:GlareRatingBUG">
+                                                      <xsd:element name="Bug07cc_GlareRatingBUG">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Glare Rating</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+If G11_GlareRatingBUG IsPresent
 result = G11_GlareRatingBUG
+Else result = SeePlans
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
                                                                <dtyp:srcSchema form="CCLTO01E" usage="copy">G11_GlareRatingBUG</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:union memberTypes="comp:GlareRatingBUG comp:SeePlansMessage"/>
+                                                         </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:element name="Bug07_GlareRatingBUG" type="comp:GlareRatingBUG">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Glare Rating</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If Bug01_InstalledSameAsCC == true
-result = Bug07cc_GlareRatingBUG
+If Bug07cc_GlareRatingBUG == SeePlans
+User Input
+Else result = Bug07cc_GlareRatingBUG
 Else
 User input
 End If</xsd:documentation>
@@ -1023,7 +1064,19 @@ End If</xsd:documentation>
                                           <xsd:documentation source="FieldText">Fixture Compliance</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If any user input field is blank
  result = TableIncomplete  
-Else If   
+Else If
+Bug03cc_MountingHeightRangeBUG == SeePlans
+or
+Bug04cc_BackLightRatingBUG == SeePlans
+or
+Bug05cc_UpLightRatingBUG == SeePlans
+or
+Bug06cc_MountingHeightRangeBUG == SeePlans
+or
+Bug07cc_GlareRatingBUG == SeePlans
+result = MayNotComply
+Else If
+                                              
 Bug03_MountingHeightRangeBUG == Bug03cc_MountingHeightRangeBUG
 And 
 Bug04_BackLightRatingBUG == Bug04cc_BackLightRatingBUG
