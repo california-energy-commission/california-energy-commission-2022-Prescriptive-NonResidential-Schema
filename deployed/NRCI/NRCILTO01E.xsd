@@ -1139,12 +1139,17 @@ End If</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Area Description</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+If H01_SpaceDescription IsPresent
 result = H01_SpaceDescription
+Else result = BlankGrayedOut
 End If</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
                                              <dtyp:srcSchema form="CCLTO01E" usage="copy">H01_SpaceDescription</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:union memberTypes="com:SpaceDescription comp:NotApplicableMessage"/>
+                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="Ctrl01_InMyScope" type="comp:InMyScope">
                                        <xsd:annotation>
@@ -1186,66 +1191,84 @@ End If</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
-                                                      <xsd:element name="Ctrl02cc_ShutOffControlsOutdoors" type="comp:ShutOffControlsOutdoors">
+                                                      <xsd:element name="Ctrl02cc_ShutOffControlsOutdoors">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Shut-Off</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+If H02_ShutOffControlsOutdoors IsPresent
 result = H02_ShutOffControlsOutdoors
+Else result = SeePlans
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
                                                                <dtyp:srcSchema form="CCLTO01E" usage="copy">H02_ShutOffControlsOutdoors</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:union memberTypes="comp:ShutOffControlsOutdoors comp:SeePlansMessage"/>
+                                                         </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:element name="Ctrl02_ShutOffControlsOutdoors" type="comp:ShutOffControlsOutdoors">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Shut-Off</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If Ctrl01_InstalledSameAsCC == true
-result = Ctrl02cc_ShutOffControlsOutdoors
+If Ctrl02cc_ShutOffControlsOutdoors == SeePlans
+User selects from list
+Else result = Ctrl02cc_ShutOffControlsOutdoors
 Else
 User selects from list 
-End If
-Else
-User selects from list
 End If</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
-                                                      <xsd:element name="Ctrl03cc_AutoScheduleControlsOutdoors" type="comp:AutoScheduleControlsOutdoors">
+                                                      <xsd:element name="Ctrl03cc_AutoScheduleControlsOutdoors">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Auto-Schedule</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+If H03_AutoScheduleControlsOutdoors IsPresent
 result = H03_AutoScheduleControlsOutdoors
+Else result = SeePlans
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
                                                                <dtyp:srcSchema form="CCLTO01E" usage="copy">H03_AutoScheduleControlsOutdoors</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:union memberTypes="comp:AutoScheduleControlsOutdoors comp:SeePlansMessage"/>
+                                                         </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:element name="Ctrl03_AutoScheduleControlsOutdoors" type="comp:AutoScheduleControlsOutdoors">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Auto-Schedule</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If Ctrl01_InstalledSameAsCC == true
+If Ctrl03cc_AutoScheduleControlsOutdoors == SeePlans
+User selects from list
 result = Ctrl03cc_AutoScheduleControlsOutdoors
 Else
 User selects from list 
 End If</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
-                                                      <xsd:element name="Ctrl04cc_MotionSensorCompliance" type="comp:MotionSensorCompliance">
+                                                      <xsd:element name="Ctrl04cc_MotionSensorCompliance">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Motion Sensor</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+If H04_MotionSensorCompliance IsPresent
 result = H04_MotionSensorCompliance
+Else result = SeePlans
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
                                                                <dtyp:srcSchema form="CCLTO01E" usage="copy">H04_MotionSensorCompliance</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:union memberTypes="comp:MotionSensorCompliance comp:SeePlansMessage"/>
+                                                         </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:element name="Ctrl04_MotionSensorCompliance" type="comp:MotionSensorCompliance">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Motion Sensor</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If Ctrl01_InstalledSameAsCC == true
+If Ctrl04cc_MotionSensorCompliance == SeePlans
+User selects from list
 result = Ctrl04cc_MotionSensorCompliance
 Else
 User selects from list 
