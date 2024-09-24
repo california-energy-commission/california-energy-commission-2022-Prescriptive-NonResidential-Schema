@@ -297,12 +297,17 @@ End If</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Name or Item Tag</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+If F01_LuminaireName IsPresent
 result = F01_LuminaireName
+Else result = BlankGrayedOut
 End If</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
                                              <dtyp:srcSchema form="CCLTO01E" usage="copy">F01_LuminaireName</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:union memberTypes="lit:LuminaireName comp:NotApplicableMessage"/>
+                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="Lum01_InstalledSameAsCC" type="comp:InstalledSameAsCC" minOccurs="0">
                                        <xsd:annotation>
@@ -319,16 +324,21 @@ And D01_ExceptionalConditionMessageNRCILTOE += LumNotInScope
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Lum03cc_LuminaireDescription" type="lit:LuminaireDescription">
+                                    <xsd:element name="Lum03cc_LuminaireDescription">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Luminaire Description</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+If F02_LuminaireDescription IsPresent
 result = F02_LuminaireDescription
+Else result = BlankGrayedOut
 End If</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
                                              <dtyp:srcSchema form="CCLTO01E" usage="copy">F02_LuminaireDescription</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:union memberTypes="lit:LuminaireDescription comp:NotApplicableMessage"/>
+                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="Lum03_LuminaireDescription" type="lit:LuminaireDescription">
@@ -336,7 +346,9 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Luminaire Description</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Lum02_ScopeIncludesFixture == true 
 If Lum01_InstalledSameasCC == true
-result = Lum03cc_LuminaireDescription  
+If Lum03cc_LuminaireDescription == BlankGrayedOut
+User Input
+Else result = Lum03cc_LuminaireDescription
 Else 
 User input 
 End If
@@ -357,11 +369,13 @@ End If</xsd:documentation>
                                           </xsd:simpleType>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="Lum04cc_IsLuminaireLinear" type="comp:IsLuminaireLinear">
+                                    <xsd:element name="Lum04cc_IsLuminaireLinear">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Fixture Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
+If F02a_IsLuminaireLinear IsPresent
 result = F02a_IsLuminaireLinear
+Else result = SeePlans
 End If</xsd:documentation>
                                           <xsd:appinfo source="displayterm">
                                              <dtyp:displayterm value="true">Linear</dtyp:displayterm>
@@ -371,6 +385,9 @@ End If</xsd:documentation>
                                              <dtyp:srcSchema form="CCLTO01E" usage="copy">F02a_IsLuminaireLinear</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:union memberTypes="comp:IsLuminaireLinear comp:SeePlansMessage"/>
+                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="Lum04_IsLuminaireLinear" type="comp:IsLuminaireLinear">
@@ -378,7 +395,9 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Fixture Type</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Lum02_ScopeIncludesFixture == true
 If Lum01_InstalledSameasCC == true
-result = Lum04cc_IsLuminaireLinear 
+If Lum04cc_IsLuminaireLinear == SeePlans
+User Input
+Else result = Lum04cc_IsLuminaireLinear
 Else 
 User input
 End If
@@ -404,31 +423,39 @@ End If</xsd:documentation>
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="Lum05cc_LuminairePower" type="lit:LuminairePower">
+                                       <xsd:element name="Lum05cc_LuminairePower">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Rated Watts per Luminaire<d:sup>1</d:sup>
                                              </xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 If F03_LuminairePower IsPresent
 result = F03_LuminairePower
+Else result = SeePlans
 End If</xsd:documentation>
                                              <xsd:appinfo source="CIsrc">
                                                 <dtyp:srcSchema form="CCLTO01E" usage="copy">F03_LuminairePower</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:union memberTypes="lit:LuminairePower comp:SeePlansMessage"/>
+                                          </xsd:simpleType>
                                        </xsd:element>
-                                       <xsd:element name="Lum05cc_LuminaireWattsPerLF" type="lit:LuminaireWattsPerLF">
+                                       <xsd:element name="Lum05cc_LuminaireWattsPerLF">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Rated Watts per Luminaire<d:sup>1</d:sup>
                                              </xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 If F03_LuminaireWattsPerLF IsPresent
 result = F03_LuminaireWattsPerLF
+Else result = SeePlans
 End If</xsd:documentation>
                                              <xsd:appinfo source="CIsrc">
                                                 <dtyp:srcSchema form="CCLTO01E" usage="copy">F03_LuminaireWattsPerLF</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:union memberTypes="lit:LuminaireWattsPerLF comp:SeePlansMessage"/>
+                                          </xsd:simpleType>
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
@@ -436,10 +463,11 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Rated Watts per Luminaire<d:sup>1</d:sup>
                                              </xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Lum02_ScopeIncludesFixture == true 
-If Lum05cc_LuminairePower IsPresent
+                                             <xsd:documentation source="CalculationsAndRules">If Lum02_ScopeIncludesFixture == true
 If Lum01_InstalledSameasCC == true
-result = Lum05cc_LuminairePower 
+If Lum05cc_LuminairePower == SeePlans and Lum04_IsLuminaireLinear == false
+User Input
+Else result = Lum05cc_LuminairePower 
 Else
 User input
 End If
@@ -451,10 +479,11 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Rated Watts per Luminaire<d:sup>1</d:sup>
                                              </xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Lum02_ScopeIncludesFixture == true 
-If Lum05cc_LuminaireWattsPerLF IsPresent
+                                             <xsd:documentation source="CalculationsAndRules">If Lum02_ScopeIncludesFixture == true
 If Lum01_InstalledSameasCC == true
-result = Lum05cc_LuminaireWattsPerLF 
+If Lum05cc_LuminaireWattsPerLF == SeePlans and Lum04_IsLuminaireLinear == true
+User Input
+Else result = Lum05cc_LuminaireWattsPerLF
 Else
 User input
 End If
@@ -478,39 +507,48 @@ End If</xsd:documentation>
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="Lum06cc_LuminaireCountByType" type="lit:LuminaireCountByType">
+                                       <xsd:element name="Lum06cc_LuminaireCountByType">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Total Number of Luminaires</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 If F05_LuminaireCountByType IsPresent
-result = F05_LuminaireCountByType 
+result = F05_LuminaireCountByType
+Else result == SeePlans
 End If</xsd:documentation>
                                              <xsd:appinfo source="CIsrc">
                                                 <dtyp:srcSchema form="CCLTO01E" usage="copy">F05_LuminaireCountByType</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:union memberTypes="lit:LuminaireCountByType comp:SeePlansMessage"/>
+                                          </xsd:simpleType>
                                        </xsd:element>
-                                       <xsd:element name="Lum06cc_LuminairesTotalLF" type="lit:LuminairesTotalLF">
+                                       <xsd:element name="Lum06cc_LuminairesTotalLF">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Total Number of Luminaires</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 If F05_LuminaireWattsPerLF IsPresent
 result = F05_LuminairesTotalLF
+Else result = SeePlans
 End If</xsd:documentation>
                                              <xsd:appinfo source="CIsrc">
                                                 <dtyp:srcSchema form="CCLTO01E" usage="copy">F05_LuminairesTotalLF</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:union memberTypes="lit:LuminairesTotalLF comp:SeePlansMessage"/>
+                                          </xsd:simpleType>
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="Lum06_LuminaireCountByType" type="lit:LuminaireCountByType">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Total Number of Luminaires</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Lum02_ScopeIncludesFixture == true 
-If Lum06cc_LuminaireCountByType IsPresent
+                                             <xsd:documentation source="CalculationsAndRules">If Lum02_ScopeIncludesFixture == true
 If Lum01_InstalledSameasCC == true
-result = Lum06cc_LuminaireCountByType  
+If Lum06cc_LuminaireCountByType == SeePlans and Lum04_IsLuminaireLinear == false
+User Input
+Else result = Lum06cc_LuminaireCountByType
 Else
 User input
 End If
@@ -521,12 +559,13 @@ End If</xsd:documentation>
                                        <xsd:element name="Lum06_LuminairesTotalLF" type="lit:LuminairesTotalLF">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Total Number of Luminaires</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Lum02_ScopeIncludesFixture == true 
-If Lum06cc_LuminairesTotalLF IsPresent
+                                             <xsd:documentation source="CalculationsAndRules">If Lum02_ScopeIncludesFixture == true
 If Lum01_InstalledSameasCC == true
-result = Lum06cc_LuminairesTotalLF  
+If Lum06cc_LuminairesTotalLF == SeePlans and Lum04_IsLuminaireLinear == true
+User Input
+Else result = Lum06cc_LuminairesTotalLF
 Else
-Use input
+User input
 End If
 End If
 End If</xsd:documentation>
@@ -547,17 +586,21 @@ End If</xsd:documentation>
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="Lum07cc_LuminairePowerByType" type="lit:LuminairePowerByType">
+                                       <xsd:element name="Lum07cc_LuminairePowerByType">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Total Watts</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 If F08_LuminairePowerByType IsPresent
-result = F08_LuminairePowerByType  
+result = F08_LuminairePowerByType
+Else result = SeePlans
 End If</xsd:documentation>
                                              <xsd:appinfo source="CIsrc">
                                                 <dtyp:srcSchema form="CCLTO01E" usage="copy">F08_LuminairePowerByType</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:union memberTypes="lit:LuminairePowerByType comp:SeePlansMessage"/>
+                                          </xsd:simpleType>
                                        </xsd:element>
                                        <xsd:element name="Lum07cc_NotApplicableMessage">
                                           <xsd:annotation>
@@ -606,18 +649,23 @@ End If</xsd:documentation>
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="Lum08cc_LuminairePowerCutoffCompliance" type="comp:LuminairePowerCutoffCompliance">
+                                       <xsd:element name="Lum08cc_LuminairePowerCutoffCompliance">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Outdoor Luminaire 
                                                 <d:gte/> 6,200 Lumens</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If CCLTOE parent
 If F09_LuminairePowerCutoffCompliance IsPresent
-result = F09_LuminairePowerCutoffCompliance  
+result = F09_LuminairePowerCutoffCompliance
+Else If Lum08cc_NotApplicableMessage IsNotPresent
+result = SeePlans
 End If</xsd:documentation>
                                              <xsd:appinfo source="CIsrc">
                                                 <dtyp:srcSchema form="CCLTO01E" usage="copy">F09_LuminairePowerCutoffCompliance</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:union memberTypes="comp:LuminairePowerCutoffCompliance comp:SeePlansMessage"/>
+                                          </xsd:simpleType>
                                        </xsd:element>
                                        <xsd:element name="Lum08cc_NotApplicableMessage">
                                           <xsd:annotation>
@@ -643,10 +691,11 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Outdoor Luminaire 
                                                 <d:gte/> 6,200 Lumens</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Lum02_ScopeIncludesFixture == true 
-If Lum08cc_LuminairePowerCutoffCompliance IsPresent 
+                                             <xsd:documentation source="CalculationsAndRules">If Lum02_ScopeIncludesFixture == true
 If Lum01_InstalledSameasCC == true
-result = Lum08cc_LuminairePowerCutoffCompliance  
+If Lum08cc_LuminairePowerCutoffCompliance == SeePlans
+User Input
+Else result = Lum08cc_LuminairePowerCutoffCompliance
 Else
 User selects from list that includes all values but Exempt
 End If</xsd:documentation>
@@ -677,11 +726,25 @@ End If</xsd:documentation>
 Else If Lum02_ScopeIncludesFixture == false
 result = NotInScope
  
-Else If Lum07_LuminairePowerByType IsPresent 
-If  Lum07cc_LuminairePowerByType LT  Lum07_LuminairePowerByType 
- result = MayNotComply
+Else If Lum07_LuminairePowerByType IsPresent
+and Lum07cc_LuminairePowerByType LT  Lum07_LuminairePowerByType
+or
+Lum04cc_IsLuminaireLinear == SeePlans
+or
+Lum05cc_LuminairePower == SeePlans
+or
+Lum05cc_LuminaireWattsPerLF == SeePlans
+or
+Lum06cc_LuminaireCountByType == SeePlans
+or
+Lum06cc_LuminairesTotalLF == SeePlans
+or
+Lum07cc_LuminairePowerByType == SeePlans
+or
+Lum08cc_LuminairePowerCutoffCompliance == SeePlans
+result = MayNotComply
  
- Else  If  
+Else  If
 Lum02_ScopeIncludesFixture == true And 
 Lum03_LuminaireDescription == Lum03cc_LuminaireDescription
 And 
