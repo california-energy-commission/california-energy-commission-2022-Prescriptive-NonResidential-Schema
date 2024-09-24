@@ -1306,12 +1306,17 @@ End If</xsd:documentation>
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Space Name</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">If CC-LTOE parent
+If H01mf_SpaceDescription IsPresent
 result = H01mf_SpaceDescription
+Else result = BlankGrayedOut
 End If</xsd:documentation>
                                                    <xsd:appinfo source="CIsrc">
                                                       <dtyp:srcSchema form="CCLTO01E" usage="copy">H01mf_SpaceDescription</dtyp:srcSchema>
                                                    </xsd:appinfo>
                                                 </xsd:annotation>
+                                                 <xsd:simpleType>
+                                                     <xsd:union memberTypes="com:SpaceDescription comp:NotApplicableMessage"/>
+                                                 </xsd:simpleType>
                                              </xsd:element>
                                              <xsd:element name="Ctrl01mf_InMyScope" type="comp:InMyScope" >
                                                 <xsd:annotation>
@@ -1353,42 +1358,56 @@ End If</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
                                                                   </xsd:annotation>
                                                                </xsd:element>
-                                                               <xsd:element name="Ctrl02mfcc_OutdoorCompliantLightSource" type="comp:OutdoorCompliantLightSource"  maxOccurs="unbounded">
+                                                               <xsd:element name="Ctrl02mfcc_OutdoorCompliantLightSource" maxOccurs="unbounded">
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText">Compliant Light Sources[d:sup]1,2[/d:sup]  [d:t24refnolink/]160.5(a)1</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If CC-LTO-E parent
+If H02mf_OutdoorCompliantLightSource IsPresent
 result = H02mf_OutdoorCompliantLightSource
+Else result = SeePlans
 End If</xsd:documentation>
                                                                      <xsd:appinfo source="CIsrc">
                                                                         <dtyp:srcSchema form="CCLTO01E" usage="copy">H02mf_OutdoorCompliantLightSource</dtyp:srcSchema>
                                                                      </xsd:appinfo>
                                                                   </xsd:annotation>
+                                                                   <xsd:simpleType>
+                                                                       <xsd:union memberTypes="comp:OutdoorCompliantLightSource comp:SeePlansMessage"/>
+                                                                   </xsd:simpleType>
                                                                </xsd:element>
                                                                <xsd:element name="Ctrl02mf_OutdoorCompliantLightSource" type="comp:OutdoorCompliantLightSource"  maxOccurs="unbounded">
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText">Compliant Light Sources[d:sup]1,2[/d:sup]  [d:t24refnolink/]160.5(a)1</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If Ctrl01mf_InstalledSameAsCC == true
-result = Ctrl02mfcc_OutdoorCompliantLightSource
+If Ctrl02mfcc_OutdoorCompliantLightSource == SeePlans
+User selects from list
+Else result = Ctrl02mfcc_OutdoorCompliantLightSource
 Else
 User selects from list 
 End If</xsd:documentation>
                                                                   </xsd:annotation>
                                                                </xsd:element>
-                                                               <xsd:element name="Ctrl03mfcc_OutdoorLightingMF" type="comp:OutdoorLightingMF" >
+                                                               <xsd:element name="Ctrl03mfcc_OutdoorLightingMF">
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText">Mandatory Controls [d:t24refnolink/]160.5(a) [d:line1/]  Shut-Off</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If CC-LTO-E parent
-result = H03mf_OutdooLightingMF
+If H03mf_OutdoorLightingMF IsPresent
+result = H03mf_OutdoorLightingMF
+Else result = SeePlans
 End If</xsd:documentation>
                                                                      <xsd:appinfo source="CIsrc">
                                                                         <dtyp:srcSchema form="CCLTO01E" usage="copy">H03mf_OutdoorLightingMF</dtyp:srcSchema>
                                                                      </xsd:appinfo>
                                                                   </xsd:annotation>
+                                                                   <xsd:simpleType>
+                                                                       <xsd:union memberTypes="comp:OutdoorLightingMF comp:SeePlansMessage"/>
+                                                                   </xsd:simpleType>
                                                                </xsd:element>
                                                                <xsd:element name="Ctrl03mf_OutdoorLightingMF" type="comp:OutdoorLightingMF" >
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText">Mandatory Controls [d:t24refnolink/]160.5(a) [d:line1/]  Shut-Off</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If Ctrl01mf_InstalledSameAsCC == true
+If Ctrl03mfcc_OutdoorLightingMF == SeePlans
+User selects from list
 result = Ctrl03mfcc_OutdoorLightingMF
 Else
 User selects from list 
