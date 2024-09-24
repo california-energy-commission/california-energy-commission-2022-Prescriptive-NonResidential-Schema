@@ -388,10 +388,13 @@ End If</xsd:documentation>
                            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
-                                    <xsd:element name="Lum01cc_LuminaireName" type="lit:LuminaireName" >
+                                    <xsd:element name="Lum01cc_LuminaireName">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Name or Item Tag</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
+                                          <xsd:documentation source="CalculationsAndRules">
+If Fc01_LuminaireName IsNotPresent and Fu01_LuminaireName IsNotPresent and Q09_LuminaireName IsNotPresent and LtgSched01_LuminaireName IsNotPresent
+result = BlankGrayedOut
+If CCLTIE parent
  result loaded from Fc01_LuminaireName Or Fu01_LuminaireName Or Q09_LuminaireName
  Else If CCPRFE parent
  result loaded from LtgSched01_LuminaireName
@@ -403,6 +406,9 @@ End If</xsd:documentation>
                                              <dtyp:srcSchema form="CCPRF01E"  usage="copy">LtgSched01_LuminaireName</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                            <xsd:union memberTypes="lit:LuminaireName comp:NotApplicableMessage"/>
+                                        </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="Lum01_ScopeIncludesFixture" type="comp:ScopeIncludesFixture" >
                                        <xsd:annotation>
@@ -437,7 +443,9 @@ End If</xsd:documentation>
  
  End If
  Else If CCPRFE parent
+ If LtgSched02_LuminaireDescription IsPresent
  result = LtgSched02_LuminaireDescription
+ End If
  End If</xsd:documentation>
                                              <xsd:appinfo source="CIsrc">
                                                 <dtyp:srcSchema form="CCLTI01E"  usage="copy">Fc02_LuminaireDescription</dtyp:srcSchema>
@@ -450,9 +458,9 @@ End If</xsd:documentation>
                                        <xsd:element name="Lum03cc_NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Luminaire Description</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If CCPRFE parent And LtgSched02_LuminaireDescription NotPresent
- result = BlankGrayedOut
- End If</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Lum03cc_LuminaireDescription IsNotPresent
+result = BlankGrayedOut
+End If</xsd:documentation>
                                              <xsd:appinfo source="CIsrc">
                                                 <dtyp:srcSchema form="CCPRF01E"  usage="value">BlankGrayedOut</dtyp:srcSchema>
                                              </xsd:appinfo>
@@ -469,7 +477,7 @@ End If</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Luminaire Description</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Lum01_InstalledSameAsCC == true
- result = Lum03cc_LuminaireDescription but user can change value
+ result = Lum03cc_LuminaireDescription
  Else If Lum01_InstalledSameAsCC == false
  User input
  End If</xsd:documentation>
@@ -498,7 +506,7 @@ End If</xsd:documentation>
  result = Conditioned
 Else If  Fu01_LuminaireName was loaded into Lum01cc_LuminaireName 
  result = Unconditioned
- End If
+ Else result = SeePlans
  Else If CCPRFE parent
  result = Conditioned
  End If</xsd:documentation>
@@ -508,6 +516,9 @@ Else If  Fu01_LuminaireName was loaded into Lum01cc_LuminaireName
                                                 <dtyp:srcSchema form="CCPRF01E"  usage="value">Conditioned</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
+                                           <xsd:simpleType>
+                                               <xsd:union memberTypes="com:ConditioningType comp:SeePlansMessage"/>
+                                           </xsd:simpleType>
                                        </xsd:element>
                                        <xsd:element name="Lum04cc_NotApplicableMessage" >
                                           <xsd:annotation>
@@ -528,7 +539,7 @@ Else If  Fu01_LuminaireName was loaded into Lum01cc_LuminaireName
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="Lum05cc_LuminaireUse" type="lit:LuminaireUse"  maxOccurs="unbounded">
+                                       <xsd:element name="Lum05cc_LuminaireUse" maxOccurs="unbounded">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Fixture Type</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
@@ -551,10 +562,12 @@ result = SmallApertureColorChanging
 Else If  Fu04_SmallApertureColorChange == OccupancyNonres
 result = SmallApertureColorChanging
  End If
- 
  End If
- End If
- End If</xsd:documentation>
+ Else result = SeePlans
+ Else If CCPRF parent
+ If SOURCE_FIELD IsPresent
+ result = SOURCE_FIELD 
+ else result = SeePlans</xsd:documentation>
                                              <xsd:appinfo source="CIsrc">
                                                 <dtyp:srcSchema form="CCLTI01E"  usage="reference">Fc03_IsLuminaireTrackLighting</dtyp:srcSchema>
                                                 <dtyp:srcSchema form="CCLTI01E"  usage="reference">Fc04_SmallApertureColorChange</dtyp:srcSchema>
@@ -562,6 +575,9 @@ result = SmallApertureColorChanging
                                                 <dtyp:srcSchema form="CCLTI01E"  usage="reference">Fu04_SmallApertureColorChange</dtyp:srcSchema>
                                              </xsd:appinfo>
                                           </xsd:annotation>
+                                           <xsd:simpleType>
+                                               <xsd:union memberTypes="lit:LuminaireUse comp:SeePlansMessage"/>
+                                           </xsd:simpleType>
                                        </xsd:element>
                                        <xsd:element name="Lum05cc_NotApplicableMessage" >
                                           <xsd:annotation>
@@ -598,12 +614,14 @@ result = SmallApertureColorChanging
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="Lum05_LuminaireUse" type="lit:LuminaireUse"  maxOccurs="unbounded">
+                                       <xsd:element name="Lum05_LuminaireUse" type="lit:LuminaireUse" maxOccurs="unbounded">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Fixture Type</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Lum05cc_LuminaireUse IsPresent
  If Lum01_InstalledSameAsCC == true
- result = Lum05cc_LuminaireUse but user can change the value(s)
+ If Lum05cc_LuminaireUse == SeePlans
+ User Input
+ Else result = Lum05cc_LuminaireUse
  Else Lum01_InstalledSameAsCC == false
  User input
  End If
@@ -674,7 +692,7 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Linear Ft of Track</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Lum06cc_TrackLightingLength IsPresent
  If Lum01_InstalledSameAsCC == true
- result = Lum06cc_TrackLightingLength but user can change value
+ result = Lum06cc_TrackLightingLength
  Else If Lum01_InstalledSameAsCC == false
  Usr input
  End If</xsd:documentation>
@@ -702,7 +720,7 @@ Else If Lum06cc_NotApplicableMessage IsPresent
                                              <xsd:documentation source="FieldText">VA of Current Limiter</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If CCLTIE parent 
  If G03ii01_TrackLightingCurrentLimiterPower IsPresent 
- result = G03ii01_TrackLightingCurrentLimiterPower 
+ result = G03ii01_TrackLightingCurrentLimiterPower
  End If</xsd:documentation>
                                              <xsd:appinfo source="CIsrc">
                                                 <dtyp:srcSchema form="CCLTI01E"  usage="copy">G03ii01_TrackLightingCurrentLimiterPower</dtyp:srcSchema>
@@ -741,7 +759,7 @@ result = BlankGrayedOut
                                              <xsd:documentation source="FieldText">VA of Current Limiter</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Lum07cc_TrackLightingCurrentLimiterPower  IsPresent
  If Lum01_InstalledSameAsCC == true
- result = Lum07cc_TrackLightingCurrentLimiterPower but user can change value
+ result = Lum07cc_TrackLightingCurrentLimiterPower
  Else If Lum01_InstalledSameAsCC == false
  Usr input
  End If</xsd:documentation>
@@ -764,7 +782,7 @@ result = BlankGrayedOut
                                              <xsd:documentation source="FieldText">Voltage of Branch Circuit</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If CCLTIE parent 
  If G03iii01_TrackLightingBranchCircuitPower IsPresent 
- result = G03iii01_TrackLightingBranchCircuitPower 
+ result = G03iii01_TrackLightingBranchCircuitPower
  End If</xsd:documentation>
                                              <xsd:appinfo source="CIsrc">
                                                 <dtyp:srcSchema form="CCLTI01E"  usage="copy">G03iii01_TrackLightingBranchCircuitPower</dtyp:srcSchema>
@@ -804,7 +822,7 @@ Else If Lum01cc_LuminaireName is loaded from  Q09_LuminaireName
                                              <xsd:documentation source="FieldText">Voltage of Branch Circuit</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Lum08cc_TrackLightingBranchCircuitPower IsPresent
  If Lum01_InstalledSameAsCC == true
- result = Lum08cc_TrackLightingBranchCircuitPower but user can change value
+ result = Lum08cc_TrackLightingBranchCircuitPower
  Else If Lum01_InstalledSameAsCC == false
  Usr input
  End If</xsd:documentation>
@@ -871,7 +889,7 @@ Else If Lum01cc_LuminaireName is loaded from  Q09_LuminaireName
                                              <xsd:documentation source="FieldText">Sum of Ampere Rating [d:sup]1[/d:sup]</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Lum09cc_TrackOvercurrentPanelsTotalPower IsPresent
  If Lum01_InstalledSameAsCC == true
- result = Lum09cc_TrackOvercurrentPanelsTotalPower but user can change value
+ result = Lum09cc_TrackOvercurrentPanelsTotalPower
  Else If Lum01_InstalledSameAsCC == false
  Usr input
  End If</xsd:documentation>
@@ -938,7 +956,7 @@ Else If Lum01cc_LuminaireName is loaded from  Q09_LuminaireName
                                              <xsd:documentation source="FieldText">Maximum Rated Input Wattage [d:sup]2[/d:sup]</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Lum10cc_TrackLightingPowerSourceRatedWattage IsPresent
  If Lum01_InstalledSameAsCC == true
- result = Lum10cc_TrackLightingPowerSourceRatedWattage but user can change value
+ result = Lum10cc_TrackLightingPowerSourceRatedWattage
  Else If Lum01_InstalledSameAsCC == false
  Usr input
  End If</xsd:documentation>
@@ -960,7 +978,7 @@ Else If Lum01cc_LuminaireName is loaded from  Q09_LuminaireName
                                           </xsd:simpleType>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="Lum11cc_LuminairePower" type="lit:LuminairePower" >
+                                    <xsd:element name="Lum11cc_LuminairePower">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Rated Wattage per luminaire</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
@@ -970,9 +988,12 @@ Else If Lum01cc_LuminaireName is loaded from  Q09_LuminaireName
  result = Fu05_LuminairePower
  If Lum01cc_LuminaireName is loaded from  Q09_LuminaireName
  result = Q11_LuminairePower
+ Else result = SeePlans
  End If
  Else If CCPRFE parent
+ If LtgSched03_LuminairePower IsPresent
  result = LtgSched03_LuminairePower
+ Else result = SeePlans
  End If</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
                                              <dtyp:srcSchema form="CCLTI01E"  usage="copy">Fc05_LuminairePower</dtyp:srcSchema>
@@ -981,13 +1002,18 @@ Else If Lum01cc_LuminaireName is loaded from  Q09_LuminaireName
                                              <dtyp:srcSchema form="CCLTI01E"  usage="copy">Q11_LuminairePower</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                            <xsd:union memberTypes="lit:LuminairePower comp:SeePlansMessage"/>
+                                        </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="Lum11_LuminairePower" type="lit:LuminairePower" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Rated Wattage per luminaire</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Lum01_InstalledSameAsCC == true
- result = Lum11cc_LuminairePower but user can change value
+If Lum11cc_LuminairePower == SeePlans
+User Input
+Else result = Lum11cc_LuminairePower
  Else If Lum01_InstalledSameAsCC == false
  Usr input
  End If</xsd:documentation>
@@ -1007,7 +1033,7 @@ End If</xsd:documentation>
                                           </xsd:simpleType>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="Lum12cc_LuminaireCountByType" type="lit:LuminaireCountByType" >
+                                    <xsd:element name="Lum12cc_LuminaireCountByType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Total Number of Luminaires</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
@@ -1017,10 +1043,13 @@ End If</xsd:documentation>
  result = Fu07_LuminaireCountByType
  Else If Lum01cc_LuminaireName is loaded from  Q09_LuminaireName
 result = Q13_LuminaireCountByType
- 
+Else result = SeePlans
+
  End If
  Else If CCPRFE parent
+ If LtgSched05_LuminaireCountByType IsPresent
  result = LtgSched05_LuminaireCountByType
+ else result = SeePlans
  End If</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
                                              <dtyp:srcSchema form="CCLTI01E"  usage="copy">Fc07_LuminaireCountByType</dtyp:srcSchema>
@@ -1029,6 +1058,9 @@ result = Q13_LuminaireCountByType
                                              <dtyp:srcSchema form="CCPRF01E"  usage="copy">LtgSched05_LuminaireCountByType</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                            <xsd:union memberTypes="lit:LuminaireCountByType comp:SeePlansMessage"/>
+                                        </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="Lum12_LuminaireCountByType" type="lit:LuminaireCountByType" >
@@ -1036,9 +1068,11 @@ result = Q13_LuminaireCountByType
                                              <xsd:documentation source="FieldText">Total Number of Luminaires</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Lum12cc_LuminaireCountByType IsPresent
  If Lum01_InstalledSameAsCC == true
- result = Lum12cc_LuminaireCountByType but user can change value
+ If Lum12cc_LuminaireCountByType == SeePlans
+ User Input
+ Else result = Lum12cc_LuminaireCountByType
  Else If Lum01_InstalledSameAsCC == false
- Usr input
+ User input
  End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -1167,19 +1201,24 @@ End If</xsd:documentation>
                            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
-                                    <xsd:element name="Ctrl01cc_SpaceDescription" type="com:SpaceDescription" minOccurs="0">
+                                    <xsd:element name="Ctrl01cc_SpaceDescription" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Area Description</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
 result = H04_SpaceDescription
 Else If CCPRFE parent
- result = LtgControls03__SpaceDescription
+If LtgControls03_SpaceDescription IsPresent
+result = LtgControls03_SpaceDescription
+Else result = BlankGrayedOut
 End If</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
                                              <dtyp:srcSchema form="CCLTI01E"  usage="copy">H04_SpaceDescription</dtyp:srcSchema>
                                              <dtyp:srcSchema form="CCPRF01E"  usage="copy">LtgControls03_SpaceDescription</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                            <xsd:union memberTypes="com:SpaceDescription comp:NotApplicableMessage"/>
+                                        </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="Ctrl01_InMyScope" type="comp:InMyScope" >
                                        <xsd:annotation>
@@ -1222,30 +1261,39 @@ End If</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                       <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="Ctrl02cc_SpaceFunction" type="com:SpaceFunction">
+                                                         <xsd:element name="Ctrl02cc_SpaceFunction">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Primary Function Area</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTIE parent And  H05_SpaceFunction IsPresent
 result = H05_SpaceFunction
 Else If CCPRFE parent
- result = LtgControls04_SpaceFunction
+If LtgControls04_SpaceFunction IsPresent
+result = LtgControls04_SpaceFunction
+Else result = SeePlans
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCLTI01E"  usage="copy">H05_SpaceFunction</dtyp:srcSchema>
                                                                   <dtyp:srcSchema form="CCPRF01E"  usage="copy">LtgControls04_SpaceFunction</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                             <xsd:simpleType>
+                                                                 <xsd:union memberTypes="com:SpaceFunction comp:SeePlansMessage"/>
+                                                             </xsd:simpleType>
                                                          </xsd:element>
-                                                         <xsd:element name="Ctrl02cc_WholeBuildingOccupancy" type="com:WholeBuildingOccupancy">
+                                                         <xsd:element name="Ctrl02cc_WholeBuildingOccupancy">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Primary Function Area</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTIE parent And  H05_WholeBuildingOccupancy IsPresent
 result = H05_WholeBuildingOccupancy
+Else result = SeePlans
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCLTI01E"  usage="copy">H05_WholeBuildingOccupancy</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                             <xsd:simpleType>
+                                                                 <xsd:union memberTypes="com:WholeBuildingOccupancy comp:SeePlansMessage"/>
+                                                             </xsd:simpleType>
                                                          </xsd:element>
                                                          <xsd:element name="Ctrl02cc_NotApplicableMessage" >
                                                             <xsd:annotation>
@@ -1265,11 +1313,13 @@ End If</xsd:documentation>
                                                          </xsd:element>
                                                       </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="Ctrl03cc_MandatoryLightingDemandResponseNR" type="comp:MandatoryLightingDemandResponseNR" >
+                                                         <xsd:element name="Ctrl03cc_MandatoryLightingDemandResponseNR">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Demand Response</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
+If H01_MandatoryLightingDemandResponseNR IsPresent
 result = H01_MandatoryLightingDemandResponseNR
+Else result = SeePlans
 End If</xsd:documentation>
                                                                <xsd:appinfo source="displayterm">
                                                                   <dtyp:displayterm value="RequiredGT10000SF">Provided</dtyp:displayterm>
@@ -1282,12 +1332,17 @@ End If</xsd:documentation>
                                                                   <dtyp:srcSchema form="CCLTI01E"  usage="copy">H01_MandatoryLightingDemandResponseNR</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                             <xsd:simpleType>
+                                                                 <xsd:union memberTypes="comp:MandatoryLightingDemandResponseNR comp:SeePlansMessage"/>
+                                                             </xsd:simpleType>
                                                          </xsd:element>
-                                                         <xsd:element name="Ctrl03cc_MandatoryBuildingDemandResponseControlRequired" type="comp:MandatoryBuildingDemandResponseControlRequired" >
+                                                         <xsd:element name="Ctrl03cc_MandatoryBuildingDemandResponseControlRequired">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Demand Response</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCPRFE parent
- result = LtgControls01_MandatoryBuildingDemandResponseControlRequired
+If LtgControls01_MandatoryBuildingDemandResponseControlRequired IsPresent
+result = LtgControls01_MandatoryBuildingDemandResponseControlRequired
+Else result = SeePlans
 End If</xsd:documentation>
                                                                <xsd:appinfo source="displayterm">
                                                                   <dtyp:displayterm value="Required">Provided</dtyp:displayterm>
@@ -1297,39 +1352,64 @@ End If</xsd:documentation>
                                                                   <dtyp:srcSchema form="CCPRF01E"  usage="copy">LtgControls01_MandatoryBuildingDemandResponseControlRequired</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                             <xsd:simpleType>
+                                                                 <xsd:union memberTypes="comp:MandatoryBuildingDemandResponseControlRequired comp:SeePlansMessage"/>
+                                                             </xsd:simpleType>
                                                          </xsd:element>
                                                       </xsd:choice>
-                                                      <xsd:element name="Ctrl03_MandatoryLightingDemandResponseNR" type="comp:MandatoryLightingDemandResponseNR" >
+                                                      <xsd:element name="Ctrl03_MandatoryLightingDemandResponseNR">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Demand Response</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If Ctrl01_InstalledSameAsCC == true
-If Ctrl03cc_MandatoryLightingDemandResponseNR IsPresent
-result = Ctrl03cc_MandatoryLightingDemandResponseNR
-Else If Ctrl03cc_MandatoryBuildingDemandResponseControlRequired IsPresent
-User selects from dropdown list 
+                                                            <xsd:documentation source="CalculationsAndRules">
+If Ctrl01_InstalledSameAsCC == true
+
+If CCLTIE parent
+If Ctrl03cc_MandatoryLightingDemandResponseNR == SeePlans
+User selects from dropdown list for MandatoryLightingDemandResponseNR
+Else result = Ctrl03cc_MandatoryLightingDemandResponseNR
+
+If CCPRFE parent
+If Ctrl03cc_MandatoryBuildingDemandResponseControlRequired == SeePlans
+User selects from dropdown list for MandatoryBuildingDemandResponseControlRequired
+Else result = Ctrl03cc_MandatoryBuildingDemandResponseControlRequired
 End If
+
 Else If Ctrl01_InstalledSameAsCC == false
-User selects from dropdown list 
+
+If Ctrl03cc_MandatoryLightingDemandResponseNR IsPresent
+User selects from dropdown list for MandatoryLightingDemandResponseNR
+If Ctrl03cc_MandatoryBuildingDemandResponseControlRequired IsPresent
+User selects from dropdown list for MandatoryBuildingDemandResponseControlRequired
 End If</xsd:documentation>
                                                          </xsd:annotation>
+                                                          <xsd:simpleType>
+                                                              <xsd:union memberTypes="comp:MandatoryLightingDemandResponseNR comp:MandatoryBuildingDemandResponseControlRequired"/>
+                                                          </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="Ctrl04cc_AreaControlsCompliance" type="comp:AreaControlsCompliance" >
+                                                         <xsd:element name="Ctrl04cc_AreaControlsCompliance">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Manual Area Controls</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
+If H06_AreaControlsCompliance IsPresent
 result = H06_AreaControlsCompliance
+Else result = BlankGrayedOut
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCLTI01E"  usage="copy">H06_AreaControlsCompliance</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                             <xsd:simpleType>
+                                                                 <xsd:union memberTypes="comp:AreaControlsCompliance comp:NotApplicableMessage"/>
+                                                             </xsd:simpleType>
                                                          </xsd:element>
-                                                         <xsd:element name="Ctrl04cc_MandatoryAreaControlsRequired" type="comp:MandatoryAreaControlsRequired" >
+                                                         <xsd:element name="Ctrl04cc_MandatoryAreaControlsRequired">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Manual Area Controls</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCPRFE parent
- result = LtgControls05_MandatoryAreaControlsRequired
+If LtgControls05_MandatoryAreaControlsRequired IsPresent
+result = LtgControls05_MandatoryAreaControlsRequired
+Else result = SeePlans
 End If</xsd:documentation>
                                                                <xsd:appinfo source="displayterm">
                                                                   <dtyp:displayterm value="Required">Provided</dtyp:displayterm>
@@ -1339,39 +1419,65 @@ End If</xsd:documentation>
                                                                   <dtyp:srcSchema form="CCPRF01E"  usage="copy">LtgControls05_MandatoryAreaControlsRequired</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                             <xsd:simpleType>
+                                                                 <xsd:union memberTypes="comp:MandatoryAreaControlsRequired comp:SeePlansMessage"/>
+                                                             </xsd:simpleType>
                                                          </xsd:element>
                                                       </xsd:choice>
-                                                      <xsd:element name="Ctrl04_AreaControlsCompliance" type="comp:AreaControlsCompliance" >
+                                                      <xsd:element name="Ctrl04_AreaControlsCompliance">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Manual Area Controls</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If Ctrl01_InstalledSameAsCC == true
-If Ctrl04cc_AreaControlsCompliance  IsPresent
-result = Ctrl04cc_AreaControlsCompliance
-Else If Ctrl04cc_MandatoryAreaControlsRequired IsPresent
-User selects from dropdown list 
+                                                            <xsd:documentation source="CalculationsAndRules">
+If Ctrl01_InstalledSameAsCC == true
+
+If CCLTIE parent
+If Ctrl04cc_AreaControlsCompliance == SeePlans
+User selects from dropdown list for AreaControlsCompliance
+Else result = Ctrl04cc_AreaControlsCompliance
+
+If CCPRFE parent
+If Ctrl04cc_MandatoryAreaControlsRequired == SeePlans
+User selects from dropdown list for MandatoryAreaControlsRequired
+Else result = Ctrl04cc_MandatoryAreaControlsRequired
 End If
+
 Else If Ctrl01_InstalledSameAsCC == false
-User selects from list that includes all values but AreaControlsExempt, AreaControlsOther
-End If</xsd:documentation>
+
+If Ctrl04cc_AreaControlsCompliance IsPresent
+User selects from dropdown list for AreaControlsCompliance
+If Ctrl04cc_MandatoryAreaControlsRequired IsPresent
+User selects from dropdown list for MandatoryAreaControlsRequired
+End If
+                                                            </xsd:documentation>
                                                          </xsd:annotation>
+                                                          <xsd:simpleType>
+                                                              <xsd:union memberTypes="comp:AreaControlsCompliance comp:MandatoryAreaControlsRequired"/>
+                                                          </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="Ctrl05cc_MultilevelControls" type="comp:MultilevelControls" >
+                                                         <xsd:element name="Ctrl05cc_MultilevelControls">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Multi-Level Controls</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
-result = H07_MultilevelControls 
+If H07_MultilevelControls IsPresent
+result = H07_MultilevelControls
+Else result = SeePlans
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCLTI01E"  usage="copy">H07_MultilevelControls</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                             <xsd:simpleType>
+                                                                 <xsd:union memberTypes="comp:MultilevelControls comp:SeePlansMessage"/>
+                                                             </xsd:simpleType>
                                                          </xsd:element>
-                                                         <xsd:element name="Ctrl05cc_MandatoryMultiLevelControlRequired" type="comp:MandatoryMultiLevelControlRequired" >
+                                                         <xsd:element name="Ctrl05cc_MandatoryMultiLevelControlRequired">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Multi-Level Controls</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCPRFE parent
+If LtgControls06_MandatoryMultiLevelControlRequired IsPresent
 result =  LtgControls06_MandatoryMultiLevelControlRequired
+Else result = SeePlans
 End If</xsd:documentation>
                                                                <xsd:appinfo source="displayterm">
                                                                   <dtyp:displayterm value="Required">Provided</dtyp:displayterm>
@@ -1381,39 +1487,65 @@ End If</xsd:documentation>
                                                                   <dtyp:srcSchema form="CCPRF01E"  usage="copy">LtgControls06_MandatoryMultiLevelControlRequired</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                             <xsd:simpleType>
+                                                                 <xsd:union memberTypes="comp:MandatoryMultiLevelControlRequired comp:SeePlansMessage"/>
+                                                             </xsd:simpleType>
                                                          </xsd:element>
                                                       </xsd:choice>
-                                                      <xsd:element name="Ctrl05_MultilevelControls" type="comp:MultilevelControls" >
+                                                      <xsd:element name="Ctrl05_MultilevelControls">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Multi-Level Controls</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If Ctrl01_InstalledSameAsCC == true
-If Ctrl05cc_MultilevelControls  IsPresent
-result = Ctrl05cc_MultilevelControls
-Else If Ctrl05cc_MandatoryMultiLevelControlRequired IsPresent
-User selects from dropdown list 
+                                                            <xsd:documentation source="CalculationsAndRules">
+If Ctrl01_InstalledSameAsCC == true
+
+If CCLTIE parent
+If Ctrl05cc_MultilevelControls == SeePlans
+User selects from dropdown list for MultilevelControls
+Else result = Ctrl05cc_MultilevelControls
+
+If CCPRFE parent
+If Ctrl05cc_MandatoryMultiLevelControlRequired == SeePlans
+User selects from dropdown list for MandatoryMultiLevelControlRequire
+Else result = Ctrl05cc_MandatoryMultiLevelControlRequired
 End If
+
 Else If Ctrl01_InstalledSameAsCC == false
-User selects from list that includes all values but  MultilevelControlsExempt and MultilevelControlsOther
-End If</xsd:documentation>
+
+If Ctrl05cc_MultilevelControls IsPresent
+User selects from dropdown list for MultilevelControls
+If Ctrl05cc_MandatoryMultiLevelControlRequired IsPresent
+User selects from dropdown list for MandatoryMultiLevelControlRequire
+End If
+                                                            </xsd:documentation>
                                                          </xsd:annotation>
+                                                          <xsd:simpleType>
+                                                              <xsd:union memberTypes="comp:MultilevelControls comp:MandatoryMultiLevelControlRequired"/>
+                                                          </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="Ctrl06cc_ShutOffControlsArea" type="comp:ShutOffControlsArea" >
+                                                         <xsd:element name="Ctrl06cc_ShutOffControlsArea">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
+If H08_ShutOffControlsArea IsPresent
 result = H08_ShutOffControlsArea
+Else result = SeePlans
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCLTI01E"  usage="copy">H08_ShutOffControlsArea</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                             <xsd:simpleType>
+                                                                 <xsd:union memberTypes="comp:ShutOffControlsArea comp:SeePlansMessage"/>
+                                                             </xsd:simpleType>
                                                          </xsd:element>
-                                                         <xsd:element name="Ctrl06cc_MandatoryBuildingShutOffControlRequired" type="comp:MandatoryBuildingShutOffControlRequired" >
+                                                         <xsd:element name="Ctrl06cc_MandatoryBuildingShutOffControlRequired">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCPRFE parent
-result =  LtgControls02_MandatoryBuildingShutOffControlRequired
+If LtgControls02_MandatoryBuildingShutOffControlRequired IsPresent
+result = LtgControls02_MandatoryBuildingShutOffControlRequired
+Else result = SeePlans
 End If</xsd:documentation>
                                                                <xsd:appinfo source="displayterm">
                                                                   <dtyp:displayterm value="Required">Provided</dtyp:displayterm>
@@ -1423,39 +1555,65 @@ End If</xsd:documentation>
                                                                   <dtyp:srcSchema form="CCPRF01E"  usage="copy">LtgControls02_MandatoryBuildingShutOffControlRequired</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                             <xsd:simpleType>
+                                                                 <xsd:union memberTypes="comp:MandatoryBuildingShutOffControlRequired comp:SeePlansMessage"/>
+                                                             </xsd:simpleType>
                                                          </xsd:element>
                                                       </xsd:choice>
-                                                      <xsd:element name="Ctrl06_ShutOffControlsArea" type="comp:ShutOffControlsArea" >
+                                                      <xsd:element name="Ctrl06_ShutOffControlsArea">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Shut-Off Controls</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If Ctrl01_InstalledSameAsCC == true
-If Ctrl06cc_ShutOffControlsArea  IsPresent
-result = Ctrl06cc_ShutOffControlsArea
-Else If Ctrl06cc_MandatoryBuildingShutOffControlRequired IsPresent
-User selects from dropdown list 
+                                                            <xsd:documentation source="CalculationsAndRules">
+If Ctrl01_InstalledSameAsCC == true
+
+If CCLTIE parent
+If Ctrl06cc_ShutOffControlsArea == SeePlans
+User selects from dropdown list for ShutOffControlsArea
+Else result = Ctrl06cc_ShutOffControlsArea
+
+If CCPRFE parent
+If Ctrl06cc_MandatoryBuildingShutOffControlRequired == SeePlans
+User selects from dropdown list for MandatoryBuildingShutOffControlRequired
+Else result = Ctrl06cc_MandatoryBuildingShutOffControlRequired
 End If
+
 Else If Ctrl01_InstalledSameAsCC == false
-User selects from list that includes all values but  ExemptShutOffControl and OtherShutOffControl
-End If</xsd:documentation>
+
+If Ctrl06cc_ShutOffControlsArea IsPresent
+User selects from dropdown list for ShutOffControlsArea
+If Ctrl06cc_MandatoryBuildingShutOffControlRequired IsPresent
+User selects from dropdown list for MandatoryBuildingShutOffControlRequired
+End If
+                                                            </xsd:documentation>
                                                          </xsd:annotation>
+                                                          <xsd:simpleType>
+                                                              <xsd:union memberTypes="comp:ShutOffControlsArea comp:MandatoryBuildingShutOffControlRequired"/>
+                                                          </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="Ctrl07cc_PrimarySkylitDaylightControlsIncluded" type="comp:PrimarySkylitDaylightControlsIncluded" >
+                                                         <xsd:element name="Ctrl07cc_PrimarySkylitDaylightControlsIncluded">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Primary/Skylit Daylighting</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
+If H09_PrimarySkylitDaylightControlsIncluded IsPresent
 result = H09_PrimarySkylitDaylightControlsIncluded
+else result = SeePlans
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCLTI01E"  usage="copy">H09_PrimarySkylitDaylightControlsIncluded</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                             <xsd:simpleType>
+                                                                 <xsd:union memberTypes="comp:PrimarySkylitDaylightControlsIncluded comp:SeePlansMessage"/>
+                                                             </xsd:simpleType>
                                                          </xsd:element>
-                                                         <xsd:element name="Ctrl07cc_MandatoryPrimaryDaylightingControlRequired" type="comp:MandatoryPrimaryDaylightingControlRequired" >
+                                                         <xsd:element name="Ctrl07cc_MandatoryPrimaryDaylightingControlRequired">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Primary/Skylit Daylighting</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCPRFE parent
+If LtgControls08_MandatoryPrimaryDaylightingControlRequired IsPresent
 result = LtgControls08_MandatoryPrimaryDaylightingControlRequired
+Else result = SeePlans
 End If</xsd:documentation>
                                                                <xsd:appinfo source="displayterm">
                                                                   <dtyp:displayterm value="Required">Provided</dtyp:displayterm>
@@ -1465,43 +1623,68 @@ End If</xsd:documentation>
                                                                   <dtyp:srcSchema form="CCPRF01E"  usage="copy">LtgControls08_MandatoryPrimaryDaylightingControlRequired</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                             <xsd:simpleType>
+                                                                 <xsd:union memberTypes="comp:MandatoryPrimaryDaylightingControlRequired comp:SeePlansMessage"/>
+                                                             </xsd:simpleType>
                                                          </xsd:element>
                                                       </xsd:choice>
-                                                      <xsd:element name="Ctrl07_PrimarySkylitDaylightControlsIncluded" type="comp:PrimarySkylitDaylightControlsIncluded" >
+                                                      <xsd:element name="Ctrl07_PrimarySkylitDaylightControlsIncluded">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Primary/Skylit Daylighting</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If Ctrl01_InstalledSameAsCC == true
-If Ctrl07cc_PrimarySkylitDaylightControlsIncluded  IsPresent
-result = Ctrl07cc_PrimarySkylitDaylightControlsIncluded
-Else If Ctrl07cc_MandatoryPrimaryDaylightingControlRequired IsPresent
-User selects from dropdown list 
+                                                            <xsd:documentation source="CalculationsAndRules">
+If Ctrl01_InstalledSameAsCC == true
+
+If CCLTIE parent
+If Ctrl07cc_PrimarySkylitDaylightControlsIncluded == SeePlans
+User selects from dropdown list for PrimarySkylitDaylightControlsIncluded
+Else result = Ctrl07cc_PrimarySkylitDaylightControlsIncluded
+
+If CCPRFE parent
+If Ctrl07cc_MandatoryPrimaryDaylightingControlRequired == SeePlans
+User selects from dropdown list for MandatoryPrimaryDaylightingControlRequired
+Else result = Ctrl07cc_MandatoryPrimaryDaylightingControlRequired
 End If
+
 Else If Ctrl01_InstalledSameAsCC == false
-User selects from list that includes all values but  Exempt and NA 
-End If</xsd:documentation>
+
+If Ctrl07cc_PrimarySkylitDaylightControlsIncluded IsPresent
+User selects from dropdown list for PrimarySkylitDaylightControlsIncluded
+If Ctrl07cc_MandatoryPrimaryDaylightingControlRequired IsPresent
+User selects from dropdown list for MandatoryPrimaryDaylightingControlRequired
+End If
+                                                            </xsd:documentation>
                                                             <xsd:appinfo source="displayterm">
                                                                <dtyp:displayterm value="Included">Provided</dtyp:displayterm>
                                                             </xsd:appinfo>
-                                                            
                                                          </xsd:annotation>
+                                                          <xsd:simpleType>
+                                                              <xsd:union memberTypes="comp:PrimarySkylitDaylightControlsIncluded comp:MandatoryPrimaryDaylightingControlRequired"/>
+                                                          </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="Ctrl08cc_SecondaryDaylightControlsIncluded" type="comp:SecondaryDaylightControlsIncluded" >
+                                                         <xsd:element name="Ctrl08cc_SecondaryDaylightControlsIncluded">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Secondary Daylighting</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
+If H10_SecondaryDaylightControlsIncluded IsPresent
 result = H10_SecondaryDaylightControlsIncluded
+result = SeePlans
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCLTI01E"  usage="copy">H10_SecondaryDaylightControlsIncluded</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                             <xsd:simpleType>
+                                                                 <xsd:union memberTypes="comp:SecondaryDaylightControlsIncluded comp:SeePlansMessage"/>
+                                                             </xsd:simpleType>
                                                          </xsd:element>
-                                                         <xsd:element name="Ctrl08cc_MandatorySecondaryDaylightingControlRequired" type="comp:MandatorySecondaryDaylightingControlRequired" >
+                                                         <xsd:element name="Ctrl08cc_MandatorySecondaryDaylightingControlRequired">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Secondary Daylighting</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCPRFE parent
+If LtgControls09_MandatorySecondaryDaylightingControlRequired IsPresent
 result = LtgControls09_MandatorySecondaryDaylightingControlRequired
+Else result = SeePlans
 End If</xsd:documentation>
                                                                <xsd:appinfo source="displayterm">
                                                                   <dtyp:displayterm value="Required">Provided</dtyp:displayterm>
@@ -1511,33 +1694,52 @@ End If</xsd:documentation>
                                                                   <dtyp:srcSchema form="CCPRF01E"  usage="copy">LtgControls09_MandatorySecondaryDaylightingControlRequired</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                             <xsd:simpleType>
+                                                                 <xsd:union memberTypes="comp:MandatorySecondaryDaylightingControlRequired comp:SeePlansMessage"/>
+                                                             </xsd:simpleType>
                                                          </xsd:element>
                                                       </xsd:choice>
-                                                      <xsd:element name="Ctrl08_SecondaryDaylightControlsIncluded" type="comp:SecondaryDaylightControlsIncluded" >
+                                                      <xsd:element name="Ctrl08_SecondaryDaylightControlsIncluded">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Secondary Daylighting</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If Ctrl01_InstalledSameAsCC == true
-If Ctrl08cc_SecondaryDaylightControlsIncluded  IsPresent
-result = Ctrl08cc_SecondaryDaylightControlsIncluded
-Else If Ctrl08cc_MandatorySecondaryDaylightingControlRequired IsPresent
-User selects from dropdown list 
+                                                            <xsd:documentation source="CalculationsAndRules">
+If Ctrl01_InstalledSameAsCC == true
+
+If CCLTIE parent
+If Ctrl08cc_SecondaryDaylightControlsIncluded == SeePlans
+User selects from dropdown list for SecondaryDaylightControlsIncluded
+Else result = Ctrl08cc_SecondaryDaylightControlsIncluded
+
+If CCPRFE parent
+If Ctrl08cc_MandatorySecondaryDaylightingControlRequired == SeePlans
+User selects from dropdown list for MandatorySecondaryDaylightingControlRequired
+Else result = Ctrl08cc_MandatorySecondaryDaylightingControlRequired
 End If
+
 Else If Ctrl01_InstalledSameAsCC == false
-User selects from list that includes all values but  Exempt and NA 
- 
-End If</xsd:documentation>
+
+If Ctrl08cc_SecondaryDaylightControlsIncluded IsPresent
+User selects from dropdown list for SecondaryDaylightControlsIncluded
+If Ctrl08cc_MandatorySecondaryDaylightingControlRequired IsPresent
+User selects from dropdown list for MandatorySecondaryDaylightingControlRequired
+End If
+                                                            </xsd:documentation>
                                                             <xsd:appinfo source="displayterm">
                                                                <dtyp:displayterm value="Included">Provided</dtyp:displayterm>
                                                             </xsd:appinfo>
-                                                            
                                                          </xsd:annotation>
+                                                          <xsd:simpleType>
+                                                              <xsd:union memberTypes="comp:SecondaryDaylightControlsIncluded comp:MandatorySecondaryDaylightingControlRequired"/>
+                                                          </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="Ctrl09cc_InterlockedLightingSystems" type="lit:InterlockedLightingSystems" >
+                                                         <xsd:element name="Ctrl09cc_InterlockedLightingSystems">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Interlocked Systems</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
+If H11_InterlockedLightingSystems IsPresent
 result = H11_InterlockedLightingSystems
+Else result = SeePlans
 End If</xsd:documentation>
                                                                <xsd:appinfo source="displayterm">
                                                                   <dtyp:displayterm value="true">Provided</dtyp:displayterm>
@@ -1547,6 +1749,9 @@ End If</xsd:documentation>
                                                                   <dtyp:srcSchema form="CCLTI01E"  usage="copy">H11_InterlockedLightingSystems</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                             <xsd:simpleType>
+                                                                 <xsd:union memberTypes="lit:InterlockedLightingSystems comp:SeePlansMessage"/>
+                                                             </xsd:simpleType>
                                                          </xsd:element>
                                                          <xsd:element name="Ctrl09cc_NotApplicableMessage" >
                                                             <xsd:annotation>
@@ -1570,8 +1775,9 @@ End If</xsd:documentation>
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Interlocked Systems</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Ctrl01_InstalledSameAsCC == true
-If Ctrl09cc_InterlockedLightingSystems IsPresent
-result = Ctrl09cc_InterlockedLightingSystems
+If Ctrl09cc_InterlockedLightingSystems == SeePlans
+User selects from dropdown list
+Else result = Ctrl09cc_InterlockedLightingSystems
 End If
 Else If Ctrl01_InstalledSameAsCC == false
 User selects from dropdown list 
@@ -1605,46 +1811,133 @@ End If</xsd:documentation>
                                     <xsd:element name="Ctrl10_ComplianceResultCI" type="comp:ComplianceResultCI" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Controls compliance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If any user input field is blank
- result = TableIncomplete  
+                                           <xsd:documentation source="CalculationsAndRules">
+If any user input field is blank
+result = TableIncomplete
 Else If Ctrol01_InMyScope == false
-result = NotInScope 
+result = NotInScope
+Else If
+Ctrl03cc_MandatoryLightingDemandResponseNR == SeePlans
+Or
+Ctrl03cc_MandatoryBuildingDemandResponseControlRequired == SeePlans
+Or
+Ctrl04cc_AreaControlsCompliance == SeePlans
+Or
+Ctrl04cc_MandatoryAreaControlsRequired == SeePlans
+Or
+Ctrl05cc_MultilevelControls == SeePlans
+Or
+Ctrl05cc_MandatoryMultiLevelControlRequired == SeePlans
+Or
+Ctrl06cc_ShutOffControlsArea == SeePlans
+Or
+Ctrl06cc_MandatoryBuildingShutOffControlRequired == SeePlans
+Or
+Ctrl07cc_PrimarySkylitDaylightControlsIncluded == SeePlans
+Or
+Ctrl07cc_MandatoryPrimaryDaylightingControlRequired == SeePlans
+Or
+Ctrl08cc_SecondaryDaylightControlsIncluded == SeePlans
+Or
+Ctrl08cc_MandatorySecondaryDaylightingControlRequired == SeePlans
+Or
+Ctrl09cc_InterlockedLightingSystems == SeePlans
+result = MayNotComply
+And
+ExceptionalConditionMessageNRCILTIE = LightControlNoMatch
+
 Else If all following conditions are true for all rows
 Condition 1
-Ctrl03cc_MandatoryLightingDemandResponseNR IsPresent  And Ctrl03cc_MandatoryLightingDemandResponseNR == Ctrl03_MandatoryLightingDemandResponseNR
+Ctrl03cc_MandatoryLightingDemandResponseNR IsPresent  And (Ctrl03cc_MandatoryLightingDemandResponseNR == Ctrl03_MandatoryLightingDemandResponseNR)
 Or
-Ctrl03cc_MandatoryBuildingDemandResponseControlRequired IsPresent And  (Ctrl03cc_MandatoryLightingDemandResponseNR == Required And Ctrl03_MandatoryLightingDemandResponseNR == RequiredGT4000W Or RequiredUsingPAF)  Or (Ctrl03cc_MandatoryLightingDemandResponseNR == Exempt Or NA And Ctrl03_MandatoryLightingDemandResponseNR != RequiredGT4000W Or RequiredUsingPAF)
- 
-Condition 2 
-Ctrl04cc_AreaControlsCompliance IsPresent And (Ctrl04cc_AreaControlsCompliance == Ctrl04_AreaControlsCompliance) 
+Ctrl03cc_MandatoryBuildingDemandResponseControlRequired IsPresent And (Ctrl03cc_MandatoryBuildingDemandResponseControlRequired == Ctrl03_MandatoryLightingDemandResponseNR)
+
+Condition 2
+Ctrl04cc_AreaControlsCompliance IsPresent And (Ctrl04cc_AreaControlsCompliance == Ctrl04_AreaControlsCompliance)
 Or
-Ctrl04cc_MandatoryAreaControlsRequired IsPresent  And (Ctrl04cc_MandatoryAreaControlsRequired == Required And Ctrl04_AreaControlsCompliance == AnnunciatedAreaControl  Or AuthorizedPersonnelAreaControl Or ManualOnOff)
- 
-Condition 3 
+Ctrl04cc_MandatoryAreaControlsRequired IsPresent  And (Ctrl04cc_MandatoryAreaControlsRequired == Ctrl04_AreaControlsCompliance)
+
+Condition 3
 Ctrl05cc_MultilevelControls IsPresent And  Ctrl05cc_MultilevelControls == Ctrl05_MultilevelControls
 Or
- Ctrl05cc_MandatoryMultiLevelControlRequired IsPresent And  (Ctrl05cc_MandatoryMultiLevelControlRequired == Required And Ctrl05_MultilevelControls == MultilevelSwitch Or DimmerControl ) Or (Ctrl05cc_MandatoryMultiLevelControlRequired == Exempt Or NA And Ctrl05_MultilevelControls != MultilevelSwitch And  Ctrl05_MultilevelControls != DimmerControl )
- 
+Ctrl05cc_MandatoryMultiLevelControlRequired IsPresent And (Ctrl05cc_MandatoryMultiLevelControlRequired == Ctrl05_MultilevelControls)
+
 Condition 4
-Ctrl06cc_ShutOffControlsArea IsPresent And (Ctrl06cc_ShutOffControlsArea == Ctrl06_ShutOffControlsArea) 
+Ctrl06cc_ShutOffControlsArea IsPresent And (Ctrl06cc_ShutOffControlsArea == Ctrl06_ShutOffControlsArea)
 Or
-Ctrl06cc_MandatoryBuildingShutOffControlRequired IsPresent And (Ctrl06cc_MandatoryBuildingShutOffControlRequired == Required And Ctrl06_ShutOffControlsArea != HealthcareNA And != NA24x7Operation  And != ElecEquipRoomNA) Or (Ctrl06cc_MandatoryBuildingShutOffControlRequired == Exempt Or NA  And Ctrl06_ShutOffControlsArea == HealthcareNA Or  NA24x7Operation Or ElecEquipRoomNA 
- 
+Ctrl06cc_MandatoryBuildingShutOffControlRequired IsPresent And (Ctrl06cc_MandatoryBuildingShutOffControlRequired == Ctrl06_ShutOffControlsArea)
+
 Condition 5
-If Ctrl07cc_PrimarySkylitDaylightControlsIncluded IsPresent And (Ctrl07cc_PrimarySkylitDaylightControlsIncluded == Ctrl07_PrimarySkylitDaylightControlsIncluded) 
-Or 
-Ctrl07cc_MandatoryPrimaryDaylightingControlRequired IsPresent And (Ctrl07cc_MandatoryPrimaryDaylightingControlRequired == Required And Ctrl07_PrimarySkylitDaylightControlsIncluded == Included) Or (Ctrl07cc_MandatoryPrimaryDaylightingControlRequired == Exempt Or NA And Ctrl07_PrimarySkylitDaylightControlsIncluded != Included) 
- 
-Condition 6 
-Ctrl08cc_SecondaryDaylightControlsIncluded IsPresent And (Ctrl08cc_SecondaryDaylightControlsIncluded == Ctrl08_SecondaryDaylightControlsIncluded) 
+If Ctrl07cc_PrimarySkylitDaylightControlsIncluded IsPresent And (Ctrl07cc_PrimarySkylitDaylightControlsIncluded == Ctrl07_PrimarySkylitDaylightControlsIncluded)
 Or
-Ctrl08cc_MandatorySecondaryDaylightingControlRequired IsPresent And (Ctrl08cc_MandatorySecondaryDaylightingControlRequired == Required And Ctrl08_SecondaryDaylightControlsIncluded == Included) Or (Ctrl08cc_MandatorySecondaryDaylightingControlRequired == Exempt Or NA And Ctrl07_SecondaryDaylightControlsIncluded  != Included)
- 
+Ctrl07cc_MandatoryPrimaryDaylightingControlRequired IsPresent And (Ctrl07cc_MandatoryPrimaryDaylightingControlRequired == Ctrl07_PrimarySkylitDaylightControlsIncluded)
+
+Condition 6
+Ctrl08cc_SecondaryDaylightControlsIncluded IsPresent And (Ctrl08cc_SecondaryDaylightControlsIncluded == Ctrl08_SecondaryDaylightControlsIncluded)
+Or
+Ctrl08cc_MandatorySecondaryDaylightingControlRequired IsPresent And (Ctrl08cc_MandatorySecondaryDaylightingControlRequired == Ctrl08_SecondaryDaylightControlsIncluded)
+
 Condition 7
 Ctrl09cc_NotApplicableMessage IsPresent Or Ctrl09cc_InterlockedLightingSystems == Ctrl09_InterlockedLightingSystems
- 
+
 result = ExactMatch
-Else 
+
+Else If any of the following conditions are true for any row
+Condition 1
+Ctrl03cc_MandatoryLightingDemandResponseNR IsPresent
+And Ctrl03cc_MandatoryLightingDemandResponseNR == RequiredUsingPAF or RequiredGTE4000W
+And Ctrl03_MandatoryLightingDemandResponseNR == HealthcareNA or NA_LTE40PctPreAltLP or NA_LTE80PctAllowedLP or NotRequiredHealthSafety or NotRequiredLT4000W
+Or
+Ctrl03cc_MandatoryBuildingDemandResponseControlRequired IsPresent
+And Ctrl03cc_MandatoryBuildingDemandResponseControlRequired == Required
+And Ctrl03_MandatoryLightingDemandResponseNR == Exempt or NA
+
+Condition 2
+Ctrl04cc_MandatoryAreaControlsRequired IsPresent
+And Ctrl04cc_MandatoryAreaControlsRequired == Required
+And Ctrl04_AreaControlsCompliance == Exempt or NA
+
+Condition 3
+Ctrl05cc_MultilevelControls IsPresent
+And Ctrl05cc_MultilevelControls == DimmerControl or MultilevelSwitch
+And Ctrl05_MultilevelControls == AreaLT100SqFtNA or HealthcareNA or DimmerControl or LTE0_5WperSqFtNA or LumLTE2LampsNA or LumSSLNA or NA_LTE80PctAllowedLP or RestroomsNA
+Or
+Ctrl05cc_MandatoryMultiLevelControlRequired IsPresent
+And Ctrl05cc_MandatoryMultiLevelControlRequired == Required
+And Ctrl05_MultilevelControls == Exempt or NA
+
+Condition 4
+Ctrl06cc_ShutOffControlsArea IsPresent
+And Ctrl06cc_ShutOffControlsArea == AutomaticTimerSwitch or BuildingLevelShutOffControl or CountdownTimerSwitch or EMCS or OccupancySensor or PartialOffShutOffControl or PartialOnShutOffControl
+And Ctrl06_ShutOffControlsArea == ElecEquipRoomNA or HealthcareNA or NA24x7Operation
+Or
+Ctrl06cc_MandatoryBuildingShutOffControlRequired IsPresent
+And Ctrl06cc_MandatoryBuildingShutOffControlRequired == Required
+And Ctrl06_ShutOffControlsArea == Exempt or NA
+
+Condition 5
+If Ctrl07cc_PrimarySkylitDaylightControlsIncluded IsPresent
+And Ctrl07cc_PrimarySkylitDaylightControlsIncluded == Included
+And Ctrl07_PrimarySkylitDaylightControlsIncluded == GarageAdaptZoneNA or GarageGlazingLT36Ft2NA or GarageLT60NA or GlazingLT24Ft2NA or NA_LTE80PctAllowedLP or NA_NotDaylit or OverhangRatioNA or PrimaryLT120NA or RetailNA or SkylightShaded
+Or
+Ctrl07cc_MandatoryPrimaryDaylightingControlRequired IsPresent
+And Ctrl07cc_MandatoryPrimaryDaylightingControlRequired ==  Required
+And Ctrl07_PrimarySkylitDaylightControlsIncluded == Exempt or NA
+
+Condition 6
+Ctrl08cc_SecondaryDaylightControlsIncluded IsPresent
+And Ctrl08cc_SecondaryDaylightControlsIncluded == Included
+And Ctrl08_SecondaryDaylightControlsIncluded == GarageAdaptZoneNA or GarageGlazingLT36Ft2NA or GarageLT60NA or GlazingLT24Ft2NA or NA_LTE80PctAllowedLP or NA_NotDaylit or OverhangRatioNA or PrimaryLT120NA or RetailNA or SkylightShaded
+Or
+Ctrl08cc_MandatorySecondaryDaylightingControlRequired IsPresent
+And Ctrl08cc_MandatorySecondaryDaylightingControlRequired == Required
+And Ctrl08_SecondaryDaylightControlsIncluded == Exempt or NA
+
+result= MayNotComply
+And
+ExceptionalConditionMessageNRCILTIE = LightControlNoMatch
+
+Else
 ExceptionalConditionMessageNRCILTIE = LightControlNoMatch
 result = EqualBetter
 End If</xsd:documentation>
@@ -1683,7 +1976,7 @@ CCPRFE is parent And Section_LtgCredits IsPresent</xsd:documentation>
                                           <xsd:documentation source="FieldText">Luminaires Controlled</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="Paf01cc_SpaceDescription" type="com:SpaceDescription" >
+                                    <xsd:element name="Paf01cc_SpaceDescription">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Area Description</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
@@ -1691,16 +1984,20 @@ If Pc01_SpaceDescription IsPresent
 result = Pc01_SpaceDescription  
 Else If Pu01_SpaceDescription IsPresent
 result = Pu01_SpaceDescription
-End If
+Else result = BlankGrayedOut
 Else If CCPRFE parent
+If LtgCredits_SpaceName IsPresent
 result = LtgCredits_SpaceName
-End If</xsd:documentation>
+Else result = BlankGrayedOut</xsd:documentation>
                                           <xsd:appinfo source="CIsrc">
                                              <dtyp:srcSchema form="CCLTI01E"  usage="copy">Pc01_SpaceDescription</dtyp:srcSchema>
                                              <dtyp:srcSchema form="CCLTI01E"  usage="copy">Pu01_SpaceDescription</dtyp:srcSchema>
                                              <dtyp:srcSchema form="CCPRF01E"  usage="copy">LtgCredits_SpaceName</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
+                                        <xsd:simpleType>
+                                            <xsd:union memberTypes="com:SpaceDescription comp:NotApplicableMessage"/>
+                                        </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="Paf01_InMyScope" type="comp:InMyScope" >
                                        <xsd:annotation>
@@ -1743,7 +2040,7 @@ End If</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">User selects true if installed is the same as CC value  Or false if installed is different than CC value</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
-                                                      <xsd:element name="Paf02cc_PAFCreditType" type="comp:PAFCreditType"  maxOccurs="2">
+                                                      <xsd:element name="Paf02cc_PAFCreditType" maxOccurs="2">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Controls for Wattage Credit</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">Only 2 PAF's are allowed for a space.  Start with Count == 0  and when Count == 2 stop assignments
@@ -1789,14 +2086,15 @@ Count += 1
 End If
 If Count LT 2 And Pc02i_ApplyLightShelvesPAF == true Or Pu02i_ApplyLightShelvesPAF == true
 result += LightShelves
-End If
+Else result = SeePlans
  
-Else If CCPRFE parent 
+Else If CCPRFE parent
+                                                                If LtgCredits03_PAFCreditType[0] IsPresent
 // this property was not restricted to 2 values, so need to copy upto two values and then stop
 result = LtgCredits03_PAFCreditType[0] //first value using zero based index
 If LtgCredits03_PAFCreditType[1] not null
 result += LtgCredits03_PAFCreditType[1] //second value
-End If
+Else result = SeePlans
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
                                                                <dtyp:srcSchema form="CCLTI01E"  usage="reference">Pc02a_ApplyDaylightDimmingPlusOff</dtyp:srcSchema>
@@ -1820,8 +2118,11 @@ End If</xsd:documentation>
                                                                <dtyp:srcSchema form="CCPRF01E"  usage="copy">LtgCredits03_PAFCreditType</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
+                                                          <xsd:simpleType>
+                                                              <xsd:union memberTypes="comp:PAFCreditType comp:SeePlansMessage"/>
+                                                          </xsd:simpleType>
                                                       </xsd:element>
-                                                      <xsd:element name="Paf03cc_LuminaireName" type="lit:LuminaireName" >
+                                                      <xsd:element name="Paf03cc_LuminaireName">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Luminaire Name or Item Tag</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTIE parent 
@@ -1835,14 +2136,13 @@ If Pu03_LuminaireName == Lum01cc_LuminaireName where Lum01_ScopeIncludesFixture 
 result = Pu03_LuminaireName
 Else skip this Pc03_LuminaireName -  not in installer's scope
 End If
-End If
-Else If CCPRFE parent 
+Else result = BlankGrayedOut
+Else If CCPRFE parent
 If LtgCredits05_LuminaireName
  == Lum01cc_LuminaireName where Lum01_ScopeIncludesFixture == true
 result = LtgCredits05_LuminaireName
-Else skip this LtgCredits05_LuminaireName -  not in installer's scope
+Else result = BlankGrayedOut
 End If
- 
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
                                                                <dtyp:srcSchema form="CCLTI01E"  usage="copy">Pc03_LuminaireName</dtyp:srcSchema>
@@ -1850,18 +2150,24 @@ End If</xsd:documentation>
                                                                <dtyp:srcSchema form="CCPRF01E"  usage="copy">LtgCredits05_LuminaireName</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
+                                                          <xsd:simpleType>
+                                                              <xsd:union memberTypes="lit:LuminaireName comp:NotApplicableMessage"/>
+                                                          </xsd:simpleType>
                                                       </xsd:element>
-                                                      <xsd:element name="Paf03_LuminaireName" type="lit:LuminaireName" >
+                                                      <xsd:element name="Paf03_LuminaireName">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Luminaire Name or Item Tag</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If Paf01_InstalledSameAsCC == true
-result =  Paf03cc_LuminaireName
+result = Paf03cc_LuminaireName
 Else 
-User selects from list of luminiares generated from  Lum01cc_LuminaireName values where Lum01_ScopeIncludesFixture == true
+User Input
 End If</xsd:documentation>
                                                          </xsd:annotation>
+                                                          <xsd:simpleType>
+                                                              <xsd:union memberTypes="lit:LuminaireName comp:NotApplicableMessage"/>
+                                                          </xsd:simpleType>
                                                       </xsd:element>
-                                                      <xsd:element name="Paf04cc_LuminairePower" type="lit:LuminairePower" >
+                                                      <xsd:element name="Paf04cc_LuminairePower">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Watts per Luminaire</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTIE parent 
@@ -1869,9 +2175,11 @@ If Paf01cc is loaded from Pc01_SpaceDescription
 result = Pc04_LuminairePower 
 Else If Paf01cc is loaded from Pu01_SpaceDescription
 result = Pu04_LuminairePower 
-End If
+Else result = SeePlans
 Else If CCPRFE parent
-result = LtgCredits06_LuminairePower 
+If LtgCredits06_LuminairePower IsPresent
+result = LtgCredits06_LuminairePower
+Else result = SeePlans
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
                                                                <dtyp:srcSchema form="CCLTI01E"  usage="copy">Pc04_LuminairePower</dtyp:srcSchema>
@@ -1879,14 +2187,23 @@ End If</xsd:documentation>
                                                                <dtyp:srcSchema form="CCPRF01E"  usage="copy">LtgCredits06_LuminairePower</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
+                                                          <xsd:simpleType>
+                                                              <xsd:union memberTypes="lit:LuminairePower comp:SeePlansMessage"/>
+                                                          </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:element name="Paf04_LuminairePower" type="lit:LuminairePower" >
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Watts per Luminaire</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">result = Lum11_LuminairePower for the Lum01_LuminaireName assigned to Paf03_LuminaireName</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If Paf01_InstalledSameAsCC == true
+If Paf04cc_LuminairePower == SeePlans
+User Input
+Else result = Paf04cc_LuminairePower
+If Paf01_InstalledSameAsCC == false
+User Input
+End If</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
-                                                      <xsd:element name="Paf05cc_LuminaireCountByType" type="lit:LuminaireCountByType" >
+                                                      <xsd:element name="Paf05cc_LuminaireCountByType">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Number of Luminaires</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTIE parent 
@@ -1894,9 +2211,11 @@ If Paf01cc is loaded from Pc01_SpaceDescription
 result = Pc05_LuminaireCountByType 
 Else If Paf01cc is loaded from Pu01_SpaceDescription
 result = Pu05_LuminaireCountByType  
-End If
+Else result = SeePlans
 Else If CCPRFE parent
+If LtgCredits07_LuminaireCountByType IsPresent
 result = LtgCredits07_LuminaireCountByType  
+Else result = SeePlans
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
                                                                <dtyp:srcSchema form="CCLTI01E"  usage="copy">Pc05_LuminaireCountByType</dtyp:srcSchema>
@@ -1904,14 +2223,23 @@ End If</xsd:documentation>
                                                                <dtyp:srcSchema form="CCPRF01E"  usage="copy">LtgCredits07_LuminaireCountByType</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
+                                                          <xsd:simpleType>
+                                                              <xsd:union memberTypes="lit:LuminaireCountByType comp:SeePlansMessage"/>
+                                                          </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:element name="Paf05_LuminaireCountByType" type="lit:LuminaireCountByType" >
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Number of Luminaires</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">result = Paf05cc_LuminaireCountByType  but user can change value</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If Paf01_InstalledSameAsCC == true
+If Paf05cc_LuminaireCountByType == SeePlans
+User Input
+Else result = Paf05cc_LuminaireCountByType
+If Paf01_InstalledSameAsCC == false
+User Input
+End If</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
-                                                      <xsd:element name="Paf06cc_LuminairePowerByType" type="lit:LuminairePowerByType" >
+                                                      <xsd:element name="Paf06cc_LuminairePowerByType">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Lighting Controlled (Watts)</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If CCLTIE parent 
@@ -1919,9 +2247,11 @@ If Paf01cc is loaded from Pc01_SpaceDescription
 result = Pc06_LuminairePowerByType 
 Else If Paf01cc is loaded from Pu01_SpaceDescription
 result = Pu05_LuminairePowerByType  
-End If
+Else result = SeePlans
 Else If CCPRFE parent
+If LtgCredits08_LuminairePowerInArea IsPresent
 result = LtgCredits08_LuminairePowerInArea  
+Else result = SeePlans
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
                                                                <dtyp:srcSchema form="CCLTI01E"  usage="copy">Pc06_LuminairePowerByType</dtyp:srcSchema>
@@ -1929,11 +2259,20 @@ End If</xsd:documentation>
                                                                <dtyp:srcSchema form="CCPRF01E"  usage="copy">LtgCredits08_LuminairePowerInArea</dtyp:srcSchema>
                                                             </xsd:appinfo>
                                                          </xsd:annotation>
+                                                          <xsd:simpleType>
+                                                              <xsd:union memberTypes="lit:LuminairePowerByType comp:SeePlansMessage"/>
+                                                          </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:element name="Paf06_LuminairePowerByType" type="lit:LuminairePowerByType" >
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Lighting Controlled (Watts)</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">result = Paf04_LuminairePower x Paf05_LuminaireCountByType</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If Paf01_InstalledSameAsCC == true
+If Paf06cc_LuminairePowerByType == SeePlans
+User Input
+Else result = Paf06cc_LuminairePowerByType
+If Paf01_InstalledSameAsCC == false
+User Input
+End If</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
                                                    </xsd:sequence>
@@ -1949,8 +2288,16 @@ End If</xsd:documentation>
  result = TableIncomplete  
 Else If Paf01_InMyScope == false
 result = NotInScope 
-Else If for all rows 
-Paf04cc_LuminairePower == Paf04_LuminairePower 
+Else If for all rows
+If Paf02cc_PAFCreditType == SeePlans
+Or
+Paf04cc_LuminairePower == SeePlans
+Or
+Paf05cc_LuminaireCountByType == SeePlans
+Or
+Paf06cc_LuminairePowerByType == SeePlans
+result = MayNotComply
+Else If Paf04cc_LuminairePower == Paf04_LuminairePower 
 And 
 Paf05cc_LuminaireCountByType == Paf05_LuminaireCountByType
 result = ExactMatch

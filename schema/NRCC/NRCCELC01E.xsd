@@ -504,7 +504,7 @@ End If</xsd:documentation>
                                        <xsd:element name="B04_UtilityProvidedMeterException130_5a" type="comp:UtilityProvidedMeterException130_5a" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Utility Provided Metering System Exception to  [d:t24refnolink/]130.5(a)/[d:t24refnolink/]160.6(a)[d:sup]3[/d:sup]</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B02_ElectricalServiceProjectScope == AlterationsFeedersBranchCircuitsOnly  result = false and field is grayed out  Else user input.  If checked result = true, Else result = false.
+                                             <xsd:documentation source="CalculationsAndRules">If B02_ElectricalServiceProjectScope == AddAltFeedersBranchCircuitsOnly  result = false and field is grayed out  Else user input.  If checked result = true, Else result = false.
 If result == true 
 D03_ExceptionalConditionMessageELCE += ProjectExemptUtilMeterSysB
 End If</xsd:documentation>
@@ -513,7 +513,7 @@ End If</xsd:documentation>
                                        <xsd:element name="B04_NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Utility Provided Metering System Exception to  [d:t24refnolink/]130.5(a)/[d:t24refnolink/]160.6(a)[d:sup]3[/d:sup]</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B02_ElectricalServiceProjectScope == AlterationsFeedersBranchCircuitsOnly  
+                                             <xsd:documentation source="CalculationsAndRules">If B02_ElectricalServiceProjectScope == AddAltFeedersBranchCircuitsOnly  
 result = false and field is grayed out</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
@@ -894,7 +894,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_F" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]F. SERVICE ELECTRICAL METERING[/d:b]</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If B02_ElectricalServiceProjectScope != AlterationsFeedersBranchCircuitsOnly Or ReplacementElectricalServiceNotMeter  And
+               <xsd:documentation source="CalculationsAndRules">This section is required If B02_ElectricalServiceProjectScope != AddAltFeedersBranchCircuitsOnly Or ReplacementElectricalServiceNotMeter  And
 B04_UtilityProvidedMeterException130_5a == false And
 B05_DoesElectricalCodeExceptionApply == false And
 B07_DoesElectricalServicePowerMF == false
@@ -925,7 +925,7 @@ End If</xsd:documentation>
                                     <xsd:element name="F01_ElectricalServiceName" type="comp:ElectricalServiceName" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Electrical Service Designation/ Description</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated value: result = B01_ElectricalServiceName where B02_ElectricalServiceProjectScope != AlterationsFeedersBranchCircuitsOnly Or ReplacementElectricalServiceNotMeter And    
+                                          <xsd:documentation source="CalculationsAndRules">Calculated value: result = B01_ElectricalServiceName where B02_ElectricalServiceProjectScope != AddAltFeedersBranchCircuitsOnly Or ReplacementElectricalServiceNotMeter And    
 B04_UtilityProvidedMeterException130_5a == false And
 B05_DoesElectricalCodeExceptionApply == false And
 B07_DoesElectricalServicePowerMF == false</xsd:documentation>
@@ -1803,14 +1803,49 @@ If J01d_CommonAreaDryer == true</xsd:documentation>
          <xsd:element name="Section_Nrca" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]L. DECLARATION OF REQUIRED CERTIFICATES OF ACCEPTANCE[/d:b]</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, do not display anything for this section</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If any selection is changed by the user, 
+Then
+D03_ExceptionalConditionMessageCCELCE += UserChangedSelectionInCA
+End If</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
                   <xsd:element name="Nrca_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:i]There are no Certificates of Acceptance applicable to electrical power distribution requirements.[/d:i]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:i]Selections have been made based on information provided in previous tables of this document.  If any selection needs to be changed, please explain why in Table E. Additional Remarks. These documents must be provided to the building inspector during construction and any with "-A" in the form name must be completed through an Acceptance Test Technician Certification Provider (ATTCP).  For more information visit: http://www.energy.ca.gov/title24/attcp/providers.html[/d:i]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Nrca01_RequireNRCALti04A" type="comp:RequireNRCALti04A" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Form/Title</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">NRCA-LTI-04-A - Must be submitted for demand response controls.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated Boolean value based on user input in previous sections of this form. By default result = false represented as a selected No radio button.. 
+ 
+If I04a_ControlledReceptacleDemandResponse == ProvidingDR 
+result = true represented as a selected Yes radio button.  If user changes the value an explanation is required in Section E Additional Remarks.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Nrca01_SystemFieldVerified" type="comp:SystemFieldVerified"  minOccurs="0" maxOccurs="unbounded">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca01_RequireNRCALti04A == true; this field is loaded with systems/spaces that satisfy this condition:
+ 
+If I04a_ControlledReceptacleDemandResponse == ProvidingDR 
+load value in I01_SpaceDescription
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Nrca01_SystemsToFieldVerify" type="comp:SystemsToFieldVerify"  minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Systems/Spaces To Be Field Verified</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Nrca01_RequireNRCALti04A == true this field is displayed and loaded with a string that concatenates systems/spaces from Nrca01_SystemFieldVerified</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Nrca01a_VerifedByInspector" type="comp:VerifedByInspector"  minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Field Inspector</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>

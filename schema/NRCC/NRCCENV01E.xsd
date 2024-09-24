@@ -4619,7 +4619,9 @@ case R8: result = 0.092;
 case R10: result = 0.078 ;  
 case R12: result = 0.067 ;  
 case R15: result = 0.056 ;  
+case R17: result = 0.056 ; 
 case R20: result = 0.044 ;  
+case R23: result = 0.044 ;
 case R25: result = 0.036  ;  
 case R30: result =  0.030; 
 End Switch
@@ -4633,7 +4635,9 @@ case R8: result = 0.090;
 case R10: result = 0.076 ;  
 case R12: result = 0.066 ;  
 case R15: result = 0.055 ;  
+case R17: result = 0.055 ; 
 case R20: result = 0.043 ;  
+case R23: result = 0.043 ;
 case R25: result = 0.036  ;  
 case R30: result =  0.030; 
 End Switch
@@ -4647,7 +4651,9 @@ case R8: result = 0.088;
 case R10: result = 0.075 ;  
 case R12: result = 0.065;  
 case R15: result = 0.055 ;  
+case R17: result = 0.055 ;
 case R20: result = 0.043 ;  
+case R23: result = 0.043 ; 
 case R25: result = 0.035  ;  
 case R30: result =  0.030; 
 End Switch
@@ -4661,7 +4667,9 @@ case R8: result = 0.087;
 case R10: result = 0.074 ;  
 case R12: result = 0.064;  
 case R15: result = 0.054 ;  
+case R17: result = 0.054 ; 
 case R20: result = 0.042 ;  
+case R23: result = 0.042 ; 
 case R25: result = 0.035  ;  
 case R30: result =  0.030;
 End Switch
@@ -4683,7 +4691,9 @@ case R8: result = 0.100;
 case R10: result = 0.083 ;  
 case R12: result = 0.071;  
 case R15: result = 0.059;  
+case R17: result = 0.059;
 case R20: result = 0.045;  
+case R23: result = 0.045;
 case R25: result = 0.037;  
 case R30: result =  0.031;
 End Switch 
@@ -4697,7 +4707,9 @@ case R8: result = 0.098;
 case R10: result = 0.082;  
 case R12: result = 0.070;  
 case R15: result = 0.058;  
+case R17: result = 0.058; 
 case R20: result = 0.045;  
+case R23: result = 0.045; 
 case R25: result = 0.037  ;  
 case R30: result =  0.031;
 End Switch  
@@ -4711,7 +4723,9 @@ case R8: result = 0.096;
 case R10: result = 0.080;  
 case R12: result = 0.069;  
 case R15: result = 0.057;  
+case R17: result = 0.057;  
 case R20: result = 0.045;  
+case R23: result = 0.045;
 case R25: result = 0.036;  
 case R30: result =  0.031; 
 End Switch  
@@ -4725,7 +4739,9 @@ case R8: result = 0.094;
 case R10: result = 0.079;  
 case R12: result = 0.068;  
 case R15: result = 0.057;  
+case R17: result = 0.057;
 case R20: result = 0.044;  
+case R23: result = 0.044;
 case R25: result = 0.036;  
 case R30: result =  0.031;
 End Switch 
@@ -17304,9 +17320,11 @@ End If</xsd:documentation>
                                                 <xsd:element name="Kvertperf07_NotApplicableMessage" >
                                                    <xsd:annotation>
                                                       <xsd:documentation source="FieldText">U-factor/ (R)SHGC Compliance Method</xsd:documentation>
-                                                      <xsd:documentation source="CalculationsAndRules">If Kvertperf05_FenestrationProductType == ChromogenicFen Or DemisingWallFen Or GlazedDoorMF  
-Or 
-If Kvertperf06_TopLevelOccupancy == AlteredOccupancy Or   Kvertperf06_FenestrationModification == AddLTE50ft2  Or ReplaceLTE150ft2
+                                                      <xsd:documentation source="CalculationsAndRules">If Kvertperf05_FenestrationProductType == ChromogenicFen Or DemisingWallFen Or GlazedDoorMF 
+Or
+If Kvertperf06_TopLevelOccupancy == AlteredOccupancy Or
+If Kvertperf06_FenestrationModification == AddLTE50ft2 Or
+If Kvertperf06_FenestrationModification == ReplaceLTE150ft2 and Kvertperf06_TopLevelOccupancy != HighRiseResidentail
 result = BlankGrayedOut
 End If</xsd:documentation>
                                                    </xsd:annotation>
@@ -19019,15 +19037,16 @@ Else If Kskyperf06_TopLevelOccupancy == OtherOccupancy And Kskyperf06_Fenestrati
 result = 0.55
  
 Else If Kskyperf06_TopLevelOccupancy == HighriseResidential
-If Kskyperf06_FenestrationModification == AllNew Or Kskyperf09_ComplianceMethodSHGC_VT == Table170_2A
-If A03_ClimateZoneNumber == InRange(1, 6) Or InRange (9, 16)
-result = 0.30
-Else If A03_ClimateZoneNumber == 7 Or 8
-result = 0.34 
- End If
-Else If Kskyperf09_ComplianceMethodSHGC_VT == Table180_2B
-result 0.46
- 
+   If Kskyperf06_FenestrationModification == AllNew Or Kskyperf09_ComplianceMethodSHGC_VT == Table170_2A
+      If A03_ClimateZoneNumber == InRange(1, 6) Or InRange (9, 16)
+         result = 0.30
+      Else If A03_ClimateZoneNumber == 7 Or 8
+         result = 0.34 
+   End If
+   Else If Kskyperf09_ComplianceMethodSHGC_VT == Table180_2B
+      result 0.46
+   Else If Kskyperf06_FenestrationModification = NewSky16MF
+      result 0.55                                          
 End If
 End If</xsd:documentation>
                                                    </xsd:annotation>

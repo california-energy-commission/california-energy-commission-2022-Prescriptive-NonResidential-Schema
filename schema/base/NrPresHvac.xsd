@@ -7805,7 +7805,7 @@
       <xsd:annotation>
          <xsd:documentation>  Units: percent</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative">
+      <xsd:restriction base="dtyp:IntegerNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="PipeDiameter">

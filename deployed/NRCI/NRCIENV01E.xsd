@@ -412,6 +412,7 @@ End If
                                              <dtyp:srcSchema form="CCENV01E" usage="copy">FframedMF02_RoofAssemblyName</dtyp:srcSchema>
                                              <dtyp:srcSchema form="CCPRF01E" usage="reference">Opaq02_CompatibleSurfaceType</dtyp:srcSchema>
                                              <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq01_ConstructionAssemblyNameString</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq02_OpaqueSurfaceType</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -504,16 +505,26 @@ End If</xsd:documentation>
                                                                </xsd:restriction>
                                                             </xsd:simpleType>
                                                          </xsd:element>
-                                                         <xsd:element name="Roof02cc_PartitionFramingMaterial" type="env:PartitionFramingMaterial">
+                                                         <xsd:element name="Roof02cc_PartitionFramingMaterial">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Assembly/ Framing Type</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
- result = Opaq04_PartitionFramingMaterial
+If Opaq04_PartitionFramingMaterial Is Present
+   result = Opaq04_PartitionFramingMaterial
+Else If Opaq04_ConstructionAssemblyType is Present
+   Result = Opaq04_ConstructionAssemblyType
+Else If Opaq04_NotApplicableMessage is Present
+   Result = BlankGrayedOut
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq04_PartitionFramingMaterial</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq04_ConstructionAssemblyType</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq04_NotApplicableMessage</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:union memberTypes=" env:PartitionFramingMaterial comp:ConstructionAssemblyType comp:NotApplicableMessage"/>
+                                                            </xsd:simpleType>
                                                          </xsd:element>
                                                       </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
@@ -542,7 +553,7 @@ End If</xsd:documentation>
                                                                </xsd:restriction>
                                                             </xsd:simpleType>
                                                          </xsd:element>
-                                                         <xsd:element name="Roof02_PartitionFramingMaterial" type="env:PartitionFramingMaterial">
+                                                         <xsd:element name="Roof02_PartitionFramingMaterial">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Assembly/ Framing Type</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Roof02cc_PartitionFramingMaterial IsPresent
@@ -553,6 +564,9 @@ Use selects from list
 End If
 End If</xsd:documentation>
                                                             </xsd:annotation>
+                                                            <xsd:simpleType>
+                                                               <xsd:union memberTypes=" env:PartitionFramingMaterial comp:ConstructionAssemblyType comp:NotApplicableMessage"/>
+                                                            </xsd:simpleType>
                                                          </xsd:element>
                                                       </xsd:choice>
                                                       <xsd:choice maxOccurs="1">
@@ -1910,6 +1924,7 @@ Note: All following fields in this table reference CC parent fields for the wall
                                              <dtyp:srcSchema form="CCENV01E" usage="copy">Hlog02_WallAssemblyName</dtyp:srcSchema>
                                              <dtyp:srcSchema form="CCENV01E" usage="reference">IOpaq02_CompatibleSurfaceType</dtyp:srcSchema>
                                              <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq01_ConstructionAssemblyNameString</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq02_OpaqueSurfaceType</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -2211,11 +2226,14 @@ End If</xsd:documentation>
                                                                      </xsd:appinfo>
                                                                   </xsd:annotation>
                                                                </xsd:element>
-                                                               <xsd:element name="WallsPerf03cc_PartitionFramingMaterial" type="env:PartitionFramingMaterial">
+                                                               <xsd:element name="WallsPerf03cc_PartitionFramingMaterial">
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText">Wall Material</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
-result = Opaq04_PartitionFramingMaterial
+If Opaq04_PartitionFramingMaterial Is Present   
+   result = Opaq04_PartitionFramingMaterial
+Else If Opaq04_ConstructionAssemblyType is Present
+   Result = Opaq04_ConstructionAssemblyType
 End If</xsd:documentation>
                                                                      <xsd:appinfo source="displayterm">
                                                                         <dtyp:displayterm value="Metal">Metal</dtyp:displayterm>
@@ -2224,8 +2242,12 @@ End If</xsd:documentation>
                                                                      </xsd:appinfo>
                                                                      <xsd:appinfo source="CIsrc">
                                                                         <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq04_PartitionFramingMaterial</dtyp:srcSchema>
+                                                                        <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq04_ConstructionAssemblyType</dtyp:srcSchema>
                                                                      </xsd:appinfo>
                                                                   </xsd:annotation>
+                                                                  <xsd:simpleType>
+                                                                     <xsd:union memberTypes=" env:PartitionFramingMaterial comp:ConstructionAssemblyType"/>
+                                                                  </xsd:simpleType>
                                                                </xsd:element>
                                                                <xsd:element name="WallsMass03cc_MasonryType" type="env:MasonryType">
                                                                   <xsd:annotation>
@@ -2558,7 +2580,7 @@ User selects from list
 End If</xsd:documentation>
                                                                   </xsd:annotation>
                                                                </xsd:element>
-                                                               <xsd:element name="WallsPerf03_PartitionFramingMaterial" type="env:PartitionFramingMaterial">
+                                                               <xsd:element name="WallsPerf03_PartitionFramingMaterial">
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText">Wall Material</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If WallsPerf03cc_PartitionFramingMaterial IsPresent
@@ -2569,6 +2591,9 @@ User input
 End If
 End If</xsd:documentation>
                                                                   </xsd:annotation>
+                                                                  <xsd:simpleType>
+                                                                     <xsd:union memberTypes=" env:PartitionFramingMaterial comp:ConstructionAssemblyType"/>
+                                                                  </xsd:simpleType>
                                                                </xsd:element>
                                                                <xsd:element name="WallsMass03_MasonryType" type="env:MasonryType">
                                                                   <xsd:annotation>
@@ -2823,13 +2848,56 @@ End If</xsd:documentation>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
+                                                         <xsd:element name="Walls04cc_ConcreteSandwichInsulation" type="env:ConcreteSandwichInsulation">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Wall Thickness (in)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
+If Walls02cc_AssemblyType == ConcretePanel                                                                
+   If Hconcrete07_ConcreteSandwichInsulation is Present
+      result = Hconcrete07_ConcreteSandwichInsulation
+End If
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCPRF01E" usage="copy">Hconcrete07_ConcreteSandwichInsulation</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Walls04cc_FramingDepth" type="env:FramingDepth">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Wall Thickness (in)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
+If Walls02cc_AssemblyType == Log  
+   If Hlog06_FramingDepth is present
+      Result = Hlog06_FramingDepth 
+End If
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCENV01E" usage="copy">Hlog06_FramingDepth</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Walls04cc_FramingMaterialOther" type="env:FramingMaterialOther">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Wall Thickness (in)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
+If Walls02cc_AssemblyType == Log
+   If Hlog06_FramingMaterialOther is Present 
+      result = Hlog06_FramingMaterialOther
+End If
+End If</xsd:documentation>
+                                                               <xsd:appinfo source="CIsrc">
+                                                                  <dtyp:srcSchema form="CCENV01E" usage="copy">Hlog06_FramingMaterialOther</dtyp:srcSchema>
+                                                               </xsd:appinfo>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
                                                          <xsd:element name="Walls04cc_NotApplicableMessage">
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Wall Thickness (in)</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
 If Walls02cc_AssemblyType == SIPS And HSIPS06_NotApplicableMessage IsPresent  
 Or 
-If Walls02cc_AssemblyType == MetalBuilding or Strawbale or SpandrelCurtain or Framed or Log or ConcretePanel
+If Walls02cc_AssemblyType == MetalBuilding or Strawbale or SpandrelCurtain or Framed 
+Or Walls02cc_AssemblyType == Log And Hlog06_NotApplicableMessage IsPresent
 result = BlankGrayedOut
 End If
 Else If CC-PRF parent 
@@ -2923,6 +2991,42 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Walls04cc_CoreICF IsPresent
 If Walls01_InstalledSameAsCC == true
 result = Walls04cc_CoreICF
+Else 
+User selects from list
+End If
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Walls04_ConcreteSandwichInsulation" type="env:ConcreteSandwichInsulation">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Wall Thickness (in)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Hconcrete07_ConcreteSandwichInsulation IsPresent
+If Walls01_InstalledSameAsCC == true
+result = Hconcrete07_ConcreteSandwichInsulation
+Else 
+User selects from list
+End If
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Walls04_FramingDepth" type="env:FramingDepth">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Wall Thickness (in)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Hlog06_FramingDepth IsPresent
+If Walls01_InstalledSameAsCC == true
+result = Hlog06_FramingDepth
+Else 
+User selects from list
+End If
+End If</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="Walls04_FramingMaterialOther" type="env:FramingMaterialOther">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Wall Thickness (in)</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If Hlog06_FramingMaterialOther IsPresent
+If Walls01_InstalledSameAsCC == true
+result = Hlog06_FramingMaterialOther
 Else 
 User selects from list
 End If
@@ -4042,6 +4146,12 @@ Or
 Walls04_MetalPanelThickness IsPresent And Walls04_MetalPanelThickness is less thick than Walls04cc_MetalPanelThickness
 Or
 Walls04_CoreICF isPresent And Walls04_CoreICF is less thick than Walls04cc_CoreICF
+Or 
+Walls04_ConcreteSandwichInsulation is Present And Walls04_ConcreteSandwichInsulation is LT Walls04cc_ConcreteSandwichInsulation
+Or 
+Walls04_FramingDepth is Present And Walls04_FramingDepth is LT Walls04cc_FramingDepth
+Or 
+Walls04_FramingMaterialOther is Present And Walls04_FramingMaterialOther is LT Walls04cc_FramingMaterialOther
 )
 Or
 (
@@ -4133,6 +4243,12 @@ Or
 Walls04_MetalPanelThickness IsPresent And Walls04_MetalPanelThickness == Walls04cc_MetalPanelThickness
 Or
 Walls04_CoreICF isPresent And Walls04_CoreICF == Walls04cc_CoreICF
+Or 
+Walls04_ConcreteSandwichInsulation is Present And Walls04_ConcreteSandwichInsulation is == Walls04cc_ConcreteSandwichInsulation
+Or 
+Walls04_FramingDepth is Present And Walls04_FramingDepth is == Walls04cc_FramingDepth
+Or 
+Walls04_FramingMaterialOther is Present And Walls04_FramingMaterialOther is == Walls04cc_FramingMaterialOther
 )
  
 And
@@ -4198,6 +4314,12 @@ Or
 Walls04_MetalPanelThickness IsPresent And Walls04_MetalPanelThickness is GTE Walls04cc_MetalPanelThickness
 Or
 Walls04_CoreICF isPresent And Walls04_CoreICF is GTE  Walls04cc_CoreICF
+Or 
+Walls04_ConcreteSandwichInsulation is Present And Walls04_ConcreteSandwichInsulation is GTE Walls04cc_ConcreteSandwichInsulation
+Or 
+Walls04_FramingDepth is Present And Walls04_FramingDepth is GTE Walls04cc_FramingDepth
+Or 
+Walls04_FramingMaterialOther is Present And Walls04_FramingMaterialOther is GTE Walls04cc_FramingMaterialOther
 )
  
 Or
@@ -4313,6 +4435,7 @@ Note: All following fields in this table reference CC parent fields for the floo
                                              <dtyp:srcSchema form="CCENV01E" usage="copy">Iheated01_FloorAssemblyName</dtyp:srcSchema>
                                              <dtyp:srcSchema form="CCPRF01E" usage="reference">Opaq02_CompatibleSurfaceType</dtyp:srcSchema>
                                              <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq01_ConstructionAssemblyNameString</dtyp:srcSchema>
+                                             <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq02_OpaqueSurfaceType</dtyp:srcSchema>
                                           </xsd:appinfo>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -4572,18 +4695,24 @@ End If</xsd:documentation>
                                                                      </xsd:appinfo>
                                                                   </xsd:annotation>
                                                                </xsd:element>
-                                                               <xsd:element name="FloorsPerf03cc_PartitionFramingMaterial" type="env:PartitionFramingMaterial">
+                                                               <xsd:element name="FloorsPerf03cc_PartitionFramingMaterial">
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText">Floor/ Spline Material</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If CC-PRF parent
 If  Opaq04_PartitionFramingMaterial IsPresent
-result = Opaq04_PartitionFramingMaterial
+   result = Opaq04_PartitionFramingMaterial
+Else If Opaq04_ConstructionAssemblyType is present
+   result = Opaq04_ConstructionAssemblyType
 End If
 End If</xsd:documentation>
                                                                      <xsd:appinfo source="CIsrc">
                                                                         <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq04_PartitionFramingMaterial</dtyp:srcSchema>
+                                                                        <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq04_ConstructionAssemblyType</dtyp:srcSchema>
                                                                      </xsd:appinfo>
                                                                   </xsd:annotation>
+                                                                  <xsd:simpleType>
+                                                                     <xsd:union memberTypes=" env:PartitionFramingMaterial comp:ConstructionAssemblyType"/>
+                                                                  </xsd:simpleType>
                                                                </xsd:element>
                                                                <xsd:element name="Floors03cc_NotApplicableMessage">
                                                                   <xsd:annotation>
@@ -4747,7 +4876,7 @@ End If
 End If</xsd:documentation>
                                                                   </xsd:annotation>
                                                                </xsd:element>
-                                                               <xsd:element name="FloorsPerf03_PartitionFramingMaterial" type="env:PartitionFramingMaterial">
+                                                               <xsd:element name="FloorsPerf03_PartitionFramingMaterial">
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText">Floor/ Spline Material</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If  FloorsPerf03cc_PartitionFramingMaterial IsPresent
@@ -4758,6 +4887,9 @@ User input
 End If
 End If</xsd:documentation>
                                                                   </xsd:annotation>
+                                                                  <xsd:simpleType>
+                                                                     <xsd:union memberTypes=" env:PartitionFramingMaterial comp:ConstructionAssemblyType"/>
+                                                                  </xsd:simpleType>
                                                                </xsd:element>
                                                                <xsd:element name="Floors03_NotApplicableMessage">
                                                                   <xsd:annotation>
@@ -5192,59 +5324,63 @@ End If</xsd:documentation>
                                                       <xsd:element name="FloorsSlab06Label" minOccurs="0">
                                                          <xsd:annotation>
                                                             <xsd:documentation source="FieldText">Slab Insulation by Orientation</xsd:documentation>
-                                                            <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
-If Floors02cc_AssemblyType == HeatedSlab
-This column is displayed and  CC and As-built col 06  are divided into vertical insulation and horizontal insulation values
-Else this column is not displayed and the col6 only holds one value for CC and one value for as-built
-End If</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">This is a label for a static header</xsd:documentation>
                                                          </xsd:annotation>
                                                       </xsd:element>
-                                                      <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="FloorsSlab06aLabel" minOccurs="0">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Vertical</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If Floors02cc_AssemblyType == HeatedSlab
-List: Vertical in top cell label for col 06 values
-End If</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="FloorsSlab06aLabel_NotApplicableMessage">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Vertical</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If Floors02cc_AssemblyType != HeatedSlab Or NRCC-PRF parent
-result = BlankGrayedOut
-End If</xsd:documentation>
-                                                            </xsd:annotation>
-                                                            <xsd:simpleType>
-                                                               <xsd:restriction base="comp:NotApplicableMessage">
-                                                                  <xsd:enumeration value="BlankGrayedOut"/>
-                                                               </xsd:restriction>
-                                                            </xsd:simpleType>
-                                                         </xsd:element>
-                                                      </xsd:choice>
-                                                      <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="FloorsSlab06bLabel" minOccurs="0">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Horizontal</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If Floors02cc_AssemblyType == HeatedSlab
-List:  Horizontal in bottom cell label for col 06 values
-End If</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="FloorsSlab06bLabel_NotApplicableMessage">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Vertical</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If Floors02cc_AssemblyType != HeatedSlab Or CC-PRF parent
-result = BlankGrayedOut
-End If</xsd:documentation>
-                                                            </xsd:annotation>
-                                                            <xsd:simpleType>
-                                                               <xsd:restriction base="comp:NotApplicableMessage">
-                                                                  <xsd:enumeration value="BlankGrayedOut"/>
-                                                               </xsd:restriction>
-                                                            </xsd:simpleType>
-                                                         </xsd:element>
-                                                      </xsd:choice>
+                                                      <xsd:element name="FloorsSlab06acc_SlabInsulationRValueRequired">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Vertical</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If If CC-ENV parent And  Floors02cc_AssemblyType == HeatedSlab And Iheated05a_SlabInsulationRValueRequired is present
+   result = Iheated05a_SlabInsulationRValueRequired
+Else
+   result = BlankGrayedOut</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCENV01E" usage="copy">Iheated05a_SlabInsulationRValueRequired</dtyp:srcSchema>
+                                                            </xsd:appinfo>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:union memberTypes="env:SlabInsulationRValueRequired comp:NotApplicableMessage"/>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="FloorsSlab06bcc_SlabInsulationRValueRequired">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Horizontal</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If CC-ENV parent And  Floors02cc_AssemblyType == HeatedSlab And Iheated05b_SlabInsulationRValueRequired is present
+   result = Iheated05a_SlabInsulationRValueRequired
+Else
+   result = BlankGrayedOut</xsd:documentation>
+                                                            <xsd:appinfo source="CIsrc">
+                                                               <dtyp:srcSchema form="CCENV01E" usage="copy">Iheated05b_SlabInsulationRValueRequired</dtyp:srcSchema>
+                                                            </xsd:appinfo>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:union memberTypes="env:SlabInsulationRValueRequired comp:NotApplicableMessage"/>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="FloorsSlab06a_SlabInsulationRValueRequired">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Vertical</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If FloorsSlab06acc_SlabInsulationRValueRequired != BlankGrayedOut
+   User input
+Else
+   result = BlankGrayedOut</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:union memberTypes="env:SlabInsulationRValueRequired comp:NotApplicableMessage"/>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
+                                                      <xsd:element name="FloorsSlab06b_SlabInsulationRValueRequired">
+                                                         <xsd:annotation>
+                                                            <xsd:documentation source="FieldText">Horizontal</xsd:documentation>
+                                                            <xsd:documentation source="CalculationsAndRules">If FloorsSlab06bcc_SlabInsulationRValueRequired != BlankGrayedOut
+   User input
+Else
+   result = BlankGrayedOut</xsd:documentation>
+                                                         </xsd:annotation>
+                                                         <xsd:simpleType>
+                                                            <xsd:union memberTypes="env:SlabInsulationRValueRequired comp:NotApplicableMessage"/>
+                                                         </xsd:simpleType>
+                                                      </xsd:element>
                                                       <xsd:choice maxOccurs="1">
                                                          <xsd:element name="FloorsFramed06cc_ContinuousInsulationNR">
                                                             <xsd:annotation>
@@ -5257,8 +5393,7 @@ Iframed08_ContinuousInsulationNR IsPresent
 result = Iframed08_ContinuousInsulationNR
 End If
 End If
-End If
-The displayed result fills the row cell and there is no division into top and bottom parts of the cell</xsd:documentation>
+End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCENV01E" usage="copy">Iframed08_ContinuousInsulationNR</dtyp:srcSchema>
                                                                </xsd:appinfo>
@@ -5287,8 +5422,7 @@ Iframed08_ContinuousInsulationOther IsPresent
 result = Iframed08_ContinuousInsulationOther
 End If
 End If
-End If
-The displayed result fills the row cell and there is no division into top and bottom parts of the cell</xsd:documentation>
+End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCENV01E" usage="copy">Iframed08_ContinuousInsulationOther</dtyp:srcSchema>
                                                                </xsd:appinfo>
@@ -5305,8 +5439,7 @@ ISIPS09_ContinuousInsulationNR IsPresent
 result = ISIPS09_ContinuousInsulationNR
 End If
 End If
-End If
-The displayed result fills the row cell and there is no division into top and bottom parts of the cell</xsd:documentation>
+End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCENV01E" usage="copy">ISIPS09_ContinuousInsulationNR</dtyp:srcSchema>
                                                                </xsd:appinfo>
@@ -5334,8 +5467,7 @@ ISIPS09_ContinuousInsulationOther IsPresent
 result = ISIPS09_ContinuousInsulationOther
 End If
 End If
-End If
-The displayed result fills the row cell and there is no division into top and bottom parts of the cell</xsd:documentation>
+End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCENV01E" usage="copy">ISIPS09_ContinuousInsulationOther</dtyp:srcSchema>
                                                                </xsd:appinfo>
@@ -5352,8 +5484,7 @@ Imass07_ContinuousInsulationNR IsPresent
 result = Imass07_ContinuousInsulationNR
 End If
 End If
-End If
- The displayed result fills the row cell and there is no division into top and bottom parts of the cell</xsd:documentation>
+End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCENV01E" usage="copy">Imass07_ContinuousInsulationNR</dtyp:srcSchema>
                                                                </xsd:appinfo>
@@ -5385,30 +5516,9 @@ Imass07_ContinuousInsulationOther IsPresent
 result = Imass07_ContinuousInsulationOther
 End If
 End If
-End If
- The displayed result fills the row cell and there is no division into top and bottom parts of the cell</xsd:documentation>
-                                                               <xsd:appinfo source="CIsrc">
-                                                                  <dtyp:srcSchema form="CCENV01E" usage="copy">Imass07_ContinuousInsulationOther</dtyp:srcSchema>
-                                                               </xsd:appinfo>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="FloorsSlab06cc_InsulationInteriorRValue" type="env:InsulationInteriorRValue" maxOccurs="2">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Continuous Insulation R-value</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If CC-ENV parent
-For current CI row 
-If Floors02cc_AssemblyType == HeatedSlab
-For CC row where the Iheated01_FloorAssemblyName was assigned to current CI row Floors01cc_FloorAssemblyName 
-result 1 = Iheated06a_InsulationInteriorRValue displayed in top part of cell 
-If Iheated06b_InsulationInteriorRValue IsPresent
-result 2 = Iheated06b_InsulationInteriorRValue displayed in bottom part of cell
-Else bottom cell is grayed out
-End If
-End If
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
-                                                                  <dtyp:srcSchema form="CCENV01E" usage="copy">Iheated06a_InsulationInteriorRValue</dtyp:srcSchema>
-                                                                  <dtyp:srcSchema form="CCENV01E" usage="copy">Iheated06b_InsulationInteriorRValue</dtyp:srcSchema>
+                                                                  <dtyp:srcSchema form="CCENV01E" usage="copy">Imass07_ContinuousInsulationOther</dtyp:srcSchema>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -5419,8 +5529,7 @@ End If</xsd:documentation>
 If Opaq06_InsulationRValue IsPresent
 result = Opaq06_InsulationRValue
 End If
-End If
-The displayed result fills the row cell and there is no division into top and bottom parts of the cell</xsd:documentation>
+End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCPRF01E" usage="copy">Opaq06int_InsulationRValue</dtyp:srcSchema>
                                                                </xsd:appinfo>
@@ -5436,12 +5545,15 @@ If in CC row where the Iframed02_FloorAssemblyName was assigned to current CI ro
 Iframed08_NotApplicableMessage IsPresent 
 result = BlankGrayedOut
 End If
+Else If Floors02cc_AssemblyType == HeatedSlab
+   result = BlankGrayedOut
+End If
+
 Else If CC-PRF parent
 If Opaq06_NotApplicableMessage IsPresent
 result = BlankGrayedOut
 End If
-End If
-The cell is gray and blanked out and there is no division of top and bottom parts of the cell</xsd:documentation>
+End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCENV01E" usage="reference">Iframed08_NotApplicableMessage</dtyp:srcSchema>
                                                                   <dtyp:srcSchema form="CCPRF01E" usage="reference">Opaq06int_NotApplicableMessage</dtyp:srcSchema>
@@ -5464,8 +5576,7 @@ resut = FloorsFramed06cc_ContinuousInsulationNR
 Else
 User selects from list
 End If
-End If
-The displayed result fills the row cell and there is no division into top and bottom parts of the cell</xsd:documentation>
+End If</xsd:documentation>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
                                                                <xsd:restriction base="env:ContinuousInsulationNR">
@@ -5489,8 +5600,7 @@ resut = FloorsFramed06cc_ContinuousInsulationOther
 Else
 User enters R-value number
 End If
-End If
-The displayed result fills the row cell and there is no division into top and bottom parts of the cell</xsd:documentation>
+End If</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
                                                          <xsd:element name="FloorsSIPS06_ContinuousInsulationNR">
@@ -5502,8 +5612,7 @@ resut = FloorsSIPS06cc_ContinuousInsulationNR
 Else
 User selects from list
 End If
-End If
-The displayed result fills the row cell and there is no division into top and bottom parts of the cell</xsd:documentation>
+End If</xsd:documentation>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
                                                                <xsd:restriction base="env:ContinuousInsulationNR">
@@ -5526,8 +5635,7 @@ resut = FloorsSIPS06cc_ContinuousInsulationOther
 Else
 User enters R-value number
 End If
-End If
-The displayed result fills the row cell and there is no division into top and bottom parts of the cell</xsd:documentation>
+End If</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
                                                          <xsd:element name="FloorsMass06_ContinuousInsulationNR">
@@ -5539,8 +5647,7 @@ resut = FloorsMass06cc_ContinuousInsulationNR
 Else
 User selects from list
 End If
-End If
-The displayed result fills the row cell and there is no division into top and bottom parts of the cell</xsd:documentation>
+End If</xsd:documentation>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
                                                                <xsd:restriction base="env:ContinuousInsulationNR">
@@ -5567,24 +5674,6 @@ resut = FloorsMass06cc_ContinuousInsulationOther
 Else
 User enters R-value number
 End If
-End If
-The displayed result fills the row cell and there is no division into top and bottom parts of the cell</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="FloorsSlab06_InsulationInteriorRValue" type="env:InsulationInteriorRValue" maxOccurs="2">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Continuous Insulation R-value</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If FloorsSlab06cc_InsulationInteriorRValue IsPresent
-If Floors01_InstalledSameAsCC == true
-result 1 = FloorsSlab06cc_InsulationInteriorRValue  first value which is displayed in top part of cell 
-If there is a second value
-result 2 = FloorsSlab06cc_InsulationInteriorRValue  second value which is displayed in bottom part of cell
-Else If there is only 1 value
-bottom cell is grayed out
-Else If Floors01_InstalledSameAsCC == false
-User enters R-value number for vertical in top cell and R-value number for horizontal in bottom cell  
-End If
-End If
 End If</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
@@ -5596,8 +5685,7 @@ If Floors01_InstalledSameAsCC == true
 result = FloorsPerf06cc_InsulationRValueElse
 User enters R-value number
 End If
-End If
-The displayed result fills the row cell and there is no division into top and bottom parts of the cell</xsd:documentation>
+End If</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
                                                          <xsd:element name="Floors06_NotApplicableMessage">
@@ -5605,6 +5693,8 @@ The displayed result fills the row cell and there is no division into top and bo
                                                                <xsd:documentation source="FieldText">Continuous Insulation R-value</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If Floors06cc_NotApplicableMessage IsPresent 
 result = Floors06cc_NotApplicableMessage
+Else If Floors02cc_AssemblyType == HeatedSlab
+   result = BlankGrayedOut
 End If</xsd:documentation>
                                                             </xsd:annotation>
                                                             <xsd:simpleType>
@@ -5681,11 +5771,11 @@ FloorsMass06_ContinuousInsulationNR IsPresent And FloorsMass06_ContinuousInsulat
 Or
 FloorsMass06_ContinuousInsulationOther IsPresent And FloorsMass06_ContinuousInsulationOther LT FloorsMass06cc_ContinuousInsulationOther
 Or
-FloorsSlab06_InsulationInteriorRValue Result 1 IsPresent And FloorsSlab06_InsulationInteriorRValue Result 1 LT FloorsSlab06cc_InsulationInteriorRValue Result 1
-Or
-FloorsSlab06_InsulationInteriorRValue Result 2 IsPresent And FloorsSlab06_InsulationInteriorRValue Result 2 LT FloorsSlab06cc_InsulationInteriorRValue Result 2
-Or
 FloorsPerf06_InsulationRValue IsPresent And FloorsPerf06_InsulationRValue LT  FloorsPerf06cc_InsulationRValue
+Or 
+FloorsSlab06acc_SlabInsulationRValueRequired != BlankGrayedOut And FloorsSlab06a_SlabInsulationRValueRequired LT FloorsSlab06acc_SlabInsulationRValueRequired
+Or
+FloorsSlab06bcc_SlabInsulationRValueRequired != BlankGrayedOut And FloorsSlab06b_SlabInsulationRValueRequired LT FloorsSlab06bcc_SlabInsulationRValueRequired
 )
  
 result = MayNotComply
@@ -5748,11 +5838,9 @@ FloorsMass06_ContinuousInsulationNR IsPresent And FloorsMass06_ContinuousInsulat
 Or
 FloorsMass06_ContinuousInsulationOther IsPresent And FloorsMass06_ContinuousInsulationOther == FloorsMass06cc_ContinuousInsulationOther
 Or
-FloorsSlab06_InsulationInteriorRValue Result 1 IsPresent And FloorsSlab06_InsulationInteriorRValue Result 1 == FloorsSlab06cc_InsulationInteriorRValue Result 1
-Or
-FloorsSlab06_InsulationInteriorRValue Result 2 IsPresent And FloorsSlab06_InsulationInteriorRValue Result 2 == FloorsSlab06cc_InsulationInteriorRValue Result 2
-Or
 FloorsPerf06_InsulationRValue IsPresent And FloorsPerf06_InsulationRValue ==  FloorsPerf06cc_InsulationRValue
+Or
+((FloorsSlab06acc_SlabInsulationRValueRequired != BlankGrayedOut And FloorsSlab06a_SlabInsulationRValueRequired == FloorsSlab06acc_SlabInsulationRValueRequired) And (FloorsSlab0bacc_SlabInsulationRValueRequired != BlankGrayedOut And FloorsSlab06b_SlabInsulationRValueRequired == FloorsSlab06bcc_SlabInsulationRValueRequired))
 )
  
 result = ExactMatch
@@ -5784,11 +5872,9 @@ FloorsMass06_ContinuousInsulationNR IsPresent And FloorsMass06_ContinuousInsulat
 Or
 FloorsMass06_ContinuousInsulationOther IsPresent And FloorsMass06_ContinuousInsulationOther GTE FloorsMass06cc_ContinuousInsulationOther
 Or
-FloorsSlab06_InsulationInteriorRValue Result 1 IsPresent And FloorsSlab06_InsulationInteriorRValue Result 1 GTE FloorsSlab06cc_InsulationInteriorRValue Result 1
-Or
-FloorsSlab06_InsulationInteriorRValue Result 2 IsPresent And FloorsSlab06_InsulationInteriorRValue Result 2 GTE FloorsSlab06cc_InsulationInteriorRValue Result 2
-Or
 FloorsPerf06_InsulationRValue IsPresent And FloorsPerf06_InsulationRValue GTE FloorsPerf06cc_InsulationRValue
+Or 
+(FloorsSlab06a_SlabInsulationRValueRequired GT FloorsSlab06acc_SlabInsulationRValueRequired And FloorsSlab06b_SlabInsulationRValueRequired GT FloorsSlab06bcc_SlabInsulationRValueRequired))
 )
  
 result = EqualBetter

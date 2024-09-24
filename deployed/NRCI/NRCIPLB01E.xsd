@@ -722,7 +722,9 @@ Else if CC-PLB parent
    End If
 End If</xsd:documentation>
                                                                         <xsd:appinfo source="CIsrc">
-                                                                           <dtyp:srcSchema form="CCPRF01E" usage="copy">Water06_NotApplicableMessage</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E" usage="copy">Water06_WaterHeaterGasRatedInput</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPRF01E" usage="copy">Water06_WaterHeaterElectricFiredRatedInput</dtyp:srcSchema>
+                                                                           <dtyp:srcSchema form="CCPLB01E" usage="copy">F10a_NotApplicableMessage</dtyp:srcSchema>
                                                                         </xsd:appinfo>
                                                                      </xsd:annotation>
                                                                      <xsd:simpleType>
@@ -1158,7 +1160,7 @@ End If</xsd:documentation>
                                                                      <xsd:annotation>
                                                                         <xsd:documentation source="FieldText">Standby Loss</xsd:documentation>
                                                                         <xsd:documentation source="CalculationsAndRules">If DHW10cc_NotApplicableMessage IsPresent
-result = DHW10cc_NotApplicableMessage
+   result = DHW10cc_NotApplicableMessage
 End If</xsd:documentation>
                                                                      </xsd:annotation>
                                                                      <xsd:simpleType>
@@ -1203,6 +1205,7 @@ result = MayNotComply
  
 Else 
 If DHW04_WaterHeaterType IsPresent And == DHW04cc_WaterHeaterType 
+Or TableWaterMF is Present And DHW01_InstalledSameAsCC == true
 Or DHW04_TankCategory IsPresent And  == DHW04cc_TankCategory
  
 And 
@@ -1254,6 +1257,7 @@ Or
 DHW10_StandbyLoss IsPresent And DHW10_StandbyLoss LTE DHW10cc_StandbyLoss Or
 DHW10_WaterHeaterStandbyLossFraction IsPresent And DHW10_WaterHeaterStandbyLossFraction LTE DHW10cc_WaterHeaterStandbyLossFraction
 )
+Or TableWaterMF is Present And DHW01_InstalledSameAsCC == false
 result = EqualBetter
 End If</xsd:documentation>
                                                 </xsd:annotation>
