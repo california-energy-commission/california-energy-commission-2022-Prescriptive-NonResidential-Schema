@@ -737,13 +737,15 @@ Lum05cc_LuminaireWattsPerLF == SeePlans and Lum05cc_LuminaireWattsPerLF IsNotPre
 or
 Lum05cc_LuminairePower == SeePlans and Lum05cc_LuminaireWattsPerLF == SeePlans
 or
-Lum06cc_LuminaireCountByType == SeePlans
+Lum06cc_LuminaireCountByType == SeePlans and Lum06cc_LuminairesTotalLF IsNotPresent
 or
-Lum06cc_LuminairesTotalLF == SeePlans
+Lum06cc_LuminairesTotalLF == SeePlans and Lum06cc_LuminaireCountByType IsNotPresent
 or
-Lum07cc_LuminairePowerByType == SeePlans
+Lum06cc_LuminaireCountByType == SeePlans and Lum06cc_LuminairesTotalLF == SeePlans
 or
-Lum08cc_LuminairePowerCutoffCompliance == SeePlans
+Lum07cc_LuminairePowerByType == SeePlans and Lum07_NotApplicableMessage IsNotPresent
+or
+Lum08cc_LuminairePowerCutoffCompliance == SeePlans and Lum08_NotApplicableMessage IsNotPresent
 result = MayNotComply
  
 Else  If
@@ -1014,7 +1016,8 @@ If Bug06cc_MountingHeightRangeBUG == SeePlans
 User Input
 Else result = Bug06cc_MountingHeightRangeBUG
 Else
-User input</xsd:documentation>
+User input
+End If</xsd:documentation>
                                                          </xsd:annotation>
                                                          <xsd:simpleType>
                                                             <xsd:restriction base="comp:MountingHeightRangeBUG">
@@ -1241,7 +1244,7 @@ End If</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If Ctrl01_InstalledSameAsCC == true
 If Ctrl03cc_AutoScheduleControlsOutdoors == SeePlans
 User selects from list
-result = Ctrl03cc_AutoScheduleControlsOutdoors
+Else result = Ctrl03cc_AutoScheduleControlsOutdoors
 Else
 User selects from list 
 End If</xsd:documentation>
@@ -1269,7 +1272,7 @@ End If</xsd:documentation>
                                                             <xsd:documentation source="CalculationsAndRules">If Ctrl01_InstalledSameAsCC == true
 If Ctrl04cc_MotionSensorCompliance == SeePlans
 User selects from list
-result = Ctrl04cc_MotionSensorCompliance
+Else result = Ctrl04cc_MotionSensorCompliance
 Else
 User selects from list 
 End If</xsd:documentation>
@@ -1447,7 +1450,7 @@ End If</xsd:documentation>
                                                                      <xsd:documentation source="CalculationsAndRules">If Ctrl01mf_InstalledSameAsCC == true
 If Ctrl03mfcc_OutdoorLightingMF == SeePlans
 User selects from list
-result = Ctrl03mfcc_OutdoorLightingMF
+Else result = Ctrl03mfcc_OutdoorLightingMF
 Else
 User selects from list 
 End If</xsd:documentation>
