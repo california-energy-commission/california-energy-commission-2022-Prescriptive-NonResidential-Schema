@@ -1338,7 +1338,7 @@ End If</xsd:documentation>
                                     <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                                        <xsd:complexType>
                                           <xsd:sequence>
-                                             <xsd:element name="Ctrl01mfcc_SpaceDescription" type="com:SpaceDescription">
+                                             <xsd:element name="Ctrl01mfcc_SpaceDescription">
                                                 <xsd:annotation>
                                                    <xsd:documentation source="FieldText">Space Name</xsd:documentation>
                                                    <xsd:documentation source="CalculationsAndRules">If CC-LTOE parent
