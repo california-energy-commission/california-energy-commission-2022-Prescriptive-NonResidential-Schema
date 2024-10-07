@@ -1262,7 +1262,13 @@ End If</xsd:documentation>
  result = TableIncomplete  
 Else If Ctrl01_InMyScope == false
 result = NotInScope
-Else If  
+Else If Ctrl02cc_ShutOffControlsOutdoors == AstronomicalTimer or OtherTechnology or Photocontrol and Ctrl02_ShutOffControlsOutdoors == MultifamilyLightingNA or NotPermittedNA or TunnelsNA
+or
+Ctrl03cc_AutoScheduleControlsOutdoors == AutoSchedule or EMCS and Ctrl03_AutoScheduleControlsOutdoors == MultifamilyLightingNA or NotPermittedNA or ParkingSalesNA or TunnelsNA
+or
+Ctrl04cc_MotionSensorCompliance == MotionSensorCompliant and Ctrl04_MotionSensorCompliance == MotionSensorCompliant
+result = MayNotComply
+Else If
  (
 Ctrl02cc_ShutOffControlsOutdoors == Exempt Or Other And Ctrl02_ShutOffControlsOutdoors == NotPermittedNA Or TunnelNA Or 
 Ctrl02_ShutOffControlsOutdoors == Ctrl02cc_ShutOffControlsOutdoors
