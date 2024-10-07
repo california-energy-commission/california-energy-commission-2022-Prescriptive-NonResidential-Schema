@@ -498,7 +498,7 @@ End If</xsd:documentation>
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="Lum04cc_ConditioningType" type="com:ConditioningType" >
+                                       <xsd:element name="Lum04cc_ConditioningType">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Used in Conditioned or Unconditioned</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
@@ -566,7 +566,7 @@ result = SmallApertureColorChanging
  Else result = SeePlans
  Else If CCPRF parent
  If SOURCE_FIELD IsPresent
- result = SOURCE_FIELD 
+ result = SOURCE_FIELD
  else result = SeePlans</xsd:documentation>
                                              <xsd:appinfo source="CIsrc">
                                                 <dtyp:srcSchema form="CCLTI01E"  usage="reference">Fc03_IsLuminaireTrackLighting</dtyp:srcSchema>
@@ -633,7 +633,7 @@ result = SmallApertureColorChanging
                                              <xsd:documentation source="FieldText">Fixture Type</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If Lum01_ScopeIncludesFixture == false
  result = BlankGrayedOut
-Else If Lum05cc_NotApplicableMessage IsPresent
+Else If Lum01_InstalledSameAsCC == true and Lum05cc_NotApplicableMessage IsPresent
  result = Lum05cc_NotApplicableMessage
  Else If Lum05cc_LuminaireUse IsPresent and installer indicates none apply for fixture
  result = BlankGrayedOut
@@ -1119,10 +1119,10 @@ result = ExactMatch
 Else If Lum05_LuminaireUse == Lum05cc_LuminaireUse
 And 
 Sum All CCRows excluding rows where Fc08_LightingPowerExcluded == True GTE Sum All AsBuiltRows
-If Lum05_LuminaireUse == OccupancyNonres
+If Lum05_LuminaireUse == SmallApertureColorChanging
 CCRow = ( Lum11cc_LuminairePower x Lum12cc_LuminaireCountByType x 0.80)
 AsBuiltRow = ( Lum11_LuminairePower x Lum12_LuminaireCountByType x 0.80)
-Else If Lum05_LuminaireUse == OccupancyMF
+Else If Lum05_LuminaireUse == SmallApertureColorChangingMF
 CCRow = ( Lum11cc_LuminairePower x Lum12cc_LuminaireCountByType x 0.75)
 AsBuiltRow = ( Lum11_LuminairePower x Lum12_LuminaireCountByType x 0.75)
 Else
@@ -1133,10 +1133,10 @@ Else
 If Lum05_LuminaireUse != Lum05cc_LuminaireUse
 Or
 Sum All CCRows excluding rows where Fc08_LightingPowerExcluded == True LT Sum All AsBuiltRows
-If Lum05_LuminaireUse == OccupancyNonres
+If Lum05_LuminaireUse == SmallApertureColorChanging
 CCRow = ( Lum11cc_LuminairePower x Lum12cc_LuminaireCountByType x 0.80)
 AsBuiltRow = ( Lum11_LuminairePower x Lum12_LuminaireCountByType x 0.80)
-Else If Lum05_LuminaireUse == OccupancyMF
+Else If Lum05_LuminaireUse == SmallApertureColorChangingMF
 CCRow = ( Lum11cc_LuminairePower x Lum12cc_LuminaireCountByType x 0.75)
 AsBuiltRow = ( Lum11_LuminairePower x Lum12_LuminaireCountByType x 0.75)
 Else
@@ -1205,7 +1205,9 @@ End If</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Area Description</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
+If H04_SpaceDescription IsPresent
 result = H04_SpaceDescription
+Else result = BlankGrayedOut
 Else If CCPRFE parent
 If LtgControls03_SpaceDescription IsPresent
 result = LtgControls03_SpaceDescription
@@ -1393,7 +1395,7 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">If CCLTIE parent
 If H06_AreaControlsCompliance IsPresent
 result = H06_AreaControlsCompliance
-Else result = BlankGrayedOut
+Else result = SeePlans
 End If</xsd:documentation>
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCLTI01E"  usage="copy">H06_AreaControlsCompliance</dtyp:srcSchema>
@@ -1451,7 +1453,7 @@ End If
                                                             </xsd:documentation>
                                                          </xsd:annotation>
                                                           <xsd:simpleType>
-                                                              <xsd:union memberTypes="comp:AreaControlsCompliance comp:MandatoryAreaControlsRequired"/>
+                                                              <xsd:union memberTypes="comp:AreaControlsCompliance comp:MandatoryAreaControlsRequired comp:NotApplicableMessage"/>
                                                           </xsd:simpleType>
                                                       </xsd:element>
                                                       <xsd:choice maxOccurs="1">
@@ -1900,7 +1902,7 @@ And Ctrl04_AreaControlsCompliance == Exempt or NA
 Condition 3
 Ctrl05cc_MultilevelControls IsPresent
 And Ctrl05cc_MultilevelControls == DimmerControl or MultilevelSwitch
-And Ctrl05_MultilevelControls == AreaLT100SqFtNA or HealthcareNA or DimmerControl or LTE0_5WperSqFtNA or LumLTE2LampsNA or LumSSLNA or NA_LTE80PctAllowedLP or RestroomsNA
+And Ctrl05_MultilevelControls == AreaLT100SqFtNA or HealthcareNA or LTE0_5WperSqFtNA or LumLTE2LampsNA or LumSSLNA or NA_LTE80PctAllowedLP or RestroomsNA
 Or
 Ctrl05cc_MandatoryMultiLevelControlRequired IsPresent
 And Ctrl05cc_MandatoryMultiLevelControlRequired == Required
@@ -2214,8 +2216,9 @@ result = Pu05_LuminaireCountByType
 Else result = SeePlans
 Else If CCPRFE parent
 If LtgCredits07_LuminaireCountByType IsPresent
-result = LtgCredits07_LuminaireCountByType  
+result = LtgCredits07_LuminaireCountByType
 Else result = SeePlans
+End If
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
                                                                <dtyp:srcSchema form="CCLTI01E"  usage="copy">Pc05_LuminaireCountByType</dtyp:srcSchema>
@@ -2250,7 +2253,7 @@ result = Pu05_LuminairePowerByType
 Else result = SeePlans
 Else If CCPRFE parent
 If LtgCredits08_LuminairePowerInArea IsPresent
-result = LtgCredits08_LuminairePowerInArea  
+result = LtgCredits08_LuminairePowerInArea
 Else result = SeePlans
 End If</xsd:documentation>
                                                             <xsd:appinfo source="CIsrc">
@@ -2297,7 +2300,7 @@ Paf05cc_LuminaireCountByType == SeePlans
 Or
 Paf06cc_LuminairePowerByType == SeePlans
 result = MayNotComply
-Else If Paf04cc_LuminairePower == Paf04_LuminairePower 
+Else If Paf04cc_LuminairePower == Paf04_LuminairePower
 And 
 Paf05cc_LuminaireCountByType == Paf05_LuminaireCountByType
 result = ExactMatch
