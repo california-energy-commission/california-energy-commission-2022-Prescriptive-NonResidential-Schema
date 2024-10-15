@@ -5853,6 +5853,7 @@
             <dtyp:displayterm value="ProjectExemptElecCode517B">Table B indicates the project is exempt from [d:t24refnolink/]130.5(a) Service Electrical Metering requirements and [d:t24refnolink/]130.5(b) Separation of electrical Circuits requirements because the  system is subject to CA Elec Code Article 517</dtyp:displayterm>
             <dtyp:displayterm value="ProjectExemptUtilMeterSysB">Table B indicates the project is exempt from [d:t24refnolink/]130.5(a) Service Electrical Metering requirements because the utility company has provided the project a metering system that indicates instantaneous kW demand and kWh for a utility-defined period.</dtyp:displayterm>
             <dtyp:displayterm value="UserChangedSelectionInCI">Selections made in Certificates of Installation Table  have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
+            <dtyp:displayterm value="UserChangedSelectionInCA">Selections made in the Certificates of Acceptance table have been changed by the permit applicant.  See Table E. Additional Remarks for permit applicant's explanation.</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -5862,6 +5863,7 @@
          <xsd:enumeration value="ProjectExemptElecCode517B"/>
          <xsd:enumeration value="ProjectExemptUtilMeterSysB"/>
          <xsd:enumeration value="UserChangedSelectionInCI"/>
+         <xsd:enumeration value="UserChangedSelectionInCA"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ExceptionalConditionMessageCCENVE">
