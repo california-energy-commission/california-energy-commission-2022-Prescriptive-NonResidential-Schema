@@ -1266,7 +1266,7 @@ Else If Ctrl02cc_ShutOffControlsOutdoors == AstronomicalTimer or OtherTechnology
 or
 Ctrl03cc_AutoScheduleControlsOutdoors == AutoSchedule or EMCS and Ctrl03_AutoScheduleControlsOutdoors == MultifamilyLightingNA or NotPermittedNA or ParkingSalesNA or TunnelsNA
 or
-Ctrl04cc_MotionSensorCompliance == MotionSensorCompliant and Ctrl04_MotionSensorCompliance == MotionSensorCompliant
+Ctrl04cc_MotionSensorCompliance == MotionSensorCompliant and Ctrl04_MotionSensorCompliance != MotionSensorCompliant
 result = MayNotComply
 Else If
  (
