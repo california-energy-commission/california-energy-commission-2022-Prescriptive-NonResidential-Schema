@@ -1860,21 +1860,18 @@ End If</xsd:documentation>
                      <xsd:element name="C11_DoesRatedPowerReductionComply" type="comp:DoesRatedPowerReductionComply" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">[d:b]Rated Power Reduction Compliance (See Table Q for Details)[/d:b]</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If all values for Baltered02_LightingPrescriptiveMethodNR != RatedPowerReduction
-Or  If  Q01_RatedPowerReductionScopeApplies == false
-result = NotApplicable stored in C11_NotApplicableMessage display term NOT APPLICABLE; 
-
-Else if Section_Q is requried
-If  Q01_RatedPowerReductionScopeApplies == true AND Q02b_RatedPowerReductionException6AppliesToAll == true  
-result = true display term COMPLIES; 
-Else If Q01, And Q03-Q19 have been completed or are not required AND QPercentReduction_LightingPowerReductionPercent GTE 0.40 
-result = true display term COMPLIES
-Else 
-result = false display term DOES NOT COMPLY
-End If
-Else If all values for Baltered02_LightingPrescriptiveMethodNR != RatedPowerReduction
+                           <xsd:documentation source="CalculationsAndRules">
+If all values for Baltered02_LightingPrescriptiveMethodNR and Baltered04_LightingPrescriptiveMethodNR != RatedPowerReduction
 Or  If  Q01_RatedPowerReductionScopeApplies == false
    result = NotApplicable stored in C11_NotApplicableMessage display term NOT APPLICABLE; 
+
+Else if Section_Q is requried
+   If  Q01_RatedPowerReductionScopeApplies == true AND Q02b_RatedPowerReductionException6AppliesToAll == true  
+      result = true display term COMPLIES; 
+   Else If Q01, And Q03-Q19 have been completed or are not required AND QPercentReduction_LightingPowerReductionPercent GTE 0.40 
+      result = true display term COMPLIES
+   Else 
+      result = false display term DOES NOT COMPLY
 End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
@@ -1882,7 +1879,7 @@ End If</xsd:documentation>
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">[d:b]Rated Power Reduction Compliance (See Table Q for Details)[/d:b]</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">
-If all values for Baltered02_LightingPrescriptiveMethodNR != RatedPowerReduction
+If all values for Baltered02_LightingPrescriptiveMethodNR and Baltered04_LightingPrescriptiveMethodNR != RatedPowerReduction
 Or  If  Q01_RatedPowerReductionScopeApplies == false
    result = NotApplicable stored in C11_NotApplicableMessage display term NOT APPLICABLE; 
 End if</xsd:documentation>
