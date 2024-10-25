@@ -2128,7 +2128,10 @@ End If</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated field: 
 If B01_ProjectHasCompressedAir  == false 
 result = BlankGrayedOut  stored in NotApplicableMessage; 
- 
+
+If J06_NotApplicableMessage and J07_NotApplicableMessage == BlankGrayedOut 
+result = false 
+
 Else If  in each row J01 - J07 are completed or have result == BlankGrayedOut 
 result = true display term Yes; 
 Else result = false display term No

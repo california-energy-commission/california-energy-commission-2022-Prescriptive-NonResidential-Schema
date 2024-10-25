@@ -2633,10 +2633,7 @@ And If Fc05 and Fc06 != BlankGrayedOut Then Fc05 GTE Fc06;
  
 Condition 5
 If TableChiller IsPresent  Then for every row
-If Fd02_ChillerType == AirCooledWithCondenser or AirCooledWithOutCondenser
-AND
-Fd05_ChillerExceptionPathB != EfficiencyException6 Or EfficiencyException7 Or EfficiencyException8 Then
-Fd04_ChillerTonsRange != GTE300ToLT400 or GTE400ToLT600 or GTE600
+If Fd05_ChillerExceptionPathB != EfficiencyException6 Or EfficiencyException7 Or EfficiencyException8 
 If any field in range Fd01 - Fd10 != BlankGrayedOut has data Then
  
 Switch (Fd08a_EfficiencyType )
@@ -2645,7 +2642,7 @@ If Fd06a_EfficiencyEER And Fd07a_RangeMinEER != BlankGrayedOut Then
 Fd06a_EfficiencyEER GTE Fd07a_RangeMinEER;
 End If
  
-case COP
+case COP:
 If Fd06a_EfficiencyCOP And Fd07a_RangeMinCOP != BlankGrayedOut Then 
 Fd06a_EfficiencyCOP GTE Fd07a_RangeMinCOP; 
 Else If Fd06a_ChillerCOP And Fd07a_RangeMinCOP != BlankGrayedOut Then
@@ -2654,7 +2651,7 @@ End If
  
 case kWperTon:
 If Fd06a_EfficiencykWperTon And Fd07a_RangeMinkWperTon != BlankGrayedOut Then 
-Fd07a_RangeMinkWperTon GTE Fd06a_EfficiencykWperTon;
+Fd06a_EfficiencykWperTon LTE Fd07a_RangeMinkWperTon;
 End If
 End Switch
  
@@ -2671,12 +2668,36 @@ End If
  
 case kWperTon_IPLV:
 If Fd06b_EfficiencykWperTon_IPLV And Fd07b_RangeMinkWperTon_IPLV != BlankGrayedOut Then 
-Fd07b_RangeMinkWperTon_IPLV GTE Fd06b_EfficiencykWperTon_IPLV;
+Fd06b_EfficiencykWperTon_IPLV LTE Fd07b_RangeMinkWperTon_IPLV;
+End If
+End Switch 
+
+Switch (Fd08c_EfficiencyType)
+case EER:
+If Fd06c_EfficiencyEER and Fd07c_EfficiencyEER != BlankGrayedOut
+Fd06c_EfficiencyEER GTE Fd07c_EfficiencyEER
+End If
+
+case KWperTon:
+if Fd06c_EfficiencyKWperTon and Fd07c_EfficiencyKWperTon != BlankGrayedOut
+Fd06c_EfficiencyKWperTon LTE Fd07c_EfficiencyKWperTon
+End If
+End Switch
+
+Switch (Fd08d_EfficiencyType)
+case EER_IPLV:
+If Fd06d_EfficiencyEER_IPLV and Fd07d_EfficiencyEER_IPLV != BlanGrayedOut
+Fd06d_EfficiencyEER_IPLV  GTE Fd07d_EfficiencyEER_IPLV
+End If
+
+case kWperTon_IPLV:
+If Fd06d_EfficiencyKWperTon_IPLV and Fd07d_EfficiencyKWperTon_IPLV != BlanGrayedOut
+Fd06d_EfficiencyKWperTon_IPLV LTE Fd07d_EfficiencyKWperTon_IPLV
 End If
 End Switch
 End If 
-End If 
- 
+End If
+
 Condition 6
 If TableHeatRejection IsPresent  Then for every row 
 any field in range  Fe01 - Fe12 != BlankGrayedOut has data And 
