@@ -237,10 +237,15 @@ End If</xsd:documentation>
                   <xsd:element name="B01k_ProjectHasSystemPiping" type="comp:ProjectHasSystemPiping">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Piping</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input. 
+                        <xsd:documentation source="CalculationsAndRules">If TablePipeInsulation IsPresent
+User input.
+End If 
 If user selects this item result = true and item is checked 
 Else result = false  and item is unchecked 
 End If</xsd:documentation>
+                        <xsd:appinfo source="CIsrc">
+                           <dtyp:srcSchema form="CCMCH01E" usage="reference">TablePipeInsulation</dtyp:srcSchema>
+                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="B01l_ProjectHasElectricHeat" type="comp:ProjectHasElectricHeat">
@@ -9602,7 +9607,7 @@ End If</xsd:documentation>
                         <xsd:documentation source="FieldText">
                            <d:b>Pipe Insulation</d:b>
                         </xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This subsection applies If B02k_ProjectHasSystemPiping == true
+                        <xsd:documentation source="CalculationsAndRules">This subsection applies If B01k_ProjectHasSystemPiping == true
  
 This subsection consists of a display of static table and has no reported data</xsd:documentation>
                      </xsd:annotation>
