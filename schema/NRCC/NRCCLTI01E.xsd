@@ -1829,7 +1829,7 @@ End If</xsd:documentation>
                            <xsd:documentation source="FieldText">[d:b]Controls Compliance (See Table H for Details)[/d:b]</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">If all values for Baltered02_LightingPrescriptiveMethodNR == Or Baltered04_LightingPrescriptiveMethodNR == RatedPowerReduction result = BlankGrayedOut stored in NotApplicableMessage and field is grayed out and blank; 
 Else
-If D03_ExceptionalConditionMessageCCLTIE contains  LP80PercentAlterationExceededInR Or LP80PercentAlterationMissingDataInR Or LP80PercentAlterationOnlyIssueInH 
+If D03_ExceptionalConditionMessageCCLTIE contains  LP80PercentAlterationExceededInR Or LP80PercentAlterationMissingDataInR
 result = DoesNotComply display term DOES NOT COMPLY;
  
 Else 
@@ -1860,35 +1860,28 @@ End If</xsd:documentation>
                      <xsd:element name="C11_DoesRatedPowerReductionComply" type="comp:DoesRatedPowerReductionComply" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">[d:b]Rated Power Reduction Compliance (See Table Q for Details)[/d:b]</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If all values for Baltered02_LightingPrescriptiveMethodNR != RatedPowerReduction
+                           <xsd:documentation source="CalculationsAndRules">
+If all values for Baltered02_LightingPrescriptiveMethodNR and Baltered04_LightingPrescriptiveMethodNR != RatedPowerReduction
 Or  If  Q01_RatedPowerReductionScopeApplies == false
-Or If all row instance of H01_MandatoryLightingDemandResponseNR, H07_MultilevelControls, H09_PrimarySkylitDaylightControlsIncluded, And H10_SecondaryDaylightControlsIncluded != NA_LTE80PctAllowedLP
-result = NotApplicable stored in C11_NotApplicableMessage display term NOT APPLICABLE; 
+   result = NotApplicable stored in C11_NotApplicableMessage display term NOT APPLICABLE; 
 
 Else if Section_Q is requried
-If  Q01_RatedPowerReductionScopeApplies == true AND Q02b_RatedPowerReductionException6AppliesToAll == true  
-result = true display term COMPLIES; 
-Else If Q01, And Q03-Q19 have been completed or are not required AND QPercentReduction_LightingPowerReductionPercent GTE 0.40 
-result = true display term COMPLIES
-Else 
-result = false display term DOES NOT COMPLY
-End If
-Else If H01_MandatoryLightingDemandResponseNR, H07_MultilevelControls, H09_PrimarySkylitDaylightControlsIncluded, And H10_SecondaryDaylightControlsIncluded == NA_LTE80PctAllowedLP
-If R09bPercentAllowance_LightingPowerInstalledPowerAllowedRatio LTE 0.8 Or C08Row01_LightingPowerInstalledTotalConditionedAdjusted LTE C05Row01_LightingPowerAllowanceTotalConditioned * 0.80
-result = true
-Else
-result = false
-End If
+   If  Q01_RatedPowerReductionScopeApplies == true AND Q02b_RatedPowerReductionException6AppliesToAll == true  
+      result = true display term COMPLIES; 
+   Else If Q01, And Q03-Q19 have been completed or are not required AND QPercentReduction_LightingPowerReductionPercent GTE 0.40 
+      result = true display term COMPLIES
+   Else 
+      result = false display term DOES NOT COMPLY
 End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="C11_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">[d:b]Rated Power Reduction Compliance (See Table Q for Details)[/d:b]</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If all values for Baltered02_LightingPrescriptiveMethodNR != RatedPowerReduction
+                           <xsd:documentation source="CalculationsAndRules">
+If all values for Baltered02_LightingPrescriptiveMethodNR and Baltered04_LightingPrescriptiveMethodNR != RatedPowerReduction
 Or  If  Q01_RatedPowerReductionScopeApplies == false
-Or If all row instance of H01_MandatoryLightingDemandResponseNR, H07_MultilevelControls, H09_PrimarySkylitDaylightControlsIncluded, And H10_SecondaryDaylightControlsIncluded != NA_LTE80PctAllowedLP
-result = NotApplicable stored in C11_NotApplicableMessage display term NOT APPLICABLE; 
+   result = NotApplicable stored in C11_NotApplicableMessage display term NOT APPLICABLE; 
 End if</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
@@ -2543,12 +2536,6 @@ If result == RequiredGTE4000W Or  RequiredUsingPAF
 Nrca03_RequireNRCALti04A = true
 End If 
  
-If result == NA_LT80PctAllowedLP then If Bnew01 and Bpark01 LightingProjectScopeNR == NotApplicableLightingScope And Baltered01 LightingProjectScopeNR == AlteredLightingSystem And 
-C08Row01_LightingPowerInstalledTotalConditionedAdjusted IsPresent And  GTE  (C05Row01_LightingPowerAllowanceTotalConditioned   x 0.8)  
-Or C08Row02_LightingPowerInstalledTotalUnconditionedAdjusted IsPresent And  GTE  (C05Row02_LightingPowerAllowanceTotalUnconditioned   x 0.8)  
- 
-then   D03_ExceptionalConditionMessageCCLTIE += LP80PercentAlterationOnlyIssueInH
- 
 Mandatory Measure Block Triggers:</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -2770,18 +2757,6 @@ End If</xsd:documentation>
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Multi-Level Controls [d:t24refnolink/]130.1(b) /[d:t24refnolink/]160.5(b)4B</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from dropdown list. 
- 
- 
-If result == NA_LT80PctAllowedLP then 
-If Bnew01 And Bpark01 LightingProjectScopeNR == NotApplicableLightingScope And Baltered01 LightingProjectScopeNR == AlteredLightingSystem And 
-C08Row01_LightingPowerInstalledTotalConditionedAdjusted IsPresent And  GTE  (C05Row01_LightingPowerAllowanceTotalConditioned   x 0.8)  
-Or C08Row02_LightingPowerInstalledTotalUnconditionedAdjusted IsPresent And  GTE  (C05Row02_LightingPowerAllowanceTotalUnconditioned   x 0.8)  
- 
-D03_ExceptionalConditionMessageCCLTIE += LP80PercentAlterationOnlyIssueInH
-End If
-End If
- 
- 
 Mandatory Measure Triggers:
 If result == BilevelSwitchControl Or DimmerControl
 MM130_1b_MeasureApplies  = true and is displayed
@@ -2830,15 +2805,6 @@ For all rows If result != Included
 Nrca02_RequireNRCALti03A = false
 End If 
  
-If result == NA_LT80PctAllowedLP then 
-If Bnew01 And Bpark01 LightingProjectScopeNR == NotApplicableLightingScope And Baltered01 LightingProjectScopeNR == AlteredLightingSystem And 
-C08Row01_LightingPowerInstalledTotalConditionedAdjusted IsPresent And  GTE  (C05Row01_LightingPowerAllowanceTotalConditioned   x 0.8)  
-Or C08Row02_LightingPowerInstalledTotalUnconditionedAdjusted IsPresent And  GTE  (C05Row02_LightingPowerAllowanceTotalUnconditioned   x 0.8)  
- 
-D03_ExceptionalConditionMessageCCLTIE += LP80PercentAlterationOnlyIssueInH
-End If
-End If
- 
 Mandatory Measure Block Triggers:
 If result == Included Then in MM Block
 MM130_1d_MeasureApplies  = true and text is displayed 
@@ -2868,15 +2834,6 @@ Note: MM130_1d includes text for 130.1d,  130.1d3, 130.1d4, and 130.1d5,</xsd:do
                                           <xsd:documentation source="CalculationsAndRules">User selects from dropdown list.  
  For all rows If result != Included
 Nrca02_RequireNRCALti03A = false
-End If 
- 
-If result == NA_LT80PctAllowedLP then 
-If Bnew01 And Bpark01 LightingProjectScopeNR == NotApplicableLightingScope And Baltered01 LightingProjectScopeNR == AlteredLightingSystem And 
-C08Row01_LightingPowerInstalledTotalConditionedAdjusted IsPresent And  LTE  (C05Row01_LightingPowerAllowanceTotalConditioned   x 0.8)  
-Or C08Row02_LightingPowerInstalledTotalUnconditionedAdjusted IsPresent And  LTE  (C05Row02_LightingPowerAllowanceTotalUnconditioned   x 0.8)  
- 
-D03_ExceptionalConditionMessageCCLTIE += LP80PercentAlterationOnlyIssueInH
-End If
 End If</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
@@ -6742,7 +6699,8 @@ User is required to provide a note; Else field is grayed out</xsd:documentation>
          <xsd:element name="Section_R" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">[d:b]R. 80% LIGHTING POWER FOR ALL ALTERATIONS - CONTROLS EXCEPTIONS[/d:b]</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If Bnew01__LightingProjectScopeNR == NewLightingSystem AND Baltered01_LightingProjectScopeNR == AlteredlightingSystem  
+               <xsd:documentation source="CalculationsAndRules">
+This section is required If Bpark02_LightingPrescriptiveMethodNR == CompleteBuilding Or Baltered01_LightingProjectScopeNR == AlteredlightingSystem  
 And If H01_MandatoryLightingDemandResponseNR Or H07_MultilevelControls Or H09_PrimarySkylitDaylightControlsIncluded Or H10_ SecondaryDaylightControlsIncluded == NA_LTE80PctAllowedLP   
  
 If this section is required all rows must have data in  R01, R02, R03, R04, R06, R07 and R08 

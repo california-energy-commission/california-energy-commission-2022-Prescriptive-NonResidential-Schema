@@ -1323,13 +1323,6 @@ If H01_MandatoryLightingDemandResponseNR IsPresent
 result = H01_MandatoryLightingDemandResponseNR
 Else result = SeePlans
 End If</xsd:documentation>
-                                                               <xsd:appinfo source="displayterm">
-                                                                  <dtyp:displayterm value="RequiredGT10000SF">Provided</dtyp:displayterm>
-                                                                  <dtyp:displayterm value="NotRequiredLTE10000SF">NA: Building [d:lt/]10,000SF</dtyp:displayterm>
-                                                                  <dtyp:displayterm value="NotRequiredLTE0_5WperSF"> NA: Space [d:lte/]0.5W/SF</dtyp:displayterm>
-                                                                  <dtyp:displayterm value="NotRequiredInstallingAsPAF">Installing As PAF</dtyp:displayterm>
-                                                               </xsd:appinfo>
-                                                               
                                                                <xsd:appinfo source="CIsrc">
                                                                   <dtyp:srcSchema form="CCLTI01E"  usage="copy">H01_MandatoryLightingDemandResponseNR</dtyp:srcSchema>
                                                                </xsd:appinfo>
@@ -1402,7 +1395,7 @@ End If</xsd:documentation>
                                                                </xsd:appinfo>
                                                             </xsd:annotation>
                                                              <xsd:simpleType>
-                                                                 <xsd:union memberTypes="comp:AreaControlsCompliance comp:NotApplicableMessage"/>
+                                                                 <xsd:union memberTypes="comp:AreaControlsCompliance comp:SeePlansMessage"/>
                                                              </xsd:simpleType>
                                                          </xsd:element>
                                                          <xsd:element name="Ctrl04cc_MandatoryAreaControlsRequired">
@@ -2291,15 +2284,7 @@ End If</xsd:documentation>
  result = TableIncomplete  
 Else If Paf01_InMyScope == false
 result = NotInScope 
-Else If for all rows
-If Paf02cc_PAFCreditType == SeePlans
-Or
-Paf04cc_LuminairePower == SeePlans
-Or
-Paf05cc_LuminaireCountByType == SeePlans
-Or
-Paf06cc_LuminairePowerByType == SeePlans
-result = MayNotComply
+
 Else If Paf04cc_LuminairePower == Paf04_LuminairePower
 And 
 Paf05cc_LuminaireCountByType == Paf05_LuminaireCountByType

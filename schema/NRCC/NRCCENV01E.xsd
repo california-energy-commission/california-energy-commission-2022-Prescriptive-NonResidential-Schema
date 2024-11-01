@@ -18860,7 +18860,11 @@ End If</xsd:documentation>
                                                                <xsd:element name="Kskyperf06_FenestrationModification" >
                                                                   <xsd:annotation>
                                                                      <xsd:documentation source="FieldText"></xsd:documentation>
-                                                                     <xsd:documentation source="CalculationsAndRules">User selects status value with the appropriate occupancy type from list:  AllNew display term New, AddGT50ft2 display term  Alt. (Add/Replacement [d:gt/] 50ft[d:sup]2[/d:sup]), AddLTE50ft2 display term  Alt. (Add/Replacement  [d:lte/] 50ft[d:sup]2[/d:sup]), NewSky16MF display term [d:lte/] 16 ft[d:sup]2[/d:sup] new skylight per dwelling unit, ReplaceSkyMF display term Alt. (Replacement) and AddSky16PlusMF display term Alt. (Adding [d:gt/] 16 ft[d:sup]2[/d:sup])</xsd:documentation>
+                                                                     <xsd:documentation source="CalculationsAndRules">
+If Kskyperf05_FenestrationProductType == SkylightTubular
+   Show AddGT50ft2, AddLTE50ft2, and AllNew as options
+Else
+   User selects status value with the appropriate occupancy type from list:  AllNew display term New, AddGT50ft2 display term  Alt. (Add/Replacement [d:gt/] 50ft[d:sup]2[/d:sup]), AddLTE50ft2 display term  Alt. (Add/Replacement  [d:lte/] 50ft[d:sup]2[/d:sup]), NewSky16MF display term [d:lte/] 16 ft[d:sup]2[/d:sup] new skylight per dwelling unit, ReplaceSkyMF display term Alt. (Replacement) and AddSky16PlusMF display term Alt. (Adding [d:gt/] 16 ft[d:sup]2[/d:sup])</xsd:documentation>
                                                                      <xsd:appinfo source="displayterm">
                                                                         <dtyp:displayterm value="AddGT50ft2">Alt. (Add/Replacement [d:gt/] 50ft[d:sup]2[/d:sup]) </dtyp:displayterm>
                                                                         <dtyp:displayterm value="AddLTE50ft2">Alt. (Add/Replacement [d:lte/] 50ft[d:sup]2[/d:sup])</dtyp:displayterm>
@@ -19111,7 +19115,11 @@ Else
 result = 0.25
 End If
 End If
- 
+
+Else If Kskyperf06_FenestrationModification == NewSky16MF
+result = 0.30
+End If
+
 End If</xsd:documentation>
                                                    </xsd:annotation>
                                                 </xsd:element>
